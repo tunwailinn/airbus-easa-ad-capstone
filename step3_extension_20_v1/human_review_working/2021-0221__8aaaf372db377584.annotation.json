@@ -271,8 +271,64 @@
   "definitions": [
     {
       "definition_id": "DEF-001",
-      "term": "Definitions in this AD",
-      "definition_text": "For the purpose of this AD, the following definitions apply: SB1: Airbus Service Bulletin (SB) A380-21-8092 Revision 01 (right-hand (RH) side) and SB A380-21-8093 Revision 01 (left-hand (LH) side). SB2: Airbus SB A380-24-8130. SB3: Airbus SB A380-25-8195, SB A380-25-8196, SB A380-25-8197, SB A380-25-8198, SB A380-25-8199, SB A380-25-8200, SB A380-25-8201 and SB A380-25-8202 (for eight different door positions). SB4: Airbus SB A380-28-8047. SB5: Airbus SB A380-28-8050 Revision 02. SB6: Airbus SB A380-71-8006. SB7: Airbus SB A380-53-8122. Aeroplane date of manufacture: The date of transfer of title (ownership), which is referenced in Airbus documentation at the time of first delivery to an operator.",
+      "term": "SB1",
+      "definition_text": "Airbus SB A380-21-8092 Revision 01 for the right-hand side and SB A380-21-8093 Revision 01 for the left-hand side.",
+      "evidence_ids": [
+        "EV-005"
+      ]
+    },
+    {
+      "definition_id": "DEF-002",
+      "term": "SB2",
+      "definition_text": "Airbus SB A380-24-8130.",
+      "evidence_ids": [
+        "EV-005"
+      ]
+    },
+    {
+      "definition_id": "DEF-003",
+      "term": "SB3",
+      "definition_text": "Airbus SB A380-25-8195 through A380-25-8202 for eight different door positions.",
+      "evidence_ids": [
+        "EV-005"
+      ]
+    },
+    {
+      "definition_id": "DEF-004",
+      "term": "SB4",
+      "definition_text": "Airbus SB A380-28-8047.",
+      "evidence_ids": [
+        "EV-005"
+      ]
+    },
+    {
+      "definition_id": "DEF-005",
+      "term": "SB5",
+      "definition_text": "Airbus SB A380-28-8050 Revision 02.",
+      "evidence_ids": [
+        "EV-005"
+      ]
+    },
+    {
+      "definition_id": "DEF-006",
+      "term": "SB6",
+      "definition_text": "Airbus SB A380-71-8006.",
+      "evidence_ids": [
+        "EV-005"
+      ]
+    },
+    {
+      "definition_id": "DEF-007",
+      "term": "SB7",
+      "definition_text": "Airbus SB A380-53-8122.",
+      "evidence_ids": [
+        "EV-005"
+      ]
+    },
+    {
+      "definition_id": "DEF-008",
+      "term": "Aeroplane date of manufacture",
+      "definition_text": "The date of transfer of title at first delivery to an operator.",
       "evidence_ids": [
         "EV-005"
       ]
@@ -282,18 +338,24 @@
     "state": "present",
     "raw_reason_text": "Reason: For some Airbus modification SBs and one inspection SB, it was initially decided to accomplish fleet monitoring campaigns for accomplishment of those SBs in service, with no issuance of any AD. Following the end of these campaigns, it was determined that certain aeroplanes had not been modified, or inspected, respectively. This condition, if not detected and corrected, could lead to an unsafe condition. To address this condition, it was decided to require accomplishment of the modifications in those SBs on aeroplanes that did not embody them. For the reason described above, this AD requires accomplishment of the actions specified in each related SB, as applicable.",
     "observed_events_or_defects": [
-      "For some Airbus modification SBs and one inspection SB, it was initially decided to accomplish fleet monitoring campaigns for accomplishment of those SBs in service, with no issuance of any AD."
+      "After fleet-monitoring campaigns ended, certain aeroplanes were found not to have received the intended modifications or inspection."
     ],
     "causes": [],
     "unsafe_conditions": [
-      "This condition, if not detected and corrected, could lead to an unsafe condition."
+      "Failure to embody the listed modifications or accomplish the listed inspection could lead to an unsafe condition."
     ],
-    "potential_consequences": [
-      "This condition, if not detected and corrected, could lead to an unsafe condition."
+    "potential_consequences": [],
+    "affected_components": [
+      "Belly-fairing air-cooling-pack discharge duct adjustable rods",
+      "Generator and Ground Power Control Unit hardware and software",
+      "Door lining panels near door swivel actuators",
+      "Wing refuel diffusers",
+      "Engine-feed fuel-pipe end fittings",
+      "Fan-cowl latch access panels",
+      "Left nose-landing-gear-bay lateral bulkhead panel"
     ],
-    "affected_components": [],
     "intended_risk_mitigation": [
-      "For the reason described above, this AD requires accomplishment of the actions specified in each related SB, as applicable."
+      "Complete the applicable modification, replacement, installation or inspection for each specified MSN and repair any detected crack."
     ],
     "evidence_ids": [
       "EV-006"
@@ -308,39 +370,30 @@
         "APP-001"
       ],
       "action_types": [
-        "modification",
-        "replacement",
-        "install",
-        "inspection"
+        "replacement"
       ],
       "obligation": "mandatory",
-      "action_text": "(1) For MSN 0006, 0008, 0022, 0027, 0029, 0033, 0039, 0040, 0043,0048, 0051, 0058, 0059, 0067, 0069, 0074, 0078, 0081, 0084, 0089, 0094, 0099, 0111, 0117, 0125, 0131, 0142, 0153, 0154, 0171, 0175, 0177, 0180, 0181, 0184, 0189, 0230 and 0231: Within 12 months after the effective date of this AD, replace the adjustable discharge duct rods in the belly fairing, on RH and LH sides, in accordance with the instructions of SB1 .",
-      "objects_or_components": [],
-      "conditions": [],
+      "action_text": "(1) For MSN 0006, 0008, 0022, 0027, 0029, 0033, 0039, 0040, 0043, 0048, 0051, 0058, 0059, 0067, 0069, 0074, 0078, 0081, 0084, 0089, 0094, 0099, 0111, 0117, 0125, 0131, 0142, 0153, 0154, 0171, 0175, 0177, 0180, 0181, 0184, 0189, 0230 and 0231: within 12 months after the effective date of this AD, replace the adjustable discharge duct rods in the belly fairing on the right- and left-hand sides in accordance with SB1.",
+      "objects_or_components": [
+        "RH and LH belly-fairing adjustable discharge-duct rods"
+      ],
+      "conditions": [
+        "MSN 0006, 0008, 0022, 0027, 0029, 0033, 0039, 0040, 0043, 0048, 0051, 0058, 0059, 0067, 0069, 0074, 0078, 0081, 0084, 0089, 0094, 0099, 0111, 0117, 0125, 0131, 0142, 0153, 0154, 0171, 0175, 0177, 0180, 0181, 0184, 0189, 0230 and 0231",
+        "Unless accomplished previously"
+      ],
       "method_publication_ids": [
         "PUB-001",
-        "PUB-002",
-        "PUB-003",
-        "PUB-004",
-        "PUB-005",
-        "PUB-006",
-        "PUB-007",
-        "PUB-008",
-        "PUB-009",
-        "PUB-010",
-        "PUB-011",
-        "PUB-012",
-        "PUB-013",
-        "PUB-014",
-        "PUB-015"
+        "PUB-002"
       ],
       "compliance_rules": [
         {
           "compliance_id": "CMP-001",
           "state": "present",
-          "raw_text": "(1) For MSN 0006, 0008, 0022, 0027, 0029, 0033, 0039, 0040, 0043,0048, 0051, 0058, 0059, 0067, 0069, 0074, 0078, 0081, 0084, 0089, 0094, 0099, 0111, 0117, 0125, 0131, 0142, 0153, 0154, 0171, 0175, 0177, 0180, 0181, 0184, 0189, 0230 and 0231: Within 12 months after the effective date of this AD, replace the adjustable discharge duct rods in the belly fairing, on RH and LH sides, in accordance with the instructions of SB1 .",
+          "raw_text": "(1) For MSN 0006, 0008, 0022, 0027, 0029, 0033, 0039, 0040, 0043, 0048, 0051, 0058, 0059, 0067, 0069, 0074, 0078, 0081, 0084, 0089, 0094, 0099, 0111, 0117, 0125, 0131, 0142, 0153, 0154, 0171, 0175, 0177, 0180, 0181, 0184, 0189, 0230 and 0231: within 12 months after the effective date of this AD, replace the adjustable discharge duct rods in the belly fairing on the right- and left-hand sides in accordance with SB1.",
           "logic": "single",
-          "conditions": [],
+          "conditions": [
+            "MSN 0006, 0008, 0022, 0027, 0029, 0033, 0039, 0040, 0043, 0048, 0051, 0058, 0059, 0067, 0069, 0074, 0078, 0081, 0084, 0089, 0094, 0099, 0111, 0117, 0125, 0131, 0142, 0153, 0154, 0171, 0175, 0177, 0180, 0181, 0184, 0189, 0230 and 0231"
+          ],
           "initial_limits": [
             {
               "limit_id": "LIM-001",
@@ -351,10 +404,7 @@
               "reference_event": "effective date of this AD",
               "calendar_date": null,
               "evidence_ids": [
-                "EV-008",
-                "EV-009",
-                "EV-010",
-                "EV-011"
+                "EV-008"
               ]
             }
           ],
@@ -362,10 +412,7 @@
           "repetitive_intervals": [],
           "grace_periods": [],
           "evidence_ids": [
-            "EV-008",
-            "EV-009",
-            "EV-010",
-            "EV-011"
+            "EV-008"
           ]
         }
       ],
@@ -379,10 +426,7 @@
         "evidence_ids": []
       },
       "evidence_ids": [
-        "EV-008",
-        "EV-009",
-        "EV-010",
-        "EV-011"
+        "EV-008"
       ]
     },
     {
@@ -394,38 +438,29 @@
       ],
       "action_types": [
         "modification",
-        "replacement",
-        "install",
-        "inspection"
+        "replacement"
       ],
       "obligation": "mandatory",
-      "action_text": "(2) For MSN 0006, 0008, 0014, 0015, 0029, 0033, 0040, 0043, 0049, 0050, 0051, 0061, 0062, 0063, 0069, 0070, 0072, 0074, 0082, 0087, 0099, 0100, 0117, 0146 and 0177: Within 12 months after the effective date of this AD, modify or replace the Generator and Ground Power Control Unit hardware and software in accordance with the instructions of SB2. TE.CAP.00110-010 © European Union Aviation Safety Agency. All rights reserved. ISO9001 Certified. Page 2 of 5 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet. An agency of the European Union EASA AD No.: 2021-0221",
-      "objects_or_components": [],
-      "conditions": [],
+      "action_text": "(2) For MSN 0006, 0008, 0014, 0015, 0029, 0033, 0040, 0043, 0049, 0050, 0051, 0061, 0062, 0063, 0069, 0070, 0072, 0074, 0082, 0087, 0099, 0100, 0117, 0146 and 0177: within 12 months after the effective date of this AD, modify or replace the Generator and Ground Power Control Unit hardware and software in accordance with SB2.",
+      "objects_or_components": [
+        "Generator and Ground Power Control Unit hardware and software"
+      ],
+      "conditions": [
+        "MSN 0006, 0008, 0014, 0015, 0029, 0033, 0040, 0043, 0049, 0050, 0051, 0061, 0062, 0063, 0069, 0070, 0072, 0074, 0082, 0087, 0099, 0100, 0117, 0146 and 0177",
+        "Unless accomplished previously"
+      ],
       "method_publication_ids": [
-        "PUB-001",
-        "PUB-002",
-        "PUB-003",
-        "PUB-004",
-        "PUB-005",
-        "PUB-006",
-        "PUB-007",
-        "PUB-008",
-        "PUB-009",
-        "PUB-010",
-        "PUB-011",
-        "PUB-012",
-        "PUB-013",
-        "PUB-014",
-        "PUB-015"
+        "PUB-003"
       ],
       "compliance_rules": [
         {
           "compliance_id": "CMP-002",
           "state": "present",
-          "raw_text": "(2) For MSN 0006, 0008, 0014, 0015, 0029, 0033, 0040, 0043, 0049, 0050, 0051, 0061, 0062, 0063, 0069, 0070, 0072, 0074, 0082, 0087, 0099, 0100, 0117, 0146 and 0177: Within 12 months after the effective date of this AD, modify or replace the Generator and Ground Power Control Unit hardware and software in accordance with the instructions of SB2. TE.CAP.00110-010 © European Union Aviation Safety Agency. All rights reserved. ISO9001 Certified. Page 2 of 5 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet. An agency of the European Union EASA AD No.: 2021-0221",
+          "raw_text": "(2) For MSN 0006, 0008, 0014, 0015, 0029, 0033, 0040, 0043, 0049, 0050, 0051, 0061, 0062, 0063, 0069, 0070, 0072, 0074, 0082, 0087, 0099, 0100, 0117, 0146 and 0177: within 12 months after the effective date of this AD, modify or replace the Generator and Ground Power Control Unit hardware and software in accordance with SB2.",
           "logic": "single",
-          "conditions": [],
+          "conditions": [
+            "MSN 0006, 0008, 0014, 0015, 0029, 0033, 0040, 0043, 0049, 0050, 0051, 0061, 0062, 0063, 0069, 0070, 0072, 0074, 0082, 0087, 0099, 0100, 0117, 0146 and 0177"
+          ],
           "initial_limits": [
             {
               "limit_id": "LIM-002",
@@ -436,10 +471,7 @@
               "reference_event": "effective date of this AD",
               "calendar_date": null,
               "evidence_ids": [
-                "EV-008",
-                "EV-009",
-                "EV-010",
-                "EV-011"
+                "EV-008"
               ]
             }
           ],
@@ -447,10 +479,7 @@
           "repetitive_intervals": [],
           "grace_periods": [],
           "evidence_ids": [
-            "EV-008",
-            "EV-009",
-            "EV-010",
-            "EV-011"
+            "EV-008"
           ]
         }
       ],
@@ -464,10 +493,7 @@
         "evidence_ids": []
       },
       "evidence_ids": [
-        "EV-008",
-        "EV-009",
-        "EV-010",
-        "EV-011"
+        "EV-008"
       ]
     },
     {
@@ -478,19 +504,18 @@
         "APP-001"
       ],
       "action_types": [
-        "modification",
-        "replacement",
-        "install",
-        "inspection"
+        "install"
       ],
       "obligation": "mandatory",
-      "action_text": "(3) For MSN 0008: Within 12 months after the effective date of this AD, install modified door linings panels, having additional clearance for the door swivel actuator, in accordance with the instructions of SB3.",
-      "objects_or_components": [],
-      "conditions": [],
+      "action_text": "(3) For MSN 0008, within 12 months after the effective date of this AD, install modified door-lining panels with additional clearance for the door swivel actuator in accordance with SB3.",
+      "objects_or_components": [
+        "Modified door-lining panels"
+      ],
+      "conditions": [
+        "MSN 0008",
+        "Unless accomplished previously"
+      ],
       "method_publication_ids": [
-        "PUB-001",
-        "PUB-002",
-        "PUB-003",
         "PUB-004",
         "PUB-005",
         "PUB-006",
@@ -498,19 +523,17 @@
         "PUB-008",
         "PUB-009",
         "PUB-010",
-        "PUB-011",
-        "PUB-012",
-        "PUB-013",
-        "PUB-014",
-        "PUB-015"
+        "PUB-011"
       ],
       "compliance_rules": [
         {
           "compliance_id": "CMP-003",
           "state": "present",
-          "raw_text": "(3) For MSN 0008: Within 12 months after the effective date of this AD, install modified door linings panels, having additional clearance for the door swivel actuator, in accordance with the instructions of SB3.",
+          "raw_text": "(3) For MSN 0008, within 12 months after the effective date of this AD, install modified door-lining panels with additional clearance for the door swivel actuator in accordance with SB3.",
           "logic": "single",
-          "conditions": [],
+          "conditions": [
+            "MSN 0008"
+          ],
           "initial_limits": [
             {
               "limit_id": "LIM-003",
@@ -521,9 +544,7 @@
               "reference_event": "effective date of this AD",
               "calendar_date": null,
               "evidence_ids": [
-                "EV-008",
                 "EV-009",
-                "EV-010",
                 "EV-011"
               ]
             }
@@ -532,9 +553,7 @@
           "repetitive_intervals": [],
           "grace_periods": [],
           "evidence_ids": [
-            "EV-008",
             "EV-009",
-            "EV-010",
             "EV-011"
           ]
         }
@@ -549,96 +568,132 @@
         "evidence_ids": []
       },
       "evidence_ids": [
-        "EV-008",
         "EV-009",
-        "EV-010",
         "EV-011"
       ]
     },
     {
       "requirement_id": "REQ-004",
-      "paragraph_reference": "(4)",
+      "paragraph_reference": "(4), Table 1 branch 1",
       "parent_requirement_id": null,
       "applicability_group_ids": [
         "APP-001"
       ],
       "action_types": [
-        "modification",
-        "replacement",
-        "install",
-        "inspection"
+        "replacement"
       ],
       "obligation": "mandatory",
-      "action_text": "(4) Within the compliance time specified in Table 1 of this AD, as applicable to MSN, replace all refuel diffusers on RH and LH wings in accordance with the instructions of SB4. Table 1 – Refuel Diffusers Replacement MSN Compliance Time 0023 Before exceeding 12 years since aeroplane date of manufacture 0038, 0041, 0044, 0048, 0117, 0125, 0131, 0142, 0153, 0154, 0157, 0158, Before exceeding 6 years since aeroplane date of 0159, 0164, 0166, 0168 to 0172 manufacture, or within 12 months after the inclusive, 0174 to 0184 inclusive, 0186 effective date of this AD, whichever occurs later to 0192 inclusive, 0194, 0195, 0198, and 0200 to 0208 inclusive",
-      "objects_or_components": [],
-      "conditions": [],
+      "action_text": "(4), Table 1 branch 1: For MSN 0023, replace all refuel diffusers on the right- and left-hand wings before exceeding 12 years since the aeroplane date of manufacture, in accordance with SB4.",
+      "objects_or_components": [
+        "RH and LH wing refuel diffusers"
+      ],
+      "conditions": [
+        "MSN 0023"
+      ],
       "method_publication_ids": [
-        "PUB-001",
-        "PUB-002",
-        "PUB-003",
-        "PUB-004",
-        "PUB-005",
-        "PUB-006",
-        "PUB-007",
-        "PUB-008",
-        "PUB-009",
-        "PUB-010",
-        "PUB-011",
-        "PUB-012",
-        "PUB-013",
-        "PUB-014",
-        "PUB-015"
+        "PUB-012"
       ],
       "compliance_rules": [
         {
           "compliance_id": "CMP-004",
           "state": "present",
-          "raw_text": "(4) Within the compliance time specified in Table 1 of this AD, as applicable to MSN, replace all refuel diffusers on RH and LH wings in accordance with the instructions of SB4. Table 1 – Refuel Diffusers Replacement MSN Compliance Time 0023 Before exceeding 12 years since aeroplane date of manufacture 0038, 0041, 0044, 0048, 0117, 0125, 0131, 0142, 0153, 0154, 0157, 0158, Before exceeding 6 years since aeroplane date of 0159, 0164, 0166, 0168 to 0172 manufacture, or within 12 months after the inclusive, 0174 to 0184 inclusive, 0186 effective date of this AD, whichever occurs later to 0192 inclusive, 0194, 0195, 0198, and 0200 to 0208 inclusive",
-          "logic": "whichever_occurs_later",
-          "conditions": [],
+          "raw_text": "(4), Table 1 branch 1: For MSN 0023, replace all refuel diffusers on the right- and left-hand wings before exceeding 12 years since the aeroplane date of manufacture, in accordance with SB4.",
+          "logic": "single",
+          "conditions": [
+            "MSN 0023"
+          ],
           "initial_limits": [
             {
               "limit_id": "LIM-004",
-              "relation": "within",
-              "quantity": 12,
-              "unit": "calendar_month",
-              "raw_value": "within 12 months",
-              "reference_event": "effective date of this AD",
-              "calendar_date": null,
-              "evidence_ids": [
-                "EV-008",
-                "EV-009",
-                "EV-010",
-                "EV-011"
-              ]
-            },
-            {
-              "limit_id": "LIM-005",
-              "relation": "within",
+              "relation": "before",
               "quantity": 12,
               "unit": "calendar_year",
-              "raw_value": "12 years",
-              "reference_event": "effective date of this AD",
+              "raw_value": "Before exceeding 12 years",
+              "reference_event": "aeroplane date of manufacture",
               "calendar_date": null,
               "evidence_ids": [
-                "EV-008",
                 "EV-009",
-                "EV-010",
+                "EV-011"
+              ]
+            }
+          ],
+          "is_repetitive": false,
+          "repetitive_intervals": [],
+          "grace_periods": [],
+          "evidence_ids": [
+            "EV-009",
+            "EV-011"
+          ]
+        }
+      ],
+      "follow_on_requirement_ids": [],
+      "terminating_action": {
+        "state": "not_stated",
+        "present": false,
+        "scope": "none",
+        "action_text": null,
+        "terminates_requirement_ids": [],
+        "evidence_ids": []
+      },
+      "evidence_ids": [
+        "EV-009",
+        "EV-011"
+      ]
+    },
+    {
+      "requirement_id": "REQ-005",
+      "paragraph_reference": "(4), Table 1 branch 2",
+      "parent_requirement_id": null,
+      "applicability_group_ids": [
+        "APP-001"
+      ],
+      "action_types": [
+        "replacement"
+      ],
+      "obligation": "mandatory",
+      "action_text": "(4), Table 1 branch 2: For MSN 0038, 0041, 0044, 0048, 0117, 0125, 0131, 0142, 0153, 0154, 0157, 0158, 0159, 0164, 0166, 0168 to 0172 inclusive, 0174 to 0184 inclusive, 0186 to 0192 inclusive, 0194, 0195, 0198 and 0200 to 0208 inclusive, replace all refuel diffusers on the right- and left-hand wings before exceeding 6 years since the aeroplane date of manufacture or within 12 months after the effective date of this AD, whichever occurs later, in accordance with SB4.",
+      "objects_or_components": [
+        "RH and LH wing refuel diffusers"
+      ],
+      "conditions": [
+        "MSN 0038, 0041, 0044, 0048, 0117, 0125, 0131, 0142, 0153, 0154, 0157, 0158, 0159, 0164, 0166, 0168 to 0172 inclusive, 0174 to 0184 inclusive, 0186 to 0192 inclusive, 0194, 0195, 0198 and 0200 to 0208 inclusive"
+      ],
+      "method_publication_ids": [
+        "PUB-012"
+      ],
+      "compliance_rules": [
+        {
+          "compliance_id": "CMP-005",
+          "state": "present",
+          "raw_text": "(4), Table 1 branch 2: For MSN 0038, 0041, 0044, 0048, 0117, 0125, 0131, 0142, 0153, 0154, 0157, 0158, 0159, 0164, 0166, 0168 to 0172 inclusive, 0174 to 0184 inclusive, 0186 to 0192 inclusive, 0194, 0195, 0198 and 0200 to 0208 inclusive, replace all refuel diffusers on the right- and left-hand wings before exceeding 6 years since the aeroplane date of manufacture or within 12 months after the effective date of this AD, whichever occurs later, in accordance with SB4.",
+          "logic": "whichever_occurs_later",
+          "conditions": [
+            "MSN 0038, 0041, 0044, 0048, 0117, 0125, 0131, 0142, 0153, 0154, 0157, 0158, 0159, 0164, 0166, 0168 to 0172 inclusive, 0174 to 0184 inclusive, 0186 to 0192 inclusive, 0194, 0195, 0198 and 0200 to 0208 inclusive"
+          ],
+          "initial_limits": [
+            {
+              "limit_id": "LIM-005",
+              "relation": "before",
+              "quantity": 6,
+              "unit": "calendar_year",
+              "raw_value": "Before exceeding 6 years",
+              "reference_event": "aeroplane date of manufacture",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-009",
                 "EV-011"
               ]
             },
             {
               "limit_id": "LIM-006",
               "relation": "within",
-              "quantity": 6,
-              "unit": "calendar_year",
-              "raw_value": "6 years",
+              "quantity": 12,
+              "unit": "calendar_month",
+              "raw_value": "Within 12 months",
               "reference_event": "effective date of this AD",
               "calendar_date": null,
               "evidence_ids": [
-                "EV-008",
                 "EV-009",
-                "EV-010",
                 "EV-011"
               ]
             }
@@ -647,9 +702,7 @@
           "repetitive_intervals": [],
           "grace_periods": [],
           "evidence_ids": [
-            "EV-008",
             "EV-009",
-            "EV-010",
             "EV-011"
           ]
         }
@@ -664,96 +717,132 @@
         "evidence_ids": []
       },
       "evidence_ids": [
-        "EV-008",
         "EV-009",
-        "EV-010",
         "EV-011"
       ]
     },
     {
-      "requirement_id": "REQ-005",
-      "paragraph_reference": "(5)",
+      "requirement_id": "REQ-006",
+      "paragraph_reference": "(5), Table 2 branch 1",
       "parent_requirement_id": null,
       "applicability_group_ids": [
         "APP-001"
       ],
       "action_types": [
-        "modification",
-        "replacement",
-        "install",
-        "inspection"
+        "replacement"
       ],
       "obligation": "mandatory",
-      "action_text": "(5) Within the compliance time specified in Table 2 of this AD, as applicable to MSN, replace all fuel pipe end fittings of the Engine Feed Fuel Pump System in accordance with the instructions of SB5. Table 2 – Fuel Pipe End Fittings Replacement MSN Compliance Time 0011, 0016, 0017, 0020, 0022, 0023, Before exceeding 12 years since aeroplane date of 0025, 0027, 0029 and 0034 manufacture 0117, 0137, 0142, 0143, 0145, 0150, 0153, 0154, 0157 to 0160 inclusive, Before exceeding 6 years since aeroplane date of 0164, 0165, 0166, 0168 to 0172 manufacture, or within 12 months after the inclusive, 0174 to 0184 inclusive, 0186 effective date of this AD, whichever occurs later to 0192 inclusive, 0200, 0201 and 0202",
-      "objects_or_components": [],
-      "conditions": [],
+      "action_text": "(5), Table 2 branch 1: For MSN 0011, 0016, 0017, 0020, 0022, 0023, 0025, 0027, 0029 and 0034, replace all fuel-pipe end fittings of the Engine Feed Fuel Pump System before exceeding 12 years since the aeroplane date of manufacture, in accordance with SB5.",
+      "objects_or_components": [
+        "Engine Feed Fuel Pump System fuel-pipe end fittings"
+      ],
+      "conditions": [
+        "MSN 0011, 0016, 0017, 0020, 0022, 0023, 0025, 0027, 0029 and 0034"
+      ],
       "method_publication_ids": [
-        "PUB-001",
-        "PUB-002",
-        "PUB-003",
-        "PUB-004",
-        "PUB-005",
-        "PUB-006",
-        "PUB-007",
-        "PUB-008",
-        "PUB-009",
-        "PUB-010",
-        "PUB-011",
-        "PUB-012",
-        "PUB-013",
-        "PUB-014",
-        "PUB-015"
+        "PUB-013"
       ],
       "compliance_rules": [
         {
-          "compliance_id": "CMP-005",
+          "compliance_id": "CMP-006",
           "state": "present",
-          "raw_text": "(5) Within the compliance time specified in Table 2 of this AD, as applicable to MSN, replace all fuel pipe end fittings of the Engine Feed Fuel Pump System in accordance with the instructions of SB5. Table 2 – Fuel Pipe End Fittings Replacement MSN Compliance Time 0011, 0016, 0017, 0020, 0022, 0023, Before exceeding 12 years since aeroplane date of 0025, 0027, 0029 and 0034 manufacture 0117, 0137, 0142, 0143, 0145, 0150, 0153, 0154, 0157 to 0160 inclusive, Before exceeding 6 years since aeroplane date of 0164, 0165, 0166, 0168 to 0172 manufacture, or within 12 months after the inclusive, 0174 to 0184 inclusive, 0186 effective date of this AD, whichever occurs later to 0192 inclusive, 0200, 0201 and 0202",
-          "logic": "whichever_occurs_later",
-          "conditions": [],
+          "raw_text": "(5), Table 2 branch 1: For MSN 0011, 0016, 0017, 0020, 0022, 0023, 0025, 0027, 0029 and 0034, replace all fuel-pipe end fittings of the Engine Feed Fuel Pump System before exceeding 12 years since the aeroplane date of manufacture, in accordance with SB5.",
+          "logic": "single",
+          "conditions": [
+            "MSN 0011, 0016, 0017, 0020, 0022, 0023, 0025, 0027, 0029 and 0034"
+          ],
           "initial_limits": [
             {
               "limit_id": "LIM-007",
-              "relation": "within",
-              "quantity": 12,
-              "unit": "calendar_month",
-              "raw_value": "within 12 months",
-              "reference_event": "effective date of this AD",
-              "calendar_date": null,
-              "evidence_ids": [
-                "EV-008",
-                "EV-009",
-                "EV-010",
-                "EV-011"
-              ]
-            },
-            {
-              "limit_id": "LIM-008",
-              "relation": "within",
+              "relation": "before",
               "quantity": 12,
               "unit": "calendar_year",
-              "raw_value": "12 years",
-              "reference_event": "effective date of this AD",
+              "raw_value": "Before exceeding 12 years",
+              "reference_event": "aeroplane date of manufacture",
               "calendar_date": null,
               "evidence_ids": [
-                "EV-008",
                 "EV-009",
-                "EV-010",
+                "EV-011"
+              ]
+            }
+          ],
+          "is_repetitive": false,
+          "repetitive_intervals": [],
+          "grace_periods": [],
+          "evidence_ids": [
+            "EV-009",
+            "EV-011"
+          ]
+        }
+      ],
+      "follow_on_requirement_ids": [],
+      "terminating_action": {
+        "state": "not_stated",
+        "present": false,
+        "scope": "none",
+        "action_text": null,
+        "terminates_requirement_ids": [],
+        "evidence_ids": []
+      },
+      "evidence_ids": [
+        "EV-009",
+        "EV-011"
+      ]
+    },
+    {
+      "requirement_id": "REQ-007",
+      "paragraph_reference": "(5), Table 2 branch 2",
+      "parent_requirement_id": null,
+      "applicability_group_ids": [
+        "APP-001"
+      ],
+      "action_types": [
+        "replacement"
+      ],
+      "obligation": "mandatory",
+      "action_text": "(5), Table 2 branch 2: For MSN 0117, 0137, 0142, 0143, 0145, 0150, 0153, 0154, 0157 to 0160 inclusive, 0164, 0165, 0166, 0168 to 0172 inclusive, 0174 to 0184 inclusive, 0186 to 0192 inclusive, 0200, 0201 and 0202, replace all fuel-pipe end fittings of the Engine Feed Fuel Pump System before exceeding 6 years since the aeroplane date of manufacture or within 12 months after the effective date of this AD, whichever occurs later, in accordance with SB5.",
+      "objects_or_components": [
+        "Engine Feed Fuel Pump System fuel-pipe end fittings"
+      ],
+      "conditions": [
+        "MSN 0117, 0137, 0142, 0143, 0145, 0150, 0153, 0154, 0157 to 0160 inclusive, 0164, 0165, 0166, 0168 to 0172 inclusive, 0174 to 0184 inclusive, 0186 to 0192 inclusive, 0200, 0201 and 0202"
+      ],
+      "method_publication_ids": [
+        "PUB-013"
+      ],
+      "compliance_rules": [
+        {
+          "compliance_id": "CMP-007",
+          "state": "present",
+          "raw_text": "(5), Table 2 branch 2: For MSN 0117, 0137, 0142, 0143, 0145, 0150, 0153, 0154, 0157 to 0160 inclusive, 0164, 0165, 0166, 0168 to 0172 inclusive, 0174 to 0184 inclusive, 0186 to 0192 inclusive, 0200, 0201 and 0202, replace all fuel-pipe end fittings of the Engine Feed Fuel Pump System before exceeding 6 years since the aeroplane date of manufacture or within 12 months after the effective date of this AD, whichever occurs later, in accordance with SB5.",
+          "logic": "whichever_occurs_later",
+          "conditions": [
+            "MSN 0117, 0137, 0142, 0143, 0145, 0150, 0153, 0154, 0157 to 0160 inclusive, 0164, 0165, 0166, 0168 to 0172 inclusive, 0174 to 0184 inclusive, 0186 to 0192 inclusive, 0200, 0201 and 0202"
+          ],
+          "initial_limits": [
+            {
+              "limit_id": "LIM-008",
+              "relation": "before",
+              "quantity": 6,
+              "unit": "calendar_year",
+              "raw_value": "Before exceeding 6 years",
+              "reference_event": "aeroplane date of manufacture",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-009",
                 "EV-011"
               ]
             },
             {
               "limit_id": "LIM-009",
               "relation": "within",
-              "quantity": 6,
-              "unit": "calendar_year",
-              "raw_value": "6 years",
+              "quantity": 12,
+              "unit": "calendar_month",
+              "raw_value": "Within 12 months",
               "reference_event": "effective date of this AD",
               "calendar_date": null,
               "evidence_ids": [
-                "EV-008",
                 "EV-009",
-                "EV-010",
                 "EV-011"
               ]
             }
@@ -762,9 +851,7 @@
           "repetitive_intervals": [],
           "grace_periods": [],
           "evidence_ids": [
-            "EV-008",
             "EV-009",
-            "EV-010",
             "EV-011"
           ]
         }
@@ -779,53 +866,40 @@
         "evidence_ids": []
       },
       "evidence_ids": [
-        "EV-008",
         "EV-009",
-        "EV-010",
         "EV-011"
       ]
     },
     {
-      "requirement_id": "REQ-006",
+      "requirement_id": "REQ-008",
       "paragraph_reference": "(6)",
       "parent_requirement_id": null,
       "applicability_group_ids": [
         "APP-001"
       ],
       "action_types": [
-        "modification",
-        "replacement",
-        "install",
-        "inspection"
+        "install"
       ],
       "obligation": "mandatory",
-      "action_text": "(6) For MSN 0039, 0056, 0080 and 0086: Within 12 months after the effective date of this AD, install redesigned fan cowl latch access panels in accordance with the instructions of SB6. Inspection:",
-      "objects_or_components": [],
-      "conditions": [],
+      "action_text": "(6) For MSN 0039, 0056, 0080 and 0086, within 12 months after the effective date of this AD, install redesigned fan-cowl latch access panels in accordance with SB6.",
+      "objects_or_components": [
+        "Redesigned fan-cowl latch access panels"
+      ],
+      "conditions": [
+        "MSN 0039, 0056, 0080 and 0086"
+      ],
       "method_publication_ids": [
-        "PUB-001",
-        "PUB-002",
-        "PUB-003",
-        "PUB-004",
-        "PUB-005",
-        "PUB-006",
-        "PUB-007",
-        "PUB-008",
-        "PUB-009",
-        "PUB-010",
-        "PUB-011",
-        "PUB-012",
-        "PUB-013",
-        "PUB-014",
         "PUB-015"
       ],
       "compliance_rules": [
         {
-          "compliance_id": "CMP-006",
+          "compliance_id": "CMP-008",
           "state": "present",
-          "raw_text": "(6) For MSN 0039, 0056, 0080 and 0086: Within 12 months after the effective date of this AD, install redesigned fan cowl latch access panels in accordance with the instructions of SB6. Inspection:",
+          "raw_text": "(6) For MSN 0039, 0056, 0080 and 0086, within 12 months after the effective date of this AD, install redesigned fan-cowl latch access panels in accordance with SB6.",
           "logic": "single",
-          "conditions": [],
+          "conditions": [
+            "MSN 0039, 0056, 0080 and 0086"
+          ],
           "initial_limits": [
             {
               "limit_id": "LIM-010",
@@ -836,9 +910,7 @@
               "reference_event": "effective date of this AD",
               "calendar_date": null,
               "evidence_ids": [
-                "EV-008",
                 "EV-009",
-                "EV-010",
                 "EV-011"
               ]
             }
@@ -847,9 +919,7 @@
           "repetitive_intervals": [],
           "grace_periods": [],
           "evidence_ids": [
-            "EV-008",
             "EV-009",
-            "EV-010",
             "EV-011"
           ]
         }
@@ -864,81 +934,64 @@
         "evidence_ids": []
       },
       "evidence_ids": [
-        "EV-008",
         "EV-009",
-        "EV-010",
         "EV-011"
       ]
     },
     {
-      "requirement_id": "REQ-007",
+      "requirement_id": "REQ-009",
       "paragraph_reference": "(7)",
       "parent_requirement_id": null,
       "applicability_group_ids": [
         "APP-001"
       ],
       "action_types": [
-        "modification",
-        "replacement",
-        "install",
         "inspection"
       ],
       "obligation": "mandatory",
-      "action_text": "(7) For MSN 0009: Before exceeding 8 800 flight cycles or 64 800 flight hours, whichever occurs first since aeroplane date of manufacture, inspect the LH-side nose landing gear bay lateral bulkhead panel at flight test installation crossing and satellite holes in accordance with the instructions of SB7. Corrective Action(s):",
-      "objects_or_components": [],
-      "conditions": [],
+      "action_text": "(7) For MSN 0009, before exceeding 8 800 flight cycles or 64 800 flight hours, whichever occurs first since the aeroplane date of manufacture, inspect the left-side nose-landing-gear-bay lateral bulkhead panel at the flight-test-installation crossing and satellite holes in accordance with SB7.",
+      "objects_or_components": [
+        "LH nose-landing-gear-bay lateral bulkhead panel"
+      ],
+      "conditions": [
+        "MSN 0009"
+      ],
       "method_publication_ids": [
-        "PUB-001",
-        "PUB-002",
-        "PUB-003",
-        "PUB-004",
-        "PUB-005",
-        "PUB-006",
-        "PUB-007",
-        "PUB-008",
-        "PUB-009",
-        "PUB-010",
-        "PUB-011",
-        "PUB-012",
-        "PUB-013",
-        "PUB-014",
-        "PUB-015"
+        "PUB-014"
       ],
       "compliance_rules": [
         {
-          "compliance_id": "CMP-007",
+          "compliance_id": "CMP-009",
           "state": "present",
-          "raw_text": "(7) For MSN 0009: Before exceeding 8 800 flight cycles or 64 800 flight hours, whichever occurs first since aeroplane date of manufacture, inspect the LH-side nose landing gear bay lateral bulkhead panel at flight test installation crossing and satellite holes in accordance with the instructions of SB7. Corrective Action(s):",
+          "raw_text": "(7) For MSN 0009, before exceeding 8 800 flight cycles or 64 800 flight hours, whichever occurs first since the aeroplane date of manufacture, inspect the left-side nose-landing-gear-bay lateral bulkhead panel at the flight-test-installation crossing and satellite holes in accordance with SB7.",
           "logic": "whichever_occurs_first",
-          "conditions": [],
+          "conditions": [
+            "MSN 0009"
+          ],
           "initial_limits": [
             {
               "limit_id": "LIM-011",
-              "relation": "within",
+              "relation": "before",
               "quantity": 8800,
               "unit": "flight_cycle",
-              "raw_value": "8 800 flight cycles",
-              "reference_event": null,
+              "raw_value": "Before exceeding 8 800 flight cycles",
+              "reference_event": "aeroplane date of manufacture",
               "calendar_date": null,
               "evidence_ids": [
-                "EV-008",
                 "EV-009",
-                "EV-010",
                 "EV-011"
               ]
             },
             {
               "limit_id": "LIM-012",
-              "relation": "within",
+              "relation": "before",
               "quantity": 64800,
               "unit": "flight_hour",
-              "raw_value": "64 800 flight hours",
-              "reference_event": null,
+              "raw_value": "Before exceeding 64 800 flight hours",
+              "reference_event": "aeroplane date of manufacture",
               "calendar_date": null,
               "evidence_ids": [
-                "EV-008",
                 "EV-009",
-                "EV-010",
                 "EV-011"
               ]
             }
@@ -947,14 +1000,14 @@
           "repetitive_intervals": [],
           "grace_periods": [],
           "evidence_ids": [
-            "EV-008",
             "EV-009",
-            "EV-010",
             "EV-011"
           ]
         }
       ],
-      "follow_on_requirement_ids": [],
+      "follow_on_requirement_ids": [
+        "REQ-010"
+      ],
       "terminating_action": {
         "state": "not_stated",
         "present": false,
@@ -964,66 +1017,50 @@
         "evidence_ids": []
       },
       "evidence_ids": [
-        "EV-008",
         "EV-009",
-        "EV-010",
         "EV-011"
       ]
     },
     {
-      "requirement_id": "REQ-008",
+      "requirement_id": "REQ-010",
       "paragraph_reference": "(8)",
-      "parent_requirement_id": null,
+      "parent_requirement_id": "REQ-009",
       "applicability_group_ids": [
         "APP-001"
       ],
       "action_types": [
-        "modification",
-        "replacement",
-        "install",
-        "inspection"
+        "contact_manufacturer",
+        "repair"
       ],
-      "obligation": "mandatory",
-      "action_text": "(8) If, during the inspection as required by paragraph (7) of this AD, cracks are found, before next flight after that inspection, contact Airbus for approved repair instructions and within the compliance time specified therein, accomplish those instructions accordingly . TE.CAP.00110-010 © European Union Aviation Safety Agency. All rights reserved. ISO9001 Certified. Page 3 of 5 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet. An agency of the European Union EASA AD No.: 2021-0221",
-      "objects_or_components": [],
-      "conditions": [],
-      "method_publication_ids": [
-        "PUB-001",
-        "PUB-002",
-        "PUB-003",
-        "PUB-004",
-        "PUB-005",
-        "PUB-006",
-        "PUB-007",
-        "PUB-008",
-        "PUB-009",
-        "PUB-010",
-        "PUB-011",
-        "PUB-012",
-        "PUB-013",
-        "PUB-014",
-        "PUB-015"
+      "obligation": "conditional",
+      "action_text": "(8) If cracks are found during the inspection required by paragraph (7), before next flight after that inspection contact Airbus for approved repair instructions and accomplish those instructions within the compliance time specified by Airbus.",
+      "objects_or_components": [
+        "Cracked LH nose-landing-gear-bay lateral bulkhead panel"
       ],
+      "conditions": [
+        "Cracks found during REQ-009"
+      ],
+      "method_publication_ids": [],
       "compliance_rules": [
         {
-          "compliance_id": "CMP-008",
+          "compliance_id": "CMP-010",
           "state": "present",
-          "raw_text": "(8) If, during the inspection as required by paragraph (7) of this AD, cracks are found, before next flight after that inspection, contact Airbus for approved repair instructions and within the compliance time specified therein, accomplish those instructions accordingly . TE.CAP.00110-010 © European Union Aviation Safety Agency. All rights reserved. ISO9001 Certified. Page 3 of 5 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet. An agency of the European Union EASA AD No.: 2021-0221",
-          "logic": "single",
-          "conditions": [],
+          "raw_text": "(8) If cracks are found during the inspection required by paragraph (7), before next flight after that inspection contact Airbus for approved repair instructions and accomplish those instructions within the compliance time specified by Airbus.",
+          "logic": "conditional",
+          "conditions": [
+            "Cracks found"
+          ],
           "initial_limits": [
             {
               "limit_id": "LIM-013",
               "relation": "before",
               "quantity": null,
               "unit": "before_next_flight",
-              "raw_value": "before next flight",
-              "reference_event": "next flight",
+              "raw_value": "Before next flight",
+              "reference_event": "next flight after inspection",
               "calendar_date": null,
               "evidence_ids": [
-                "EV-008",
                 "EV-009",
-                "EV-010",
                 "EV-011"
               ]
             }
@@ -1032,9 +1069,38 @@
           "repetitive_intervals": [],
           "grace_periods": [],
           "evidence_ids": [
-            "EV-008",
             "EV-009",
-            "EV-010",
+            "EV-011"
+          ]
+        },
+        {
+          "compliance_id": "CMP-011",
+          "state": "present",
+          "raw_text": "Accomplish Airbus repair instructions within the compliance time specified therein.",
+          "logic": "conditional",
+          "conditions": [
+            "Airbus provides approved repair instructions"
+          ],
+          "initial_limits": [
+            {
+              "limit_id": "LIM-014",
+              "relation": "other",
+              "quantity": null,
+              "unit": "other",
+              "raw_value": "Within the compliance time specified by Airbus",
+              "reference_event": "receipt of approved Airbus repair instructions",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-009",
+                "EV-011"
+              ]
+            }
+          ],
+          "is_repetitive": false,
+          "repetitive_intervals": [],
+          "grace_periods": [],
+          "evidence_ids": [
+            "EV-009",
             "EV-011"
           ]
         }
@@ -1049,9 +1115,7 @@
         "evidence_ids": []
       },
       "evidence_ids": [
-        "EV-008",
         "EV-009",
-        "EV-010",
         "EV-011"
       ]
     }
@@ -1340,10 +1404,12 @@
       "71"
     ],
     "action_types": [
-      "modification",
       "replacement",
+      "modification",
       "install",
-      "inspection"
+      "inspection",
+      "contact_manufacturer",
+      "repair"
     ],
     "frequency": "one_time",
     "emergency_status": "standard",
@@ -1354,11 +1420,9 @@
     "evidence_ids": [
       "EV-001",
       "EV-003",
-      "EV-004",
       "EV-006",
       "EV-008",
       "EV-009",
-      "EV-010",
       "EV-011"
     ]
   },
@@ -1610,14 +1674,14 @@
       "value_state": "present",
       "origin": "auto_extracted",
       "verification_status": "unreviewed",
-      "confidence": 0.995,
+      "confidence": 0.99,
       "evidence_ids": [
         "EV-001"
       ],
-      "annotator_id": "codex-extension-extractor",
+      "annotator_id": "gpt-5.6-source-auditor",
       "derivation_rule": null,
       "input_field_paths": [],
-      "notes": "Section completion: AD identity"
+      "notes": "AD identity source-audited; no human acceptance claimed."
     },
     {
       "assertion_id": "AST-002",
@@ -1629,10 +1693,10 @@
       "evidence_ids": [
         "EV-001"
       ],
-      "annotator_id": "codex-extension-extractor",
+      "annotator_id": "gpt-5.6-source-auditor",
       "derivation_rule": null,
       "input_field_paths": [],
-      "notes": "Section completion: publication"
+      "notes": "Publication metadata source-audited; no human acceptance claimed."
     },
     {
       "assertion_id": "AST-003",
@@ -1640,15 +1704,15 @@
       "value_state": "present",
       "origin": "auto_extracted",
       "verification_status": "unreviewed",
-      "confidence": 0.95,
+      "confidence": 0.99,
       "evidence_ids": [
         "EV-003",
         "EV-004"
       ],
-      "annotator_id": "codex-extension-extractor",
+      "annotator_id": "gpt-5.6-source-auditor",
       "derivation_rule": null,
       "input_field_paths": [],
-      "notes": "Section completion: applicability_groups"
+      "notes": "Applicability source-audited; no human acceptance claimed."
     },
     {
       "assertion_id": "AST-004",
@@ -1656,648 +1720,136 @@
       "value_state": "present",
       "origin": "auto_extracted",
       "verification_status": "unreviewed",
-      "confidence": 0.95,
+      "confidence": 0.99,
       "evidence_ids": [
         "EV-005"
       ],
-      "annotator_id": "codex-extension-extractor",
+      "annotator_id": "gpt-5.6-source-auditor",
       "derivation_rule": null,
       "input_field_paths": [],
-      "notes": "Section completion: definitions"
+      "notes": "Definitions source-audited; no human acceptance claimed."
     },
     {
       "assertion_id": "AST-005",
-      "field_path": "/requirements",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.95,
-      "evidence_ids": [
-        "EV-008",
-        "EV-009",
-        "EV-010",
-        "EV-011"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "Section completion: requirements"
-    },
-    {
-      "assertion_id": "AST-006",
-      "field_path": "/exceptions",
-      "value_state": "absent_in_source",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.9,
-      "evidence_ids": [],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "Section completion: exceptions"
-    },
-    {
-      "assertion_id": "AST-007",
-      "field_path": "/previous_action_credit",
-      "value_state": "absent_in_source",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.9,
-      "evidence_ids": [],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "Section completion: previous_action_credit"
-    },
-    {
-      "assertion_id": "AST-008",
-      "field_path": "/referenced_publications",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.95,
-      "evidence_ids": [
-        "EV-007"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "Section completion: referenced_publications"
-    },
-    {
-      "assertion_id": "AST-009",
-      "field_path": "/relationships",
-      "value_state": "absent_in_source",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.9,
-      "evidence_ids": [
-        "EV-001"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "Section completion: relationships"
-    },
-    {
-      "assertion_id": "AST-010",
-      "field_path": "/amoc_and_contacts",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.95,
-      "evidence_ids": [
-        "EV-012",
-        "EV-013"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "Section completion: amoc_and_contacts"
-    },
-    {
-      "assertion_id": "AST-011",
-      "field_path": "/ad_identity/ad_number",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.995,
-      "evidence_ids": [
-        "EV-001"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "Cover identity"
-    },
-    {
-      "assertion_id": "AST-012",
-      "field_path": "/ad_identity/supersedure_statement",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.99,
-      "evidence_ids": [
-        "EV-001"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "Printed status field"
-    },
-    {
-      "assertion_id": "AST-013",
-      "field_path": "/publication/issue_date",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.995,
-      "evidence_ids": [
-        "EV-001"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "Printed issue date"
-    },
-    {
-      "assertion_id": "AST-014",
-      "field_path": "/publication/effective_date",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.995,
-      "evidence_ids": [
-        "EV-001"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "Printed effective date"
-    },
-    {
-      "assertion_id": "AST-015",
-      "field_path": "/publication/subject",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.99,
-      "evidence_ids": [
-        "EV-001"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "Printed ATA subject"
-    },
-    {
-      "assertion_id": "AST-016",
-      "field_path": "/applicability_groups/0",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.96,
-      "evidence_ids": [
-        "EV-003",
-        "EV-004"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "applicability_groups"
-    },
-    {
-      "assertion_id": "AST-017",
-      "field_path": "/definitions/0",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.96,
-      "evidence_ids": [
-        "EV-005"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "definitions"
-    },
-    {
-      "assertion_id": "AST-018",
-      "field_path": "/requirements/0",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.94,
-      "evidence_ids": [
-        "EV-008",
-        "EV-009",
-        "EV-010",
-        "EV-011"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "requirements"
-    },
-    {
-      "assertion_id": "AST-019",
-      "field_path": "/requirements/1",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.94,
-      "evidence_ids": [
-        "EV-008",
-        "EV-009",
-        "EV-010",
-        "EV-011"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "requirements"
-    },
-    {
-      "assertion_id": "AST-020",
-      "field_path": "/requirements/2",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.94,
-      "evidence_ids": [
-        "EV-008",
-        "EV-009",
-        "EV-010",
-        "EV-011"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "requirements"
-    },
-    {
-      "assertion_id": "AST-021",
-      "field_path": "/requirements/3",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.94,
-      "evidence_ids": [
-        "EV-008",
-        "EV-009",
-        "EV-010",
-        "EV-011"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "requirements"
-    },
-    {
-      "assertion_id": "AST-022",
-      "field_path": "/requirements/4",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.94,
-      "evidence_ids": [
-        "EV-008",
-        "EV-009",
-        "EV-010",
-        "EV-011"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "requirements"
-    },
-    {
-      "assertion_id": "AST-023",
-      "field_path": "/requirements/5",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.94,
-      "evidence_ids": [
-        "EV-008",
-        "EV-009",
-        "EV-010",
-        "EV-011"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "requirements"
-    },
-    {
-      "assertion_id": "AST-024",
-      "field_path": "/requirements/6",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.94,
-      "evidence_ids": [
-        "EV-008",
-        "EV-009",
-        "EV-010",
-        "EV-011"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "requirements"
-    },
-    {
-      "assertion_id": "AST-025",
-      "field_path": "/requirements/7",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.94,
-      "evidence_ids": [
-        "EV-008",
-        "EV-009",
-        "EV-010",
-        "EV-011"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "requirements"
-    },
-    {
-      "assertion_id": "AST-026",
-      "field_path": "/referenced_publications/0",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.96,
-      "evidence_ids": [
-        "EV-007"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "referenced_publications"
-    },
-    {
-      "assertion_id": "AST-027",
-      "field_path": "/referenced_publications/1",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.96,
-      "evidence_ids": [
-        "EV-007"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "referenced_publications"
-    },
-    {
-      "assertion_id": "AST-028",
-      "field_path": "/referenced_publications/2",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.96,
-      "evidence_ids": [
-        "EV-007"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "referenced_publications"
-    },
-    {
-      "assertion_id": "AST-029",
-      "field_path": "/referenced_publications/3",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.96,
-      "evidence_ids": [
-        "EV-007"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "referenced_publications"
-    },
-    {
-      "assertion_id": "AST-030",
-      "field_path": "/referenced_publications/4",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.96,
-      "evidence_ids": [
-        "EV-007"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "referenced_publications"
-    },
-    {
-      "assertion_id": "AST-031",
-      "field_path": "/referenced_publications/5",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.96,
-      "evidence_ids": [
-        "EV-007"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "referenced_publications"
-    },
-    {
-      "assertion_id": "AST-032",
-      "field_path": "/referenced_publications/6",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.96,
-      "evidence_ids": [
-        "EV-007"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "referenced_publications"
-    },
-    {
-      "assertion_id": "AST-033",
-      "field_path": "/referenced_publications/7",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.96,
-      "evidence_ids": [
-        "EV-007"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "referenced_publications"
-    },
-    {
-      "assertion_id": "AST-034",
-      "field_path": "/referenced_publications/8",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.96,
-      "evidence_ids": [
-        "EV-007"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "referenced_publications"
-    },
-    {
-      "assertion_id": "AST-035",
-      "field_path": "/referenced_publications/9",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.96,
-      "evidence_ids": [
-        "EV-007"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "referenced_publications"
-    },
-    {
-      "assertion_id": "AST-036",
-      "field_path": "/referenced_publications/10",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.96,
-      "evidence_ids": [
-        "EV-007"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "referenced_publications"
-    },
-    {
-      "assertion_id": "AST-037",
-      "field_path": "/referenced_publications/11",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.96,
-      "evidence_ids": [
-        "EV-007"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "referenced_publications"
-    },
-    {
-      "assertion_id": "AST-038",
-      "field_path": "/referenced_publications/12",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.96,
-      "evidence_ids": [
-        "EV-007"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "referenced_publications"
-    },
-    {
-      "assertion_id": "AST-039",
-      "field_path": "/referenced_publications/13",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.96,
-      "evidence_ids": [
-        "EV-007"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "referenced_publications"
-    },
-    {
-      "assertion_id": "AST-040",
-      "field_path": "/referenced_publications/14",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.96,
-      "evidence_ids": [
-        "EV-007"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "referenced_publications"
-    },
-    {
-      "assertion_id": "AST-041",
-      "field_path": "/amoc_and_contacts/0",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.96,
-      "evidence_ids": [
-        "EV-012",
-        "EV-013"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "amoc_and_contacts"
-    },
-    {
-      "assertion_id": "AST-042",
-      "field_path": "/amoc_and_contacts/1",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.96,
-      "evidence_ids": [
-        "EV-012",
-        "EV-013"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "amoc_and_contacts"
-    },
-    {
-      "assertion_id": "AST-043",
       "field_path": "/unsafe_condition",
       "value_state": "present",
       "origin": "auto_extracted",
       "verification_status": "unreviewed",
-      "confidence": 0.96,
+      "confidence": 0.99,
       "evidence_ids": [
         "EV-006"
       ],
-      "annotator_id": "codex-extension-extractor",
+      "annotator_id": "gpt-5.6-source-auditor",
       "derivation_rule": null,
       "input_field_paths": [],
-      "notes": "Reason and unsafe condition"
+      "notes": "Unsafe condition source-audited; no human acceptance claimed."
     },
     {
-      "assertion_id": "AST-044",
+      "assertion_id": "AST-006",
+      "field_path": "/requirements",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.99,
+      "evidence_ids": [
+        "EV-008",
+        "EV-009",
+        "EV-011"
+      ],
+      "annotator_id": "gpt-5.6-source-auditor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Atomic requirements and compliance logic source-audited; no human acceptance claimed."
+    },
+    {
+      "assertion_id": "AST-007",
+      "field_path": "/exceptions",
+      "value_state": "absent_in_source",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.95,
+      "evidence_ids": [],
+      "annotator_id": "gpt-5.6-source-auditor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Requirement exceptions source-audited; no human acceptance claimed."
+    },
+    {
+      "assertion_id": "AST-008",
+      "field_path": "/previous_action_credit",
+      "value_state": "absent_in_source",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.95,
+      "evidence_ids": [],
+      "annotator_id": "gpt-5.6-source-auditor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Previous-action credit source-audited; no human acceptance claimed."
+    },
+    {
+      "assertion_id": "AST-009",
+      "field_path": "/referenced_publications",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.99,
+      "evidence_ids": [
+        "EV-007"
+      ],
+      "annotator_id": "gpt-5.6-source-auditor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Referenced publications source-audited; no human acceptance claimed."
+    },
+    {
+      "assertion_id": "AST-010",
+      "field_path": "/relationships",
+      "value_state": "absent_in_source",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.95,
+      "evidence_ids": [],
+      "annotator_id": "gpt-5.6-source-auditor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Relationships source-audited; no human acceptance claimed."
+    },
+    {
+      "assertion_id": "AST-011",
+      "field_path": "/amoc_and_contacts",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.99,
+      "evidence_ids": [
+        "EV-012",
+        "EV-013"
+      ],
+      "annotator_id": "gpt-5.6-source-auditor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "AMOC and contacts source-audited; no human acceptance claimed."
+    },
+    {
+      "assertion_id": "AST-012",
       "field_path": "/classification",
       "value_state": "present",
       "origin": "auto_extracted",
       "verification_status": "unreviewed",
-      "confidence": 0.9,
+      "confidence": 0.99,
       "evidence_ids": [
         "EV-001",
         "EV-003",
-        "EV-004",
         "EV-006",
         "EV-008",
         "EV-009",
-        "EV-010",
         "EV-011"
       ],
-      "annotator_id": "codex-extension-extractor",
+      "annotator_id": "gpt-5.6-source-auditor",
       "derivation_rule": null,
       "input_field_paths": [],
-      "notes": "Schema classification"
+      "notes": "Classification reconciled with corrected requirements; no human acceptance claimed."
     }
   ],
   "annotation_metadata": {
@@ -2316,6 +1868,12 @@
         "role": "annotator",
         "started_at": "2026-07-30T09:02:01Z",
         "submitted_at": "2026-07-30T09:02:01Z"
+      },
+      {
+        "annotator_id": "gpt-5.6-source-auditor",
+        "role": "reviewer",
+        "started_at": "2026-07-30T18:00:46Z",
+        "submitted_at": "2026-07-30T18:00:46Z"
       }
     ],
     "events": [
@@ -2330,24 +1888,30 @@
         "actor_id": "codex-extension-extractor",
         "timestamp": "2026-07-30T09:02:01Z",
         "rationale": "First pass completed; no human review or approval claimed."
+      },
+      {
+        "event_type": "reviewed",
+        "actor_id": "gpt-5.6-source-auditor",
+        "timestamp": "2026-07-30T18:00:46Z",
+        "rationale": "Machine-assisted source audit against the exact rendered PDF and frozen page-text cache; corrections applied without human approval."
       }
     ],
     "quality_flags": [
       "manual_review_required",
       "complex_table",
-      "complex_compliance",
-      "complex_applicability"
+      "complex_compliance"
     ],
     "uncertainty_flags": [],
     "notes": [
       "Machine-assisted populated extraction from the complete frozen PDF/page-text packet.",
       "Requirements were split from numbered source paragraphs where possible; every field assertion remains unreviewed.",
       "No supersedure relationship was created because the cover explicitly states Supersedure: None.",
-      "Independent human comparison and correction are required before approval or gold promotion."
+      "Independent human comparison and correction are required before approval or gold promotion.",
+      "Machine-assisted source-audit corrections applied against the exact rendered PDF and frozen page-text cache; independent human acceptance is still required before approval or gold promotion."
     ],
     "source_text_sha256": "73d68b6d97defa98c53f34327754a574b549a70c88c1531a78da6a9b604f4cf1",
     "created_at": "2026-07-30T09:02:01Z",
-    "updated_at": "2026-07-30T09:02:01Z"
+    "updated_at": "2026-07-30T18:00:46Z"
   },
   "benchmark_metadata": {
     "split": "unassigned",

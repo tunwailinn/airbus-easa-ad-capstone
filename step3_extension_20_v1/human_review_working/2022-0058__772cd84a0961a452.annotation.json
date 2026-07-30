@@ -163,10 +163,50 @@
   "definitions": [
     {
       "definition_id": "DEF-001",
-      "term": "Definitions in this AD",
-      "definition_text": "For the purpose of this AD, the following definitions apply: Affected part: SAINT-GOBAIN SULLY (SGS) front windshields having a Part Number (P/N) as defined in Table 1 of this AD. Depending on its P/N, an affected part is Group 1, Group 2 or Group 3 , as defined in the SB. New/repaired part: Any affected part which is new, or which has accumulated 0 flight hours (FH) since repaired by SGS, including “Outer ply replacement”. TE.CAP.00110-010 © European Union Aviation Safety Agency. All rights reserved. ISO9001 Certified. Page 1 of 6 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet. An agency of the European Union EASA AD No.: 2022-0058 Serviceable part: Any windshield, eligible for installation, which is not an affected part; or an affected part which is a new/repaired part, as defined in this AD ; or an affected part which is not a new/repaired part that, before next installation, or before next flight af ter installation, passes (no defects found) a detailed inspection (DET) and passe s (results included in the “green area” or “amber area”, as identified in the SB) an electrical test measurement (ETM), as applicable, in accordance with the instructions of t he SB. Aeroplane date of manufacture : The date of transfer of title (ownership) which is referenced in Airbus documentation at the time of first delivery to an operator. Date of first installation : For an affected part, the date of first installation on an aeroplane. If unknown, or for a part not replaced in service, the aeroplane date of manufacture must be used instead. The SB: Airbus Service Bulletin (SB) A300-56-0014, or A300-56-6007, or A310-56-2008, or A300-56-9002, as applicable, and SGS SB SPS A340-56-001. Groups: Group A aeroplanes are those that have an affected part installed. Group B aeroplanes are those that do not have an affected part installed.",
+      "term": "Affected part",
+      "definition_text": "A Saint-Gobain Sully front windshield with a part number in Table 1, classified as Group 1, 2 or 3 depending on P/N.",
       "evidence_ids": [
         "EV-004",
+        "EV-009"
+      ]
+    },
+    {
+      "definition_id": "DEF-002",
+      "term": "New/repaired part",
+      "definition_text": "An affected part that is new or has accumulated 0 flight hours since repair by SGS, including outer-ply replacement.",
+      "evidence_ids": [
+        "EV-004"
+      ]
+    },
+    {
+      "definition_id": "DEF-003",
+      "term": "Serviceable part",
+      "definition_text": "An eligible non-affected windshield; an affected new/repaired part; or an affected non-new/repaired part that passes the required DET and applicable ETM before installation or before next flight after installation.",
+      "evidence_ids": [
+        "EV-005"
+      ]
+    },
+    {
+      "definition_id": "DEF-004",
+      "term": "Date of first installation",
+      "definition_text": "The affected part first-installation date; if unknown or not replaced in service, use the aeroplane date of manufacture.",
+      "evidence_ids": [
+        "EV-005"
+      ]
+    },
+    {
+      "definition_id": "DEF-005",
+      "term": "The SB",
+      "definition_text": "The applicable Airbus SB A300-56-0014, A300-56-6007, A310-56-2008 or A300-56-9002, together with SGS SB SPS A340-56-001.",
+      "evidence_ids": [
+        "EV-005"
+      ]
+    },
+    {
+      "definition_id": "DEF-006",
+      "term": "Groups",
+      "definition_text": "Group A aeroplanes have an affected part installed; Group B aeroplanes do not.",
+      "evidence_ids": [
         "EV-005"
       ]
     }
@@ -175,20 +215,25 @@
     "state": "present",
     "raw_reason_text": "Reason: An occurrence was reported where an A319 aeroplane lost the right-hand front windshield in flight, with consequent rapid cockpit depressurization, causing damage to cockpit items/systems and significant increase of flight crew workload. The investigations identified several contributing factors (including manufacturing variability, fretting between windshield components, water ingress, electrical braids corrosion) which led to a thermal shock/overheat, damaging more than one windshield structural pl ies and impairing the structural integrity of the windshield. Due to the design similarity, this condition can also exist or develop on A300, A300-600, A310 and A300-600ST aeroplanes. This condition, if not detected and corrected, could lead to failure of the windshield, possibly resulting in injury to the flight crew and in-flight depressurization of the aeroplane, and would require exceptional piloting skill to maintain control of the aeroplane. To address this potential unsafe condition, Airbus issued the SB, as defined in this AD, to provide inspection instructions for the affected parts. For the reasons described above, this AD requires repetitive DET and ETM of affected parts, as applicable, and, depending on findings, accomplishment of applicable corrective action(s). TE.CAP.00110-010 © European Union Aviation Safety Agency. All rights reserved. ISO9001 Certified. Page 2 of 6 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet. An agency of the European Union EASA AD No.: 2022-0058",
     "observed_events_or_defects": [
-      "An occurrence was reported where an A319 aeroplane lost the right-hand front windshield in flight, with consequent rapid cockpit depressurization, causing damage to cockpit items/systems and significant increase of flight crew workload."
+      "An A319 lost its right-hand front windshield in flight, causing rapid cockpit depressurization, damage to cockpit items and systems, and a significant increase in flight-crew workload."
     ],
-    "causes": [],
+    "causes": [
+      "Manufacturing variability, fretting between windshield components, water ingress and electrical-braid corrosion contributed to thermal shock or overheating that damaged multiple structural plies."
+    ],
     "unsafe_conditions": [
-      "This condition, if not detected and corrected, could lead to failure of the windshield, possibly resulting in injury to the flight crew and in-flight depressurization of the aeroplane, and would require exceptional piloting skill to maintain control of the aeroplane.",
-      "To address this potential unsafe condition, Airbus issued the SB, as defined in this AD, to provide inspection instructions for the affected parts."
+      "Damage to multiple windshield structural plies can impair windshield structural integrity and lead to windshield failure."
     ],
     "potential_consequences": [
-      "This condition, if not detected and corrected, could lead to failure of the windshield, possibly resulting in injury to the flight crew and in-flight depressurization of the aeroplane, and would require exceptional piloting skill to maintain control of the aeroplane.",
-      "To address this potential unsafe condition, Airbus issued the SB, as defined in this AD, to provide inspection instructions for the affected parts."
+      "Injury to flight crew",
+      "In-flight depressurization",
+      "A condition requiring exceptional piloting skill to maintain control of the aeroplane"
     ],
-    "affected_components": [],
+    "affected_components": [
+      "Saint-Gobain Sully front windshields listed in Table 1",
+      "Windshield structural plies, electrical braids and heating system"
+    ],
     "intended_risk_mitigation": [
-      "For the reasons described above, this AD requires repetitive DET and ETM of affected parts, as applicable, and, depending on findings, accomplishment of applicable corrective action(s)."
+      "Repetitive detailed inspections and electrical test measurements, conditional replacement, installation controls and result reporting."
     ],
     "evidence_ids": [
       "EV-006",
@@ -205,15 +250,16 @@
       ],
       "action_types": [
         "inspection",
-        "test_or_check",
-        "replacement",
-        "reporting",
-        "prohibition"
+        "test_or_check"
       ],
       "obligation": "mandatory",
-      "action_text": "(1) For Group A aeroplanes: Within the compliance time as specified in Table 2 of this AD, as applicable, and, thereafter, at intervals not exceeding 800 FH or 4 months, whichever occurs first, accomplish a DET followed by an ETM of each Group 1 affected part in accordance with the instructions of the SB. Table 2 – Group 1 Affected Parts – Initial DET / ETM Compliance Time (whichever occurs later, A or B) A Within 800 FH or 4 months, whichever occurs first after the effective date of this AD B Before exceeding 800 FH or 4 months, whichever occurs first since the date of first installation",
-      "objects_or_components": [],
-      "conditions": [],
+      "action_text": "(1) For Group A aeroplanes, complete a DET followed by an ETM of each Group 1 affected part by the later of: A, the earlier of 800 FH or 4 months after the effective date; and B, the earlier of 800 FH or 4 months since first installation. Thereafter repeat at intervals not exceeding 800 FH or 4 months, whichever occurs first.",
+      "objects_or_components": [
+        "Group 1 affected windshield"
+      ],
+      "conditions": [
+        "Group A aeroplane"
+      ],
       "method_publication_ids": [
         "PUB-001",
         "PUB-002",
@@ -225,81 +271,93 @@
         {
           "compliance_id": "CMP-001",
           "state": "present",
-          "raw_text": "(1) For Group A aeroplanes: Within the compliance time as specified in Table 2 of this AD, as applicable, and, thereafter, at intervals not exceeding 800 FH or 4 months, whichever occurs first, accomplish a DET followed by an ETM of each Group 1 affected part in accordance with the instructions of the SB. Table 2 – Group 1 Affected Parts – Initial DET / ETM Compliance Time (whichever occurs later, A or B) A Within 800 FH or 4 months, whichever occurs first after the effective date of this AD B Before exceeding 800 FH or 4 months, whichever occurs first since the date of first installation",
-          "logic": "whichever_occurs_first",
-          "conditions": [],
+          "raw_text": "(1) For Group A aeroplanes, complete a DET followed by an ETM of each Group 1 affected part by the later of: A, the earlier of 800 FH or 4 months after the effective date; and B, the earlier of 800 FH or 4 months since first installation. Thereafter repeat at intervals not exceeding 800 FH or 4 months, whichever occurs first.",
+          "logic": "whichever_occurs_later",
+          "conditions": [
+            "Deadline A is the earlier of 800 FH and 4 months after the effective date",
+            "Deadline B is the earlier of 800 FH and 4 months since first installation",
+            "The initial deadline is the later of Deadline A and Deadline B"
+          ],
           "initial_limits": [
             {
-              "limit_id": "LIM-002",
+              "limit_id": "LIM-0011",
               "relation": "within",
               "quantity": 800,
               "unit": "flight_hour",
-              "raw_value": "Within 800 FH",
+              "raw_value": "Within 800 FH after the effective date",
               "reference_event": "effective date of this AD",
               "calendar_date": null,
               "evidence_ids": [
-                "EV-009",
-                "EV-010",
-                "EV-011",
-                "EV-012",
-                "EV-013",
-                "EV-014",
-                "EV-015",
-                "EV-016"
+                "EV-009"
               ]
             },
             {
-              "limit_id": "LIM-003",
+              "limit_id": "LIM-0012",
               "relation": "within",
               "quantity": 4,
               "unit": "calendar_month",
-              "raw_value": "4 months",
+              "raw_value": "Within 4 months after the effective date",
               "reference_event": "effective date of this AD",
               "calendar_date": null,
               "evidence_ids": [
-                "EV-009",
-                "EV-010",
-                "EV-011",
-                "EV-012",
-                "EV-013",
-                "EV-014",
-                "EV-015",
-                "EV-016"
+                "EV-009"
+              ]
+            },
+            {
+              "limit_id": "LIM-0013",
+              "relation": "before",
+              "quantity": 800,
+              "unit": "flight_hour",
+              "raw_value": "Before exceeding 800 FH since first installation",
+              "reference_event": "date of first installation",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-009"
+              ]
+            },
+            {
+              "limit_id": "LIM-0014",
+              "relation": "before",
+              "quantity": 4,
+              "unit": "calendar_month",
+              "raw_value": "Before exceeding 4 months since first installation",
+              "reference_event": "date of first installation",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-009"
               ]
             }
           ],
           "is_repetitive": true,
           "repetitive_intervals": [
             {
-              "limit_id": "LIM-001",
+              "limit_id": "LIM-005",
               "relation": "not_to_exceed",
               "quantity": 800,
               "unit": "flight_hour",
-              "raw_value": "not exceeding 800 FH",
-              "reference_event": "effective date of this AD",
+              "raw_value": "Not exceeding 800 FH",
+              "reference_event": "previous inspection",
               "calendar_date": null,
               "evidence_ids": [
-                "EV-009",
-                "EV-010",
-                "EV-011",
-                "EV-012",
-                "EV-013",
-                "EV-014",
-                "EV-015",
-                "EV-016"
+                "EV-009"
+              ]
+            },
+            {
+              "limit_id": "LIM-006",
+              "relation": "not_to_exceed",
+              "quantity": 4,
+              "unit": "calendar_month",
+              "raw_value": "Not exceeding 4 months",
+              "reference_event": "previous inspection",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-009"
               ]
             }
           ],
           "grace_periods": [],
           "evidence_ids": [
-            "EV-009",
-            "EV-010",
-            "EV-011",
-            "EV-012",
-            "EV-013",
-            "EV-014",
-            "EV-015",
-            "EV-016"
+            "EV-009"
           ]
         }
       ],
@@ -313,14 +371,7 @@
         "evidence_ids": []
       },
       "evidence_ids": [
-        "EV-009",
-        "EV-010",
-        "EV-011",
-        "EV-012",
-        "EV-013",
-        "EV-014",
-        "EV-015",
-        "EV-016"
+        "EV-009"
       ]
     },
     {
@@ -332,15 +383,16 @@
       ],
       "action_types": [
         "inspection",
-        "test_or_check",
-        "replacement",
-        "reporting",
-        "prohibition"
+        "test_or_check"
       ],
       "obligation": "mandatory",
-      "action_text": "(2) For Group A aeroplanes: Within the compliance time as specified in Table 3 of this AD, as applicable, and, thereafter, at intervals not exceeding 10 000 FH or 24 months, whichever occurs first, accomplish a DET followed by an ETM of each Group 2 affected part in accordance with the instructions of the SB . TE.CAP.00110-010 © European Union Aviation Safety Agency. All rights reserved. ISO9001 Certified. Page 3 of 6 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet. An agency of the European Union EASA AD No.: 2022-0058 Table 3 – Group 2 Affected Parts – Initial DET / ETM Compliance Time (whichever occurs later, A or B) A Within 800 FH or 4 months, whichever occurs first after the effective date of this AD B Before exceeding 800 FH or 4 months, whichever occurs first since the date of first installation",
-      "objects_or_components": [],
-      "conditions": [],
+      "action_text": "(2) For Group A aeroplanes, complete a DET followed by an ETM of each Group 2 affected part by the later of: A, the earlier of 800 FH or 4 months after the effective date; and B, the earlier of 800 FH or 4 months since first installation. Thereafter repeat at intervals not exceeding 10 000 FH or 24 months, whichever occurs first.",
+      "objects_or_components": [
+        "Group 2 affected windshield"
+      ],
+      "conditions": [
+        "Group A aeroplane"
+      ],
       "method_publication_ids": [
         "PUB-001",
         "PUB-002",
@@ -352,100 +404,100 @@
         {
           "compliance_id": "CMP-002",
           "state": "present",
-          "raw_text": "(2) For Group A aeroplanes: Within the compliance time as specified in Table 3 of this AD, as applicable, and, thereafter, at intervals not exceeding 10 000 FH or 24 months, whichever occurs first, accomplish a DET followed by an ETM of each Group 2 affected part in accordance with the instructions of the SB . TE.CAP.00110-010 © European Union Aviation Safety Agency. All rights reserved. ISO9001 Certified. Page 3 of 6 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet. An agency of the European Union EASA AD No.: 2022-0058 Table 3 – Group 2 Affected Parts – Initial DET / ETM Compliance Time (whichever occurs later, A or B) A Within 800 FH or 4 months, whichever occurs first after the effective date of this AD B Before exceeding 800 FH or 4 months, whichever occurs first since the date of first installation",
-          "logic": "whichever_occurs_first",
-          "conditions": [],
+          "raw_text": "(2) For Group A aeroplanes, complete a DET followed by an ETM of each Group 2 affected part by the later of: A, the earlier of 800 FH or 4 months after the effective date; and B, the earlier of 800 FH or 4 months since first installation. Thereafter repeat at intervals not exceeding 10 000 FH or 24 months, whichever occurs first.",
+          "logic": "whichever_occurs_later",
+          "conditions": [
+            "Deadline A is the earlier of 800 FH and 4 months after the effective date",
+            "Deadline B is the earlier of 800 FH and 4 months since first installation",
+            "The initial deadline is the later of Deadline A and Deadline B"
+          ],
           "initial_limits": [
             {
-              "limit_id": "LIM-005",
+              "limit_id": "LIM-0021",
               "relation": "within",
               "quantity": 800,
               "unit": "flight_hour",
-              "raw_value": "Within 800 FH",
+              "raw_value": "Within 800 FH after the effective date",
               "reference_event": "effective date of this AD",
               "calendar_date": null,
               "evidence_ids": [
                 "EV-009",
-                "EV-010",
-                "EV-011",
-                "EV-012",
-                "EV-013",
-                "EV-014",
-                "EV-015",
-                "EV-016"
+                "EV-010"
               ]
             },
             {
-              "limit_id": "LIM-006",
-              "relation": "within",
-              "quantity": 24,
-              "unit": "calendar_month",
-              "raw_value": "24 months",
-              "reference_event": "effective date of this AD",
-              "calendar_date": null,
-              "evidence_ids": [
-                "EV-009",
-                "EV-010",
-                "EV-011",
-                "EV-012",
-                "EV-013",
-                "EV-014",
-                "EV-015",
-                "EV-016"
-              ]
-            },
-            {
-              "limit_id": "LIM-007",
+              "limit_id": "LIM-0022",
               "relation": "within",
               "quantity": 4,
               "unit": "calendar_month",
-              "raw_value": "4 months",
+              "raw_value": "Within 4 months after the effective date",
               "reference_event": "effective date of this AD",
               "calendar_date": null,
               "evidence_ids": [
                 "EV-009",
-                "EV-010",
-                "EV-011",
-                "EV-012",
-                "EV-013",
-                "EV-014",
-                "EV-015",
-                "EV-016"
+                "EV-010"
+              ]
+            },
+            {
+              "limit_id": "LIM-0023",
+              "relation": "before",
+              "quantity": 800,
+              "unit": "flight_hour",
+              "raw_value": "Before exceeding 800 FH since first installation",
+              "reference_event": "date of first installation",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-009",
+                "EV-010"
+              ]
+            },
+            {
+              "limit_id": "LIM-0024",
+              "relation": "before",
+              "quantity": 4,
+              "unit": "calendar_month",
+              "raw_value": "Before exceeding 4 months since first installation",
+              "reference_event": "date of first installation",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-009",
+                "EV-010"
               ]
             }
           ],
           "is_repetitive": true,
           "repetitive_intervals": [
             {
-              "limit_id": "LIM-004",
+              "limit_id": "LIM-011",
               "relation": "not_to_exceed",
               "quantity": 10000,
               "unit": "flight_hour",
-              "raw_value": "not exceeding 10 000 FH",
-              "reference_event": "effective date of this AD",
+              "raw_value": "Not exceeding 10 000 FH",
+              "reference_event": "previous inspection",
               "calendar_date": null,
               "evidence_ids": [
                 "EV-009",
-                "EV-010",
-                "EV-011",
-                "EV-012",
-                "EV-013",
-                "EV-014",
-                "EV-015",
-                "EV-016"
+                "EV-010"
+              ]
+            },
+            {
+              "limit_id": "LIM-012",
+              "relation": "not_to_exceed",
+              "quantity": 24,
+              "unit": "calendar_month",
+              "raw_value": "Not exceeding 24 months",
+              "reference_event": "previous inspection",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-009",
+                "EV-010"
               ]
             }
           ],
           "grace_periods": [],
           "evidence_ids": [
             "EV-009",
-            "EV-010",
-            "EV-011",
-            "EV-012",
-            "EV-013",
-            "EV-014",
-            "EV-015",
-            "EV-016"
+            "EV-010"
           ]
         }
       ],
@@ -460,33 +512,29 @@
       },
       "evidence_ids": [
         "EV-009",
-        "EV-010",
-        "EV-011",
-        "EV-012",
-        "EV-013",
-        "EV-014",
-        "EV-015",
-        "EV-016"
+        "EV-010"
       ]
     },
     {
       "requirement_id": "REQ-003",
-      "paragraph_reference": "(3)",
-      "parent_requirement_id": null,
+      "paragraph_reference": "(3), Table 4 branch 1",
+      "parent_requirement_id": "REQ-002",
       "applicability_group_ids": [
         "APP-001"
       ],
       "action_types": [
         "inspection",
-        "test_or_check",
-        "replacement",
-        "reporting",
-        "prohibition"
+        "test_or_check"
       ],
-      "obligation": "mandatory",
-      "action_text": "(3) For Group A aeroplanes: The initial DET followed by ETM of each Group 2 affected part, as required by paragraph (2) of this AD, can be postponed to the special compliance times specified in Table 4 of this AD, provided the conditions specified in Table 4 of this AD are met. Table 4 – Group 2 Affected Parts – Initial DET / ETM Windshield Maintenance Windshield Age / Special Compliance Time History & Operational Test Utilization (see Note 2) for the DET and ETM Results, as specified in the SB (after the effective date of this AD, or since the date of first installation, whichever occurs later) Sensor fault warning light on More than 48 months, Within 5 000 FH or window temperature controller or more than 10 000 12 months, whichever functional item number flight cycles (FC), or occurs first (FIN) 19DG or FIN 20DG 15 000 FH NOT recorded since Less than, or equal to windshield first installation 48 months, and Within 10 000 FH or on an aeroplane less than, or equal to 24 months, whichever 10 000 FC and 15 000 FH occurs first Note 2: Should a lack of data impair the determination of the windshield age/utilisation, operators may refer to the SB – section Accomplishment Instruction / C. Procedure / Note.",
-      "objects_or_components": [],
-      "conditions": [],
+      "obligation": "conditional",
+      "action_text": "(3), Table 4 branch 1: For a Group 2 affected part with no FIN 19DG or 20DG sensor-fault warning recorded since first installation and with age or utilisation greater than 48 months, 10 000 FC or 15 000 FH, the initial DET and ETM may be postponed until the earlier of 5 000 FH or 12 months after the later of the effective date and the date of first installation.",
+      "objects_or_components": [
+        "Group 2 affected windshield"
+      ],
+      "conditions": [
+        "No FIN 19DG or 20DG sensor-fault warning since first installation",
+        "Age or utilisation exceeds any of 48 months, 10 000 FC or 15 000 FH"
+      ],
       "method_publication_ids": [
         "PUB-001",
         "PUB-002",
@@ -498,141 +546,34 @@
         {
           "compliance_id": "CMP-003",
           "state": "present",
-          "raw_text": "(3) For Group A aeroplanes: The initial DET followed by ETM of each Group 2 affected part, as required by paragraph (2) of this AD, can be postponed to the special compliance times specified in Table 4 of this AD, provided the conditions specified in Table 4 of this AD are met. Table 4 – Group 2 Affected Parts – Initial DET / ETM Windshield Maintenance Windshield Age / Special Compliance Time History & Operational Test Utilization (see Note 2) for the DET and ETM Results, as specified in the SB (after the effective date of this AD, or since the date of first installation, whichever occurs later) Sensor fault warning light on More than 48 months, Within 5 000 FH or window temperature controller or more than 10 000 12 months, whichever functional item number flight cycles (FC), or occurs first (FIN) 19DG or FIN 20DG 15 000 FH NOT recorded since Less than, or equal to windshield first installation 48 months, and Within 10 000 FH or on an aeroplane less than, or equal to 24 months, whichever 10 000 FC and 15 000 FH occurs first Note 2: Should a lack of data impair the determination of the windshield age/utilisation, operators may refer to the SB – section Accomplishment Instruction / C. Procedure / Note.",
-          "logic": "whichever_occurs_later",
-          "conditions": [],
+          "raw_text": "(3), Table 4 branch 1: For a Group 2 affected part with no FIN 19DG or 20DG sensor-fault warning recorded since first installation and with age or utilisation greater than 48 months, 10 000 FC or 15 000 FH, the initial DET and ETM may be postponed until the earlier of 5 000 FH or 12 months after the later of the effective date and the date of first installation.",
+          "logic": "whichever_occurs_first",
+          "conditions": [
+            "Reference start is the later of the effective date and first installation"
+          ],
           "initial_limits": [
             {
-              "limit_id": "LIM-008",
+              "limit_id": "LIM-013",
               "relation": "within",
               "quantity": 5000,
               "unit": "flight_hour",
               "raw_value": "Within 5 000 FH",
-              "reference_event": "effective date of this AD",
+              "reference_event": "later of effective date and first installation",
               "calendar_date": null,
               "evidence_ids": [
-                "EV-009",
-                "EV-010",
-                "EV-011",
-                "EV-012",
-                "EV-013",
-                "EV-014",
-                "EV-015",
-                "EV-016"
-              ]
-            },
-            {
-              "limit_id": "LIM-009",
-              "relation": "within",
-              "quantity": 10000,
-              "unit": "flight_hour",
-              "raw_value": "Within 10 000 FH",
-              "reference_event": "effective date of this AD",
-              "calendar_date": null,
-              "evidence_ids": [
-                "EV-009",
-                "EV-010",
-                "EV-011",
-                "EV-012",
-                "EV-013",
-                "EV-014",
-                "EV-015",
-                "EV-016"
-              ]
-            },
-            {
-              "limit_id": "LIM-010",
-              "relation": "within",
-              "quantity": 48,
-              "unit": "calendar_month",
-              "raw_value": "48 months",
-              "reference_event": "effective date of this AD",
-              "calendar_date": null,
-              "evidence_ids": [
-                "EV-009",
-                "EV-010",
-                "EV-011",
-                "EV-012",
-                "EV-013",
-                "EV-014",
-                "EV-015",
-                "EV-016"
-              ]
-            },
-            {
-              "limit_id": "LIM-011",
-              "relation": "within",
-              "quantity": 12,
-              "unit": "calendar_month",
-              "raw_value": "12 months",
-              "reference_event": "effective date of this AD",
-              "calendar_date": null,
-              "evidence_ids": [
-                "EV-009",
-                "EV-010",
-                "EV-011",
-                "EV-012",
-                "EV-013",
-                "EV-014",
-                "EV-015",
-                "EV-016"
-              ]
-            },
-            {
-              "limit_id": "LIM-012",
-              "relation": "within",
-              "quantity": 15000,
-              "unit": "flight_hour",
-              "raw_value": "15 000 FH",
-              "reference_event": "effective date of this AD",
-              "calendar_date": null,
-              "evidence_ids": [
-                "EV-009",
-                "EV-010",
-                "EV-011",
-                "EV-012",
-                "EV-013",
-                "EV-014",
-                "EV-015",
-                "EV-016"
-              ]
-            },
-            {
-              "limit_id": "LIM-013",
-              "relation": "within",
-              "quantity": 24,
-              "unit": "calendar_month",
-              "raw_value": "24 months",
-              "reference_event": "effective date of this AD",
-              "calendar_date": null,
-              "evidence_ids": [
-                "EV-009",
-                "EV-010",
-                "EV-011",
-                "EV-012",
-                "EV-013",
-                "EV-014",
-                "EV-015",
-                "EV-016"
+                "EV-010"
               ]
             },
             {
               "limit_id": "LIM-014",
               "relation": "within",
-              "quantity": 10000,
-              "unit": "flight_cycle",
-              "raw_value": "10 000 FC",
-              "reference_event": "effective date of this AD",
+              "quantity": 12,
+              "unit": "calendar_month",
+              "raw_value": "Within 12 months",
+              "reference_event": "later of effective date and first installation",
               "calendar_date": null,
               "evidence_ids": [
-                "EV-009",
-                "EV-010",
-                "EV-011",
-                "EV-012",
-                "EV-013",
-                "EV-014",
-                "EV-015",
-                "EV-016"
+                "EV-010"
               ]
             }
           ],
@@ -640,14 +581,7 @@
           "repetitive_intervals": [],
           "grace_periods": [],
           "evidence_ids": [
-            "EV-009",
-            "EV-010",
-            "EV-011",
-            "EV-012",
-            "EV-013",
-            "EV-014",
-            "EV-015",
-            "EV-016"
+            "EV-010"
           ]
         }
       ],
@@ -661,34 +595,29 @@
         "evidence_ids": []
       },
       "evidence_ids": [
-        "EV-009",
-        "EV-010",
-        "EV-011",
-        "EV-012",
-        "EV-013",
-        "EV-014",
-        "EV-015",
-        "EV-016"
+        "EV-010"
       ]
     },
     {
       "requirement_id": "REQ-004",
-      "paragraph_reference": "(4)",
-      "parent_requirement_id": null,
+      "paragraph_reference": "(3), Table 4 branch 2",
+      "parent_requirement_id": "REQ-002",
       "applicability_group_ids": [
         "APP-001"
       ],
       "action_types": [
         "inspection",
-        "test_or_check",
-        "replacement",
-        "reporting",
-        "prohibition"
+        "test_or_check"
       ],
-      "obligation": "mandatory",
-      "action_text": "(4) If, during any ETM as required by paragraph (2) or (3) of this AD, as applicable, the results are found to be in the “amber area”, as identified in the SB, accomplish subsequent DET and ETM of that affected part at intervals not exceeding 800 FH or 4 months, whichever occurs first.",
-      "objects_or_components": [],
-      "conditions": [],
+      "obligation": "conditional",
+      "action_text": "(3), Table 4 branch 2: For a Group 2 affected part with no FIN 19DG or 20DG sensor-fault warning recorded since first installation and with age and utilisation at or below 48 months, 10 000 FC and 15 000 FH, the initial DET and ETM may be postponed until the earlier of 10 000 FH or 24 months after the later of the effective date and the date of first installation.",
+      "objects_or_components": [
+        "Group 2 affected windshield"
+      ],
+      "conditions": [
+        "No FIN 19DG or 20DG sensor-fault warning since first installation",
+        "Age and utilisation are each at or below 48 months, 10 000 FC and 15 000 FH"
+      ],
       "method_publication_ids": [
         "PUB-001",
         "PUB-002",
@@ -700,46 +629,34 @@
         {
           "compliance_id": "CMP-004",
           "state": "present",
-          "raw_text": "(4) If, during any ETM as required by paragraph (2) or (3) of this AD, as applicable, the results are found to be in the “amber area”, as identified in the SB, accomplish subsequent DET and ETM of that affected part at intervals not exceeding 800 FH or 4 months, whichever occurs first.",
+          "raw_text": "(3), Table 4 branch 2: For a Group 2 affected part with no FIN 19DG or 20DG sensor-fault warning recorded since first installation and with age and utilisation at or below 48 months, 10 000 FC and 15 000 FH, the initial DET and ETM may be postponed until the earlier of 10 000 FH or 24 months after the later of the effective date and the date of first installation.",
           "logic": "whichever_occurs_first",
-          "conditions": [],
+          "conditions": [
+            "Reference start is the later of the effective date and first installation"
+          ],
           "initial_limits": [
             {
               "limit_id": "LIM-015",
-              "relation": "not_to_exceed",
-              "quantity": 800,
+              "relation": "within",
+              "quantity": 10000,
               "unit": "flight_hour",
-              "raw_value": "not exceeding 800 FH",
-              "reference_event": null,
+              "raw_value": "Within 10 000 FH",
+              "reference_event": "later of effective date and first installation",
               "calendar_date": null,
               "evidence_ids": [
-                "EV-009",
-                "EV-010",
-                "EV-011",
-                "EV-012",
-                "EV-013",
-                "EV-014",
-                "EV-015",
-                "EV-016"
+                "EV-010"
               ]
             },
             {
               "limit_id": "LIM-016",
               "relation": "within",
-              "quantity": 4,
+              "quantity": 24,
               "unit": "calendar_month",
-              "raw_value": "4 months",
-              "reference_event": null,
+              "raw_value": "Within 24 months",
+              "reference_event": "later of effective date and first installation",
               "calendar_date": null,
               "evidence_ids": [
-                "EV-009",
-                "EV-010",
-                "EV-011",
-                "EV-012",
-                "EV-013",
-                "EV-014",
-                "EV-015",
-                "EV-016"
+                "EV-010"
               ]
             }
           ],
@@ -747,14 +664,7 @@
           "repetitive_intervals": [],
           "grace_periods": [],
           "evidence_ids": [
-            "EV-009",
-            "EV-010",
-            "EV-011",
-            "EV-012",
-            "EV-013",
-            "EV-014",
-            "EV-015",
-            "EV-016"
+            "EV-010"
           ]
         }
       ],
@@ -768,34 +678,28 @@
         "evidence_ids": []
       },
       "evidence_ids": [
-        "EV-009",
-        "EV-010",
-        "EV-011",
-        "EV-012",
-        "EV-013",
-        "EV-014",
-        "EV-015",
-        "EV-016"
+        "EV-010"
       ]
     },
     {
       "requirement_id": "REQ-005",
-      "paragraph_reference": "(5)",
+      "paragraph_reference": "(4)",
       "parent_requirement_id": null,
       "applicability_group_ids": [
         "APP-001"
       ],
       "action_types": [
         "inspection",
-        "test_or_check",
-        "replacement",
-        "reporting",
-        "prohibition"
+        "test_or_check"
       ],
-      "obligation": "mandatory",
-      "action_text": "(5) For Group A aeroplanes: Within the compliance time as specified in Table 5 of this AD, as applicable, and, thereafter, at intervals not exceeding 800 FH or 4 months, whichever occurs first, accomplish a DET of each Group 3 affected part in accordance with the instructions of the SB. TE.CAP.00110-010 © European Union Aviation Safety Agency. All rights reserved. ISO9001 Certified. Page 4 of 6 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet. An agency of the European Union EASA AD No.: 2022-0058 Table 5 – Group 3 Affected Parts – Initial DET Compliance Time (whichever occurs later, A or B) A Within 800 FH or 4 months, whichever occurs first after the effective date of this AD B Before exceeding 800 FH or 4 months, whichever occurs first since the date of first installation Corrective Action(s):",
-      "objects_or_components": [],
-      "conditions": [],
+      "obligation": "conditional",
+      "action_text": "(4) If an ETM required by paragraph (2) or (3) produces a result in the amber area, repeat DET and ETM on that affected part at intervals not exceeding 800 FH or 4 months, whichever occurs first.",
+      "objects_or_components": [
+        "Affected windshield with amber-area ETM result"
+      ],
+      "conditions": [
+        "Amber-area result during REQ-002, REQ-003 or REQ-004"
+      ],
       "method_publication_ids": [
         "PUB-001",
         "PUB-002",
@@ -807,49 +711,12 @@
         {
           "compliance_id": "CMP-005",
           "state": "present",
-          "raw_text": "(5) For Group A aeroplanes: Within the compliance time as specified in Table 5 of this AD, as applicable, and, thereafter, at intervals not exceeding 800 FH or 4 months, whichever occurs first, accomplish a DET of each Group 3 affected part in accordance with the instructions of the SB. TE.CAP.00110-010 © European Union Aviation Safety Agency. All rights reserved. ISO9001 Certified. Page 4 of 6 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet. An agency of the European Union EASA AD No.: 2022-0058 Table 5 – Group 3 Affected Parts – Initial DET Compliance Time (whichever occurs later, A or B) A Within 800 FH or 4 months, whichever occurs first after the effective date of this AD B Before exceeding 800 FH or 4 months, whichever occurs first since the date of first installation Corrective Action(s):",
-          "logic": "whichever_occurs_first",
-          "conditions": [],
-          "initial_limits": [
-            {
-              "limit_id": "LIM-018",
-              "relation": "within",
-              "quantity": 800,
-              "unit": "flight_hour",
-              "raw_value": "Within 800 FH",
-              "reference_event": "effective date of this AD",
-              "calendar_date": null,
-              "evidence_ids": [
-                "EV-009",
-                "EV-010",
-                "EV-011",
-                "EV-012",
-                "EV-013",
-                "EV-014",
-                "EV-015",
-                "EV-016"
-              ]
-            },
-            {
-              "limit_id": "LIM-019",
-              "relation": "within",
-              "quantity": 4,
-              "unit": "calendar_month",
-              "raw_value": "4 months",
-              "reference_event": "effective date of this AD",
-              "calendar_date": null,
-              "evidence_ids": [
-                "EV-009",
-                "EV-010",
-                "EV-011",
-                "EV-012",
-                "EV-013",
-                "EV-014",
-                "EV-015",
-                "EV-016"
-              ]
-            }
+          "raw_text": "(4) If an ETM required by paragraph (2) or (3) produces a result in the amber area, repeat DET and ETM on that affected part at intervals not exceeding 800 FH or 4 months, whichever occurs first.",
+          "logic": "conditional",
+          "conditions": [
+            "Amber-area ETM result"
           ],
+          "initial_limits": [],
           "is_repetitive": true,
           "repetitive_intervals": [
             {
@@ -857,31 +724,29 @@
               "relation": "not_to_exceed",
               "quantity": 800,
               "unit": "flight_hour",
-              "raw_value": "not exceeding 800 FH",
-              "reference_event": "effective date of this AD",
+              "raw_value": "Not exceeding 800 FH",
+              "reference_event": "previous DET/ETM",
               "calendar_date": null,
               "evidence_ids": [
-                "EV-009",
-                "EV-010",
-                "EV-011",
-                "EV-012",
-                "EV-013",
-                "EV-014",
-                "EV-015",
-                "EV-016"
+                "EV-010"
+              ]
+            },
+            {
+              "limit_id": "LIM-018",
+              "relation": "not_to_exceed",
+              "quantity": 4,
+              "unit": "calendar_month",
+              "raw_value": "Not exceeding 4 months",
+              "reference_event": "previous DET/ETM",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-010"
               ]
             }
           ],
           "grace_periods": [],
           "evidence_ids": [
-            "EV-009",
-            "EV-010",
-            "EV-011",
-            "EV-012",
-            "EV-013",
-            "EV-014",
-            "EV-015",
-            "EV-016"
+            "EV-010"
           ]
         }
       ],
@@ -895,34 +760,27 @@
         "evidence_ids": []
       },
       "evidence_ids": [
-        "EV-009",
-        "EV-010",
-        "EV-011",
-        "EV-012",
-        "EV-013",
-        "EV-014",
-        "EV-015",
-        "EV-016"
+        "EV-010"
       ]
     },
     {
       "requirement_id": "REQ-006",
-      "paragraph_reference": "(6)",
+      "paragraph_reference": "(5)",
       "parent_requirement_id": null,
       "applicability_group_ids": [
         "APP-001"
       ],
       "action_types": [
-        "inspection",
-        "test_or_check",
-        "replacement",
-        "reporting",
-        "prohibition"
+        "inspection"
       ],
       "obligation": "mandatory",
-      "action_text": "(6) If, during any DET as required by paragraph (1), (2), (3) or (5) of this AD, as applicable, any defect, as identified in the SB, is found on an affected part, before next flight, replace that affected part with a serviceable part in accordance with the instructions of the SB.",
-      "objects_or_components": [],
-      "conditions": [],
+      "action_text": "(5) For Group A aeroplanes, complete a DET of each Group 3 affected part by the later of: A, the earlier of 800 FH or 4 months after the effective date; and B, the earlier of 800 FH or 4 months since first installation. Thereafter repeat at intervals not exceeding 800 FH or 4 months, whichever occurs first.",
+      "objects_or_components": [
+        "Group 3 affected windshield"
+      ],
+      "conditions": [
+        "Group A aeroplane"
+      ],
       "method_publication_ids": [
         "PUB-001",
         "PUB-002",
@@ -934,42 +792,93 @@
         {
           "compliance_id": "CMP-006",
           "state": "present",
-          "raw_text": "(6) If, during any DET as required by paragraph (1), (2), (3) or (5) of this AD, as applicable, any defect, as identified in the SB, is found on an affected part, before next flight, replace that affected part with a serviceable part in accordance with the instructions of the SB.",
-          "logic": "single",
-          "conditions": [],
+          "raw_text": "(5) For Group A aeroplanes, complete a DET of each Group 3 affected part by the later of: A, the earlier of 800 FH or 4 months after the effective date; and B, the earlier of 800 FH or 4 months since first installation. Thereafter repeat at intervals not exceeding 800 FH or 4 months, whichever occurs first.",
+          "logic": "whichever_occurs_later",
+          "conditions": [
+            "Deadline A is the earlier of 800 FH and 4 months after the effective date",
+            "Deadline B is the earlier of 800 FH and 4 months since first installation",
+            "The initial deadline is the later of Deadline A and Deadline B"
+          ],
           "initial_limits": [
             {
-              "limit_id": "LIM-020",
-              "relation": "before",
-              "quantity": null,
-              "unit": "before_next_flight",
-              "raw_value": "before next flight",
-              "reference_event": "next flight",
+              "limit_id": "LIM-0061",
+              "relation": "within",
+              "quantity": 800,
+              "unit": "flight_hour",
+              "raw_value": "Within 800 FH after the effective date",
+              "reference_event": "effective date of this AD",
               "calendar_date": null,
               "evidence_ids": [
-                "EV-009",
-                "EV-010",
-                "EV-011",
-                "EV-012",
-                "EV-013",
-                "EV-014",
-                "EV-015",
-                "EV-016"
+                "EV-011"
+              ]
+            },
+            {
+              "limit_id": "LIM-0062",
+              "relation": "within",
+              "quantity": 4,
+              "unit": "calendar_month",
+              "raw_value": "Within 4 months after the effective date",
+              "reference_event": "effective date of this AD",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-011"
+              ]
+            },
+            {
+              "limit_id": "LIM-0063",
+              "relation": "before",
+              "quantity": 800,
+              "unit": "flight_hour",
+              "raw_value": "Before exceeding 800 FH since first installation",
+              "reference_event": "date of first installation",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-011"
+              ]
+            },
+            {
+              "limit_id": "LIM-0064",
+              "relation": "before",
+              "quantity": 4,
+              "unit": "calendar_month",
+              "raw_value": "Before exceeding 4 months since first installation",
+              "reference_event": "date of first installation",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-011"
               ]
             }
           ],
-          "is_repetitive": false,
-          "repetitive_intervals": [],
+          "is_repetitive": true,
+          "repetitive_intervals": [
+            {
+              "limit_id": "LIM-025",
+              "relation": "not_to_exceed",
+              "quantity": 800,
+              "unit": "flight_hour",
+              "raw_value": "Not exceeding 800 FH",
+              "reference_event": "previous inspection",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-011"
+              ]
+            },
+            {
+              "limit_id": "LIM-026",
+              "relation": "not_to_exceed",
+              "quantity": 4,
+              "unit": "calendar_month",
+              "raw_value": "Not exceeding 4 months",
+              "reference_event": "previous inspection",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-011"
+              ]
+            }
+          ],
           "grace_periods": [],
           "evidence_ids": [
-            "EV-009",
-            "EV-010",
-            "EV-011",
-            "EV-012",
-            "EV-013",
-            "EV-014",
-            "EV-015",
-            "EV-016"
+            "EV-011"
           ]
         }
       ],
@@ -983,34 +892,27 @@
         "evidence_ids": []
       },
       "evidence_ids": [
-        "EV-009",
-        "EV-010",
-        "EV-011",
-        "EV-012",
-        "EV-013",
-        "EV-014",
-        "EV-015",
-        "EV-016"
+        "EV-011"
       ]
     },
     {
       "requirement_id": "REQ-007",
-      "paragraph_reference": "(7)",
+      "paragraph_reference": "(6)",
       "parent_requirement_id": null,
       "applicability_group_ids": [
         "APP-001"
       ],
       "action_types": [
-        "inspection",
-        "test_or_check",
-        "replacement",
-        "reporting",
-        "prohibition"
+        "replacement"
       ],
-      "obligation": "mandatory",
-      "action_text": "(7) If, during any ETM as required by paragraph (1), (2) or (3) of this AD, as applicable, the results are found to be in the “red area”, as identified in the SB, before next flight, replace that affected part with a serviceable part in accordance with the instructions of the SB.",
-      "objects_or_components": [],
-      "conditions": [],
+      "obligation": "conditional",
+      "action_text": "(6) If any defect identified in the SB is found during a required DET, before next flight replace that affected part with a serviceable part in accordance with the SB.",
+      "objects_or_components": [
+        "Affected windshield with a defect found during DET"
+      ],
+      "conditions": [
+        "Defect identified by the SB during REQ-001, REQ-002, REQ-003, REQ-004 or REQ-006"
+      ],
       "method_publication_ids": [
         "PUB-001",
         "PUB-002",
@@ -1022,27 +924,22 @@
         {
           "compliance_id": "CMP-007",
           "state": "present",
-          "raw_text": "(7) If, during any ETM as required by paragraph (1), (2) or (3) of this AD, as applicable, the results are found to be in the “red area”, as identified in the SB, before next flight, replace that affected part with a serviceable part in accordance with the instructions of the SB.",
-          "logic": "single",
-          "conditions": [],
+          "raw_text": "(6) If any defect identified in the SB is found during a required DET, before next flight replace that affected part with a serviceable part in accordance with the SB.",
+          "logic": "conditional",
+          "conditions": [
+            "Defect found"
+          ],
           "initial_limits": [
             {
-              "limit_id": "LIM-021",
+              "limit_id": "LIM-027",
               "relation": "before",
               "quantity": null,
               "unit": "before_next_flight",
-              "raw_value": "before next flight",
-              "reference_event": "next flight",
+              "raw_value": "Before next flight",
+              "reference_event": "next flight after inspection",
               "calendar_date": null,
               "evidence_ids": [
-                "EV-009",
-                "EV-010",
-                "EV-011",
-                "EV-012",
-                "EV-013",
-                "EV-014",
-                "EV-015",
-                "EV-016"
+                "EV-011"
               ]
             }
           ],
@@ -1050,14 +947,7 @@
           "repetitive_intervals": [],
           "grace_periods": [],
           "evidence_ids": [
-            "EV-009",
-            "EV-010",
-            "EV-011",
-            "EV-012",
-            "EV-013",
-            "EV-014",
-            "EV-015",
-            "EV-016"
+            "EV-011"
           ]
         }
       ],
@@ -1071,34 +961,27 @@
         "evidence_ids": []
       },
       "evidence_ids": [
-        "EV-009",
-        "EV-010",
-        "EV-011",
-        "EV-012",
-        "EV-013",
-        "EV-014",
-        "EV-015",
-        "EV-016"
+        "EV-011"
       ]
     },
     {
       "requirement_id": "REQ-008",
-      "paragraph_reference": "(8)",
+      "paragraph_reference": "(7)",
       "parent_requirement_id": null,
       "applicability_group_ids": [
         "APP-001"
       ],
       "action_types": [
-        "inspection",
-        "test_or_check",
-        "replacement",
-        "reporting",
-        "prohibition"
+        "replacement"
       ],
-      "obligation": "mandatory",
-      "action_text": "(8) Replacement of an affected part with a serviceable part on an aeroplane, as required by paragraph (6) or (7) of this AD, as applicable, can be deferred in accordance with the applicable instructions and limitations of Master Minimum Equipment List (MMEL) item 01-30-6 (A300-600, A300-600ST and A310) or item 1 -30-9 (A300). Terminating Action:",
-      "objects_or_components": [],
-      "conditions": [],
+      "obligation": "conditional",
+      "action_text": "(7) If an ETM result is in the red area, before next flight replace that affected part with a serviceable part in accordance with the SB.",
+      "objects_or_components": [
+        "Affected windshield with red-area ETM result"
+      ],
+      "conditions": [
+        "Red-area result during REQ-001, REQ-002, REQ-003 or REQ-004"
+      ],
       "method_publication_ids": [
         "PUB-001",
         "PUB-002",
@@ -1110,198 +993,22 @@
         {
           "compliance_id": "CMP-008",
           "state": "present",
-          "raw_text": "(8) Replacement of an affected part with a serviceable part on an aeroplane, as required by paragraph (6) or (7) of this AD, as applicable, can be deferred in accordance with the applicable instructions and limitations of Master Minimum Equipment List (MMEL) item 01-30-6 (A300-600, A300-600ST and A310) or item 1 -30-9 (A300). Terminating Action:",
-          "logic": "single",
-          "conditions": [],
-          "initial_limits": [],
-          "is_repetitive": false,
-          "repetitive_intervals": [],
-          "grace_periods": [],
-          "evidence_ids": [
-            "EV-009",
-            "EV-010",
-            "EV-011",
-            "EV-012",
-            "EV-013",
-            "EV-014",
-            "EV-015",
-            "EV-016"
-          ]
-        }
-      ],
-      "follow_on_requirement_ids": [],
-      "terminating_action": {
-        "state": "present",
-        "present": true,
-        "scope": "partial",
-        "action_text": "(8) Replacement of an affected part with a serviceable part on an aeroplane, as required by paragraph (6) or (7) of this AD, as applicable, can be deferred in accordance with the applicable instructions and limitations of Master Minimum Equipment List (MMEL) item 01-30-6 (A300-600, A300-600ST and A310) or item 1 -30-9 (A300). Terminating Action:",
-        "terminates_requirement_ids": [
-          "REQ-001",
-          "REQ-002",
-          "REQ-003",
-          "REQ-004",
-          "REQ-005",
-          "REQ-006",
-          "REQ-007"
-        ],
-        "evidence_ids": [
-          "EV-009",
-          "EV-010",
-          "EV-011",
-          "EV-012",
-          "EV-013",
-          "EV-014",
-          "EV-015",
-          "EV-016"
-        ]
-      },
-      "evidence_ids": [
-        "EV-009",
-        "EV-010",
-        "EV-011",
-        "EV-012",
-        "EV-013",
-        "EV-014",
-        "EV-015",
-        "EV-016"
-      ]
-    },
-    {
-      "requirement_id": "REQ-009",
-      "paragraph_reference": "(9)",
-      "parent_requirement_id": null,
-      "applicability_group_ids": [
-        "APP-001"
-      ],
-      "action_types": [
-        "inspection",
-        "test_or_check",
-        "replacement",
-        "reporting",
-        "prohibition"
-      ],
-      "obligation": "mandatory",
-      "action_text": "(9) For Group A aeroplanes: Replacement on an aeroplane of each affected part with a windshield having a P/N not affected by the requirements of this AD constitutes terminating action for the repetitive inspections as required by paragraphs (1), (2), (3), (4) and (5) of this AD, as applicable, for that aeroplane, provided that, following that replacement, no affected part is installed on that aeroplane. Parts Installation:",
-      "objects_or_components": [],
-      "conditions": [],
-      "method_publication_ids": [
-        "PUB-001",
-        "PUB-002",
-        "PUB-003",
-        "PUB-004",
-        "PUB-005"
-      ],
-      "compliance_rules": [
-        {
-          "compliance_id": "CMP-009",
-          "state": "present",
-          "raw_text": "(9) For Group A aeroplanes: Replacement on an aeroplane of each affected part with a windshield having a P/N not affected by the requirements of this AD constitutes terminating action for the repetitive inspections as required by paragraphs (1), (2), (3), (4) and (5) of this AD, as applicable, for that aeroplane, provided that, following that replacement, no affected part is installed on that aeroplane. Parts Installation:",
-          "logic": "single",
-          "conditions": [],
-          "initial_limits": [],
-          "is_repetitive": false,
-          "repetitive_intervals": [],
-          "grace_periods": [],
-          "evidence_ids": [
-            "EV-009",
-            "EV-010",
-            "EV-011",
-            "EV-012",
-            "EV-013",
-            "EV-014",
-            "EV-015",
-            "EV-016"
-          ]
-        }
-      ],
-      "follow_on_requirement_ids": [],
-      "terminating_action": {
-        "state": "present",
-        "present": true,
-        "scope": "partial",
-        "action_text": "(9) For Group A aeroplanes: Replacement on an aeroplane of each affected part with a windshield having a P/N not affected by the requirements of this AD constitutes terminating action for the repetitive inspections as required by paragraphs (1), (2), (3), (4) and (5) of this AD, as applicable, for that aeroplane, provided that, following that replacement, no affected part is installed on that aeroplane. Parts Installation:",
-        "terminates_requirement_ids": [
-          "REQ-001",
-          "REQ-002",
-          "REQ-003",
-          "REQ-004",
-          "REQ-005",
-          "REQ-006",
-          "REQ-007",
-          "REQ-008"
-        ],
-        "evidence_ids": [
-          "EV-009",
-          "EV-010",
-          "EV-011",
-          "EV-012",
-          "EV-013",
-          "EV-014",
-          "EV-015",
-          "EV-016"
-        ]
-      },
-      "evidence_ids": [
-        "EV-009",
-        "EV-010",
-        "EV-011",
-        "EV-012",
-        "EV-013",
-        "EV-014",
-        "EV-015",
-        "EV-016"
-      ]
-    },
-    {
-      "requirement_id": "REQ-010",
-      "paragraph_reference": "(10)",
-      "parent_requirement_id": null,
-      "applicability_group_ids": [
-        "APP-001"
-      ],
-      "action_types": [
-        "inspection",
-        "test_or_check",
-        "replacement",
-        "reporting",
-        "prohibition"
-      ],
-      "obligation": "mandatory",
-      "action_text": "(10) For Group A and Group B aeroplanes: From the effective date of this AD, it is allowed to install on any aeroplane a windshield, provided it is a serviceable part, as defined in this AD. Following installation of an affected part on an aeroplane, that aeroplane is effectively a Group A aeroplane, and that affected part must be inspected as required by this AD. For an affected part which is not a new/repaired part, as defined in this AD, the first inspection after installation can be deferred up to the applicable interval for repetitive inspection, provided that part has accumulated 0 FH since the last inspection and has been stored in accordance with the instructions of the applicable Component Maintenance Manual. Reporting:",
-      "objects_or_components": [],
-      "conditions": [],
-      "method_publication_ids": [
-        "PUB-001",
-        "PUB-002",
-        "PUB-003",
-        "PUB-004",
-        "PUB-005"
-      ],
-      "compliance_rules": [
-        {
-          "compliance_id": "CMP-010",
-          "state": "present",
-          "raw_text": "(10) For Group A and Group B aeroplanes: From the effective date of this AD, it is allowed to install on any aeroplane a windshield, provided it is a serviceable part, as defined in this AD. Following installation of an affected part on an aeroplane, that aeroplane is effectively a Group A aeroplane, and that affected part must be inspected as required by this AD. For an affected part which is not a new/repaired part, as defined in this AD, the first inspection after installation can be deferred up to the applicable interval for repetitive inspection, provided that part has accumulated 0 FH since the last inspection and has been stored in accordance with the instructions of the applicable Component Maintenance Manual. Reporting:",
-          "logic": "single",
-          "conditions": [],
+          "raw_text": "(7) If an ETM result is in the red area, before next flight replace that affected part with a serviceable part in accordance with the SB.",
+          "logic": "conditional",
+          "conditions": [
+            "Red-area result"
+          ],
           "initial_limits": [
             {
-              "limit_id": "LIM-022",
-              "relation": "within",
-              "quantity": 0,
-              "unit": "flight_hour",
-              "raw_value": "0 FH",
-              "reference_event": "effective date of this AD",
+              "limit_id": "LIM-028",
+              "relation": "before",
+              "quantity": null,
+              "unit": "before_next_flight",
+              "raw_value": "Before next flight",
+              "reference_event": "next flight after ETM",
               "calendar_date": null,
               "evidence_ids": [
-                "EV-009",
-                "EV-010",
-                "EV-011",
-                "EV-012",
-                "EV-013",
-                "EV-014",
-                "EV-015",
-                "EV-016"
+                "EV-011"
               ]
             }
           ],
@@ -1309,14 +1016,7 @@
           "repetitive_intervals": [],
           "grace_periods": [],
           "evidence_ids": [
-            "EV-009",
-            "EV-010",
-            "EV-011",
-            "EV-012",
-            "EV-013",
-            "EV-014",
-            "EV-015",
-            "EV-016"
+            "EV-011"
           ]
         }
       ],
@@ -1330,14 +1030,130 @@
         "evidence_ids": []
       },
       "evidence_ids": [
-        "EV-009",
-        "EV-010",
-        "EV-011",
-        "EV-012",
-        "EV-013",
-        "EV-014",
-        "EV-015",
-        "EV-016"
+        "EV-011"
+      ]
+    },
+    {
+      "requirement_id": "REQ-009",
+      "paragraph_reference": "(9)",
+      "parent_requirement_id": null,
+      "applicability_group_ids": [
+        "APP-001"
+      ],
+      "action_types": [
+        "replacement"
+      ],
+      "obligation": "optional_terminating",
+      "action_text": "(9) For a Group A aeroplane, replacing every affected windshield with a windshield having a P/N not affected by this AD terminates the repetitive inspections required by paragraphs (1) through (5), provided no affected part is subsequently installed.",
+      "objects_or_components": [
+        "All affected windshields on the aeroplane"
+      ],
+      "conditions": [
+        "Group A aeroplane",
+        "No affected part installed after replacement"
+      ],
+      "method_publication_ids": [],
+      "compliance_rules": [
+        {
+          "compliance_id": "CMP-009",
+          "state": "present",
+          "raw_text": "(9) For a Group A aeroplane, replacing every affected windshield with a windshield having a P/N not affected by this AD terminates the repetitive inspections required by paragraphs (1) through (5), provided no affected part is subsequently installed.",
+          "logic": "conditional",
+          "conditions": [
+            "All affected parts replaced and none reinstalled"
+          ],
+          "initial_limits": [],
+          "is_repetitive": false,
+          "repetitive_intervals": [],
+          "grace_periods": [],
+          "evidence_ids": [
+            "EV-011"
+          ]
+        }
+      ],
+      "follow_on_requirement_ids": [],
+      "terminating_action": {
+        "state": "present",
+        "present": true,
+        "scope": "full",
+        "action_text": "(9) For a Group A aeroplane, replacing every affected windshield with a windshield having a P/N not affected by this AD terminates the repetitive inspections required by paragraphs (1) through (5), provided no affected part is subsequently installed.",
+        "terminates_requirement_ids": [
+          "REQ-001",
+          "REQ-002",
+          "REQ-003",
+          "REQ-004",
+          "REQ-005",
+          "REQ-006"
+        ],
+        "evidence_ids": [
+          "EV-011"
+        ]
+      },
+      "evidence_ids": [
+        "EV-011"
+      ]
+    },
+    {
+      "requirement_id": "REQ-010",
+      "paragraph_reference": "(10)",
+      "parent_requirement_id": null,
+      "applicability_group_ids": [
+        "APP-001"
+      ],
+      "action_types": [
+        "install"
+      ],
+      "obligation": "conditional",
+      "action_text": "(10) From the effective date, a windshield may be installed only if it is a serviceable part. Installation of an affected part makes the aeroplane Group A and subjects that part to the applicable inspections. For a non-new/repaired affected part, the first post-installation inspection may be deferred to the repetitive interval only if it has accumulated 0 FH since its last inspection and was stored in accordance with the applicable component maintenance manual.",
+      "objects_or_components": [
+        "Windshield"
+      ],
+      "conditions": [
+        "Installed windshield is a serviceable part"
+      ],
+      "method_publication_ids": [],
+      "compliance_rules": [
+        {
+          "compliance_id": "CMP-010",
+          "state": "present",
+          "raw_text": "(10) From the effective date, a windshield may be installed only if it is a serviceable part. Installation of an affected part makes the aeroplane Group A and subjects that part to the applicable inspections. For a non-new/repaired affected part, the first post-installation inspection may be deferred to the repetitive interval only if it has accumulated 0 FH since its last inspection and was stored in accordance with the applicable component maintenance manual.",
+          "logic": "conditional",
+          "conditions": [
+            "Serviceable part only"
+          ],
+          "initial_limits": [
+            {
+              "limit_id": "LIM-029",
+              "relation": "from",
+              "quantity": null,
+              "unit": "other",
+              "raw_value": "From the effective date of this AD",
+              "reference_event": "effective date of this AD",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-011"
+              ]
+            }
+          ],
+          "is_repetitive": false,
+          "repetitive_intervals": [],
+          "grace_periods": [],
+          "evidence_ids": [
+            "EV-011"
+          ]
+        }
+      ],
+      "follow_on_requirement_ids": [],
+      "terminating_action": {
+        "state": "not_stated",
+        "present": false,
+        "scope": "none",
+        "action_text": null,
+        "terminates_requirement_ids": [],
+        "evidence_ids": []
+      },
+      "evidence_ids": [
+        "EV-011"
       ]
     },
     {
@@ -1348,15 +1164,13 @@
         "APP-001"
       ],
       "action_types": [
-        "inspection",
-        "test_or_check",
-        "replacement",
-        "reporting",
-        "prohibition"
+        "reporting"
       ],
       "obligation": "mandatory",
-      "action_text": "(11) Within 30 days after accomplishment of the initial DET/ETM as required by paragraph (1), (2), (3) or (5) of this AD, as applicable, or within 30 days after the effective date of this AD, whichever occurs later, report the inspection results (including no findings) to Airbus. Using the inspection report attached to the SB is an acceptable method to comply with this requirement. TE.CAP.00110-010 © European Union Aviation Safety Agency. All rights reserved. ISO9001 Certified. Page 5 of 6 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet. An agency of the European Union EASA AD No.: 2022-0058",
-      "objects_or_components": [],
+      "action_text": "(11) Report the initial inspection results, including no findings, within 30 days after the initial DET/ETM or within 30 days after the effective date, whichever occurs later.",
+      "objects_or_components": [
+        "Initial DET/ETM results"
+      ],
       "conditions": [],
       "method_publication_ids": [
         "PUB-001",
@@ -1369,27 +1183,32 @@
         {
           "compliance_id": "CMP-011",
           "state": "present",
-          "raw_text": "(11) Within 30 days after accomplishment of the initial DET/ETM as required by paragraph (1), (2), (3) or (5) of this AD, as applicable, or within 30 days after the effective date of this AD, whichever occurs later, report the inspection results (including no findings) to Airbus. Using the inspection report attached to the SB is an acceptable method to comply with this requirement. TE.CAP.00110-010 © European Union Aviation Safety Agency. All rights reserved. ISO9001 Certified. Page 5 of 6 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet. An agency of the European Union EASA AD No.: 2022-0058",
-          "logic": "single",
+          "raw_text": "(11) Report the initial inspection results, including no findings, within 30 days after the initial DET/ETM or within 30 days after the effective date, whichever occurs later.",
+          "logic": "whichever_occurs_later",
           "conditions": [],
           "initial_limits": [
             {
-              "limit_id": "LIM-023",
+              "limit_id": "LIM-030",
               "relation": "within",
               "quantity": 30,
               "unit": "calendar_day",
-              "raw_value": "Within 30 days",
+              "raw_value": "Within 30 days after initial DET/ETM",
+              "reference_event": "initial DET/ETM",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-011"
+              ]
+            },
+            {
+              "limit_id": "LIM-031",
+              "relation": "within",
+              "quantity": 30,
+              "unit": "calendar_day",
+              "raw_value": "Within 30 days after the effective date",
               "reference_event": "effective date of this AD",
               "calendar_date": null,
               "evidence_ids": [
-                "EV-009",
-                "EV-010",
-                "EV-011",
-                "EV-012",
-                "EV-013",
-                "EV-014",
-                "EV-015",
-                "EV-016"
+                "EV-011"
               ]
             }
           ],
@@ -1397,14 +1216,7 @@
           "repetitive_intervals": [],
           "grace_periods": [],
           "evidence_ids": [
-            "EV-009",
-            "EV-010",
-            "EV-011",
-            "EV-012",
-            "EV-013",
-            "EV-014",
-            "EV-015",
-            "EV-016"
+            "EV-011"
           ]
         }
       ],
@@ -1418,14 +1230,7 @@
         "evidence_ids": []
       },
       "evidence_ids": [
-        "EV-009",
-        "EV-010",
-        "EV-011",
-        "EV-012",
-        "EV-013",
-        "EV-014",
-        "EV-015",
-        "EV-016"
+        "EV-011"
       ]
     },
     {
@@ -1436,16 +1241,16 @@
         "APP-001"
       ],
       "action_types": [
-        "inspection",
-        "test_or_check",
-        "replacement",
-        "reporting",
-        "prohibition"
+        "reporting"
       ],
-      "obligation": "mandatory",
-      "action_text": "(12) Within 90 days after each subsequent DET/ETM as required by paragraph (1), (2), (4) or (5) of this AD, as applicable, report any inspection finding to Airbus. Using the inspection report attached to the SB is an acceptable method to comply with this requirement.",
-      "objects_or_components": [],
-      "conditions": [],
+      "obligation": "conditional",
+      "action_text": "(12) Report any finding from each subsequent DET/ETM to Airbus within 90 days after that inspection.",
+      "objects_or_components": [
+        "Findings from subsequent DET/ETM"
+      ],
+      "conditions": [
+        "A finding is identified during a subsequent DET/ETM"
+      ],
       "method_publication_ids": [
         "PUB-001",
         "PUB-002",
@@ -1457,27 +1262,22 @@
         {
           "compliance_id": "CMP-012",
           "state": "present",
-          "raw_text": "(12) Within 90 days after each subsequent DET/ETM as required by paragraph (1), (2), (4) or (5) of this AD, as applicable, report any inspection finding to Airbus. Using the inspection report attached to the SB is an acceptable method to comply with this requirement.",
-          "logic": "single",
-          "conditions": [],
+          "raw_text": "(12) Report any finding from each subsequent DET/ETM to Airbus within 90 days after that inspection.",
+          "logic": "conditional",
+          "conditions": [
+            "Inspection finding"
+          ],
           "initial_limits": [
             {
-              "limit_id": "LIM-024",
+              "limit_id": "LIM-032",
               "relation": "within",
               "quantity": 90,
               "unit": "calendar_day",
               "raw_value": "Within 90 days",
-              "reference_event": null,
+              "reference_event": "subsequent DET/ETM",
               "calendar_date": null,
               "evidence_ids": [
-                "EV-009",
-                "EV-010",
-                "EV-011",
-                "EV-012",
-                "EV-013",
-                "EV-014",
-                "EV-015",
-                "EV-016"
+                "EV-012"
               ]
             }
           ],
@@ -1485,14 +1285,7 @@
           "repetitive_intervals": [],
           "grace_periods": [],
           "evidence_ids": [
-            "EV-009",
-            "EV-010",
-            "EV-011",
-            "EV-012",
-            "EV-013",
-            "EV-014",
-            "EV-015",
-            "EV-016"
+            "EV-012"
           ]
         }
       ],
@@ -1506,18 +1299,23 @@
         "evidence_ids": []
       },
       "evidence_ids": [
-        "EV-009",
-        "EV-010",
-        "EV-011",
-        "EV-012",
-        "EV-013",
-        "EV-014",
-        "EV-015",
-        "EV-016"
+        "EV-012"
       ]
     }
   ],
-  "exceptions": [],
+  "exceptions": [
+    {
+      "exception_id": "EXC-001",
+      "text": "Replacement required by REQ-007 or REQ-008 may be deferred in accordance with MMEL item 01-30-6 for A300-600, A300-600ST and A310, or item 1-30-9 for A300.",
+      "applies_to_requirement_ids": [
+        "REQ-007",
+        "REQ-008"
+      ],
+      "evidence_ids": [
+        "EV-011"
+      ]
+    }
+  ],
   "previous_action_credit": [],
   "referenced_publications": [
     {
@@ -1637,8 +1435,8 @@
       "inspection",
       "test_or_check",
       "replacement",
-      "reporting",
-      "prohibition"
+      "install",
+      "reporting"
     ],
     "frequency": "mixed",
     "emergency_status": "standard",
@@ -1650,15 +1448,10 @@
       "EV-001",
       "EV-003",
       "EV-006",
-      "EV-007",
       "EV-009",
       "EV-010",
       "EV-011",
-      "EV-012",
-      "EV-013",
-      "EV-014",
-      "EV-015",
-      "EV-016"
+      "EV-012"
     ]
   },
   "evidence_spans": [
@@ -1996,14 +1789,14 @@
       "value_state": "present",
       "origin": "auto_extracted",
       "verification_status": "unreviewed",
-      "confidence": 0.995,
+      "confidence": 0.99,
       "evidence_ids": [
         "EV-001"
       ],
-      "annotator_id": "codex-extension-extractor",
+      "annotator_id": "gpt-5.6-source-auditor",
       "derivation_rule": null,
       "input_field_paths": [],
-      "notes": "Section completion: AD identity"
+      "notes": "AD identity source-audited; no human acceptance claimed."
     },
     {
       "assertion_id": "AST-002",
@@ -2015,10 +1808,10 @@
       "evidence_ids": [
         "EV-001"
       ],
-      "annotator_id": "codex-extension-extractor",
+      "annotator_id": "gpt-5.6-source-auditor",
       "derivation_rule": null,
       "input_field_paths": [],
-      "notes": "Section completion: publication"
+      "notes": "Publication metadata source-audited; no human acceptance claimed."
     },
     {
       "assertion_id": "AST-003",
@@ -2026,14 +1819,14 @@
       "value_state": "present",
       "origin": "auto_extracted",
       "verification_status": "unreviewed",
-      "confidence": 0.95,
+      "confidence": 0.99,
       "evidence_ids": [
         "EV-003"
       ],
-      "annotator_id": "codex-extension-extractor",
+      "annotator_id": "gpt-5.6-source-auditor",
       "derivation_rule": null,
       "input_field_paths": [],
-      "notes": "Section completion: applicability_groups"
+      "notes": "Applicability source-audited; no human acceptance claimed."
     },
     {
       "assertion_id": "AST-004",
@@ -2041,625 +1834,142 @@
       "value_state": "present",
       "origin": "auto_extracted",
       "verification_status": "unreviewed",
-      "confidence": 0.95,
+      "confidence": 0.99,
       "evidence_ids": [
         "EV-004",
-        "EV-005"
+        "EV-005",
+        "EV-009"
       ],
-      "annotator_id": "codex-extension-extractor",
+      "annotator_id": "gpt-5.6-source-auditor",
       "derivation_rule": null,
       "input_field_paths": [],
-      "notes": "Section completion: definitions"
+      "notes": "Definitions source-audited; no human acceptance claimed."
     },
     {
       "assertion_id": "AST-005",
-      "field_path": "/requirements",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.95,
-      "evidence_ids": [
-        "EV-009",
-        "EV-010",
-        "EV-011",
-        "EV-012",
-        "EV-013",
-        "EV-014",
-        "EV-015",
-        "EV-016"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "Section completion: requirements"
-    },
-    {
-      "assertion_id": "AST-006",
-      "field_path": "/exceptions",
-      "value_state": "absent_in_source",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.9,
-      "evidence_ids": [],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "Section completion: exceptions"
-    },
-    {
-      "assertion_id": "AST-007",
-      "field_path": "/previous_action_credit",
-      "value_state": "absent_in_source",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.9,
-      "evidence_ids": [],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "Section completion: previous_action_credit"
-    },
-    {
-      "assertion_id": "AST-008",
-      "field_path": "/referenced_publications",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.95,
-      "evidence_ids": [
-        "EV-008"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "Section completion: referenced_publications"
-    },
-    {
-      "assertion_id": "AST-009",
-      "field_path": "/relationships",
-      "value_state": "absent_in_source",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.9,
-      "evidence_ids": [
-        "EV-001"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "Section completion: relationships"
-    },
-    {
-      "assertion_id": "AST-010",
-      "field_path": "/amoc_and_contacts",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.95,
-      "evidence_ids": [
-        "EV-017"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "Section completion: amoc_and_contacts"
-    },
-    {
-      "assertion_id": "AST-011",
-      "field_path": "/ad_identity/ad_number",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.995,
-      "evidence_ids": [
-        "EV-001"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "Cover identity"
-    },
-    {
-      "assertion_id": "AST-012",
-      "field_path": "/ad_identity/supersedure_statement",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.99,
-      "evidence_ids": [
-        "EV-001"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "Printed status field"
-    },
-    {
-      "assertion_id": "AST-013",
-      "field_path": "/publication/issue_date",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.995,
-      "evidence_ids": [
-        "EV-001"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "Printed issue date"
-    },
-    {
-      "assertion_id": "AST-014",
-      "field_path": "/publication/effective_date",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.995,
-      "evidence_ids": [
-        "EV-001"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "Printed effective date"
-    },
-    {
-      "assertion_id": "AST-015",
-      "field_path": "/publication/subject",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.99,
-      "evidence_ids": [
-        "EV-001"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "Printed ATA subject"
-    },
-    {
-      "assertion_id": "AST-016",
-      "field_path": "/applicability_groups/0",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.96,
-      "evidence_ids": [
-        "EV-003"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "applicability_groups"
-    },
-    {
-      "assertion_id": "AST-017",
-      "field_path": "/definitions/0",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.96,
-      "evidence_ids": [
-        "EV-004",
-        "EV-005"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "definitions"
-    },
-    {
-      "assertion_id": "AST-018",
-      "field_path": "/requirements/0",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.94,
-      "evidence_ids": [
-        "EV-009",
-        "EV-010",
-        "EV-011",
-        "EV-012",
-        "EV-013",
-        "EV-014",
-        "EV-015",
-        "EV-016"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "requirements"
-    },
-    {
-      "assertion_id": "AST-019",
-      "field_path": "/requirements/1",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.94,
-      "evidence_ids": [
-        "EV-009",
-        "EV-010",
-        "EV-011",
-        "EV-012",
-        "EV-013",
-        "EV-014",
-        "EV-015",
-        "EV-016"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "requirements"
-    },
-    {
-      "assertion_id": "AST-020",
-      "field_path": "/requirements/2",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.94,
-      "evidence_ids": [
-        "EV-009",
-        "EV-010",
-        "EV-011",
-        "EV-012",
-        "EV-013",
-        "EV-014",
-        "EV-015",
-        "EV-016"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "requirements"
-    },
-    {
-      "assertion_id": "AST-021",
-      "field_path": "/requirements/3",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.94,
-      "evidence_ids": [
-        "EV-009",
-        "EV-010",
-        "EV-011",
-        "EV-012",
-        "EV-013",
-        "EV-014",
-        "EV-015",
-        "EV-016"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "requirements"
-    },
-    {
-      "assertion_id": "AST-022",
-      "field_path": "/requirements/4",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.94,
-      "evidence_ids": [
-        "EV-009",
-        "EV-010",
-        "EV-011",
-        "EV-012",
-        "EV-013",
-        "EV-014",
-        "EV-015",
-        "EV-016"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "requirements"
-    },
-    {
-      "assertion_id": "AST-023",
-      "field_path": "/requirements/5",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.94,
-      "evidence_ids": [
-        "EV-009",
-        "EV-010",
-        "EV-011",
-        "EV-012",
-        "EV-013",
-        "EV-014",
-        "EV-015",
-        "EV-016"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "requirements"
-    },
-    {
-      "assertion_id": "AST-024",
-      "field_path": "/requirements/6",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.94,
-      "evidence_ids": [
-        "EV-009",
-        "EV-010",
-        "EV-011",
-        "EV-012",
-        "EV-013",
-        "EV-014",
-        "EV-015",
-        "EV-016"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "requirements"
-    },
-    {
-      "assertion_id": "AST-025",
-      "field_path": "/requirements/7",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.94,
-      "evidence_ids": [
-        "EV-009",
-        "EV-010",
-        "EV-011",
-        "EV-012",
-        "EV-013",
-        "EV-014",
-        "EV-015",
-        "EV-016"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "requirements"
-    },
-    {
-      "assertion_id": "AST-026",
-      "field_path": "/requirements/8",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.94,
-      "evidence_ids": [
-        "EV-009",
-        "EV-010",
-        "EV-011",
-        "EV-012",
-        "EV-013",
-        "EV-014",
-        "EV-015",
-        "EV-016"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "requirements"
-    },
-    {
-      "assertion_id": "AST-027",
-      "field_path": "/requirements/9",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.94,
-      "evidence_ids": [
-        "EV-009",
-        "EV-010",
-        "EV-011",
-        "EV-012",
-        "EV-013",
-        "EV-014",
-        "EV-015",
-        "EV-016"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "requirements"
-    },
-    {
-      "assertion_id": "AST-028",
-      "field_path": "/requirements/10",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.94,
-      "evidence_ids": [
-        "EV-009",
-        "EV-010",
-        "EV-011",
-        "EV-012",
-        "EV-013",
-        "EV-014",
-        "EV-015",
-        "EV-016"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "requirements"
-    },
-    {
-      "assertion_id": "AST-029",
-      "field_path": "/requirements/11",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.94,
-      "evidence_ids": [
-        "EV-009",
-        "EV-010",
-        "EV-011",
-        "EV-012",
-        "EV-013",
-        "EV-014",
-        "EV-015",
-        "EV-016"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "requirements"
-    },
-    {
-      "assertion_id": "AST-030",
-      "field_path": "/referenced_publications/0",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.96,
-      "evidence_ids": [
-        "EV-008"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "referenced_publications"
-    },
-    {
-      "assertion_id": "AST-031",
-      "field_path": "/referenced_publications/1",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.96,
-      "evidence_ids": [
-        "EV-008"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "referenced_publications"
-    },
-    {
-      "assertion_id": "AST-032",
-      "field_path": "/referenced_publications/2",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.96,
-      "evidence_ids": [
-        "EV-008"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "referenced_publications"
-    },
-    {
-      "assertion_id": "AST-033",
-      "field_path": "/referenced_publications/3",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.96,
-      "evidence_ids": [
-        "EV-008"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "referenced_publications"
-    },
-    {
-      "assertion_id": "AST-034",
-      "field_path": "/referenced_publications/4",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.96,
-      "evidence_ids": [
-        "EV-008"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "referenced_publications"
-    },
-    {
-      "assertion_id": "AST-035",
-      "field_path": "/amoc_and_contacts/0",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.96,
-      "evidence_ids": [
-        "EV-017"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "amoc_and_contacts"
-    },
-    {
-      "assertion_id": "AST-036",
-      "field_path": "/amoc_and_contacts/1",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.96,
-      "evidence_ids": [
-        "EV-017"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "amoc_and_contacts"
-    },
-    {
-      "assertion_id": "AST-037",
       "field_path": "/unsafe_condition",
       "value_state": "present",
       "origin": "auto_extracted",
       "verification_status": "unreviewed",
-      "confidence": 0.96,
+      "confidence": 0.99,
       "evidence_ids": [
         "EV-006",
         "EV-007"
       ],
-      "annotator_id": "codex-extension-extractor",
+      "annotator_id": "gpt-5.6-source-auditor",
       "derivation_rule": null,
       "input_field_paths": [],
-      "notes": "Reason and unsafe condition"
+      "notes": "Unsafe condition source-audited; no human acceptance claimed."
     },
     {
-      "assertion_id": "AST-038",
+      "assertion_id": "AST-006",
+      "field_path": "/requirements",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.99,
+      "evidence_ids": [
+        "EV-009",
+        "EV-010",
+        "EV-011",
+        "EV-012"
+      ],
+      "annotator_id": "gpt-5.6-source-auditor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Atomic requirements and compliance logic source-audited; no human acceptance claimed."
+    },
+    {
+      "assertion_id": "AST-007",
+      "field_path": "/exceptions",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.99,
+      "evidence_ids": [
+        "EV-011"
+      ],
+      "annotator_id": "gpt-5.6-source-auditor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Requirement exceptions source-audited; no human acceptance claimed."
+    },
+    {
+      "assertion_id": "AST-008",
+      "field_path": "/previous_action_credit",
+      "value_state": "absent_in_source",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.95,
+      "evidence_ids": [],
+      "annotator_id": "gpt-5.6-source-auditor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Previous-action credit source-audited; no human acceptance claimed."
+    },
+    {
+      "assertion_id": "AST-009",
+      "field_path": "/referenced_publications",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.99,
+      "evidence_ids": [
+        "EV-008"
+      ],
+      "annotator_id": "gpt-5.6-source-auditor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Referenced publications source-audited; no human acceptance claimed."
+    },
+    {
+      "assertion_id": "AST-010",
+      "field_path": "/relationships",
+      "value_state": "absent_in_source",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.95,
+      "evidence_ids": [],
+      "annotator_id": "gpt-5.6-source-auditor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Relationships source-audited; no human acceptance claimed."
+    },
+    {
+      "assertion_id": "AST-011",
+      "field_path": "/amoc_and_contacts",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.99,
+      "evidence_ids": [
+        "EV-017"
+      ],
+      "annotator_id": "gpt-5.6-source-auditor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "AMOC and contacts source-audited; no human acceptance claimed."
+    },
+    {
+      "assertion_id": "AST-012",
       "field_path": "/classification",
       "value_state": "present",
       "origin": "auto_extracted",
       "verification_status": "unreviewed",
-      "confidence": 0.9,
+      "confidence": 0.99,
       "evidence_ids": [
         "EV-001",
         "EV-003",
         "EV-006",
-        "EV-007",
         "EV-009",
         "EV-010",
         "EV-011",
-        "EV-012",
-        "EV-013",
-        "EV-014",
-        "EV-015",
-        "EV-016"
+        "EV-012"
       ],
-      "annotator_id": "codex-extension-extractor",
+      "annotator_id": "gpt-5.6-source-auditor",
       "derivation_rule": null,
       "input_field_paths": [],
-      "notes": "Schema classification"
+      "notes": "Classification reconciled with corrected requirements; no human acceptance claimed."
     }
   ],
   "annotation_metadata": {
@@ -2678,6 +1988,12 @@
         "role": "annotator",
         "started_at": "2026-07-30T09:02:01Z",
         "submitted_at": "2026-07-30T09:02:01Z"
+      },
+      {
+        "annotator_id": "gpt-5.6-source-auditor",
+        "role": "reviewer",
+        "started_at": "2026-07-30T18:00:46Z",
+        "submitted_at": "2026-07-30T18:00:46Z"
       }
     ],
     "events": [
@@ -2692,24 +2008,30 @@
         "actor_id": "codex-extension-extractor",
         "timestamp": "2026-07-30T09:02:01Z",
         "rationale": "First pass completed; no human review or approval claimed."
+      },
+      {
+        "event_type": "reviewed",
+        "actor_id": "gpt-5.6-source-auditor",
+        "timestamp": "2026-07-30T18:00:46Z",
+        "rationale": "Machine-assisted source audit against the exact rendered PDF and frozen page-text cache; corrections applied without human approval."
       }
     ],
     "quality_flags": [
       "manual_review_required",
       "complex_table",
-      "complex_compliance",
-      "complex_applicability"
+      "complex_compliance"
     ],
     "uncertainty_flags": [],
     "notes": [
       "Machine-assisted populated extraction from the complete frozen PDF/page-text packet.",
       "Requirements were split from numbered source paragraphs where possible; every field assertion remains unreviewed.",
       "No supersedure relationship was created because the cover explicitly states Supersedure: None.",
-      "Independent human comparison and correction are required before approval or gold promotion."
+      "Independent human comparison and correction are required before approval or gold promotion.",
+      "Machine-assisted source-audit corrections applied against the exact rendered PDF and frozen page-text cache; independent human acceptance is still required before approval or gold promotion."
     ],
     "source_text_sha256": "9e7e3cf8b6e6fab49735429327f6fc8c3f4c198fb4f53a8d987f8624fc1f4f8f",
     "created_at": "2026-07-30T09:02:01Z",
-    "updated_at": "2026-07-30T09:02:01Z"
+    "updated_at": "2026-07-30T18:00:46Z"
   },
   "benchmark_metadata": {
     "split": "unassigned",

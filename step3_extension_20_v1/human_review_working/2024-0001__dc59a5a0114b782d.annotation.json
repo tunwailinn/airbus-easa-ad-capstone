@@ -175,10 +175,25 @@
   "definitions": [
     {
       "definition_id": "DEF-001",
-      "term": "Definitions in this AD",
-      "definition_text": "For the purpose of this AD, the following definitions apply: The Variation: Airbus A310 Airworthiness Limitations Section (ALS) Part 4 System Equipment Maintenance Requirements (SEMR) Revision 03 Variation 3.4. The AMP: The Aircraft Maintenance Programme (AMP) contains the tasks on the basis of which the scheduled maintenance is conducted to ensure the continuing airworthiness of each operated aeroplane. For aeroplane operated under EU regulation the operator or the owner ensures compliance with the AMP as stipulated in Commission Regulation (EU) 1321/2014. TE.CAP.00110-011 © European Union Aviation Safety Agency. All rights reserved. ISO9001 Certified. Page 1 of 4 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet. An agency of the European Union EASA AD No.: 2024-0001 New and/or more restrictive tasks and limitations: This includes all tasks and limitations that are new and all tasks and limitations for which a threshold or interval was reduced, which were introduced through the Variation (as defined in this AD) since the previous ALS revision that is currently incorporated in the AMP.",
+      "term": "The Variation",
+      "definition_text": "Airbus A310 ALS Part 4 SEMR Revision 03 Variation 3.4.",
       "evidence_ids": [
-        "EV-004",
+        "EV-004"
+      ]
+    },
+    {
+      "definition_id": "DEF-002",
+      "term": "The AMP",
+      "definition_text": "The approved Aircraft Maintenance Programme containing the tasks used for scheduled maintenance and continuing airworthiness.",
+      "evidence_ids": [
+        "EV-004"
+      ]
+    },
+    {
+      "definition_id": "DEF-003",
+      "term": "New and/or more restrictive tasks and limitations",
+      "definition_text": "New tasks and limitations and existing ones whose threshold or interval was reduced in the Variation compared with the ALS revision currently incorporated in the AMP.",
+      "evidence_ids": [
         "EV-005"
       ]
     }
@@ -186,19 +201,18 @@
   "unsafe_condition": {
     "state": "present",
     "raw_reason_text": "Reason: The SEMR for the Airbus A310 aeroplanes, which are approved by EASA, are currently defined and published in the Airbus A310 ALS Part 4 document. These instructions have been identified as mandatory for continued airworthiness. Failure to accomplish these instructions could result in an unsafe condition. EASA previously issued AD 2017-0202, AD 2020-0267, AD 2022-0195 and AD 2023-0018, to require the actions described in Airbus A310 ALS Part 4 Revision 03, Variation 3.1, Variation 3.2 and Variation 3.3, respectively. Since those ADs were issued, Airbus published the Variation, as defined in this AD, which contains new and/or more restrictive tasks and limitations. These tasks and limitations are expected to be incorporated into Airbus A310 ALS Part 4 at the next revision. For the reason described above, this AD requires accomplishment of the actions specified in the Variation. EASA AD 2017-0202, AD 2020-0267, AD 2022-0195 and AD 2023-0018 are not superseded by this AD.",
-    "observed_events_or_defects": [
-      "The SEMR for the Airbus A310 aeroplanes, which are approved by EASA, are currently defined and published in the Airbus A310 ALS Part 4 document."
-    ],
+    "observed_events_or_defects": [],
     "causes": [],
     "unsafe_conditions": [
-      "Failure to accomplish these instructions could result in an unsafe condition."
+      "Failure to accomplish the mandatory SEMR instructions, including new or more restrictive tasks and limitations, could result in an unsafe condition."
     ],
-    "potential_consequences": [
-      "Failure to accomplish these instructions could result in an unsafe condition."
+    "potential_consequences": [],
+    "affected_components": [
+      "Components and systems governed by A310 ALS Part 4 SEMR Revision 03 Variation 3.4",
+      "Approved Aircraft Maintenance Programme"
     ],
-    "affected_components": [],
     "intended_risk_mitigation": [
-      "For the reason described above, this AD requires accomplishment of the actions specified in the Variation."
+      "Apply the Variation life limits, thresholds and intervals; correct discrepancies; and incorporate the Variation into the approved AMP."
     ],
     "evidence_ids": [
       "EV-006"
@@ -207,19 +221,23 @@
   "requirements": [
     {
       "requirement_id": "REQ-001",
-      "paragraph_reference": "(1)",
+      "paragraph_reference": "(1.1)",
       "parent_requirement_id": null,
       "applicability_group_ids": [
         "APP-001"
       ],
       "action_types": [
-        "document_amendment",
+        "replacement",
         "limitation"
       ],
       "obligation": "mandatory",
-      "action_text": "(1) From the effective date of this AD, accomplish the following actions, as specified in the Variation, as applicable to aeroplane model and depending on aeroplane configuration: (1.1) Replace each component before exceeding the applicable life limit (see Note 1 of this AD); and (1.2) Within the thresholds and intervals (see Note 1 of this AD), accomplish all applicable maintenance tasks. Where this AD requires a task which is already required per EASA AD 2017-0202, the instructions of the Variation invalidate the instructions of Airbus A310 ALS Part 4 Revision 03. Note 1: For the purpose of this AD, the limitations, thresholds and intervals as defined in the ‘Compliance Time’ page(s) of the Variation, include specific compliance times for certain items and tasks. TE.CAP.00110-011 © European Union Aviation Safety Agency. All rights reserved. ISO9001 Certified. Page 2 of 4 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet. An agency of the European Union EASA AD No.: 2024-0001 Corrective Action(s):",
-      "objects_or_components": [],
-      "conditions": [],
+      "action_text": "(1.1) From the effective date of this AD, replace each applicable component before exceeding the life limit specified in the Variation, according to aeroplane model and configuration.",
+      "objects_or_components": [
+        "Life-limited components identified by the Variation"
+      ],
+      "conditions": [
+        "Applicable to aeroplane model and configuration"
+      ],
       "method_publication_ids": [
         "PUB-001"
       ],
@@ -227,16 +245,30 @@
         {
           "compliance_id": "CMP-001",
           "state": "present",
-          "raw_text": "(1) From the effective date of this AD, accomplish the following actions, as specified in the Variation, as applicable to aeroplane model and depending on aeroplane configuration: (1.1) Replace each component before exceeding the applicable life limit (see Note 1 of this AD); and (1.2) Within the thresholds and intervals (see Note 1 of this AD), accomplish all applicable maintenance tasks. Where this AD requires a task which is already required per EASA AD 2017-0202, the instructions of the Variation invalidate the instructions of Airbus A310 ALS Part 4 Revision 03. Note 1: For the purpose of this AD, the limitations, thresholds and intervals as defined in the ‘Compliance Time’ page(s) of the Variation, include specific compliance times for certain items and tasks. TE.CAP.00110-011 © European Union Aviation Safety Agency. All rights reserved. ISO9001 Certified. Page 2 of 4 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet. An agency of the European Union EASA AD No.: 2024-0001 Corrective Action(s):",
-          "logic": "single",
-          "conditions": [],
-          "initial_limits": [],
+          "raw_text": "(1.1) From the effective date of this AD, replace each applicable component before exceeding the life limit specified in the Variation, according to aeroplane model and configuration.",
+          "logic": "conditional",
+          "conditions": [
+            "Applicable life limit"
+          ],
+          "initial_limits": [
+            {
+              "limit_id": "LIM-001",
+              "relation": "before",
+              "quantity": null,
+              "unit": "other",
+              "raw_value": "Before exceeding the applicable life limit",
+              "reference_event": "applicable life limit in the Variation",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-008"
+              ]
+            }
+          ],
           "is_repetitive": false,
           "repetitive_intervals": [],
           "grace_periods": [],
           "evidence_ids": [
-            "EV-008",
-            "EV-009"
+            "EV-008"
           ]
         }
       ],
@@ -250,25 +282,28 @@
         "evidence_ids": []
       },
       "evidence_ids": [
-        "EV-008",
-        "EV-009"
+        "EV-008"
       ]
     },
     {
       "requirement_id": "REQ-002",
-      "paragraph_reference": "(2)",
+      "paragraph_reference": "(1.2)",
       "parent_requirement_id": null,
       "applicability_group_ids": [
         "APP-001"
       ],
       "action_types": [
-        "document_amendment",
-        "limitation"
+        "limitation",
+        "other"
       ],
       "obligation": "mandatory",
-      "action_text": "(2) In case of finding discrepancies during accomplishment of any task as required by paragraph (1) of this AD, before next flight, accomplish the applicable corrective action(s) in accordance with the applicable Airbus maintenance documentation. If a detected discrepancy cannot be corrected by using existing Airbus instructions, before next flight, contact Airbus for approved instructions and accomplish those instructions accordingly. AMP Revision:",
-      "objects_or_components": [],
-      "conditions": [],
+      "action_text": "(1.2) From the effective date of this AD, accomplish every applicable maintenance task within the thresholds and intervals specified in the Variation, according to aeroplane model and configuration. For overlapping tasks, the Variation instructions invalidate the corresponding Airbus A310 ALS Part 4 Revision 03 instructions required by EASA AD 2017-0202.",
+      "objects_or_components": [
+        "Maintenance tasks identified by the Variation"
+      ],
+      "conditions": [
+        "Applicable to aeroplane model and configuration"
+      ],
       "method_publication_ids": [
         "PUB-001"
       ],
@@ -276,20 +311,89 @@
         {
           "compliance_id": "CMP-002",
           "state": "present",
-          "raw_text": "(2) In case of finding discrepancies during accomplishment of any task as required by paragraph (1) of this AD, before next flight, accomplish the applicable corrective action(s) in accordance with the applicable Airbus maintenance documentation. If a detected discrepancy cannot be corrected by using existing Airbus instructions, before next flight, contact Airbus for approved instructions and accomplish those instructions accordingly. AMP Revision:",
+          "raw_text": "(1.2) From the effective date of this AD, accomplish every applicable maintenance task within the thresholds and intervals specified in the Variation, according to aeroplane model and configuration. For overlapping tasks, the Variation instructions invalidate the corresponding Airbus A310 ALS Part 4 Revision 03 instructions required by EASA AD 2017-0202.",
           "logic": "conditional",
-          "conditions": [],
+          "conditions": [
+            "Applicable threshold and interval"
+          ],
           "initial_limits": [
             {
-              "limit_id": "LIM-001",
+              "limit_id": "LIM-002",
+              "relation": "other",
+              "quantity": null,
+              "unit": "other",
+              "raw_value": "Within the applicable thresholds and intervals",
+              "reference_event": "thresholds and intervals in the Variation",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-008"
+              ]
+            }
+          ],
+          "is_repetitive": false,
+          "repetitive_intervals": [],
+          "grace_periods": [],
+          "evidence_ids": [
+            "EV-008"
+          ]
+        }
+      ],
+      "follow_on_requirement_ids": [
+        "REQ-003"
+      ],
+      "terminating_action": {
+        "state": "not_stated",
+        "present": false,
+        "scope": "none",
+        "action_text": null,
+        "terminates_requirement_ids": [],
+        "evidence_ids": []
+      },
+      "evidence_ids": [
+        "EV-008"
+      ]
+    },
+    {
+      "requirement_id": "REQ-003",
+      "paragraph_reference": "(2)",
+      "parent_requirement_id": null,
+      "applicability_group_ids": [
+        "APP-001"
+      ],
+      "action_types": [
+        "repair",
+        "contact_manufacturer"
+      ],
+      "obligation": "conditional",
+      "action_text": "(2) If a discrepancy is found during a task required by paragraph (1), before next flight accomplish the applicable corrective action using Airbus maintenance documentation. If existing Airbus instructions cannot correct it, before next flight contact Airbus for approved instructions and accomplish them accordingly.",
+      "objects_or_components": [
+        "Discrepancy found during a required maintenance task"
+      ],
+      "conditions": [
+        "Discrepancy found during REQ-001 or REQ-002"
+      ],
+      "method_publication_ids": [
+        "PUB-002"
+      ],
+      "compliance_rules": [
+        {
+          "compliance_id": "CMP-003",
+          "state": "present",
+          "raw_text": "(2) If a discrepancy is found during a task required by paragraph (1), before next flight accomplish the applicable corrective action using Airbus maintenance documentation. If existing Airbus instructions cannot correct it, before next flight contact Airbus for approved instructions and accomplish them accordingly.",
+          "logic": "conditional",
+          "conditions": [
+            "Discrepancy found"
+          ],
+          "initial_limits": [
+            {
+              "limit_id": "LIM-003",
               "relation": "before",
               "quantity": null,
               "unit": "before_next_flight",
-              "raw_value": "before next flight",
-              "reference_event": "next flight",
+              "raw_value": "Before next flight",
+              "reference_event": "next flight after discrepancy finding",
               "calendar_date": null,
               "evidence_ids": [
-                "EV-008",
                 "EV-009"
               ]
             }
@@ -298,7 +402,6 @@
           "repetitive_intervals": [],
           "grace_periods": [],
           "evidence_ids": [
-            "EV-008",
             "EV-009"
           ]
         }
@@ -313,12 +416,11 @@
         "evidence_ids": []
       },
       "evidence_ids": [
-        "EV-008",
         "EV-009"
       ]
     },
     {
-      "requirement_id": "REQ-003",
+      "requirement_id": "REQ-004",
       "paragraph_reference": "(3)",
       "parent_requirement_id": null,
       "applicability_group_ids": [
@@ -329,22 +431,26 @@
         "limitation"
       ],
       "obligation": "mandatory",
-      "action_text": "(3) Within 12 months after the effective date of this AD, revise the approved AMP by incorporating the limitations, tasks and associated thresholds and intervals described in the Variation, as applicable to aeroplane model and depending on aeroplane configuration . Recording AD Compliance:",
-      "objects_or_components": [],
-      "conditions": [],
+      "action_text": "(3) Within 12 months after the effective date of this AD, revise the approved AMP to incorporate the applicable limitations, tasks, thresholds and intervals described in the Variation.",
+      "objects_or_components": [
+        "Approved Aircraft Maintenance Programme"
+      ],
+      "conditions": [
+        "Applicable to aeroplane model and configuration"
+      ],
       "method_publication_ids": [
         "PUB-001"
       ],
       "compliance_rules": [
         {
-          "compliance_id": "CMP-003",
+          "compliance_id": "CMP-004",
           "state": "present",
-          "raw_text": "(3) Within 12 months after the effective date of this AD, revise the approved AMP by incorporating the limitations, tasks and associated thresholds and intervals described in the Variation, as applicable to aeroplane model and depending on aeroplane configuration . Recording AD Compliance:",
+          "raw_text": "(3) Within 12 months after the effective date of this AD, revise the approved AMP to incorporate the applicable limitations, tasks, thresholds and intervals described in the Variation.",
           "logic": "single",
           "conditions": [],
           "initial_limits": [
             {
-              "limit_id": "LIM-002",
+              "limit_id": "LIM-004",
               "relation": "within",
               "quantity": 12,
               "unit": "calendar_month",
@@ -352,7 +458,6 @@
               "reference_event": "effective date of this AD",
               "calendar_date": null,
               "evidence_ids": [
-                "EV-008",
                 "EV-009"
               ]
             }
@@ -361,7 +466,6 @@
           "repetitive_intervals": [],
           "grace_periods": [],
           "evidence_ids": [
-            "EV-008",
             "EV-009"
           ]
         }
@@ -376,61 +480,25 @@
         "evidence_ids": []
       },
       "evidence_ids": [
-        "EV-008",
-        "EV-009"
-      ]
-    },
-    {
-      "requirement_id": "REQ-004",
-      "paragraph_reference": "(4)",
-      "parent_requirement_id": null,
-      "applicability_group_ids": [
-        "APP-001"
-      ],
-      "action_types": [
-        "document_amendment",
-        "limitation"
-      ],
-      "obligation": "mandatory",
-      "action_text": "(4) When the AMP of an aeroplane has been revised as required by paragraph (3) of this AD, that action ensures continued accomplishment of the tasks as required by paragraphs (1) and (2) of this AD for that aeroplane. Consequently, after revising the AMP, as required by paragraph (3) of this AD, it is not necessary that accomplishment of individual action is recorded for demonstration of AD compliance on a continued basis.",
-      "objects_or_components": [],
-      "conditions": [],
-      "method_publication_ids": [
-        "PUB-001"
-      ],
-      "compliance_rules": [
-        {
-          "compliance_id": "CMP-004",
-          "state": "present",
-          "raw_text": "(4) When the AMP of an aeroplane has been revised as required by paragraph (3) of this AD, that action ensures continued accomplishment of the tasks as required by paragraphs (1) and (2) of this AD for that aeroplane. Consequently, after revising the AMP, as required by paragraph (3) of this AD, it is not necessary that accomplishment of individual action is recorded for demonstration of AD compliance on a continued basis.",
-          "logic": "single",
-          "conditions": [],
-          "initial_limits": [],
-          "is_repetitive": false,
-          "repetitive_intervals": [],
-          "grace_periods": [],
-          "evidence_ids": [
-            "EV-008",
-            "EV-009"
-          ]
-        }
-      ],
-      "follow_on_requirement_ids": [],
-      "terminating_action": {
-        "state": "not_stated",
-        "present": false,
-        "scope": "none",
-        "action_text": null,
-        "terminates_requirement_ids": [],
-        "evidence_ids": []
-      },
-      "evidence_ids": [
-        "EV-008",
         "EV-009"
       ]
     }
   ],
-  "exceptions": [],
+  "exceptions": [
+    {
+      "exception_id": "EXC-001",
+      "text": "After the AMP has been revised as required by REQ-004, continued accomplishment of REQ-001 through REQ-003 is ensured through the AMP and individual actions need not be recorded separately on a continuing basis to demonstrate AD compliance.",
+      "applies_to_requirement_ids": [
+        "REQ-001",
+        "REQ-002",
+        "REQ-003",
+        "REQ-004"
+      ],
+      "evidence_ids": [
+        "EV-009"
+      ]
+    }
+  ],
   "previous_action_credit": [],
   "referenced_publications": [
     {
@@ -448,9 +516,82 @@
       "evidence_ids": [
         "EV-007"
       ]
+    },
+    {
+      "publication_id": "PUB-002",
+      "publication_type": "maintenance_manual",
+      "issuer": "Airbus",
+      "number": "Applicable Airbus maintenance documentation",
+      "revision": null,
+      "publication_date": null,
+      "title": null,
+      "roles": [
+        "required_method"
+      ],
+      "later_approved_revisions_allowed": false,
+      "evidence_ids": [
+        "EV-009"
+      ]
     }
   ],
-  "relationships": [],
+  "relationships": [
+    {
+      "relationship_id": "REL-001",
+      "relationship_type": "retains_requirements_of",
+      "target_ad_number": "2017-0202",
+      "target_record_id": null,
+      "target_logical_version_key": null,
+      "source": "explicit_directional_sentence",
+      "verification_status": "candidate",
+      "manually_verified": false,
+      "raw_text": "EASA AD 2017-0202, AD 2020-0267, AD 2022-0195 and AD 2023-0018 are not superseded by this AD.",
+      "evidence_ids": [
+        "EV-006"
+      ]
+    },
+    {
+      "relationship_id": "REL-002",
+      "relationship_type": "retains_requirements_of",
+      "target_ad_number": "2020-0267",
+      "target_record_id": null,
+      "target_logical_version_key": null,
+      "source": "explicit_directional_sentence",
+      "verification_status": "candidate",
+      "manually_verified": false,
+      "raw_text": "EASA AD 2017-0202, AD 2020-0267, AD 2022-0195 and AD 2023-0018 are not superseded by this AD.",
+      "evidence_ids": [
+        "EV-006"
+      ]
+    },
+    {
+      "relationship_id": "REL-003",
+      "relationship_type": "retains_requirements_of",
+      "target_ad_number": "2022-0195",
+      "target_record_id": null,
+      "target_logical_version_key": null,
+      "source": "explicit_directional_sentence",
+      "verification_status": "candidate",
+      "manually_verified": false,
+      "raw_text": "EASA AD 2017-0202, AD 2020-0267, AD 2022-0195 and AD 2023-0018 are not superseded by this AD.",
+      "evidence_ids": [
+        "EV-006"
+      ]
+    },
+    {
+      "relationship_id": "REL-004",
+      "relationship_type": "retains_requirements_of",
+      "target_ad_number": "2023-0018",
+      "target_record_id": null,
+      "target_logical_version_key": null,
+      "source": "explicit_directional_sentence",
+      "verification_status": "candidate",
+      "manually_verified": false,
+      "raw_text": "EASA AD 2017-0202, AD 2020-0267, AD 2022-0195 and AD 2023-0018 are not superseded by this AD.",
+      "evidence_ids": [
+        "EV-006"
+      ]
+    }
+  ],
   "amoc_and_contacts": [
     {
       "entry_id": "AMC-001",
@@ -485,10 +626,14 @@
       "05"
     ],
     "action_types": [
-      "document_amendment",
-      "limitation"
+      "replacement",
+      "limitation",
+      "other",
+      "repair",
+      "contact_manufacturer",
+      "document_amendment"
     ],
-    "frequency": "one_time",
+    "frequency": "mixed",
     "emergency_status": "standard",
     "terminating_action_present": false,
     "table_or_appendix_present": false,
@@ -709,14 +854,14 @@
       "value_state": "present",
       "origin": "auto_extracted",
       "verification_status": "unreviewed",
-      "confidence": 0.995,
+      "confidence": 0.99,
       "evidence_ids": [
         "EV-001"
       ],
-      "annotator_id": "codex-extension-extractor",
+      "annotator_id": "gpt-5.6-source-auditor",
       "derivation_rule": null,
       "input_field_paths": [],
-      "notes": "Section completion: AD identity"
+      "notes": "AD identity source-audited; no human acceptance claimed."
     },
     {
       "assertion_id": "AST-002",
@@ -728,10 +873,10 @@
       "evidence_ids": [
         "EV-001"
       ],
-      "annotator_id": "codex-extension-extractor",
+      "annotator_id": "gpt-5.6-source-auditor",
       "derivation_rule": null,
       "input_field_paths": [],
-      "notes": "Section completion: publication"
+      "notes": "Publication metadata source-audited; no human acceptance claimed."
     },
     {
       "assertion_id": "AST-003",
@@ -739,14 +884,14 @@
       "value_state": "present",
       "origin": "auto_extracted",
       "verification_status": "unreviewed",
-      "confidence": 0.95,
+      "confidence": 0.99,
       "evidence_ids": [
         "EV-003"
       ],
-      "annotator_id": "codex-extension-extractor",
+      "annotator_id": "gpt-5.6-source-auditor",
       "derivation_rule": null,
       "input_field_paths": [],
-      "notes": "Section completion: applicability_groups"
+      "notes": "Applicability source-audited; no human acceptance claimed."
     },
     {
       "assertion_id": "AST-004",
@@ -754,343 +899,129 @@
       "value_state": "present",
       "origin": "auto_extracted",
       "verification_status": "unreviewed",
-      "confidence": 0.95,
+      "confidence": 0.99,
       "evidence_ids": [
         "EV-004",
         "EV-005"
       ],
-      "annotator_id": "codex-extension-extractor",
+      "annotator_id": "gpt-5.6-source-auditor",
       "derivation_rule": null,
       "input_field_paths": [],
-      "notes": "Section completion: definitions"
+      "notes": "Definitions source-audited; no human acceptance claimed."
     },
     {
       "assertion_id": "AST-005",
-      "field_path": "/requirements",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.95,
-      "evidence_ids": [
-        "EV-008",
-        "EV-009"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "Section completion: requirements"
-    },
-    {
-      "assertion_id": "AST-006",
-      "field_path": "/exceptions",
-      "value_state": "absent_in_source",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.9,
-      "evidence_ids": [],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "Section completion: exceptions"
-    },
-    {
-      "assertion_id": "AST-007",
-      "field_path": "/previous_action_credit",
-      "value_state": "absent_in_source",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.9,
-      "evidence_ids": [],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "Section completion: previous_action_credit"
-    },
-    {
-      "assertion_id": "AST-008",
-      "field_path": "/referenced_publications",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.95,
-      "evidence_ids": [
-        "EV-007"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "Section completion: referenced_publications"
-    },
-    {
-      "assertion_id": "AST-009",
-      "field_path": "/relationships",
-      "value_state": "absent_in_source",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.9,
-      "evidence_ids": [
-        "EV-001"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "Section completion: relationships"
-    },
-    {
-      "assertion_id": "AST-010",
-      "field_path": "/amoc_and_contacts",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.95,
-      "evidence_ids": [
-        "EV-010",
-        "EV-011"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "Section completion: amoc_and_contacts"
-    },
-    {
-      "assertion_id": "AST-011",
-      "field_path": "/ad_identity/ad_number",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.995,
-      "evidence_ids": [
-        "EV-001"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "Cover identity"
-    },
-    {
-      "assertion_id": "AST-012",
-      "field_path": "/ad_identity/supersedure_statement",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.99,
-      "evidence_ids": [
-        "EV-001"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "Printed status field"
-    },
-    {
-      "assertion_id": "AST-013",
-      "field_path": "/publication/issue_date",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.995,
-      "evidence_ids": [
-        "EV-001"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "Printed issue date"
-    },
-    {
-      "assertion_id": "AST-014",
-      "field_path": "/publication/effective_date",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.995,
-      "evidence_ids": [
-        "EV-001"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "Printed effective date"
-    },
-    {
-      "assertion_id": "AST-015",
-      "field_path": "/publication/subject",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.99,
-      "evidence_ids": [
-        "EV-001"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "Printed ATA subject"
-    },
-    {
-      "assertion_id": "AST-016",
-      "field_path": "/applicability_groups/0",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.96,
-      "evidence_ids": [
-        "EV-003"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "applicability_groups"
-    },
-    {
-      "assertion_id": "AST-017",
-      "field_path": "/definitions/0",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.96,
-      "evidence_ids": [
-        "EV-004",
-        "EV-005"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "definitions"
-    },
-    {
-      "assertion_id": "AST-018",
-      "field_path": "/requirements/0",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.94,
-      "evidence_ids": [
-        "EV-008",
-        "EV-009"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "requirements"
-    },
-    {
-      "assertion_id": "AST-019",
-      "field_path": "/requirements/1",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.94,
-      "evidence_ids": [
-        "EV-008",
-        "EV-009"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "requirements"
-    },
-    {
-      "assertion_id": "AST-020",
-      "field_path": "/requirements/2",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.94,
-      "evidence_ids": [
-        "EV-008",
-        "EV-009"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "requirements"
-    },
-    {
-      "assertion_id": "AST-021",
-      "field_path": "/requirements/3",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.94,
-      "evidence_ids": [
-        "EV-008",
-        "EV-009"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "requirements"
-    },
-    {
-      "assertion_id": "AST-022",
-      "field_path": "/referenced_publications/0",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.96,
-      "evidence_ids": [
-        "EV-007"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "referenced_publications"
-    },
-    {
-      "assertion_id": "AST-023",
-      "field_path": "/amoc_and_contacts/0",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.96,
-      "evidence_ids": [
-        "EV-010",
-        "EV-011"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "amoc_and_contacts"
-    },
-    {
-      "assertion_id": "AST-024",
-      "field_path": "/amoc_and_contacts/1",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.96,
-      "evidence_ids": [
-        "EV-010",
-        "EV-011"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "amoc_and_contacts"
-    },
-    {
-      "assertion_id": "AST-025",
       "field_path": "/unsafe_condition",
       "value_state": "present",
       "origin": "auto_extracted",
       "verification_status": "unreviewed",
-      "confidence": 0.96,
+      "confidence": 0.99,
       "evidence_ids": [
         "EV-006"
       ],
-      "annotator_id": "codex-extension-extractor",
+      "annotator_id": "gpt-5.6-source-auditor",
       "derivation_rule": null,
       "input_field_paths": [],
-      "notes": "Reason and unsafe condition"
+      "notes": "Unsafe condition source-audited; no human acceptance claimed."
     },
     {
-      "assertion_id": "AST-026",
+      "assertion_id": "AST-006",
+      "field_path": "/requirements",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.99,
+      "evidence_ids": [
+        "EV-008",
+        "EV-009"
+      ],
+      "annotator_id": "gpt-5.6-source-auditor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Atomic requirements and compliance logic source-audited; no human acceptance claimed."
+    },
+    {
+      "assertion_id": "AST-007",
+      "field_path": "/exceptions",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.99,
+      "evidence_ids": [
+        "EV-009"
+      ],
+      "annotator_id": "gpt-5.6-source-auditor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Requirement exceptions source-audited; no human acceptance claimed."
+    },
+    {
+      "assertion_id": "AST-008",
+      "field_path": "/previous_action_credit",
+      "value_state": "absent_in_source",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.95,
+      "evidence_ids": [],
+      "annotator_id": "gpt-5.6-source-auditor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Previous-action credit source-audited; no human acceptance claimed."
+    },
+    {
+      "assertion_id": "AST-009",
+      "field_path": "/referenced_publications",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.99,
+      "evidence_ids": [
+        "EV-007",
+        "EV-009"
+      ],
+      "annotator_id": "gpt-5.6-source-auditor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Referenced publications source-audited; no human acceptance claimed."
+    },
+    {
+      "assertion_id": "AST-010",
+      "field_path": "/relationships",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.99,
+      "evidence_ids": [
+        "EV-006"
+      ],
+      "annotator_id": "gpt-5.6-source-auditor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Relationships source-audited; no human acceptance claimed."
+    },
+    {
+      "assertion_id": "AST-011",
+      "field_path": "/amoc_and_contacts",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.99,
+      "evidence_ids": [
+        "EV-010",
+        "EV-011"
+      ],
+      "annotator_id": "gpt-5.6-source-auditor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "AMOC and contacts source-audited; no human acceptance claimed."
+    },
+    {
+      "assertion_id": "AST-012",
       "field_path": "/classification",
       "value_state": "present",
       "origin": "auto_extracted",
       "verification_status": "unreviewed",
-      "confidence": 0.9,
+      "confidence": 0.99,
       "evidence_ids": [
         "EV-001",
         "EV-003",
@@ -1098,10 +1029,10 @@
         "EV-008",
         "EV-009"
       ],
-      "annotator_id": "codex-extension-extractor",
+      "annotator_id": "gpt-5.6-source-auditor",
       "derivation_rule": null,
       "input_field_paths": [],
-      "notes": "Schema classification"
+      "notes": "Classification reconciled with corrected requirements; no human acceptance claimed."
     }
   ],
   "annotation_metadata": {
@@ -1120,6 +1051,12 @@
         "role": "annotator",
         "started_at": "2026-07-30T09:02:01Z",
         "submitted_at": "2026-07-30T09:02:01Z"
+      },
+      {
+        "annotator_id": "gpt-5.6-source-auditor",
+        "role": "reviewer",
+        "started_at": "2026-07-30T18:00:46Z",
+        "submitted_at": "2026-07-30T18:00:46Z"
       }
     ],
     "events": [
@@ -1134,23 +1071,30 @@
         "actor_id": "codex-extension-extractor",
         "timestamp": "2026-07-30T09:02:01Z",
         "rationale": "First pass completed; no human review or approval claimed."
+      },
+      {
+        "event_type": "reviewed",
+        "actor_id": "gpt-5.6-source-auditor",
+        "timestamp": "2026-07-30T18:00:46Z",
+        "rationale": "Machine-assisted source audit against the exact rendered PDF and frozen page-text cache; corrections applied without human approval."
       }
     ],
     "quality_flags": [
       "manual_review_required",
       "complex_compliance",
-      "complex_applicability"
+      "ambiguous_relationship"
     ],
     "uncertainty_flags": [],
     "notes": [
       "Machine-assisted populated extraction from the complete frozen PDF/page-text packet.",
       "Requirements were split from numbered source paragraphs where possible; every field assertion remains unreviewed.",
       "No supersedure relationship was created because the cover explicitly states Supersedure: None.",
-      "Independent human comparison and correction are required before approval or gold promotion."
+      "Independent human comparison and correction are required before approval or gold promotion.",
+      "Machine-assisted source-audit corrections applied against the exact rendered PDF and frozen page-text cache; independent human acceptance is still required before approval or gold promotion."
     ],
     "source_text_sha256": "e76704975e0df8efa78e4c4aaae504997743cc70c61d3111b50f5b917ad4b8ae",
     "created_at": "2026-07-30T09:02:01Z",
-    "updated_at": "2026-07-30T09:02:01Z"
+    "updated_at": "2026-07-30T18:00:46Z"
   },
   "benchmark_metadata": {
     "split": "unassigned",
