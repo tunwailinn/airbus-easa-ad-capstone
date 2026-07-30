@@ -88,7 +88,7 @@
     "ata_chapters": [
       {
         "code": "25",
-        "title": "Equipment / Furnishings",
+        "title": "Equipment & Furnishings",
         "evidence_ids": [
           "EV-001"
         ]
@@ -104,7 +104,7 @@
         ]
       },
       {
-        "raw_name": "The Boeing Company",
+        "raw_name": "The Boeing Company (for DC-9, MD-11, MD-88 and MD-90 Series, formerly McDonnell Douglas Corporation)",
         "normalized_name": "The Boeing Company",
         "role": "manufacturer",
         "evidence_ids": [
@@ -112,8 +112,8 @@
         ]
       },
       {
-        "raw_name": "Fokker Services (formerly Fokker Aircraft B.V.)",
-        "normalized_name": "Fokker Services (formerly Fokker Aircraft B.V.)",
+        "raw_name": "Fokker Services",
+        "normalized_name": "Fokker Services",
         "role": "manufacturer",
         "evidence_ids": [
           "EV-002"
@@ -123,18 +123,128 @@
     "type_model_designations": [
       "A310",
       "A300-600",
-      "A318",
-      "A319",
-      "A320",
-      "A321",
-      "A330",
-      "A340"
+      "A318-111",
+      "A318-112",
+      "A318-121",
+      "A318-122",
+      "A319-111",
+      "A319-112",
+      "A319-113",
+      "A319-114",
+      "A319-115",
+      "A319-131",
+      "A319-132",
+      "A319-133",
+      "A320-111",
+      "A320-211",
+      "A320-212",
+      "A320-214",
+      "A320-215",
+      "A320-216",
+      "A320-231",
+      "A320-232",
+      "A320-233",
+      "A321-111",
+      "A321-112",
+      "A321-131",
+      "A321-211",
+      "A321-212",
+      "A321-213",
+      "A321-231",
+      "A321-232",
+      "A330-201",
+      "A330-202",
+      "A330-203",
+      "A330-223",
+      "A330-243",
+      "A330-301",
+      "A330-302",
+      "A330-303",
+      "A330-321",
+      "A330-322",
+      "A330-323",
+      "A330-341",
+      "A330-342",
+      "A330-343",
+      "A340-211",
+      "A340-212",
+      "A340-213",
+      "A340-311",
+      "A340-312",
+      "A340-313",
+      "A340-541",
+      "A340-542",
+      "A340-642",
+      "A340-643",
+      "Boeing 717-200",
+      "Boeing 737-100",
+      "Boeing 737-200",
+      "Boeing 737-200C",
+      "Boeing 737-300",
+      "Boeing 737-400",
+      "Boeing 737-500",
+      "Boeing 737-600",
+      "Boeing 737-700",
+      "Boeing 737-700C",
+      "Boeing 737-800",
+      "Boeing 737-900",
+      "Boeing 737-900ER",
+      "Boeing 747-100",
+      "Boeing 747-100B",
+      "Boeing 747-100B SUD",
+      "Boeing 747-200B",
+      "Boeing 747-200C",
+      "Boeing 747-300",
+      "Boeing 747-400",
+      "Boeing 747-400D",
+      "Boeing 747-400F SR",
+      "Boeing 747SP",
+      "Boeing 757-200",
+      "Boeing 757-200CB",
+      "Boeing 757-300",
+      "Boeing 767-200",
+      "Boeing 767-300",
+      "Boeing 767-400ER",
+      "Boeing 777-200",
+      "Boeing 777-200LR",
+      "Boeing 777-300",
+      "Boeing 777-300ER",
+      "Boeing 777F",
+      "McDonnell Douglas MD-11",
+      "McDonnell Douglas MD-11F",
+      "McDonnell Douglas DC-9 Series",
+      "McDonnell Douglas MD-88",
+      "McDonnell Douglas MD-90-30",
+      "Fokker F27 Mark 100",
+      "Fokker F27 Mark 200",
+      "Fokker F27 Mark 300",
+      "Fokker F27 Mark 400",
+      "Fokker F27 Mark 500",
+      "Fokker F27 Mark 600",
+      "Fokker F27 Mark 700",
+      "Fokker F27 Mark 050",
+      "Fokker F27 Mark 0502",
+      "Fokker F27 Mark 0604"
     ],
-    "tcds_numbers": [],
+    "tcds_numbers": [
+      "DGAC France 145",
+      "EASA.A.004",
+      "EASA.A.015",
+      "EASA.A.064",
+      "EASA.IM.A.003",
+      "EASA.IM.A.035",
+      "EASA.IM.A.120",
+      "EASA.IM.A.196",
+      "EASA.IM.A.211",
+      "FAA A6WE",
+      "FAA A2NM",
+      "FAA A22WE",
+      "EASA.A.036"
+    ],
     "foreign_ad": {
       "state": "explicit_none",
       "value": null,
-      "raw_text": "Foreign AD: None or Not applicable",
+      "raw_text": "Foreign AD: None",
       "evidence_ids": [
         "EV-001"
       ]
@@ -143,21 +253,129 @@
   "applicability_groups": [
     {
       "group_id": "APP-001",
-      "label": "Multi-family applicability stated in the AD",
+      "label": "Listed Airbus, Boeing, McDonnell Douglas and Fokker aeroplanes equipped with Koito passenger seats",
       "state": "present",
-      "raw_text": "Applicability: This AD applies to the following aeroplane types and models, all serial numbers: Airbus A310 and A300-600, all certified models; Airbus A318, models -111, -112, -121 and -122, Airbus A319, models -111, -112, -113, -114, -115, -131, -132 and -133, Airbus A320, models -111, -211, -212, -214, -215, -216, -231, -232 and -233, Airbus A321, models -111, -112, -131, -211, -212, -213, -231 and -232; Airbus A330, models -201, -202, -203, -223, -243, -301, -302, -303, -321, -322, -323, -341, -342 and -343; Airbus A340, models -211, -212, -213, -311, -312, -313, -541, -542, -642 and -643; EASA Form 110 Page 1/6 EASA AD No : 2011–0098 Boeing 717-200 Series; Boeing 737-100, -200, -200C, -300, -400, -500, -600, -700, -700C, -800, -900 and -900ER Series; Boeing 747-100, -100B, -100B SUD, -200B, -200C, -300, -400, -400D, -400F SR, and SP Series; Boeing 757 200, -200CB, and -300 Series; Boeing 767-200, -300 and -400ER Series; Boeing 777-200; -200LR, -300, -300ER, and 777F Series; McDonnell Douglas MD-11 and MD-11F; McDonnell Douglas DC-9 Series, MD-88 and MD-90-30; Fokker F27 Marks 100, 200, 300, 400, 500, 600, 700, 050, 0502, and 0604, if equipped with any passenger seats manufactured by Koito Industries, including all seats modified by third party after the initial delivery, unless a complete certification programme to show that the seats and their installation fully comply with the appropriate certification basis is successfully conducted.",
+      "raw_text": "Applicability: This AD applies to the listed Airbus, Boeing, McDonnell Douglas and Fokker aeroplane types and models, all serial numbers, if equipped with any passenger seats manufactured by Koito Industries, including seats modified by a third party after initial delivery, unless a complete certification programme successfully shows that the seats and their installation fully comply with the appropriate certification basis.",
       "aircraft_families": [
-        "Multi-family"
+        "A300/A310",
+        "A318-A321",
+        "A330",
+        "A340",
+        "Boeing 717",
+        "Boeing 737",
+        "Boeing 747",
+        "Boeing 757",
+        "Boeing 767",
+        "Boeing 777",
+        "McDonnell Douglas MD-11",
+        "McDonnell Douglas DC-9/MD-80/MD-90",
+        "Fokker F27"
       ],
       "models": [
         "A310",
         "A300-600",
-        "A318",
-        "A319",
-        "A320",
-        "A321",
-        "A330",
-        "A340"
+        "A318-111",
+        "A318-112",
+        "A318-121",
+        "A318-122",
+        "A319-111",
+        "A319-112",
+        "A319-113",
+        "A319-114",
+        "A319-115",
+        "A319-131",
+        "A319-132",
+        "A319-133",
+        "A320-111",
+        "A320-211",
+        "A320-212",
+        "A320-214",
+        "A320-215",
+        "A320-216",
+        "A320-231",
+        "A320-232",
+        "A320-233",
+        "A321-111",
+        "A321-112",
+        "A321-131",
+        "A321-211",
+        "A321-212",
+        "A321-213",
+        "A321-231",
+        "A321-232",
+        "A330-201",
+        "A330-202",
+        "A330-203",
+        "A330-223",
+        "A330-243",
+        "A330-301",
+        "A330-302",
+        "A330-303",
+        "A330-321",
+        "A330-322",
+        "A330-323",
+        "A330-341",
+        "A330-342",
+        "A330-343",
+        "A340-211",
+        "A340-212",
+        "A340-213",
+        "A340-311",
+        "A340-312",
+        "A340-313",
+        "A340-541",
+        "A340-542",
+        "A340-642",
+        "A340-643",
+        "Boeing 717-200",
+        "Boeing 737-100",
+        "Boeing 737-200",
+        "Boeing 737-200C",
+        "Boeing 737-300",
+        "Boeing 737-400",
+        "Boeing 737-500",
+        "Boeing 737-600",
+        "Boeing 737-700",
+        "Boeing 737-700C",
+        "Boeing 737-800",
+        "Boeing 737-900",
+        "Boeing 737-900ER",
+        "Boeing 747-100",
+        "Boeing 747-100B",
+        "Boeing 747-100B SUD",
+        "Boeing 747-200B",
+        "Boeing 747-200C",
+        "Boeing 747-300",
+        "Boeing 747-400",
+        "Boeing 747-400D",
+        "Boeing 747-400F SR",
+        "Boeing 747SP",
+        "Boeing 757-200",
+        "Boeing 757-200CB",
+        "Boeing 757-300",
+        "Boeing 767-200",
+        "Boeing 767-300",
+        "Boeing 767-400ER",
+        "Boeing 777-200",
+        "Boeing 777-200LR",
+        "Boeing 777-300",
+        "Boeing 777-300ER",
+        "Boeing 777F",
+        "McDonnell Douglas MD-11",
+        "McDonnell Douglas MD-11F",
+        "McDonnell Douglas DC-9 Series",
+        "McDonnell Douglas MD-88",
+        "McDonnell Douglas MD-90-30",
+        "Fokker F27 Mark 100",
+        "Fokker F27 Mark 200",
+        "Fokker F27 Mark 300",
+        "Fokker F27 Mark 400",
+        "Fokker F27 Mark 500",
+        "Fokker F27 Mark 600",
+        "Fokker F27 Mark 700",
+        "Fokker F27 Mark 050",
+        "Fokker F27 Mark 0502",
+        "Fokker F27 Mark 0604"
       ],
       "serial_restrictions": [
         {
@@ -176,9 +394,11 @@
       ],
       "part_numbers": [],
       "configuration_conditions": [
-        "if equipped with any passenger seats manufactured by Koito Industries, including all seats modified by third party after the initial delivery, unless a complete certification programme to show that the seats and their installation fully comply with the appropriate certification basis is successfully conducted"
+        "Equipped with passenger seats manufactured by Koito Industries, including seats modified by a third party after initial delivery"
       ],
-      "exclusions": [],
+      "exclusions": [
+        "A complete certification programme has successfully shown that the seats and their installation fully comply with the appropriate certification basis"
+      ],
       "boolean_logic": "all",
       "evidence_ids": [
         "EV-003",
@@ -189,22 +409,26 @@
   "definitions": [],
   "unsafe_condition": {
     "state": "present",
-    "raw_reason_text": "Reason: The Japan Civil Aviation Bureau (JCAB) have informed EASA that a review of the safety of passenger seats manufactured by Koito industries has disclosed discrepancies which include falsification of static, dynamic and flammability testing, as well as uncontrolled changes to production data (material and dimensional). In addition, JCAB confirmed that Koito records, showing evidence of falsification, could not be deemed complete. Examples include:  Fictitious dynamic test pulse plots inserted into test reports following failure to meet required certification requirements.  Flammability test coupons not representative of production parts, for instance by use of alternative adhesive not specified on the approved drawing.  Fictitious deformation values entered in test reports when values exceeded the maximum allowed. JCAB and EASA have concluded that all data (both design and manufacturing) generated by Koito must be treated as suspect. Results from tests performed by Koito with the supervision of JCAB confirmed that a high proportion of seat models failed the requirements for structural, flammability and occupant injury criteria. The level of falsification and the length of time over which the falsification occurred, in combination with the lack of retained records, prompted EASA to deem that all Koito Seats exhibit unsafe conditions of varying degrees. The exact level of airworthiness risk for each seat model can only be determined through further dynamic or static testing (as per the applicable certification basis) and flammability testing. This AD requires the affected seats to be replaced no later than 2 years after the effective date of this AD if no test is performed. However, completion of testing in accordance with the requirements of this AD may allow the seats to remain in service for a longer duration. Two of the involved airframe manufacturers, Airbus and Boeing, may be in a position to assist in complying with the requirements of this AD. This is because many of the seat models affected are similar among different operators, and data gathered to support one seat model may also be used to support other models. Airbus and Boeing have information to show which models are similar to each other, and should be able to assist operators. EASA Form 110 Page 2/6 EASA AD No : 2011–0098",
+    "raw_reason_text": "Reason: JCAB identified falsification of static, dynamic and flammability testing, uncontrolled production-data changes, and incomplete Koito records. Examples included fictitious dynamic-test pulse plots, non-representative flammability coupons, and fictitious deformation values. JCAB and EASA concluded that Koito design and manufacturing data must be treated as suspect. Supervised tests confirmed that a high proportion of seat models failed structural, flammability and occupant-injury criteria. The scale and duration of falsification and lack of retained records led EASA to determine that all Koito seats exhibit unsafe conditions of varying degrees. Further structural and flammability testing is needed to determine the risk of each seat model. Seats must be certified, tested under the AD routes, or removed within the applicable deadlines.",
     "observed_events_or_defects": [
-      "The Japan Civil Aviation Bureau (JCAB) have informed EASA that a review of the safety of passenger seats manufactured by Koito industries has disclosed discrepancies which include falsification of static, dynamic and flammability testing, as well as uncontrolled changes to production data (material and dimensional)."
+      "Falsified static, dynamic and flammability test evidence and uncontrolled changes to production material and dimensional data.",
+      "Incomplete Koito records and examples of fictitious test plots, non-representative flammability coupons and fictitious deformation values.",
+      "A high proportion of tested Koito seat models failed structural, flammability and occupant-injury requirements."
     ],
-    "causes": [],
+    "causes": [
+      "Long-running falsification and uncontrolled production-data changes, combined with incomplete retained records."
+    ],
     "unsafe_conditions": [
-      "In addition, JCAB confirmed that Koito records, showing evidence of falsification, could not be deemed complete.",
-      "The level of falsification and the length of time over which the falsification occurred, in combination with the lack of retained records, prompted EASA to deem that all Koito Seats exhibit unsafe conditions of varying degrees."
+      "All Koito design and manufacturing data must be treated as suspect.",
+      "Koito passenger seats exhibit unsafe conditions of varying degrees, with the exact risk requiring further structural and flammability testing."
     ],
-    "potential_consequences": [
-      "Two of the involved airframe manufacturers, Airbus and Boeing, may be in a position to assist in complying with the requirements of this AD.",
-      "This is because many of the seat models affected are similar among different operators, and data gathered to support one seat model may also be used to support other models."
+    "potential_consequences": [],
+    "affected_components": [
+      "Koito Industries passenger seats",
+      "Koito seat-bottom and seat-backrest cushions"
     ],
-    "affected_components": [],
     "intended_risk_mitigation": [
-      "This AD requires the affected seats to be replaced no later than 2 years after the effective date of this AD if no test is performed."
+      "Complete an agreed certification programme, remove affected seats, or perform the required flammability and structural testing and remove seats or cushions according to the applicable result-based deadline."
     ],
     "evidence_ids": [
       "EV-005",
@@ -214,29 +438,34 @@
   "requirements": [
     {
       "requirement_id": "REQ-001",
-      "paragraph_reference": "(1)",
+      "paragraph_reference": "(1.1)",
       "parent_requirement_id": null,
       "applicability_group_ids": [
         "APP-001"
       ],
       "action_types": [
+        "test_or_check",
         "records_review",
-        "inspection",
-        "replacement",
-        "modification"
+        "reporting"
       ],
-      "obligation": "mandatory",
-      "action_text": "(1) Within 2 years after the effective date of this AD, for each affected Time(s): passenger seat, perform one of the following three actions; (1.1) Successfully complete a full certification programme to show that the passenger seat and its installation comply with the appropriate certification basis. The certification programme plan and results must be presented to EASA for agreement. In addition it must be shown, through a process agreed by EASA, that each seat installed on an aeroplane is in conformance to the approved seat design. Following successful completion of the agreed programme, no further action is required, or (1.2) Remove the seat, or (1.3) Determine whether the seat is eligible to remain in service for a longer period in accordance with the relevant requirements of paragraphs (2) and (3) or (2) and (4) of this AD. The test/analysis plan and results, must be presented to EASA for agreement. If it has been demonstrated that the seat may remain in service for a longer period, at any time during that period the seat and its installation may be shown to fully comply with the appropriate certification basis, i.e. paragraph (1.1) above may still be followed.",
-      "objects_or_components": [],
-      "conditions": [],
+      "obligation": "conditional",
+      "action_text": "(1.1) Within 2 years after the effective date of this AD, successfully complete a full certification programme showing that the affected passenger seat and its installation comply with the appropriate certification basis; present the programme plan and results to EASA for agreement and show each installed seat conforms to the approved seat design.",
+      "objects_or_components": [
+        "Affected Koito passenger seat and installation"
+      ],
+      "conditions": [
+        "One of paragraphs (1.1), (1.2) or (1.3) must be completed for each affected passenger seat"
+      ],
       "method_publication_ids": [],
       "compliance_rules": [
         {
           "compliance_id": "CMP-001",
           "state": "present",
-          "raw_text": "(1) Within 2 years after the effective date of this AD, for each affected Time(s): passenger seat, perform one of the following three actions; (1.1) Successfully complete a full certification programme to show that the passenger seat and its installation comply with the appropriate certification basis. The certification programme plan and results must be presented to EASA for agreement. In addition it must be shown, through a process agreed by EASA, that each seat installed on an aeroplane is in conformance to the approved seat design. Following successful completion of the agreed programme, no further action is required, or (1.2) Remove the seat, or (1.3) Determine whether the seat is eligible to remain in service for a longer period in accordance with the relevant requirements of paragraphs (2) and (3) or (2) and (4) of this AD. The test/analysis plan and results, must be presented to EASA for agreement. If it has been demonstrated that the seat may remain in service for a longer period, at any time during that period the seat and its installation may be shown to fully comply with the appropriate certification basis, i.e. paragraph (1.1) above may still be followed.",
+          "raw_text": "(1.1) Within 2 years after the effective date of this AD, successfully complete a full certification programme showing that the affected passenger seat and its installation comply with the appropriate certification basis; present the programme plan and results to EASA for agreement and show each installed seat conforms to the approved seat design.",
           "logic": "conditional",
-          "conditions": [],
+          "conditions": [
+            "One of paragraphs (1.1), (1.2) or (1.3) must be completed for each affected passenger seat"
+          ],
           "initial_limits": [
             {
               "limit_id": "LIM-001",
@@ -247,10 +476,7 @@
               "reference_event": "effective date of this AD",
               "calendar_date": null,
               "evidence_ids": [
-                "EV-008",
-                "EV-009",
-                "EV-010",
-                "EV-011"
+                "EV-008"
               ]
             }
           ],
@@ -258,10 +484,86 @@
           "repetitive_intervals": [],
           "grace_periods": [],
           "evidence_ids": [
-            "EV-008",
-            "EV-009",
-            "EV-010",
-            "EV-011"
+            "EV-008"
+          ]
+        }
+      ],
+      "follow_on_requirement_ids": [],
+      "terminating_action": {
+        "state": "present",
+        "present": true,
+        "scope": "full",
+        "action_text": "Following successful completion of the agreed certification programme, no further action is required for that seat.",
+        "terminates_requirement_ids": [
+          "REQ-002",
+          "REQ-003",
+          "REQ-004",
+          "REQ-005",
+          "REQ-006",
+          "REQ-007",
+          "REQ-008",
+          "REQ-009",
+          "REQ-010",
+          "REQ-011",
+          "REQ-012",
+          "REQ-013",
+          "REQ-014"
+        ],
+        "evidence_ids": [
+          "EV-008"
+        ]
+      },
+      "evidence_ids": [
+        "EV-008"
+      ]
+    },
+    {
+      "requirement_id": "REQ-002",
+      "paragraph_reference": "(1.2)",
+      "parent_requirement_id": null,
+      "applicability_group_ids": [
+        "APP-001"
+      ],
+      "action_types": [
+        "remove"
+      ],
+      "obligation": "conditional",
+      "action_text": "(1.2) Within 2 years after the effective date of this AD, remove the affected passenger seat.",
+      "objects_or_components": [
+        "Affected Koito passenger seat"
+      ],
+      "conditions": [
+        "One of paragraphs (1.1), (1.2) or (1.3) must be completed for each affected passenger seat"
+      ],
+      "method_publication_ids": [],
+      "compliance_rules": [
+        {
+          "compliance_id": "CMP-002",
+          "state": "present",
+          "raw_text": "(1.2) Within 2 years after the effective date of this AD, remove the affected passenger seat.",
+          "logic": "conditional",
+          "conditions": [
+            "One of paragraphs (1.1), (1.2) or (1.3) must be completed for each affected passenger seat"
+          ],
+          "initial_limits": [
+            {
+              "limit_id": "LIM-002",
+              "relation": "within",
+              "quantity": 2,
+              "unit": "calendar_year",
+              "raw_value": "Within 2 years",
+              "reference_event": "effective date of this AD",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-008"
+              ]
+            }
+          ],
+          "is_repetitive": false,
+          "repetitive_intervals": [],
+          "grace_periods": [],
+          "evidence_ids": [
+            "EV-008"
           ]
         }
       ],
@@ -275,40 +577,104 @@
         "evidence_ids": []
       },
       "evidence_ids": [
-        "EV-008",
-        "EV-009",
-        "EV-010",
-        "EV-011"
+        "EV-008"
       ]
     },
     {
-      "requirement_id": "REQ-002",
+      "requirement_id": "REQ-003",
+      "paragraph_reference": "(1.3)",
+      "parent_requirement_id": null,
+      "applicability_group_ids": [
+        "APP-001"
+      ],
+      "action_types": [
+        "test_or_check",
+        "reporting"
+      ],
+      "obligation": "conditional",
+      "action_text": "(1.3) Within 2 years after the effective date of this AD, determine whether the affected seat is eligible to remain in service for a longer period by complying with paragraphs (2) and (3), or paragraphs (2) and (4), and present the test/analysis plan and results to EASA for agreement.",
+      "objects_or_components": [
+        "Affected Koito passenger seat and installation"
+      ],
+      "conditions": [
+        "One of paragraphs (1.1), (1.2) or (1.3) must be completed for each affected passenger seat"
+      ],
+      "method_publication_ids": [],
+      "compliance_rules": [
+        {
+          "compliance_id": "CMP-003",
+          "state": "present",
+          "raw_text": "(1.3) Within 2 years after the effective date of this AD, determine whether the affected seat is eligible to remain in service for a longer period by complying with paragraphs (2) and (3), or paragraphs (2) and (4), and present the test/analysis plan and results to EASA for agreement.",
+          "logic": "conditional",
+          "conditions": [
+            "One of paragraphs (1.1), (1.2) or (1.3) must be completed for each affected passenger seat"
+          ],
+          "initial_limits": [
+            {
+              "limit_id": "LIM-003",
+              "relation": "within",
+              "quantity": 2,
+              "unit": "calendar_year",
+              "raw_value": "Within 2 years",
+              "reference_event": "effective date of this AD",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-008"
+              ]
+            }
+          ],
+          "is_repetitive": false,
+          "repetitive_intervals": [],
+          "grace_periods": [],
+          "evidence_ids": [
+            "EV-008"
+          ]
+        }
+      ],
+      "follow_on_requirement_ids": [
+        "REQ-004",
+        "REQ-006",
+        "REQ-010"
+      ],
+      "terminating_action": {
+        "state": "not_stated",
+        "present": false,
+        "scope": "none",
+        "action_text": null,
+        "terminates_requirement_ids": [],
+        "evidence_ids": []
+      },
+      "evidence_ids": [
+        "EV-008"
+      ]
+    },
+    {
+      "requirement_id": "REQ-004",
       "paragraph_reference": "(2)",
       "parent_requirement_id": null,
       "applicability_group_ids": [
         "APP-001"
       ],
       "action_types": [
-        "records_review",
-        "inspection",
-        "replacement",
-        "modification"
+        "test_or_check"
       ],
       "obligation": "mandatory",
-      "action_text": "(2) Within 3 years after the effective date of this AD perform testing to determine whether the seat cushions (here defined as seat bottom and seat backrest, excluding head and leg rest cushions) comply with CS/JAR/FAR 25.853(c) (i.e. Appendix F Part II). (2.1) Remove Koito Industries seat cushions that are not shown to be compliant with the flammability testing defined by CS/JAR/FAR 25.853(c) (i.e. Appendix F Part II). Note 1: In order to account for unknown production non-conformities, test articles should be constructed from in-service cushions. The guidance in FAA AC 25.853-1 is applicable. It is also acceptable to test brand new test specimens, provided that it is shown that the in-service cushions consist of foams/ covers which were supplied to Koito and marked by a different production organisation approved by EASA and/or FAA. Test reports issued by any qualified design organisation acceptable to EASA, including Koito under JCAB supervision, will be acceptable. Any tests performed in the Koito seat cushion oil burner test facility before 23rd May 2011 are not acceptable. Replacement cushions for seats installed on aeroplanes required to meet CS/JAR/FAR 25.562 requirements (either by their original Certification Bases or Post TC Modifications) must have consistent seat bottom geometry, stiffness and density (measured according to accepted industry standards) as compared with the cushions they replace. However, compliance with CS/JAR/FAR 25.562(c)(2), i.e. lumbar load, does not need to be shown. EASA Form 110 Page 3/6 EASA AD No : 2011–0098",
-      "objects_or_components": [],
+      "action_text": "(2) Within 3 years after the effective date of this AD, test the seat-bottom and seat-backrest cushions, excluding head- and leg-rest cushions, to determine compliance with CS/JAR/FAR 25.853(c), Appendix F Part II.",
+      "objects_or_components": [
+        "Koito seat-bottom and seat-backrest cushions"
+      ],
       "conditions": [],
       "method_publication_ids": [],
       "compliance_rules": [
         {
-          "compliance_id": "CMP-002",
+          "compliance_id": "CMP-004",
           "state": "present",
-          "raw_text": "(2) Within 3 years after the effective date of this AD perform testing to determine whether the seat cushions (here defined as seat bottom and seat backrest, excluding head and leg rest cushions) comply with CS/JAR/FAR 25.853(c) (i.e. Appendix F Part II). (2.1) Remove Koito Industries seat cushions that are not shown to be compliant with the flammability testing defined by CS/JAR/FAR 25.853(c) (i.e. Appendix F Part II). Note 1: In order to account for unknown production non-conformities, test articles should be constructed from in-service cushions. The guidance in FAA AC 25.853-1 is applicable. It is also acceptable to test brand new test specimens, provided that it is shown that the in-service cushions consist of foams/ covers which were supplied to Koito and marked by a different production organisation approved by EASA and/or FAA. Test reports issued by any qualified design organisation acceptable to EASA, including Koito under JCAB supervision, will be acceptable. Any tests performed in the Koito seat cushion oil burner test facility before 23rd May 2011 are not acceptable. Replacement cushions for seats installed on aeroplanes required to meet CS/JAR/FAR 25.562 requirements (either by their original Certification Bases or Post TC Modifications) must have consistent seat bottom geometry, stiffness and density (measured according to accepted industry standards) as compared with the cushions they replace. However, compliance with CS/JAR/FAR 25.562(c)(2), i.e. lumbar load, does not need to be shown. EASA Form 110 Page 3/6 EASA AD No : 2011–0098",
+          "raw_text": "(2) Within 3 years after the effective date of this AD, test the seat-bottom and seat-backrest cushions, excluding head- and leg-rest cushions, to determine compliance with CS/JAR/FAR 25.853(c), Appendix F Part II.",
           "logic": "single",
           "conditions": [],
           "initial_limits": [
             {
-              "limit_id": "LIM-002",
+              "limit_id": "LIM-004",
               "relation": "within",
               "quantity": 3,
               "unit": "calendar_year",
@@ -316,10 +682,7 @@
               "reference_event": "effective date of this AD",
               "calendar_date": null,
               "evidence_ids": [
-                "EV-008",
-                "EV-009",
-                "EV-010",
-                "EV-011"
+                "EV-008"
               ]
             }
           ],
@@ -327,10 +690,72 @@
           "repetitive_intervals": [],
           "grace_periods": [],
           "evidence_ids": [
-            "EV-008",
-            "EV-009",
-            "EV-010",
-            "EV-011"
+            "EV-008"
+          ]
+        }
+      ],
+      "follow_on_requirement_ids": [
+        "REQ-005"
+      ],
+      "terminating_action": {
+        "state": "not_stated",
+        "present": false,
+        "scope": "none",
+        "action_text": null,
+        "terminates_requirement_ids": [],
+        "evidence_ids": []
+      },
+      "evidence_ids": [
+        "EV-008"
+      ]
+    },
+    {
+      "requirement_id": "REQ-005",
+      "paragraph_reference": "(2.1)",
+      "parent_requirement_id": "REQ-004",
+      "applicability_group_ids": [
+        "APP-001"
+      ],
+      "action_types": [
+        "remove"
+      ],
+      "obligation": "conditional",
+      "action_text": "(2.1) Remove Koito Industries seat cushions that are not shown to comply with the flammability testing required by CS/JAR/FAR 25.853(c), Appendix F Part II.",
+      "objects_or_components": [
+        "Non-compliant Koito seat cushions"
+      ],
+      "conditions": [
+        "Seat cushions are not shown to comply with CS/JAR/FAR 25.853(c)"
+      ],
+      "method_publication_ids": [],
+      "compliance_rules": [
+        {
+          "compliance_id": "CMP-005",
+          "state": "present",
+          "raw_text": "(2.1) Remove Koito Industries seat cushions that are not shown to comply with the flammability testing required by CS/JAR/FAR 25.853(c), Appendix F Part II.",
+          "logic": "conditional",
+          "conditions": [
+            "Non-compliant flammability-test result"
+          ],
+          "initial_limits": [
+            {
+              "limit_id": "LIM-005",
+              "relation": "within",
+              "quantity": 3,
+              "unit": "calendar_year",
+              "raw_value": "Within 3 years",
+              "reference_event": "effective date of this AD",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-008"
+              ]
+            }
+          ],
+          "is_repetitive": false,
+          "repetitive_intervals": [],
+          "grace_periods": [],
+          "evidence_ids": [
+            "EV-008"
           ]
         }
       ],
@@ -344,40 +769,108 @@
         "evidence_ids": []
       },
       "evidence_ids": [
-        "EV-008",
-        "EV-009",
-        "EV-010",
-        "EV-011"
+        "EV-008"
       ]
     },
     {
-      "requirement_id": "REQ-003",
+      "requirement_id": "REQ-006",
       "paragraph_reference": "(3)",
-      "parent_requirement_id": null,
+      "parent_requirement_id": "REQ-003",
       "applicability_group_ids": [
         "APP-001"
       ],
       "action_types": [
-        "records_review",
-        "inspection",
-        "replacement",
-        "modification"
+        "test_or_check"
       ],
-      "obligation": "mandatory",
-      "action_text": "(3) For aeroplanes required to meet CS/JAR/FAR 25.562 requirements (either by their original Certification Bases or Post TC Modifications) perform dynamic and/or static testing on passenger seats. (3.1) Within 10 years after the effective date of this AD remove Koito Industries passenger seats that have been shown to be compliant to CS/JAR/FAR 25.562(b)(2) and (c)(7), or (3.2) Within 6 years after the effective date of this AD remove Koito Industries passenger seats that have been shown to be compliant to CS/JAR/FAR 25.561(b)(3)(ii) and (b)(3)(iii) but have not been shown to be compliant to CS/JAR/FAR 25.562(b)(2) and (c)(7), or (3.3) Within 2 years after the effective date of this AD remove Koito Industries passenger seats for which: i) tests have neither been performed in accordance with CS/JAR/FAR 25.561(b)(3)(ii) and (b)(3)(iii), nor CS/JAR/FAR 25.562(b)(2) and (c)(7), or ii) tests in accordance with CS/JAR/FAR 25.561(b)(3)(ii) and (b)(3)(iii) and have been performed but failed, or iii) tests in accordance with CS/JAR/FAR 25.561(b)(3)(ii) and (b)(3)(iii) have not been performed but tests in accordance with CS/JAR/FAR 25.562(b)(2) and (c)(7) have been performed and have failed. Note 2: With regards to the load factors to be applied when testing to the CS/JAR/FAR 25.561 paragraphs specified above, it is acceptable to consider the airworthiness code amendment included in the original certification basis of the aeroplane or that used for the approval of the Koito Industries seat installation, as appropriate. The use of an EASA Part 21 DOA holder to develop and conduct the test programme (in accordance with their procedures, including the control and oversight of the test facility) will facilitate the EASA approval process. The use of a new build test article is acceptable for static testing. However, in order to account for unknown production non- conformities, test articles for dynamic testing must be seats removed from service or spare seats delivered at the same time as the aeroplane shipset. For test articles consisting of a seat from the fleet (or from spares), conformity checks should confirm aspects such as matching the seat part number to that noted in the test plan, of noting the general condition of the seat, of noting revisions/modifications that have been made to the seat (typically noted on modification placards), and of verifying the date of manufacture. It is not required to test all in-service seat part numbers. The use of similarity is acceptable to show that the results obtained from a chosen test article are valid for other seat part numbers. Koito interface loads reports/test plans/drawings may be used as input data for the similarity analysis. The similarity methodology does not necessarily need to follow standard practice, i.e. all guidelines in FAA AC 25.562-1B, however, the methodology must be agreed with the Agency. EASA Form 110 Page 4/6 EASA AD No : 2011–0098 The generation of sharp edges or injurious surfaces during the structural testing performed to comply with this AD may also be considered failure criteria. Therefore test results must include full recording of any post-test sharp edges and injurious surfaces.",
-      "objects_or_components": [],
-      "conditions": [],
+      "obligation": "conditional",
+      "action_text": "(3) For aeroplanes required to meet CS/JAR/FAR 25.562, perform dynamic and/or static testing on Koito passenger seats to support the paragraph (1.3) determination.",
+      "objects_or_components": [
+        "Koito passenger seats"
+      ],
+      "conditions": [
+        "Aeroplane is required to meet CS/JAR/FAR 25.562",
+        "Paragraph (1.3) route is used"
+      ],
       "method_publication_ids": [],
       "compliance_rules": [
         {
-          "compliance_id": "CMP-003",
+          "compliance_id": "CMP-006",
           "state": "present",
-          "raw_text": "(3) For aeroplanes required to meet CS/JAR/FAR 25.562 requirements (either by their original Certification Bases or Post TC Modifications) perform dynamic and/or static testing on passenger seats. (3.1) Within 10 years after the effective date of this AD remove Koito Industries passenger seats that have been shown to be compliant to CS/JAR/FAR 25.562(b)(2) and (c)(7), or (3.2) Within 6 years after the effective date of this AD remove Koito Industries passenger seats that have been shown to be compliant to CS/JAR/FAR 25.561(b)(3)(ii) and (b)(3)(iii) but have not been shown to be compliant to CS/JAR/FAR 25.562(b)(2) and (c)(7), or (3.3) Within 2 years after the effective date of this AD remove Koito Industries passenger seats for which: i) tests have neither been performed in accordance with CS/JAR/FAR 25.561(b)(3)(ii) and (b)(3)(iii), nor CS/JAR/FAR 25.562(b)(2) and (c)(7), or ii) tests in accordance with CS/JAR/FAR 25.561(b)(3)(ii) and (b)(3)(iii) and have been performed but failed, or iii) tests in accordance with CS/JAR/FAR 25.561(b)(3)(ii) and (b)(3)(iii) have not been performed but tests in accordance with CS/JAR/FAR 25.562(b)(2) and (c)(7) have been performed and have failed. Note 2: With regards to the load factors to be applied when testing to the CS/JAR/FAR 25.561 paragraphs specified above, it is acceptable to consider the airworthiness code amendment included in the original certification basis of the aeroplane or that used for the approval of the Koito Industries seat installation, as appropriate. The use of an EASA Part 21 DOA holder to develop and conduct the test programme (in accordance with their procedures, including the control and oversight of the test facility) will facilitate the EASA approval process. The use of a new build test article is acceptable for static testing. However, in order to account for unknown production non- conformities, test articles for dynamic testing must be seats removed from service or spare seats delivered at the same time as the aeroplane shipset. For test articles consisting of a seat from the fleet (or from spares), conformity checks should confirm aspects such as matching the seat part number to that noted in the test plan, of noting the general condition of the seat, of noting revisions/modifications that have been made to the seat (typically noted on modification placards), and of verifying the date of manufacture. It is not required to test all in-service seat part numbers. The use of similarity is acceptable to show that the results obtained from a chosen test article are valid for other seat part numbers. Koito interface loads reports/test plans/drawings may be used as input data for the similarity analysis. The similarity methodology does not necessarily need to follow standard practice, i.e. all guidelines in FAA AC 25.562-1B, however, the methodology must be agreed with the Agency. EASA Form 110 Page 4/6 EASA AD No : 2011–0098 The generation of sharp edges or injurious surfaces during the structural testing performed to comply with this AD may also be considered failure criteria. Therefore test results must include full recording of any post-test sharp edges and injurious surfaces.",
-          "logic": "all",
-          "conditions": [],
+          "raw_text": "(3) For aeroplanes required to meet CS/JAR/FAR 25.562, perform dynamic and/or static testing on Koito passenger seats to support the paragraph (1.3) determination.",
+          "logic": "conditional",
+          "conditions": [
+            "Testing supports the paragraph (1.3) determination"
+          ],
           "initial_limits": [
             {
-              "limit_id": "LIM-003",
+              "limit_id": "LIM-006",
+              "relation": "within",
+              "quantity": 2,
+              "unit": "calendar_year",
+              "raw_value": "Within 2 years",
+              "reference_event": "effective date of this AD",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-009"
+              ]
+            }
+          ],
+          "is_repetitive": false,
+          "repetitive_intervals": [],
+          "grace_periods": [],
+          "evidence_ids": [
+            "EV-009"
+          ]
+        }
+      ],
+      "follow_on_requirement_ids": [
+        "REQ-007",
+        "REQ-008",
+        "REQ-009"
+      ],
+      "terminating_action": {
+        "state": "not_stated",
+        "present": false,
+        "scope": "none",
+        "action_text": null,
+        "terminates_requirement_ids": [],
+        "evidence_ids": []
+      },
+      "evidence_ids": [
+        "EV-009"
+      ]
+    },
+    {
+      "requirement_id": "REQ-007",
+      "paragraph_reference": "(3.1)",
+      "parent_requirement_id": "REQ-006",
+      "applicability_group_ids": [
+        "APP-001"
+      ],
+      "action_types": [
+        "remove"
+      ],
+      "obligation": "conditional",
+      "action_text": "(3.1) Within 10 years after the effective date of this AD, remove Koito passenger seats shown to comply with CS/JAR/FAR 25.562(b)(2) and (c)(7).",
+      "objects_or_components": [
+        "Koito passenger seats"
+      ],
+      "conditions": [
+        "Seat complies with CS/JAR/FAR 25.562(b)(2) and (c)(7)"
+      ],
+      "method_publication_ids": [],
+      "compliance_rules": [
+        {
+          "compliance_id": "CMP-007",
+          "state": "present",
+          "raw_text": "(3.1) Within 10 years after the effective date of this AD, remove Koito passenger seats shown to comply with CS/JAR/FAR 25.562(b)(2) and (c)(7).",
+          "logic": "conditional",
+          "conditions": [
+            "Specified dynamic-test compliance demonstrated"
+          ],
+          "initial_limits": [
+            {
+              "limit_id": "LIM-007",
               "relation": "within",
               "quantity": 10,
               "unit": "calendar_year",
@@ -385,14 +878,62 @@
               "reference_event": "effective date of this AD",
               "calendar_date": null,
               "evidence_ids": [
-                "EV-008",
-                "EV-009",
-                "EV-010",
-                "EV-011"
+                "EV-009"
               ]
-            },
+            }
+          ],
+          "is_repetitive": false,
+          "repetitive_intervals": [],
+          "grace_periods": [],
+          "evidence_ids": [
+            "EV-009"
+          ]
+        }
+      ],
+      "follow_on_requirement_ids": [],
+      "terminating_action": {
+        "state": "not_stated",
+        "present": false,
+        "scope": "none",
+        "action_text": null,
+        "terminates_requirement_ids": [],
+        "evidence_ids": []
+      },
+      "evidence_ids": [
+        "EV-009"
+      ]
+    },
+    {
+      "requirement_id": "REQ-008",
+      "paragraph_reference": "(3.2)",
+      "parent_requirement_id": "REQ-006",
+      "applicability_group_ids": [
+        "APP-001"
+      ],
+      "action_types": [
+        "remove"
+      ],
+      "obligation": "conditional",
+      "action_text": "(3.2) Within 6 years after the effective date of this AD, remove Koito passenger seats shown to comply with CS/JAR/FAR 25.561(b)(3)(ii) and (b)(3)(iii), but not shown to comply with CS/JAR/FAR 25.562(b)(2) and (c)(7).",
+      "objects_or_components": [
+        "Koito passenger seats"
+      ],
+      "conditions": [
+        "Seat complies with CS/JAR/FAR 25.561(b)(3)(ii) and (b)(3)(iii) but is not shown to comply with CS/JAR/FAR 25.562(b)(2) and (c)(7)"
+      ],
+      "method_publication_ids": [],
+      "compliance_rules": [
+        {
+          "compliance_id": "CMP-008",
+          "state": "present",
+          "raw_text": "(3.2) Within 6 years after the effective date of this AD, remove Koito passenger seats shown to comply with CS/JAR/FAR 25.561(b)(3)(ii) and (b)(3)(iii), but not shown to comply with CS/JAR/FAR 25.562(b)(2) and (c)(7).",
+          "logic": "conditional",
+          "conditions": [
+            "Static compliance but no demonstrated dynamic compliance"
+          ],
+          "initial_limits": [
             {
-              "limit_id": "LIM-004",
+              "limit_id": "LIM-008",
               "relation": "within",
               "quantity": 6,
               "unit": "calendar_year",
@@ -400,25 +941,7 @@
               "reference_event": "effective date of this AD",
               "calendar_date": null,
               "evidence_ids": [
-                "EV-008",
-                "EV-009",
-                "EV-010",
-                "EV-011"
-              ]
-            },
-            {
-              "limit_id": "LIM-005",
-              "relation": "within",
-              "quantity": 2,
-              "unit": "calendar_year",
-              "raw_value": "Within 2 years",
-              "reference_event": "effective date of this AD",
-              "calendar_date": null,
-              "evidence_ids": [
-                "EV-008",
-                "EV-009",
-                "EV-010",
-                "EV-011"
+                "EV-009"
               ]
             }
           ],
@@ -426,10 +949,7 @@
           "repetitive_intervals": [],
           "grace_periods": [],
           "evidence_ids": [
-            "EV-008",
-            "EV-009",
-            "EV-010",
-            "EV-011"
+            "EV-009"
           ]
         }
       ],
@@ -443,40 +963,170 @@
         "evidence_ids": []
       },
       "evidence_ids": [
-        "EV-008",
-        "EV-009",
-        "EV-010",
-        "EV-011"
+        "EV-009"
       ]
     },
     {
-      "requirement_id": "REQ-004",
-      "paragraph_reference": "(4)",
-      "parent_requirement_id": null,
+      "requirement_id": "REQ-009",
+      "paragraph_reference": "(3.3)",
+      "parent_requirement_id": "REQ-006",
       "applicability_group_ids": [
         "APP-001"
       ],
       "action_types": [
-        "records_review",
-        "inspection",
-        "replacement",
-        "modification"
+        "remove"
       ],
-      "obligation": "mandatory",
-      "action_text": "(4) For aeroplanes NOT required to meet any CS/JAR/FAR 25.562 requirements (either by their original Certification Bases or Post TC Modifications) perform static testing on passenger seats. (4.1) Within 10 years after the effective date of this AD remove Koito Industries passenger seats that have been shown to be compliant to CS/JAR/FAR 25.561(b)(3)(ii) and (b)(3)(iii), or (4.2) Within 2 years after the effective date of this AD remove Koito Industries passenger seats that are not shown to be compliant to CS/JAR/FAR 25.561(b)(3)(ii) and (b)(3)(iii). Note 3: With regards to the load factors to be applied when testing to the CS/JAR/FAR 25.561 paragraphs specified above, it is acceptable to consider the airworthiness code amendment included in the original certification basis of the aeroplane or that used for the approval of the Koito Industries seat installation, as appropriate. The use of an EASA Part 21 DOA holder to develop and conduct the test programme (in accordance with their procedures, including the control and oversight of the test facility) will facilitate the EASA approval process. The use of a new build test article is acceptable for static testing. However, if a test article consisting of a seat from the fleet (or from spares) is used, conformity checks should confirm aspects such as matching the seat part number to that noted in the test plan, of noting the general condition of the seat, of noting revisions/modifications that have been made to the seat (typically noted on modification placards), and of verifying the date of manufacture. It is not required to test all in-service seat part numbers. The use of similarity is acceptable to show that the results obtained from a chosen test article are valid for other seat part numbers. Koito Interface Loads Reports/test plans/drawings may be used as input data for the similarity analysis. The similarity methodology must be agreed with EASA. The generation of sharp edges or injurious surfaces during the structural testing performed to comply with this AD may also be considered failure criteria. Therefore test results must include full recording of any post-test sharp edges and injurious surfaces.",
-      "objects_or_components": [],
-      "conditions": [],
+      "obligation": "conditional",
+      "action_text": "(3.3) Within 2 years after the effective date of this AD, remove Koito passenger seats for which the specified CS/JAR/FAR 25.561 and 25.562 tests were not performed or the applicable performed tests failed.",
+      "objects_or_components": [
+        "Koito passenger seats"
+      ],
+      "conditions": [
+        "Required structural tests were not performed or applicable tests failed"
+      ],
       "method_publication_ids": [],
       "compliance_rules": [
         {
-          "compliance_id": "CMP-004",
+          "compliance_id": "CMP-009",
           "state": "present",
-          "raw_text": "(4) For aeroplanes NOT required to meet any CS/JAR/FAR 25.562 requirements (either by their original Certification Bases or Post TC Modifications) perform static testing on passenger seats. (4.1) Within 10 years after the effective date of this AD remove Koito Industries passenger seats that have been shown to be compliant to CS/JAR/FAR 25.561(b)(3)(ii) and (b)(3)(iii), or (4.2) Within 2 years after the effective date of this AD remove Koito Industries passenger seats that are not shown to be compliant to CS/JAR/FAR 25.561(b)(3)(ii) and (b)(3)(iii). Note 3: With regards to the load factors to be applied when testing to the CS/JAR/FAR 25.561 paragraphs specified above, it is acceptable to consider the airworthiness code amendment included in the original certification basis of the aeroplane or that used for the approval of the Koito Industries seat installation, as appropriate. The use of an EASA Part 21 DOA holder to develop and conduct the test programme (in accordance with their procedures, including the control and oversight of the test facility) will facilitate the EASA approval process. The use of a new build test article is acceptable for static testing. However, if a test article consisting of a seat from the fleet (or from spares) is used, conformity checks should confirm aspects such as matching the seat part number to that noted in the test plan, of noting the general condition of the seat, of noting revisions/modifications that have been made to the seat (typically noted on modification placards), and of verifying the date of manufacture. It is not required to test all in-service seat part numbers. The use of similarity is acceptable to show that the results obtained from a chosen test article are valid for other seat part numbers. Koito Interface Loads Reports/test plans/drawings may be used as input data for the similarity analysis. The similarity methodology must be agreed with EASA. The generation of sharp edges or injurious surfaces during the structural testing performed to comply with this AD may also be considered failure criteria. Therefore test results must include full recording of any post-test sharp edges and injurious surfaces.",
+          "raw_text": "(3.3) Within 2 years after the effective date of this AD, remove Koito passenger seats for which the specified CS/JAR/FAR 25.561 and 25.562 tests were not performed or the applicable performed tests failed.",
           "logic": "conditional",
-          "conditions": [],
+          "conditions": [
+            "No acceptable structural-test basis"
+          ],
           "initial_limits": [
             {
-              "limit_id": "LIM-006",
+              "limit_id": "LIM-009",
+              "relation": "within",
+              "quantity": 2,
+              "unit": "calendar_year",
+              "raw_value": "Within 2 years",
+              "reference_event": "effective date of this AD",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-009"
+              ]
+            }
+          ],
+          "is_repetitive": false,
+          "repetitive_intervals": [],
+          "grace_periods": [],
+          "evidence_ids": [
+            "EV-009"
+          ]
+        }
+      ],
+      "follow_on_requirement_ids": [],
+      "terminating_action": {
+        "state": "not_stated",
+        "present": false,
+        "scope": "none",
+        "action_text": null,
+        "terminates_requirement_ids": [],
+        "evidence_ids": []
+      },
+      "evidence_ids": [
+        "EV-009"
+      ]
+    },
+    {
+      "requirement_id": "REQ-010",
+      "paragraph_reference": "(4)",
+      "parent_requirement_id": "REQ-003",
+      "applicability_group_ids": [
+        "APP-001"
+      ],
+      "action_types": [
+        "test_or_check"
+      ],
+      "obligation": "conditional",
+      "action_text": "(4) For aeroplanes not required to meet CS/JAR/FAR 25.562, perform static testing on Koito passenger seats to support the paragraph (1.3) determination.",
+      "objects_or_components": [
+        "Koito passenger seats"
+      ],
+      "conditions": [
+        "Aeroplane is not required to meet CS/JAR/FAR 25.562",
+        "Paragraph (1.3) route is used"
+      ],
+      "method_publication_ids": [],
+      "compliance_rules": [
+        {
+          "compliance_id": "CMP-010",
+          "state": "present",
+          "raw_text": "(4) For aeroplanes not required to meet CS/JAR/FAR 25.562, perform static testing on Koito passenger seats to support the paragraph (1.3) determination.",
+          "logic": "conditional",
+          "conditions": [
+            "Testing supports the paragraph (1.3) determination"
+          ],
+          "initial_limits": [
+            {
+              "limit_id": "LIM-010",
+              "relation": "within",
+              "quantity": 2,
+              "unit": "calendar_year",
+              "raw_value": "Within 2 years",
+              "reference_event": "effective date of this AD",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-010"
+              ]
+            }
+          ],
+          "is_repetitive": false,
+          "repetitive_intervals": [],
+          "grace_periods": [],
+          "evidence_ids": [
+            "EV-010"
+          ]
+        }
+      ],
+      "follow_on_requirement_ids": [
+        "REQ-011",
+        "REQ-012"
+      ],
+      "terminating_action": {
+        "state": "not_stated",
+        "present": false,
+        "scope": "none",
+        "action_text": null,
+        "terminates_requirement_ids": [],
+        "evidence_ids": []
+      },
+      "evidence_ids": [
+        "EV-010"
+      ]
+    },
+    {
+      "requirement_id": "REQ-011",
+      "paragraph_reference": "(4.1)",
+      "parent_requirement_id": "REQ-010",
+      "applicability_group_ids": [
+        "APP-001"
+      ],
+      "action_types": [
+        "remove"
+      ],
+      "obligation": "conditional",
+      "action_text": "(4.1) Within 10 years after the effective date of this AD, remove Koito passenger seats shown to comply with CS/JAR/FAR 25.561(b)(3)(ii) and (b)(3)(iii).",
+      "objects_or_components": [
+        "Koito passenger seats"
+      ],
+      "conditions": [
+        "Seat complies with CS/JAR/FAR 25.561(b)(3)(ii) and (b)(3)(iii)"
+      ],
+      "method_publication_ids": [],
+      "compliance_rules": [
+        {
+          "compliance_id": "CMP-011",
+          "state": "present",
+          "raw_text": "(4.1) Within 10 years after the effective date of this AD, remove Koito passenger seats shown to comply with CS/JAR/FAR 25.561(b)(3)(ii) and (b)(3)(iii).",
+          "logic": "conditional",
+          "conditions": [
+            "Specified static-test compliance demonstrated"
+          ],
+          "initial_limits": [
+            {
+              "limit_id": "LIM-011",
               "relation": "within",
               "quantity": 10,
               "unit": "calendar_year",
@@ -484,14 +1134,62 @@
               "reference_event": "effective date of this AD",
               "calendar_date": null,
               "evidence_ids": [
-                "EV-008",
-                "EV-009",
-                "EV-010",
-                "EV-011"
+                "EV-010"
               ]
-            },
+            }
+          ],
+          "is_repetitive": false,
+          "repetitive_intervals": [],
+          "grace_periods": [],
+          "evidence_ids": [
+            "EV-010"
+          ]
+        }
+      ],
+      "follow_on_requirement_ids": [],
+      "terminating_action": {
+        "state": "not_stated",
+        "present": false,
+        "scope": "none",
+        "action_text": null,
+        "terminates_requirement_ids": [],
+        "evidence_ids": []
+      },
+      "evidence_ids": [
+        "EV-010"
+      ]
+    },
+    {
+      "requirement_id": "REQ-012",
+      "paragraph_reference": "(4.2)",
+      "parent_requirement_id": "REQ-010",
+      "applicability_group_ids": [
+        "APP-001"
+      ],
+      "action_types": [
+        "remove"
+      ],
+      "obligation": "conditional",
+      "action_text": "(4.2) Within 2 years after the effective date of this AD, remove Koito passenger seats not shown to comply with CS/JAR/FAR 25.561(b)(3)(ii) and (b)(3)(iii).",
+      "objects_or_components": [
+        "Koito passenger seats"
+      ],
+      "conditions": [
+        "Seat is not shown to comply with CS/JAR/FAR 25.561(b)(3)(ii) and (b)(3)(iii)"
+      ],
+      "method_publication_ids": [],
+      "compliance_rules": [
+        {
+          "compliance_id": "CMP-012",
+          "state": "present",
+          "raw_text": "(4.2) Within 2 years after the effective date of this AD, remove Koito passenger seats not shown to comply with CS/JAR/FAR 25.561(b)(3)(ii) and (b)(3)(iii).",
+          "logic": "conditional",
+          "conditions": [
+            "No acceptable static-test compliance demonstrated"
+          ],
+          "initial_limits": [
             {
-              "limit_id": "LIM-007",
+              "limit_id": "LIM-012",
               "relation": "within",
               "quantity": 2,
               "unit": "calendar_year",
@@ -499,8 +1197,69 @@
               "reference_event": "effective date of this AD",
               "calendar_date": null,
               "evidence_ids": [
-                "EV-008",
-                "EV-009",
+                "EV-010"
+              ]
+            }
+          ],
+          "is_repetitive": false,
+          "repetitive_intervals": [],
+          "grace_periods": [],
+          "evidence_ids": [
+            "EV-010"
+          ]
+        }
+      ],
+      "follow_on_requirement_ids": [],
+      "terminating_action": {
+        "state": "not_stated",
+        "present": false,
+        "scope": "none",
+        "action_text": null,
+        "terminates_requirement_ids": [],
+        "evidence_ids": []
+      },
+      "evidence_ids": [
+        "EV-010"
+      ]
+    },
+    {
+      "requirement_id": "REQ-013",
+      "paragraph_reference": "(5)",
+      "parent_requirement_id": null,
+      "applicability_group_ids": [
+        "APP-001"
+      ],
+      "action_types": [
+        "prohibition"
+      ],
+      "obligation": "prohibited",
+      "action_text": "(5) After the effective date of this AD, do not install any Koito Industries passenger seat or seat component on any aeroplane unless it complies with this AD; any use outside the expressly permitted continued-use, direct-spare or rearrangement cases is a new installation approval and must comply with all regulations.",
+      "objects_or_components": [
+        "Koito passenger seats and seat components"
+      ],
+      "conditions": [
+        "Unless compliant with this AD"
+      ],
+      "method_publication_ids": [],
+      "compliance_rules": [
+        {
+          "compliance_id": "CMP-013",
+          "state": "present",
+          "raw_text": "(5) After the effective date of this AD, do not install any Koito Industries passenger seat or seat component on any aeroplane unless it complies with this AD; any use outside the expressly permitted continued-use, direct-spare or rearrangement cases is a new installation approval and must comply with all regulations.",
+          "logic": "conditional",
+          "conditions": [
+            "Installation or use of Koito seat/seat component"
+          ],
+          "initial_limits": [
+            {
+              "limit_id": "LIM-013",
+              "relation": "after",
+              "quantity": null,
+              "unit": "other",
+              "raw_value": "After the effective date of this AD",
+              "reference_event": "effective date of this AD",
+              "calendar_date": null,
+              "evidence_ids": [
                 "EV-010",
                 "EV-011"
               ]
@@ -510,8 +1269,6 @@
           "repetitive_intervals": [],
           "grace_periods": [],
           "evidence_ids": [
-            "EV-008",
-            "EV-009",
             "EV-010",
             "EV-011"
           ]
@@ -527,98 +1284,43 @@
         "evidence_ids": []
       },
       "evidence_ids": [
-        "EV-008",
-        "EV-009",
         "EV-010",
         "EV-011"
       ]
     },
     {
-      "requirement_id": "REQ-005",
-      "paragraph_reference": "(5)",
-      "parent_requirement_id": null,
-      "applicability_group_ids": [
-        "APP-001"
-      ],
-      "action_types": [
-        "records_review",
-        "inspection",
-        "replacement",
-        "modification"
-      ],
-      "obligation": "mandatory",
-      "action_text": "(5) After the effective date of this AD, do not install any Koito Industries passenger seat or seat component on any aeroplane, unless in compliance with the requirements of this AD. Koito Industries passenger seats that successfully complete the relevant requirements of paragraphs (3) or (4) of this AD are permitted to remain in service for the defined length of time but are limited in how they can be used as follows: EASA Form 110 Page 5/6 EASA AD No : 2011–0098 i)They may remain installed on the aeroplane; ii)New seats/components and seats/components removed from service may be installed as direct spares for the same part number seats or components; iii)Re-arrangement of the existing installed seats is acceptable following the same installation instructions and limitations as the original certification (e.g., if the original limitations allowed 32” to 34” pitch, the new layout shall be pitched within that range); Any other use, including installation on aeroplanes that do not have Koito seats installed on the effective date of this AD, would be considered a new installation approval and must comply with all regulations.",
-      "objects_or_components": [],
-      "conditions": [],
-      "method_publication_ids": [],
-      "compliance_rules": [
-        {
-          "compliance_id": "CMP-005",
-          "state": "present",
-          "raw_text": "(5) After the effective date of this AD, do not install any Koito Industries passenger seat or seat component on any aeroplane, unless in compliance with the requirements of this AD. Koito Industries passenger seats that successfully complete the relevant requirements of paragraphs (3) or (4) of this AD are permitted to remain in service for the defined length of time but are limited in how they can be used as follows: EASA Form 110 Page 5/6 EASA AD No : 2011–0098 i)They may remain installed on the aeroplane; ii)New seats/components and seats/components removed from service may be installed as direct spares for the same part number seats or components; iii)Re-arrangement of the existing installed seats is acceptable following the same installation instructions and limitations as the original certification (e.g., if the original limitations allowed 32” to 34” pitch, the new layout shall be pitched within that range); Any other use, including installation on aeroplanes that do not have Koito seats installed on the effective date of this AD, would be considered a new installation approval and must comply with all regulations.",
-          "logic": "conditional",
-          "conditions": [],
-          "initial_limits": [],
-          "is_repetitive": false,
-          "repetitive_intervals": [],
-          "grace_periods": [],
-          "evidence_ids": [
-            "EV-008",
-            "EV-009",
-            "EV-010",
-            "EV-011"
-          ]
-        }
-      ],
-      "follow_on_requirement_ids": [],
-      "terminating_action": {
-        "state": "not_stated",
-        "present": false,
-        "scope": "none",
-        "action_text": null,
-        "terminates_requirement_ids": [],
-        "evidence_ids": []
-      },
-      "evidence_ids": [
-        "EV-008",
-        "EV-009",
-        "EV-010",
-        "EV-011"
-      ]
-    },
-    {
-      "requirement_id": "REQ-006",
+      "requirement_id": "REQ-014",
       "paragraph_reference": "(6)",
       "parent_requirement_id": null,
       "applicability_group_ids": [
         "APP-001"
       ],
       "action_types": [
-        "records_review",
-        "inspection",
-        "replacement",
-        "modification"
+        "other"
       ],
-      "obligation": "mandatory",
-      "action_text": "(6) Design Changes to Seats Wear-out component replacement parts such as food trays, arm rest covers, and other non-structural members may be approved by minor modification and installed on seats affected by this AD, until the compliance time as specified in this AD. Any other category of change (e.g. In-Flight Entertainment upgrade) must be discussed with EASA.",
-      "objects_or_components": [],
-      "conditions": [],
+      "obligation": "conditional",
+      "action_text": "(6) For seats affected by this AD, any design change other than wear-out replacement parts such as food trays, arm-rest covers and other non-structural members must be discussed with EASA.",
+      "objects_or_components": [
+        "Design changes to affected Koito seats"
+      ],
+      "conditions": [
+        "Design change is not a wear-out non-structural replacement part"
+      ],
       "method_publication_ids": [],
       "compliance_rules": [
         {
-          "compliance_id": "CMP-006",
+          "compliance_id": "CMP-014",
           "state": "present",
-          "raw_text": "(6) Design Changes to Seats Wear-out component replacement parts such as food trays, arm rest covers, and other non-structural members may be approved by minor modification and installed on seats affected by this AD, until the compliance time as specified in this AD. Any other category of change (e.g. In-Flight Entertainment upgrade) must be discussed with EASA.",
-          "logic": "single",
-          "conditions": [],
+          "raw_text": "(6) For seats affected by this AD, any design change other than wear-out replacement parts such as food trays, arm-rest covers and other non-structural members must be discussed with EASA.",
+          "logic": "conditional",
+          "conditions": [
+            "Any other category of design change, such as an in-flight-entertainment upgrade"
+          ],
           "initial_limits": [],
           "is_repetitive": false,
           "repetitive_intervals": [],
           "grace_periods": [],
           "evidence_ids": [
-            "EV-008",
-            "EV-009",
-            "EV-010",
             "EV-011"
           ]
         }
@@ -633,14 +1335,53 @@
         "evidence_ids": []
       },
       "evidence_ids": [
-        "EV-008",
-        "EV-009",
-        "EV-010",
         "EV-011"
       ]
     }
   ],
-  "exceptions": [],
+  "exceptions": [
+    {
+      "exception_id": "EXC-001",
+      "text": "Koito seats that successfully complete the applicable paragraph (3) or (4) requirements may remain installed for the defined period.",
+      "applies_to_requirement_ids": [
+        "REQ-013"
+      ],
+      "evidence_ids": [
+        "EV-010",
+        "EV-011"
+      ]
+    },
+    {
+      "exception_id": "EXC-002",
+      "text": "New seats/components and seats/components removed from service may be installed as direct spares for the same part number seats or components.",
+      "applies_to_requirement_ids": [
+        "REQ-013"
+      ],
+      "evidence_ids": [
+        "EV-011"
+      ]
+    },
+    {
+      "exception_id": "EXC-003",
+      "text": "Existing installed seats may be rearranged using the same installation instructions and limitations as the original certification.",
+      "applies_to_requirement_ids": [
+        "REQ-013"
+      ],
+      "evidence_ids": [
+        "EV-011"
+      ]
+    },
+    {
+      "exception_id": "EXC-004",
+      "text": "Wear-out replacement parts such as food trays, arm-rest covers and other non-structural members may be approved by minor modification and installed until the applicable compliance time.",
+      "applies_to_requirement_ids": [
+        "REQ-014"
+      ],
+      "evidence_ids": [
+        "EV-011"
+      ]
+    }
+  ],
   "previous_action_credit": [],
   "referenced_publications": [],
   "relationships": [],
@@ -670,20 +1411,25 @@
   ],
   "classification": {
     "airbus_families": [
-      "Multi-family"
+      "A300/A310",
+      "A318-A321",
+      "A330",
+      "A340"
     ],
     "ata_chapters": [
       "25"
     ],
     "action_types": [
+      "test_or_check",
       "records_review",
-      "inspection",
-      "replacement",
-      "modification"
+      "reporting",
+      "remove",
+      "prohibition",
+      "other"
     ],
     "frequency": "one_time",
     "emergency_status": "standard",
-    "terminating_action_present": false,
+    "terminating_action_present": true,
     "table_or_appendix_present": false,
     "compliance_complexity": "conditional_branches",
     "human_confirmed": false,
@@ -692,7 +1438,6 @@
       "EV-003",
       "EV-004",
       "EV-005",
-      "EV-006",
       "EV-008",
       "EV-009",
       "EV-010",
@@ -924,14 +1669,14 @@
       "value_state": "present",
       "origin": "auto_extracted",
       "verification_status": "unreviewed",
-      "confidence": 0.995,
+      "confidence": 0.99,
       "evidence_ids": [
         "EV-001"
       ],
-      "annotator_id": "codex-extension-extractor",
+      "annotator_id": "gpt-5.6-source-auditor",
       "derivation_rule": null,
       "input_field_paths": [],
-      "notes": "Section completion: AD identity"
+      "notes": "AD identity source-audited; no human acceptance claimed."
     },
     {
       "assertion_id": "AST-002",
@@ -943,10 +1688,10 @@
       "evidence_ids": [
         "EV-001"
       ],
-      "annotator_id": "codex-extension-extractor",
+      "annotator_id": "gpt-5.6-source-auditor",
       "derivation_rule": null,
       "input_field_paths": [],
-      "notes": "Section completion: publication"
+      "notes": "Publication metadata source-audited; no human acceptance claimed."
     },
     {
       "assertion_id": "AST-003",
@@ -954,15 +1699,15 @@
       "value_state": "present",
       "origin": "auto_extracted",
       "verification_status": "unreviewed",
-      "confidence": 0.95,
+      "confidence": 0.99,
       "evidence_ids": [
         "EV-003",
         "EV-004"
       ],
-      "annotator_id": "codex-extension-extractor",
+      "annotator_id": "gpt-5.6-source-auditor",
       "derivation_rule": null,
       "input_field_paths": [],
-      "notes": "Section completion: applicability_groups"
+      "notes": "Applicability source-audited; no human acceptance claimed."
     },
     {
       "assertion_id": "AST-004",
@@ -970,367 +1715,138 @@
       "value_state": "absent_in_source",
       "origin": "auto_extracted",
       "verification_status": "unreviewed",
-      "confidence": 0.9,
+      "confidence": 0.95,
       "evidence_ids": [],
-      "annotator_id": "codex-extension-extractor",
+      "annotator_id": "gpt-5.6-source-auditor",
       "derivation_rule": null,
       "input_field_paths": [],
-      "notes": "Section completion: definitions"
+      "notes": "Definitions source-audited; no human acceptance claimed."
     },
     {
       "assertion_id": "AST-005",
-      "field_path": "/requirements",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.95,
-      "evidence_ids": [
-        "EV-008",
-        "EV-009",
-        "EV-010",
-        "EV-011"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "Section completion: requirements"
-    },
-    {
-      "assertion_id": "AST-006",
-      "field_path": "/exceptions",
-      "value_state": "absent_in_source",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.9,
-      "evidence_ids": [],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "Section completion: exceptions"
-    },
-    {
-      "assertion_id": "AST-007",
-      "field_path": "/previous_action_credit",
-      "value_state": "absent_in_source",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.9,
-      "evidence_ids": [],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "Section completion: previous_action_credit"
-    },
-    {
-      "assertion_id": "AST-008",
-      "field_path": "/referenced_publications",
-      "value_state": "absent_in_source",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.9,
-      "evidence_ids": [],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "Section completion: referenced_publications"
-    },
-    {
-      "assertion_id": "AST-009",
-      "field_path": "/relationships",
-      "value_state": "absent_in_source",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.9,
-      "evidence_ids": [
-        "EV-001"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "Section completion: relationships"
-    },
-    {
-      "assertion_id": "AST-010",
-      "field_path": "/amoc_and_contacts",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.95,
-      "evidence_ids": [
-        "EV-012"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "Section completion: amoc_and_contacts"
-    },
-    {
-      "assertion_id": "AST-011",
-      "field_path": "/ad_identity/ad_number",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.995,
-      "evidence_ids": [
-        "EV-001"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "Cover identity"
-    },
-    {
-      "assertion_id": "AST-012",
-      "field_path": "/ad_identity/supersedure_statement",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.99,
-      "evidence_ids": [
-        "EV-001"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "Printed status field"
-    },
-    {
-      "assertion_id": "AST-013",
-      "field_path": "/publication/issue_date",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.995,
-      "evidence_ids": [
-        "EV-001"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "Printed issue date"
-    },
-    {
-      "assertion_id": "AST-014",
-      "field_path": "/publication/effective_date",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.995,
-      "evidence_ids": [
-        "EV-001"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "Printed effective date"
-    },
-    {
-      "assertion_id": "AST-015",
-      "field_path": "/publication/subject",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.99,
-      "evidence_ids": [
-        "EV-001"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "Printed ATA subject"
-    },
-    {
-      "assertion_id": "AST-016",
-      "field_path": "/applicability_groups/0",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.96,
-      "evidence_ids": [
-        "EV-003",
-        "EV-004"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "applicability_groups"
-    },
-    {
-      "assertion_id": "AST-017",
-      "field_path": "/requirements/0",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.94,
-      "evidence_ids": [
-        "EV-008",
-        "EV-009",
-        "EV-010",
-        "EV-011"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "requirements"
-    },
-    {
-      "assertion_id": "AST-018",
-      "field_path": "/requirements/1",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.94,
-      "evidence_ids": [
-        "EV-008",
-        "EV-009",
-        "EV-010",
-        "EV-011"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "requirements"
-    },
-    {
-      "assertion_id": "AST-019",
-      "field_path": "/requirements/2",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.94,
-      "evidence_ids": [
-        "EV-008",
-        "EV-009",
-        "EV-010",
-        "EV-011"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "requirements"
-    },
-    {
-      "assertion_id": "AST-020",
-      "field_path": "/requirements/3",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.94,
-      "evidence_ids": [
-        "EV-008",
-        "EV-009",
-        "EV-010",
-        "EV-011"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "requirements"
-    },
-    {
-      "assertion_id": "AST-021",
-      "field_path": "/requirements/4",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.94,
-      "evidence_ids": [
-        "EV-008",
-        "EV-009",
-        "EV-010",
-        "EV-011"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "requirements"
-    },
-    {
-      "assertion_id": "AST-022",
-      "field_path": "/requirements/5",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.94,
-      "evidence_ids": [
-        "EV-008",
-        "EV-009",
-        "EV-010",
-        "EV-011"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "requirements"
-    },
-    {
-      "assertion_id": "AST-023",
-      "field_path": "/amoc_and_contacts/0",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.96,
-      "evidence_ids": [
-        "EV-012"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "amoc_and_contacts"
-    },
-    {
-      "assertion_id": "AST-024",
-      "field_path": "/amoc_and_contacts/1",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.96,
-      "evidence_ids": [
-        "EV-012"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "amoc_and_contacts"
-    },
-    {
-      "assertion_id": "AST-025",
       "field_path": "/unsafe_condition",
       "value_state": "present",
       "origin": "auto_extracted",
       "verification_status": "unreviewed",
-      "confidence": 0.96,
+      "confidence": 0.99,
       "evidence_ids": [
         "EV-005",
         "EV-006"
       ],
-      "annotator_id": "codex-extension-extractor",
+      "annotator_id": "gpt-5.6-source-auditor",
       "derivation_rule": null,
       "input_field_paths": [],
-      "notes": "Reason and unsafe condition"
+      "notes": "Unsafe condition source-audited; no human acceptance claimed."
     },
     {
-      "assertion_id": "AST-026",
+      "assertion_id": "AST-006",
+      "field_path": "/requirements",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.99,
+      "evidence_ids": [
+        "EV-008",
+        "EV-009",
+        "EV-010",
+        "EV-011"
+      ],
+      "annotator_id": "gpt-5.6-source-auditor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Atomic requirements and compliance logic source-audited; no human acceptance claimed."
+    },
+    {
+      "assertion_id": "AST-007",
+      "field_path": "/exceptions",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.99,
+      "evidence_ids": [
+        "EV-010",
+        "EV-011"
+      ],
+      "annotator_id": "gpt-5.6-source-auditor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Requirement exceptions source-audited; no human acceptance claimed."
+    },
+    {
+      "assertion_id": "AST-008",
+      "field_path": "/previous_action_credit",
+      "value_state": "absent_in_source",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.95,
+      "evidence_ids": [],
+      "annotator_id": "gpt-5.6-source-auditor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Previous-action credit source-audited; no human acceptance claimed."
+    },
+    {
+      "assertion_id": "AST-009",
+      "field_path": "/referenced_publications",
+      "value_state": "absent_in_source",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.95,
+      "evidence_ids": [],
+      "annotator_id": "gpt-5.6-source-auditor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Referenced publications source-audited; no human acceptance claimed."
+    },
+    {
+      "assertion_id": "AST-010",
+      "field_path": "/relationships",
+      "value_state": "absent_in_source",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.95,
+      "evidence_ids": [],
+      "annotator_id": "gpt-5.6-source-auditor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Relationships source-audited; no human acceptance claimed."
+    },
+    {
+      "assertion_id": "AST-011",
+      "field_path": "/amoc_and_contacts",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.99,
+      "evidence_ids": [
+        "EV-012"
+      ],
+      "annotator_id": "gpt-5.6-source-auditor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "AMOC and contacts source-audited; no human acceptance claimed."
+    },
+    {
+      "assertion_id": "AST-012",
       "field_path": "/classification",
       "value_state": "present",
       "origin": "auto_extracted",
       "verification_status": "unreviewed",
-      "confidence": 0.9,
+      "confidence": 0.99,
       "evidence_ids": [
         "EV-001",
         "EV-003",
         "EV-004",
         "EV-005",
-        "EV-006",
         "EV-008",
         "EV-009",
         "EV-010",
         "EV-011"
       ],
-      "annotator_id": "codex-extension-extractor",
+      "annotator_id": "gpt-5.6-source-auditor",
       "derivation_rule": null,
       "input_field_paths": [],
-      "notes": "Schema classification"
+      "notes": "Classification reconciled with corrected requirements; no human acceptance claimed."
     }
   ],
   "annotation_metadata": {
@@ -1349,6 +1865,12 @@
         "role": "annotator",
         "started_at": "2026-07-30T09:02:01Z",
         "submitted_at": "2026-07-30T09:02:01Z"
+      },
+      {
+        "annotator_id": "gpt-5.6-source-auditor",
+        "role": "reviewer",
+        "started_at": "2026-07-30T17:23:13Z",
+        "submitted_at": "2026-07-30T17:23:13Z"
       }
     ],
     "events": [
@@ -1363,23 +1885,31 @@
         "actor_id": "codex-extension-extractor",
         "timestamp": "2026-07-30T09:02:01Z",
         "rationale": "First pass completed; no human review or approval claimed."
+      },
+      {
+        "event_type": "reviewed",
+        "actor_id": "gpt-5.6-source-auditor",
+        "timestamp": "2026-07-30T17:23:13Z",
+        "rationale": "Machine-assisted source audit against the exact rendered PDF and frozen page-text cache; corrections applied without human approval."
       }
     ],
     "quality_flags": [
       "manual_review_required",
+      "complex_applicability",
       "complex_compliance",
-      "complex_applicability"
+      "cross_page_clause"
     ],
     "uncertainty_flags": [],
     "notes": [
       "Machine-assisted populated extraction from the complete frozen PDF/page-text packet.",
       "Requirements were split from numbered source paragraphs where possible; every field assertion remains unreviewed.",
       "No supersedure relationship was created because the cover explicitly states Supersedure: None.",
-      "Independent human comparison and correction are required before approval or gold promotion."
+      "Independent human comparison and correction are required before approval or gold promotion.",
+      "Machine-assisted source-audit corrections applied against the exact rendered PDF and frozen page-text cache; independent human acceptance is still required before approval or gold promotion."
     ],
     "source_text_sha256": "376b93264fadccf65124613ba26102374f41068602950b1d87ca73d96d0cd9e7",
     "created_at": "2026-07-30T09:02:01Z",
-    "updated_at": "2026-07-30T09:02:01Z"
+    "updated_at": "2026-07-30T17:23:13Z"
   },
   "benchmark_metadata": {
     "split": "unassigned",

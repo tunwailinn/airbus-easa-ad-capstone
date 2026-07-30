@@ -141,7 +141,7 @@
     "foreign_ad": {
       "state": "explicit_none",
       "value": null,
-      "raw_text": "Foreign AD: None or Not applicable",
+      "raw_text": "Foreign AD: Not applicable",
       "evidence_ids": [
         "EV-001"
       ]
@@ -217,16 +217,21 @@
     "observed_events_or_defects": [
       "Several occurrences have been reported on A320 family aeroplanes of PPG sliding windows that were difficult to operate after landing."
     ],
-    "causes": [],
+    "causes": [
+      "With seal P/N 22-17-7640-1 or 22-17-7640-2 installed, closing the sliding window can create a vacuum between the two pressure-seal tubes, causing suction that holds the window against the fuselage-side frame."
+    ],
     "unsafe_conditions": [
-      "This condition, if not detected and corrected, could lead to the functional loss of the sliding window as an exit, possibly preventing the flight crew from safely evacuating the aeroplane during an emergency."
+      "Affected PPG sliding windows can remain stuck to the fuselage-side frame and become difficult or impossible to operate."
     ],
     "potential_consequences": [
-      "This condition, if not detected and corrected, could lead to the functional loss of the sliding window as an exit, possibly preventing the flight crew from safely evacuating the aeroplane during an emergency."
+      "Functional loss of the sliding window as an emergency exit, possibly preventing safe flight-crew evacuation."
     ],
-    "affected_components": [],
+    "affected_components": [
+      "Left-hand and right-hand PPG cockpit sliding windows",
+      "Sliding-window seals P/N 22-17-7640-1 and 22-17-7640-2"
+    ],
     "intended_risk_mitigation": [
-      "For the reasons described above, this AD requires a one-time detailed inspection (DI) of the sliding windows and its seal to identify the affected sliding window seals and, depending on findings, accomplishment of the applicable corrective actions."
+      "One-time detailed inspection to identify affected window and seal part numbers, followed by modification or an accepted replacement method when affected combinations are found."
     ],
     "evidence_ids": [
       "EV-004"
@@ -242,22 +247,24 @@
       ],
       "action_types": [
         "inspection",
-        "replacement",
-        "modification"
+        "records_review"
       ],
       "obligation": "mandatory",
-      "action_text": "(1) Within 750 flight cycles or 750 flight hours or 4 months, whichever occurs Time(s): first after the effective date of this AD, accomplish a DI of the left-hand (LH) and right-hand (RH) sliding windows and sliding window seals in order to identify the P/N of each window and seal in accordance with the instructions of Airbus Service Bulletin (SB) A320-56-1016. A review of aeroplane maintenance records is acceptable to make this determination, in lieu of the instructions of Airbus SB A320-56-1016, if the P/N and manufacturing dates of the installed sliding windows and sliding window seals can be conclusively identified from that review.",
-      "objects_or_components": [],
+      "action_text": "(1) Within 750 flight cycles or 750 flight hours or 4 months, whichever occurs first after the effective date of this AD, accomplish a detailed inspection of the left-hand and right-hand sliding windows and sliding-window seals to identify each window and seal P/N in accordance with Airbus SB A320-56-1016. A maintenance-records review is acceptable instead if the installed P/N and manufacturing dates can be conclusively identified.",
+      "objects_or_components": [
+        "LH and RH PPG cockpit sliding windows",
+        "Sliding-window seals"
+      ],
       "conditions": [],
       "method_publication_ids": [
-        "PUB-001"
+        "PUB-002"
       ],
       "compliance_rules": [
         {
           "compliance_id": "CMP-001",
           "state": "present",
-          "raw_text": "(1) Within 750 flight cycles or 750 flight hours or 4 months, whichever occurs Time(s): first after the effective date of this AD, accomplish a DI of the left-hand (LH) and right-hand (RH) sliding windows and sliding window seals in order to identify the P/N of each window and seal in accordance with the instructions of Airbus Service Bulletin (SB) A320-56-1016. A review of aeroplane maintenance records is acceptable to make this determination, in lieu of the instructions of Airbus SB A320-56-1016, if the P/N and manufacturing dates of the installed sliding windows and sliding window seals can be conclusively identified from that review.",
-          "logic": "conditional",
+          "raw_text": "(1) Within 750 flight cycles or 750 flight hours or 4 months, whichever occurs first after the effective date of this AD, accomplish a detailed inspection of the left-hand and right-hand sliding windows and sliding-window seals to identify each window and seal P/N in accordance with Airbus SB A320-56-1016. A maintenance-records review is acceptable instead if the installed P/N and manufacturing dates can be conclusively identified.",
+          "logic": "whichever_occurs_first",
           "conditions": [],
           "initial_limits": [
             {
@@ -309,7 +316,9 @@
           ]
         }
       ],
-      "follow_on_requirement_ids": [],
+      "follow_on_requirement_ids": [
+        "REQ-002"
+      ],
       "terminating_action": {
         "state": "not_stated",
         "present": false,
@@ -326,19 +335,22 @@
     {
       "requirement_id": "REQ-002",
       "paragraph_reference": "(2)",
-      "parent_requirement_id": null,
+      "parent_requirement_id": "REQ-001",
       "applicability_group_ids": [
         "APP-001"
       ],
       "action_types": [
-        "inspection",
-        "replacement",
         "modification"
       ],
       "obligation": "conditional",
-      "action_text": "(2) If, during the DI as required by paragraph (1) of this AD, a sliding window P/N is identified as listed in Table 1 of this AD without modification amendment M, and sliding window seals P/N 22-17-7640-1 or P/N 22-17- 7640-2 are installed, before next flight, modify the sliding window seal in accordance with the instructions of Airbus SB A320-56-1015. Table 1 – Affected PPG Sliding Windows P/N LH RH NP165312-1 NP165312-2 NP165312-3 NP165312-4 NP165312-5 NP165312-6 NP165312-7 NP165312-8 NP165312-9 NP165312-10 NP165312-11 NP165312-12",
-      "objects_or_components": [],
-      "conditions": [],
+      "action_text": "(2) If the inspection identifies a sliding-window P/N listed in Table 1 without modification amendment M, with seal P/N 22-17-7640-1 or 22-17-7640-2 installed, before next flight modify the sliding-window seal in accordance with Airbus SB A320-56-1015.",
+      "objects_or_components": [
+        "Affected PPG sliding-window seal"
+      ],
+      "conditions": [
+        "Affected Table 1 window P/N without amendment M is installed",
+        "Seal P/N 22-17-7640-1 or 22-17-7640-2 is installed"
+      ],
       "method_publication_ids": [
         "PUB-001"
       ],
@@ -346,9 +358,11 @@
         {
           "compliance_id": "CMP-002",
           "state": "present",
-          "raw_text": "(2) If, during the DI as required by paragraph (1) of this AD, a sliding window P/N is identified as listed in Table 1 of this AD without modification amendment M, and sliding window seals P/N 22-17-7640-1 or P/N 22-17- 7640-2 are installed, before next flight, modify the sliding window seal in accordance with the instructions of Airbus SB A320-56-1015. Table 1 – Affected PPG Sliding Windows P/N LH RH NP165312-1 NP165312-2 NP165312-3 NP165312-4 NP165312-5 NP165312-6 NP165312-7 NP165312-8 NP165312-9 NP165312-10 NP165312-11 NP165312-12",
-          "logic": "single",
-          "conditions": [],
+          "raw_text": "(2) If the inspection identifies a sliding-window P/N listed in Table 1 without modification amendment M, with seal P/N 22-17-7640-1 or 22-17-7640-2 installed, before next flight modify the sliding-window seal in accordance with Airbus SB A320-56-1015.",
+          "logic": "conditional",
+          "conditions": [
+            "Affected window-and-seal combination is identified during REQ-001"
+          ],
           "initial_limits": [
             {
               "limit_id": "LIM-004",
@@ -389,181 +403,51 @@
     },
     {
       "requirement_id": "REQ-003",
-      "paragraph_reference": "(3)",
-      "parent_requirement_id": null,
-      "applicability_group_ids": [
-        "APP-001"
-      ],
-      "action_types": [
-        "inspection",
-        "replacement",
-        "modification"
-      ],
-      "obligation": "mandatory",
-      "action_text": "(3) For sliding windows, identified as affected as required by paragraph (2) of this AD, replacement of a sliding windows seal P/N 22-17-7640-1 (LH) or P/N 22-17-7640-2 (RH) with a seal P/N 22-17-7640-3 (LH) or P/N 22-17- 7640-4 (RH), respectively, is an acceptable alternative method to comply with the modification requirement of paragraph (2) of this AD. The replacement of the window seals can be accomplished in accordance with the sliding window installation/removal instructions as provided in the Airbus A318/A319/A320/A321 Aircraft Maintenance Manual, sub section 56-12-11, Page Block 401.",
-      "objects_or_components": [],
-      "conditions": [],
-      "method_publication_ids": [
-        "PUB-001"
-      ],
-      "compliance_rules": [
-        {
-          "compliance_id": "CMP-003",
-          "state": "present",
-          "raw_text": "(3) For sliding windows, identified as affected as required by paragraph (2) of this AD, replacement of a sliding windows seal P/N 22-17-7640-1 (LH) or P/N 22-17-7640-2 (RH) with a seal P/N 22-17-7640-3 (LH) or P/N 22-17- 7640-4 (RH), respectively, is an acceptable alternative method to comply with the modification requirement of paragraph (2) of this AD. The replacement of the window seals can be accomplished in accordance with the sliding window installation/removal instructions as provided in the Airbus A318/A319/A320/A321 Aircraft Maintenance Manual, sub section 56-12-11, Page Block 401.",
-          "logic": "single",
-          "conditions": [],
-          "initial_limits": [],
-          "is_repetitive": false,
-          "repetitive_intervals": [],
-          "grace_periods": [],
-          "evidence_ids": [
-            "EV-007",
-            "EV-008"
-          ]
-        }
-      ],
-      "follow_on_requirement_ids": [],
-      "terminating_action": {
-        "state": "not_stated",
-        "present": false,
-        "scope": "none",
-        "action_text": null,
-        "terminates_requirement_ids": [],
-        "evidence_ids": []
-      },
-      "evidence_ids": [
-        "EV-007",
-        "EV-008"
-      ]
-    },
-    {
-      "requirement_id": "REQ-004",
-      "paragraph_reference": "(4)",
-      "parent_requirement_id": null,
-      "applicability_group_ids": [
-        "APP-001"
-      ],
-      "action_types": [
-        "inspection",
-        "replacement",
-        "modification"
-      ],
-      "obligation": "mandatory",
-      "action_text": "(4) Aeroplanes on which Airbus modification 153512 (installation of sliding window with P/N NP165312-13 and NP165312-14 with improved seal) or modification 153534 (installation of sliding window with P/N NP165312-11 and NP165312-12 with amendment M) has been embodied in production are not affected by the requirements of paragraphs (1) and (2) of this AD, provided that no sliding window or sliding window seal has been replaced since first flight.",
-      "objects_or_components": [],
-      "conditions": [],
-      "method_publication_ids": [
-        "PUB-001"
-      ],
-      "compliance_rules": [
-        {
-          "compliance_id": "CMP-004",
-          "state": "present",
-          "raw_text": "(4) Aeroplanes on which Airbus modification 153512 (installation of sliding window with P/N NP165312-13 and NP165312-14 with improved seal) or modification 153534 (installation of sliding window with P/N NP165312-11 and NP165312-12 with amendment M) has been embodied in production are not affected by the requirements of paragraphs (1) and (2) of this AD, provided that no sliding window or sliding window seal has been replaced since first flight.",
-          "logic": "single",
-          "conditions": [],
-          "initial_limits": [],
-          "is_repetitive": false,
-          "repetitive_intervals": [],
-          "grace_periods": [],
-          "evidence_ids": [
-            "EV-007",
-            "EV-008"
-          ]
-        }
-      ],
-      "follow_on_requirement_ids": [],
-      "terminating_action": {
-        "state": "not_stated",
-        "present": false,
-        "scope": "none",
-        "action_text": null,
-        "terminates_requirement_ids": [],
-        "evidence_ids": []
-      },
-      "evidence_ids": [
-        "EV-007",
-        "EV-008"
-      ]
-    },
-    {
-      "requirement_id": "REQ-005",
-      "paragraph_reference": "(5)",
-      "parent_requirement_id": null,
-      "applicability_group_ids": [
-        "APP-001"
-      ],
-      "action_types": [
-        "inspection",
-        "replacement",
-        "modification"
-      ],
-      "obligation": "mandatory",
-      "action_text": "(5) Aeroplanes on which Airbus modification 39587 (installation of affected seal on PPG sliding windows) has not been embodied in production are not affected by the requirements of paragraphs (1) and (2) of this AD, provided that no sliding window or sliding window seal has been replaced since first flight.",
-      "objects_or_components": [],
-      "conditions": [],
-      "method_publication_ids": [
-        "PUB-001"
-      ],
-      "compliance_rules": [
-        {
-          "compliance_id": "CMP-005",
-          "state": "present",
-          "raw_text": "(5) Aeroplanes on which Airbus modification 39587 (installation of affected seal on PPG sliding windows) has not been embodied in production are not affected by the requirements of paragraphs (1) and (2) of this AD, provided that no sliding window or sliding window seal has been replaced since first flight.",
-          "logic": "single",
-          "conditions": [],
-          "initial_limits": [],
-          "is_repetitive": false,
-          "repetitive_intervals": [],
-          "grace_periods": [],
-          "evidence_ids": [
-            "EV-007",
-            "EV-008"
-          ]
-        }
-      ],
-      "follow_on_requirement_ids": [],
-      "terminating_action": {
-        "state": "not_stated",
-        "present": false,
-        "scope": "none",
-        "action_text": null,
-        "terminates_requirement_ids": [],
-        "evidence_ids": []
-      },
-      "evidence_ids": [
-        "EV-007",
-        "EV-008"
-      ]
-    },
-    {
-      "requirement_id": "REQ-006",
       "paragraph_reference": "(6)",
       "parent_requirement_id": null,
       "applicability_group_ids": [
         "APP-001"
       ],
       "action_types": [
-        "inspection",
-        "replacement",
-        "modification"
+        "prohibition"
       ],
-      "obligation": "mandatory",
-      "action_text": "(6) From the effective date of this AD, do not install on an aeroplane any PPG sliding window with a P/N listed in Table 1 of this AD with a seal having P/N 22-17-7640-1 or P/N 22-17-7640-2, unless the seal has been modified in accordance with the instructions of Airbus SB A320-56-1015, or PPG SB 165312-56-001.",
-      "objects_or_components": [],
-      "conditions": [],
+      "obligation": "prohibited",
+      "action_text": "(6) From the effective date of this AD, do not install any PPG sliding window with a P/N listed in Table 1 together with seal P/N 22-17-7640-1 or 22-17-7640-2, unless the seal has been modified in accordance with Airbus SB A320-56-1015 or PPG SB 165312-56-001.",
+      "objects_or_components": [
+        "PPG sliding windows listed in Table 1",
+        "Seal P/N 22-17-7640-1 or 22-17-7640-2"
+      ],
+      "conditions": [
+        "Unless the seal has been modified in accordance with Airbus SB A320-56-1015 or PPG SB 165312-56-001"
+      ],
       "method_publication_ids": [
-        "PUB-001"
+        "PUB-001",
+        "PUB-003"
       ],
       "compliance_rules": [
         {
-          "compliance_id": "CMP-006",
+          "compliance_id": "CMP-003",
           "state": "present",
-          "raw_text": "(6) From the effective date of this AD, do not install on an aeroplane any PPG sliding window with a P/N listed in Table 1 of this AD with a seal having P/N 22-17-7640-1 or P/N 22-17-7640-2, unless the seal has been modified in accordance with the instructions of Airbus SB A320-56-1015, or PPG SB 165312-56-001.",
-          "logic": "single",
-          "conditions": [],
-          "initial_limits": [],
+          "raw_text": "(6) From the effective date of this AD, do not install any PPG sliding window with a P/N listed in Table 1 together with seal P/N 22-17-7640-1 or 22-17-7640-2, unless the seal has been modified in accordance with Airbus SB A320-56-1015 or PPG SB 165312-56-001.",
+          "logic": "conditional",
+          "conditions": [
+            "Affected window-and-seal combination"
+          ],
+          "initial_limits": [
+            {
+              "limit_id": "LIM-005",
+              "relation": "from",
+              "quantity": null,
+              "unit": "other",
+              "raw_value": "From the effective date of this AD",
+              "reference_event": "effective date of this AD",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-007",
+                "EV-008"
+              ]
+            }
+          ],
           "is_repetitive": false,
           "repetitive_intervals": [],
           "grace_periods": [],
@@ -588,7 +472,43 @@
       ]
     }
   ],
-  "exceptions": [],
+  "exceptions": [
+    {
+      "exception_id": "EXC-001",
+      "text": "For an affected window, replacing seal P/N 22-17-7640-1 (LH) or 22-17-7640-2 (RH) with seal P/N 22-17-7640-3 (LH) or 22-17-7640-4 (RH), respectively, is an acceptable alternative method of complying with REQ-002; the replacement may use AMM 56-12-11, Page Block 401.",
+      "applies_to_requirement_ids": [
+        "REQ-002"
+      ],
+      "evidence_ids": [
+        "EV-007",
+        "EV-008"
+      ]
+    },
+    {
+      "exception_id": "EXC-002",
+      "text": "Aeroplanes with Airbus modification 153512 or 153534 embodied in production are not affected by REQ-001 and REQ-002, provided no sliding window or sliding-window seal has been replaced since first flight.",
+      "applies_to_requirement_ids": [
+        "REQ-001",
+        "REQ-002"
+      ],
+      "evidence_ids": [
+        "EV-007",
+        "EV-008"
+      ]
+    },
+    {
+      "exception_id": "EXC-003",
+      "text": "Aeroplanes on which Airbus modification 39587 has not been embodied in production are not affected by REQ-001 and REQ-002, provided no sliding window or sliding-window seal has been replaced since first flight.",
+      "applies_to_requirement_ids": [
+        "REQ-001",
+        "REQ-002"
+      ],
+      "evidence_ids": [
+        "EV-007",
+        "EV-008"
+      ]
+    }
+  ],
   "previous_action_credit": [],
   "referenced_publications": [
     {
@@ -606,6 +526,55 @@
       "evidence_ids": [
         "EV-005",
         "EV-006"
+      ]
+    },
+    {
+      "publication_id": "PUB-002",
+      "publication_type": "service_bulletin",
+      "issuer": "Airbus",
+      "number": "A320-56-1016",
+      "revision": "Original issue",
+      "publication_date": "2012-09-14",
+      "title": null,
+      "roles": [
+        "required_method"
+      ],
+      "later_approved_revisions_allowed": true,
+      "evidence_ids": [
+        "EV-006"
+      ]
+    },
+    {
+      "publication_id": "PUB-003",
+      "publication_type": "service_bulletin",
+      "issuer": "PPG Aerospace",
+      "number": "165312-56-001",
+      "revision": "Original issue",
+      "publication_date": "2012-02-29",
+      "title": null,
+      "roles": [
+        "optional_method"
+      ],
+      "later_approved_revisions_allowed": true,
+      "evidence_ids": [
+        "EV-006"
+      ]
+    },
+    {
+      "publication_id": "PUB-004",
+      "publication_type": "other",
+      "issuer": "Airbus",
+      "number": "A318/A319/A320/A321 AMM 56-12-11, Page Block 401",
+      "revision": null,
+      "publication_date": null,
+      "title": "Sliding-window installation/removal instructions",
+      "roles": [
+        "optional_method"
+      ],
+      "later_approved_revisions_allowed": false,
+      "evidence_ids": [
+        "EV-007",
+        "EV-008"
       ]
     }
   ],
@@ -643,8 +612,9 @@
     ],
     "action_types": [
       "inspection",
-      "replacement",
-      "modification"
+      "records_review",
+      "modification",
+      "prohibition"
     ],
     "frequency": "one_time",
     "emergency_status": "standard",
@@ -836,14 +806,14 @@
       "value_state": "present",
       "origin": "auto_extracted",
       "verification_status": "unreviewed",
-      "confidence": 0.995,
+      "confidence": 0.99,
       "evidence_ids": [
         "EV-001"
       ],
-      "annotator_id": "codex-extension-extractor",
+      "annotator_id": "gpt-5.6-source-auditor",
       "derivation_rule": null,
       "input_field_paths": [],
-      "notes": "Section completion: AD identity"
+      "notes": "AD identity source-audited; no human acceptance claimed."
     },
     {
       "assertion_id": "AST-002",
@@ -855,10 +825,10 @@
       "evidence_ids": [
         "EV-001"
       ],
-      "annotator_id": "codex-extension-extractor",
+      "annotator_id": "gpt-5.6-source-auditor",
       "derivation_rule": null,
       "input_field_paths": [],
-      "notes": "Section completion: publication"
+      "notes": "Publication metadata source-audited; no human acceptance claimed."
     },
     {
       "assertion_id": "AST-003",
@@ -866,14 +836,14 @@
       "value_state": "present",
       "origin": "auto_extracted",
       "verification_status": "unreviewed",
-      "confidence": 0.95,
+      "confidence": 0.99,
       "evidence_ids": [
         "EV-003"
       ],
-      "annotator_id": "codex-extension-extractor",
+      "annotator_id": "gpt-5.6-source-auditor",
       "derivation_rule": null,
       "input_field_paths": [],
-      "notes": "Section completion: applicability_groups"
+      "notes": "Applicability source-audited; no human acceptance claimed."
     },
     {
       "assertion_id": "AST-004",
@@ -881,355 +851,126 @@
       "value_state": "absent_in_source",
       "origin": "auto_extracted",
       "verification_status": "unreviewed",
-      "confidence": 0.9,
+      "confidence": 0.95,
       "evidence_ids": [],
-      "annotator_id": "codex-extension-extractor",
+      "annotator_id": "gpt-5.6-source-auditor",
       "derivation_rule": null,
       "input_field_paths": [],
-      "notes": "Section completion: definitions"
+      "notes": "Definitions source-audited; no human acceptance claimed."
     },
     {
       "assertion_id": "AST-005",
-      "field_path": "/requirements",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.95,
-      "evidence_ids": [
-        "EV-007",
-        "EV-008"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "Section completion: requirements"
-    },
-    {
-      "assertion_id": "AST-006",
-      "field_path": "/exceptions",
-      "value_state": "absent_in_source",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.9,
-      "evidence_ids": [],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "Section completion: exceptions"
-    },
-    {
-      "assertion_id": "AST-007",
-      "field_path": "/previous_action_credit",
-      "value_state": "absent_in_source",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.9,
-      "evidence_ids": [],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "Section completion: previous_action_credit"
-    },
-    {
-      "assertion_id": "AST-008",
-      "field_path": "/referenced_publications",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.95,
-      "evidence_ids": [
-        "EV-005",
-        "EV-006"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "Section completion: referenced_publications"
-    },
-    {
-      "assertion_id": "AST-009",
-      "field_path": "/relationships",
-      "value_state": "absent_in_source",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.9,
-      "evidence_ids": [
-        "EV-001"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "Section completion: relationships"
-    },
-    {
-      "assertion_id": "AST-010",
-      "field_path": "/amoc_and_contacts",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.95,
-      "evidence_ids": [
-        "EV-009"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "Section completion: amoc_and_contacts"
-    },
-    {
-      "assertion_id": "AST-011",
-      "field_path": "/ad_identity/ad_number",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.995,
-      "evidence_ids": [
-        "EV-001"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "Cover identity"
-    },
-    {
-      "assertion_id": "AST-012",
-      "field_path": "/ad_identity/supersedure_statement",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.99,
-      "evidence_ids": [
-        "EV-001"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "Printed status field"
-    },
-    {
-      "assertion_id": "AST-013",
-      "field_path": "/publication/issue_date",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.995,
-      "evidence_ids": [
-        "EV-001"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "Printed issue date"
-    },
-    {
-      "assertion_id": "AST-014",
-      "field_path": "/publication/effective_date",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.995,
-      "evidence_ids": [
-        "EV-001"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "Printed effective date"
-    },
-    {
-      "assertion_id": "AST-015",
-      "field_path": "/publication/subject",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.99,
-      "evidence_ids": [
-        "EV-001"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "Printed ATA subject"
-    },
-    {
-      "assertion_id": "AST-016",
-      "field_path": "/applicability_groups/0",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.96,
-      "evidence_ids": [
-        "EV-003"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "applicability_groups"
-    },
-    {
-      "assertion_id": "AST-017",
-      "field_path": "/requirements/0",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.94,
-      "evidence_ids": [
-        "EV-007",
-        "EV-008"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "requirements"
-    },
-    {
-      "assertion_id": "AST-018",
-      "field_path": "/requirements/1",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.94,
-      "evidence_ids": [
-        "EV-007",
-        "EV-008"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "requirements"
-    },
-    {
-      "assertion_id": "AST-019",
-      "field_path": "/requirements/2",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.94,
-      "evidence_ids": [
-        "EV-007",
-        "EV-008"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "requirements"
-    },
-    {
-      "assertion_id": "AST-020",
-      "field_path": "/requirements/3",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.94,
-      "evidence_ids": [
-        "EV-007",
-        "EV-008"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "requirements"
-    },
-    {
-      "assertion_id": "AST-021",
-      "field_path": "/requirements/4",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.94,
-      "evidence_ids": [
-        "EV-007",
-        "EV-008"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "requirements"
-    },
-    {
-      "assertion_id": "AST-022",
-      "field_path": "/requirements/5",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.94,
-      "evidence_ids": [
-        "EV-007",
-        "EV-008"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "requirements"
-    },
-    {
-      "assertion_id": "AST-023",
-      "field_path": "/referenced_publications/0",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.96,
-      "evidence_ids": [
-        "EV-005",
-        "EV-006"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "referenced_publications"
-    },
-    {
-      "assertion_id": "AST-024",
-      "field_path": "/amoc_and_contacts/0",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.96,
-      "evidence_ids": [
-        "EV-009"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "amoc_and_contacts"
-    },
-    {
-      "assertion_id": "AST-025",
-      "field_path": "/amoc_and_contacts/1",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.96,
-      "evidence_ids": [
-        "EV-009"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "amoc_and_contacts"
-    },
-    {
-      "assertion_id": "AST-026",
       "field_path": "/unsafe_condition",
       "value_state": "present",
       "origin": "auto_extracted",
       "verification_status": "unreviewed",
-      "confidence": 0.96,
+      "confidence": 0.99,
       "evidence_ids": [
         "EV-004"
       ],
-      "annotator_id": "codex-extension-extractor",
+      "annotator_id": "gpt-5.6-source-auditor",
       "derivation_rule": null,
       "input_field_paths": [],
-      "notes": "Reason and unsafe condition"
+      "notes": "Unsafe condition source-audited; no human acceptance claimed."
     },
     {
-      "assertion_id": "AST-027",
+      "assertion_id": "AST-006",
+      "field_path": "/requirements",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.99,
+      "evidence_ids": [
+        "EV-007",
+        "EV-008"
+      ],
+      "annotator_id": "gpt-5.6-source-auditor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Atomic requirements and compliance logic source-audited; no human acceptance claimed."
+    },
+    {
+      "assertion_id": "AST-007",
+      "field_path": "/exceptions",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.99,
+      "evidence_ids": [
+        "EV-007",
+        "EV-008"
+      ],
+      "annotator_id": "gpt-5.6-source-auditor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Requirement exceptions source-audited; no human acceptance claimed."
+    },
+    {
+      "assertion_id": "AST-008",
+      "field_path": "/previous_action_credit",
+      "value_state": "absent_in_source",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.95,
+      "evidence_ids": [],
+      "annotator_id": "gpt-5.6-source-auditor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Previous-action credit source-audited; no human acceptance claimed."
+    },
+    {
+      "assertion_id": "AST-009",
+      "field_path": "/referenced_publications",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.99,
+      "evidence_ids": [
+        "EV-005",
+        "EV-006",
+        "EV-007",
+        "EV-008"
+      ],
+      "annotator_id": "gpt-5.6-source-auditor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Referenced publications source-audited; no human acceptance claimed."
+    },
+    {
+      "assertion_id": "AST-010",
+      "field_path": "/relationships",
+      "value_state": "absent_in_source",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.95,
+      "evidence_ids": [],
+      "annotator_id": "gpt-5.6-source-auditor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Relationships source-audited; no human acceptance claimed."
+    },
+    {
+      "assertion_id": "AST-011",
+      "field_path": "/amoc_and_contacts",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.99,
+      "evidence_ids": [
+        "EV-009"
+      ],
+      "annotator_id": "gpt-5.6-source-auditor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "AMOC and contacts source-audited; no human acceptance claimed."
+    },
+    {
+      "assertion_id": "AST-012",
       "field_path": "/classification",
       "value_state": "present",
       "origin": "auto_extracted",
       "verification_status": "unreviewed",
-      "confidence": 0.9,
+      "confidence": 0.99,
       "evidence_ids": [
         "EV-001",
         "EV-003",
@@ -1237,10 +978,10 @@
         "EV-007",
         "EV-008"
       ],
-      "annotator_id": "codex-extension-extractor",
+      "annotator_id": "gpt-5.6-source-auditor",
       "derivation_rule": null,
       "input_field_paths": [],
-      "notes": "Schema classification"
+      "notes": "Classification reconciled with corrected requirements; no human acceptance claimed."
     }
   ],
   "annotation_metadata": {
@@ -1259,6 +1000,12 @@
         "role": "annotator",
         "started_at": "2026-07-30T09:02:01Z",
         "submitted_at": "2026-07-30T09:02:01Z"
+      },
+      {
+        "annotator_id": "gpt-5.6-source-auditor",
+        "role": "reviewer",
+        "started_at": "2026-07-30T17:23:13Z",
+        "submitted_at": "2026-07-30T17:23:13Z"
       }
     ],
     "events": [
@@ -1273,6 +1020,12 @@
         "actor_id": "codex-extension-extractor",
         "timestamp": "2026-07-30T09:02:01Z",
         "rationale": "First pass completed; no human review or approval claimed."
+      },
+      {
+        "event_type": "reviewed",
+        "actor_id": "gpt-5.6-source-auditor",
+        "timestamp": "2026-07-30T17:23:13Z",
+        "rationale": "Machine-assisted source audit against the exact rendered PDF and frozen page-text cache; corrections applied without human approval."
       }
     ],
     "quality_flags": [
@@ -1286,11 +1039,12 @@
       "Machine-assisted populated extraction from the complete frozen PDF/page-text packet.",
       "Requirements were split from numbered source paragraphs where possible; every field assertion remains unreviewed.",
       "No supersedure relationship was created because the cover explicitly states Supersedure: None.",
-      "Independent human comparison and correction are required before approval or gold promotion."
+      "Independent human comparison and correction are required before approval or gold promotion.",
+      "Machine-assisted source-audit corrections applied against the exact rendered PDF and frozen page-text cache; independent human acceptance is still required before approval or gold promotion."
     ],
     "source_text_sha256": "f3145b5a61bf44f3b3c143ff7edbd74e3d7a574af92cac578642e80eb4b85d9b",
     "created_at": "2026-07-30T09:02:01Z",
-    "updated_at": "2026-07-30T09:02:01Z"
+    "updated_at": "2026-07-30T17:23:13Z"
   },
   "benchmark_metadata": {
     "split": "unassigned",

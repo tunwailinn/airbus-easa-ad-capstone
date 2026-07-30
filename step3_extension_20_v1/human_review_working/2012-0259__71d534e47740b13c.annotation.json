@@ -116,7 +116,7 @@
     "foreign_ad": {
       "state": "explicit_none",
       "value": null,
-      "raw_text": "Foreign AD: None or Not applicable",
+      "raw_text": "Foreign AD: Not applicable",
       "evidence_ids": [
         "EV-001"
       ]
@@ -167,18 +167,21 @@
     "observed_events_or_defects": [
       "Investigations showed that the distance between the heating element of the waste water drain line and the fuel line at fuselage frame (FR) 77/78 could be too small, which potentially induces chafing between the fuel line and the waste water heating element."
     ],
-    "causes": [],
+    "causes": [
+      "Insufficient distance between the waste water drain-line heating element and the fuel line at fuselage frame 77/78."
+    ],
     "unsafe_conditions": [
-      "Investigations showed that the distance between the heating element of the waste water drain line and the fuel line at fuselage frame (FR) 77/78 could be too small, which potentially induces chafing between the fuel line and the waste water heating element.",
-      "This condition, if not corrected, could lead to a short circuit and consequent arcing on the fuel line, possibly resulting in a fuel leak and an uncontrolled fire."
+      "Potential chafing between the fuel line and the waste water heating element, with possible short circuit and arcing on the fuel line."
     ],
     "potential_consequences": [
-      "This condition, if not corrected, could lead to a short circuit and consequent arcing on the fuel line, possibly resulting in a fuel leak and an uncontrolled fire.",
-      "To address this unsafe condition, Airbus developed a modification to prevent chafing, which is to be embodied in service through Airbus Service Bulletin (SB) A340-38-5017."
+      "Fuel leak and uncontrolled fire."
     ],
-    "affected_components": [],
+    "affected_components": [
+      "Waste water drain-line heating element at fuselage frame 77/78",
+      "Fuel line at fuselage frame 77/78"
+    ],
     "intended_risk_mitigation": [
-      "For the reasons described above, this AD requires modification of the waste water drain line, establishing a correct distance between the affected drain line and the fuel line."
+      "Modify the waste water drain line to establish the correct distance from the fuel line."
     ],
     "evidence_ids": [
       "EV-004"
@@ -197,8 +200,12 @@
       ],
       "obligation": "mandatory",
       "action_text": "Required Action(s) Required as indicated, unless accomplished previously: and Compliance Within 24 months after the effective date of this AD, modify the waste water drain Time(s): line in accordance with the instructions of Airbus SB A340-38-5017.",
-      "objects_or_components": [],
-      "conditions": [],
+      "objects_or_components": [
+        "Waste water drain line at fuselage frame 77/78"
+      ],
+      "conditions": [
+        "Unless accomplished previously"
+      ],
       "method_publication_ids": [
         "PUB-001"
       ],
@@ -208,7 +215,9 @@
           "state": "present",
           "raw_text": "Required Action(s) Required as indicated, unless accomplished previously: and Compliance Within 24 months after the effective date of this AD, modify the waste water drain Time(s): line in accordance with the instructions of Airbus SB A340-38-5017.",
           "logic": "single",
-          "conditions": [],
+          "conditions": [
+            "Unless accomplished previously"
+          ],
           "initial_limits": [
             {
               "limit_id": "LIM-001",
@@ -448,14 +457,14 @@
       "value_state": "present",
       "origin": "auto_extracted",
       "verification_status": "unreviewed",
-      "confidence": 0.995,
+      "confidence": 0.99,
       "evidence_ids": [
         "EV-001"
       ],
-      "annotator_id": "codex-extension-extractor",
+      "annotator_id": "gpt-5.6-source-auditor",
       "derivation_rule": null,
       "input_field_paths": [],
-      "notes": "Section completion: AD identity"
+      "notes": "AD identity source-audited; no human acceptance claimed."
     },
     {
       "assertion_id": "AST-002",
@@ -467,10 +476,10 @@
       "evidence_ids": [
         "EV-001"
       ],
-      "annotator_id": "codex-extension-extractor",
+      "annotator_id": "gpt-5.6-source-auditor",
       "derivation_rule": null,
       "input_field_paths": [],
-      "notes": "Section completion: publication"
+      "notes": "Publication metadata source-audited; no human acceptance claimed."
     },
     {
       "assertion_id": "AST-003",
@@ -478,14 +487,14 @@
       "value_state": "present",
       "origin": "auto_extracted",
       "verification_status": "unreviewed",
-      "confidence": 0.95,
+      "confidence": 0.99,
       "evidence_ids": [
         "EV-003"
       ],
-      "annotator_id": "codex-extension-extractor",
+      "annotator_id": "gpt-5.6-source-auditor",
       "derivation_rule": null,
       "input_field_paths": [],
-      "notes": "Section completion: applicability_groups"
+      "notes": "Applicability source-audited; no human acceptance claimed."
     },
     {
       "assertion_id": "AST-004",
@@ -493,281 +502,129 @@
       "value_state": "absent_in_source",
       "origin": "auto_extracted",
       "verification_status": "unreviewed",
-      "confidence": 0.9,
+      "confidence": 0.95,
       "evidence_ids": [],
-      "annotator_id": "codex-extension-extractor",
+      "annotator_id": "gpt-5.6-source-auditor",
       "derivation_rule": null,
       "input_field_paths": [],
-      "notes": "Section completion: definitions"
+      "notes": "Definitions source-audited; no human acceptance claimed."
     },
     {
       "assertion_id": "AST-005",
-      "field_path": "/requirements",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.95,
-      "evidence_ids": [
-        "EV-006"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "Section completion: requirements"
-    },
-    {
-      "assertion_id": "AST-006",
-      "field_path": "/exceptions",
-      "value_state": "absent_in_source",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.9,
-      "evidence_ids": [],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "Section completion: exceptions"
-    },
-    {
-      "assertion_id": "AST-007",
-      "field_path": "/previous_action_credit",
-      "value_state": "absent_in_source",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.9,
-      "evidence_ids": [],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "Section completion: previous_action_credit"
-    },
-    {
-      "assertion_id": "AST-008",
-      "field_path": "/referenced_publications",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.95,
-      "evidence_ids": [
-        "EV-005"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "Section completion: referenced_publications"
-    },
-    {
-      "assertion_id": "AST-009",
-      "field_path": "/relationships",
-      "value_state": "absent_in_source",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.9,
-      "evidence_ids": [
-        "EV-001"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "Section completion: relationships"
-    },
-    {
-      "assertion_id": "AST-010",
-      "field_path": "/amoc_and_contacts",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.95,
-      "evidence_ids": [
-        "EV-007"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "Section completion: amoc_and_contacts"
-    },
-    {
-      "assertion_id": "AST-011",
-      "field_path": "/ad_identity/ad_number",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.995,
-      "evidence_ids": [
-        "EV-001"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "Cover identity"
-    },
-    {
-      "assertion_id": "AST-012",
-      "field_path": "/ad_identity/supersedure_statement",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.99,
-      "evidence_ids": [
-        "EV-001"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "Printed status field"
-    },
-    {
-      "assertion_id": "AST-013",
-      "field_path": "/publication/issue_date",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.995,
-      "evidence_ids": [
-        "EV-001"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "Printed issue date"
-    },
-    {
-      "assertion_id": "AST-014",
-      "field_path": "/publication/effective_date",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.995,
-      "evidence_ids": [
-        "EV-001"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "Printed effective date"
-    },
-    {
-      "assertion_id": "AST-015",
-      "field_path": "/publication/subject",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.99,
-      "evidence_ids": [
-        "EV-001"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "Printed ATA subject"
-    },
-    {
-      "assertion_id": "AST-016",
-      "field_path": "/applicability_groups/0",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.96,
-      "evidence_ids": [
-        "EV-003"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "applicability_groups"
-    },
-    {
-      "assertion_id": "AST-017",
-      "field_path": "/requirements/0",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.94,
-      "evidence_ids": [
-        "EV-006"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "requirements"
-    },
-    {
-      "assertion_id": "AST-018",
-      "field_path": "/referenced_publications/0",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.96,
-      "evidence_ids": [
-        "EV-005"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "referenced_publications"
-    },
-    {
-      "assertion_id": "AST-019",
-      "field_path": "/amoc_and_contacts/0",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.96,
-      "evidence_ids": [
-        "EV-007"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "amoc_and_contacts"
-    },
-    {
-      "assertion_id": "AST-020",
-      "field_path": "/amoc_and_contacts/1",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.96,
-      "evidence_ids": [
-        "EV-007"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "amoc_and_contacts"
-    },
-    {
-      "assertion_id": "AST-021",
       "field_path": "/unsafe_condition",
       "value_state": "present",
       "origin": "auto_extracted",
       "verification_status": "unreviewed",
-      "confidence": 0.96,
+      "confidence": 0.99,
       "evidence_ids": [
         "EV-004"
       ],
-      "annotator_id": "codex-extension-extractor",
+      "annotator_id": "gpt-5.6-source-auditor",
       "derivation_rule": null,
       "input_field_paths": [],
-      "notes": "Reason and unsafe condition"
+      "notes": "Unsafe condition source-audited; no human acceptance claimed."
     },
     {
-      "assertion_id": "AST-022",
+      "assertion_id": "AST-006",
+      "field_path": "/requirements",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.99,
+      "evidence_ids": [
+        "EV-006"
+      ],
+      "annotator_id": "gpt-5.6-source-auditor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Atomic requirements and compliance logic source-audited; no human acceptance claimed."
+    },
+    {
+      "assertion_id": "AST-007",
+      "field_path": "/exceptions",
+      "value_state": "absent_in_source",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.95,
+      "evidence_ids": [],
+      "annotator_id": "gpt-5.6-source-auditor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Requirement exceptions source-audited; no human acceptance claimed."
+    },
+    {
+      "assertion_id": "AST-008",
+      "field_path": "/previous_action_credit",
+      "value_state": "absent_in_source",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.95,
+      "evidence_ids": [],
+      "annotator_id": "gpt-5.6-source-auditor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Previous-action credit source-audited; no human acceptance claimed."
+    },
+    {
+      "assertion_id": "AST-009",
+      "field_path": "/referenced_publications",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.99,
+      "evidence_ids": [
+        "EV-005"
+      ],
+      "annotator_id": "gpt-5.6-source-auditor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Referenced publications source-audited; no human acceptance claimed."
+    },
+    {
+      "assertion_id": "AST-010",
+      "field_path": "/relationships",
+      "value_state": "absent_in_source",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.95,
+      "evidence_ids": [],
+      "annotator_id": "gpt-5.6-source-auditor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Relationships source-audited; no human acceptance claimed."
+    },
+    {
+      "assertion_id": "AST-011",
+      "field_path": "/amoc_and_contacts",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.99,
+      "evidence_ids": [
+        "EV-007"
+      ],
+      "annotator_id": "gpt-5.6-source-auditor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "AMOC and contacts source-audited; no human acceptance claimed."
+    },
+    {
+      "assertion_id": "AST-012",
       "field_path": "/classification",
       "value_state": "present",
       "origin": "auto_extracted",
       "verification_status": "unreviewed",
-      "confidence": 0.9,
+      "confidence": 0.99,
       "evidence_ids": [
         "EV-001",
         "EV-003",
         "EV-004",
         "EV-006"
       ],
-      "annotator_id": "codex-extension-extractor",
+      "annotator_id": "gpt-5.6-source-auditor",
       "derivation_rule": null,
       "input_field_paths": [],
-      "notes": "Schema classification"
+      "notes": "Classification reconciled with corrected requirements; no human acceptance claimed."
     }
   ],
   "annotation_metadata": {
@@ -786,6 +643,12 @@
         "role": "annotator",
         "started_at": "2026-07-30T09:02:01Z",
         "submitted_at": "2026-07-30T09:02:01Z"
+      },
+      {
+        "annotator_id": "gpt-5.6-source-auditor",
+        "role": "reviewer",
+        "started_at": "2026-07-30T17:23:13Z",
+        "submitted_at": "2026-07-30T17:23:13Z"
       }
     ],
     "events": [
@@ -800,22 +663,28 @@
         "actor_id": "codex-extension-extractor",
         "timestamp": "2026-07-30T09:02:01Z",
         "rationale": "First pass completed; no human review or approval claimed."
+      },
+      {
+        "event_type": "reviewed",
+        "actor_id": "gpt-5.6-source-auditor",
+        "timestamp": "2026-07-30T17:23:13Z",
+        "rationale": "Machine-assisted source audit against the exact rendered PDF and frozen page-text cache; corrections applied without human approval."
       }
     ],
     "quality_flags": [
-      "manual_review_required",
-      "complex_applicability"
+      "manual_review_required"
     ],
     "uncertainty_flags": [],
     "notes": [
       "Machine-assisted populated extraction from the complete frozen PDF/page-text packet.",
       "Requirements were split from numbered source paragraphs where possible; every field assertion remains unreviewed.",
       "No supersedure relationship was created because the cover explicitly states Supersedure: None.",
-      "Independent human comparison and correction are required before approval or gold promotion."
+      "Independent human comparison and correction are required before approval or gold promotion.",
+      "Machine-assisted source-audit corrections applied against the exact rendered PDF and frozen page-text cache; independent human acceptance is still required before approval or gold promotion."
     ],
     "source_text_sha256": "f9e26085004f12e8bce541399fd0c5f08502216b83d1e3ff489219dd9963dbab",
     "created_at": "2026-07-30T09:02:01Z",
-    "updated_at": "2026-07-30T09:02:01Z"
+    "updated_at": "2026-07-30T17:23:13Z"
   },
   "benchmark_metadata": {
     "split": "unassigned",
