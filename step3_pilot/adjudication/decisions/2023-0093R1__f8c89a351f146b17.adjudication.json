@@ -1,0 +1,130 @@
+{
+  "ad_number": "2023-0093R1",
+  "logical_version_key": "2023-0093R1|UNCORRECTED",
+  "file_instance_id": "f8c89a351f146b17",
+  "annotator_a_file": "step3_pilot/submitted/annotator_a/2023-0093R1__f8c89a351f146b17.annotation.json",
+  "annotator_b_file": "step3_pilot/submitted/annotator_b/2023-0093R1__f8c89a351f146b17.annotation.json",
+  "adjudicator_id": "codex-a2",
+  "comparison_sha256": "2911e5ed5d2d709320d1baee904032dbe5995c6ceee55277142968e551ae9d8c",
+  "decision_status": "machine_adjudicated_pending_human_review",
+  "resolved_record_file": "step3_pilot/adjudication/machine_candidates/2023-0093R1__f8c89a351f146b17.annotation.json",
+  "manual_review_required": true,
+  "sections": [
+    {
+      "section": "ad_identity",
+      "accepted_from": "synthesized",
+      "source_pages": [
+        1
+      ],
+      "decision": "Preserve R1 identity and exact structured revision statement; normalize AIRBUS S.A.S. to Airbus; lifecycle remains unknown."
+    },
+    {
+      "section": "publication",
+      "accepted_from": "synthesized",
+      "source_pages": [
+        1
+      ],
+      "decision": "Retain the exact two-ATA subject, dates, EASA.A.064 and structured A319/A320/A321 types; normalize ATA titles to the printed chapter names."
+    },
+    {
+      "section": "applicability_groups",
+      "accepted_from": "annotator_b_with_source_rule",
+      "source_pages": [
+        1,
+        2,
+        3,
+        4,
+        6
+      ],
+      "decision": "Use all-aircraft, 319-MSN Appendix, Group 1a, Group 1b and Group 2 groups; add the explicit provisional grouping rule for listed MSNs before inspection."
+    },
+    {
+      "section": "unsafe_condition",
+      "accepted_from": "annotator_b",
+      "source_pages": [
+        2,
+        3
+      ],
+      "decision": "Retain the complete BSCU-failure, wrong-relay, freezing, braking-loss and runway-excursion chain plus the revision-specific inspection-report finding."
+    },
+    {
+      "section": "requirements",
+      "accepted_from": "annotator_b_with_action_normalization",
+      "source_pages": [
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "decision": "Use 16 atomic branches; preserve table-driven 12/24-month limits, conditional BSCU replacement, four MEL actions, four relay-replacement branches, three prohibitions, and paragraph (7) as conditional installation permission."
+    },
+    {
+      "section": "definitions",
+      "accepted_from": "synthesized",
+      "source_pages": [
+        1,
+        2
+      ],
+      "decision": "Retain B's 11 exact terms and add the explicitly printed Groups definition omitted from B."
+    },
+    {
+      "section": "exceptions",
+      "accepted_from": "synthesized",
+      "source_pages": [
+        3
+      ],
+      "decision": "Encode unless accomplished previously as one exception applying to REQ-001 through REQ-012; paragraph (7) is a requirement, not an exception."
+    },
+    {
+      "section": "previous_action_credit",
+      "accepted_from": "annotator_a",
+      "source_pages": [
+        3
+      ],
+      "decision": "Keep empty: the global previously-accomplished wording is not a publication-specific previous-action credit."
+    },
+    {
+      "section": "referenced_publications",
+      "accepted_from": "annotator_b",
+      "source_pages": [
+        2,
+        4,
+        5,
+        7
+      ],
+      "decision": "Retain eight version-specific AOT, MMEL, FOT and SB entries and their required-method or information roles, including later-approved-revision allowance."
+    },
+    {
+      "section": "relationships",
+      "accepted_from": "annotator_b_with_direction_review",
+      "source_pages": [
+        1,
+        3
+      ],
+      "decision": "Keep revises 2023-0093 plus three referenced_only historical mentions; explicitly reject the parser's direct supersedes-2022-0032R1 guess and add no correction/successor edge."
+    },
+    {
+      "section": "amoc_and_contacts",
+      "accepted_from": "annotator_b",
+      "source_pages": [
+        5
+      ],
+      "decision": "Retain the exact EASA AMOC and regulatory offices and Airbus 1IASA technical contact."
+    },
+    {
+      "section": "classification",
+      "accepted_from": "synthesized",
+      "source_pages": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "decision": "Use A320neo family, ATA 32/92, mixed frequency/complexity and the exact requirement action union; retain B evidence and mark machine-adjudicated, unreviewed and manual_review_required."
+    }
+  ],
+  "overall_rationale": "Source-grounded machine reconciliation; a human reviewer must verify and approve before this record can enter the gold set."
+}

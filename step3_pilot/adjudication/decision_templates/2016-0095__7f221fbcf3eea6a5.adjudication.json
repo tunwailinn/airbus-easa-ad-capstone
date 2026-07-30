@@ -1,0 +1,2918 @@
+{
+  "ad_number": "2016-0095",
+  "logical_version_key": "2016-0095|UNCORRECTED",
+  "file_instance_id": "7f221fbcf3eea6a5",
+  "annotator_a_file": "step3_pilot/submitted/annotator_a/2016-0095__7f221fbcf3eea6a5.annotation.json",
+  "annotator_b_file": "step3_pilot/submitted/annotator_b/2016-0095__7f221fbcf3eea6a5.annotation.json",
+  "adjudicator_id": "codex-a2",
+  "comparison_sha256": "d07d35b61baa74f72690535023d95f372390a9b8aba2ee6853ee5410ceaf4014",
+  "decision_status": "pending",
+  "resolved_record_file": null,
+  "decisions": [
+    {
+      "field_path": "/ad_identity/design_approval_holder/raw_text",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/ad_identity/design_approval_holder/value",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/ad_identity/supersedure_statement/raw_text",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/ad_identity/version_label",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/amoc_and_contacts/0/conditions/0",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/amoc_and_contacts/0/conditions/1",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/amoc_and_contacts/1/contact_text",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/amoc_and_contacts/2/conditions/0",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/amoc_and_contacts/2/contact_text",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/0/aircraft_families/0",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/0/label",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/0/raw_text",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/0/serial_restrictions/0/condition",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/aircraft_families/0",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/boolean_logic",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/configuration_conditions/0",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/configuration_conditions/1",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/exclusions/0",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/label",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/raw_text",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/0/condition",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/condition",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/0",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/1",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/2",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/3",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/4",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/5",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/6",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/7",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/8",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/9",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/10",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/11",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/12",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/13",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/14",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/15",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/16",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/17",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/18",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/19",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/20",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/21",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/22",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/23",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/24",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/25",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/26",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/27",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/28",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/29",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/30",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/31",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/32",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/33",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/34",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/35",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/36",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/37",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/38",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/39",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/40",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/41",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/42",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/43",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/44",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/45",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/46",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/47",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/48",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/49",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/50",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/51",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/52",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/53",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/54",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/55",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/56",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/57",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/58",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/59",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/60",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/61",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/62",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/63",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/64",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/65",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/66",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/67",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/68",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/69",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/70",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/71",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/72",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/73",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/74",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/75",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/76",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/77",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/78",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/79",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/80",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/81",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/82",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/83",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/84",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/85",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/86",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/87",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/88",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/89",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/90",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/91",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/92",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/93",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/94",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/95",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/96",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/97",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/98",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/99",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/100",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/101",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/102",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/103",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/104",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/105",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/106",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/107",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/108",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/109",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/110",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/111",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/112",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/113",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/114",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/115",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/116",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/117",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/118",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/119",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/120",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/121",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/122",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/123",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/124",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/125",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/126",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/127",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/128",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/129",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/explicit_values/130",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/1/raw_expression",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/2",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/3",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/4",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/5",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/6",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/7",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/8",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/9",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/10",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/11",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/12",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/13",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/14",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/15",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/16",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/17",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/18",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/19",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/20",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/21",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/22",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/23",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/24",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/25",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/26",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/27",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/28",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/29",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/30",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/31",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/32",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/33",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/34",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/35",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/36",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/37",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/38",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/39",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/40",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/41",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/42",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/43",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/44",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/45",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/46",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/47",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/48",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/49",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/50",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/51",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/52",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/53",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/54",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/55",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/56",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/57",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/58",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/59",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/60",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/61",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/62",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/63",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/64",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/65",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/66",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/67",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/68",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/69",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/70",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/71",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/72",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/73",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/74",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/75",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/76",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/77",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/78",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/79",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/80",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/81",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/82",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/83",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/84",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/85",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/86",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/87",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/88",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/89",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/90",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/91",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/92",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/93",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/94",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/95",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/96",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/97",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/98",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/99",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/100",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/101",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/102",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/103",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/104",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/105",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/106",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/107",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/108",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/109",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/110",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/111",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/112",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/113",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/114",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/115",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/116",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/117",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/serial_restrictions/118",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/2",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/classification/action_types/0",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/classification/action_types/1",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/classification/action_types/2",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/classification/action_types/3",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/classification/action_types/5",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/classification/action_types/6",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/classification/airbus_families/0",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/classification/frequency",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/definitions/0/definition_text",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/definitions/0/term",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/definitions/1/definition_text",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/definitions/2",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/exceptions/0",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/publication/effective_date/raw_text",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/publication/foreign_ad/raw_text",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/publication/issue_date/raw_text",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/publication/subject/value",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/publication/type_model_designations/0",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/referenced_publications/0/revision",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/requirements/0/action_text",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/requirements/0/action_types/0",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/requirements/0/action_types/1",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/requirements/0/compliance_rules/0/initial_limits/0/raw_value",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/requirements/0/compliance_rules/0/raw_text",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/requirements/0/conditions/0",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/requirements/0/objects_or_components/0",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/requirements/0/objects_or_components/1",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/requirements/0/terminating_action/present",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/requirements/0/terminating_action/scope",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/requirements/1/action_text",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/requirements/1/applicability_group_ids/1",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/requirements/1/compliance_rules/0/conditions/0",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/requirements/1/compliance_rules/0/conditions/1",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/requirements/1/compliance_rules/0/initial_limits/0/raw_value",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/requirements/1/compliance_rules/0/initial_limits/0/reference_event",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/requirements/1/compliance_rules/0/initial_limits/1/raw_value",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/requirements/1/compliance_rules/0/initial_limits/1/reference_event",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/requirements/1/compliance_rules/0/raw_text",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/requirements/1/conditions/0",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/requirements/1/objects_or_components/0",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/requirements/1/terminating_action/present",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/requirements/1/terminating_action/scope",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/requirements/2/action_text",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/requirements/2/applicability_group_ids/1",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/requirements/2/compliance_rules/0/conditions/0",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/requirements/2/compliance_rules/0/initial_limits/0/raw_value",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/requirements/2/compliance_rules/0/initial_limits/0/reference_event",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/requirements/2/compliance_rules/0/logic",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/requirements/2/compliance_rules/0/raw_text",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/requirements/2/conditions/0",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/requirements/2/objects_or_components/0",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/requirements/2/paragraph_reference",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/requirements/2/terminating_action/present",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/requirements/2/terminating_action/scope",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/requirements/3/action_text",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/requirements/3/applicability_group_ids/1",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/requirements/3/compliance_rules/0/conditions/0",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/requirements/3/compliance_rules/0/initial_limits/0",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/requirements/3/compliance_rules/0/raw_text",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/requirements/3/conditions/0",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/requirements/3/objects_or_components/0",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/requirements/3/paragraph_reference",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/requirements/3/terminating_action/present",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/requirements/3/terminating_action/scope",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/requirements/4/action_text",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/requirements/4/action_types/2",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/requirements/4/applicability_group_ids/0",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/requirements/4/applicability_group_ids/1",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/requirements/4/applicability_group_ids/2",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/requirements/4/compliance_rules/0/conditions/0",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/requirements/4/compliance_rules/0/initial_limits/0/calendar_date",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/requirements/4/compliance_rules/0/initial_limits/0/limit_id",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/requirements/4/compliance_rules/0/initial_limits/0/raw_value",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/requirements/4/compliance_rules/0/initial_limits/0/reference_event",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/requirements/4/compliance_rules/0/initial_limits/0/relation",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/requirements/4/compliance_rules/0/initial_limits/0/unit",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/requirements/4/compliance_rules/0/logic",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/requirements/4/compliance_rules/0/raw_text",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/requirements/4/conditions/0",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/requirements/4/conditions/1",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/requirements/4/objects_or_components/0",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/requirements/4/terminating_action/present",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/requirements/4/terminating_action/scope",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/unsafe_condition/causes/0",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/unsafe_condition/intended_risk_mitigation/0",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/unsafe_condition/intended_risk_mitigation/1",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/unsafe_condition/intended_risk_mitigation/3",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/unsafe_condition/observed_events_or_defects/0",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/unsafe_condition/potential_consequences/0",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/unsafe_condition/raw_reason_text",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/unsafe_condition/unsafe_conditions/0",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    }
+  ],
+  "overall_rationale": null
+}

@@ -1,0 +1,1715 @@
+{
+  "schema_version": "1.0.0",
+  "record_id": "adann-7f221fbcf3eea6a5",
+  "source_document": {
+    "file_instance_id": "7f221fbcf3eea6a5",
+    "content_id": "e93a25b42010e906",
+    "canonical_file_instance_id": "7f221fbcf3eea6a5",
+    "file_aliases": [],
+    "file_name": "2016-0095__AD_2016-0095_1__EASA_AD_2016_0095_superseded.pdf",
+    "relative_path": "2016-0095__AD_2016-0095_1__EASA_AD_2016_0095_superseded.pdf",
+    "file_sha256": "e93a25b42010e906246600076f3424fce90fcb21429416ac3e20e7a6926d2ea0",
+    "normalized_text_sha256": "8c9ca966e5cb5159bb51c03aa27a3dafd5eec1afd3c96681f5b5edf5eac6a9a8",
+    "page_count": 6,
+    "extraction_status": "hybrid",
+    "needs_ocr": false,
+    "manifest_review_flags": [],
+    "source_url": "https://ad.easa.europa.eu/blob/EASA_AD_2016_0095_superseded.pdf/AD_2016-0095_1",
+    "text_extraction_method": "hybrid",
+    "exact_duplicate_group": null,
+    "near_duplicate_cluster": "near-2016-0095--2017-0013"
+  },
+  "ad_identity": {
+    "authority": "EASA",
+    "document_type": "airworthiness_directive",
+    "ad_number": "2016-0095",
+    "base_ad_number": "2016-0095",
+    "revision_number": 0,
+    "publication_kind": "standard_ad",
+    "is_emergency": false,
+    "is_correction": false,
+    "correction_date": {
+      "state": "not_stated",
+      "value": null,
+      "raw_text": null,
+      "evidence_ids": [
+        "EV-001"
+      ]
+    },
+    "version_label": "Original",
+    "logical_version_key": "2016-0095|UNCORRECTED",
+    "is_latest_version": null,
+    "lifecycle_status": "superseded",
+    "design_approval_holder": {
+      "state": "present",
+      "value": "Airbus",
+      "raw_text": "Design Approval Holder’s Name: AIRBUS",
+      "evidence_ids": [
+        "EV-001"
+      ]
+    },
+    "supersedure_statement": {
+      "state": "explicit_none",
+      "value": null,
+      "raw_text": "Supersedure: None",
+      "evidence_ids": [
+        "EV-001"
+      ]
+    },
+    "evidence_ids": [
+      "EV-001",
+      "EV-002"
+    ]
+  },
+  "publication": {
+    "subject": {
+      "state": "present",
+      "value": "Wings – Flap Parts – Identification / Inspection [Wrong material]",
+      "raw_text": "ATA 57 – Wings – Flap Parts – Identification / Inspection [Wrong material]",
+      "evidence_ids": [
+        "EV-003"
+      ]
+    },
+    "issue_date": {
+      "state": "present",
+      "value": "2016-05-19",
+      "raw_text": "Issued: 19 May 2016",
+      "evidence_ids": [
+        "EV-001"
+      ]
+    },
+    "effective_date": {
+      "state": "present",
+      "value": "2016-06-02",
+      "raw_text": "Effective Date: 02 June 2016",
+      "evidence_ids": [
+        "EV-001"
+      ]
+    },
+    "ata_chapters": [
+      {
+        "code": "57",
+        "title": "Wings",
+        "evidence_ids": [
+          "EV-003"
+        ]
+      }
+    ],
+    "manufacturers": [
+      {
+        "raw_name": "Airbus",
+        "normalized_name": "Airbus",
+        "role": "manufacturer",
+        "evidence_ids": [
+          "EV-003"
+        ]
+      }
+    ],
+    "type_model_designations": [
+      "A380"
+    ],
+    "tcds_numbers": [
+      "EASA.A.110"
+    ],
+    "foreign_ad": {
+      "state": "explicit_none",
+      "value": null,
+      "raw_text": "Foreign AD: Not applicable",
+      "evidence_ids": [
+        "EV-001"
+      ]
+    }
+  },
+  "applicability_groups": [
+    {
+      "group_id": "APP-001",
+      "label": "All A380-841/-842/-861 aeroplanes and all MSN",
+      "state": "present",
+      "raw_text": "Airbus A380-841, A380-842 and A380-861 aeroplanes, all manufacturer serial numbers (MSN).",
+      "aircraft_families": [
+        "A380 family"
+      ],
+      "models": [
+        "A380-841",
+        "A380-842",
+        "A380-861"
+      ],
+      "serial_restrictions": [
+        {
+          "restriction_id": "MSN-001",
+          "kind": "all",
+          "raw_expression": "all manufacturer serial numbers",
+          "lower_bound": null,
+          "upper_bound": null,
+          "explicit_values": [],
+          "condition": null,
+          "evidence_ids": [
+            "EV-004"
+          ]
+        }
+      ],
+      "part_numbers": [],
+      "configuration_conditions": [],
+      "exclusions": [],
+      "boolean_logic": "all",
+      "evidence_ids": [
+        "EV-004"
+      ]
+    },
+    {
+      "group_id": "APP-002",
+      "label": "A380 aeroplanes with a middle or outboard flap s/n listed in Appendix 1",
+      "state": "present",
+      "raw_text": "Airbus A380-841, A380-842 and A380-861 aeroplanes, all manufacturer serial numbers (MSN). Potentially affected flaps are those whose serial number appears in Appendix 1 Tables 1 or 2.",
+      "aircraft_families": [
+        "A380 family"
+      ],
+      "models": [
+        "A380-841",
+        "A380-842",
+        "A380-861"
+      ],
+      "serial_restrictions": [
+        {
+          "restriction_id": "MSN-002",
+          "kind": "all",
+          "raw_expression": "all manufacturer serial numbers",
+          "lower_bound": null,
+          "upper_bound": null,
+          "explicit_values": [],
+          "condition": null,
+          "evidence_ids": [
+            "EV-004"
+          ]
+        },
+        {
+          "restriction_id": "MSN-003",
+          "kind": "include_list",
+          "raw_expression": "middle or outboard flap s/n listed in Appendix 1",
+          "lower_bound": null,
+          "upper_bound": null,
+          "explicit_values": [
+            "TB1015",
+            "TB1021",
+            "TB1028",
+            "TB1030",
+            "TB1031",
+            "TB1042",
+            "TB1043",
+            "TB1044",
+            "TB1046",
+            "TB1047",
+            "TB1048",
+            "TB1049",
+            "TB1050",
+            "TB1051",
+            "TB1052",
+            "TB1055",
+            "TB1056",
+            "TB1057",
+            "TB1061",
+            "TB1062",
+            "TB1064",
+            "TB2000",
+            "TB2001",
+            "TB2003",
+            "TB2004",
+            "TB2005",
+            "TB2006",
+            "TB2007",
+            "TB2008",
+            "TB2009",
+            "TB2010",
+            "TB2011",
+            "TB2012",
+            "TB2013",
+            "TB2014",
+            "TB2015",
+            "TB2016",
+            "TB2017",
+            "TB2018",
+            "TB2019",
+            "TB2020",
+            "TB2021",
+            "TB2022",
+            "TB2023",
+            "TB2024",
+            "TB2025",
+            "TB2026",
+            "TB2027",
+            "TB2028",
+            "TB2029",
+            "TB2030",
+            "TB2031",
+            "TB2032",
+            "TB2033",
+            "TB2034",
+            "TB2035",
+            "TB2036",
+            "TB2037",
+            "TB2038",
+            "TB2039",
+            "TB2040",
+            "TB2041",
+            "TB2042",
+            "TB2043",
+            "TB2044",
+            "TB2045",
+            "TB2046",
+            "TB2047",
+            "TB2048",
+            "TB2049",
+            "TB2050",
+            "TB2051",
+            "TB2052",
+            "TB2053",
+            "TB2054",
+            "TB2055",
+            "TB2056",
+            "TB2057",
+            "TB2058",
+            "TB2059",
+            "TB2060",
+            "TB2061",
+            "TB2062",
+            "TB2063",
+            "TB2064",
+            "TB2065",
+            "TB2066",
+            "TB2067",
+            "TB2068",
+            "TB2069",
+            "TB2070",
+            "TB2071",
+            "TB2072",
+            "TB2073",
+            "TB2074",
+            "TB2075",
+            "TB2076",
+            "TB2077",
+            "TB2078",
+            "TB2079",
+            "TB2080",
+            "TB2081",
+            "TB2082",
+            "TB2083",
+            "TB2084",
+            "TB2085",
+            "TB2086",
+            "TB2087",
+            "TB2088",
+            "TB2089",
+            "TB2090",
+            "TB2091",
+            "TB2092",
+            "TB2093",
+            "TB2094",
+            "TB2095",
+            "TB2097",
+            "TB2098",
+            "TB2099",
+            "TB2100",
+            "TB2101",
+            "TB2102",
+            "TB2103",
+            "TB2104",
+            "TB2105",
+            "TB2107",
+            "TB2108",
+            "TB9004",
+            "TBE1019",
+            "TBE1021",
+            "TBE1041"
+          ],
+          "condition": "Installed flap serial number",
+          "evidence_ids": [
+            "EV-006",
+            "EV-015",
+            "EV-016",
+            "EV-017"
+          ]
+        }
+      ],
+      "part_numbers": [],
+      "configuration_conditions": [
+        "A listed middle or outboard flap is installed"
+      ],
+      "exclusions": [],
+      "boolean_logic": "all",
+      "evidence_ids": [
+        "EV-004",
+        "EV-006",
+        "EV-015",
+        "EV-016",
+        "EV-017"
+      ]
+    }
+  ],
+  "definitions": [
+    {
+      "definition_id": "DEF-001",
+      "term": "Serviceable middle or outboard flap",
+      "definition_text": "A part not listed by s/n in Appendix 1, or a listed part that has passed a Special Detailed Inspection under Airbus SB A380-57-8111.",
+      "evidence_ids": [
+        "EV-011"
+      ]
+    },
+    {
+      "definition_id": "DEF-002",
+      "term": "Starting date for service life calculation",
+      "definition_text": "The dd/mm/yyyy Appendix 1 date corresponding to transfer of title at first delivery of the aeroplane on which the flap s/n was recorded in Airbus documentation.",
+      "evidence_ids": [
+        "EV-018"
+      ]
+    }
+  ],
+  "unsafe_condition": {
+    "state": "present",
+    "raw_reason_text": "An Airbus quality-control review found that non-conforming aluminium alloy had been used to manufacture structural parts on middle and outboard flaps. If not detected and corrected, this could reduce aeroplane structural integrity. Identification, one-time material inspection and finding-dependent replacement are required.",
+    "observed_events_or_defects": [
+      "Non-conforming aluminium alloy used in several middle- and outboard-flap structural parts"
+    ],
+    "causes": [
+      "Manufacturing material non-conformity"
+    ],
+    "unsafe_conditions": [
+      "Reduced structural integrity of the aeroplane"
+    ],
+    "potential_consequences": [
+      "Degraded aeroplane structural integrity"
+    ],
+    "affected_components": [
+      "Middle flap structural parts",
+      "Outboard flap structural parts"
+    ],
+    "intended_risk_mitigation": [
+      "Identify affected flap serial numbers",
+      "One-time Special Detailed Inspection",
+      "Replace non-conforming parts"
+    ],
+    "evidence_ids": [
+      "EV-005"
+    ]
+  },
+  "requirements": [
+    {
+      "requirement_id": "REQ-001",
+      "paragraph_reference": "(1)",
+      "parent_requirement_id": null,
+      "applicability_group_ids": [
+        "APP-001"
+      ],
+      "action_types": [
+        "test_or_check",
+        "records_review"
+      ],
+      "obligation": "mandatory",
+      "action_text": "Identify the serial numbers of the installed LH and RH middle and outboard flaps.",
+      "objects_or_components": [
+        "Installed LH and RH middle flaps",
+        "Installed LH and RH outboard flaps"
+      ],
+      "conditions": [
+        "Unless accomplished previously"
+      ],
+      "method_publication_ids": [],
+      "compliance_rules": [
+        {
+          "compliance_id": "CMP-001",
+          "state": "present",
+          "raw_text": "Within 3 months after the effective date of this AD",
+          "logic": "single",
+          "conditions": [],
+          "initial_limits": [
+            {
+              "limit_id": "LIM-001",
+              "relation": "within",
+              "quantity": 3,
+              "unit": "calendar_month",
+              "raw_value": "Within 3 months",
+              "reference_event": "effective date of this AD",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-007"
+              ]
+            }
+          ],
+          "is_repetitive": false,
+          "repetitive_intervals": [],
+          "grace_periods": [],
+          "evidence_ids": [
+            "EV-007"
+          ]
+        }
+      ],
+      "follow_on_requirement_ids": [
+        "REQ-002"
+      ],
+      "terminating_action": {
+        "state": "not_stated",
+        "present": false,
+        "scope": "none",
+        "action_text": null,
+        "terminates_requirement_ids": [],
+        "evidence_ids": []
+      },
+      "evidence_ids": [
+        "EV-007"
+      ]
+    },
+    {
+      "requirement_id": "REQ-002",
+      "paragraph_reference": "(2)",
+      "parent_requirement_id": "REQ-001",
+      "applicability_group_ids": [
+        "APP-002"
+      ],
+      "action_types": [
+        "inspection"
+      ],
+      "obligation": "mandatory",
+      "action_text": "Perform a one-time Special Detailed Inspection of each affected middle and outboard flap part.",
+      "objects_or_components": [
+        "Affected middle and outboard flap parts"
+      ],
+      "conditions": [
+        "Flap s/n is listed in Appendix 1"
+      ],
+      "method_publication_ids": [
+        "PUB-001"
+      ],
+      "compliance_rules": [
+        {
+          "compliance_id": "CMP-002",
+          "state": "present",
+          "raw_text": "Within 7 years or 4 300 FC, whichever occurs first, accumulated by the affected flap from its Appendix 1 starting date",
+          "logic": "whichever_occurs_first",
+          "conditions": [
+            "Flap s/n is listed in Appendix 1",
+            "Use the row-specific starting date"
+          ],
+          "initial_limits": [
+            {
+              "limit_id": "LIM-002",
+              "relation": "within",
+              "quantity": 7,
+              "unit": "calendar_year",
+              "raw_value": "within 7 years",
+              "reference_event": "Appendix 1 starting date for the affected flap s/n",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-008"
+              ]
+            },
+            {
+              "limit_id": "LIM-003",
+              "relation": "within",
+              "quantity": 4300,
+              "unit": "flight_cycle",
+              "raw_value": "4 300 flight cycles",
+              "reference_event": "Appendix 1 starting date for the affected flap s/n",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-008"
+              ]
+            }
+          ],
+          "is_repetitive": false,
+          "repetitive_intervals": [],
+          "grace_periods": [],
+          "evidence_ids": [
+            "EV-008",
+            "EV-015",
+            "EV-016",
+            "EV-017"
+          ]
+        }
+      ],
+      "follow_on_requirement_ids": [
+        "REQ-003"
+      ],
+      "terminating_action": {
+        "state": "not_stated",
+        "present": false,
+        "scope": "none",
+        "action_text": null,
+        "terminates_requirement_ids": [],
+        "evidence_ids": []
+      },
+      "evidence_ids": [
+        "EV-008",
+        "EV-015",
+        "EV-016",
+        "EV-017"
+      ]
+    },
+    {
+      "requirement_id": "REQ-003",
+      "paragraph_reference": "(3)",
+      "parent_requirement_id": "REQ-002",
+      "applicability_group_ids": [
+        "APP-002"
+      ],
+      "action_types": [
+        "contact_manufacturer"
+      ],
+      "obligation": "conditional",
+      "action_text": "Contact Airbus for replacement instructions if a non-conforming-material part is detected.",
+      "objects_or_components": [
+        "Non-conforming middle or outboard flap part"
+      ],
+      "conditions": [
+        "Non-conforming material detected during the paragraph (2) inspection"
+      ],
+      "method_publication_ids": [],
+      "compliance_rules": [
+        {
+          "compliance_id": "CMP-003",
+          "state": "present",
+          "raw_text": "Within 30 days after the Special Detailed Inspection",
+          "logic": "conditional",
+          "conditions": [
+            "A non-conforming-material part is detected"
+          ],
+          "initial_limits": [
+            {
+              "limit_id": "LIM-004",
+              "relation": "within",
+              "quantity": 30,
+              "unit": "calendar_day",
+              "raw_value": "within 30 days",
+              "reference_event": "Special Detailed Inspection required by paragraph (2)",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-009"
+              ]
+            }
+          ],
+          "is_repetitive": false,
+          "repetitive_intervals": [],
+          "grace_periods": [],
+          "evidence_ids": [
+            "EV-009"
+          ]
+        }
+      ],
+      "follow_on_requirement_ids": [
+        "REQ-004"
+      ],
+      "terminating_action": {
+        "state": "not_stated",
+        "present": false,
+        "scope": "none",
+        "action_text": null,
+        "terminates_requirement_ids": [],
+        "evidence_ids": []
+      },
+      "evidence_ids": [
+        "EV-009"
+      ]
+    },
+    {
+      "requirement_id": "REQ-004",
+      "paragraph_reference": "(3)",
+      "parent_requirement_id": "REQ-003",
+      "applicability_group_ids": [
+        "APP-002"
+      ],
+      "action_types": [
+        "replacement"
+      ],
+      "obligation": "conditional",
+      "action_text": "Replace each detected non-conforming-material part in accordance with Airbus instructions.",
+      "objects_or_components": [
+        "Non-conforming middle or outboard flap part"
+      ],
+      "conditions": [
+        "Airbus replacement instructions received"
+      ],
+      "method_publication_ids": [],
+      "compliance_rules": [
+        {
+          "compliance_id": "CMP-004",
+          "state": "present",
+          "raw_text": "Within the compliance time indicated in Airbus replacement instructions",
+          "logic": "conditional",
+          "conditions": [
+            "Airbus has provided replacement instructions after a non-conforming part was detected"
+          ],
+          "initial_limits": [],
+          "is_repetitive": false,
+          "repetitive_intervals": [],
+          "grace_periods": [],
+          "evidence_ids": [
+            "EV-009"
+          ]
+        }
+      ],
+      "follow_on_requirement_ids": [],
+      "terminating_action": {
+        "state": "not_stated",
+        "present": false,
+        "scope": "none",
+        "action_text": null,
+        "terminates_requirement_ids": [],
+        "evidence_ids": []
+      },
+      "evidence_ids": [
+        "EV-009"
+      ]
+    },
+    {
+      "requirement_id": "REQ-005",
+      "paragraph_reference": "(4)",
+      "parent_requirement_id": null,
+      "applicability_group_ids": [
+        "APP-002"
+      ],
+      "action_types": [
+        "install",
+        "test_or_check",
+        "prohibition"
+      ],
+      "obligation": "conditional",
+      "action_text": "Install a listed middle or outboard flap only if it is determined to be serviceable before installation.",
+      "objects_or_components": [
+        "Middle or outboard flap whose s/n is listed in Appendix 1"
+      ],
+      "conditions": [
+        "Part is serviceable under Note 3 before installation"
+      ],
+      "method_publication_ids": [
+        "PUB-001"
+      ],
+      "compliance_rules": [
+        {
+          "compliance_id": "CMP-005",
+          "state": "present",
+          "raw_text": "From the effective date, a listed flap may be installed only if it is serviceable before installation",
+          "logic": "conditional",
+          "conditions": [
+            "Prior to installation, the flap meets the Note 3 serviceable-part definition"
+          ],
+          "initial_limits": [
+            {
+              "limit_id": "LIM-005",
+              "relation": "from",
+              "quantity": null,
+              "unit": "calendar_date",
+              "raw_value": "From the effective date of this AD",
+              "reference_event": "effective date of this AD",
+              "calendar_date": "2016-06-02",
+              "evidence_ids": [
+                "EV-010"
+              ]
+            }
+          ],
+          "is_repetitive": false,
+          "repetitive_intervals": [],
+          "grace_periods": [],
+          "evidence_ids": [
+            "EV-010",
+            "EV-011"
+          ]
+        }
+      ],
+      "follow_on_requirement_ids": [],
+      "terminating_action": {
+        "state": "not_stated",
+        "present": false,
+        "scope": "none",
+        "action_text": null,
+        "terminates_requirement_ids": [],
+        "evidence_ids": []
+      },
+      "evidence_ids": [
+        "EV-010",
+        "EV-011"
+      ]
+    }
+  ],
+  "exceptions": [],
+  "previous_action_credit": [],
+  "referenced_publications": [
+    {
+      "publication_id": "PUB-001",
+      "publication_type": "service_bulletin",
+      "issuer": "Airbus",
+      "number": "A380-57-8111",
+      "revision": "Original issue",
+      "publication_date": "2016-01-07",
+      "title": null,
+      "roles": [
+        "required_method"
+      ],
+      "later_approved_revisions_allowed": true,
+      "evidence_ids": [
+        "EV-008",
+        "EV-011",
+        "EV-012"
+      ]
+    }
+  ],
+  "relationships": [],
+  "amoc_and_contacts": [
+    {
+      "entry_id": "AMC-001",
+      "entry_type": "amoc_authority",
+      "authority_or_organization": "EASA",
+      "contact_text": "If requested and appropriately substantiated, EASA can approve Alternative Methods of Compliance for this AD.",
+      "conditions": [
+        "Requested and appropriately substantiated"
+      ],
+      "evidence_ids": [
+        "EV-013"
+      ]
+    },
+    {
+      "entry_id": "AMC-002",
+      "entry_type": "regulatory_contact",
+      "authority_or_organization": "EASA",
+      "contact_text": "Enquiries regarding this AD should be referred to EASA at ADs@easa.europa.eu.",
+      "conditions": [],
+      "evidence_ids": [
+        "EV-014"
+      ]
+    },
+    {
+      "entry_id": "AMC-003",
+      "entry_type": "technical_contact",
+      "authority_or_organization": "Airbus",
+      "contact_text": "For technical questions, contact AIRBUS - EIANA (Airworthiness Office), telephone +33 562 110 253, fax +33 562 110 307, account.airworth-A380@airbus.com.",
+      "conditions": [],
+      "evidence_ids": [
+        "EV-014"
+      ]
+    }
+  ],
+  "classification": {
+    "airbus_families": [
+      "A380 family"
+    ],
+    "ata_chapters": [
+      "57"
+    ],
+    "action_types": [
+      "test_or_check",
+      "records_review",
+      "inspection",
+      "contact_manufacturer",
+      "replacement",
+      "install",
+      "prohibition"
+    ],
+    "frequency": "mixed",
+    "emergency_status": "standard",
+    "terminating_action_present": false,
+    "table_or_appendix_present": true,
+    "compliance_complexity": "table_driven",
+    "human_confirmed": false,
+    "evidence_ids": [
+      "EV-003",
+      "EV-004",
+      "EV-007",
+      "EV-008",
+      "EV-009",
+      "EV-010",
+      "EV-015",
+      "EV-016",
+      "EV-017"
+    ]
+  },
+  "evidence_spans": [
+    {
+      "evidence_id": "EV-001",
+      "source_file_instance_id": "7f221fbcf3eea6a5",
+      "page_number": 1,
+      "printed_page_label": "Page 1 of 6",
+      "section": "cover",
+      "section_raw": "Cover identity",
+      "clause_path": null,
+      "exact_quote": "AD No.: 2016-0095. Issued: 19 May 2016. Design Approval Holder’s Name: AIRBUS. Type/Model designation(s): A380 aeroplanes. Effective Date: 02 June 2016. TCDS Number(s): EASA.A.110. Foreign AD: Not applicable. Supersedure: None.",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "4c2d124820b8c1b83e55581425dbd4aa879952f099818eb1622be4bc1017864d",
+      "bbox_normalized": null,
+      "extraction_method": "visual_transcription",
+      "quality": "visual_transcription",
+      "table_context": null,
+      "annotation_note": "Visually transcribed from the rendered cover because the prominent diagonal status stamp interrupts native reading order."
+    },
+    {
+      "evidence_id": "EV-002",
+      "source_file_instance_id": "7f221fbcf3eea6a5",
+      "page_number": 1,
+      "printed_page_label": "Page 1 of 6",
+      "section": "other",
+      "section_raw": "Document status stamp",
+      "clause_path": null,
+      "exact_quote": "SUPERSEDED",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "4c2d124820b8c1b83e55581425dbd4aa879952f099818eb1622be4bc1017864d",
+      "bbox_normalized": null,
+      "extraction_method": "visual_transcription",
+      "quality": "visual_transcription",
+      "table_context": null,
+      "annotation_note": "Visible diagonal red status stamp on the rendered source PDF; it does not identify the superseding AD."
+    },
+    {
+      "evidence_id": "EV-003",
+      "source_file_instance_id": "7f221fbcf3eea6a5",
+      "page_number": 1,
+      "printed_page_label": "Page 1 of 6",
+      "section": "cover",
+      "section_raw": "ATA / Manufacturer(s)",
+      "clause_path": null,
+      "exact_quote": "ATA 57 – Wings – Flap Parts – Identification / Inspection [Wrong material]. Manufacturer(s): Airbus.",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "4c2d124820b8c1b83e55581425dbd4aa879952f099818eb1622be4bc1017864d",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-004",
+      "source_file_instance_id": "7f221fbcf3eea6a5",
+      "page_number": 1,
+      "printed_page_label": "Page 1 of 6",
+      "section": "applicability",
+      "section_raw": "Applicability",
+      "clause_path": null,
+      "exact_quote": "Airbus A380-841, A380-842 and A380-861 aeroplanes, all manufacturer serial numbers (MSN).",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "4c2d124820b8c1b83e55581425dbd4aa879952f099818eb1622be4bc1017864d",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-005",
+      "source_file_instance_id": "7f221fbcf3eea6a5",
+      "page_number": 1,
+      "printed_page_label": "Page 1 of 6",
+      "section": "reason",
+      "section_raw": "Reason",
+      "clause_path": null,
+      "exact_quote": "Following an Airbus quality control review on the final assembly line, it was discovered that non-conforming aluminium alloy had been used to manufacture several structural parts located on the middle and outboard flaps. This condition, if not detected and corrected, could reduce the structural integrity of the aeroplane. Airbus issued Service Bulletin A380-57-8111 to provide instructions to identify and inspect the potentially affected parts. This AD requires identification of the potentially affected middle and outboard flap parts, a one-time Special Detailed Inspection to identify which material they are made of and, depending on findings, replacement with serviceable parts.",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "4c2d124820b8c1b83e55581425dbd4aa879952f099818eb1622be4bc1017864d",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-006",
+      "source_file_instance_id": "7f221fbcf3eea6a5",
+      "page_number": 2,
+      "printed_page_label": "Page 2 of 6",
+      "section": "definitions",
+      "section_raw": "Note 1",
+      "clause_path": null,
+      "exact_quote": "Note 1: Appendix 1 of this AD lists the potentially affected middle (Table 1) and outboard (Table 2) flaps by serial number (s/n).",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "bd8ac7dc3ddc7f22f56e6292d5548c52bd6e0b425d7c12df3a14b24c71a96f17",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-007",
+      "source_file_instance_id": "7f221fbcf3eea6a5",
+      "page_number": 2,
+      "printed_page_label": "Page 2 of 6",
+      "section": "required_actions_and_compliance_times",
+      "section_raw": "Required Action(s) and Compliance Time(s)",
+      "clause_path": "(1)",
+      "exact_quote": "(1) Within 3 months after the effective date of this AD, identify the s/n of the left hand (LH) and right hand (RH) middle and outboard flaps installed on the aeroplane. A review of aeroplane delivery and/or maintenance records is acceptable for identifying the installed flaps, provided those records can be relied upon for that purpose and the s/n of the affected parts can be positively identified from that review.",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "bd8ac7dc3ddc7f22f56e6292d5548c52bd6e0b425d7c12df3a14b24c71a96f17",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-008",
+      "source_file_instance_id": "7f221fbcf3eea6a5",
+      "page_number": 2,
+      "printed_page_label": "Page 2 of 6",
+      "section": "required_actions_and_compliance_times",
+      "section_raw": "Required Action(s) and Compliance Time(s)",
+      "clause_path": "(2)",
+      "exact_quote": "(2) For each middle and outboard flap, identified as required by paragraph (1) of this AD, and having a s/n as listed in Appendix 1 of this AD, within 7 years or 4 300 flight cycles (FC), whichever occurs first, accumulated by the affected flap from the date as defined in Appendix 1 of this AD, depending on the affected flap s/n, accomplish a SDI of the affected flap parts, in accordance with the instructions of Airbus SB A380-57-8111.",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "bd8ac7dc3ddc7f22f56e6292d5548c52bd6e0b425d7c12df3a14b24c71a96f17",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-009",
+      "source_file_instance_id": "7f221fbcf3eea6a5",
+      "page_number": 2,
+      "printed_page_label": "Page 2 of 6",
+      "section": "required_actions_and_compliance_times",
+      "section_raw": "Required Action(s) and Compliance Time(s)",
+      "clause_path": "(3)",
+      "exact_quote": "(3) If, during the SDI as required by paragraph (2) of this AD, a part manufactured from non-conforming material is detected, within 30 days after the SDI as required by paragraph (2) of this AD, contact Airbus for replacement instructions and within the compliance time indicated in those instructions, accomplish the replacement accordingly.",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "bd8ac7dc3ddc7f22f56e6292d5548c52bd6e0b425d7c12df3a14b24c71a96f17",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-010",
+      "source_file_instance_id": "7f221fbcf3eea6a5",
+      "page_number": 2,
+      "printed_page_label": "Page 2 of 6",
+      "section": "required_actions_and_compliance_times",
+      "section_raw": "Required Action(s) and Compliance Time(s)",
+      "clause_path": "(4)",
+      "exact_quote": "(4) From the effective date of this AD, it is allowed to install on an aeroplane a middle or outboard flap having a s/n listed in Appendix 1 of this AD, provided that, prior to installation, it has been determined that the part is a serviceable part as defined in Note 3 of this AD.",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "bd8ac7dc3ddc7f22f56e6292d5548c52bd6e0b425d7c12df3a14b24c71a96f17",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-011",
+      "source_file_instance_id": "7f221fbcf3eea6a5",
+      "page_number": 2,
+      "printed_page_label": "Page 2 of 6",
+      "section": "definitions",
+      "section_raw": "Note 3",
+      "clause_path": null,
+      "exact_quote": "Note 3: For the purpose of this AD, a serviceable middle or outboard flap is a part that is not listed by s/n in Appendix 1 of this AD, or has a s/n listed in Appendix 1 of this AD but has passed an SDI in accordance with the instructions of Airbus SB A380-57-8111.",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "bd8ac7dc3ddc7f22f56e6292d5548c52bd6e0b425d7c12df3a14b24c71a96f17",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-012",
+      "source_file_instance_id": "7f221fbcf3eea6a5",
+      "page_number": 2,
+      "printed_page_label": "Page 2 of 6",
+      "section": "reference_publications",
+      "section_raw": "Ref. Publications",
+      "clause_path": null,
+      "exact_quote": "Airbus SB A380-57-8111 original issue, dated 07 January 2016. The use of later approved revisions of this document is acceptable for compliance with the requirements of this AD.",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "bd8ac7dc3ddc7f22f56e6292d5548c52bd6e0b425d7c12df3a14b24c71a96f17",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-013",
+      "source_file_instance_id": "7f221fbcf3eea6a5",
+      "page_number": 2,
+      "printed_page_label": "Page 2 of 6",
+      "section": "remarks",
+      "section_raw": "Remarks 1",
+      "clause_path": null,
+      "exact_quote": "If requested and appropriately substantiated, EASA can approve Alternative Methods of Compliance for this AD.",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "bd8ac7dc3ddc7f22f56e6292d5548c52bd6e0b425d7c12df3a14b24c71a96f17",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-014",
+      "source_file_instance_id": "7f221fbcf3eea6a5",
+      "page_number": 3,
+      "printed_page_label": "Page 3 of 6",
+      "section": "remarks",
+      "section_raw": "Remarks 3 and 4",
+      "clause_path": null,
+      "exact_quote": "Enquiries regarding this AD should be referred to the EASA Safety Information Section, Certification Directorate. E-mail: ADs@easa.europa.eu. For any question concerning the technical content of the requirements in this AD, please contact: AIRBUS - EIANA (Airworthiness Office), Telephone: +33 562 110 253; Fax: +33 562 110 307, E-mail: account.airworth-A380@airbus.com.",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "f393ee1b504346f04c1f6f2a5a9bad03eece6689ee47e250ac72b04358045adb",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-015",
+      "source_file_instance_id": "7f221fbcf3eea6a5",
+      "page_number": 4,
+      "printed_page_label": "Page 4 of 6",
+      "section": "table",
+      "section_raw": "Appendix 1 Table 1 – Middle Flaps (part 1)",
+      "clause_path": null,
+      "exact_quote": "EASA AD No.: 2016-0095 Appendix 1 – Middle and Outboard Flaps to be inspected For the purpose of these Tables: N/A - not applicable; The starting date for the service life calculation is shown as day/month/year (dd/mm/yyyy). Note 4: The starting date for service life calculation corresponds to the transfer of title of aeroplane where the s/n of the flap has been recorded and referenced in Airbus documentation at the time of aeroplane first delivery to an operator. Table 1 – Middle Flaps s/n Starting date s/n Starting date LH RH for service life LH RH for service life calculation calculation TB1021 TB1021 04/06/2010 TB2016 TB2016 25/11/2011 TB1015 TB1015 22/08/2009 TB2001 TB2001 17/06/2011 TB1050 TB1050 28/05/2010 TB2004 TB2004 29/09/2011 TB1051 TB1051 02/07/2010 TB2007 TB2007 31/03/2011 TB2011 TB2011 12/10/2011 TB2033 TB2017 05/06/2012 TB2006 TB2006 31/05/2011 TB2017 TB2018 07/09/2011 TB2021 TB2021 16/12/2011 TB2020 TB2008 04/05/2011 TB1047 TB1047 15/05/2010 TB2010 TB2010 05/07/2011 TB2009 TB2009 13/07/2011 TB2005 TB2005 14/09/2011 TB9004 TB9004 10/02/2010 TB2012 TB2012 14/05/2012 TB1031 TB1048 16/07/2010 TB2035 TB2034 13/06/2012 TB1042 TB1042 28/09/2010 TB2019 TB2019 15/12/2011 TBE1021 TBE1021 14/04/2010 TB2024 TB2024 28/11/2011 TB1044 TB1044 20/08/2010 TB2014 TB2020 12/01/2012 TBE1019 TBE1019 06/09/2009 TB2022 TB2014 14/10/2011 TB1046 TB1046 12/08/2010 TB2032 TB2032 29/05/2012 TB1043 TB1043 16/12/2010 TB2028 TB2029 02/04/2012 TB1048 TB1056 27/10/2010 TB2023 TB2023 28/10/2011 TB1049 TB1049 12/08/2010 TB2038 TB2037 27/07/2012 TB1028 TB1028 31/01/2011 TB2029 TB2028 08/02/2012 TB1030 TB1030 16/07/2010 TB2025 TB2025 25/11/2011 TB1052 TB1052 17/05/2011 TB2043 TB2043 26/10/2012 TB2018 TB2022 28/02/2012 TB2037 TB2036 31/07/2012 TB1057 TB1064 13/01/2011 TB2026 TB2026 16/12/2011 TB1055 TB1055 05/11/2010 TB2045 TB2045 26/09/2012 TB1062 TB1062 30/11/2010 TB2046 TB2046 13/09/2012 TB2000 TB2000 16/06/2011 TB2052 TB2051 31/10/2012 TB2013 TB2013 19/08/2011 TB2027 TB2027 02/12/2011 TB2003 TB2003 15/03/2011 TB2042 TB2042 06/09/2012 TB1061 TBE1041 08/04/2011 TB2054 TB2053 28/11/2012 TE.CAP.00110-005 © European Aviation Safety Agency. All rights reserved. ISO9001 Certified. Page 4 of 6 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet. An agency of the European Union",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "48bbdaf5019178bd4f8c4f5d3b72e407c7f94be76fe91413a7d24288b11ba052",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": {
+        "table_label": "Appendix 1 Table 1 – Middle Flaps (part 1)",
+        "row_headers": [],
+        "column_headers": [
+          "s/n LH",
+          "s/n RH",
+          "Starting date for service life calculation"
+        ],
+        "footnotes": [
+          "Starting date is shown as dd/mm/yyyy",
+          "Starting date corresponds to transfer of title at first delivery to an operator"
+        ]
+      },
+      "annotation_note": "Full table page retained for serial/date mapping."
+    },
+    {
+      "evidence_id": "EV-016",
+      "source_file_instance_id": "7f221fbcf3eea6a5",
+      "page_number": 5,
+      "printed_page_label": "Page 5 of 6",
+      "section": "table",
+      "section_raw": "Appendix 1 Table 1 – Middle Flaps (continued)",
+      "clause_path": null,
+      "exact_quote": "EASA AD No.: 2016-0095 Table 1 – Middle Flaps s/n Starting date s/n Starting date LH RH for service life LH RH for service life calculation calculation TB2059 TB2058 07/02/2013 TB2076 TB2075 25/10/2013 TB2063 TB2062 03/07/2013 TB2094 TB2091 27/06/2014 TB2065 TB2054 10/12/2012 TB2081 TB2080 29/11/2013 TB2015 TB2015 24/02/2012 TB2075 TB2074 29/08/2013 TB2030 TB2030 02/05/2012 TB2079 TB2078 27/11/2013 TB2066 TB2056 20/12/2012 TB2086 TB2084 14/11/2013 TB2034 TB2033 30/07/2012 TB2088 TB2085 27/11/2013 TB2039 TB2038 29/08/2012 TB2072 TB2086 29/10/2013 TB2044 TB2044 01/10/2012 TB2055 TB2088 12/12/2013 TB2047 TB2047 01/10/2012 TB2092 TB2089 19/12/2013 TB2048 TB2048 12/10/2012 TB2093 TB2090 19/12/2013 TB2049 TB2059 19/12/2012 N/A TB2081 14/02/2014 TB2051 TB2050 09/11/2012 N/A TB2100 27/03/2014 TB2053 TB2052 30/11/2012 TB2089 TB2087 16/01/2014 TB2056 TB2055 28/12/2012 TB2090 TB2094 28/03/2014 TB2058 TB2057 27/12/2012 TB2097 TB2064 27/03/2014 TB2064 TB2066 03/05/2013 TB2095 TB2093 06/03/2014 TB2062 TB2061 13/03/2013 TB2100 TB2099 05/05/2014 TB2067 TB2065 12/09/2013 TB2084 TB2083 19/05/2014 TB2068 TB2067 08/05/2013 TB2078 TB2077 14/05/2014 N/A TB2082 20/06/2014 TB2057 TB2098 28/05/2014 TB2069 TB2068 04/06/2013 TB2103 TB2102 27/06/2014 TB2060 TB2060 28/02/2013 TB2107 TB2105 09/07/2014 TB2073 TB2072 19/09/2013 TB2104 TB2103 29/07/2014 TB2061 TB2063 21/03/2013 TB2087 TB2104 28/07/2014 TB2071 TB2070 17/06/2013 TB2108 TB2092 18/08/2014 TB2077 TB2076 17/10/2013 TB2105 N/A 25/08/2014 TB2080 TB2079 29/10/2013 N/A TB2101 22/12/2014 TB2070 TB2069 28/08/2013 TB2074 TB2073 19/09/2013 TE.CAP.00110-005 © European Aviation Safety Agency. All rights reserved. ISO9001 Certified. Page 5 of 6 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet. An agency of the European Union",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "83fa0c47b7b47096a92bb07c7484f2cd9a8cd013b3fdd3b0788447aa4b002cbd",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": {
+        "table_label": "Appendix 1 Table 1 – Middle Flaps (continued)",
+        "row_headers": [],
+        "column_headers": [
+          "s/n LH",
+          "s/n RH",
+          "Starting date for service life calculation"
+        ],
+        "footnotes": []
+      },
+      "annotation_note": "Full table page retained for serial/date mapping."
+    },
+    {
+      "evidence_id": "EV-017",
+      "source_file_instance_id": "7f221fbcf3eea6a5",
+      "page_number": 6,
+      "printed_page_label": "Page 6 of 6",
+      "section": "table",
+      "section_raw": "Appendix 1 Table 2 – Outboard Flaps",
+      "clause_path": null,
+      "exact_quote": "EASA AD No.: 2016-0095 Table 2 – Outboard Flaps s/n Starting date s/n Starting date LH RH for service life LH RH for service life calculation calculation TB2006 TB2016 16/12/2011 TB2043 TB2043 19/12/2012 TB1056 TB1056 17/05/2011 TB2046 TB2044 09/11/2012 TB2021 TB2021 28/02/2012 TB2048 TB2046 30/11/2012 TB2026 TB2027 05/06/2012 TB2051 TB2058 28/12/2012 TB2010 TB2010 14/05/2012 TB2053 TB2052 27/12/2012 TB2030 TB2032 13/06/2012 TB2059 TB2061 03/05/2013 TB2016 TB2023 28/11/2011 TB2057 TB2056 13/03/2013 TB2018 TB2018 14/10/2011 TB2063 TB2062 12/09/2013 TB2028 TB2030 29/05/2012 TB2055 TB2063 08/05/2013 TB2023 TB2024 02/04/2012 TB2089 TB2065 04/06/2013 TB2019 TB2019 28/10/2011 TB2061 TB2054 28/02/2013 TB2032 TB2034 27/07/2012 TB2066 TB2064 19/09/2013 TB2024 TB2025 08/02/2012 TB2056 TB2055 21/03/2013 TB2020 TB2020 25/11/2011 TB2067 TB2059 17/06/2013 TB2037 TB2037 26/10/2012 TB2070 TB2069 17/10/2013 TB2031 TB2033 31/07/2012 TB2078 TB2077 29/10/2013 TB2022 TB2022 16/12/2011 TB2060 TB2060 28/08/2013 TB2039 TB2039 26/09/2012 TB2065 TB2068 19/09/2013 TB2040 TB2040 13/09/2012 TB2068 TB2067 25/10/2013 TB2047 TB2045 31/10/2012 TB2079 TB2078 29/11/2013 TB2008 TB2008 02/12/2011 TB2062 TB2066 29/08/2013 TB2036 TB2036 06/09/2012 TB2077 TB2070 27/11/2013 TB2049 TB2047 28/11/2012 TB2080 TB2079 14/11/2013 TB2054 TB2053 07/02/2013 TB2072 TB2076 27/11/2013 TB2058 TB2057 03/07/2013 TB2081 TB2081 29/10/2013 TB2050 TB2048 10/12/2012 TB2082 TB2049 12/12/2013 TB2025 TB2026 24/02/2012 TB2090 TB2082 19/12/2013 TB2027 TB2029 02/05/2012 TB2071 TB2083 19/12/2013 TB2052 TB2050 20/12/2012 TB2083 TB2085 16/01/2014 TB2029 TB2031 30/07/2012 TB2088 TB2089 28/03/2014 TB2033 TB2035 29/08/2012 TB2064 TB2090 27/03/2014 TB2038 TB2038 01/10/2012 TB2087 TB2087 06/03/2014 TB2041 TB2041 01/10/2012 TB2093 TB2092 05/05/2014 TB2042 TB2042 12/10/2012 TE.CAP.00110-005 © European Aviation Safety Agency. All rights reserved. ISO9001 Certified. Page 6 of 6 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet. An agency of the European Union",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "07f3042bdcb6df2a9f6a487483ce832caa8e1c809211d823d177518f49b0dc0a",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": {
+        "table_label": "Appendix 1 Table 2 – Outboard Flaps",
+        "row_headers": [],
+        "column_headers": [
+          "s/n LH",
+          "s/n RH",
+          "Starting date for service life calculation"
+        ],
+        "footnotes": []
+      },
+      "annotation_note": "Full table page retained for serial/date mapping."
+    },
+    {
+      "evidence_id": "EV-018",
+      "source_file_instance_id": "7f221fbcf3eea6a5",
+      "page_number": 4,
+      "printed_page_label": "Page 4 of 6",
+      "section": "definitions",
+      "section_raw": "Appendix 1 / Note 4",
+      "clause_path": null,
+      "exact_quote": "The starting date for the service life calculation is shown as day/month/year (dd/mm/yyyy). Note 4: The starting date for service life calculation corresponds to the transfer of title of aeroplane where the s/n of the flap has been recorded and referenced in Airbus documentation at the time of aeroplane first delivery to an operator.",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "48bbdaf5019178bd4f8c4f5d3b72e407c7f94be76fe91413a7d24288b11ba052",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    }
+  ],
+  "field_assertions": [
+    {
+      "assertion_id": "AST-001",
+      "field_path": "/ad_identity",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.995,
+      "evidence_ids": [
+        "EV-001",
+        "EV-002"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Section completion: AD identity"
+    },
+    {
+      "assertion_id": "AST-002",
+      "field_path": "/publication",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.99,
+      "evidence_ids": [
+        "EV-003",
+        "EV-001"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Section completion: publication"
+    },
+    {
+      "assertion_id": "AST-003",
+      "field_path": "/applicability_groups",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.95,
+      "evidence_ids": [
+        "EV-004",
+        "EV-006",
+        "EV-015",
+        "EV-016",
+        "EV-017"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Section completion: applicability_groups"
+    },
+    {
+      "assertion_id": "AST-004",
+      "field_path": "/definitions",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.95,
+      "evidence_ids": [
+        "EV-011",
+        "EV-018"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Section completion: definitions"
+    },
+    {
+      "assertion_id": "AST-005",
+      "field_path": "/requirements",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.95,
+      "evidence_ids": [
+        "EV-007",
+        "EV-008",
+        "EV-015",
+        "EV-016",
+        "EV-017",
+        "EV-009",
+        "EV-010",
+        "EV-011"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Section completion: requirements"
+    },
+    {
+      "assertion_id": "AST-006",
+      "field_path": "/exceptions",
+      "value_state": "absent_in_source",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.9,
+      "evidence_ids": [],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Section completion: exceptions"
+    },
+    {
+      "assertion_id": "AST-007",
+      "field_path": "/previous_action_credit",
+      "value_state": "absent_in_source",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.9,
+      "evidence_ids": [],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Section completion: previous_action_credit"
+    },
+    {
+      "assertion_id": "AST-008",
+      "field_path": "/referenced_publications",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.95,
+      "evidence_ids": [
+        "EV-008",
+        "EV-011",
+        "EV-012"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Section completion: referenced_publications"
+    },
+    {
+      "assertion_id": "AST-009",
+      "field_path": "/relationships",
+      "value_state": "absent_in_source",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.9,
+      "evidence_ids": [
+        "EV-001"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Section completion: relationships"
+    },
+    {
+      "assertion_id": "AST-010",
+      "field_path": "/amoc_and_contacts",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.95,
+      "evidence_ids": [
+        "EV-013",
+        "EV-014"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Section completion: amoc_and_contacts"
+    },
+    {
+      "assertion_id": "AST-011",
+      "field_path": "/ad_identity/ad_number",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.995,
+      "evidence_ids": [
+        "EV-001",
+        "EV-002"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Cover identity"
+    },
+    {
+      "assertion_id": "AST-012",
+      "field_path": "/ad_identity/supersedure_statement",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.99,
+      "evidence_ids": [
+        "EV-001"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Printed status field"
+    },
+    {
+      "assertion_id": "AST-013",
+      "field_path": "/publication/issue_date",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.995,
+      "evidence_ids": [
+        "EV-001"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Printed issue date"
+    },
+    {
+      "assertion_id": "AST-014",
+      "field_path": "/publication/effective_date",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.995,
+      "evidence_ids": [
+        "EV-001"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Printed effective date"
+    },
+    {
+      "assertion_id": "AST-015",
+      "field_path": "/publication/subject",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.99,
+      "evidence_ids": [
+        "EV-003"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Printed ATA subject"
+    },
+    {
+      "assertion_id": "AST-016",
+      "field_path": "/applicability_groups/0",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-004"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "applicability_groups"
+    },
+    {
+      "assertion_id": "AST-017",
+      "field_path": "/applicability_groups/1",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-004",
+        "EV-006",
+        "EV-015",
+        "EV-016",
+        "EV-017"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "applicability_groups"
+    },
+    {
+      "assertion_id": "AST-018",
+      "field_path": "/definitions/0",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-011"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "definitions"
+    },
+    {
+      "assertion_id": "AST-019",
+      "field_path": "/definitions/1",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-018"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "definitions"
+    },
+    {
+      "assertion_id": "AST-020",
+      "field_path": "/requirements/0",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.94,
+      "evidence_ids": [
+        "EV-007"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "requirements"
+    },
+    {
+      "assertion_id": "AST-021",
+      "field_path": "/requirements/1",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.94,
+      "evidence_ids": [
+        "EV-008",
+        "EV-015",
+        "EV-016",
+        "EV-017"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "requirements"
+    },
+    {
+      "assertion_id": "AST-022",
+      "field_path": "/requirements/2",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.94,
+      "evidence_ids": [
+        "EV-009"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "requirements"
+    },
+    {
+      "assertion_id": "AST-023",
+      "field_path": "/requirements/3",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.94,
+      "evidence_ids": [
+        "EV-009"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "requirements"
+    },
+    {
+      "assertion_id": "AST-024",
+      "field_path": "/requirements/4",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.94,
+      "evidence_ids": [
+        "EV-010",
+        "EV-011"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "requirements"
+    },
+    {
+      "assertion_id": "AST-025",
+      "field_path": "/referenced_publications/0",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-008",
+        "EV-011",
+        "EV-012"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "referenced_publications"
+    },
+    {
+      "assertion_id": "AST-026",
+      "field_path": "/amoc_and_contacts/0",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-013"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "amoc_and_contacts"
+    },
+    {
+      "assertion_id": "AST-027",
+      "field_path": "/amoc_and_contacts/1",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-014"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "amoc_and_contacts"
+    },
+    {
+      "assertion_id": "AST-028",
+      "field_path": "/amoc_and_contacts/2",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-014"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "amoc_and_contacts"
+    },
+    {
+      "assertion_id": "AST-029",
+      "field_path": "/unsafe_condition",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-005"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Reason and unsafe condition"
+    },
+    {
+      "assertion_id": "AST-030",
+      "field_path": "/classification",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.9,
+      "evidence_ids": [
+        "EV-003",
+        "EV-004",
+        "EV-007",
+        "EV-008",
+        "EV-009",
+        "EV-010",
+        "EV-015",
+        "EV-016",
+        "EV-017"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Schema classification"
+    }
+  ],
+  "annotation_metadata": {
+    "guideline_version": "1.0.0",
+    "record_status": "first_pass_complete",
+    "creation_method": "hybrid",
+    "machine_provenance": {
+      "system": "OpenAI Codex",
+      "model": "GPT-5",
+      "prompt_or_rules_version": "step2-guidelines-1.0.0-manual-pass-a3",
+      "generated_at": "2026-07-22T11:53:23Z"
+    },
+    "annotators": [
+      {
+        "annotator_id": "codex-a3",
+        "role": "annotator",
+        "started_at": "2026-07-22T11:45:00Z",
+        "submitted_at": "2026-07-22T12:45:00Z"
+      }
+    ],
+    "events": [
+      {
+        "event_type": "created",
+        "actor_id": "codex-a3",
+        "timestamp": "2026-07-22T11:45:00Z",
+        "rationale": "Blind first-pass annotation from the source PDF and blind packet."
+      },
+      {
+        "event_type": "submitted",
+        "actor_id": "codex-a3",
+        "timestamp": "2026-07-22T12:45:00Z",
+        "rationale": "First pass completed; no human review or approval claimed."
+      }
+    ],
+    "quality_flags": [
+      "complex_table",
+      "complex_applicability",
+      "complex_compliance",
+      "visual_transcription_used"
+    ],
+    "uncertainty_flags": [],
+    "notes": [
+      "All source pages were visually rendered and checked; populated assertions remain unreviewed."
+    ],
+    "source_text_sha256": "8c9ca966e5cb5159bb51c03aa27a3dafd5eec1afd3c96681f5b5edf5eac6a9a8",
+    "created_at": "2026-07-22T11:45:00Z",
+    "updated_at": "2026-07-22T12:45:00Z"
+  },
+  "benchmark_metadata": {
+    "split": "unassigned",
+    "split_group": "2016-0095",
+    "selection_strata": [],
+    "duplicate_cluster_ids": [],
+    "gold_record": false
+  }
+}

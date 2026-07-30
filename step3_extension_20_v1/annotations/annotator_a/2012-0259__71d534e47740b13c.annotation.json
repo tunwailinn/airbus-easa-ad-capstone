@@ -1,0 +1,830 @@
+{
+  "schema_version": "1.0.0",
+  "record_id": "adann-71d534e47740b13c",
+  "source_document": {
+    "file_instance_id": "71d534e47740b13c",
+    "content_id": "dcf033fc02d9ff25",
+    "canonical_file_instance_id": "71d534e47740b13c",
+    "file_aliases": [],
+    "file_name": "2012-0259__AD_2012-0259_1__easa_ad_2012_0259.pdf",
+    "relative_path": "2012-0259__AD_2012-0259_1__easa_ad_2012_0259.pdf",
+    "file_sha256": "dcf033fc02d9ff25cd44fb4ae129e9d2d9daa808af2b484c6748e329fa69d151",
+    "normalized_text_sha256": "f9e26085004f12e8bce541399fd0c5f08502216b83d1e3ff489219dd9963dbab",
+    "page_count": 2,
+    "extraction_status": "native_text",
+    "needs_ocr": false,
+    "manifest_review_flags": [],
+    "source_url": "https://ad.easa.europa.eu/blob/easa_ad_2012_0259.pdf/AD_2012-0259_1",
+    "text_extraction_method": "native_text",
+    "exact_duplicate_group": null,
+    "near_duplicate_cluster": null
+  },
+  "ad_identity": {
+    "authority": "EASA",
+    "document_type": "airworthiness_directive",
+    "ad_number": "2012-0259",
+    "base_ad_number": "2012-0259",
+    "revision_number": 0,
+    "publication_kind": "standard_ad",
+    "is_emergency": false,
+    "is_correction": false,
+    "correction_date": {
+      "state": "not_stated",
+      "value": null,
+      "raw_text": null,
+      "evidence_ids": [
+        "EV-001"
+      ]
+    },
+    "version_label": "Original",
+    "logical_version_key": "2012-0259|UNCORRECTED",
+    "is_latest_version": null,
+    "lifecycle_status": "unknown",
+    "design_approval_holder": {
+      "state": "present",
+      "value": "Airbus",
+      "raw_text": "Airbus",
+      "evidence_ids": [
+        "EV-001"
+      ]
+    },
+    "supersedure_statement": {
+      "state": "explicit_none",
+      "value": null,
+      "raw_text": "Supersedure: None",
+      "evidence_ids": [
+        "EV-001"
+      ]
+    },
+    "evidence_ids": [
+      "EV-001"
+    ]
+  },
+  "publication": {
+    "subject": {
+      "state": "present",
+      "value": "Water / Waste – Waste Water Drain Line – Modification",
+      "raw_text": "ATA 38 Water / Waste – Waste Water Drain Line – Modification",
+      "evidence_ids": [
+        "EV-001"
+      ]
+    },
+    "issue_date": {
+      "state": "present",
+      "value": "2012-12-06",
+      "raw_text": "Date: 06 December 2012",
+      "evidence_ids": [
+        "EV-001"
+      ]
+    },
+    "effective_date": {
+      "state": "present",
+      "value": "2012-12-20",
+      "raw_text": "Effective Date: 20 December 2012",
+      "evidence_ids": [
+        "EV-001"
+      ]
+    },
+    "ata_chapters": [
+      {
+        "code": "38",
+        "title": "Water / Waste",
+        "evidence_ids": [
+          "EV-001"
+        ]
+      }
+    ],
+    "manufacturers": [
+      {
+        "raw_name": "Manufacturer(s): Airbus (formerly Airbus Industrie)",
+        "normalized_name": "Airbus",
+        "role": "manufacturer",
+        "evidence_ids": [
+          "EV-002"
+        ]
+      }
+    ],
+    "type_model_designations": [
+      "A340-541",
+      "A340-542",
+      "A340-642",
+      "A340-643"
+    ],
+    "tcds_numbers": [
+      "EASA A.015"
+    ],
+    "foreign_ad": {
+      "state": "explicit_none",
+      "value": null,
+      "raw_text": "Foreign AD: None or Not applicable",
+      "evidence_ids": [
+        "EV-001"
+      ]
+    }
+  },
+  "applicability_groups": [
+    {
+      "group_id": "APP-001",
+      "label": "A340 applicability stated in the AD",
+      "state": "present",
+      "raw_text": "Applicability: Airbus A340-541, A340-542, A340-642 and A340-643 aeroplanes, all manufacturer serial numbers.",
+      "aircraft_families": [
+        "A340"
+      ],
+      "models": [
+        "A340-541",
+        "A340-542",
+        "A340-642",
+        "A340-643"
+      ],
+      "serial_restrictions": [
+        {
+          "restriction_id": "MSN-001",
+          "kind": "all",
+          "raw_expression": "all serial numbers",
+          "lower_bound": null,
+          "upper_bound": null,
+          "explicit_values": [],
+          "condition": null,
+          "evidence_ids": [
+            "EV-003"
+          ]
+        }
+      ],
+      "part_numbers": [],
+      "configuration_conditions": [],
+      "exclusions": [],
+      "boolean_logic": "all",
+      "evidence_ids": [
+        "EV-003"
+      ]
+    }
+  ],
+  "definitions": [],
+  "unsafe_condition": {
+    "state": "present",
+    "raw_reason_text": "Reason: Investigations showed that the distance between the heating element of the waste water drain line and the fuel line at fuselage frame (FR) 77/78 could be too small, which potentially induces chafing between the fuel line and the waste water heating element. This condition, if not corrected, could lead to a short circuit and consequent arcing on the fuel line, possibly resulting in a fuel leak and an uncontrolled fire. To address this unsafe condition, Airbus developed a modification to prevent chafing, which is to be embodied in service through Airbus Service Bulletin (SB) A340-38-5017. For the reasons described above, this AD requires modification of the waste water drain line, establishing a correct distance between the affected drain line and the fuel line.",
+    "observed_events_or_defects": [
+      "Investigations showed that the distance between the heating element of the waste water drain line and the fuel line at fuselage frame (FR) 77/78 could be too small, which potentially induces chafing between the fuel line and the waste water heating element."
+    ],
+    "causes": [],
+    "unsafe_conditions": [
+      "Investigations showed that the distance between the heating element of the waste water drain line and the fuel line at fuselage frame (FR) 77/78 could be too small, which potentially induces chafing between the fuel line and the waste water heating element.",
+      "This condition, if not corrected, could lead to a short circuit and consequent arcing on the fuel line, possibly resulting in a fuel leak and an uncontrolled fire."
+    ],
+    "potential_consequences": [
+      "This condition, if not corrected, could lead to a short circuit and consequent arcing on the fuel line, possibly resulting in a fuel leak and an uncontrolled fire.",
+      "To address this unsafe condition, Airbus developed a modification to prevent chafing, which is to be embodied in service through Airbus Service Bulletin (SB) A340-38-5017."
+    ],
+    "affected_components": [],
+    "intended_risk_mitigation": [
+      "For the reasons described above, this AD requires modification of the waste water drain line, establishing a correct distance between the affected drain line and the fuel line."
+    ],
+    "evidence_ids": [
+      "EV-004"
+    ]
+  },
+  "requirements": [
+    {
+      "requirement_id": "REQ-001",
+      "paragraph_reference": "Compliance section",
+      "parent_requirement_id": null,
+      "applicability_group_ids": [
+        "APP-001"
+      ],
+      "action_types": [
+        "modification"
+      ],
+      "obligation": "mandatory",
+      "action_text": "Required Action(s) Required as indicated, unless accomplished previously: and Compliance Within 24 months after the effective date of this AD, modify the waste water drain Time(s): line in accordance with the instructions of Airbus SB A340-38-5017.",
+      "objects_or_components": [],
+      "conditions": [],
+      "method_publication_ids": [
+        "PUB-001"
+      ],
+      "compliance_rules": [
+        {
+          "compliance_id": "CMP-001",
+          "state": "present",
+          "raw_text": "Required Action(s) Required as indicated, unless accomplished previously: and Compliance Within 24 months after the effective date of this AD, modify the waste water drain Time(s): line in accordance with the instructions of Airbus SB A340-38-5017.",
+          "logic": "single",
+          "conditions": [],
+          "initial_limits": [
+            {
+              "limit_id": "LIM-001",
+              "relation": "within",
+              "quantity": 24,
+              "unit": "calendar_month",
+              "raw_value": "Within 24 months",
+              "reference_event": "effective date of this AD",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-006"
+              ]
+            }
+          ],
+          "is_repetitive": false,
+          "repetitive_intervals": [],
+          "grace_periods": [],
+          "evidence_ids": [
+            "EV-006"
+          ]
+        }
+      ],
+      "follow_on_requirement_ids": [],
+      "terminating_action": {
+        "state": "not_stated",
+        "present": false,
+        "scope": "none",
+        "action_text": null,
+        "terminates_requirement_ids": [],
+        "evidence_ids": []
+      },
+      "evidence_ids": [
+        "EV-006"
+      ]
+    }
+  ],
+  "exceptions": [],
+  "previous_action_credit": [],
+  "referenced_publications": [
+    {
+      "publication_id": "PUB-001",
+      "publication_type": "service_bulletin",
+      "issuer": "Airbus",
+      "number": "A340-38-5017",
+      "revision": "Original issue",
+      "publication_date": "2012-02-13",
+      "title": null,
+      "roles": [
+        "required_method"
+      ],
+      "later_approved_revisions_allowed": true,
+      "evidence_ids": [
+        "EV-005"
+      ]
+    }
+  ],
+  "relationships": [],
+  "amoc_and_contacts": [
+    {
+      "entry_id": "AMC-001",
+      "entry_type": "amoc_authority",
+      "authority_or_organization": "EASA",
+      "contact_text": "Remarks : 1. If requested and appropriately substantiated, EASA can approve Alternative Methods of Compliance for this AD. 2. This AD was posted on 06 November 2012 as PAD 12-138 for consultation until 04 December 2012. No comments were received during the consultation period. 3. Enquiries regarding this AD should be referred to the Safety Information Section, Executive Directorate, EASA E-mail: ADs@easa.europa.eu. 4. For any question concerning the technical content of the requirements in this AD, please contact: Airbus – Airworthiness Office – EIAL; E-mail: airworthiness.A330-A340@airbus.com. TE.CAP.00110-003 © European Aviation Safety Agency. All rights reserved. 2/2 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet.",
+      "conditions": [
+        "Requested and appropriately substantiated"
+      ],
+      "evidence_ids": [
+        "EV-007"
+      ]
+    },
+    {
+      "entry_id": "AMC-002",
+      "entry_type": "regulatory_contact",
+      "authority_or_organization": "EASA and the technical contact stated in the AD",
+      "contact_text": "Remarks : 1. If requested and appropriately substantiated, EASA can approve Alternative Methods of Compliance for this AD. 2. This AD was posted on 06 November 2012 as PAD 12-138 for consultation until 04 December 2012. No comments were received during the consultation period. 3. Enquiries regarding this AD should be referred to the Safety Information Section, Executive Directorate, EASA E-mail: ADs@easa.europa.eu. 4. For any question concerning the technical content of the requirements in this AD, please contact: Airbus – Airworthiness Office – EIAL; E-mail: airworthiness.A330-A340@airbus.com. TE.CAP.00110-003 © European Aviation Safety Agency. All rights reserved. 2/2 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet.",
+      "conditions": [],
+      "evidence_ids": [
+        "EV-007"
+      ]
+    }
+  ],
+  "classification": {
+    "airbus_families": [
+      "A340"
+    ],
+    "ata_chapters": [
+      "38"
+    ],
+    "action_types": [
+      "modification"
+    ],
+    "frequency": "one_time",
+    "emergency_status": "standard",
+    "terminating_action_present": false,
+    "table_or_appendix_present": false,
+    "compliance_complexity": "simple",
+    "human_confirmed": false,
+    "evidence_ids": [
+      "EV-001",
+      "EV-003",
+      "EV-004",
+      "EV-006"
+    ]
+  },
+  "evidence_spans": [
+    {
+      "evidence_id": "EV-001",
+      "source_file_instance_id": "71d534e47740b13c",
+      "page_number": 1,
+      "printed_page_label": "1/2",
+      "section": "cover",
+      "section_raw": "Cover identity and publication",
+      "clause_path": "cover",
+      "exact_quote": "EASA AD No : 2012-0259 EASA AIRWORTHINESS DIRECTIVE AD No.: 2012-0259 Date: 06 December 2012 Note: This Airworthiness Directive (AD) is issued by EASA, acting in accordance with Regulation (EC) No 216/2008 on behalf of the European Community, its Member States and of the European third countries that participate in the activities of EASA under Article 66 of that Regulation. This AD is issued in accordance with EU 748/2012, Part 21.A.3B. In accordance with EC 2042/2003 Annex I, Part M.A.301, the continuing airworthiness of an aircraft shall be ensured by accomplishing any applicable ADs. Consequently, no person may operate an aircraft to which an AD applies, except in accordance with the requirements of that AD, unless otherwise specified by the Age ncy [EC 2042/2003 Annex I, Part M.A.303] or agreed with the Authority of the State of Registry [EC 216/2008, Article 14(4) exemption] . Design Approval Holder’s Name : Type/Model designation(s) : AIRBUS A340-500/-600 aeroplanes TCDS Number : EASA A.015 Foreign AD : Not applicable Supersedure : None ATA 38 Water / Waste – Waste Water Drain Line – Modification Manufacturer(s): Airbus (formerly Airbus Industrie) Applicability: Airbus A340-541, A340-542, A340-642 and A340-643 aeroplanes, all manufacturer serial numbers. Reason: Investigations showed that the distance between the heating element of the waste water drain line and the fuel line at fuselage frame (FR) 77/78 could be too small, which potentially induces chafing between the fuel line and the waste water heating element. This condition, if not corrected, could lead to a short circuit and consequent arcing on the fuel line, possibly resulting in a fuel leak and an uncontrolled fire. To address this unsafe condition, Airbus developed a modification to prevent chafing, which is to be embodied in service through Airbus Service Bulletin (SB) A340-38-5017. For the reasons described above, this AD requires modification of the waste water drain line, establishing a correct distance between the affected drain line and the fuel line. Effective Date: 20 December 2012 TE.CAP.00110-003 © European Aviation Safety Agency. All rights reserved. 1/2 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet.",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "8558051308581262a5f2b8e381e54e896ec5bc1119702efbfa3590a7f3d0b2f2",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-002",
+      "source_file_instance_id": "71d534e47740b13c",
+      "page_number": 1,
+      "printed_page_label": "1/2",
+      "section": "cover",
+      "section_raw": "Manufacturer(s)",
+      "clause_path": "Manufacturer(s)",
+      "exact_quote": "Manufacturer(s): Airbus (formerly Airbus Industrie)",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "8558051308581262a5f2b8e381e54e896ec5bc1119702efbfa3590a7f3d0b2f2",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-003",
+      "source_file_instance_id": "71d534e47740b13c",
+      "page_number": 1,
+      "printed_page_label": "1/2",
+      "section": "applicability",
+      "section_raw": "Applicability",
+      "clause_path": "Applicability",
+      "exact_quote": "Applicability: Airbus A340-541, A340-542, A340-642 and A340-643 aeroplanes, all manufacturer serial numbers.",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "8558051308581262a5f2b8e381e54e896ec5bc1119702efbfa3590a7f3d0b2f2",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-004",
+      "source_file_instance_id": "71d534e47740b13c",
+      "page_number": 1,
+      "printed_page_label": "1/2",
+      "section": "reason",
+      "section_raw": "Reason",
+      "clause_path": "Reason",
+      "exact_quote": "Reason: Investigations showed that the distance between the heating element of the waste water drain line and the fuel line at fuselage frame (FR) 77/78 could be too small, which potentially induces chafing between the fuel line and the waste water heating element. This condition, if not corrected, could lead to a short circuit and consequent arcing on the fuel line, possibly resulting in a fuel leak and an uncontrolled fire. To address this unsafe condition, Airbus developed a modification to prevent chafing, which is to be embodied in service through Airbus Service Bulletin (SB) A340-38-5017. For the reasons described above, this AD requires modification of the waste water drain line, establishing a correct distance between the affected drain line and the fuel line.",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "8558051308581262a5f2b8e381e54e896ec5bc1119702efbfa3590a7f3d0b2f2",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-005",
+      "source_file_instance_id": "71d534e47740b13c",
+      "page_number": 2,
+      "printed_page_label": "2/2",
+      "section": "reference_publications",
+      "section_raw": "Ref. Publications",
+      "clause_path": "Ref. Publications",
+      "exact_quote": "Ref. Publications : Airbus SB A340-38-5017 at original issue, dated 13 February 2012. The use of later approved revisions of this document is acceptable for compliance with the requirements of this AD.",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "cafce12978cff6e482facf58ee1b6f32c454e5c25d41894e7db8995e13c51846",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-006",
+      "source_file_instance_id": "71d534e47740b13c",
+      "page_number": 2,
+      "printed_page_label": "2/2",
+      "section": "required_actions_and_compliance_times",
+      "section_raw": "Required Action(s) and Compliance Time(s)",
+      "clause_path": "compliance",
+      "exact_quote": "Required Action(s) Required as indicated, unless accomplished previously: and Compliance Within 24 months after the effective date of this AD, modify the waste water drain Time(s): line in accordance with the instructions of Airbus SB A340-38-5017.",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "cafce12978cff6e482facf58ee1b6f32c454e5c25d41894e7db8995e13c51846",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-007",
+      "source_file_instance_id": "71d534e47740b13c",
+      "page_number": 2,
+      "printed_page_label": "2/2",
+      "section": "remarks",
+      "section_raw": "Remarks",
+      "clause_path": "Remarks",
+      "exact_quote": "Remarks : 1. If requested and appropriately substantiated, EASA can approve Alternative Methods of Compliance for this AD. 2. This AD was posted on 06 November 2012 as PAD 12-138 for consultation until 04 December 2012. No comments were received during the consultation period. 3. Enquiries regarding this AD should be referred to the Safety Information Section, Executive Directorate, EASA E-mail: ADs@easa.europa.eu. 4. For any question concerning the technical content of the requirements in this AD, please contact: Airbus – Airworthiness Office – EIAL; E-mail: airworthiness.A330-A340@airbus.com. TE.CAP.00110-003 © European Aviation Safety Agency. All rights reserved. 2/2 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet.",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "cafce12978cff6e482facf58ee1b6f32c454e5c25d41894e7db8995e13c51846",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    }
+  ],
+  "field_assertions": [
+    {
+      "assertion_id": "AST-001",
+      "field_path": "/ad_identity",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.995,
+      "evidence_ids": [
+        "EV-001"
+      ],
+      "annotator_id": "codex-extension-extractor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Section completion: AD identity"
+    },
+    {
+      "assertion_id": "AST-002",
+      "field_path": "/publication",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.99,
+      "evidence_ids": [
+        "EV-001"
+      ],
+      "annotator_id": "codex-extension-extractor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Section completion: publication"
+    },
+    {
+      "assertion_id": "AST-003",
+      "field_path": "/applicability_groups",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.95,
+      "evidence_ids": [
+        "EV-003"
+      ],
+      "annotator_id": "codex-extension-extractor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Section completion: applicability_groups"
+    },
+    {
+      "assertion_id": "AST-004",
+      "field_path": "/definitions",
+      "value_state": "absent_in_source",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.9,
+      "evidence_ids": [],
+      "annotator_id": "codex-extension-extractor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Section completion: definitions"
+    },
+    {
+      "assertion_id": "AST-005",
+      "field_path": "/requirements",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.95,
+      "evidence_ids": [
+        "EV-006"
+      ],
+      "annotator_id": "codex-extension-extractor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Section completion: requirements"
+    },
+    {
+      "assertion_id": "AST-006",
+      "field_path": "/exceptions",
+      "value_state": "absent_in_source",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.9,
+      "evidence_ids": [],
+      "annotator_id": "codex-extension-extractor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Section completion: exceptions"
+    },
+    {
+      "assertion_id": "AST-007",
+      "field_path": "/previous_action_credit",
+      "value_state": "absent_in_source",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.9,
+      "evidence_ids": [],
+      "annotator_id": "codex-extension-extractor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Section completion: previous_action_credit"
+    },
+    {
+      "assertion_id": "AST-008",
+      "field_path": "/referenced_publications",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.95,
+      "evidence_ids": [
+        "EV-005"
+      ],
+      "annotator_id": "codex-extension-extractor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Section completion: referenced_publications"
+    },
+    {
+      "assertion_id": "AST-009",
+      "field_path": "/relationships",
+      "value_state": "absent_in_source",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.9,
+      "evidence_ids": [
+        "EV-001"
+      ],
+      "annotator_id": "codex-extension-extractor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Section completion: relationships"
+    },
+    {
+      "assertion_id": "AST-010",
+      "field_path": "/amoc_and_contacts",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.95,
+      "evidence_ids": [
+        "EV-007"
+      ],
+      "annotator_id": "codex-extension-extractor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Section completion: amoc_and_contacts"
+    },
+    {
+      "assertion_id": "AST-011",
+      "field_path": "/ad_identity/ad_number",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.995,
+      "evidence_ids": [
+        "EV-001"
+      ],
+      "annotator_id": "codex-extension-extractor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Cover identity"
+    },
+    {
+      "assertion_id": "AST-012",
+      "field_path": "/ad_identity/supersedure_statement",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.99,
+      "evidence_ids": [
+        "EV-001"
+      ],
+      "annotator_id": "codex-extension-extractor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Printed status field"
+    },
+    {
+      "assertion_id": "AST-013",
+      "field_path": "/publication/issue_date",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.995,
+      "evidence_ids": [
+        "EV-001"
+      ],
+      "annotator_id": "codex-extension-extractor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Printed issue date"
+    },
+    {
+      "assertion_id": "AST-014",
+      "field_path": "/publication/effective_date",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.995,
+      "evidence_ids": [
+        "EV-001"
+      ],
+      "annotator_id": "codex-extension-extractor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Printed effective date"
+    },
+    {
+      "assertion_id": "AST-015",
+      "field_path": "/publication/subject",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.99,
+      "evidence_ids": [
+        "EV-001"
+      ],
+      "annotator_id": "codex-extension-extractor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Printed ATA subject"
+    },
+    {
+      "assertion_id": "AST-016",
+      "field_path": "/applicability_groups/0",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-003"
+      ],
+      "annotator_id": "codex-extension-extractor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "applicability_groups"
+    },
+    {
+      "assertion_id": "AST-017",
+      "field_path": "/requirements/0",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.94,
+      "evidence_ids": [
+        "EV-006"
+      ],
+      "annotator_id": "codex-extension-extractor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "requirements"
+    },
+    {
+      "assertion_id": "AST-018",
+      "field_path": "/referenced_publications/0",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-005"
+      ],
+      "annotator_id": "codex-extension-extractor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "referenced_publications"
+    },
+    {
+      "assertion_id": "AST-019",
+      "field_path": "/amoc_and_contacts/0",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-007"
+      ],
+      "annotator_id": "codex-extension-extractor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "amoc_and_contacts"
+    },
+    {
+      "assertion_id": "AST-020",
+      "field_path": "/amoc_and_contacts/1",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-007"
+      ],
+      "annotator_id": "codex-extension-extractor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "amoc_and_contacts"
+    },
+    {
+      "assertion_id": "AST-021",
+      "field_path": "/unsafe_condition",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-004"
+      ],
+      "annotator_id": "codex-extension-extractor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Reason and unsafe condition"
+    },
+    {
+      "assertion_id": "AST-022",
+      "field_path": "/classification",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.9,
+      "evidence_ids": [
+        "EV-001",
+        "EV-003",
+        "EV-004",
+        "EV-006"
+      ],
+      "annotator_id": "codex-extension-extractor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Schema classification"
+    }
+  ],
+  "annotation_metadata": {
+    "guideline_version": "1.0.0",
+    "record_status": "first_pass_complete",
+    "creation_method": "hybrid",
+    "machine_provenance": {
+      "system": "OpenAI Codex",
+      "model": "GPT-5",
+      "prompt_or_rules_version": "step3-extension-populated-extraction-1.0.0",
+      "generated_at": "2026-07-30T09:02:01Z"
+    },
+    "annotators": [
+      {
+        "annotator_id": "codex-extension-extractor",
+        "role": "annotator",
+        "started_at": "2026-07-30T09:02:01Z",
+        "submitted_at": "2026-07-30T09:02:01Z"
+      }
+    ],
+    "events": [
+      {
+        "event_type": "created",
+        "actor_id": "codex-extension-extractor",
+        "timestamp": "2026-07-30T09:02:01Z",
+        "rationale": "Blind first-pass annotation from the source PDF and blind packet."
+      },
+      {
+        "event_type": "submitted",
+        "actor_id": "codex-extension-extractor",
+        "timestamp": "2026-07-30T09:02:01Z",
+        "rationale": "First pass completed; no human review or approval claimed."
+      }
+    ],
+    "quality_flags": [
+      "manual_review_required",
+      "complex_applicability"
+    ],
+    "uncertainty_flags": [],
+    "notes": [
+      "Machine-assisted populated extraction from the complete frozen PDF/page-text packet.",
+      "Requirements were split from numbered source paragraphs where possible; every field assertion remains unreviewed.",
+      "No supersedure relationship was created because the cover explicitly states Supersedure: None.",
+      "Independent human comparison and correction are required before approval or gold promotion."
+    ],
+    "source_text_sha256": "f9e26085004f12e8bce541399fd0c5f08502216b83d1e3ff489219dd9963dbab",
+    "created_at": "2026-07-30T09:02:01Z",
+    "updated_at": "2026-07-30T09:02:01Z"
+  },
+  "benchmark_metadata": {
+    "split": "unassigned",
+    "split_group": "2012-0259",
+    "selection_strata": [
+      "simple",
+      "other"
+    ],
+    "duplicate_cluster_ids": [],
+    "gold_record": false
+  }
+}

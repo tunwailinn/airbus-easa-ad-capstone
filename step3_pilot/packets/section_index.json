@@ -1,0 +1,5244 @@
+{
+  "schema_version": "1.0.0",
+  "detector_version": "1.0.0",
+  "purpose": "annotation_navigation_only",
+  "page_semantics": "pages are pages containing detected headings; cover pages always contains page 1. They are navigation aids, not inferred section spans or gold values.",
+  "heading_not_found_semantics": "true means no recognized heading was found in cached page text; it does not mean the source section or information is absent",
+  "selection_source": "selection/pilot_selection.json",
+  "selection_sha256": "0a750922745ed5480a5eedb27e3b39d0bbee9f67deaf02a7804f79ef71d7bd80",
+  "page_text_source": "page_text/pilot_pages.jsonl",
+  "page_text_sha256": "2428a39926317453506c167273ef8252c9be056fd811e22c2531f6cb9727714e",
+  "record_count": 30,
+  "page_record_count": 171,
+  "section_order": [
+    "cover",
+    "applicability",
+    "definitions",
+    "reason",
+    "required_actions_compliance",
+    "credit",
+    "reference_publications",
+    "remarks",
+    "appendix_table"
+  ],
+  "records": [
+    {
+      "selection_position": 1,
+      "ad_number": "2019-0011R2",
+      "base_ad_number": "2019-0011",
+      "logical_version_key": "2019-0011R2|UNCORRECTED",
+      "file_instance_id": "1949a5e809ac47e1",
+      "file_name": "2019-0011R2__AD_2019-0011R2_2__EASA_AD_2019_0011_R2.pdf",
+      "page_count": 5,
+      "sections": {
+        "cover": {
+          "pages": [
+            1
+          ],
+          "heading_pages": [
+            1
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 1,
+              "line_number": 3,
+              "text": "Airworthiness Directive",
+              "pattern": "airworthiness_directive_title"
+            }
+          ]
+        },
+        "applicability": {
+          "pages": [
+            1
+          ],
+          "heading_pages": [
+            1
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 1,
+              "line_number": 33,
+              "text": "Applicability:",
+              "pattern": "applicability"
+            }
+          ]
+        },
+        "definitions": {
+          "pages": [
+            1
+          ],
+          "heading_pages": [
+            1
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 1,
+              "line_number": 40,
+              "text": "Definitions:",
+              "pattern": "definitions"
+            }
+          ]
+        },
+        "reason": {
+          "pages": [
+            2
+          ],
+          "heading_pages": [
+            2
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 2,
+              "line_number": 17,
+              "text": "Reason:",
+              "pattern": "reason"
+            }
+          ]
+        },
+        "required_actions_compliance": {
+          "pages": [
+            3
+          ],
+          "heading_pages": [
+            3
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 3,
+              "line_number": 3,
+              "text": "Required Action(s) and Compliance Time(s):",
+              "pattern": "required_actions_and_compliance"
+            }
+          ]
+        },
+        "credit": {
+          "pages": [
+            4
+          ],
+          "heading_pages": [
+            4
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 4,
+              "line_number": 32,
+              "text": "Credit:",
+              "pattern": "credit"
+            }
+          ]
+        },
+        "reference_publications": {
+          "pages": [
+            4
+          ],
+          "heading_pages": [
+            4
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 4,
+              "line_number": 41,
+              "text": "Ref. Publications:",
+              "pattern": "reference_publications"
+            }
+          ]
+        },
+        "remarks": {
+          "pages": [
+            5
+          ],
+          "heading_pages": [
+            5
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 5,
+              "line_number": 3,
+              "text": "Remarks:",
+              "pattern": "remarks"
+            }
+          ]
+        },
+        "appendix_table": {
+          "pages": [
+            3,
+            4
+          ],
+          "heading_pages": [
+            3,
+            4
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 3,
+              "line_number": 24,
+              "text": "Table 1a – Aeroplanes not previously inspected per any previous Revision of the applicable SB",
+              "pattern": "table_heading"
+            },
+            {
+              "page_number": 3,
+              "line_number": 36,
+              "text": "Table 1b – Aeroplanes previously inspected per any previous Revision of the applicable SB",
+              "pattern": "table_heading"
+            },
+            {
+              "page_number": 4,
+              "line_number": 3,
+              "text": "Table 2 – Inspection Interval",
+              "pattern": "table_heading"
+            }
+          ]
+        }
+      },
+      "headings_not_found": []
+    },
+    {
+      "selection_position": 2,
+      "ad_number": "2019-0183",
+      "base_ad_number": "2019-0183",
+      "logical_version_key": "2019-0183|UNCORRECTED",
+      "file_instance_id": "5577514a19f6917c",
+      "file_name": "2019-0183__AD_2019-0183_1__EASA_AD_2019_0183.pdf",
+      "page_count": 2,
+      "sections": {
+        "cover": {
+          "pages": [
+            1
+          ],
+          "heading_pages": [
+            1
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 1,
+              "line_number": 3,
+              "text": "Airworthiness Directive",
+              "pattern": "airworthiness_directive_title"
+            }
+          ]
+        },
+        "applicability": {
+          "pages": [
+            1
+          ],
+          "heading_pages": [
+            1
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 1,
+              "line_number": 31,
+              "text": "Applicability:",
+              "pattern": "applicability"
+            }
+          ]
+        },
+        "definitions": {
+          "pages": [
+            1
+          ],
+          "heading_pages": [
+            1
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 1,
+              "line_number": 35,
+              "text": "Definitions:",
+              "pattern": "definitions"
+            }
+          ]
+        },
+        "reason": {
+          "pages": [
+            1
+          ],
+          "heading_pages": [
+            1
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 1,
+              "line_number": 43,
+              "text": "Reason:",
+              "pattern": "reason"
+            }
+          ]
+        },
+        "required_actions_compliance": {
+          "pages": [
+            2
+          ],
+          "heading_pages": [
+            2
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 2,
+              "line_number": 17,
+              "text": "Required Action(s) and Compliance Time(s):",
+              "pattern": "required_actions_and_compliance"
+            }
+          ]
+        },
+        "credit": {
+          "pages": [],
+          "heading_pages": [],
+          "heading_found": false,
+          "heading_not_found": true,
+          "matches": []
+        },
+        "reference_publications": {
+          "pages": [
+            2
+          ],
+          "heading_pages": [
+            2
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 2,
+              "line_number": 24,
+              "text": "Ref. Publications:",
+              "pattern": "reference_publications"
+            }
+          ]
+        },
+        "remarks": {
+          "pages": [
+            2
+          ],
+          "heading_pages": [
+            2
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 2,
+              "line_number": 30,
+              "text": "Remarks:",
+              "pattern": "remarks"
+            }
+          ]
+        },
+        "appendix_table": {
+          "pages": [],
+          "heading_pages": [],
+          "heading_found": false,
+          "heading_not_found": true,
+          "matches": []
+        }
+      },
+      "headings_not_found": [
+        "credit",
+        "appendix_table"
+      ]
+    },
+    {
+      "selection_position": 3,
+      "ad_number": "2020-0028",
+      "base_ad_number": "2020-0028",
+      "logical_version_key": "2020-0028|UNCORRECTED",
+      "file_instance_id": "734af537e02af649",
+      "file_name": "2020-0028__AD_2020-0028_1__EASA_AD_2020_0028.pdf",
+      "page_count": 2,
+      "sections": {
+        "cover": {
+          "pages": [
+            1
+          ],
+          "heading_pages": [
+            1
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 1,
+              "line_number": 3,
+              "text": "Airworthiness Directive",
+              "pattern": "airworthiness_directive_title"
+            }
+          ]
+        },
+        "applicability": {
+          "pages": [
+            1
+          ],
+          "heading_pages": [
+            1
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 1,
+              "line_number": 29,
+              "text": "Applicability:",
+              "pattern": "applicability"
+            }
+          ]
+        },
+        "definitions": {
+          "pages": [
+            1
+          ],
+          "heading_pages": [
+            1
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 1,
+              "line_number": 33,
+              "text": "Definitions:",
+              "pattern": "definitions"
+            }
+          ]
+        },
+        "reason": {
+          "pages": [
+            1
+          ],
+          "heading_pages": [
+            1
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 1,
+              "line_number": 41,
+              "text": "Reason:",
+              "pattern": "reason"
+            }
+          ]
+        },
+        "required_actions_compliance": {
+          "pages": [
+            2
+          ],
+          "heading_pages": [
+            2
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 2,
+              "line_number": 12,
+              "text": "Required Action(s) and Compliance Time(s):",
+              "pattern": "required_actions_and_compliance"
+            }
+          ]
+        },
+        "credit": {
+          "pages": [],
+          "heading_pages": [],
+          "heading_found": false,
+          "heading_not_found": true,
+          "matches": []
+        },
+        "reference_publications": {
+          "pages": [
+            2
+          ],
+          "heading_pages": [
+            2
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 2,
+              "line_number": 19,
+              "text": "Ref. Publications:",
+              "pattern": "reference_publications"
+            }
+          ]
+        },
+        "remarks": {
+          "pages": [
+            2
+          ],
+          "heading_pages": [
+            2
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 2,
+              "line_number": 27,
+              "text": "Remarks:",
+              "pattern": "remarks"
+            }
+          ]
+        },
+        "appendix_table": {
+          "pages": [],
+          "heading_pages": [],
+          "heading_found": false,
+          "heading_not_found": true,
+          "matches": []
+        }
+      },
+      "headings_not_found": [
+        "credit",
+        "appendix_table"
+      ]
+    },
+    {
+      "selection_position": 4,
+      "ad_number": "2020-0085R1",
+      "base_ad_number": "2020-0085",
+      "logical_version_key": "2020-0085R1|UNCORRECTED",
+      "file_instance_id": "5ced2074d6402f32",
+      "file_name": "2020-0085R1__AD_2020-0085R1_1__EASA_AD_2020_0085R1.pdf",
+      "page_count": 7,
+      "sections": {
+        "cover": {
+          "pages": [
+            1
+          ],
+          "heading_pages": [
+            1
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 1,
+              "line_number": 3,
+              "text": "Airworthiness Directive",
+              "pattern": "airworthiness_directive_title"
+            }
+          ]
+        },
+        "applicability": {
+          "pages": [
+            1
+          ],
+          "heading_pages": [
+            1
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 1,
+              "line_number": 32,
+              "text": "Applicability:",
+              "pattern": "applicability"
+            }
+          ]
+        },
+        "definitions": {
+          "pages": [
+            1
+          ],
+          "heading_pages": [
+            1
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 1,
+              "line_number": 37,
+              "text": "Definitions:",
+              "pattern": "definitions"
+            }
+          ]
+        },
+        "reason": {
+          "pages": [
+            2
+          ],
+          "heading_pages": [
+            2
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 2,
+              "line_number": 12,
+              "text": "Reason:",
+              "pattern": "reason"
+            }
+          ]
+        },
+        "required_actions_compliance": {
+          "pages": [
+            3
+          ],
+          "heading_pages": [
+            3
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 3,
+              "line_number": 27,
+              "text": "Required Action(s) and Compliance Time(s):",
+              "pattern": "required_actions_and_compliance"
+            }
+          ]
+        },
+        "credit": {
+          "pages": [
+            4
+          ],
+          "heading_pages": [
+            4
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 4,
+              "line_number": 20,
+              "text": "Credit:",
+              "pattern": "credit"
+            }
+          ]
+        },
+        "reference_publications": {
+          "pages": [
+            5
+          ],
+          "heading_pages": [
+            5
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 5,
+              "line_number": 40,
+              "text": "Ref. Publications:",
+              "pattern": "reference_publications"
+            }
+          ]
+        },
+        "remarks": {
+          "pages": [
+            6
+          ],
+          "heading_pages": [
+            6
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 6,
+              "line_number": 16,
+              "text": "Remarks:",
+              "pattern": "remarks"
+            }
+          ]
+        },
+        "appendix_table": {
+          "pages": [
+            3,
+            7
+          ],
+          "heading_pages": [
+            3,
+            7
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 3,
+              "line_number": 36,
+              "text": "Table 1 – Aft Engine Mount P/N (Affected and Serviceable Parts)",
+              "pattern": "table_heading"
+            },
+            {
+              "page_number": 7,
+              "line_number": 4,
+              "text": "Appendix 1 – TRF with 4 lugs configuration",
+              "pattern": "appendix_heading"
+            }
+          ]
+        }
+      },
+      "headings_not_found": []
+    },
+    {
+      "selection_position": 5,
+      "ad_number": "2021-0087",
+      "base_ad_number": "2021-0087",
+      "logical_version_key": "2021-0087|UNCORRECTED",
+      "file_instance_id": "9e367bf311641409",
+      "file_name": "2021-0087__AD_2021-0087_1__EASA_AD_2021_0087.pdf",
+      "page_count": 2,
+      "sections": {
+        "cover": {
+          "pages": [
+            1
+          ],
+          "heading_pages": [
+            1
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 1,
+              "line_number": 3,
+              "text": "Airworthiness Directive",
+              "pattern": "airworthiness_directive_title"
+            }
+          ]
+        },
+        "applicability": {
+          "pages": [
+            1
+          ],
+          "heading_pages": [
+            1
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 1,
+              "line_number": 31,
+              "text": "Applicability:",
+              "pattern": "applicability"
+            }
+          ]
+        },
+        "definitions": {
+          "pages": [
+            1
+          ],
+          "heading_pages": [
+            1
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 1,
+              "line_number": 34,
+              "text": "Definitions:",
+              "pattern": "definitions"
+            }
+          ]
+        },
+        "reason": {
+          "pages": [
+            1
+          ],
+          "heading_pages": [
+            1
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 1,
+              "line_number": 40,
+              "text": "Reason:",
+              "pattern": "reason"
+            }
+          ]
+        },
+        "required_actions_compliance": {
+          "pages": [
+            2
+          ],
+          "heading_pages": [
+            2
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 2,
+              "line_number": 10,
+              "text": "Required Action(s) and Compliance Time(s):",
+              "pattern": "required_actions_and_compliance"
+            }
+          ]
+        },
+        "credit": {
+          "pages": [],
+          "heading_pages": [],
+          "heading_found": false,
+          "heading_not_found": true,
+          "matches": []
+        },
+        "reference_publications": {
+          "pages": [
+            2
+          ],
+          "heading_pages": [
+            2
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 2,
+              "line_number": 20,
+              "text": "Ref. Publications:",
+              "pattern": "reference_publications"
+            }
+          ]
+        },
+        "remarks": {
+          "pages": [
+            2
+          ],
+          "heading_pages": [
+            2
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 2,
+              "line_number": 26,
+              "text": "Remarks:",
+              "pattern": "remarks"
+            }
+          ]
+        },
+        "appendix_table": {
+          "pages": [],
+          "heading_pages": [],
+          "heading_found": false,
+          "heading_not_found": true,
+          "matches": []
+        }
+      },
+      "headings_not_found": [
+        "credit",
+        "appendix_table"
+      ]
+    },
+    {
+      "selection_position": 6,
+      "ad_number": "2021-0242",
+      "base_ad_number": "2021-0242",
+      "logical_version_key": "2021-0242|UNCORRECTED",
+      "file_instance_id": "3d05d4995d986ef5",
+      "file_name": "2021-0242__AD_2021-0242_2__EASA_AD_2021_0242.pdf",
+      "page_count": 6,
+      "sections": {
+        "cover": {
+          "pages": [
+            1
+          ],
+          "heading_pages": [
+            1
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 1,
+              "line_number": 3,
+              "text": "Airworthiness Directive",
+              "pattern": "airworthiness_directive_title"
+            }
+          ]
+        },
+        "applicability": {
+          "pages": [
+            1
+          ],
+          "heading_pages": [
+            1
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 1,
+              "line_number": 30,
+              "text": "Applicability:",
+              "pattern": "applicability"
+            }
+          ]
+        },
+        "definitions": {
+          "pages": [
+            1
+          ],
+          "heading_pages": [
+            1
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 1,
+              "line_number": 42,
+              "text": "Definitions:",
+              "pattern": "definitions"
+            }
+          ]
+        },
+        "reason": {
+          "pages": [
+            2
+          ],
+          "heading_pages": [
+            2
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 2,
+              "line_number": 7,
+              "text": "Reason:",
+              "pattern": "reason"
+            }
+          ]
+        },
+        "required_actions_compliance": {
+          "pages": [
+            2
+          ],
+          "heading_pages": [
+            2
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 2,
+              "line_number": 38,
+              "text": "Required Action(s) and Compliance Time(s):",
+              "pattern": "required_actions_and_compliance"
+            }
+          ]
+        },
+        "credit": {
+          "pages": [
+            3
+          ],
+          "heading_pages": [
+            3
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 3,
+              "line_number": 38,
+              "text": "Credit:",
+              "pattern": "credit"
+            }
+          ]
+        },
+        "reference_publications": {
+          "pages": [
+            5
+          ],
+          "heading_pages": [
+            5
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 5,
+              "line_number": 7,
+              "text": "Ref. Publications:",
+              "pattern": "reference_publications"
+            }
+          ]
+        },
+        "remarks": {
+          "pages": [
+            5
+          ],
+          "heading_pages": [
+            5
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 5,
+              "line_number": 22,
+              "text": "Remarks:",
+              "pattern": "remarks"
+            }
+          ]
+        },
+        "appendix_table": {
+          "pages": [
+            3,
+            6
+          ],
+          "heading_pages": [
+            3,
+            6
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 3,
+              "line_number": 3,
+              "text": "Table 1 – Inspection Threshold Door Stop Fitting Holes (see Note 1 of this AD)",
+              "pattern": "table_heading"
+            },
+            {
+              "page_number": 3,
+              "line_number": 15,
+              "text": "Appendix 1 - Table 2 of this AD, as applicable",
+              "pattern": "appendix_heading"
+            },
+            {
+              "page_number": 3,
+              "line_number": 23,
+              "text": "Appendix 1 - Table 3 of this AD, as applicable",
+              "pattern": "appendix_heading"
+            },
+            {
+              "page_number": 6,
+              "line_number": 3,
+              "text": "Appendix 1: Door Stop Fitting Holes – Original Inspection / Repair Threshold",
+              "pattern": "appendix_heading"
+            },
+            {
+              "page_number": 6,
+              "line_number": 9,
+              "text": "Table 2 - Aft passenger/crew door cut -out",
+              "pattern": "table_heading"
+            },
+            {
+              "page_number": 6,
+              "line_number": 20,
+              "text": "Table 3 - Aft passenger/crew door cut -out",
+              "pattern": "table_heading"
+            }
+          ]
+        }
+      },
+      "headings_not_found": []
+    },
+    {
+      "selection_position": 7,
+      "ad_number": "2022-0026",
+      "base_ad_number": "2022-0026",
+      "logical_version_key": "2022-0026|UNCORRECTED",
+      "file_instance_id": "2003cabcfcd8976a",
+      "file_name": "2022-0026__AD_2022-0026_2__EASA_AD_2022_0026_superseded.pdf",
+      "page_count": 12,
+      "sections": {
+        "cover": {
+          "pages": [
+            1
+          ],
+          "heading_pages": [
+            1
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 1,
+              "line_number": 3,
+              "text": "Airworthiness Directive",
+              "pattern": "airworthiness_directive_title"
+            }
+          ]
+        },
+        "applicability": {
+          "pages": [
+            1
+          ],
+          "heading_pages": [
+            1
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 1,
+              "line_number": 31,
+              "text": "Applicability:",
+              "pattern": "applicability"
+            }
+          ]
+        },
+        "definitions": {
+          "pages": [
+            1
+          ],
+          "heading_pages": [
+            1
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 1,
+              "line_number": 39,
+              "text": "Definitions:",
+              "pattern": "definitions"
+            }
+          ]
+        },
+        "reason": {
+          "pages": [
+            2
+          ],
+          "heading_pages": [
+            2
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 2,
+              "line_number": 20,
+              "text": "Reason:",
+              "pattern": "reason"
+            }
+          ]
+        },
+        "required_actions_compliance": {
+          "pages": [
+            3
+          ],
+          "heading_pages": [
+            3
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 3,
+              "line_number": 12,
+              "text": "Required Action(s) and Compliance Time(s):",
+              "pattern": "required_actions_and_compliance"
+            }
+          ]
+        },
+        "credit": {
+          "pages": [
+            3
+          ],
+          "heading_pages": [
+            3
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 3,
+              "line_number": 40,
+              "text": "Credit:",
+              "pattern": "credit"
+            }
+          ]
+        },
+        "reference_publications": {
+          "pages": [
+            4
+          ],
+          "heading_pages": [
+            4
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 4,
+              "line_number": 8,
+              "text": "Ref. Publications:",
+              "pattern": "reference_publications"
+            }
+          ]
+        },
+        "remarks": {
+          "pages": [
+            4
+          ],
+          "heading_pages": [
+            4
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 4,
+              "line_number": 26,
+              "text": "Remarks:",
+              "pattern": "remarks"
+            }
+          ]
+        },
+        "appendix_table": {
+          "pages": [
+            5,
+            7,
+            8,
+            9,
+            12
+          ],
+          "heading_pages": [
+            5,
+            7,
+            8,
+            9,
+            12
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 5,
+              "line_number": 3,
+              "text": "Appendix 1",
+              "pattern": "appendix_heading"
+            },
+            {
+              "page_number": 5,
+              "line_number": 5,
+              "text": "Table 1 – Affected Galley List 1",
+              "pattern": "table_heading"
+            },
+            {
+              "page_number": 7,
+              "line_number": 4,
+              "text": "Table 2 – Affected Galley List 2",
+              "pattern": "table_heading"
+            },
+            {
+              "page_number": 8,
+              "line_number": 3,
+              "text": "Table 3 – Affected Galley List 3",
+              "pattern": "table_heading"
+            },
+            {
+              "page_number": 9,
+              "line_number": 3,
+              "text": "Table 4 – Affected Galley List 4",
+              "pattern": "table_heading"
+            },
+            {
+              "page_number": 12,
+              "line_number": 4,
+              "text": "Table 5 – Affected Galleys List 5",
+              "pattern": "table_heading"
+            }
+          ]
+        }
+      },
+      "headings_not_found": []
+    },
+    {
+      "selection_position": 8,
+      "ad_number": "2022-0197",
+      "base_ad_number": "2022-0197",
+      "logical_version_key": "2022-0197|UNCORRECTED",
+      "file_instance_id": "2f70e87899358165",
+      "file_name": "2022-0197__AD_2022-0197_1__EASA_AD_2022_0197.pdf",
+      "page_count": 8,
+      "sections": {
+        "cover": {
+          "pages": [
+            1
+          ],
+          "heading_pages": [
+            1
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 1,
+              "line_number": 3,
+              "text": "Airworthiness Directive",
+              "pattern": "airworthiness_directive_title"
+            }
+          ]
+        },
+        "applicability": {
+          "pages": [
+            1
+          ],
+          "heading_pages": [
+            1
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 1,
+              "line_number": 31,
+              "text": "Applicability:",
+              "pattern": "applicability"
+            }
+          ]
+        },
+        "definitions": {
+          "pages": [
+            1
+          ],
+          "heading_pages": [
+            1
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 1,
+              "line_number": 39,
+              "text": "Definitions:",
+              "pattern": "definitions"
+            }
+          ]
+        },
+        "reason": {
+          "pages": [
+            2
+          ],
+          "heading_pages": [
+            2
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 2,
+              "line_number": 46,
+              "text": "Reason:",
+              "pattern": "reason"
+            }
+          ]
+        },
+        "required_actions_compliance": {
+          "pages": [
+            3
+          ],
+          "heading_pages": [
+            3
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 3,
+              "line_number": 38,
+              "text": "Required Action(s) and Compliance Time(s):",
+              "pattern": "required_actions_and_compliance"
+            }
+          ]
+        },
+        "credit": {
+          "pages": [
+            7
+          ],
+          "heading_pages": [
+            7
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 7,
+              "line_number": 35,
+              "text": "Credit:",
+              "pattern": "credit"
+            }
+          ]
+        },
+        "reference_publications": {
+          "pages": [
+            7
+          ],
+          "heading_pages": [
+            7
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 7,
+              "line_number": 40,
+              "text": "Ref. Publications:",
+              "pattern": "reference_publications"
+            }
+          ]
+        },
+        "remarks": {
+          "pages": [
+            8
+          ],
+          "heading_pages": [
+            8
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 8,
+              "line_number": 14,
+              "text": "Remarks:",
+              "pattern": "remarks"
+            }
+          ]
+        },
+        "appendix_table": {
+          "pages": [
+            4,
+            7
+          ],
+          "heading_pages": [
+            4,
+            7
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 4,
+              "line_number": 3,
+              "text": "Table 1 – Fuel Pump Inspection Threshold for Affected Parts at Locations A",
+              "pattern": "table_heading"
+            },
+            {
+              "page_number": 4,
+              "line_number": 18,
+              "text": "Table 2 – Fuel Pump Repetitive Inspection Intervals for Affected Parts at Locations A",
+              "pattern": "table_heading"
+            },
+            {
+              "page_number": 4,
+              "line_number": 33,
+              "text": "Table 3 – Fuel Pump Inspection Threshold for Affected Parts at Locations B (see Note 3 of this AD)",
+              "pattern": "table_heading"
+            },
+            {
+              "page_number": 7,
+              "line_number": 3,
+              "text": "Table 4 – A340-500 and A340-600 MMEL Amendment",
+              "pattern": "table_heading"
+            }
+          ]
+        }
+      },
+      "headings_not_found": []
+    },
+    {
+      "selection_position": 9,
+      "ad_number": "2023-0093R1",
+      "base_ad_number": "2023-0093",
+      "logical_version_key": "2023-0093R1|UNCORRECTED",
+      "file_instance_id": "f8c89a351f146b17",
+      "file_name": "2023-0093R1__AD_2023-0093R1_1__EASA_AD_2023_0093_R1.pdf",
+      "page_count": 7,
+      "sections": {
+        "cover": {
+          "pages": [
+            1
+          ],
+          "heading_pages": [
+            1
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 1,
+              "line_number": 3,
+              "text": "Airworthiness Directive",
+              "pattern": "airworthiness_directive_title"
+            }
+          ]
+        },
+        "applicability": {
+          "pages": [
+            1
+          ],
+          "heading_pages": [
+            1
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 1,
+              "line_number": 35,
+              "text": "Applicability:",
+              "pattern": "applicability"
+            }
+          ]
+        },
+        "definitions": {
+          "pages": [
+            1
+          ],
+          "heading_pages": [
+            1
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 1,
+              "line_number": 41,
+              "text": "Definitions :",
+              "pattern": "definitions"
+            }
+          ]
+        },
+        "reason": {
+          "pages": [
+            2
+          ],
+          "heading_pages": [
+            2
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 2,
+              "line_number": 40,
+              "text": "Reason:",
+              "pattern": "reason"
+            }
+          ]
+        },
+        "required_actions_compliance": {
+          "pages": [
+            3
+          ],
+          "heading_pages": [
+            3
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 3,
+              "line_number": 33,
+              "text": "Required Action(s) and Compliance Time(s):",
+              "pattern": "required_actions_and_compliance"
+            }
+          ]
+        },
+        "credit": {
+          "pages": [],
+          "heading_pages": [],
+          "heading_found": false,
+          "heading_not_found": true,
+          "matches": []
+        },
+        "reference_publications": {
+          "pages": [
+            5
+          ],
+          "heading_pages": [
+            5
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 5,
+              "line_number": 9,
+              "text": "Ref. Publications:",
+              "pattern": "reference_publications"
+            }
+          ]
+        },
+        "remarks": {
+          "pages": [
+            5
+          ],
+          "heading_pages": [
+            5
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 5,
+              "line_number": 25,
+              "text": "Remarks:",
+              "pattern": "remarks"
+            }
+          ]
+        },
+        "appendix_table": {
+          "pages": [
+            3,
+            4,
+            6,
+            7
+          ],
+          "heading_pages": [
+            3,
+            4,
+            6,
+            7
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 3,
+              "line_number": 41,
+              "text": "Table 1 – Relay Inspection",
+              "pattern": "table_heading"
+            },
+            {
+              "page_number": 4,
+              "line_number": 31,
+              "text": "Table 2 – Relay Replacement",
+              "pattern": "table_heading"
+            },
+            {
+              "page_number": 6,
+              "line_number": 3,
+              "text": "Appendix 1",
+              "pattern": "appendix_heading"
+            },
+            {
+              "page_number": 6,
+              "line_number": 5,
+              "text": "Table 1 – Affected MSN",
+              "pattern": "table_heading"
+            },
+            {
+              "page_number": 7,
+              "line_number": 3,
+              "text": "Appendix 2",
+              "pattern": "appendix_heading"
+            },
+            {
+              "page_number": 7,
+              "line_number": 5,
+              "text": "Table 2 – Affected MMEL Items",
+              "pattern": "table_heading"
+            }
+          ]
+        }
+      },
+      "headings_not_found": [
+        "credit"
+      ]
+    },
+    {
+      "selection_position": 10,
+      "ad_number": "2024-0038",
+      "base_ad_number": "2024-0038",
+      "logical_version_key": "2024-0038|UNCORRECTED",
+      "file_instance_id": "db594c767fc8f98e",
+      "file_name": "2024-0038__AD_2024-0038_1__EASA_AD_2024_0038_superseded.pdf",
+      "page_count": 10,
+      "sections": {
+        "cover": {
+          "pages": [
+            1
+          ],
+          "heading_pages": [
+            1
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 1,
+              "line_number": 3,
+              "text": "Airworthiness Directive",
+              "pattern": "airworthiness_directive_title"
+            }
+          ]
+        },
+        "applicability": {
+          "pages": [
+            1
+          ],
+          "heading_pages": [
+            1
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 1,
+              "line_number": 31,
+              "text": "Applicability:",
+              "pattern": "applicability"
+            }
+          ]
+        },
+        "definitions": {
+          "pages": [
+            1
+          ],
+          "heading_pages": [
+            1
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 1,
+              "line_number": 40,
+              "text": "Definitions:",
+              "pattern": "definitions"
+            }
+          ]
+        },
+        "reason": {
+          "pages": [
+            2
+          ],
+          "heading_pages": [
+            2
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 2,
+              "line_number": 18,
+              "text": "Reason:",
+              "pattern": "reason"
+            }
+          ]
+        },
+        "required_actions_compliance": {
+          "pages": [
+            3
+          ],
+          "heading_pages": [
+            3
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 3,
+              "line_number": 8,
+              "text": "Required Action(s) and Compliance Time(s):",
+              "pattern": "required_actions_and_compliance"
+            }
+          ]
+        },
+        "credit": {
+          "pages": [],
+          "heading_pages": [],
+          "heading_found": false,
+          "heading_not_found": true,
+          "matches": []
+        },
+        "reference_publications": {
+          "pages": [
+            4
+          ],
+          "heading_pages": [
+            4
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 4,
+              "line_number": 25,
+              "text": "Ref. Publications:",
+              "pattern": "reference_publications"
+            }
+          ]
+        },
+        "remarks": {
+          "pages": [
+            4
+          ],
+          "heading_pages": [
+            4
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 4,
+              "line_number": 38,
+              "text": "Remarks:",
+              "pattern": "remarks"
+            }
+          ]
+        },
+        "appendix_table": {
+          "pages": [
+            6
+          ],
+          "heading_pages": [
+            6
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 6,
+              "line_number": 3,
+              "text": "Appendix 1: Reference of the Affected Galleys",
+              "pattern": "appendix_heading"
+            }
+          ]
+        }
+      },
+      "headings_not_found": [
+        "credit"
+      ]
+    },
+    {
+      "selection_position": 11,
+      "ad_number": "2024-0095",
+      "base_ad_number": "2024-0095",
+      "logical_version_key": "2024-0095|UNCORRECTED",
+      "file_instance_id": "53e4fefd2d273164",
+      "file_name": "2024-0095__AD_2024-0095_1__EASA_AD_2024_0095.pdf",
+      "page_count": 6,
+      "sections": {
+        "cover": {
+          "pages": [
+            1
+          ],
+          "heading_pages": [
+            1
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 1,
+              "line_number": 3,
+              "text": "Airworthiness Directive",
+              "pattern": "airworthiness_directive_title"
+            }
+          ]
+        },
+        "applicability": {
+          "pages": [
+            1
+          ],
+          "heading_pages": [
+            1
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 1,
+              "line_number": 32,
+              "text": "Applicability:",
+              "pattern": "applicability"
+            }
+          ]
+        },
+        "definitions": {
+          "pages": [
+            1
+          ],
+          "heading_pages": [
+            1
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 1,
+              "line_number": 41,
+              "text": "Definitions:",
+              "pattern": "definitions"
+            }
+          ]
+        },
+        "reason": {
+          "pages": [
+            2
+          ],
+          "heading_pages": [
+            2
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 2,
+              "line_number": 3,
+              "text": "Reason:",
+              "pattern": "reason"
+            }
+          ]
+        },
+        "required_actions_compliance": {
+          "pages": [
+            3
+          ],
+          "heading_pages": [
+            3
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 3,
+              "line_number": 3,
+              "text": "Required Action(s) and Compliance Time(s):",
+              "pattern": "required_actions_and_compliance"
+            }
+          ]
+        },
+        "credit": {
+          "pages": [
+            5
+          ],
+          "heading_pages": [
+            5
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 5,
+              "line_number": 24,
+              "text": "Credit:",
+              "pattern": "credit"
+            }
+          ]
+        },
+        "reference_publications": {
+          "pages": [
+            5
+          ],
+          "heading_pages": [
+            5
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 5,
+              "line_number": 44,
+              "text": "Ref. Publications:",
+              "pattern": "reference_publications"
+            }
+          ]
+        },
+        "remarks": {
+          "pages": [
+            6
+          ],
+          "heading_pages": [
+            6
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 6,
+              "line_number": 12,
+              "text": "Remarks:",
+              "pattern": "remarks"
+            }
+          ]
+        },
+        "appendix_table": {
+          "pages": [
+            3,
+            4,
+            5
+          ],
+          "heading_pages": [
+            3,
+            4,
+            5
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 3,
+              "line_number": 13,
+              "text": "Table 1 – Inspection Threshold (see Note 1 and Note 3 of this AD)",
+              "pattern": "table_heading"
+            },
+            {
+              "page_number": 4,
+              "line_number": 12,
+              "text": "Table 2 – Inspection Intervals (see Note 2 of this AD)",
+              "pattern": "table_heading"
+            },
+            {
+              "page_number": 5,
+              "line_number": 3,
+              "text": "Table 3 – Transfer Factors (Kmil-civ) for Compliance Times (FC and FH)",
+              "pattern": "table_heading"
+            }
+          ]
+        }
+      },
+      "headings_not_found": []
+    },
+    {
+      "selection_position": 12,
+      "ad_number": "2025-0008",
+      "base_ad_number": "2025-0008",
+      "logical_version_key": "2025-0008|UNCORRECTED",
+      "file_instance_id": "b829efee031a2fcf",
+      "file_name": "2025-0008__AD_2025-0008_1__EASA_AD_2025_0008.pdf",
+      "page_count": 3,
+      "sections": {
+        "cover": {
+          "pages": [
+            1
+          ],
+          "heading_pages": [
+            1
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 1,
+              "line_number": 3,
+              "text": "Airworthiness Directive",
+              "pattern": "airworthiness_directive_title"
+            }
+          ]
+        },
+        "applicability": {
+          "pages": [
+            1
+          ],
+          "heading_pages": [
+            1
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 1,
+              "line_number": 32,
+              "text": "Applicability:",
+              "pattern": "applicability"
+            }
+          ]
+        },
+        "definitions": {
+          "pages": [
+            1
+          ],
+          "heading_pages": [
+            1
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 1,
+              "line_number": 35,
+              "text": "Definitions:",
+              "pattern": "definitions"
+            }
+          ]
+        },
+        "reason": {
+          "pages": [
+            2
+          ],
+          "heading_pages": [
+            2
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 2,
+              "line_number": 3,
+              "text": "Reason:",
+              "pattern": "reason"
+            }
+          ]
+        },
+        "required_actions_compliance": {
+          "pages": [
+            2
+          ],
+          "heading_pages": [
+            2
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 2,
+              "line_number": 17,
+              "text": "Required Action(s) and Compliance Time(s):",
+              "pattern": "required_actions_and_compliance"
+            }
+          ]
+        },
+        "credit": {
+          "pages": [],
+          "heading_pages": [],
+          "heading_found": false,
+          "heading_not_found": true,
+          "matches": []
+        },
+        "reference_publications": {
+          "pages": [
+            3
+          ],
+          "heading_pages": [
+            3
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 3,
+              "line_number": 3,
+              "text": "Ref. Publications:",
+              "pattern": "reference_publications"
+            }
+          ]
+        },
+        "remarks": {
+          "pages": [
+            3
+          ],
+          "heading_pages": [
+            3
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 3,
+              "line_number": 9,
+              "text": "Remarks:",
+              "pattern": "remarks"
+            }
+          ]
+        },
+        "appendix_table": {
+          "pages": [
+            2
+          ],
+          "heading_pages": [
+            2
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 2,
+              "line_number": 30,
+              "text": "Table 1 - Affected Parts Replacement",
+              "pattern": "table_heading"
+            }
+          ]
+        }
+      },
+      "headings_not_found": [
+        "credit"
+      ]
+    },
+    {
+      "selection_position": 13,
+      "ad_number": "2025-0068",
+      "base_ad_number": "2025-0068",
+      "logical_version_key": "2025-0068|UNCORRECTED",
+      "file_instance_id": "6e80e67e640ba6d1",
+      "file_name": "2025-0068__AD_2025-0068_1__EASA_AD_2025_0068_superseded.pdf",
+      "page_count": 10,
+      "sections": {
+        "cover": {
+          "pages": [
+            1
+          ],
+          "heading_pages": [
+            1
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 1,
+              "line_number": 3,
+              "text": "Airworthiness Directive",
+              "pattern": "airworthiness_directive_title"
+            }
+          ]
+        },
+        "applicability": {
+          "pages": [
+            1
+          ],
+          "heading_pages": [
+            1
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 1,
+              "line_number": 30,
+              "text": "Applicability:",
+              "pattern": "applicability"
+            }
+          ]
+        },
+        "definitions": {
+          "pages": [
+            1
+          ],
+          "heading_pages": [
+            1
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 1,
+              "line_number": 39,
+              "text": "Definitions:",
+              "pattern": "definitions"
+            }
+          ]
+        },
+        "reason": {
+          "pages": [
+            2
+          ],
+          "heading_pages": [
+            2
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 2,
+              "line_number": 16,
+              "text": "Reason:",
+              "pattern": "reason"
+            }
+          ]
+        },
+        "required_actions_compliance": {
+          "pages": [
+            3
+          ],
+          "heading_pages": [
+            3
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 3,
+              "line_number": 6,
+              "text": "Required Action(s) and Compliance Time(s):",
+              "pattern": "required_actions_and_compliance"
+            }
+          ]
+        },
+        "credit": {
+          "pages": [],
+          "heading_pages": [],
+          "heading_found": false,
+          "heading_not_found": true,
+          "matches": []
+        },
+        "reference_publications": {
+          "pages": [
+            4
+          ],
+          "heading_pages": [
+            4
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 4,
+              "line_number": 36,
+              "text": "Ref. Publications:",
+              "pattern": "reference_publications"
+            }
+          ]
+        },
+        "remarks": {
+          "pages": [
+            5
+          ],
+          "heading_pages": [
+            5
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 5,
+              "line_number": 4,
+              "text": "Remarks:",
+              "pattern": "remarks"
+            }
+          ]
+        },
+        "appendix_table": {
+          "pages": [
+            3,
+            6
+          ],
+          "heading_pages": [
+            3,
+            6
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 3,
+              "line_number": 15,
+              "text": "Table 1 – Initial Inspection Compliance Time for Group 1 Aeroplanes",
+              "pattern": "table_heading"
+            },
+            {
+              "page_number": 3,
+              "line_number": 38,
+              "text": "Table 2 – Compliance Time for Group 2 Aeroplanes",
+              "pattern": "table_heading"
+            },
+            {
+              "page_number": 6,
+              "line_number": 3,
+              "text": "Appendix 1: Reference of the Affected Galleys",
+              "pattern": "appendix_heading"
+            }
+          ]
+        }
+      },
+      "headings_not_found": [
+        "credit"
+      ]
+    },
+    {
+      "selection_position": 14,
+      "ad_number": "2026-0017",
+      "base_ad_number": "2026-0017",
+      "logical_version_key": "2026-0017|UNCORRECTED",
+      "file_instance_id": "1f3af1a66dad0ea4",
+      "file_name": "2026-0017__AD_2026-0017_1__EASA_AD_2026_0017.pdf",
+      "page_count": 10,
+      "sections": {
+        "cover": {
+          "pages": [
+            1
+          ],
+          "heading_pages": [
+            1
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 1,
+              "line_number": 3,
+              "text": "Airworthiness Directive",
+              "pattern": "airworthiness_directive_title"
+            }
+          ]
+        },
+        "applicability": {
+          "pages": [
+            1
+          ],
+          "heading_pages": [
+            1
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 1,
+              "line_number": 30,
+              "text": "Applicability:",
+              "pattern": "applicability"
+            }
+          ]
+        },
+        "definitions": {
+          "pages": [
+            1
+          ],
+          "heading_pages": [
+            1
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 1,
+              "line_number": 39,
+              "text": "Definitions:",
+              "pattern": "definitions"
+            }
+          ]
+        },
+        "reason": {
+          "pages": [
+            2
+          ],
+          "heading_pages": [
+            2
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 2,
+              "line_number": 16,
+              "text": "Reason:",
+              "pattern": "reason"
+            }
+          ]
+        },
+        "required_actions_compliance": {
+          "pages": [
+            3
+          ],
+          "heading_pages": [
+            3
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 3,
+              "line_number": 11,
+              "text": "Required Action(s) and Compliance Time(s):",
+              "pattern": "required_actions_and_compliance"
+            }
+          ]
+        },
+        "credit": {
+          "pages": [],
+          "heading_pages": [],
+          "heading_found": false,
+          "heading_not_found": true,
+          "matches": []
+        },
+        "reference_publications": {
+          "pages": [
+            5
+          ],
+          "heading_pages": [
+            5
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 5,
+              "line_number": 3,
+              "text": "Ref. Publications:",
+              "pattern": "reference_publications"
+            }
+          ]
+        },
+        "remarks": {
+          "pages": [
+            5
+          ],
+          "heading_pages": [
+            5
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 5,
+              "line_number": 19,
+              "text": "Remarks:",
+              "pattern": "remarks"
+            }
+          ]
+        },
+        "appendix_table": {
+          "pages": [
+            3,
+            4,
+            6
+          ],
+          "heading_pages": [
+            3,
+            4,
+            6
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 3,
+              "line_number": 20,
+              "text": "Table 1 – Initial Inspection Compliance Time for Group 1 Aeroplanes",
+              "pattern": "table_heading"
+            },
+            {
+              "page_number": 4,
+              "line_number": 3,
+              "text": "Table 2 – Compliance Time for Group 2 Aeroplanes",
+              "pattern": "table_heading"
+            },
+            {
+              "page_number": 6,
+              "line_number": 3,
+              "text": "Appendix 1: Reference of the Affected Galleys",
+              "pattern": "appendix_heading"
+            }
+          ]
+        }
+      },
+      "headings_not_found": [
+        "credit"
+      ]
+    },
+    {
+      "selection_position": 15,
+      "ad_number": "2026-0079",
+      "base_ad_number": "2026-0079",
+      "logical_version_key": "2026-0079|UNCORRECTED",
+      "file_instance_id": "1f16f3df632283df",
+      "file_name": "2026-0079__AD_2026-0079_1__EASA_AD_2026_0079.pdf",
+      "page_count": 3,
+      "sections": {
+        "cover": {
+          "pages": [
+            1
+          ],
+          "heading_pages": [
+            1
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 1,
+              "line_number": 3,
+              "text": "Airworthiness Directive",
+              "pattern": "airworthiness_directive_title"
+            }
+          ]
+        },
+        "applicability": {
+          "pages": [
+            1
+          ],
+          "heading_pages": [
+            1
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 1,
+              "line_number": 31,
+              "text": "Applicability:",
+              "pattern": "applicability"
+            }
+          ]
+        },
+        "definitions": {
+          "pages": [
+            1
+          ],
+          "heading_pages": [
+            1
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 1,
+              "line_number": 42,
+              "text": "Definitions:",
+              "pattern": "definitions"
+            }
+          ]
+        },
+        "reason": {
+          "pages": [
+            2
+          ],
+          "heading_pages": [
+            2
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 2,
+              "line_number": 3,
+              "text": "Reason:",
+              "pattern": "reason"
+            }
+          ]
+        },
+        "required_actions_compliance": {
+          "pages": [
+            2
+          ],
+          "heading_pages": [
+            2
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 2,
+              "line_number": 20,
+              "text": "Required Action(s) and Compliance Time(s):",
+              "pattern": "required_actions_and_compliance"
+            }
+          ]
+        },
+        "credit": {
+          "pages": [
+            2
+          ],
+          "heading_pages": [
+            2
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 2,
+              "line_number": 28,
+              "text": "Credit:",
+              "pattern": "credit"
+            }
+          ]
+        },
+        "reference_publications": {
+          "pages": [
+            2
+          ],
+          "heading_pages": [
+            2
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 2,
+              "line_number": 33,
+              "text": "Ref. Publications:",
+              "pattern": "reference_publications"
+            }
+          ]
+        },
+        "remarks": {
+          "pages": [
+            2
+          ],
+          "heading_pages": [
+            2
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 2,
+              "line_number": 39,
+              "text": "Remarks:",
+              "pattern": "remarks"
+            }
+          ]
+        },
+        "appendix_table": {
+          "pages": [],
+          "heading_pages": [],
+          "heading_found": false,
+          "heading_not_found": true,
+          "matches": []
+        }
+      },
+      "headings_not_found": [
+        "appendix_table"
+      ]
+    },
+    {
+      "selection_position": 16,
+      "ad_number": "2006-0047",
+      "base_ad_number": "2006-0047",
+      "logical_version_key": "2006-0047|UNCORRECTED",
+      "file_instance_id": "8dd9dd9099deb529",
+      "file_name": "2006-0047__AD_2006-0047_1__easa_ad_2006_0047_superseded.pdf",
+      "page_count": 4,
+      "sections": {
+        "cover": {
+          "pages": [
+            1
+          ],
+          "heading_pages": [
+            1
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 1,
+              "line_number": 1,
+              "text": "EASA AIRWORTHINESS DIRECTIVE",
+              "pattern": "airworthiness_directive_title"
+            }
+          ]
+        },
+        "applicability": {
+          "pages": [
+            1
+          ],
+          "heading_pages": [
+            1
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 1,
+              "line_number": 34,
+              "text": "Applicability: AIRBUS aircraft A330, all certified models, all serial numbers, except those on",
+              "pattern": "applicability"
+            }
+          ]
+        },
+        "definitions": {
+          "pages": [],
+          "heading_pages": [],
+          "heading_found": false,
+          "heading_not_found": true,
+          "matches": []
+        },
+        "reason": {
+          "pages": [
+            1
+          ],
+          "heading_pages": [
+            1
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 1,
+              "line_number": 38,
+              "text": "Reason: One A330 operator has reported damage of a bracket PN F2511012920000,",
+              "pattern": "reason"
+            }
+          ]
+        },
+        "required_actions_compliance": {
+          "pages": [
+            2
+          ],
+          "heading_pages": [
+            2
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 2,
+              "line_number": 9,
+              "text": "Compliance: 1. INSPECTION:",
+              "pattern": "compliance"
+            }
+          ]
+        },
+        "credit": {
+          "pages": [],
+          "heading_pages": [],
+          "heading_found": false,
+          "heading_not_found": true,
+          "matches": []
+        },
+        "reference_publications": {
+          "pages": [
+            3
+          ],
+          "heading_pages": [
+            3
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 3,
+              "line_number": 45,
+              "text": "Ref. Publications: AIRBUS Service Bulletin A330-25-3227 Revision 01",
+              "pattern": "reference_publications"
+            }
+          ]
+        },
+        "remarks": {
+          "pages": [
+            3
+          ],
+          "heading_pages": [
+            3
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 3,
+              "line_number": 49,
+              "text": "Remarks : 1. If requested and appropriately substantiated the responsible EASA",
+              "pattern": "remarks"
+            }
+          ]
+        },
+        "appendix_table": {
+          "pages": [],
+          "heading_pages": [],
+          "heading_found": false,
+          "heading_not_found": true,
+          "matches": []
+        }
+      },
+      "headings_not_found": [
+        "definitions",
+        "credit",
+        "appendix_table"
+      ]
+    },
+    {
+      "selection_position": 17,
+      "ad_number": "2007-0022",
+      "base_ad_number": "2007-0022",
+      "logical_version_key": "2007-0022|UNCORRECTED",
+      "file_instance_id": "cdccd0ff024c4b72",
+      "file_name": "2007-0022__AD_2007-0022_1__easa_ad_2007_0022.pdf",
+      "page_count": 2,
+      "sections": {
+        "cover": {
+          "pages": [
+            1
+          ],
+          "heading_pages": [
+            1
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 1,
+              "line_number": 1,
+              "text": "EASA AIRWORTHINESS DIRECTIVE",
+              "pattern": "airworthiness_directive_title"
+            }
+          ]
+        },
+        "applicability": {
+          "pages": [
+            1
+          ],
+          "heading_pages": [
+            1
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 1,
+              "line_number": 34,
+              "text": "Applicability: AIRBUS A300F4-608ST aircraft model, all serial numbers, except aircraft",
+              "pattern": "applicability"
+            }
+          ]
+        },
+        "definitions": {
+          "pages": [],
+          "heading_pages": [],
+          "heading_found": false,
+          "heading_not_found": true,
+          "matches": []
+        },
+        "reason": {
+          "pages": [
+            1
+          ],
+          "heading_pages": [
+            1
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 1,
+              "line_number": 38,
+              "text": "Reason: Further to the accident of a Boeing 747-131 aircraft (flight TWA800), the",
+              "pattern": "reason"
+            }
+          ]
+        },
+        "required_actions_compliance": {
+          "pages": [
+            2
+          ],
+          "heading_pages": [
+            2
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 2,
+              "line_number": 1,
+              "text": "Compliance: Not later than 31 October 2010, modify the route 1P and 2P harnesses",
+              "pattern": "compliance"
+            }
+          ]
+        },
+        "credit": {
+          "pages": [],
+          "heading_pages": [],
+          "heading_found": false,
+          "heading_not_found": true,
+          "matches": []
+        },
+        "reference_publications": {
+          "pages": [
+            2
+          ],
+          "heading_pages": [
+            2
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 2,
+              "line_number": 5,
+              "text": "Ref. Publications: AIRBUS Service Bulletin A300-24-9008 original issue or later approved",
+              "pattern": "reference_publications"
+            }
+          ]
+        },
+        "remarks": {
+          "pages": [
+            2
+          ],
+          "heading_pages": [
+            2
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 2,
+              "line_number": 8,
+              "text": "Remarks : 1. If requested and appropriately substantiated the responsible EASA",
+              "pattern": "remarks"
+            }
+          ]
+        },
+        "appendix_table": {
+          "pages": [],
+          "heading_pages": [],
+          "heading_found": false,
+          "heading_not_found": true,
+          "matches": []
+        }
+      },
+      "headings_not_found": [
+        "definitions",
+        "credit",
+        "appendix_table"
+      ]
+    },
+    {
+      "selection_position": 18,
+      "ad_number": "2007-0278",
+      "base_ad_number": "2007-0278",
+      "logical_version_key": "2007-0278|CORRECTED:2007-11-08",
+      "file_instance_id": "0b6a17dbe6f95907",
+      "file_name": "2007-0278__AD_2007-0278_1__easa_ad_2007_0278_Corrected_Superseded.pdf",
+      "page_count": 4,
+      "sections": {
+        "cover": {
+          "pages": [
+            1
+          ],
+          "heading_pages": [
+            1
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 1,
+              "line_number": 1,
+              "text": "EASA AIRWORTHINESS DIRECTIVE",
+              "pattern": "airworthiness_directive_title"
+            }
+          ]
+        },
+        "applicability": {
+          "pages": [
+            1
+          ],
+          "heading_pages": [
+            1
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 1,
+              "line_number": 34,
+              "text": "Applicability: AIRBUS A330, A340-200 and A340-300 aircraft, all certified models, all serial",
+              "pattern": "applicability"
+            }
+          ]
+        },
+        "definitions": {
+          "pages": [],
+          "heading_pages": [],
+          "heading_found": false,
+          "heading_not_found": true,
+          "matches": []
+        },
+        "reason": {
+          "pages": [
+            1
+          ],
+          "heading_pages": [
+            1
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 1,
+              "line_number": 39,
+              "text": "Reason: Further to the accident which occurred to a Boeing 747-131 (flight TWA800),",
+              "pattern": "reason"
+            }
+          ]
+        },
+        "required_actions_compliance": {
+          "pages": [
+            2
+          ],
+          "heading_pages": [
+            2
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 2,
+              "line_number": 34,
+              "text": "Compliance: Unless already accomplished, the following measures are rendered",
+              "pattern": "compliance"
+            }
+          ]
+        },
+        "credit": {
+          "pages": [],
+          "heading_pages": [],
+          "heading_found": false,
+          "heading_not_found": true,
+          "matches": []
+        },
+        "reference_publications": {
+          "pages": [
+            4
+          ],
+          "heading_pages": [
+            4
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 4,
+              "line_number": 24,
+              "text": "Ref. Publications: AIRBUS Service Bulletin A330-28-3092 Revision 01;",
+              "pattern": "reference_publications"
+            }
+          ]
+        },
+        "remarks": {
+          "pages": [
+            4
+          ],
+          "heading_pages": [
+            4
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 4,
+              "line_number": 36,
+              "text": "Remarks : 1. If requested and appropriately substantiated, EASA can accept",
+              "pattern": "remarks"
+            }
+          ]
+        },
+        "appendix_table": {
+          "pages": [],
+          "heading_pages": [],
+          "heading_found": false,
+          "heading_not_found": true,
+          "matches": []
+        }
+      },
+      "headings_not_found": [
+        "definitions",
+        "credit",
+        "appendix_table"
+      ]
+    },
+    {
+      "selection_position": 19,
+      "ad_number": "2008-0012",
+      "base_ad_number": "2008-0012",
+      "logical_version_key": "2008-0012|UNCORRECTED",
+      "file_instance_id": "f2112ddc18baa008",
+      "file_name": "2008-0012__AD_2008-0012_1__easa_ad_2008_0012.pdf",
+      "page_count": 3,
+      "sections": {
+        "cover": {
+          "pages": [
+            1
+          ],
+          "heading_pages": [
+            1
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 1,
+              "line_number": 1,
+              "text": "EASA AIRWORTHINESS DIRECTIVE",
+              "pattern": "airworthiness_directive_title"
+            }
+          ]
+        },
+        "applicability": {
+          "pages": [
+            1
+          ],
+          "heading_pages": [
+            1
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 1,
+              "line_number": 37,
+              "text": "Applicability: AIRBUS aircraft A330-300, A340-200 and A340-300 series, all certified models,",
+              "pattern": "applicability"
+            }
+          ]
+        },
+        "definitions": {
+          "pages": [],
+          "heading_pages": [],
+          "heading_found": false,
+          "heading_not_found": true,
+          "matches": []
+        },
+        "reason": {
+          "pages": [
+            2
+          ],
+          "heading_pages": [
+            2
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 2,
+              "line_number": 1,
+              "text": "Reason: Based on some recent in-service findings for fluid ingress and/or inner skin",
+              "pattern": "reason"
+            }
+          ]
+        },
+        "required_actions_compliance": {
+          "pages": [
+            2
+          ],
+          "heading_pages": [
+            2
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 2,
+              "line_number": 16,
+              "text": "Compliance: Required as indicated:",
+              "pattern": "compliance"
+            }
+          ]
+        },
+        "credit": {
+          "pages": [],
+          "heading_pages": [],
+          "heading_found": false,
+          "heading_not_found": true,
+          "matches": []
+        },
+        "reference_publications": {
+          "pages": [
+            3
+          ],
+          "heading_pages": [
+            3
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 3,
+              "line_number": 1,
+              "text": "Ref. Publications: AIRBUS Service Bulletin A330-55-3037 original issue;",
+              "pattern": "reference_publications"
+            }
+          ]
+        },
+        "remarks": {
+          "pages": [
+            3
+          ],
+          "heading_pages": [
+            3
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 3,
+              "line_number": 8,
+              "text": "Remarks : 1. If requested and appropriately substantiated, EASA can accept Alternative",
+              "pattern": "remarks"
+            }
+          ]
+        },
+        "appendix_table": {
+          "pages": [],
+          "heading_pages": [],
+          "heading_found": false,
+          "heading_not_found": true,
+          "matches": []
+        }
+      },
+      "headings_not_found": [
+        "definitions",
+        "credit",
+        "appendix_table"
+      ]
+    },
+    {
+      "selection_position": 20,
+      "ad_number": "2009-0025",
+      "base_ad_number": "2009-0025",
+      "logical_version_key": "2009-0025|CORRECTED:2009-02-11",
+      "file_instance_id": "46511578be7115fd",
+      "file_name": "2009-0025__AD_2009-0025_1__easa_ad_2009_0025_Corrected.pdf",
+      "page_count": 3,
+      "sections": {
+        "cover": {
+          "pages": [
+            1
+          ],
+          "heading_pages": [
+            1
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 1,
+              "line_number": 3,
+              "text": "EASA AIRWORTHINESS DIRECTIVE",
+              "pattern": "airworthiness_directive_title"
+            }
+          ]
+        },
+        "applicability": {
+          "pages": [
+            1
+          ],
+          "heading_pages": [
+            1
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 1,
+              "line_number": 37,
+              "text": "Applicability: AIRBUS A318-111, A318-112, A318-121, A318-122, A319-111, A319-112, A319-113, A319-114, A319-115, A319-131, A319-132, A319-133, A320-111,",
+              "pattern": "applicability"
+            }
+          ]
+        },
+        "definitions": {
+          "pages": [],
+          "heading_pages": [],
+          "heading_found": false,
+          "heading_not_found": true,
+          "matches": []
+        },
+        "reason": {
+          "pages": [
+            1
+          ],
+          "heading_pages": [
+            1
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 1,
+              "line_number": 43,
+              "text": "Reason: During a routine inspection on an Airbus A321 aircraft, the operator discovered that a bearing of the flap track No.1 pendulum assembly had migrated out of",
+              "pattern": "reason"
+            }
+          ]
+        },
+        "required_actions_compliance": {
+          "pages": [
+            2
+          ],
+          "heading_pages": [
+            2
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 2,
+              "line_number": 15,
+              "text": "Required Action(s) 1. Required as indicated:",
+              "pattern": "required_actions_required_as_indicated"
+            }
+          ]
+        },
+        "credit": {
+          "pages": [],
+          "heading_pages": [],
+          "heading_found": false,
+          "heading_not_found": true,
+          "matches": []
+        },
+        "reference_publications": {
+          "pages": [
+            2
+          ],
+          "heading_pages": [
+            2
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 2,
+              "line_number": 63,
+              "text": "Ref. Publications: AIRBUS SB A320-57-1144 dated 06 February 2007, or SB A320-57-1144",
+              "pattern": "reference_publications"
+            }
+          ]
+        },
+        "remarks": {
+          "pages": [
+            3
+          ],
+          "heading_pages": [
+            3
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 3,
+              "line_number": 3,
+              "text": "Remarks : 1. If requested and appropriately substantiated, EASA can approve",
+              "pattern": "remarks"
+            }
+          ]
+        },
+        "appendix_table": {
+          "pages": [],
+          "heading_pages": [],
+          "heading_found": false,
+          "heading_not_found": true,
+          "matches": []
+        }
+      },
+      "headings_not_found": [
+        "definitions",
+        "credit",
+        "appendix_table"
+      ]
+    },
+    {
+      "selection_position": 21,
+      "ad_number": "2009-0141",
+      "base_ad_number": "2009-0141",
+      "logical_version_key": "2009-0141|UNCORRECTED",
+      "file_instance_id": "cb57166de0385f86",
+      "file_name": "2009-0141__AD_2009-0141_1__easa_ad_2009_0141_superseded.pdf",
+      "page_count": 8,
+      "sections": {
+        "cover": {
+          "pages": [
+            1
+          ],
+          "heading_pages": [
+            1
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 1,
+              "line_number": 3,
+              "text": "EASA AIRWORTHINESS DIRECTIVE",
+              "pattern": "airworthiness_directive_title"
+            }
+          ]
+        },
+        "applicability": {
+          "pages": [
+            1
+          ],
+          "heading_pages": [
+            1
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 1,
+              "line_number": 40,
+              "text": "Applicability: AIRBUS A318-111, A318-112, A318-121, A318-122, A319-111, A319-112,",
+              "pattern": "applicability"
+            }
+          ]
+        },
+        "definitions": {
+          "pages": [],
+          "heading_pages": [],
+          "heading_found": false,
+          "heading_not_found": true,
+          "matches": []
+        },
+        "reason": {
+          "pages": [
+            1
+          ],
+          "heading_pages": [
+            1
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 1,
+              "line_number": 49,
+              "text": "Reason: Surface defects were visually detected on the rudder of one A319 and one",
+              "pattern": "reason"
+            }
+          ]
+        },
+        "required_actions_compliance": {
+          "pages": [
+            2
+          ],
+          "heading_pages": [
+            2
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 2,
+              "line_number": 5,
+              "text": "Required action(s) Required as indicated:",
+              "pattern": "required_actions_required_as_indicated"
+            }
+          ]
+        },
+        "credit": {
+          "pages": [],
+          "heading_pages": [],
+          "heading_found": false,
+          "heading_not_found": true,
+          "matches": []
+        },
+        "reference_publications": {
+          "pages": [
+            4
+          ],
+          "heading_pages": [
+            4
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 4,
+              "line_number": 22,
+              "text": "Ref. Publications: AIRBUS All Operators Telex A320-55A1038 Revision 01.",
+              "pattern": "reference_publications"
+            }
+          ]
+        },
+        "remarks": {
+          "pages": [
+            4
+          ],
+          "heading_pages": [
+            4
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 4,
+              "line_number": 27,
+              "text": "Remarks: 1. If requested and appropriately substantiated, EASA can approve",
+              "pattern": "remarks"
+            }
+          ]
+        },
+        "appendix_table": {
+          "pages": [
+            5,
+            6,
+            7,
+            8
+          ],
+          "heading_pages": [
+            5,
+            6,
+            7,
+            8
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 5,
+              "line_number": 1,
+              "text": "EASA AD No.: 2009-0141 Appendix A",
+              "pattern": "appendix_heading"
+            },
+            {
+              "page_number": 5,
+              "line_number": 4,
+              "text": "EASA AD No. 2009-0141 Appendix A 1/4",
+              "pattern": "appendix_heading"
+            },
+            {
+              "page_number": 6,
+              "line_number": 1,
+              "text": "EASA AD No.: 2009-0141 Appendix A",
+              "pattern": "appendix_heading"
+            },
+            {
+              "page_number": 6,
+              "line_number": 3,
+              "text": "EASA AD No. 2009-0141 Appendix A 2/4",
+              "pattern": "appendix_heading"
+            },
+            {
+              "page_number": 7,
+              "line_number": 1,
+              "text": "EASA AD No.: 2009-0141 Appendix A",
+              "pattern": "appendix_heading"
+            },
+            {
+              "page_number": 7,
+              "line_number": 3,
+              "text": "EASA AD No. 2009-0141 Appendix A 3/4",
+              "pattern": "appendix_heading"
+            },
+            {
+              "page_number": 8,
+              "line_number": 1,
+              "text": "EASA AD No.: 2009-0141 Appendix A",
+              "pattern": "appendix_heading"
+            },
+            {
+              "page_number": 8,
+              "line_number": 3,
+              "text": "EASA AD No. 2009-0141 Appendix A 4/4",
+              "pattern": "appendix_heading"
+            }
+          ]
+        }
+      },
+      "headings_not_found": [
+        "definitions",
+        "credit"
+      ]
+    },
+    {
+      "selection_position": 22,
+      "ad_number": "2010-0164",
+      "base_ad_number": "2010-0164",
+      "logical_version_key": "2010-0164|UNCORRECTED",
+      "file_instance_id": "60596be378420b04",
+      "file_name": "2010-0164__AD_2010-0164_1__easa_ad_2010_0164.pdf",
+      "page_count": 17,
+      "sections": {
+        "cover": {
+          "pages": [
+            1
+          ],
+          "heading_pages": [
+            1
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 1,
+              "line_number": 3,
+              "text": "EASA AIRWORTHINESS DIRECTIVE",
+              "pattern": "airworthiness_directive_title"
+            }
+          ]
+        },
+        "applicability": {
+          "pages": [
+            1
+          ],
+          "heading_pages": [
+            1
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 1,
+              "line_number": 37,
+              "text": "Applicability: AIRBUS A318-111, A318-112, A318-121, A318-122, A319-111, A319-112,",
+              "pattern": "applicability"
+            }
+          ]
+        },
+        "definitions": {
+          "pages": [],
+          "heading_pages": [],
+          "heading_found": false,
+          "heading_not_found": true,
+          "matches": []
+        },
+        "reason": {
+          "pages": [
+            1
+          ],
+          "heading_pages": [
+            1
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 1,
+              "line_number": 45,
+              "text": "Reason: Surface defects were visually detected on the rudder of one A319 and one",
+              "pattern": "reason"
+            }
+          ]
+        },
+        "required_actions_compliance": {
+          "pages": [
+            2
+          ],
+          "heading_pages": [
+            2
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 2,
+              "line_number": 15,
+              "text": "Required Action(s) Required as indicated:",
+              "pattern": "required_actions_required_as_indicated"
+            }
+          ]
+        },
+        "credit": {
+          "pages": [],
+          "heading_pages": [],
+          "heading_found": false,
+          "heading_not_found": true,
+          "matches": []
+        },
+        "reference_publications": {
+          "pages": [
+            8
+          ],
+          "heading_pages": [
+            8
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 8,
+              "line_number": 34,
+              "text": "Ref. Publications: Airbus All Operators Telex A320-55A1038 Revision 02.",
+              "pattern": "reference_publications"
+            }
+          ]
+        },
+        "remarks": {
+          "pages": [
+            8
+          ],
+          "heading_pages": [
+            8
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 8,
+              "line_number": 43,
+              "text": "Remarks: 1. If requested and appropriately substantiated, EASA can approve",
+              "pattern": "remarks"
+            }
+          ]
+        },
+        "appendix_table": {
+          "pages": [
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17
+          ],
+          "heading_pages": [
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 9,
+              "line_number": 4,
+              "text": "Appendix A page 1 of 4",
+              "pattern": "appendix_heading"
+            },
+            {
+              "page_number": 10,
+              "line_number": 3,
+              "text": "Appendix A page 2 of 4",
+              "pattern": "appendix_heading"
+            },
+            {
+              "page_number": 11,
+              "line_number": 3,
+              "text": "Appendix A page 3 of 4",
+              "pattern": "appendix_heading"
+            },
+            {
+              "page_number": 12,
+              "line_number": 3,
+              "text": "Appendix A page 4 of 4",
+              "pattern": "appendix_heading"
+            },
+            {
+              "page_number": 13,
+              "line_number": 4,
+              "text": "Appendix B",
+              "pattern": "appendix_heading"
+            },
+            {
+              "page_number": 13,
+              "line_number": 25,
+              "text": "Appendix C",
+              "pattern": "appendix_heading"
+            },
+            {
+              "page_number": 14,
+              "line_number": 3,
+              "text": "Appendix D",
+              "pattern": "appendix_heading"
+            },
+            {
+              "page_number": 14,
+              "line_number": 23,
+              "text": "Appendix D - Associated S/N - page 1 of 3",
+              "pattern": "appendix_heading"
+            },
+            {
+              "page_number": 15,
+              "line_number": 3,
+              "text": "Appendix D - Associated S/N - page 2 of 3",
+              "pattern": "appendix_heading"
+            },
+            {
+              "page_number": 16,
+              "line_number": 3,
+              "text": "Appendix D - Associated S/N - page 3 of 3",
+              "pattern": "appendix_heading"
+            },
+            {
+              "page_number": 17,
+              "line_number": 3,
+              "text": "Appendix E",
+              "pattern": "appendix_heading"
+            }
+          ]
+        }
+      },
+      "headings_not_found": [
+        "definitions",
+        "credit"
+      ]
+    },
+    {
+      "selection_position": 23,
+      "ad_number": "2011-0112",
+      "base_ad_number": "2011-0112",
+      "logical_version_key": "2011-0112|UNCORRECTED",
+      "file_instance_id": "7a321140308c146d",
+      "file_name": "2011-0112__AD_2011-0112_1__easa_ad_2011_0112.pdf",
+      "page_count": 2,
+      "sections": {
+        "cover": {
+          "pages": [
+            1
+          ],
+          "heading_pages": [
+            1
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 1,
+              "line_number": 3,
+              "text": "EASA AIRWORTHINESS DIRECTIVE",
+              "pattern": "airworthiness_directive_title"
+            }
+          ]
+        },
+        "applicability": {
+          "pages": [
+            1
+          ],
+          "heading_pages": [
+            1
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 1,
+              "line_number": 41,
+              "text": "Applicability: Airbus A300 aeroplanes, all certified models, all manufacturer serial numbers.",
+              "pattern": "applicability"
+            }
+          ]
+        },
+        "definitions": {
+          "pages": [],
+          "heading_pages": [],
+          "heading_found": false,
+          "heading_not_found": true,
+          "matches": []
+        },
+        "reason": {
+          "pages": [
+            1
+          ],
+          "heading_pages": [
+            1
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 1,
+              "line_number": 43,
+              "text": "Reason: A specific failure case of the THSA upper primary attachment, which may result",
+              "pattern": "reason"
+            }
+          ]
+        },
+        "required_actions_compliance": {
+          "pages": [
+            2
+          ],
+          "heading_pages": [
+            2
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 2,
+              "line_number": 3,
+              "text": "Required Action(s) Required as indicated, unless accomplished previously:",
+              "pattern": "required_actions_required_as_indicated"
+            }
+          ]
+        },
+        "credit": {
+          "pages": [],
+          "heading_pages": [],
+          "heading_found": false,
+          "heading_not_found": true,
+          "matches": []
+        },
+        "reference_publications": {
+          "pages": [
+            2
+          ],
+          "heading_pages": [
+            2
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 2,
+              "line_number": 8,
+              "text": "Ref. Publications: Airbus Service Bulletin A300-27-0204 at original issue.",
+              "pattern": "reference_publications"
+            }
+          ]
+        },
+        "remarks": {
+          "pages": [
+            2
+          ],
+          "heading_pages": [
+            2
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 2,
+              "line_number": 12,
+              "text": "Remarks : 1. If requested and appropriately substantiated, EASA can approve Alternative",
+              "pattern": "remarks"
+            }
+          ]
+        },
+        "appendix_table": {
+          "pages": [],
+          "heading_pages": [],
+          "heading_found": false,
+          "heading_not_found": true,
+          "matches": []
+        }
+      },
+      "headings_not_found": [
+        "definitions",
+        "credit",
+        "appendix_table"
+      ]
+    },
+    {
+      "selection_position": 24,
+      "ad_number": "2012-0175R2",
+      "base_ad_number": "2012-0175",
+      "logical_version_key": "2012-0175R2|UNCORRECTED",
+      "file_instance_id": "08a8fc0e2bbbc711",
+      "file_name": "2012-0175R2__AD_2012-0175R2_1__EASA_AD_2012_0175_R2_superseded.pdf",
+      "page_count": 6,
+      "sections": {
+        "cover": {
+          "pages": [
+            1
+          ],
+          "heading_pages": [
+            1
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 1,
+              "line_number": 3,
+              "text": "Airworthiness Directive",
+              "pattern": "airworthiness_directive_title"
+            }
+          ]
+        },
+        "applicability": {
+          "pages": [
+            1
+          ],
+          "heading_pages": [
+            1
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 1,
+              "line_number": 33,
+              "text": "Applicability:",
+              "pattern": "applicability"
+            }
+          ]
+        },
+        "definitions": {
+          "pages": [],
+          "heading_pages": [],
+          "heading_found": false,
+          "heading_not_found": true,
+          "matches": []
+        },
+        "reason": {
+          "pages": [
+            1
+          ],
+          "heading_pages": [
+            1
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 1,
+              "line_number": 39,
+              "text": "Reason:",
+              "pattern": "reason"
+            }
+          ]
+        },
+        "required_actions_compliance": {
+          "pages": [
+            2
+          ],
+          "heading_pages": [
+            2
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 2,
+              "line_number": 29,
+              "text": "Required Action(s) and Compliance Time(s):",
+              "pattern": "required_actions_and_compliance"
+            }
+          ]
+        },
+        "credit": {
+          "pages": [],
+          "heading_pages": [],
+          "heading_found": false,
+          "heading_not_found": true,
+          "matches": []
+        },
+        "reference_publications": {
+          "pages": [
+            3
+          ],
+          "heading_pages": [
+            3
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 3,
+              "line_number": 35,
+              "text": "Ref. Publications:",
+              "pattern": "reference_publications"
+            }
+          ]
+        },
+        "remarks": {
+          "pages": [
+            4
+          ],
+          "heading_pages": [
+            4
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 4,
+              "line_number": 3,
+              "text": "Remarks:",
+              "pattern": "remarks"
+            }
+          ]
+        },
+        "appendix_table": {
+          "pages": [
+            2,
+            5,
+            6
+          ],
+          "heading_pages": [
+            2,
+            5,
+            6
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 2,
+              "line_number": 37,
+              "text": "Table 1 – Initial THSA inspection",
+              "pattern": "table_heading"
+            },
+            {
+              "page_number": 5,
+              "line_number": 3,
+              "text": "Appendix 1 – Affected P/N 47145-XXX THSA",
+              "pattern": "appendix_heading"
+            },
+            {
+              "page_number": 6,
+              "line_number": 3,
+              "text": "Appendix 1 – Affected P/N 47145-XXX THSA (continued)",
+              "pattern": "appendix_heading"
+            }
+          ]
+        }
+      },
+      "headings_not_found": [
+        "definitions",
+        "credit"
+      ]
+    },
+    {
+      "selection_position": 25,
+      "ad_number": "2013-0234R2",
+      "base_ad_number": "2013-0234",
+      "logical_version_key": "2013-0234R2|UNCORRECTED",
+      "file_instance_id": "9a197fbc37092cfe",
+      "file_name": "2013-0234R2__AD_2013-0234R2_1__easa_ad_2013_0234_R2.pdf",
+      "page_count": 5,
+      "sections": {
+        "cover": {
+          "pages": [
+            1
+          ],
+          "heading_pages": [
+            1
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 1,
+              "line_number": 3,
+              "text": "EASA AIRWORTHINESS DIRECTIVE",
+              "pattern": "airworthiness_directive_title"
+            }
+          ]
+        },
+        "applicability": {
+          "pages": [
+            1
+          ],
+          "heading_pages": [
+            1
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 1,
+              "line_number": 36,
+              "text": "Applicability: Airbus A300 aeroplanes, all certified models, all manufacturer serial numbers",
+              "pattern": "applicability"
+            }
+          ]
+        },
+        "definitions": {
+          "pages": [],
+          "heading_pages": [],
+          "heading_found": false,
+          "heading_not_found": true,
+          "matches": []
+        },
+        "reason": {
+          "pages": [
+            1
+          ],
+          "heading_pages": [
+            1
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 1,
+              "line_number": 44,
+              "text": "Reason: Fatigue and \"fail safe\" tests developed on a test specimen confirmed that",
+              "pattern": "reason"
+            }
+          ]
+        },
+        "required_actions_compliance": {
+          "pages": [
+            2
+          ],
+          "heading_pages": [
+            2
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 2,
+              "line_number": 17,
+              "text": "Required Action(s) Required as indicated, unless accomplished previously:",
+              "pattern": "required_actions_required_as_indicated"
+            }
+          ]
+        },
+        "credit": {
+          "pages": [],
+          "heading_pages": [],
+          "heading_found": false,
+          "heading_not_found": true,
+          "matches": []
+        },
+        "reference_publications": {
+          "pages": [
+            2
+          ],
+          "heading_pages": [
+            2
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 2,
+              "line_number": 49,
+              "text": "Ref. Publications: Airbus SB A300-57-0116 Revision 07 dated 19 September 2011.",
+              "pattern": "reference_publications"
+            }
+          ]
+        },
+        "remarks": {
+          "pages": [
+            2
+          ],
+          "heading_pages": [
+            2
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 2,
+              "line_number": 54,
+              "text": "Remarks: 1. If requested and appropriately substantiated, EASA can approve",
+              "pattern": "remarks"
+            }
+          ]
+        },
+        "appendix_table": {
+          "pages": [
+            4,
+            5
+          ],
+          "heading_pages": [
+            4,
+            5
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 4,
+              "line_number": 4,
+              "text": "APPENDIX 1",
+              "pattern": "appendix_heading"
+            },
+            {
+              "page_number": 4,
+              "line_number": 6,
+              "text": "Table 1: Inspection thresholds for A300",
+              "pattern": "table_heading"
+            },
+            {
+              "page_number": 5,
+              "line_number": 3,
+              "text": "APPENDIX 1 - continued",
+              "pattern": "appendix_heading"
+            },
+            {
+              "page_number": 5,
+              "line_number": 7,
+              "text": "Table 2 : Inspection thresholds for A300-600",
+              "pattern": "table_heading"
+            },
+            {
+              "page_number": 5,
+              "line_number": 31,
+              "text": "Table 3: Inspection intervals for A300",
+              "pattern": "table_heading"
+            },
+            {
+              "page_number": 5,
+              "line_number": 44,
+              "text": "Table 4 : Inspection intervals for A300-600",
+              "pattern": "table_heading"
+            }
+          ]
+        }
+      },
+      "headings_not_found": [
+        "definitions",
+        "credit"
+      ]
+    },
+    {
+      "selection_position": 26,
+      "ad_number": "2014-0062",
+      "base_ad_number": "2014-0062",
+      "logical_version_key": "2014-0062|UNCORRECTED",
+      "file_instance_id": "58916308a3527d59",
+      "file_name": "2014-0062__AD_2014-0062_1__easa_ad_2014_0062.pdf",
+      "page_count": 2,
+      "sections": {
+        "cover": {
+          "pages": [
+            1
+          ],
+          "heading_pages": [
+            1
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 1,
+              "line_number": 3,
+              "text": "EASA AIRWORTHINESS DIRECTIVE",
+              "pattern": "airworthiness_directive_title"
+            }
+          ]
+        },
+        "applicability": {
+          "pages": [
+            1
+          ],
+          "heading_pages": [
+            1
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 1,
+              "line_number": 39,
+              "text": "Applicability: Airbus A330-243, A330-243F, A330-341, A330-342, and A330-343 aeroplanes,",
+              "pattern": "applicability"
+            }
+          ]
+        },
+        "definitions": {
+          "pages": [],
+          "heading_pages": [],
+          "heading_found": false,
+          "heading_not_found": true,
+          "matches": []
+        },
+        "reason": {
+          "pages": [
+            1
+          ],
+          "heading_pages": [
+            1
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 1,
+              "line_number": 42,
+              "text": "Reason: A manufacturing discrepancy (lack of heat treatment) on a batch of the N°3 and",
+              "pattern": "reason"
+            }
+          ]
+        },
+        "required_actions_compliance": {
+          "pages": [
+            2
+          ],
+          "heading_pages": [
+            2
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 2,
+              "line_number": 4,
+              "text": "Required Action(s) Required as indicated, unless accomplished previously:",
+              "pattern": "required_actions_required_as_indicated"
+            }
+          ]
+        },
+        "credit": {
+          "pages": [],
+          "heading_pages": [],
+          "heading_found": false,
+          "heading_not_found": true,
+          "matches": []
+        },
+        "reference_publications": {
+          "pages": [
+            2
+          ],
+          "heading_pages": [
+            2
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 2,
+              "line_number": 18,
+              "text": "Ref. Publications: Airbus SB A330-78-3021 at original issue dated 17 October 2012, or Revision 01",
+              "pattern": "reference_publications"
+            }
+          ]
+        },
+        "remarks": {
+          "pages": [
+            2
+          ],
+          "heading_pages": [
+            2
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 2,
+              "line_number": 23,
+              "text": "Remarks: 1. If requested and appropriately substantiated, EASA can approve Alternative",
+              "pattern": "remarks"
+            }
+          ]
+        },
+        "appendix_table": {
+          "pages": [],
+          "heading_pages": [],
+          "heading_found": false,
+          "heading_not_found": true,
+          "matches": []
+        }
+      },
+      "headings_not_found": [
+        "definitions",
+        "credit",
+        "appendix_table"
+      ]
+    },
+    {
+      "selection_position": 27,
+      "ad_number": "2015-0135R3",
+      "base_ad_number": "2015-0135",
+      "logical_version_key": "2015-0135R3|UNCORRECTED",
+      "file_instance_id": "ffb267d0dfbcbbd9",
+      "file_name": "2015-0135R3__AD_2015-0135R3_1__EASA_AD_2015_0135_R3.pdf",
+      "page_count": 8,
+      "sections": {
+        "cover": {
+          "pages": [
+            1
+          ],
+          "heading_pages": [
+            1
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 1,
+              "line_number": 3,
+              "text": "Airworthiness Directive",
+              "pattern": "airworthiness_directive_title"
+            }
+          ]
+        },
+        "applicability": {
+          "pages": [
+            1
+          ],
+          "heading_pages": [
+            1
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 1,
+              "line_number": 34,
+              "text": "Applicability:",
+              "pattern": "applicability"
+            }
+          ]
+        },
+        "definitions": {
+          "pages": [],
+          "heading_pages": [],
+          "heading_found": false,
+          "heading_not_found": true,
+          "matches": []
+        },
+        "reason": {
+          "pages": [
+            1
+          ],
+          "heading_pages": [
+            1
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 1,
+              "line_number": 40,
+              "text": "Reason:",
+              "pattern": "reason"
+            }
+          ]
+        },
+        "required_actions_compliance": {
+          "pages": [
+            2
+          ],
+          "heading_pages": [
+            2
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 2,
+              "line_number": 38,
+              "text": "Required Action(s) and Compliance Time(s):",
+              "pattern": "required_actions_and_compliance"
+            }
+          ]
+        },
+        "credit": {
+          "pages": [
+            3,
+            5
+          ],
+          "heading_pages": [
+            3,
+            5
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 3,
+              "line_number": 15,
+              "text": "Credit:",
+              "pattern": "credit"
+            },
+            {
+              "page_number": 3,
+              "line_number": 39,
+              "text": "Credit:",
+              "pattern": "credit"
+            },
+            {
+              "page_number": 5,
+              "line_number": 6,
+              "text": "Conditional Credit:",
+              "pattern": "credit"
+            }
+          ]
+        },
+        "reference_publications": {
+          "pages": [
+            7
+          ],
+          "heading_pages": [
+            7
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 7,
+              "line_number": 3,
+              "text": "Ref. Publications:",
+              "pattern": "reference_publications"
+            }
+          ]
+        },
+        "remarks": {
+          "pages": [
+            7
+          ],
+          "heading_pages": [
+            7
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 7,
+              "line_number": 28,
+              "text": "Remarks:",
+              "pattern": "remarks"
+            }
+          ]
+        },
+        "appendix_table": {
+          "pages": [
+            4,
+            5,
+            6,
+            8
+          ],
+          "heading_pages": [
+            4,
+            5,
+            6,
+            8
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 4,
+              "line_number": 26,
+              "text": "Table 1 – AOA Sensors Replacement",
+              "pattern": "table_heading"
+            },
+            {
+              "page_number": 5,
+              "line_number": 35,
+              "text": "Table 2 – AOA Sensors",
+              "pattern": "table_heading"
+            },
+            {
+              "page_number": 6,
+              "line_number": 15,
+              "text": "Table 3 – Minimum ELAC Configuration",
+              "pattern": "table_heading"
+            },
+            {
+              "page_number": 6,
+              "line_number": 25,
+              "text": "Table 4 – AOA Sensor Installation configurations",
+              "pattern": "table_heading"
+            },
+            {
+              "page_number": 8,
+              "line_number": 4,
+              "text": "Appendix 1 – AFM Procedure",
+              "pattern": "appendix_heading"
+            }
+          ]
+        }
+      },
+      "headings_not_found": [
+        "definitions"
+      ]
+    },
+    {
+      "selection_position": 28,
+      "ad_number": "2016-0095",
+      "base_ad_number": "2016-0095",
+      "logical_version_key": "2016-0095|UNCORRECTED",
+      "file_instance_id": "7f221fbcf3eea6a5",
+      "file_name": "2016-0095__AD_2016-0095_1__EASA_AD_2016_0095_superseded.pdf",
+      "page_count": 6,
+      "sections": {
+        "cover": {
+          "pages": [
+            1
+          ],
+          "heading_pages": [
+            1
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 1,
+              "line_number": 3,
+              "text": "Airworthiness Directive",
+              "pattern": "airworthiness_directive_title"
+            }
+          ]
+        },
+        "applicability": {
+          "pages": [
+            1
+          ],
+          "heading_pages": [
+            1
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 1,
+              "line_number": 30,
+              "text": "Applicability:",
+              "pattern": "applicability"
+            }
+          ]
+        },
+        "definitions": {
+          "pages": [],
+          "heading_pages": [],
+          "heading_found": false,
+          "heading_not_found": true,
+          "matches": []
+        },
+        "reason": {
+          "pages": [
+            1
+          ],
+          "heading_pages": [
+            1
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 1,
+              "line_number": 33,
+              "text": "Reason:",
+              "pattern": "reason"
+            }
+          ]
+        },
+        "required_actions_compliance": {
+          "pages": [
+            2
+          ],
+          "heading_pages": [
+            2
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 2,
+              "line_number": 3,
+              "text": "Required Action(s) and Compliance Time(s):",
+              "pattern": "required_actions_and_compliance"
+            }
+          ]
+        },
+        "credit": {
+          "pages": [],
+          "heading_pages": [],
+          "heading_found": false,
+          "heading_not_found": true,
+          "matches": []
+        },
+        "reference_publications": {
+          "pages": [
+            2
+          ],
+          "heading_pages": [
+            2
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 2,
+              "line_number": 40,
+              "text": "Ref. Publications:",
+              "pattern": "reference_publications"
+            }
+          ]
+        },
+        "remarks": {
+          "pages": [
+            2
+          ],
+          "heading_pages": [
+            2
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 2,
+              "line_number": 46,
+              "text": "Remarks:",
+              "pattern": "remarks"
+            }
+          ]
+        },
+        "appendix_table": {
+          "pages": [
+            4,
+            5,
+            6
+          ],
+          "heading_pages": [
+            4,
+            5,
+            6
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 4,
+              "line_number": 3,
+              "text": "Appendix 1 – Middle and Outboard Flaps to be inspected",
+              "pattern": "appendix_heading"
+            },
+            {
+              "page_number": 4,
+              "line_number": 13,
+              "text": "Table 1 – Middle Flaps",
+              "pattern": "table_heading"
+            },
+            {
+              "page_number": 5,
+              "line_number": 3,
+              "text": "Table 1 – Middle Flaps",
+              "pattern": "table_heading"
+            },
+            {
+              "page_number": 6,
+              "line_number": 3,
+              "text": "Table 2 – Outboard Flaps",
+              "pattern": "table_heading"
+            }
+          ]
+        }
+      },
+      "headings_not_found": [
+        "definitions",
+        "credit"
+      ]
+    },
+    {
+      "selection_position": 29,
+      "ad_number": "2017-0013",
+      "base_ad_number": "2017-0013",
+      "logical_version_key": "2017-0013|UNCORRECTED",
+      "file_instance_id": "67c94127f7b8e53d",
+      "file_name": "2017-0013__AD_2017-0013_1__EASA_AD_2017_0013.pdf",
+      "page_count": 6,
+      "sections": {
+        "cover": {
+          "pages": [
+            1
+          ],
+          "heading_pages": [
+            1
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 1,
+              "line_number": 3,
+              "text": "Airworthiness Directive",
+              "pattern": "airworthiness_directive_title"
+            }
+          ]
+        },
+        "applicability": {
+          "pages": [
+            1
+          ],
+          "heading_pages": [
+            1
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 1,
+              "line_number": 30,
+              "text": "Applicability:",
+              "pattern": "applicability"
+            }
+          ]
+        },
+        "definitions": {
+          "pages": [],
+          "heading_pages": [],
+          "heading_found": false,
+          "heading_not_found": true,
+          "matches": []
+        },
+        "reason": {
+          "pages": [
+            1
+          ],
+          "heading_pages": [
+            1
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 1,
+              "line_number": 33,
+              "text": "Reason:",
+              "pattern": "reason"
+            }
+          ]
+        },
+        "required_actions_compliance": {
+          "pages": [
+            2
+          ],
+          "heading_pages": [
+            2
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 2,
+              "line_number": 11,
+              "text": "Required Action(s) and Compliance Time(s):",
+              "pattern": "required_actions_and_compliance"
+            }
+          ]
+        },
+        "credit": {
+          "pages": [],
+          "heading_pages": [],
+          "heading_found": false,
+          "heading_not_found": true,
+          "matches": []
+        },
+        "reference_publications": {
+          "pages": [
+            3
+          ],
+          "heading_pages": [
+            3
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 3,
+              "line_number": 3,
+              "text": "Ref. Publications:",
+              "pattern": "reference_publications"
+            }
+          ]
+        },
+        "remarks": {
+          "pages": [
+            3
+          ],
+          "heading_pages": [
+            3
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 3,
+              "line_number": 10,
+              "text": "Remarks:",
+              "pattern": "remarks"
+            }
+          ]
+        },
+        "appendix_table": {
+          "pages": [
+            4,
+            5,
+            6
+          ],
+          "heading_pages": [
+            4,
+            5,
+            6
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 4,
+              "line_number": 3,
+              "text": "Appendix 1 – Middle and Outboard Flaps to be inspected",
+              "pattern": "appendix_heading"
+            },
+            {
+              "page_number": 4,
+              "line_number": 13,
+              "text": "Table 1 – Middle Flaps",
+              "pattern": "table_heading"
+            },
+            {
+              "page_number": 5,
+              "line_number": 3,
+              "text": "Table 1 – Middle Flaps",
+              "pattern": "table_heading"
+            },
+            {
+              "page_number": 6,
+              "line_number": 3,
+              "text": "Table 2 – Outboard Flaps",
+              "pattern": "table_heading"
+            }
+          ]
+        }
+      },
+      "headings_not_found": [
+        "definitions",
+        "credit"
+      ]
+    },
+    {
+      "selection_position": 30,
+      "ad_number": "2018-0108",
+      "base_ad_number": "2018-0108",
+      "logical_version_key": "2018-0108|UNCORRECTED",
+      "file_instance_id": "75144c1f05797c10",
+      "file_name": "2018-0108__AD_2018-0108_1__EASA_AD_2018_0108.pdf",
+      "page_count": 2,
+      "sections": {
+        "cover": {
+          "pages": [
+            1
+          ],
+          "heading_pages": [
+            1
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 1,
+              "line_number": 3,
+              "text": "Airworthiness Directive",
+              "pattern": "airworthiness_directive_title"
+            }
+          ]
+        },
+        "applicability": {
+          "pages": [
+            1
+          ],
+          "heading_pages": [
+            1
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 1,
+              "line_number": 30,
+              "text": "Applicability:",
+              "pattern": "applicability"
+            }
+          ]
+        },
+        "definitions": {
+          "pages": [
+            1
+          ],
+          "heading_pages": [
+            1
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 1,
+              "line_number": 34,
+              "text": "Definitions:",
+              "pattern": "definitions"
+            }
+          ]
+        },
+        "reason": {
+          "pages": [
+            1
+          ],
+          "heading_pages": [
+            1
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 1,
+              "line_number": 42,
+              "text": "Reason:",
+              "pattern": "reason"
+            }
+          ]
+        },
+        "required_actions_compliance": {
+          "pages": [
+            2
+          ],
+          "heading_pages": [
+            2
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 2,
+              "line_number": 17,
+              "text": "Required Action(s) and Compliance Time(s):",
+              "pattern": "required_actions_and_compliance"
+            }
+          ]
+        },
+        "credit": {
+          "pages": [],
+          "heading_pages": [],
+          "heading_found": false,
+          "heading_not_found": true,
+          "matches": []
+        },
+        "reference_publications": {
+          "pages": [
+            2
+          ],
+          "heading_pages": [
+            2
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 2,
+              "line_number": 25,
+              "text": "Ref. Publications:",
+              "pattern": "reference_publications"
+            }
+          ]
+        },
+        "remarks": {
+          "pages": [
+            2
+          ],
+          "heading_pages": [
+            2
+          ],
+          "heading_found": true,
+          "heading_not_found": false,
+          "matches": [
+            {
+              "page_number": 2,
+              "line_number": 31,
+              "text": "Remarks:",
+              "pattern": "remarks"
+            }
+          ]
+        },
+        "appendix_table": {
+          "pages": [],
+          "heading_pages": [],
+          "heading_found": false,
+          "heading_not_found": true,
+          "matches": []
+        }
+      },
+      "headings_not_found": [
+        "credit",
+        "appendix_table"
+      ]
+    }
+  ]
+}

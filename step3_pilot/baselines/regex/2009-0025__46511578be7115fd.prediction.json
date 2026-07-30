@@ -1,0 +1,102 @@
+{
+  "source_document": {
+    "file_instance_id": "46511578be7115fd",
+    "file_name": "2009-0025__AD_2009-0025_1__easa_ad_2009_0025_Corrected.pdf"
+  },
+  "ad_identity": {
+    "ad_number": "2009-0025",
+    "base_ad_number": "2009-0025",
+    "revision_number": null,
+    "is_emergency": false,
+    "is_correction": true,
+    "correction_date": {
+      "value": "2009-02-11"
+    },
+    "design_approval_holder": {
+      "value": null
+    },
+    "supersedure_statement": {
+      "state": "explicit_none",
+      "value": null
+    }
+  },
+  "publication": {
+    "subject": {
+      "value": null
+    },
+    "issue_date": {
+      "value": "2009-02-10"
+    },
+    "effective_date": {
+      "value": "2009-02-24"
+    },
+    "ata_chapters": [
+      {
+        "code": "57"
+      }
+    ],
+    "manufacturers": [
+      {
+        "raw_name": "AIRBUS",
+        "normalized_name": "Airbus"
+      }
+    ],
+    "type_model_designations": [
+      "A318",
+      "A318-111",
+      "A318-112",
+      "A318-121",
+      "A318-122",
+      "A319",
+      "A319-111",
+      "A319-112",
+      "A319-113",
+      "A319-114",
+      "A319-115",
+      "A319-131",
+      "A319-132",
+      "A319-133",
+      "A320",
+      "A320-111",
+      "A320-211",
+      "A320-212",
+      "A320-214",
+      "A320-215",
+      "A320-216",
+      "A320-231",
+      "A320-232",
+      "A320-233",
+      "A320-57-1144",
+      "A320-57A1146",
+      "A321",
+      "A321-111",
+      "A321-112",
+      "A321-131",
+      "A321-211",
+      "A321-212",
+      "A321-213",
+      "A321-231",
+      "A321-232"
+    ],
+    "tcds_numbers": [
+      "EASA.A.064"
+    ]
+  },
+  "unsafe_condition": {
+    "state": "present",
+    "raw_reason_text": "During a routine inspection on an Airbus A321 aircraft, the operator discovered that a bearing of the flap track No.1 pendulum assembly had migrated out of position. The investigation has confirmed that the pendulum bearing migration was probably due to the methods used during in-service replacement of the bearing during maintenance, whereby the necessary special tools, fixtures and equipment were not used. This condition, if not corrected, could lead to separation of the bearing/flap track assembly, resulting in the detachment of the affected flap surface from the wing and consequent loss of control of the aircraft. For the reasons described above, this AD requires a one-time inspection of the affected flap track No.1 pendulum assembly for bearing migration and, in case any bearing is found to have migrated, the replacement of the affected flap track pendulum assembly. Note: Based on this in-service experience, showing the potential safety effect of not following the TC Holder’s accomplishment instructions, Airbus has removed the instructions to replace the bearing in the pendulum assembly from the A320 Family aircraft maintenance documentation. Component Maintenance Manual (CMM) references are 27-54-43 for the A318, A319 and A320, and 27-54-42 for the A321. EASA Form 110 Page 1/3 EASA AD No.: 2009-0025 This Correction is issued to amend typographical errors in the Required action and Compliance Time section. The Service Bulletin numbers had been inverted."
+  },
+  "requirements": [],
+  "relationships": [],
+  "classification": {
+    "ata_chapters": [
+      "57"
+    ],
+    "action_types": []
+  },
+  "prediction_metadata": {
+    "method": "regex_rules",
+    "rules_version": "regex_v1",
+    "input_page_count": 3
+  }
+}

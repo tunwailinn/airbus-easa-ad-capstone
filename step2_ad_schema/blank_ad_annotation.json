@@ -1,0 +1,117 @@
+{
+  "schema_version": "1.0.0",
+  "record_id": "adann-0000000000000000",
+  "source_document": {
+    "file_instance_id": "0000000000000000",
+    "content_id": "0000000000000000",
+    "canonical_file_instance_id": "0000000000000000",
+    "file_aliases": [],
+    "file_name": "replace-with-source.pdf",
+    "relative_path": "replace-with-source.pdf",
+    "file_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+    "normalized_text_sha256": null,
+    "page_count": 1,
+    "extraction_status": "native_text",
+    "needs_ocr": false,
+    "manifest_review_flags": [],
+    "source_url": null,
+    "text_extraction_method": "native_text",
+    "exact_duplicate_group": null,
+    "near_duplicate_cluster": null
+  },
+  "ad_identity": {
+    "authority": "EASA",
+    "document_type": "airworthiness_directive",
+    "ad_number": "2000-0000",
+    "base_ad_number": "2000-0000",
+    "revision_number": 0,
+    "publication_kind": "standard_ad",
+    "is_emergency": false,
+    "is_correction": false,
+    "correction_date": {
+      "state": "not_stated",
+      "value": null,
+      "raw_text": null,
+      "evidence_ids": []
+    },
+    "version_label": "Original",
+    "logical_version_key": "2000-0000|original",
+    "is_latest_version": null,
+    "lifecycle_status": "unknown",
+    "design_approval_holder": null,
+    "supersedure_statement": {
+      "state": "not_stated",
+      "value": null,
+      "raw_text": null,
+      "evidence_ids": []
+    },
+    "evidence_ids": []
+  },
+  "publication": {
+    "subject": null,
+    "issue_date": {
+      "state": "not_stated",
+      "value": null,
+      "raw_text": null,
+      "evidence_ids": []
+    },
+    "effective_date": {
+      "state": "not_stated",
+      "value": null,
+      "raw_text": null,
+      "evidence_ids": []
+    },
+    "ata_chapters": [],
+    "manufacturers": [],
+    "type_model_designations": [],
+    "tcds_numbers": [],
+    "foreign_ad": {
+      "state": "not_stated",
+      "value": null,
+      "raw_text": null,
+      "evidence_ids": []
+    }
+  },
+  "applicability_groups": [],
+  "definitions": [],
+  "unsafe_condition": null,
+  "requirements": [],
+  "exceptions": [],
+  "previous_action_credit": [],
+  "referenced_publications": [],
+  "relationships": [],
+  "amoc_and_contacts": [],
+  "classification": {
+    "airbus_families": [],
+    "ata_chapters": [],
+    "action_types": [],
+    "frequency": "unknown",
+    "emergency_status": "unknown",
+    "terminating_action_present": null,
+    "table_or_appendix_present": null,
+    "compliance_complexity": "unknown",
+    "human_confirmed": false,
+    "evidence_ids": []
+  },
+  "evidence_spans": [],
+  "field_assertions": [],
+  "annotation_metadata": {
+    "guideline_version": "1.0.0",
+    "record_status": "draft",
+    "creation_method": "manual",
+    "machine_provenance": null,
+    "annotators": [],
+    "events": [],
+    "quality_flags": [
+      "missing_required_action"
+    ],
+    "uncertainty_flags": [],
+    "notes": [
+      "Replace placeholder source and AD identity values before annotation."
+    ],
+    "source_text_sha256": null,
+    "created_at": null,
+    "updated_at": null
+  },
+  "benchmark_metadata": null
+}

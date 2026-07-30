@@ -1,0 +1,67 @@
+{
+  "packet_version": "1.0.0",
+  "packet_type": "blind_annotation_source",
+  "record_id": "adann-5762b029d7edbc0c",
+  "document_identity": {
+    "authority": "EASA",
+    "ad_number": "2025-0138",
+    "base_ad_number": "2025-0138",
+    "revision_number": 0,
+    "is_emergency": false,
+    "is_correction": false,
+    "correction_date_from_manifest": null,
+    "logical_version_key": "2025-0138|UNCORRECTED"
+  },
+  "pdf_provenance": {
+    "file_instance_id": "5762b029d7edbc0c",
+    "content_id": "022bd207e853740b",
+    "file_name": "2025-0138__AD_2025-0138_1__EASA_AD_2025_0138.pdf",
+    "relative_path": "2025-0138__AD_2025-0138_1__EASA_AD_2025_0138.pdf",
+    "local_pdf_path": "/Users/tunwailin/Documents/Capstone/step3_extension_20_v1/source_pdfs/2025-0138__AD_2025-0138_1__EASA_AD_2025_0138.pdf",
+    "official_pdf_url": "https://ad.easa.europa.eu/blob/EASA_AD_2025_0138.pdf/AD_2025-0138_1",
+    "official_detail_url": "https://ad.easa.europa.eu/ad/2025-0138",
+    "file_sha256": "022bd207e853740b3b0c57facb7cb105e6ad4cf09c61286b4fa193483835fa93",
+    "manifest_normalized_text_sha256": "d427a7edbb8a222acd01bbcd463e417110633b3e081f3f5b4c0ca738a86e702d",
+    "page_count": 3
+  },
+  "instructions": [
+    "Annotate only what the rendered PDF and supplied page text state.",
+    "Do not infer relationships, applicability, actions, or deadlines from filenames.",
+    "Add exact page evidence for every safety-critical value."
+  ],
+  "pages": [
+    {
+      "page_id": "5762b029d7edbc0c:p0001",
+      "page_number": 1,
+      "page_count": 3,
+      "page_text_sha256": "f8ca46f4590aedb77976dd4a6aea863922f916b3f53673ade6f1dd658f539db9",
+      "text_char_count": 3515,
+      "extraction_library": "pypdf",
+      "extraction_library_version": "6.10.0",
+      "extraction_mode": "layout",
+      "text": "                                                                                                                     EASA AD No.: 2025-0138\n\n                                                            Airworthiness Directive\n                                                            AD No.:             2025-0138\n                                                            Issued:             01 July 2025\n\n                                                            Note: This Airworthiness Directive (AD) is issued by EASA, acting in accordance with Regulation\n                                                            (EU) 2018/1139 on behalf of the European Union, its Member States and of the European third\n                                                            countries that participate in the activities of EASA under Article 129 of that Regulation.\n\n      This AD is issued in accordance with Regulation (EU) 748/2012, Part 21.A.3B. In accordance with Regulation (EU) 1321/2014 Annex I Part M.A.301, or\n      Annex Vb Part ML.A.301, as applicable, the continuing airworthiness of an aircraft shall be ensured by accomplishing any applicable ADs. Consequently,\n      no person may operate an aircraft to which an AD applies, except in accordance with the requirements of that AD, unless otherwise specified by the\n      Agency [Regulation (EU) 1321/2014 Annex I Part M.A.303, or Annex Vb Part ML.A.303, as applicable] or agreed with the Authority of the State of Registry\n      [Regulation (EU) 2018/1139, Article 71 exemption].\n\n      Design Approval Holder’s Name:                                                Type/Model designation(s):\n      AIRBUS S.A.S.                                                                 A350 aeroplanes\n\n      Effective Date:                 15 July 2025\n      TCDS Number(s):                 EASA.A.151\n      Foreign AD:                     Not applicable\n      Supersedure:                    None\n\n      ATA 35 – Oxygen – Chemical Oxygen Generators – Replacement\n\n\n      Manufacturer(s):\n      Airbus\n\n      Applicability:\n      Airbus A350-941 and A350-1041 aeroplanes, all manufacturer serial numbers.\n\n      Definitions:\n      For the purpose of this AD, the following definitions apply:\n\n      The AOT: Airbus Alert Operator Transmission (AOT) A35P024-24.\n\n      MP task: Maintenance Procedure (MP) Task A350-A-35-21-36-A0001-720A-A dated earlier than\n      October 2024.\n\n      Affected part: Chemical oxygen generator fitted in a container having                               Part Number (P/N) and\n      Amendment designation as listed in Table 1 of the AOT, as defined in this AD, and which has been\n      replaced in service in accordance with the MP task, as defined in this AD                              , between November 2023\n      and the effective date of this AD             .\n\n      Note 1: A review of aircraft maintenance records can be used to determine whether a part is an\n      affected part, provided those records can be relied upon for that purpose                                .\n\n                                                                                                                                                 Page 1 of 3\n                         TE.CAP.00110-012 © European Union Aviation Safety Agency. All rights reserved. ISO9001 Certified.\n                         Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet.\nAn agency of the European Union"
+    },
+    {
+      "page_id": "5762b029d7edbc0c:p0002",
+      "page_number": 2,
+      "page_count": 3,
+      "page_text_sha256": "3375c01b6279e406519a6d8f5cd155a571f93508d83dd8a67b26bc6969dcdedf",
+      "text_char_count": 2935,
+      "extraction_library": "pypdf",
+      "extraction_library_version": "6.10.0",
+      "extraction_mode": "layout",
+      "text": "                                                                                                         EASA AD No.: 2025-0138\n\n     Serviceable part: Any chemical oxygen generator, eligible for installation in accordance with Airbus\n     approved instructions, that is not an affected part.\n\n     Groups:\n     Group 1 aeroplanes are those that have an affected part installed.\n     Group 2 aeroplanes are those that do not have an affected part installed.\n\n     Reason:\n     Due to obsolescence of the clamp holding in place the oxygen generator in the container, Collins\n     introduced a new clamp from another manufacturer with different locking torque specification. This\n     new torque value was not properly reflected in Airbus documentation. Installing a part using a not\n     updated torque value could lead to damage of the chemical oxygen generator housing.\n\n     This condition, if not corrected, could lead to a reduction of the available oxygen capacity of the\n     aeroplane when needed, possibly resulting in injury to the aeroplane occupants.\n\n     To address this potential unsafe condition, in October 2024 Airbus released an updated MP task\n     (included in the Line Maintenance Manual rev. dated November 2024), and published the AOT to\n     provide instructions for replacement of the affected parts.\n\n     For the reasons described above, this AD requires replacement of the affected parts with\n     serviceable parts.\n\n     Required Action(s) and Compliance Time(s):\n     Required as indicated by this AD, unless the action(s) required by this AD have been already\n     accomplished:\n\n     Part(s) Replacement:\n     (1) For Group 1 aeroplanes: Within 6 months after the effective date of this AD replace each\n          affected part with a serviceable part in accordance with the instructions of the AOT.\n\n     Additional Maintenance Requirements:\n     (2) For Group 1 and Group 2 aeroplanes: From the effective date of this AD, do not accomplish any\n          maintenance action on an aeroplane in accordance with the instructions of the MP task, as\n          defined in this AD.\n\n     Part(s) Installation:\n     (3) For Group 1 and Group 2 aeroplanes: From the effective date of this AD, do not install an\n          affected part on any aeroplane.\n\n     Ref. Publications:\n     Airbus AOT A35P024-24 original issue dated 22 April 2025.\n\n     The use of later approved revisions of the above-mentioned document is acceptable for compliance\n     with the requirements of this AD.\n\n\n\n\n                                                                                                                                  Page 2 of 3\n                      TE.CAP.00110-012 © European Union Aviation Safety Agency. All rights reserved. ISO9001 Certified.\n                      Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet.\nAn agency of the European Union"
+    },
+    {
+      "page_id": "5762b029d7edbc0c:p0003",
+      "page_number": 3,
+      "page_count": 3,
+      "page_text_sha256": "16221fa8ab91f33c59b0d6fca5c41df37623a22c4d9d1eb87a4b72f4db116885",
+      "text_char_count": 2135,
+      "extraction_library": "pypdf",
+      "extraction_library_version": "6.10.0",
+      "extraction_mode": "layout",
+      "text": "                                                                                                         EASA AD No.: 2025-0138\n\n     Remarks:\n     1.    If requested and appropriately substantiated, EASA can approve Alternative Methods of\n           Compliance for this AD.\n\n     2.    This AD was posted on 21 May 2025 as PAD 25-076 for consultation until 18 June 2025.\n           The Comment Response Document can be found in the EASA Safety Publications Tool, in the\n           compressed (‘zipped’) file, attached to the record for this AD.\n\n     3.    Enquiries regarding this AD should be referred to the EASA Safety Information Section,\n           Certification Directorate. E-mail: ADs@easa.europa.eu.\n\n     4.    Information about any failures, malfunctions, defects or other occurrences, which may be\n           similar to the unsafe condition addressed by this AD, and which may occur, or have occurred on\n           a product, part or appliance not affected by this AD, can be reported to the EU aviation safety\n           reporting system. This may include reporting on the same or similar components, other than\n           those covered by the design to which this AD applies, if the same unsafe condition can exist or\n           may develop on an aircraft with those components installed. Such components may be\n           installed under an FAA Parts Manufacturer Approval (PMA), Supplemental Type Certificate\n           (STC) or other modification.\n\n     5.    For any question concerning the technical content of the requirements in this AD, please\n           contact: AIRBUS S.A.S. A350 XWB (1IAK), E-mail: continued-airworthiness.a350@airbus.com.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n                                                                                                                                  Page 3 of 3\n                      TE.CAP.00110-012 © European Union Aviation Safety Agency. All rights reserved. ISO9001 Certified.\n                      Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet.\nAn agency of the European Union"
+    }
+  ]
+}

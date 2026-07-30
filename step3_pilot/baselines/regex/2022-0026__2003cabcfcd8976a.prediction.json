@@ -1,0 +1,126 @@
+{
+  "source_document": {
+    "file_instance_id": "2003cabcfcd8976a",
+    "file_name": "2022-0026__AD_2022-0026_2__EASA_AD_2022_0026_superseded.pdf"
+  },
+  "ad_identity": {
+    "ad_number": "2022-0026",
+    "base_ad_number": "2022-0026",
+    "revision_number": null,
+    "is_emergency": false,
+    "is_correction": false,
+    "correction_date": {
+      "value": null
+    },
+    "design_approval_holder": {
+      "value": null
+    },
+    "supersedure_statement": {
+      "state": "present",
+      "value": "This AD supersedes EASA AD 2018-0255 dated 27 November 2018 and EASA AD 2019-0106 dated 15 May 2019."
+    }
+  },
+  "publication": {
+    "subject": {
+      "value": "Equipment / Furnishings – Galley / Container End Stop – Replacement Manufacturer(s): Airbus, formerly Airbus Industrie"
+    },
+    "issue_date": {
+      "value": "2022-02-16"
+    },
+    "effective_date": {
+      "value": "2022-03-02"
+    },
+    "ata_chapters": [
+      {
+        "code": "25"
+      }
+    ],
+    "manufacturers": [
+      {
+        "raw_name": "Airbus, formerly Airbus Industrie",
+        "normalized_name": "Airbus"
+      }
+    ],
+    "type_model_designations": [
+      "A319",
+      "A319-111",
+      "A319-112",
+      "A319-113",
+      "A319-114",
+      "A319-115",
+      "A319-131",
+      "A319-132",
+      "A319-133",
+      "A320",
+      "A320-211",
+      "A320-212",
+      "A320-214",
+      "A320-215",
+      "A320-216",
+      "A320-231",
+      "A320-232",
+      "A320-233",
+      "A320-25-1BCB",
+      "A320-25-1BF6",
+      "A320-25-1BHG",
+      "A320-25-1BK9",
+      "A320-25-1BKK",
+      "A320-251N",
+      "A320-271N",
+      "A321",
+      "A321-111",
+      "A321-112",
+      "A321-131",
+      "A321-211",
+      "A321-212",
+      "A321-213",
+      "A321-231",
+      "A321-232",
+      "A321-251N",
+      "A321-253N"
+    ],
+    "tcds_numbers": [
+      "EASA.A.064"
+    ]
+  },
+  "unsafe_condition": {
+    "state": "present",
+    "raw_reason_text": "At the occasion of a re-engineering of galley G5, a 9G forward full scale qualification test was performed during which the door of the waste compartment opened before the required load was reached. The investigation determined that the opening of the waste compartment door was caused by the galley global deflection. This condition, if not corrected, could lead to failure of the galley door and release of waste bins during a rejected take-off or an emergency landing, possibly resulting in damage to the aeroplane and injury to occupants. To address this potential unsafe condition, Airbus developed a modification (mod 159298) to modify the waste compartment door of galley G5 by installing a door catch bracket and a new striker. Zodiac Galleys Europe (forme rly Driessen) published SB 213510 -25-001 and Airbus published SB A320-25-1BF6 (both original issue, later revised) to provide in-service installation instructions, and consequently, EASA issued AD 2018-0255 to require modification of the waste compartment door of galley G5. After that AD was issued, s everal reports were received of finding container /galley end stop bumpers damaged in service. Deformed end stops could break or lose their function to maintain container/galley in their position on the aeroplane. This condition, if not corrected, could lead to container detachment from the galley under certain forward loading conditions, possibly resulting in injury to aeroplane occupants. To address this potential unsafe condition, Airbus issue d SB A320-25-1BHG, SB A320-25-1BK9 (later revised) and SB A320-25-1BKK, providing instructions to modify and re-identify affected galleys, and EASA issued AD 2019-0106 to require modification of the affected galleys by replacement of the affected bumpers with serviceable bumpers. TE.CAP.00110-010 © European Union Aviation Safety Agency. All rights reserved. ISO9001 Certified. Page 2 of 12 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet. An agency of the European Union EASA AD No.: 2022-0026 Since those ADs were issued, it was determined that additional aeroplanes may be affected by the potential unsafe conditions previously described. Prompted by these findings, Airbus revised SB A320-25-1BK9 (now at rev. 02), and Zodiac Galleys Europe revised SB 213510-25-001 (now at rev. D) accordingly. It was also determined that certain stowage units are affected by the potential unsafe condition. For the reasons described above, this AD retains the requirements of EASA AD 2018-0255 and AD 2019-0106, which are superseded, and expands the Applicability."
+  },
+  "requirements": [
+    {
+      "raw_action_text": "Required as indicated, unless accomplished previously : Modification: (1) For Group 1 aeroplanes: Within 12 months after 11 Decemb er 2018 [the effective date of EASA AD 2018-0255], modify the waste compartment door of each affected galley list 1 by installing a door catch bracket and a new striker in accordance with the instructions of the applicable SB1 (see Note 1 of this AD). (2) For Group 2 aeroplanes: Within 12 months after the effective date of this AD, modify the waste compartment door of each affected galley list 2 by installing a door catch bracket and a new striker in accordance with the instructions of the applicable SB1 (see Note 1 of this AD). Note 1: After the modification as required by paragraph (1) or (2) of this AD, as applicable, a Group 1 or Group 2 aeroplane is effectively a Group 3 aeroplane. See paragraph (3) of this AD for applicable requirements. (3) For Group 3 and Group 4 aeroplanes: Within 48 months after 29 May 2019 [the effective date of EASA AD 2019-0106], modify and re-identify each affected galley on an aeroplane in accordance with the instructions of the applicable SB 2. (4) For Group 5 aeroplanes: Within 48 months after 29 May 2019 [the effective date of EASA AD 2019-0106], contact Airbus for modification and re-identification instructions of each affected galley list 5 and accomplish those instructions accordingly (see Note 2 of this AD). Note 2: It is expected that the applicable SB2 will be updated at next scheduled revision to include modification and re-identification instructions for affected galleys list 5. Credit: (5) Modification of the waste compartment door of an affected galley, accomplished on an aeroplane before the effective date of this AD in accordance with the instructions of Airbus SB A320-25-1BF6 (any revision) and Zodiac Galleys Europe SB 213510-25-001 at rev. A, rev. B or rev. C, is an acceptable method to comply with the requirements of paragraph (1) or (2) of this AD, as applicable, for that aeroplane. (6) Modification of an affected galley on an aeroplane, accomplished before the effective date of this AD in accordance with the instructions of Airbus SB A320-25-1BK9 original issue or rev. 01, is an acceptable alternative method to comply with the requirements of paragraph ( 3) of this AD for that affected galley. TE.CAP.00110-010 © European Union Aviation Safety Agency. All rights reserved. ISO9001 Certified. Page 3 of 12 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet. An agency of the European Union EASA AD No.: 2022-0026 Alternative Method: (7) Modification of an affected galley on an aeroplane in accordance with the instructions of Airbus SB A320-25-1BCB is an acceptable alternative method to comply with the requirements of paragraph (3) of this AD for that affected galley.",
+      "action_types": [
+        "modification"
+      ],
+      "compliance_rules": [
+        {
+          "raw_text": "Required as indicated, unless accomplished previously : Modification: (1) For Group 1 aeroplanes: Within 12 months after 11 Decemb er 2018 [the effective date of EASA AD 2018-0255], modify the waste compartment door of each affected galley list 1 by installing a door catch bracket and a new striker in accordance with the instructions of the applicable SB1 (see Note 1 of this AD). (2) For Group 2 aeroplanes: Within 12 months after the effective date of this AD, modify the waste compartment door of each affected galley list 2 by installing a door catch bracket and a new striker in accordance with the instructions of the applicable SB1 (see Note 1 of this AD). Note 1: After the modification as required by paragraph (1) or (2) of this AD, as applicable, a Group 1 or Group 2 aeroplane is effectively a Group 3 aeroplane. See paragraph (3) of this AD for applicable requirements. (3) For Group 3 and Group 4 aeroplanes: Within 48 months after 29 May 2019 [the effective date of EASA AD 2019-0106], modify and re-identify each affected galley on an aeroplane in accordance with the instructions of the applicable SB 2. (4) For Group 5 aeroplanes: Within 48 months after 29 May 2019 [the effective date of EASA AD 2019-0106], contact Airbus for modification and re-identification instructions of each affected galley list 5 and accomplish those instructions accordingly (see Note 2 of this AD). Note 2: It is expected that the applicable SB2 will be updated at next scheduled revision to include modification and re-identification instructions for affected galleys list 5. Credit: (5) Modification of the waste compartment door of an affected galley, accomplished on an aeroplane before the effective date of this AD in accordance with the instructions of Airbus SB A320-25-1BF6 (any revision) and Zodiac Galleys Europe SB 213510-25-001 at rev. A, rev. B or rev. C, is an acceptable method to comply with the requirements of paragraph (1) or (2) of this AD, as applicable, for that aeroplane. (6) Modification of an affected galley on an aeroplane, accomplished before the effective date of this AD in accordance with the instructions of Airbus SB A320-25-1BK9 original issue or rev. 01, is an acceptable alternative method to comply with the requirements of paragraph ( 3) of this AD for that affected galley. TE.CAP.00110-010 © European Union Aviation Safety Agency. All rights reserved. ISO9001 Certified. Page 3 of 12 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet. An agency of the European Union EASA AD No.: 2022-0026 Alternative Method: (7) Modification of an affected galley on an aeroplane in accordance with the instructions of Airbus SB A320-25-1BCB is an acceptable alternative method to comply with the requirements of paragraph (3) of this AD for that affected galley."
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "relationship_type": "supersedes",
+      "target_ad_number": "2018-0255"
+    },
+    {
+      "relationship_type": "supersedes",
+      "target_ad_number": "2019-0106"
+    }
+  ],
+  "classification": {
+    "ata_chapters": [
+      "25"
+    ],
+    "action_types": [
+      "modification"
+    ]
+  },
+  "prediction_metadata": {
+    "method": "regex_rules",
+    "rules_version": "regex_v1",
+    "input_page_count": 12
+  }
+}

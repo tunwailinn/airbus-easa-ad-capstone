@@ -1,0 +1,945 @@
+{
+  "schema_version": "1.0.0",
+  "record_id": "adann-2db3e9f8dfdadc71",
+  "source_document": {
+    "file_instance_id": "2db3e9f8dfdadc71",
+    "content_id": "f4793f605684347c",
+    "canonical_file_instance_id": "2db3e9f8dfdadc71",
+    "file_aliases": [],
+    "file_name": "2010-0271__AD_2010-0271_1__easa_ad_2010_0271.pdf",
+    "relative_path": "2010-0271__AD_2010-0271_1__easa_ad_2010_0271.pdf",
+    "file_sha256": "f4793f605684347cc73dec4f6701b9bb9d60500c3cf1b4a1212efa9c2eb66f82",
+    "normalized_text_sha256": "8d2b79a61c0b9d63b2ceecd1c30273fc5dec98dc4f48d5398402291858450036",
+    "page_count": 2,
+    "extraction_status": "native_text",
+    "needs_ocr": false,
+    "manifest_review_flags": [],
+    "source_url": "https://ad.easa.europa.eu/blob/easa_ad_2010_0271.pdf/AD_2010-0271_1",
+    "text_extraction_method": "native_text",
+    "exact_duplicate_group": null,
+    "near_duplicate_cluster": null
+  },
+  "ad_identity": {
+    "authority": "EASA",
+    "document_type": "airworthiness_directive",
+    "ad_number": "2010-0271",
+    "base_ad_number": "2010-0271",
+    "revision_number": 0,
+    "publication_kind": "standard_ad",
+    "is_emergency": false,
+    "is_correction": false,
+    "correction_date": {
+      "state": "not_stated",
+      "value": null,
+      "raw_text": null,
+      "evidence_ids": [
+        "EV-001"
+      ]
+    },
+    "version_label": "Original",
+    "logical_version_key": "2010-0271|UNCORRECTED",
+    "is_latest_version": null,
+    "lifecycle_status": "unknown",
+    "design_approval_holder": {
+      "state": "present",
+      "value": "Airbus",
+      "raw_text": "Airbus",
+      "evidence_ids": [
+        "EV-001"
+      ]
+    },
+    "supersedure_statement": {
+      "state": "explicit_none",
+      "value": null,
+      "raw_text": "Supersedure: None",
+      "evidence_ids": [
+        "EV-001"
+      ]
+    },
+    "evidence_ids": [
+      "EV-001"
+    ]
+  },
+  "publication": {
+    "subject": {
+      "state": "present",
+      "value": "Auto Flight – Auto Pilot & Auto-Thrust Disconnect – Operational Procedure",
+      "raw_text": "ATA 22 Auto Flight – Auto Pilot & Auto-Thrust Disconnect – Operational Procedure",
+      "evidence_ids": [
+        "EV-001"
+      ]
+    },
+    "issue_date": {
+      "state": "present",
+      "value": "2010-12-22",
+      "raw_text": "Date: 22 December 2010",
+      "evidence_ids": [
+        "EV-001"
+      ]
+    },
+    "effective_date": {
+      "state": "present",
+      "value": "2011-01-05",
+      "raw_text": "Effective Date: 05 January 2011",
+      "evidence_ids": [
+        "EV-001"
+      ]
+    },
+    "ata_chapters": [
+      {
+        "code": "22",
+        "title": "Auto Flight",
+        "evidence_ids": [
+          "EV-001"
+        ]
+      }
+    ],
+    "manufacturers": [
+      {
+        "raw_name": "Manufacturer(s): Airbus (formerly Airbus Industrie)",
+        "normalized_name": "Airbus",
+        "role": "manufacturer",
+        "evidence_ids": [
+          "EV-002"
+        ]
+      }
+    ],
+    "type_model_designations": [
+      "A330",
+      "A340"
+    ],
+    "tcds_numbers": [
+      "EASA.A.004 and EASA.A.015"
+    ],
+    "foreign_ad": {
+      "state": "explicit_none",
+      "value": null,
+      "raw_text": "Foreign AD: None or Not applicable",
+      "evidence_ids": [
+        "EV-001"
+      ]
+    }
+  },
+  "applicability_groups": [
+    {
+      "group_id": "APP-001",
+      "label": "A330/A340 applicability stated in the AD",
+      "state": "present",
+      "raw_text": "Applicability: Airbus A330 aeroplanes, models -201, -202, -203, -223,-223F, -243, -243F, - 301, -302, -303, -321, -322, -323, -341, -342 and -343, all manufacturer serial numbers. Airbus A340 aeroplanes, models -211, -212, -213, -311, -312 and -313 all manufacturer serial numbers.",
+      "aircraft_families": [
+        "A330/A340"
+      ],
+      "models": [
+        "A330",
+        "A340"
+      ],
+      "serial_restrictions": [
+        {
+          "restriction_id": "MSN-001",
+          "kind": "all",
+          "raw_expression": "all serial numbers",
+          "lower_bound": null,
+          "upper_bound": null,
+          "explicit_values": [],
+          "condition": null,
+          "evidence_ids": [
+            "EV-003"
+          ]
+        }
+      ],
+      "part_numbers": [],
+      "configuration_conditions": [],
+      "exclusions": [],
+      "boolean_logic": "all",
+      "evidence_ids": [
+        "EV-003"
+      ]
+    }
+  ],
+  "definitions": [],
+  "unsafe_condition": {
+    "state": "present",
+    "raw_reason_text": "Reason: When there are significant differences between all airspeed sources, the flight controls of an Airbus A330 or A340 aeroplane will revert to alternate law, the autopilot (AP) and the auto-thrust (A/THR) automatically disconnect, and the Flight Directors (FD) bars are automatically removed. It has been identified that, after such an event, if two airspeed sources become similar while still erroneous, the flight guidance computers will: - Display FD bars again, and - Enable autopilot and auto-thrust re-engagement However, in some cases, the autopilot orders may be inappropriate, such as possible abrupt pitch command. In order to prevent such event which may, under specific circumstances, constitute an unsafe condition, this AD requires an amendment of the Flight Manual to ensure that flight crews apply the appropriate operational procedure. EASA Form 110 Page 1/2 EASA AD No : 2010-0271",
+    "observed_events_or_defects": [
+      "When there are significant differences between all airspeed sources, the flight controls of an Airbus A330 or A340 aeroplane will revert to alternate law, the autopilot (AP) and the auto-thrust (A/THR) automatically disconnect, and the Flight Directors (FD) bars are automatically removed."
+    ],
+    "causes": [],
+    "unsafe_conditions": [
+      "It has been identified that, after such an event, if two airspeed sources become similar while still erroneous, the flight guidance computers will: - Display FD bars again, and - Enable autopilot and auto-thrust re-engagement However, in some cases, the autopilot orders may be inappropriate, such as possible abrupt pitch command.",
+      "In order to prevent such event which may, under specific circumstances, constitute an unsafe condition, this AD requires an amendment of the Flight Manual to ensure that flight crews apply the appropriate operational procedure."
+    ],
+    "potential_consequences": [
+      "It has been identified that, after such an event, if two airspeed sources become similar while still erroneous, the flight guidance computers will: - Display FD bars again, and - Enable autopilot and auto-thrust re-engagement However, in some cases, the autopilot orders may be inappropriate, such as possible abrupt pitch command.",
+      "In order to prevent such event which may, under specific circumstances, constitute an unsafe condition, this AD requires an amendment of the Flight Manual to ensure that flight crews apply the appropriate operational procedure."
+    ],
+    "affected_components": [],
+    "intended_risk_mitigation": [
+      "In order to prevent such event which may, under specific circumstances, constitute an unsafe condition, this AD requires an amendment of the Flight Manual to ensure that flight crews apply the appropriate operational procedure."
+    ],
+    "evidence_ids": [
+      "EV-004",
+      "EV-005"
+    ]
+  },
+  "requirements": [
+    {
+      "requirement_id": "REQ-001",
+      "paragraph_reference": "(1)",
+      "parent_requirement_id": null,
+      "applicability_group_ids": [
+        "APP-001"
+      ],
+      "action_types": [
+        "document_amendment",
+        "operational_procedure"
+      ],
+      "obligation": "mandatory",
+      "action_text": "(1) Within 15 days after the effective date of this AD, amend the applicable Time(s): Airplane Flight Manual (AFM) to incorporate the following operational procedure, and operate the aeroplane accordingly: PROCEDURE : When autopilot and auto-thrust are automatically disconnected and flight controls have reverted to alternate law: - Do not engage the AP and the A/THR, even if FD bars have reappeared - Do not follow the FD orders - ALL SPEED INDICATIONS............................................X-CHECK  If unreliable speed indication is suspected:  UNRELIABLE SPEED INDIC/ADR CHECK PROC...........APPLY  If at least two ADRs provide reliable speed indication for at least 30 seconds, and the aircraft is stabilised on the intended path: AP/FD and A/THR ........................................................As required Note : This operational procedure is described in the following Temporary Revisions (TR) of the AFM : A330 AFM TR 149 (OEB N°82/1) A340 AFM TR 150 (OEB N°95/1)",
+      "objects_or_components": [],
+      "conditions": [],
+      "method_publication_ids": [
+        "PUB-001",
+        "PUB-002"
+      ],
+      "compliance_rules": [
+        {
+          "compliance_id": "CMP-001",
+          "state": "present",
+          "raw_text": "(1) Within 15 days after the effective date of this AD, amend the applicable Time(s): Airplane Flight Manual (AFM) to incorporate the following operational procedure, and operate the aeroplane accordingly: PROCEDURE : When autopilot and auto-thrust are automatically disconnected and flight controls have reverted to alternate law: - Do not engage the AP and the A/THR, even if FD bars have reappeared - Do not follow the FD orders - ALL SPEED INDICATIONS............................................X-CHECK  If unreliable speed indication is suspected:  UNRELIABLE SPEED INDIC/ADR CHECK PROC...........APPLY  If at least two ADRs provide reliable speed indication for at least 30 seconds, and the aircraft is stabilised on the intended path: AP/FD and A/THR ........................................................As required Note : This operational procedure is described in the following Temporary Revisions (TR) of the AFM : A330 AFM TR 149 (OEB N°82/1) A340 AFM TR 150 (OEB N°95/1)",
+          "logic": "conditional",
+          "conditions": [],
+          "initial_limits": [
+            {
+              "limit_id": "LIM-001",
+              "relation": "within",
+              "quantity": 15,
+              "unit": "calendar_day",
+              "raw_value": "Within 15 days",
+              "reference_event": "effective date of this AD",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-007"
+              ]
+            }
+          ],
+          "is_repetitive": false,
+          "repetitive_intervals": [],
+          "grace_periods": [],
+          "evidence_ids": [
+            "EV-007"
+          ]
+        }
+      ],
+      "follow_on_requirement_ids": [],
+      "terminating_action": {
+        "state": "not_stated",
+        "present": false,
+        "scope": "none",
+        "action_text": null,
+        "terminates_requirement_ids": [],
+        "evidence_ids": []
+      },
+      "evidence_ids": [
+        "EV-007"
+      ]
+    },
+    {
+      "requirement_id": "REQ-002",
+      "paragraph_reference": "(2)",
+      "parent_requirement_id": null,
+      "applicability_group_ids": [
+        "APP-001"
+      ],
+      "action_types": [
+        "document_amendment",
+        "operational_procedure"
+      ],
+      "obligation": "mandatory",
+      "action_text": "(2) Incorporation of the appropriate AFM TR, or inserting the above operational procedure or a copy of this AD into the AFM, is acceptable to comply with the requirements of paragraph (1) of this AD.",
+      "objects_or_components": [],
+      "conditions": [],
+      "method_publication_ids": [
+        "PUB-001",
+        "PUB-002"
+      ],
+      "compliance_rules": [
+        {
+          "compliance_id": "CMP-002",
+          "state": "present",
+          "raw_text": "(2) Incorporation of the appropriate AFM TR, or inserting the above operational procedure or a copy of this AD into the AFM, is acceptable to comply with the requirements of paragraph (1) of this AD.",
+          "logic": "single",
+          "conditions": [],
+          "initial_limits": [],
+          "is_repetitive": false,
+          "repetitive_intervals": [],
+          "grace_periods": [],
+          "evidence_ids": [
+            "EV-007"
+          ]
+        }
+      ],
+      "follow_on_requirement_ids": [],
+      "terminating_action": {
+        "state": "not_stated",
+        "present": false,
+        "scope": "none",
+        "action_text": null,
+        "terminates_requirement_ids": [],
+        "evidence_ids": []
+      },
+      "evidence_ids": [
+        "EV-007"
+      ]
+    }
+  ],
+  "exceptions": [],
+  "previous_action_credit": [],
+  "referenced_publications": [
+    {
+      "publication_id": "PUB-001",
+      "publication_type": "other",
+      "issuer": "Airbus",
+      "number": "A330 AFM TR 149",
+      "revision": null,
+      "publication_date": null,
+      "title": null,
+      "roles": [
+        "required_method"
+      ],
+      "later_approved_revisions_allowed": true,
+      "evidence_ids": [
+        "EV-006"
+      ]
+    },
+    {
+      "publication_id": "PUB-002",
+      "publication_type": "other",
+      "issuer": "Airbus",
+      "number": "A340 AFM TR 150",
+      "revision": null,
+      "publication_date": null,
+      "title": null,
+      "roles": [
+        "required_method"
+      ],
+      "later_approved_revisions_allowed": true,
+      "evidence_ids": [
+        "EV-006"
+      ]
+    }
+  ],
+  "relationships": [],
+  "amoc_and_contacts": [
+    {
+      "entry_id": "AMC-001",
+      "entry_type": "amoc_authority",
+      "authority_or_organization": "EASA",
+      "contact_text": "Remarks: 1. If requested and appropriately substantiated, EASA can approve Alternative Methods of Compliance for this AD. 2. The required actions and the risk allowance have granted the issuance of a Final AD with Request for Comments, postponing the public consultation process after publication. 3. Enquiries regarding this AD should be referred to the Airworthiness Directives, Safety Management & Research Section, Certification Directorate, EASA. E-mail ADs@easa.europa.eu 4. For any question concerning the technical content of the requirements in this AD, please contact: AIRBUS – Airworthiness Office – EAL, Fax: +33 5 61 93 45 80 or + 33 5 61 93 44 51. E-mail: airworthiness.A330- A340@airbus.com . EASA Form 110 Page 2/2",
+      "conditions": [
+        "Requested and appropriately substantiated"
+      ],
+      "evidence_ids": [
+        "EV-008"
+      ]
+    },
+    {
+      "entry_id": "AMC-002",
+      "entry_type": "regulatory_contact",
+      "authority_or_organization": "EASA and the technical contact stated in the AD",
+      "contact_text": "Remarks: 1. If requested and appropriately substantiated, EASA can approve Alternative Methods of Compliance for this AD. 2. The required actions and the risk allowance have granted the issuance of a Final AD with Request for Comments, postponing the public consultation process after publication. 3. Enquiries regarding this AD should be referred to the Airworthiness Directives, Safety Management & Research Section, Certification Directorate, EASA. E-mail ADs@easa.europa.eu 4. For any question concerning the technical content of the requirements in this AD, please contact: AIRBUS – Airworthiness Office – EAL, Fax: +33 5 61 93 45 80 or + 33 5 61 93 44 51. E-mail: airworthiness.A330- A340@airbus.com . EASA Form 110 Page 2/2",
+      "conditions": [],
+      "evidence_ids": [
+        "EV-008"
+      ]
+    }
+  ],
+  "classification": {
+    "airbus_families": [
+      "A330/A340"
+    ],
+    "ata_chapters": [
+      "22"
+    ],
+    "action_types": [
+      "document_amendment",
+      "operational_procedure"
+    ],
+    "frequency": "one_time",
+    "emergency_status": "standard",
+    "terminating_action_present": false,
+    "table_or_appendix_present": false,
+    "compliance_complexity": "simple",
+    "human_confirmed": false,
+    "evidence_ids": [
+      "EV-001",
+      "EV-003",
+      "EV-004",
+      "EV-005",
+      "EV-007"
+    ]
+  },
+  "evidence_spans": [
+    {
+      "evidence_id": "EV-001",
+      "source_file_instance_id": "2db3e9f8dfdadc71",
+      "page_number": 1,
+      "printed_page_label": "1/2",
+      "section": "cover",
+      "section_raw": "Cover identity and publication",
+      "clause_path": "cover",
+      "exact_quote": "EASA AD No : 2010-0271 EASA AIRWORTHINESS DIRECTIVE AD No.: 2010-0271 Date: 22 December 2010 Note: This Airworthiness Directive (AD) is issued by EASA, acting in accordance with Regulation (EC) No 216/2008 on behalf of the European Community, its Member States and of the European third countries that participate in the activities of EASA under Article 66 of that Regulation. This AD is issued in accordance with EC 1702/2003, Part 21A.3 B. In accordance with EC 2042/2003 Annex I, Part M.A.301, the continuing airworthiness of an aircraft s hall be ensured by accomplishing any applicable ADs. Consequently, no person may opera te an aircraft to which an AD applies, except in accordance with t he requirements of that AD, unless otherwise specified by the Ag ency [EC 2042/2003 Annex I, Part M.A.303] or agreed with the Authority of the State of Registry [EC 216/2008, Article 14(4) exemptio n]. Type Approval Holder’s Name: Type/Model designation(s): AIRBUS A330 and A340 aeroplanes TCDS Number: EASA.A.004 and EASA.A.015 Foreign AD: Not applicable Supersedure: None ATA 22 Auto Flight – Auto Pilot & Auto-Thrust Disconnect – Operational Procedure Manufacturer(s): Airbus (formerly Airbus Industrie) Applicability: Airbus A330 aeroplanes, models -201, -202, -203, -223,-223F, -243, -243F, - 301, -302, -303, -321, -322, -323, -341, -342 and -343, all manufacturer serial numbers. Airbus A340 aeroplanes, models -211, -212, -213, -311, -312 and -313 all manufacturer serial numbers. Reason: When there are significant differences between all airspeed sources, the flight controls of an Airbus A330 or A340 aeroplane will revert to alternate law, the autopilot (AP) and the auto-thrust (A/THR) automatically disconnect, and the Flight Directors (FD) bars are automatically removed. It has been identified that, after such an event, if two airspeed sources become similar while still erroneous, the flight guidance computers will: - Display FD bars again, and - Enable autopilot and auto-thrust re-engagement However, in some cases, the autopilot orders may be inappropriate, such as possible abrupt pitch command. In order to prevent such event which may, under specific circumstances, constitute an unsafe condition, this AD requires an amendment of the Flight Manual to ensure that flight crews apply the appropriate operational procedure. EASA Form 110 Page 1/2",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "3a8ad7bef524ed219d6d56b344bf61ce9037f860a46062e2395314416900b477",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-002",
+      "source_file_instance_id": "2db3e9f8dfdadc71",
+      "page_number": 1,
+      "printed_page_label": "1/2",
+      "section": "cover",
+      "section_raw": "Manufacturer(s)",
+      "clause_path": "Manufacturer(s)",
+      "exact_quote": "Manufacturer(s): Airbus (formerly Airbus Industrie)",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "3a8ad7bef524ed219d6d56b344bf61ce9037f860a46062e2395314416900b477",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-003",
+      "source_file_instance_id": "2db3e9f8dfdadc71",
+      "page_number": 1,
+      "printed_page_label": "1/2",
+      "section": "applicability",
+      "section_raw": "Applicability",
+      "clause_path": "Applicability",
+      "exact_quote": "Applicability: Airbus A330 aeroplanes, models -201, -202, -203, -223,-223F, -243, -243F, - 301, -302, -303, -321, -322, -323, -341, -342 and -343, all manufacturer serial numbers. Airbus A340 aeroplanes, models -211, -212, -213, -311, -312 and -313 all manufacturer serial numbers.",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "3a8ad7bef524ed219d6d56b344bf61ce9037f860a46062e2395314416900b477",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-004",
+      "source_file_instance_id": "2db3e9f8dfdadc71",
+      "page_number": 1,
+      "printed_page_label": "1/2",
+      "section": "reason",
+      "section_raw": "Reason",
+      "clause_path": "Reason",
+      "exact_quote": "Reason: When there are significant differences between all airspeed sources, the flight controls of an Airbus A330 or A340 aeroplane will revert to alternate law, the autopilot (AP) and the auto-thrust (A/THR) automatically disconnect, and the Flight Directors (FD) bars are automatically removed. It has been identified that, after such an event, if two airspeed sources become similar while still erroneous, the flight guidance computers will: - Display FD bars again, and - Enable autopilot and auto-thrust re-engagement However, in some cases, the autopilot orders may be inappropriate, such as possible abrupt pitch command. In order to prevent such event which may, under specific circumstances, constitute an unsafe condition, this AD requires an amendment of the Flight Manual to ensure that flight crews apply the appropriate operational procedure. EASA Form 110 Page 1/2",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "3a8ad7bef524ed219d6d56b344bf61ce9037f860a46062e2395314416900b477",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-005",
+      "source_file_instance_id": "2db3e9f8dfdadc71",
+      "page_number": 2,
+      "printed_page_label": "2/2",
+      "section": "reason",
+      "section_raw": "Reason",
+      "clause_path": "Reason",
+      "exact_quote": "EASA AD No : 2010-0271",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "8986b9708e09615f34d30d80c68f17d1fc3c237dffc86635a54ab759d033bb28",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-006",
+      "source_file_instance_id": "2db3e9f8dfdadc71",
+      "page_number": 2,
+      "printed_page_label": "2/2",
+      "section": "reference_publications",
+      "section_raw": "Ref. Publications",
+      "clause_path": "Ref. Publications",
+      "exact_quote": "Ref. Publications: A330 AFM TR 149 A340 AFM TR 150 The use of later approved revisions of these documents is acceptable for compliance with the requirements of this AD.",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "8986b9708e09615f34d30d80c68f17d1fc3c237dffc86635a54ab759d033bb28",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-007",
+      "source_file_instance_id": "2db3e9f8dfdadc71",
+      "page_number": 2,
+      "printed_page_label": "2/2",
+      "section": "required_actions_and_compliance_times",
+      "section_raw": "Required Action(s) and Compliance Time(s)",
+      "clause_path": "compliance",
+      "exact_quote": "Required Action(s) Required as indicated : and Compliance (1) Within 15 days after the effective date of this AD, amend the applicable Time(s): Airplane Flight Manual (AFM) to incorporate the following operational procedure, and operate the aeroplane accordingly: PROCEDURE : When autopilot and auto-thrust are automatically disconnected and flight controls have reverted to alternate law: - Do not engage the AP and the A/THR, even if FD bars have reappeared - Do not follow the FD orders - ALL SPEED INDICATIONS............................................X-CHECK  If unreliable speed indication is suspected:  UNRELIABLE SPEED INDIC/ADR CHECK PROC...........APPLY  If at least two ADRs provide reliable speed indication for at least 30 seconds, and the aircraft is stabilised on the intended path: AP/FD and A/THR ........................................................As required Note : This operational procedure is described in the following Temporary Revisions (TR) of the AFM : A330 AFM TR 149 (OEB N°82/1) A340 AFM TR 150 (OEB N°95/1) (2) Incorporation of the appropriate AFM TR, or inserting the above operational procedure or a copy of this AD into the AFM, is acceptable to comply with the requirements of paragraph (1) of this AD.",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "8986b9708e09615f34d30d80c68f17d1fc3c237dffc86635a54ab759d033bb28",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-008",
+      "source_file_instance_id": "2db3e9f8dfdadc71",
+      "page_number": 2,
+      "printed_page_label": "2/2",
+      "section": "remarks",
+      "section_raw": "Remarks",
+      "clause_path": "Remarks",
+      "exact_quote": "Remarks: 1. If requested and appropriately substantiated, EASA can approve Alternative Methods of Compliance for this AD. 2. The required actions and the risk allowance have granted the issuance of a Final AD with Request for Comments, postponing the public consultation process after publication. 3. Enquiries regarding this AD should be referred to the Airworthiness Directives, Safety Management & Research Section, Certification Directorate, EASA. E-mail ADs@easa.europa.eu 4. For any question concerning the technical content of the requirements in this AD, please contact: AIRBUS – Airworthiness Office – EAL, Fax: +33 5 61 93 45 80 or + 33 5 61 93 44 51. E-mail: airworthiness.A330- A340@airbus.com . EASA Form 110 Page 2/2",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "8986b9708e09615f34d30d80c68f17d1fc3c237dffc86635a54ab759d033bb28",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    }
+  ],
+  "field_assertions": [
+    {
+      "assertion_id": "AST-001",
+      "field_path": "/ad_identity",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.995,
+      "evidence_ids": [
+        "EV-001"
+      ],
+      "annotator_id": "codex-extension-extractor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Section completion: AD identity"
+    },
+    {
+      "assertion_id": "AST-002",
+      "field_path": "/publication",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.99,
+      "evidence_ids": [
+        "EV-001"
+      ],
+      "annotator_id": "codex-extension-extractor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Section completion: publication"
+    },
+    {
+      "assertion_id": "AST-003",
+      "field_path": "/applicability_groups",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.95,
+      "evidence_ids": [
+        "EV-003"
+      ],
+      "annotator_id": "codex-extension-extractor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Section completion: applicability_groups"
+    },
+    {
+      "assertion_id": "AST-004",
+      "field_path": "/definitions",
+      "value_state": "absent_in_source",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.9,
+      "evidence_ids": [],
+      "annotator_id": "codex-extension-extractor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Section completion: definitions"
+    },
+    {
+      "assertion_id": "AST-005",
+      "field_path": "/requirements",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.95,
+      "evidence_ids": [
+        "EV-007"
+      ],
+      "annotator_id": "codex-extension-extractor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Section completion: requirements"
+    },
+    {
+      "assertion_id": "AST-006",
+      "field_path": "/exceptions",
+      "value_state": "absent_in_source",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.9,
+      "evidence_ids": [],
+      "annotator_id": "codex-extension-extractor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Section completion: exceptions"
+    },
+    {
+      "assertion_id": "AST-007",
+      "field_path": "/previous_action_credit",
+      "value_state": "absent_in_source",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.9,
+      "evidence_ids": [],
+      "annotator_id": "codex-extension-extractor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Section completion: previous_action_credit"
+    },
+    {
+      "assertion_id": "AST-008",
+      "field_path": "/referenced_publications",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.95,
+      "evidence_ids": [
+        "EV-006"
+      ],
+      "annotator_id": "codex-extension-extractor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Section completion: referenced_publications"
+    },
+    {
+      "assertion_id": "AST-009",
+      "field_path": "/relationships",
+      "value_state": "absent_in_source",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.9,
+      "evidence_ids": [
+        "EV-001"
+      ],
+      "annotator_id": "codex-extension-extractor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Section completion: relationships"
+    },
+    {
+      "assertion_id": "AST-010",
+      "field_path": "/amoc_and_contacts",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.95,
+      "evidence_ids": [
+        "EV-008"
+      ],
+      "annotator_id": "codex-extension-extractor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Section completion: amoc_and_contacts"
+    },
+    {
+      "assertion_id": "AST-011",
+      "field_path": "/ad_identity/ad_number",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.995,
+      "evidence_ids": [
+        "EV-001"
+      ],
+      "annotator_id": "codex-extension-extractor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Cover identity"
+    },
+    {
+      "assertion_id": "AST-012",
+      "field_path": "/ad_identity/supersedure_statement",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.99,
+      "evidence_ids": [
+        "EV-001"
+      ],
+      "annotator_id": "codex-extension-extractor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Printed status field"
+    },
+    {
+      "assertion_id": "AST-013",
+      "field_path": "/publication/issue_date",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.995,
+      "evidence_ids": [
+        "EV-001"
+      ],
+      "annotator_id": "codex-extension-extractor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Printed issue date"
+    },
+    {
+      "assertion_id": "AST-014",
+      "field_path": "/publication/effective_date",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.995,
+      "evidence_ids": [
+        "EV-001"
+      ],
+      "annotator_id": "codex-extension-extractor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Printed effective date"
+    },
+    {
+      "assertion_id": "AST-015",
+      "field_path": "/publication/subject",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.99,
+      "evidence_ids": [
+        "EV-001"
+      ],
+      "annotator_id": "codex-extension-extractor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Printed ATA subject"
+    },
+    {
+      "assertion_id": "AST-016",
+      "field_path": "/applicability_groups/0",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-003"
+      ],
+      "annotator_id": "codex-extension-extractor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "applicability_groups"
+    },
+    {
+      "assertion_id": "AST-017",
+      "field_path": "/requirements/0",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.94,
+      "evidence_ids": [
+        "EV-007"
+      ],
+      "annotator_id": "codex-extension-extractor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "requirements"
+    },
+    {
+      "assertion_id": "AST-018",
+      "field_path": "/requirements/1",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.94,
+      "evidence_ids": [
+        "EV-007"
+      ],
+      "annotator_id": "codex-extension-extractor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "requirements"
+    },
+    {
+      "assertion_id": "AST-019",
+      "field_path": "/referenced_publications/0",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-006"
+      ],
+      "annotator_id": "codex-extension-extractor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "referenced_publications"
+    },
+    {
+      "assertion_id": "AST-020",
+      "field_path": "/referenced_publications/1",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-006"
+      ],
+      "annotator_id": "codex-extension-extractor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "referenced_publications"
+    },
+    {
+      "assertion_id": "AST-021",
+      "field_path": "/amoc_and_contacts/0",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-008"
+      ],
+      "annotator_id": "codex-extension-extractor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "amoc_and_contacts"
+    },
+    {
+      "assertion_id": "AST-022",
+      "field_path": "/amoc_and_contacts/1",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-008"
+      ],
+      "annotator_id": "codex-extension-extractor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "amoc_and_contacts"
+    },
+    {
+      "assertion_id": "AST-023",
+      "field_path": "/unsafe_condition",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-004",
+        "EV-005"
+      ],
+      "annotator_id": "codex-extension-extractor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Reason and unsafe condition"
+    },
+    {
+      "assertion_id": "AST-024",
+      "field_path": "/classification",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.9,
+      "evidence_ids": [
+        "EV-001",
+        "EV-003",
+        "EV-004",
+        "EV-005",
+        "EV-007"
+      ],
+      "annotator_id": "codex-extension-extractor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Schema classification"
+    }
+  ],
+  "annotation_metadata": {
+    "guideline_version": "1.0.0",
+    "record_status": "first_pass_complete",
+    "creation_method": "hybrid",
+    "machine_provenance": {
+      "system": "OpenAI Codex",
+      "model": "GPT-5",
+      "prompt_or_rules_version": "step3-extension-populated-extraction-1.0.0",
+      "generated_at": "2026-07-30T09:02:01Z"
+    },
+    "annotators": [
+      {
+        "annotator_id": "codex-extension-extractor",
+        "role": "annotator",
+        "started_at": "2026-07-30T09:02:01Z",
+        "submitted_at": "2026-07-30T09:02:01Z"
+      }
+    ],
+    "events": [
+      {
+        "event_type": "created",
+        "actor_id": "codex-extension-extractor",
+        "timestamp": "2026-07-30T09:02:01Z",
+        "rationale": "Blind first-pass annotation from the source PDF and blind packet."
+      },
+      {
+        "event_type": "submitted",
+        "actor_id": "codex-extension-extractor",
+        "timestamp": "2026-07-30T09:02:01Z",
+        "rationale": "First pass completed; no human review or approval claimed."
+      }
+    ],
+    "quality_flags": [
+      "manual_review_required",
+      "complex_applicability"
+    ],
+    "uncertainty_flags": [],
+    "notes": [
+      "Machine-assisted populated extraction from the complete frozen PDF/page-text packet.",
+      "Requirements were split from numbered source paragraphs where possible; every field assertion remains unreviewed.",
+      "No supersedure relationship was created because the cover explicitly states Supersedure: None.",
+      "Independent human comparison and correction are required before approval or gold promotion."
+    ],
+    "source_text_sha256": "8d2b79a61c0b9d63b2ceecd1c30273fc5dec98dc4f48d5398402291858450036",
+    "created_at": "2026-07-30T09:02:01Z",
+    "updated_at": "2026-07-30T09:02:01Z"
+  },
+  "benchmark_metadata": {
+    "split": "unassigned",
+    "split_group": "2010-0271",
+    "selection_strata": [
+      "other",
+      "simple"
+    ],
+    "duplicate_cluster_ids": [],
+    "gold_record": false
+  }
+}

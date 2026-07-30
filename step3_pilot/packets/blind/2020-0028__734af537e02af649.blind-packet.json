@@ -1,0 +1,56 @@
+{
+  "packet_version": "1.0.0",
+  "packet_type": "blind_annotation_source",
+  "record_id": "adann-734af537e02af649",
+  "document_identity": {
+    "authority": "EASA",
+    "ad_number": "2020-0028",
+    "base_ad_number": "2020-0028",
+    "revision_number": 0,
+    "is_emergency": false,
+    "is_correction": false,
+    "correction_date_from_manifest": null,
+    "logical_version_key": "2020-0028|UNCORRECTED"
+  },
+  "pdf_provenance": {
+    "file_instance_id": "734af537e02af649",
+    "content_id": "898bc65f2dd9ecde",
+    "file_name": "2020-0028__AD_2020-0028_1__EASA_AD_2020_0028.pdf",
+    "relative_path": "2020-0028__AD_2020-0028_1__EASA_AD_2020_0028.pdf",
+    "local_pdf_path": "/Users/tunwailin/Documents/Capstone/step3_pilot/source_pdfs/2020-0028__AD_2020-0028_1__EASA_AD_2020_0028.pdf",
+    "official_pdf_url": "https://ad.easa.europa.eu/blob/EASA_AD_2020_0028.pdf/AD_2020-0028_1",
+    "official_detail_url": "https://ad.easa.europa.eu/ad/2020-0028",
+    "file_sha256": "898bc65f2dd9ecdeea66673cdb5c291036943ebbedd93216bb24ff36622b8e5f",
+    "manifest_normalized_text_sha256": "e888645f570093523e28c7554c3a24cc9487abdced5014c9b0bce2d736450306",
+    "page_count": 2
+  },
+  "instructions": [
+    "Annotate only what the rendered PDF and supplied page text state.",
+    "Do not infer relationships, applicability, actions, or deadlines from filenames.",
+    "Add exact page evidence for every safety-critical value."
+  ],
+  "pages": [
+    {
+      "page_id": "734af537e02af649:p0001",
+      "page_number": 1,
+      "page_count": 2,
+      "page_text_sha256": "73d7bf91f54755e1c264c573edb12aafa707313e23d7ff77d6522dc5ea0a8f26",
+      "text_char_count": 3206,
+      "extraction_library": "pypdf",
+      "extraction_library_version": "6.10.0",
+      "extraction_mode": "layout",
+      "text": "                                                                                                                     EASA AD No.: 2020-0028\n\n                                                            Airworthiness Directive\n                                                            AD No.:             2020-0028\n                                                            Issued:             14 February 2020\n\n                                                            Note: This Airworthiness Directive (AD) is issued by EASA, acting in accordance with Regulation\n                                                            (EU) 2018/1139 on behalf of the European Union, its Member States and of the European third\n                                                            countries that participate in the activities of EASA under Article 129 of that Regulation.\n\n      This AD is issued in accordance with Regulation (EU) 748/2012, Part 21.A.3B. In accordance with Regulation (EU) 1321/2014 Annex I, Part M.A.301, the\n      continuing airworthiness of an aircraft shall be ensured by accomplishing any applicable ADs. Consequently, no person may operate an aircraft to which\n      an AD applies, except in accordance with the requirements of that AD, unless otherwise specified by the Agency [Regulation (EU) 1321/2014 Annex I,\n      Part M.A.303] or agreed with the Authority of the State of Registry [Regulation (EU) 2018/1139, Article 71 exemption].\n      Design Approval Holder’s Name::                                               Type/Model designation(s):\n      AIRBUS                                                                        A350 aeroplanes\n\n      Effective Date:            29 February 2020\n      TCDS Number(s):            EASA.A.151\n      Foreign AD:                Not applicable\n      Supersedure:               None\n\n      ATA 78 – Exhaust – Thrust Reverser Hinge Nut – Inspection / Replacement\n\n\n      Manufacturer(s):\n      Airbus\n\n      Applicability:\n      Airbus A350-941 and A350-1041 aeroplanes, all manufacturer serial numbers as listed in Airbus\n      Service Bulletin (SB) A350-78-P013.\n\n      Definitions:\n      For the purpose of this AD, the following definition applies:\n\n      The SB: Airbus SB A350-78-P013 or Goodrich SB RA35078-059.\n\n      T/R hinge nut: Nuts installed on left hand (LH) and right hand (RH) Thrust Reverser (T/R) hinge\n      positions 2, 3 and 4 of both engines.\n\n      Reason:\n      An occurrence was reported where, when opening the # 2 engine T/R, a nut of the RH T/R hinge\n      located at position 4 was found detached. Investigation identified that some nuts may have been\n      installed with non-compliant locking features, or with locking features that could degrade quicker\n      than anticipated. A similar nut installation on T/R hinge positions 2 and 3 can be affected by the\n      same issue.\n\n\n\n\n                        TE.CAP.00110-009 © European Union Aviation Safety Agency. All rights reserved. ISO9001 Certified.                       Page 1 of 2\n                        Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet.\nAn agency of the European Union\n"
+    },
+    {
+      "page_id": "734af537e02af649:p0002",
+      "page_number": 2,
+      "page_count": 2,
+      "page_text_sha256": "09ff3e198fbd1d4d5051d867a4392d9658ce427d6109e60ebb2c503535cf0db5",
+      "text_char_count": 2824,
+      "extraction_library": "pypdf",
+      "extraction_library_version": "6.10.0",
+      "extraction_mode": "layout",
+      "text": "                                                                                                         EASA AD No.: 2020-0028\n\n     This condition, if not detected and corrected on multiple hinge attachments, can lead to in-flight\n     loss of a T/R, possibly resulting in damage to the aeroplane and/or injury to persons on the ground.\n\n     To address this potential unsafe condition, Airbus issued SB A350-78-P013, referencing Goodrich SB\n     RA35078-059, to provide instructions to inspect and replace the T/R hinge nuts.\n\n     For the reasons described above, this AD requires a one-time inspection of the T/R hinge nuts and,\n     depending on findings, replacement with, or installation of new parts.\n\n     Required Action(s) and Compliance Time(s):\n     Required as indicated, unless accomplished previously:\n\n     Installation/Replacement:\n     Within 7 calendar months after the effective date of this AD, install new T/R hinge nuts, as defined\n     in this AD, and apply a torque stripe at each location in accordance with the instructions of the SB.\n\n     Ref. Publications:\n     Airbus SB A350-78-P013 original issue dated 13 December 2019.\n\n     Goodrich SB RA35078-059 original issue dated 12 December 2019.\n\n     The use of later approved revisions of the above-mentioned documents is acceptable for\n     compliance with the requirements of this AD.\n\n     Remarks:\n     1.    If requested and appropriately substantiated, EASA can approve Alternative Methods of\n           Compliance for this AD.\n\n     2.    This AD was posted on 14 January 2020 as PAD 20-004 for consultation until 11 February 2020.\n           The Comment Response Documents can be found in the EASA Safety Publications Tool, in the\n           compressed (zipped) file attached to the record for this AD.\n\n     3.    Enquiries regarding this AD should be referred to the EASA Programming and Continued\n           Airworthiness Information Section, Certification Directorate. E-mail: ADs@easa.europa.eu.\n\n     4.    Information about any failures, malfunctions, defects or other occurrences, which may be\n           similar to the unsafe condition addressed by this AD, and which may occur, or have occurred on\n           a product, part or appliance not affected by this AD, can be reported to the EU aviation safety\n           reporting system.\n\n     5.    For any question concerning the technical content of the requirements in this AD, please\n           contact Airbus, E-mail: continued-airworthiness.a350@airbus.com.\n\n\n\n\n\n\n\n\n\n\n                      TE.CAP.00110-009 © European Union Aviation Safety Agency. All rights reserved. ISO9001 Certified.          Page 2 of 2\n                      Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet.\nAn agency of the European Union\n"
+    }
+  ]
+}

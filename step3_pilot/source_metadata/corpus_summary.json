@@ -1,0 +1,16 @@
+{
+  "total_pdf_files": 1809,
+  "successfully_parsed_ad_numbers": 1809,
+  "unparsed_ad_numbers": 0,
+  "unique_base_ad_numbers": 1808,
+  "unique_logical_versions": 1809,
+  "revised_ad_files": 345,
+  "correction_files": 9,
+  "emergency_ad_files": 0,
+  "files_needing_ocr": 0,
+  "airbus_sas_not_detected": 0,
+  "exact_duplicate_copies": 0,
+  "same_version_content_conflicts": 0,
+  "near_duplicate_candidate_pairs": 17,
+  "supersedure_candidate_links": 617
+}

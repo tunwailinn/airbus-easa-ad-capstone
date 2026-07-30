@@ -1,0 +1,128 @@
+{
+  "schema_version": "1.0.0",
+  "record_id": "adann-0b6a17dbe6f95907",
+  "source_document": {
+    "file_instance_id": "0b6a17dbe6f95907",
+    "content_id": "e62c9e732351450f",
+    "canonical_file_instance_id": "0b6a17dbe6f95907",
+    "file_aliases": [],
+    "file_name": "2007-0278__AD_2007-0278_1__easa_ad_2007_0278_Corrected_Superseded.pdf",
+    "relative_path": "2007-0278__AD_2007-0278_1__easa_ad_2007_0278_Corrected_Superseded.pdf",
+    "file_sha256": "e62c9e732351450fd652e17b1ab340a2d358aef0a6a724a85a76be7e66836d62",
+    "normalized_text_sha256": "e03cfa29b8d2e765b5bfe66f98971b48982846341bcdc07e982cdf32b830a19c",
+    "page_count": 4,
+    "extraction_status": "ok",
+    "needs_ocr": false,
+    "manifest_review_flags": [],
+    "source_url": "https://ad.easa.europa.eu/blob/easa_ad_2007_0278_Corrected_Superseded.pdf/AD_2007-0278_1",
+    "text_extraction_method": "native_text",
+    "exact_duplicate_group": null,
+    "near_duplicate_cluster": null
+  },
+  "ad_identity": {
+    "authority": "EASA",
+    "document_type": "airworthiness_directive",
+    "ad_number": "2007-0278",
+    "base_ad_number": "2007-0278",
+    "revision_number": 0,
+    "publication_kind": "standard_ad",
+    "is_emergency": false,
+    "is_correction": true,
+    "correction_date": {
+      "state": "present",
+      "value": "2007-11-08",
+      "raw_text": null,
+      "evidence_ids": []
+    },
+    "version_label": "2007-0278 [Corrected: 2007-11-08]",
+    "logical_version_key": "2007-0278|CORRECTED:2007-11-08",
+    "is_latest_version": null,
+    "lifecycle_status": "unknown",
+    "design_approval_holder": null,
+    "supersedure_statement": {
+      "state": "not_stated",
+      "value": null,
+      "raw_text": null,
+      "evidence_ids": []
+    },
+    "evidence_ids": []
+  },
+  "publication": {
+    "subject": null,
+    "issue_date": {
+      "state": "not_stated",
+      "value": null,
+      "raw_text": null,
+      "evidence_ids": []
+    },
+    "effective_date": {
+      "state": "not_stated",
+      "value": null,
+      "raw_text": null,
+      "evidence_ids": []
+    },
+    "ata_chapters": [],
+    "manufacturers": [],
+    "type_model_designations": [],
+    "tcds_numbers": [],
+    "foreign_ad": {
+      "state": "not_stated",
+      "value": null,
+      "raw_text": null,
+      "evidence_ids": []
+    }
+  },
+  "applicability_groups": [],
+  "definitions": [],
+  "unsafe_condition": null,
+  "requirements": [],
+  "exceptions": [],
+  "previous_action_credit": [],
+  "referenced_publications": [],
+  "relationships": [],
+  "amoc_and_contacts": [],
+  "classification": {
+    "airbus_families": [],
+    "ata_chapters": [],
+    "action_types": [],
+    "frequency": "unknown",
+    "emergency_status": "unknown",
+    "terminating_action_present": null,
+    "table_or_appendix_present": null,
+    "compliance_complexity": "unknown",
+    "human_confirmed": false,
+    "evidence_ids": []
+  },
+  "evidence_spans": [],
+  "field_assertions": [],
+  "annotation_metadata": {
+    "guideline_version": "1.0.0",
+    "record_status": "draft",
+    "creation_method": "manual",
+    "machine_provenance": null,
+    "annotators": [],
+    "events": [],
+    "quality_flags": [
+      "missing_required_action"
+    ],
+    "uncertainty_flags": [],
+    "notes": [
+      "Immutable source and identity provenance was prefilled from the frozen Step 1 selection.",
+      "All substantive fields, evidence, relationships, and review decisions require manual annotation.",
+      "The normalized correction date is imported identity metadata; add exact raw text and page evidence before validation."
+    ],
+    "source_text_sha256": "e03cfa29b8d2e765b5bfe66f98971b48982846341bcdc07e982cdf32b830a19c",
+    "created_at": null,
+    "updated_at": null
+  },
+  "benchmark_metadata": {
+    "split": "unassigned",
+    "split_group": "2007-0278",
+    "selection_strata": [
+      "corrected",
+      "complex_applicability"
+    ],
+    "duplicate_cluster_ids": [],
+    "gold_record": false
+  }
+}

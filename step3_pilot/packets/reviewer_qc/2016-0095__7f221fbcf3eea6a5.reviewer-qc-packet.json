@@ -1,0 +1,130 @@
+{
+  "packet_version": "1.0.0",
+  "packet_type": "reviewer_qc_source",
+  "record_id": "adann-7f221fbcf3eea6a5",
+  "document_identity": {
+    "authority": "EASA",
+    "ad_number": "2016-0095",
+    "base_ad_number": "2016-0095",
+    "revision_number": 0,
+    "is_emergency": false,
+    "is_correction": false,
+    "correction_date_from_manifest": null,
+    "logical_version_key": "2016-0095|UNCORRECTED"
+  },
+  "pdf_provenance": {
+    "file_instance_id": "7f221fbcf3eea6a5",
+    "content_id": "e93a25b42010e906",
+    "file_name": "2016-0095__AD_2016-0095_1__EASA_AD_2016_0095_superseded.pdf",
+    "relative_path": "2016-0095__AD_2016-0095_1__EASA_AD_2016_0095_superseded.pdf",
+    "local_pdf_path": "/Users/tunwailin/Documents/Capstone/step3_pilot/source_pdfs/2016-0095__AD_2016-0095_1__EASA_AD_2016_0095_superseded.pdf",
+    "official_pdf_url": "https://ad.easa.europa.eu/blob/EASA_AD_2016_0095_superseded.pdf/AD_2016-0095_1",
+    "official_detail_url": "https://ad.easa.europa.eu/ad/2016-0095",
+    "file_sha256": "e93a25b42010e906246600076f3424fce90fcb21429416ac3e20e7a6926d2ea0",
+    "manifest_normalized_text_sha256": "8c9ca966e5cb5159bb51c03aa27a3dafd5eec1afd3c96681f5b5edf5eac6a9a8",
+    "page_count": 6
+  },
+  "candidate_warning": "Everything under selection_screening and candidate_links is unverified screening metadata. It must never be copied into gold without PDF review.",
+  "selection_screening": {
+    "cohort": "2006-2018",
+    "family": "A380",
+    "ata": "57",
+    "selection_strata": [
+      "complex_applicability",
+      "table_heavy",
+      "near_duplicate_cluster"
+    ],
+    "selection_rationale": "First member of the older high-similarity pair.",
+    "double_annotation": true,
+    "adjudication_assignment": "required"
+  },
+  "candidate_links": {
+    "candidate_near_duplicate_links": [
+      {
+        "cluster_id": "near-2016-0095--2017-0013",
+        "members_in_pilot": [
+          {
+            "ad_number": "2016-0095",
+            "file_instance_id": "7f221fbcf3eea6a5"
+          },
+          {
+            "ad_number": "2017-0013",
+            "file_instance_id": "67c94127f7b8e53d"
+          }
+        ],
+        "verification_status": "candidate_unverified",
+        "manually_verified": false,
+        "review_rule": "Compare every member PDF. Similarity does not authorize merging or prove a supersedure relationship."
+      }
+    ],
+    "candidate_supersedure_links": []
+  },
+  "pages": [
+    {
+      "page_id": "7f221fbcf3eea6a5:p0001",
+      "page_number": 1,
+      "page_count": 6,
+      "page_text_sha256": "4c2d124820b8c1b83e55581425dbd4aa879952f099818eb1622be4bc1017864d",
+      "text_char_count": 3257,
+      "extraction_library": "pypdf",
+      "extraction_library_version": "6.10.0",
+      "extraction_mode": "layout",
+      "text": "                                                                                                                       EASA AD No.: 2016-0095\n\n                                                             Airworthiness Directive\n                                                             AD No.:   2016-0         095\n                                                             Issued:     19 May 2016\n\n                                                             Note: This Airworthiness Directive (AD) is issued by EASA, acting in accordance with Regulation\n                                                             (EC) 216/2008 on behalf of the European Union, its Member States and of the European third\n                                                             countries that participate in the activities of EASA under Article 66 of that Regulation.\n\n      This AD is issued in accordance with Regulation (EU) 748/2012, Part 21.A.3B. In accordance with Regulation (EU) 1321/2014 Annex I, Part M.A.301, the\n      continuing airworthiness of an aircraft shall be ensured by accomplishing any applicable ADs. Consequently, no person may operate an aircraft to which\n      an AD applies, except in accordance with the requirements of that AD, unless otherwise specified by the Agency [Regulation (EU) 1321/2014 Annex I,\n      Part M.A.303] or agreed with the Authority of the State of Registry [Regulation (EC) 216/2008, Article 14(4) exemption].\n\n      Design Approval Holder’s Name:                                                 Type/Model designation(s):\n      AIRBUS                                                                         A380 aeroplanes\n\n      Effective Date:       02 June 2016\n      TCDS Number(s):   EASA.A.110\n      Foreign AD:            Not applicable\n      Supersedure:          None\n\n      ATA 57     – Wings –   Flap Parts – Identification / Inspection [Wrong material]\n\n\n      Manufacturer(s):\n      Airbus\n\n      Applicability:\n      Airbus A380-841, A380-842 and A380-861 aeroplanes, all manufacturer serial numbers (MSN).\n\n      Reason:\n      Following an Airbus quality control review on the final assembly line, it was discovered that\n      non-conforming aluminium alloy had been used to manufacture several structural parts located on\n      the middle and outboard flaps.\n\n      This condition, if not detected and corrected, could reduce the structural integrity of the aeroplane.\n\n      To address this potential unsafe condition, Airbus issued Service Bulletin (SB) A380-57-8111 to\n      provide instructions to identify and inspect the potentially affected parts.\n\n      For the reasons described above, this AD requires identification of the potentially affected middle\n      and outboard flap parts, a one-time Special Detailed Inspection (SDI) to identify which material they\n      are made of and, depending on findings, replacement with serviceable parts.\n\n\n\n\n                                     TE.CAP.00110-005 © European Aviation Safety Agency. All rights reserved. ISO9001 Certified.                   Page 1 of 6\n                                     Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet.\nAn agency of the European Union\n"
+    },
+    {
+      "page_id": "7f221fbcf3eea6a5:p0002",
+      "page_number": 2,
+      "page_count": 6,
+      "page_text_sha256": "bd8ac7dc3ddc7f22f56e6292d5548c52bd6e0b425d7c12df3a14b24c71a96f17",
+      "text_char_count": 3404,
+      "extraction_library": "pypdf",
+      "extraction_library_version": "6.10.0",
+      "extraction_mode": "layout",
+      "text": "                                                                                                           EASA AD No.: 2016-0095\n\n     Required Action(s) and Compliance Time(s):\n     Required as indicated, unless accomplished previously:\n\n     Note 1: Appendix 1 of this AD lists the potentially affected middle (Table 1) and outboard (Table 2)\n     flaps by serial number (s/n).\n\n     (1)  Within 3 months after the effective date of this AD, identify the s/n of the left hand (LH) and\n           right hand (RH) middle and outboard flaps installed on the aeroplane.\n\n           A review of aeroplane delivery and/or maintenance records is acceptable for identifying the\n           installed flaps, provided those records can be relied upon for that purpose and the s/n of the\n           affected parts can be positively identified from that review.\n\n     Note 2: Airbus SB A380-57-8111 lists the batch of affected LH and RH middle and outboard flaps and\n     the corresponding aeroplane MSN on which these parts were installed on production line. That\n     MSN list is for information only, as it cannot be excluded that an affected middle or outboard flap\n     has been removed from an aeroplane and later re-installed on another aeroplane.\n\n     (2)  For each middle and outboard flap, identified as required by paragraph (1) of this AD, and\n           having a s/n as listed in Appendix 1 of this AD, within 7 years or 4 300 flight cycles (FC),\n           whichever occurs first, accumulated by the affected flap from the date as defined in Appendix 1\n           of this AD, depending on the affected flap s/n, accomplish a SDI of the affected flap parts, in\n           accordance with the instructions of Airbus SB A380-57-8111.\n\n     (3)  If, during the SDI as required by paragraph (2) of this AD, a part manufactured from\n           non-conforming material is detected, within 30 days after the SDI as required by paragraph (2)\n           of this AD, contact Airbus for replacement instructions and within the compliance time\n           indicated in those instructions, accomplish the replacement accordingly.\n\n     (4)  From the effective date of this AD, it is allowed to install on an aeroplane a middle or outboard\n           flap having a s/n listed in Appendix 1 of this AD, provided that, prior to installation, it has been\n           determined that the part is a serviceable part as defined in Note 3 of this AD.\n\n     Note 3: For the purpose of this AD, a serviceable middle or outboard flap is a part that is not listed\n     by s/n in Appendix 1 of this AD, or has a s/n listed in Appendix 1 of this AD but has passed an SDI in\n     accordance with the instructions of Airbus SB A380-57-8111.\n\n     Ref. Publications:\n     Airbus SB A380-57-8111 original issue, dated 07 January 2016.\n\n     The use of later approved revisions of this document is acceptable for compliance with the\n     requirements of this AD.\n\n     Remarks:\n     1.    If requested and appropriately substantiated, EASA can approve Alternative Methods of\n           Compliance for this AD.\n\n\n\n                                    TE.CAP.00110-005 © European Aviation Safety Agency. All rights reserved. ISO9001 Certified.     Page 2 of 6\n                                    Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet.\nAn agency of the European Union\n"
+    },
+    {
+      "page_id": "7f221fbcf3eea6a5:p0003",
+      "page_number": 3,
+      "page_count": 6,
+      "page_text_sha256": "f393ee1b504346f04c1f6f2a5a9bad03eece6689ee47e250ac72b04358045adb",
+      "text_char_count": 1139,
+      "extraction_library": "pypdf",
+      "extraction_library_version": "6.10.0",
+      "extraction_mode": "layout",
+      "text": "                                                                                                                    EASA AD No.: 2016-0095\n\n      2.    This AD was posted on 19 April 2016 as PAD 16-059 for consultation until 17 May 2016. No\n            comments were received during the consultation period.\n\n      3.    Enquiries regarding this AD should be referred to the EASA Safety Information Section,\n            Certification Directorate. E-mail: ADs@easa.europa.eu.\n\n      4.    For any question concerning the technical content of the requirements in this AD, please\n            contact: AIRBUS - EIANA (Airworthiness Office), Telephone : +33 562 110 253;\n            Fax: +33 562 110 307, E-mail: account.airworth-A380@airbus.com.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n                                     TE.CAP.00110-005 © European Aviation Safety Agency. All rights reserved. ISO9001 Certified.               Page 3 of 6\n                                     Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet.\nAn agency of the European Union\n"
+    },
+    {
+      "page_id": "7f221fbcf3eea6a5:p0004",
+      "page_number": 4,
+      "page_count": 6,
+      "page_text_sha256": "48bbdaf5019178bd4f8c4f5d3b72e407c7f94be76fe91413a7d24288b11ba052",
+      "text_char_count": 4632,
+      "extraction_library": "pypdf",
+      "extraction_library_version": "6.10.0",
+      "extraction_mode": "layout",
+      "text": "                                                                                                   EASA AD No.: 2016-0095\n\n                                  Appendix 1 – Middle and Outboard Flaps to be inspected\n\n          For the purpose of these Tables:\n          N/A - not applicable;\n          The starting date for the service life calculation is shown as day/month/year (dd/mm/yyyy).\n\n          Note 4: The starting date for service life calculation corresponds to the transfer of title of\n          aeroplane where the s/n of the flap has been recorded and referenced in Airbus\n          documentation at the time of aeroplane first delivery to an operator.\n\n                                                     Table 1 – Middle Flaps\n                         s/n                Starting date                    s/n                Starting date\n                   LH           RH         for service life            LH           RH         for service life\n                                             calculation                                         calculation\n                TB1021       TB1021          04/06/2010             TB2016       TB2016          25/11/2011\n                TB1015       TB1015          22/08/2009             TB2001       TB2001          17/06/2011\n                TB1050       TB1050          28/05/2010             TB2004       TB2004          29/09/2011\n                TB1051       TB1051          02/07/2010             TB2007       TB2007          31/03/2011\n                TB2011       TB2011          12/10/2011             TB2033       TB2017          05/06/2012\n                TB2006       TB2006          31/05/2011             TB2017       TB2018          07/09/2011\n                TB2021       TB2021          16/12/2011             TB2020       TB2008          04/05/2011\n                TB1047       TB1047          15/05/2010             TB2010       TB2010          05/07/2011\n                TB2009       TB2009          13/07/2011             TB2005       TB2005          14/09/2011\n                TB9004       TB9004          10/02/2010             TB2012       TB2012          14/05/2012\n                TB1031       TB1048          16/07/2010             TB2035       TB2034          13/06/2012\n                TB1042       TB1042          28/09/2010             TB2019       TB2019          15/12/2011\n               TBE1021       TBE1021         14/04/2010             TB2024       TB2024          28/11/2011\n                TB1044       TB1044          20/08/2010             TB2014       TB2020          12/01/2012\n               TBE1019       TBE1019         06/09/2009             TB2022       TB2014          14/10/2011\n                TB1046       TB1046          12/08/2010             TB2032       TB2032          29/05/2012\n                TB1043       TB1043          16/12/2010             TB2028       TB2029          02/04/2012\n                TB1048       TB1056          27/10/2010             TB2023       TB2023          28/10/2011\n                TB1049       TB1049          12/08/2010             TB2038       TB2037          27/07/2012\n                TB1028       TB1028          31/01/2011             TB2029       TB2028          08/02/2012\n                TB1030       TB1030          16/07/2010             TB2025       TB2025          25/11/2011\n                TB1052       TB1052          17/05/2011             TB2043       TB2043          26/10/2012\n                TB2018       TB2022          28/02/2012             TB2037       TB2036          31/07/2012\n                TB1057       TB1064          13/01/2011             TB2026       TB2026          16/12/2011\n                TB1055       TB1055          05/11/2010             TB2045       TB2045          26/09/2012\n                TB1062       TB1062          30/11/2010             TB2046       TB2046          13/09/2012\n                TB2000       TB2000          16/06/2011             TB2052       TB2051          31/10/2012\n                TB2013       TB2013          19/08/2011             TB2027       TB2027          02/12/2011\n                TB2003       TB2003          15/03/2011             TB2042       TB2042          06/09/2012\n                TB1061       TBE1041         08/04/2011             TB2054       TB2053          28/11/2012\n\n\n                                    TE.CAP.00110-005 © European Aviation Safety Agency. All rights reserved. ISO9001 Certified. Page 4 of 6\n                                    Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet.\nAn agency of the European Union\n"
+    },
+    {
+      "page_id": "7f221fbcf3eea6a5:p0005",
+      "page_number": 5,
+      "page_count": 6,
+      "page_text_sha256": "83fa0c47b7b47096a92bb07c7484f2cd9a8cd013b3fdd3b0788447aa4b002cbd",
+      "text_char_count": 3968,
+      "extraction_library": "pypdf",
+      "extraction_library_version": "6.10.0",
+      "extraction_mode": "layout",
+      "text": "                                                                                                  EASA AD No.: 2016-0095\n\n                                                     Table 1 – Middle Flaps\n                         s/n               Starting date                     s/n               Starting date\n                   LH           RH         for service life           LH           RH         for service life\n                                             calculation                                        calculation\n                TB2059       TB2058         07/02/2013             TB2076        TB2075         25/10/2013\n                TB2063       TB2062         03/07/2013             TB2094        TB2091         27/06/2014\n                TB2065       TB2054         10/12/2012             TB2081        TB2080         29/11/2013\n                TB2015       TB2015         24/02/2012             TB2075        TB2074         29/08/2013\n                TB2030       TB2030         02/05/2012             TB2079        TB2078         27/11/2013\n                TB2066       TB2056         20/12/2012             TB2086        TB2084         14/11/2013\n                TB2034       TB2033         30/07/2012             TB2088        TB2085         27/11/2013\n                TB2039       TB2038         29/08/2012             TB2072        TB2086         29/10/2013\n                TB2044       TB2044         01/10/2012             TB2055        TB2088         12/12/2013\n                TB2047       TB2047         01/10/2012             TB2092        TB2089         19/12/2013\n                TB2048       TB2048         12/10/2012             TB2093        TB2090         19/12/2013\n                TB2049       TB2059         19/12/2012                N/A        TB2081         14/02/2014\n                TB2051       TB2050         09/11/2012                N/A        TB2100         27/03/2014\n                TB2053       TB2052         30/11/2012             TB2089        TB2087         16/01/2014\n                TB2056       TB2055         28/12/2012             TB2090        TB2094         28/03/2014\n                TB2058       TB2057         27/12/2012             TB2097        TB2064         27/03/2014\n                TB2064       TB2066         03/05/2013             TB2095        TB2093         06/03/2014\n                TB2062       TB2061         13/03/2013             TB2100        TB2099         05/05/2014\n                TB2067       TB2065         12/09/2013             TB2084        TB2083         19/05/2014\n                TB2068       TB2067         08/05/2013             TB2078        TB2077         14/05/2014\n                  N/A        TB2082         20/06/2014             TB2057        TB2098         28/05/2014\n                TB2069       TB2068         04/06/2013             TB2103        TB2102         27/06/2014\n                TB2060       TB2060         28/02/2013             TB2107        TB2105         09/07/2014\n                TB2073       TB2072         19/09/2013             TB2104        TB2103         29/07/2014\n                TB2061       TB2063         21/03/2013             TB2087        TB2104         28/07/2014\n                TB2071       TB2070         17/06/2013             TB2108        TB2092         18/08/2014\n                TB2077       TB2076         17/10/2013             TB2105          N/A          25/08/2014\n                TB2080       TB2079         29/10/2013                N/A        TB2101         22/12/2014\n                TB2070       TB2069         28/08/2013\n                TB2074       TB2073         19/09/2013\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n                                    TE.CAP.00110-005 © European Aviation Safety Agency. All rights reserved. ISO9001 Certified. Page 5 of 6\n                                    Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet.\nAn agency of the European Union\n"
+    },
+    {
+      "page_id": "7f221fbcf3eea6a5:p0006",
+      "page_number": 6,
+      "page_count": 6,
+      "page_text_sha256": "07f3042bdcb6df2a9f6a487483ce832caa8e1c809211d823d177518f49b0dc0a",
+      "text_char_count": 4362,
+      "extraction_library": "pypdf",
+      "extraction_library_version": "6.10.0",
+      "extraction_mode": "layout",
+      "text": "                                                                                                 EASA AD No.: 2016-0095\n\n                                                Table 2 – Outboard Flaps\n                         s/n              Starting date                   s/n                Starting date\n                   LH           RH       for service life            LH           RH        for service life\n                                           calculation                                        calculation\n                TB2006       TB2016        16/12/2011            TB2043       TB2043          19/12/2012\n                TB1056       TB1056        17/05/2011            TB2046       TB2044          09/11/2012\n                TB2021       TB2021        28/02/2012            TB2048       TB2046          30/11/2012\n                TB2026       TB2027        05/06/2012            TB2051       TB2058          28/12/2012\n                TB2010       TB2010        14/05/2012            TB2053       TB2052          27/12/2012\n                TB2030       TB2032        13/06/2012            TB2059       TB2061          03/05/2013\n                TB2016       TB2023        28/11/2011            TB2057       TB2056          13/03/2013\n                TB2018       TB2018        14/10/2011            TB2063       TB2062          12/09/2013\n                TB2028       TB2030        29/05/2012            TB2055       TB2063          08/05/2013\n                TB2023       TB2024        02/04/2012            TB2089       TB2065          04/06/2013\n                TB2019       TB2019        28/10/2011            TB2061       TB2054          28/02/2013\n                TB2032       TB2034        27/07/2012            TB2066       TB2064          19/09/2013\n                TB2024       TB2025        08/02/2012            TB2056       TB2055          21/03/2013\n                TB2020       TB2020        25/11/2011            TB2067       TB2059          17/06/2013\n                TB2037       TB2037        26/10/2012            TB2070       TB2069          17/10/2013\n                TB2031       TB2033        31/07/2012            TB2078       TB2077          29/10/2013\n                TB2022       TB2022        16/12/2011            TB2060       TB2060          28/08/2013\n                TB2039       TB2039        26/09/2012            TB2065       TB2068          19/09/2013\n                TB2040       TB2040        13/09/2012            TB2068       TB2067          25/10/2013\n                TB2047       TB2045        31/10/2012            TB2079       TB2078          29/11/2013\n                TB2008       TB2008        02/12/2011            TB2062       TB2066          29/08/2013\n                TB2036       TB2036        06/09/2012            TB2077       TB2070          27/11/2013\n                TB2049       TB2047        28/11/2012            TB2080       TB2079          14/11/2013\n                TB2054       TB2053        07/02/2013            TB2072       TB2076          27/11/2013\n                TB2058       TB2057        03/07/2013            TB2081       TB2081          29/10/2013\n                TB2050       TB2048        10/12/2012            TB2082       TB2049          12/12/2013\n                TB2025       TB2026        24/02/2012            TB2090       TB2082          19/12/2013\n                TB2027       TB2029        02/05/2012            TB2071       TB2083          19/12/2013\n                TB2052       TB2050        20/12/2012            TB2083       TB2085          16/01/2014\n                TB2029       TB2031        30/07/2012            TB2088       TB2089          28/03/2014\n                TB2033       TB2035        29/08/2012            TB2064       TB2090          27/03/2014\n                TB2038       TB2038        01/10/2012            TB2087       TB2087          06/03/2014\n                TB2041       TB2041        01/10/2012            TB2093       TB2092          05/05/2014\n                TB2042       TB2042        12/10/2012\n\n\n\n\n\n\n\n\n\n\n                                    TE.CAP.00110-005 © European Aviation Safety Agency. All rights reserved. ISO9001 Certified. Page 6 of 6\n                                    Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet.\nAn agency of the European Union\n"
+    }
+  ]
+}

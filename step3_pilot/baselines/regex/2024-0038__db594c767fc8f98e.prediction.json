@@ -1,0 +1,147 @@
+{
+  "source_document": {
+    "file_instance_id": "db594c767fc8f98e",
+    "file_name": "2024-0038__AD_2024-0038_1__EASA_AD_2024_0038_superseded.pdf"
+  },
+  "ad_identity": {
+    "ad_number": "2024-0038",
+    "base_ad_number": "2024-0038",
+    "revision_number": null,
+    "is_emergency": false,
+    "is_correction": false,
+    "correction_date": {
+      "value": null
+    },
+    "design_approval_holder": {
+      "value": null
+    },
+    "supersedure_statement": {
+      "state": "present",
+      "value": "This AD supersedes EASA AD 2021-0183R1 dated 20 September 2021."
+    }
+  },
+  "publication": {
+    "subject": {
+      "value": "Equipment / Furnishings – Galleys – Inspection Manufacturer(s): Airbus, formerly Airbus Industrie"
+    },
+    "issue_date": {
+      "value": "2024-02-05"
+    },
+    "effective_date": {
+      "value": "2024-02-19"
+    },
+    "ata_chapters": [
+      {
+        "code": "25"
+      }
+    ],
+    "manufacturers": [
+      {
+        "raw_name": "Airbus, formerly Airbus Industrie",
+        "normalized_name": "Airbus"
+      }
+    ],
+    "type_model_designations": [
+      "A318",
+      "A318-111",
+      "A318-112",
+      "A318-121",
+      "A318-122",
+      "A319",
+      "A319-111",
+      "A319-112",
+      "A319-113",
+      "A319-114",
+      "A319-115",
+      "A319-131",
+      "A319-132",
+      "A319-133",
+      "A319-151N",
+      "A319-153N",
+      "A319-171N",
+      "A320",
+      "A320-211",
+      "A320-212",
+      "A320-214",
+      "A320-215",
+      "A320-216",
+      "A320-231",
+      "A320-232",
+      "A320-233",
+      "A320-25-1BVS",
+      "A320-25-1BVT",
+      "A320-25-1CBN",
+      "A320-25-1CBP",
+      "A320-251N",
+      "A320-252N",
+      "A320-253N",
+      "A320-271N",
+      "A320-272N",
+      "A320-273N",
+      "A321",
+      "A321-111",
+      "A321-112",
+      "A321-131",
+      "A321-211",
+      "A321-212",
+      "A321-213",
+      "A321-231",
+      "A321-232",
+      "A321-251N",
+      "A321-251NX",
+      "A321-252N",
+      "A321-252NX",
+      "A321-253N",
+      "A321-253NX",
+      "A321-271N",
+      "A321-271NX",
+      "A321-272N",
+      "A321-272NX"
+    ],
+    "tcds_numbers": [
+      "EASA.A.064"
+    ]
+  },
+  "unsafe_condition": {
+    "state": "present",
+    "raw_reason_text": "Occurrences have been reported of finding damage during inspection of certain galleys, including delamination of work deck as well as corroded and cracked retainer blocks. This condition, if not detected and corrected, could affect the galley’s capability to hold the trolley under emergency landing loads, which could lead to trolley detachment, possibly resulting in blocking of an escape path during an emergency exit. To address this potential unsafe condition, Airbus issued the inspection SB, providing instructions to inspect the affected parts, and EASA issued AD 2021-0183 to require repetitive general visual inspections (GVI) of each affected part and, depending on findings, accomplishment of applicable corrective action(s). After that AD was issued, it was determined that, following accomplishment of a certain repair, subsequent inspection of the repaired area could be deferred beyond the established inspection interval. Additionally, typographical errors were identified in Appendix 1 of that AD. Prompted by this development EASA issued EASA AD 2021-0183R1, accordingly. Since EASA AD 2021-0183R1 was issued, Airbus and the galley manufacturer developed a modification to restore the design integrity of the affected galleys, and Airbus issued the modification SB, as defined in this AD, providing instructions for in-service galley modification. It was also identified that some affected galley P/N were missing in the Appendix 1 of EASA AD 2021-0183R1, while others could be removed from that list. Since the publication of EASA PAD 23-082R1 galleys having P/N 601858-053101 and P/N 601891-011001 were added into the Appendix 1 of this AD. For the reasons described above, this AD retains the requirements of EASA AD 2021 -0183R1, which is superseded, introduces the modification SB as an optional terminating action for repetitive inspections required by this AD, and revises the list of the affected galleys. TE.CAP.00110-011 © European Union Aviation Safety Agency. All rights reserved. ISO9001 Certified. Page 2 of 10 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet. An agency of the European Union EASA AD No.: 2024-0038 The scope of this AD is limited to affected parts under the responsibility of Airbus as Design Organisation Approval holder. EASA considers separate mandatory actions for galleys modified or installed under the responsibility of design approval holders other than Airbus (see also Remarks section, bullet point 4 for reporting)."
+  },
+  "requirements": [
+    {
+      "raw_action_text": "Required as indicated by this AD, unless the actions required by this AD have been already accomplished: Inspection(s): (1) For Group 1 aeroplanes: Within 36 months since first installation of an affected part on an aeroplane, or within 12 months after 18 August 2021 [the effective date of the EASA AD 2021-0183 at original issue], whichever occurs later, and, thereafter, at intervals not exceeding 6 months, accomplish a GVI of each affected part in accordance with the instructions of the inspection SB (see Note 1 of this AD). For Group 1 aeroplanes equipped with an affected part having P/N 6018A7-000101 or P/N 6018C1-000101: The initial inspection of the affected part, as required by paragraph (1) of this AD for that part, can be postponed until 12 months after the effective date of this AD. Note 1: If the date of first installation of an affected part on an aeroplane is unknown, the aeroplane date of manufacture can be used instead. (2) For Group 2 aeroplanes: Within 12 months after the effective date of this AD, contact the galley manufacturer, Airbus, or the design approval holder responsible for the re-identification of the galley, as applicable, for further instructions and accomplish those instructions accordingly. The instructions must be approved by EASA or under the authority of an EASA Design Organisation Approval holder. Corrective Action(s): (3) If, during any GVI as required by paragraph (1) of this AD, discrepancies are detected on an affected part, before next flight, accomplish the applicable corrective action(s) in accordance with the instructions of the inspection SB. Part(s) Installation: (4) For Group 1, Group 2 and Group 3 aeroplanes: From 18 August 2021 [the effective date of the EASA AD 2021-0183 at original issue], it is allowed to install on any aeroplane an affected part, except a part having P/N 6018A7-000101 or P/N 6018C1 -000101, provided that, following installation, it is inspected and, depending on findings, corrected, as required by this AD. For Group 1, Group 2 and Group 3 aeroplanes: From the effective date of this AD, installation of an affected part having P/N 6018A7-000101 or P/N 6018C1 -000101 is allowed, provided that, following installation, it is inspected and, depending on findings, corrected, as required by this AD. TE.CAP.00110-011 © European Union Aviation Safety Agency. All rights reserved. ISO9001 Certified. Page 3 of 10 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet. An agency of the European Union EASA AD No.: 2024-0038 GVI after Repair: (5) For any panel and/or retainer block of an affected part on which an intermediate repair has been accomplished in accordance with the instructions of the inspection SB, the next GVI as required by paragraph (1) of this AD can be deferred until 36 months after that repair. Thereafter, inspect that panel and/or retainer block at intervals not exceeding 6 months, as required by paragraph (1) of this AD. Terminating Action: (6) Modification of an affected part on an aeroplane, accomplished in accordance with the instructions of the modification SB, constitutes terminating action for the initial and repetitive inspections as required by paragraphs (1) and (5) of this AD, as applicable, for that galley. (7) Modification of all affected parts on an aeroplane, accomplished in accordance with the instructions of the modification SB, constitutes terminating action for the initial and repetitive inspections as required by paragraphs (1) and (5) of this AD, as applicable, for that aeroplane, provided that no affected parts are re -installed on that aeroplane after that modification . Acceptable Method: (8) For Group 1 and Group 2 aeroplanes: Replacement of an affected part wi th a part in post- modification SB configuration on an aeroplane is an acceptable method to comply with the requirements of paragraph (1) or (2) of this AD, as applicable , for that part.",
+      "action_types": [
+        "inspection",
+        "modification",
+        "repair",
+        "replacement"
+      ],
+      "compliance_rules": [
+        {
+          "raw_text": "Required as indicated by this AD, unless the actions required by this AD have been already accomplished: Inspection(s): (1) For Group 1 aeroplanes: Within 36 months since first installation of an affected part on an aeroplane, or within 12 months after 18 August 2021 [the effective date of the EASA AD 2021-0183 at original issue], whichever occurs later, and, thereafter, at intervals not exceeding 6 months, accomplish a GVI of each affected part in accordance with the instructions of the inspection SB (see Note 1 of this AD). For Group 1 aeroplanes equipped with an affected part having P/N 6018A7-000101 or P/N 6018C1-000101: The initial inspection of the affected part, as required by paragraph (1) of this AD for that part, can be postponed until 12 months after the effective date of this AD. Note 1: If the date of first installation of an affected part on an aeroplane is unknown, the aeroplane date of manufacture can be used instead. (2) For Group 2 aeroplanes: Within 12 months after the effective date of this AD, contact the galley manufacturer, Airbus, or the design approval holder responsible for the re-identification of the galley, as applicable, for further instructions and accomplish those instructions accordingly. The instructions must be approved by EASA or under the authority of an EASA Design Organisation Approval holder. Corrective Action(s): (3) If, during any GVI as required by paragraph (1) of this AD, discrepancies are detected on an affected part, before next flight, accomplish the applicable corrective action(s) in accordance with the instructions of the inspection SB. Part(s) Installation: (4) For Group 1, Group 2 and Group 3 aeroplanes: From 18 August 2021 [the effective date of the EASA AD 2021-0183 at original issue], it is allowed to install on any aeroplane an affected part, except a part having P/N 6018A7-000101 or P/N 6018C1 -000101, provided that, following installation, it is inspected and, depending on findings, corrected, as required by this AD. For Group 1, Group 2 and Group 3 aeroplanes: From the effective date of this AD, installation of an affected part having P/N 6018A7-000101 or P/N 6018C1 -000101 is allowed, provided that, following installation, it is inspected and, depending on findings, corrected, as required by this AD. TE.CAP.00110-011 © European Union Aviation Safety Agency. All rights reserved. ISO9001 Certified. Page 3 of 10 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet. An agency of the European Union EASA AD No.: 2024-0038 GVI after Repair: (5) For any panel and/or retainer block of an affected part on which an intermediate repair has been accomplished in accordance with the instructions of the inspection SB, the next GVI as required by paragraph (1) of this AD can be deferred until 36 months after that repair. Thereafter, inspect that panel and/or retainer block at intervals not exceeding 6 months, as required by paragraph (1) of this AD. Terminating Action: (6) Modification of an affected part on an aeroplane, accomplished in accordance with the instructions of the modification SB, constitutes terminating action for the initial and repetitive inspections as required by paragraphs (1) and (5) of this AD, as applicable, for that galley. (7) Modification of all affected parts on an aeroplane, accomplished in accordance with the instructions of the modification SB, constitutes terminating action for the initial and repetitive inspections as required by paragraphs (1) and (5) of this AD, as applicable, for that aeroplane, provided that no affected parts are re -installed on that aeroplane after that modification . Acceptable Method: (8) For Group 1 and Group 2 aeroplanes: Replacement of an affected part wi th a part in post- modification SB configuration on an aeroplane is an acceptable method to comply with the requirements of paragraph (1) or (2) of this AD, as applicable , for that part."
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "relationship_type": "supersedes",
+      "target_ad_number": "2021-0183R1"
+    }
+  ],
+  "classification": {
+    "ata_chapters": [
+      "25"
+    ],
+    "action_types": [
+      "inspection",
+      "modification",
+      "repair",
+      "replacement"
+    ]
+  },
+  "prediction_metadata": {
+    "method": "regex_rules",
+    "rules_version": "regex_v1",
+    "input_page_count": 10
+  }
+}

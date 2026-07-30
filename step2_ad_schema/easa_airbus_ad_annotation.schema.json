@@ -1,0 +1,1964 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.org/capstone/schemas/easa-airbus-ad-annotation-1.0.0.json",
+  "title": "Evidence-grounded EASA Airbus AD annotation",
+  "description": "One annotation record for one canonical EASA Airbus Airworthiness Directive publication, revision, or correction. Missing scalar values use null and missing collections use empty arrays.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "record_id",
+    "source_document",
+    "ad_identity",
+    "publication",
+    "applicability_groups",
+    "definitions",
+    "unsafe_condition",
+    "requirements",
+    "exceptions",
+    "previous_action_credit",
+    "referenced_publications",
+    "relationships",
+    "amoc_and_contacts",
+    "classification",
+    "evidence_spans",
+    "field_assertions",
+    "annotation_metadata",
+    "benchmark_metadata"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "record_id": {
+      "type": "string",
+      "pattern": "^adann-[a-f0-9]{16}$"
+    },
+    "source_document": {
+      "$ref": "#/$defs/source_document"
+    },
+    "ad_identity": {
+      "$ref": "#/$defs/ad_identity"
+    },
+    "publication": {
+      "$ref": "#/$defs/publication"
+    },
+    "applicability_groups": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/applicability_group"
+      }
+    },
+    "definitions": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/definition"
+      }
+    },
+    "unsafe_condition": {
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "$ref": "#/$defs/unsafe_condition"
+        }
+      ]
+    },
+    "requirements": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/requirement"
+      }
+    },
+    "exceptions": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/exception"
+      }
+    },
+    "previous_action_credit": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/previous_action_credit"
+      }
+    },
+    "referenced_publications": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/publication_reference"
+      }
+    },
+    "relationships": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/relationship"
+      }
+    },
+    "amoc_and_contacts": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/amoc_contact"
+      }
+    },
+    "classification": {
+      "$ref": "#/$defs/classification"
+    },
+    "evidence_spans": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/evidence_span"
+      }
+    },
+    "field_assertions": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/field_assertion"
+      }
+    },
+    "annotation_metadata": {
+      "$ref": "#/$defs/annotation_metadata"
+    },
+    "benchmark_metadata": {
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "$ref": "#/$defs/benchmark_metadata"
+        }
+      ]
+    }
+  },
+  "$defs": {
+    "non_empty_string": {
+      "type": "string",
+      "minLength": 1
+    },
+    "nullable_string": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "minLength": 1
+    },
+    "date_or_null": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date"
+    },
+    "date_time_or_null": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time"
+    },
+    "evidence_id": {
+      "type": "string",
+      "pattern": "^EV-[0-9]{3,}$"
+    },
+    "evidence_ids": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "$ref": "#/$defs/evidence_id"
+      }
+    },
+    "field_state": {
+      "enum": [
+        "present",
+        "explicit_none",
+        "not_stated",
+        "illegible",
+        "ambiguous",
+        "conflicting"
+      ]
+    },
+    "grounded_text": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "state",
+        "value",
+        "raw_text",
+        "evidence_ids"
+      ],
+      "properties": {
+        "state": {
+          "$ref": "#/$defs/field_state"
+        },
+        "value": {
+          "$ref": "#/$defs/nullable_string"
+        },
+        "raw_text": {
+          "$ref": "#/$defs/nullable_string"
+        },
+        "evidence_ids": {
+          "$ref": "#/$defs/evidence_ids"
+        }
+      }
+    },
+    "grounded_date": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "state",
+        "value",
+        "raw_text",
+        "evidence_ids"
+      ],
+      "properties": {
+        "state": {
+          "$ref": "#/$defs/field_state"
+        },
+        "value": {
+          "$ref": "#/$defs/date_or_null"
+        },
+        "raw_text": {
+          "$ref": "#/$defs/nullable_string"
+        },
+        "evidence_ids": {
+          "$ref": "#/$defs/evidence_ids"
+        }
+      }
+    },
+    "source_document": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "file_instance_id",
+        "content_id",
+        "canonical_file_instance_id",
+        "file_aliases",
+        "file_name",
+        "relative_path",
+        "file_sha256",
+        "normalized_text_sha256",
+        "page_count",
+        "extraction_status",
+        "needs_ocr",
+        "manifest_review_flags",
+        "source_url",
+        "text_extraction_method",
+        "exact_duplicate_group",
+        "near_duplicate_cluster"
+      ],
+      "properties": {
+        "file_instance_id": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{16}$"
+        },
+        "content_id": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{16,64}$"
+        },
+        "canonical_file_instance_id": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{16}$"
+        },
+        "file_aliases": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/non_empty_string"
+          }
+        },
+        "file_name": {
+          "$ref": "#/$defs/non_empty_string"
+        },
+        "relative_path": {
+          "$ref": "#/$defs/non_empty_string"
+        },
+        "file_sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "normalized_text_sha256": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "page_count": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "extraction_status": {
+          "enum": [
+            "ok",
+            "native_text",
+            "low_text",
+            "ocr_required",
+            "ocr_complete",
+            "hybrid",
+            "failed"
+          ]
+        },
+        "needs_ocr": {
+          "type": "boolean"
+        },
+        "manifest_review_flags": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/non_empty_string"
+          }
+        },
+        "source_url": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "uri"
+        },
+        "text_extraction_method": {
+          "enum": [
+            "native_text",
+            "ocr",
+            "hybrid",
+            "visual_transcription"
+          ]
+        },
+        "exact_duplicate_group": {
+          "$ref": "#/$defs/nullable_string"
+        },
+        "near_duplicate_cluster": {
+          "$ref": "#/$defs/nullable_string"
+        }
+      }
+    },
+    "ad_identity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "authority",
+        "document_type",
+        "ad_number",
+        "base_ad_number",
+        "revision_number",
+        "publication_kind",
+        "is_emergency",
+        "is_correction",
+        "correction_date",
+        "version_label",
+        "logical_version_key",
+        "is_latest_version",
+        "lifecycle_status",
+        "design_approval_holder",
+        "supersedure_statement",
+        "evidence_ids"
+      ],
+      "properties": {
+        "authority": {
+          "const": "EASA"
+        },
+        "document_type": {
+          "const": "airworthiness_directive"
+        },
+        "ad_number": {
+          "type": "string",
+          "pattern": "^(?:19|20)[0-9]{2}-[0-9]{4}(?:R[1-9][0-9]*)?(?:-E)?$"
+        },
+        "base_ad_number": {
+          "type": "string",
+          "pattern": "^(?:19|20)[0-9]{2}-[0-9]{4}$"
+        },
+        "revision_number": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "publication_kind": {
+          "enum": [
+            "standard_ad",
+            "emergency_ad"
+          ]
+        },
+        "is_emergency": {
+          "type": "boolean"
+        },
+        "is_correction": {
+          "type": "boolean"
+        },
+        "correction_date": {
+          "$ref": "#/$defs/grounded_date"
+        },
+        "version_label": {
+          "$ref": "#/$defs/non_empty_string"
+        },
+        "logical_version_key": {
+          "$ref": "#/$defs/non_empty_string"
+        },
+        "is_latest_version": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "lifecycle_status": {
+          "enum": [
+            "active",
+            "superseded",
+            "cancelled",
+            "unknown"
+          ]
+        },
+        "design_approval_holder": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "$ref": "#/$defs/grounded_text"
+            }
+          ]
+        },
+        "supersedure_statement": {
+          "$ref": "#/$defs/grounded_text"
+        },
+        "evidence_ids": {
+          "$ref": "#/$defs/evidence_ids"
+        }
+      }
+    },
+    "ata_chapter": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "code",
+        "title",
+        "evidence_ids"
+      ],
+      "properties": {
+        "code": {
+          "type": "string",
+          "pattern": "^[0-9]{2}$"
+        },
+        "title": {
+          "$ref": "#/$defs/nullable_string"
+        },
+        "evidence_ids": {
+          "$ref": "#/$defs/evidence_ids"
+        }
+      }
+    },
+    "manufacturer": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "raw_name",
+        "normalized_name",
+        "role",
+        "evidence_ids"
+      ],
+      "properties": {
+        "raw_name": {
+          "$ref": "#/$defs/non_empty_string"
+        },
+        "normalized_name": {
+          "$ref": "#/$defs/non_empty_string"
+        },
+        "role": {
+          "enum": [
+            "manufacturer",
+            "former_manufacturer_name",
+            "design_approval_holder",
+            "stc_holder",
+            "other"
+          ]
+        },
+        "evidence_ids": {
+          "$ref": "#/$defs/evidence_ids"
+        }
+      }
+    },
+    "publication": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "subject",
+        "issue_date",
+        "effective_date",
+        "ata_chapters",
+        "manufacturers",
+        "type_model_designations",
+        "tcds_numbers",
+        "foreign_ad"
+      ],
+      "properties": {
+        "subject": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "$ref": "#/$defs/grounded_text"
+            }
+          ]
+        },
+        "issue_date": {
+          "$ref": "#/$defs/grounded_date"
+        },
+        "effective_date": {
+          "$ref": "#/$defs/grounded_date"
+        },
+        "ata_chapters": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ata_chapter"
+          }
+        },
+        "manufacturers": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/manufacturer"
+          }
+        },
+        "type_model_designations": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/non_empty_string"
+          }
+        },
+        "tcds_numbers": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/non_empty_string"
+          }
+        },
+        "foreign_ad": {
+          "$ref": "#/$defs/grounded_text"
+        }
+      }
+    },
+    "serial_restriction": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "restriction_id",
+        "kind",
+        "raw_expression",
+        "lower_bound",
+        "upper_bound",
+        "explicit_values",
+        "condition",
+        "evidence_ids"
+      ],
+      "properties": {
+        "restriction_id": {
+          "type": "string",
+          "pattern": "^MSN-[0-9]{3,}$"
+        },
+        "kind": {
+          "enum": [
+            "all",
+            "include_range",
+            "exclude_range",
+            "include_list",
+            "exclude_list",
+            "conditional",
+            "other"
+          ]
+        },
+        "raw_expression": {
+          "$ref": "#/$defs/non_empty_string"
+        },
+        "lower_bound": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "minLength": 1
+        },
+        "upper_bound": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "minLength": 1
+        },
+        "explicit_values": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/non_empty_string"
+          }
+        },
+        "condition": {
+          "$ref": "#/$defs/nullable_string"
+        },
+        "evidence_ids": {
+          "$ref": "#/$defs/evidence_ids"
+        }
+      }
+    },
+    "applicability_group": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "group_id",
+        "label",
+        "state",
+        "raw_text",
+        "aircraft_families",
+        "models",
+        "serial_restrictions",
+        "part_numbers",
+        "configuration_conditions",
+        "exclusions",
+        "boolean_logic",
+        "evidence_ids"
+      ],
+      "properties": {
+        "group_id": {
+          "type": "string",
+          "pattern": "^APP-[0-9]{3,}$"
+        },
+        "label": {
+          "$ref": "#/$defs/non_empty_string"
+        },
+        "state": {
+          "$ref": "#/$defs/field_state"
+        },
+        "raw_text": {
+          "$ref": "#/$defs/non_empty_string"
+        },
+        "aircraft_families": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/non_empty_string"
+          }
+        },
+        "models": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/non_empty_string"
+          }
+        },
+        "serial_restrictions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/serial_restriction"
+          }
+        },
+        "part_numbers": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/non_empty_string"
+          }
+        },
+        "configuration_conditions": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/non_empty_string"
+          }
+        },
+        "exclusions": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/non_empty_string"
+          }
+        },
+        "boolean_logic": {
+          "enum": [
+            "all",
+            "any",
+            "mixed",
+            "not_applicable"
+          ]
+        },
+        "evidence_ids": {
+          "$ref": "#/$defs/evidence_ids"
+        }
+      }
+    },
+    "definition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "definition_id",
+        "term",
+        "definition_text",
+        "evidence_ids"
+      ],
+      "properties": {
+        "definition_id": {
+          "type": "string",
+          "pattern": "^DEF-[0-9]{3,}$"
+        },
+        "term": {
+          "$ref": "#/$defs/non_empty_string"
+        },
+        "definition_text": {
+          "$ref": "#/$defs/non_empty_string"
+        },
+        "evidence_ids": {
+          "$ref": "#/$defs/evidence_ids"
+        }
+      }
+    },
+    "unsafe_condition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "state",
+        "raw_reason_text",
+        "observed_events_or_defects",
+        "causes",
+        "unsafe_conditions",
+        "potential_consequences",
+        "affected_components",
+        "intended_risk_mitigation",
+        "evidence_ids"
+      ],
+      "properties": {
+        "state": {
+          "$ref": "#/$defs/field_state"
+        },
+        "raw_reason_text": {
+          "$ref": "#/$defs/non_empty_string"
+        },
+        "observed_events_or_defects": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/non_empty_string"
+          }
+        },
+        "causes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/non_empty_string"
+          }
+        },
+        "unsafe_conditions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/non_empty_string"
+          }
+        },
+        "potential_consequences": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/non_empty_string"
+          }
+        },
+        "affected_components": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/non_empty_string"
+          }
+        },
+        "intended_risk_mitigation": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/non_empty_string"
+          }
+        },
+        "evidence_ids": {
+          "$ref": "#/$defs/evidence_ids"
+        }
+      }
+    },
+    "compliance_limit": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "limit_id",
+        "relation",
+        "quantity",
+        "unit",
+        "raw_value",
+        "reference_event",
+        "calendar_date",
+        "evidence_ids"
+      ],
+      "properties": {
+        "limit_id": {
+          "type": "string",
+          "pattern": "^LIM-[0-9]{3,}$"
+        },
+        "relation": {
+          "enum": [
+            "within",
+            "before",
+            "after",
+            "at",
+            "not_later_than",
+            "not_to_exceed",
+            "upon",
+            "from",
+            "other"
+          ]
+        },
+        "quantity": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "unit": {
+          "enum": [
+            "flight_hour",
+            "flight_cycle",
+            "landing",
+            "calendar_hour",
+            "calendar_day",
+            "calendar_month",
+            "calendar_year",
+            "before_next_flight",
+            "next_scheduled_check",
+            "calendar_date",
+            "engine_cycle",
+            "apu_cycle",
+            "other"
+          ]
+        },
+        "raw_value": {
+          "$ref": "#/$defs/non_empty_string"
+        },
+        "reference_event": {
+          "$ref": "#/$defs/nullable_string"
+        },
+        "calendar_date": {
+          "$ref": "#/$defs/date_or_null"
+        },
+        "evidence_ids": {
+          "$ref": "#/$defs/evidence_ids"
+        }
+      }
+    },
+    "compliance_rule": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "compliance_id",
+        "state",
+        "raw_text",
+        "logic",
+        "conditions",
+        "initial_limits",
+        "is_repetitive",
+        "repetitive_intervals",
+        "grace_periods",
+        "evidence_ids"
+      ],
+      "properties": {
+        "compliance_id": {
+          "type": "string",
+          "pattern": "^CMP-[0-9]{3,}$"
+        },
+        "state": {
+          "$ref": "#/$defs/field_state"
+        },
+        "raw_text": {
+          "$ref": "#/$defs/non_empty_string"
+        },
+        "logic": {
+          "enum": [
+            "single",
+            "all",
+            "any",
+            "whichever_occurs_first",
+            "whichever_occurs_later",
+            "conditional"
+          ]
+        },
+        "conditions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/non_empty_string"
+          }
+        },
+        "initial_limits": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/compliance_limit"
+          }
+        },
+        "is_repetitive": {
+          "type": "boolean"
+        },
+        "repetitive_intervals": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/compliance_limit"
+          }
+        },
+        "grace_periods": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/compliance_limit"
+          }
+        },
+        "evidence_ids": {
+          "$ref": "#/$defs/evidence_ids"
+        }
+      }
+    },
+    "terminating_action": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "state",
+        "present",
+        "scope",
+        "action_text",
+        "terminates_requirement_ids",
+        "evidence_ids"
+      ],
+      "properties": {
+        "state": {
+          "$ref": "#/$defs/field_state"
+        },
+        "present": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "scope": {
+          "enum": [
+            "none",
+            "partial",
+            "full",
+            "unknown"
+          ]
+        },
+        "action_text": {
+          "$ref": "#/$defs/nullable_string"
+        },
+        "terminates_requirement_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "pattern": "^REQ-[0-9]{3,}$"
+          }
+        },
+        "evidence_ids": {
+          "$ref": "#/$defs/evidence_ids"
+        }
+      }
+    },
+    "requirement": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "requirement_id",
+        "paragraph_reference",
+        "parent_requirement_id",
+        "applicability_group_ids",
+        "action_types",
+        "obligation",
+        "action_text",
+        "objects_or_components",
+        "conditions",
+        "method_publication_ids",
+        "compliance_rules",
+        "follow_on_requirement_ids",
+        "terminating_action",
+        "evidence_ids"
+      ],
+      "properties": {
+        "requirement_id": {
+          "type": "string",
+          "pattern": "^REQ-[0-9]{3,}$"
+        },
+        "paragraph_reference": {
+          "$ref": "#/$defs/nullable_string"
+        },
+        "parent_requirement_id": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^REQ-[0-9]{3,}$"
+        },
+        "applicability_group_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "pattern": "^APP-[0-9]{3,}$"
+          }
+        },
+        "action_types": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "enum": [
+              "inspection",
+              "test_or_check",
+              "remove",
+              "install",
+              "replacement",
+              "modification",
+              "repair",
+              "rework",
+              "adjust",
+              "limitation",
+              "operational_procedure",
+              "document_amendment",
+              "reporting",
+              "records_review",
+              "prohibition",
+              "lubrication",
+              "cleaning",
+              "deactivation",
+              "contact_manufacturer",
+              "other"
+            ]
+          }
+        },
+        "obligation": {
+          "enum": [
+            "mandatory",
+            "conditional",
+            "optional_terminating",
+            "prohibited",
+            "unclear"
+          ]
+        },
+        "action_text": {
+          "$ref": "#/$defs/non_empty_string"
+        },
+        "objects_or_components": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/non_empty_string"
+          }
+        },
+        "conditions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/non_empty_string"
+          }
+        },
+        "method_publication_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "pattern": "^PUB-[0-9]{3,}$"
+          }
+        },
+        "compliance_rules": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/compliance_rule"
+          }
+        },
+        "follow_on_requirement_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "pattern": "^REQ-[0-9]{3,}$"
+          }
+        },
+        "terminating_action": {
+          "$ref": "#/$defs/terminating_action"
+        },
+        "evidence_ids": {
+          "$ref": "#/$defs/evidence_ids"
+        }
+      }
+    },
+    "exception": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "exception_id",
+        "text",
+        "applies_to_requirement_ids",
+        "evidence_ids"
+      ],
+      "properties": {
+        "exception_id": {
+          "type": "string",
+          "pattern": "^EXC-[0-9]{3,}$"
+        },
+        "text": {
+          "$ref": "#/$defs/non_empty_string"
+        },
+        "applies_to_requirement_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "pattern": "^REQ-[0-9]{3,}$"
+          }
+        },
+        "evidence_ids": {
+          "$ref": "#/$defs/evidence_ids"
+        }
+      }
+    },
+    "previous_action_credit": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "credit_id",
+        "text",
+        "applies_to_requirement_ids",
+        "credited_publication_ids",
+        "conditions",
+        "evidence_ids"
+      ],
+      "properties": {
+        "credit_id": {
+          "type": "string",
+          "pattern": "^CRD-[0-9]{3,}$"
+        },
+        "text": {
+          "$ref": "#/$defs/non_empty_string"
+        },
+        "applies_to_requirement_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "pattern": "^REQ-[0-9]{3,}$"
+          }
+        },
+        "credited_publication_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "pattern": "^PUB-[0-9]{3,}$"
+          }
+        },
+        "conditions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/non_empty_string"
+          }
+        },
+        "evidence_ids": {
+          "$ref": "#/$defs/evidence_ids"
+        }
+      }
+    },
+    "publication_reference": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "publication_id",
+        "publication_type",
+        "issuer",
+        "number",
+        "revision",
+        "publication_date",
+        "title",
+        "roles",
+        "later_approved_revisions_allowed",
+        "evidence_ids"
+      ],
+      "properties": {
+        "publication_id": {
+          "type": "string",
+          "pattern": "^PUB-[0-9]{3,}$"
+        },
+        "publication_type": {
+          "enum": [
+            "service_bulletin",
+            "alert_service_bulletin",
+            "all_operators_telex",
+            "maintenance_manual",
+            "airworthiness_limitations_section",
+            "service_information_letter",
+            "tcds",
+            "stc",
+            "other"
+          ]
+        },
+        "issuer": {
+          "$ref": "#/$defs/nullable_string"
+        },
+        "number": {
+          "$ref": "#/$defs/non_empty_string"
+        },
+        "revision": {
+          "$ref": "#/$defs/nullable_string"
+        },
+        "publication_date": {
+          "$ref": "#/$defs/date_or_null"
+        },
+        "title": {
+          "$ref": "#/$defs/nullable_string"
+        },
+        "roles": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "enum": [
+              "required_method",
+              "referenced_information",
+              "previous_action_credit",
+              "optional_method",
+              "superseded_publication"
+            ]
+          }
+        },
+        "later_approved_revisions_allowed": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "evidence_ids": {
+          "$ref": "#/$defs/evidence_ids"
+        }
+      }
+    },
+    "relationship": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "relationship_id",
+        "relationship_type",
+        "target_ad_number",
+        "target_record_id",
+        "target_logical_version_key",
+        "source",
+        "verification_status",
+        "manually_verified",
+        "raw_text",
+        "evidence_ids"
+      ],
+      "properties": {
+        "relationship_id": {
+          "type": "string",
+          "pattern": "^REL-[0-9]{3,}$"
+        },
+        "relationship_type": {
+          "enum": [
+            "supersedes",
+            "superseded_by",
+            "revises",
+            "revised_by",
+            "corrects",
+            "corrected_by",
+            "cancels",
+            "cancelled_by",
+            "replaces",
+            "retains_requirements_of",
+            "related",
+            "referenced_only"
+          ]
+        },
+        "target_ad_number": {
+          "type": "string",
+          "pattern": "^(?:(?:19|20)[0-9]{2}-[0-9]{4}(?:R[1-9][0-9]*)?(?:-E)?|[A-Z]{1,4}-(?:19|20)[0-9]{2}-[0-9A-Z-]+)$"
+        },
+        "target_record_id": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^adann-[a-f0-9]{16}$"
+        },
+        "target_logical_version_key": {
+          "$ref": "#/$defs/nullable_string"
+        },
+        "source": {
+          "enum": [
+            "structured_supersedure_field",
+            "explicit_directional_sentence",
+            "revision_family",
+            "correction_notice",
+            "official_metadata",
+            "historical_reference"
+          ]
+        },
+        "verification_status": {
+          "enum": [
+            "candidate",
+            "annotator_verified",
+            "adjudicated",
+            "rejected",
+            "conflicting"
+          ]
+        },
+        "manually_verified": {
+          "type": "boolean"
+        },
+        "raw_text": {
+          "$ref": "#/$defs/non_empty_string"
+        },
+        "evidence_ids": {
+          "$ref": "#/$defs/evidence_ids"
+        }
+      }
+    },
+    "amoc_contact": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "entry_id",
+        "entry_type",
+        "authority_or_organization",
+        "contact_text",
+        "conditions",
+        "evidence_ids"
+      ],
+      "properties": {
+        "entry_id": {
+          "type": "string",
+          "pattern": "^AMC-[0-9]{3,}$"
+        },
+        "entry_type": {
+          "enum": [
+            "amoc_authority",
+            "regulatory_contact",
+            "technical_contact",
+            "other"
+          ]
+        },
+        "authority_or_organization": {
+          "$ref": "#/$defs/nullable_string"
+        },
+        "contact_text": {
+          "$ref": "#/$defs/non_empty_string"
+        },
+        "conditions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/non_empty_string"
+          }
+        },
+        "evidence_ids": {
+          "$ref": "#/$defs/evidence_ids"
+        }
+      }
+    },
+    "classification": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "airbus_families",
+        "ata_chapters",
+        "action_types",
+        "frequency",
+        "emergency_status",
+        "terminating_action_present",
+        "table_or_appendix_present",
+        "compliance_complexity",
+        "human_confirmed",
+        "evidence_ids"
+      ],
+      "properties": {
+        "airbus_families": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/non_empty_string"
+          }
+        },
+        "ata_chapters": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "pattern": "^[0-9]{2}$"
+          }
+        },
+        "action_types": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "enum": [
+              "inspection",
+              "test_or_check",
+              "remove",
+              "install",
+              "replacement",
+              "modification",
+              "repair",
+              "rework",
+              "adjust",
+              "limitation",
+              "operational_procedure",
+              "document_amendment",
+              "reporting",
+              "records_review",
+              "prohibition",
+              "lubrication",
+              "cleaning",
+              "deactivation",
+              "contact_manufacturer",
+              "other"
+            ]
+          }
+        },
+        "frequency": {
+          "enum": [
+            "one_time",
+            "repetitive",
+            "conditional",
+            "mixed",
+            "continuous",
+            "unknown"
+          ]
+        },
+        "emergency_status": {
+          "enum": [
+            "standard",
+            "emergency",
+            "unknown"
+          ]
+        },
+        "terminating_action_present": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "table_or_appendix_present": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "compliance_complexity": {
+          "enum": [
+            "simple",
+            "alternative_limits",
+            "conditional_branches",
+            "table_driven",
+            "mixed",
+            "unknown"
+          ]
+        },
+        "human_confirmed": {
+          "type": "boolean"
+        },
+        "evidence_ids": {
+          "$ref": "#/$defs/evidence_ids"
+        }
+      }
+    },
+    "table_context": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "table_label",
+        "row_headers",
+        "column_headers",
+        "footnotes"
+      ],
+      "properties": {
+        "table_label": {
+          "$ref": "#/$defs/nullable_string"
+        },
+        "row_headers": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/non_empty_string"
+          }
+        },
+        "column_headers": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/non_empty_string"
+          }
+        },
+        "footnotes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/non_empty_string"
+          }
+        }
+      }
+    },
+    "evidence_span": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "evidence_id",
+        "source_file_instance_id",
+        "page_number",
+        "printed_page_label",
+        "section",
+        "section_raw",
+        "clause_path",
+        "exact_quote",
+        "start_char",
+        "end_char",
+        "page_text_sha256",
+        "bbox_normalized",
+        "extraction_method",
+        "quality",
+        "table_context",
+        "annotation_note"
+      ],
+      "properties": {
+        "evidence_id": {
+          "$ref": "#/$defs/evidence_id"
+        },
+        "source_file_instance_id": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{16}$"
+        },
+        "page_number": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "printed_page_label": {
+          "$ref": "#/$defs/nullable_string"
+        },
+        "section": {
+          "enum": [
+            "cover",
+            "applicability",
+            "definitions",
+            "reason",
+            "required_actions_and_compliance_times",
+            "compliance",
+            "credit",
+            "reference_publications",
+            "remarks",
+            "appendix",
+            "table",
+            "other"
+          ]
+        },
+        "section_raw": {
+          "$ref": "#/$defs/nullable_string"
+        },
+        "clause_path": {
+          "$ref": "#/$defs/nullable_string"
+        },
+        "exact_quote": {
+          "$ref": "#/$defs/non_empty_string"
+        },
+        "start_char": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "end_char": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 1
+        },
+        "page_text_sha256": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "bbox_normalized": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "array",
+              "prefixItems": [
+                {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 1
+                },
+                {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 1
+                },
+                {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 1
+                },
+                {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 1
+                }
+              ],
+              "items": false
+            }
+          ]
+        },
+        "extraction_method": {
+          "enum": [
+            "native_text",
+            "ocr",
+            "visual_transcription"
+          ]
+        },
+        "quality": {
+          "enum": [
+            "exact",
+            "normalized_whitespace",
+            "ocr_uncertain",
+            "visual_transcription"
+          ]
+        },
+        "table_context": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "$ref": "#/$defs/table_context"
+            }
+          ]
+        },
+        "annotation_note": {
+          "$ref": "#/$defs/nullable_string"
+        }
+      }
+    },
+    "field_assertion": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "assertion_id",
+        "field_path",
+        "value_state",
+        "origin",
+        "verification_status",
+        "confidence",
+        "evidence_ids",
+        "annotator_id",
+        "derivation_rule",
+        "input_field_paths",
+        "notes"
+      ],
+      "properties": {
+        "assertion_id": {
+          "type": "string",
+          "pattern": "^AST-[0-9]{3,}$"
+        },
+        "field_path": {
+          "type": "string",
+          "pattern": "^/(?:[^/~]|~0|~1)+(?:/(?:[^/~]|~0|~1)+)*$"
+        },
+        "value_state": {
+          "enum": [
+            "present",
+            "absent_in_source",
+            "not_applicable",
+            "unclear",
+            "conflicting"
+          ]
+        },
+        "origin": {
+          "enum": [
+            "imported_manifest",
+            "auto_extracted",
+            "human_annotated",
+            "human_corrected",
+            "derived",
+            "adjudicated"
+          ]
+        },
+        "verification_status": {
+          "enum": [
+            "unreviewed",
+            "accepted",
+            "corrected",
+            "rejected"
+          ]
+        },
+        "confidence": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 1
+        },
+        "evidence_ids": {
+          "$ref": "#/$defs/evidence_ids"
+        },
+        "annotator_id": {
+          "$ref": "#/$defs/nullable_string"
+        },
+        "derivation_rule": {
+          "$ref": "#/$defs/nullable_string"
+        },
+        "input_field_paths": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "pattern": "^/(?:[^/~]|~0|~1)+(?:/(?:[^/~]|~0|~1)+)*$"
+          }
+        },
+        "notes": {
+          "$ref": "#/$defs/nullable_string"
+        }
+      }
+    },
+    "annotator": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "annotator_id",
+        "role",
+        "started_at",
+        "submitted_at"
+      ],
+      "properties": {
+        "annotator_id": {
+          "$ref": "#/$defs/non_empty_string"
+        },
+        "role": {
+          "enum": [
+            "annotator",
+            "reviewer",
+            "adjudicator",
+            "domain_approver"
+          ]
+        },
+        "started_at": {
+          "$ref": "#/$defs/date_time_or_null"
+        },
+        "submitted_at": {
+          "$ref": "#/$defs/date_time_or_null"
+        }
+      }
+    },
+    "annotation_event": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "event_type",
+        "actor_id",
+        "timestamp",
+        "rationale"
+      ],
+      "properties": {
+        "event_type": {
+          "enum": [
+            "created",
+            "submitted",
+            "reviewed",
+            "returned_for_correction",
+            "adjudicated",
+            "approved"
+          ]
+        },
+        "actor_id": {
+          "$ref": "#/$defs/non_empty_string"
+        },
+        "timestamp": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "rationale": {
+          "$ref": "#/$defs/nullable_string"
+        }
+      }
+    },
+    "machine_provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "system",
+        "model",
+        "prompt_or_rules_version",
+        "generated_at"
+      ],
+      "properties": {
+        "system": {
+          "$ref": "#/$defs/non_empty_string"
+        },
+        "model": {
+          "$ref": "#/$defs/nullable_string"
+        },
+        "prompt_or_rules_version": {
+          "$ref": "#/$defs/non_empty_string"
+        },
+        "generated_at": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "annotation_metadata": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "guideline_version",
+        "record_status",
+        "creation_method",
+        "machine_provenance",
+        "annotators",
+        "events",
+        "quality_flags",
+        "uncertainty_flags",
+        "notes",
+        "source_text_sha256",
+        "created_at",
+        "updated_at"
+      ],
+      "properties": {
+        "guideline_version": {
+          "const": "1.0.0"
+        },
+        "record_status": {
+          "enum": [
+            "draft",
+            "first_pass_complete",
+            "double_annotated",
+            "adjudicated",
+            "approved"
+          ]
+        },
+        "creation_method": {
+          "enum": [
+            "manual",
+            "regex_rules",
+            "zero_shot_llm",
+            "few_shot_schema_llm",
+            "hybrid"
+          ]
+        },
+        "machine_provenance": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "$ref": "#/$defs/machine_provenance"
+            }
+          ]
+        },
+        "annotators": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/annotator"
+          }
+        },
+        "events": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/annotation_event"
+          }
+        },
+        "quality_flags": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "enum": [
+              "header_filename_mismatch",
+              "ocr_required",
+              "ocr_uncertain",
+              "visual_transcription_used",
+              "complex_table",
+              "cross_page_clause",
+              "complex_applicability",
+              "complex_compliance",
+              "ambiguous_relationship",
+              "source_conflict",
+              "missing_required_action",
+              "manual_review_required"
+            ]
+          }
+        },
+        "uncertainty_flags": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/non_empty_string"
+          }
+        },
+        "notes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/non_empty_string"
+          }
+        },
+        "source_text_sha256": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "created_at": {
+          "$ref": "#/$defs/date_time_or_null"
+        },
+        "updated_at": {
+          "$ref": "#/$defs/date_time_or_null"
+        }
+      }
+    },
+    "benchmark_metadata": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "split",
+        "split_group",
+        "selection_strata",
+        "duplicate_cluster_ids",
+        "gold_record"
+      ],
+      "properties": {
+        "split": {
+          "enum": [
+            "unassigned",
+            "train",
+            "validation",
+            "test"
+          ]
+        },
+        "split_group": {
+          "type": "string",
+          "pattern": "^(?:19|20)[0-9]{2}-[0-9]{4}$"
+        },
+        "selection_strata": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "enum": [
+              "simple",
+              "complex_applicability",
+              "revised",
+              "corrected",
+              "emergency",
+              "table_heavy",
+              "long_document",
+              "stc_conditioned",
+              "near_duplicate_cluster",
+              "other"
+            ]
+          }
+        },
+        "duplicate_cluster_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/non_empty_string"
+          }
+        },
+        "gold_record": {
+          "type": "boolean"
+        }
+      }
+    }
+  }
+}

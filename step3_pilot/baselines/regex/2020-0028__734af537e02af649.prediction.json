@@ -1,0 +1,85 @@
+{
+  "source_document": {
+    "file_instance_id": "734af537e02af649",
+    "file_name": "2020-0028__AD_2020-0028_1__EASA_AD_2020_0028.pdf"
+  },
+  "ad_identity": {
+    "ad_number": "2020-0028",
+    "base_ad_number": "2020-0028",
+    "revision_number": null,
+    "is_emergency": false,
+    "is_correction": false,
+    "correction_date": {
+      "value": null
+    },
+    "design_approval_holder": {
+      "value": null
+    },
+    "supersedure_statement": {
+      "state": "explicit_none",
+      "value": null
+    }
+  },
+  "publication": {
+    "subject": {
+      "value": "Exhaust – Thrust Reverser Hinge Nut – Inspection / Replacement Manufacturer(s): Airbus"
+    },
+    "issue_date": {
+      "value": "2020-02-14"
+    },
+    "effective_date": {
+      "value": "2020-02-29"
+    },
+    "ata_chapters": [
+      {
+        "code": "78"
+      }
+    ],
+    "manufacturers": [
+      {
+        "raw_name": "Airbus",
+        "normalized_name": "Airbus"
+      }
+    ],
+    "type_model_designations": [
+      "A350",
+      "A350-1041",
+      "A350-78-P013",
+      "A350-941"
+    ],
+    "tcds_numbers": [
+      "EASA.A.151"
+    ]
+  },
+  "unsafe_condition": {
+    "state": "present",
+    "raw_reason_text": "An occurrence was reported where, when opening the # 2 engine T/R, a nut of the RH T/R hinge located at position 4 was found detached. Investigation identified that some nuts may have been installed with non-compliant locking features, or with locking features that could degrade quicker than anticipated. A similar nut installation on T/R hinge positions 2 and 3 can be affected by the same issue. TE.CAP.00110-009 © European Union Aviation Safety Agency. All rights reserved. ISO9001 Certified. Page 1 of 2 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet. An agency of the European Union EASA AD No.: 2020-0028 This condition, if not detected and corrected on multiple hinge attachments, can lead to in-flight loss of a T/R, possibly resulting in damage to the aeroplane and/or injury to persons on the ground. To address this potential unsafe condition, Airbus issued SB A350-78-P013, referencing Goodrich SB RA35078-059, to provide instructions to inspect and replace the T/R hinge nuts. For the reasons described above, this AD requires a one-time inspection of the T/R hinge nuts and, depending on findings, replacement with, or installation of new parts."
+  },
+  "requirements": [
+    {
+      "raw_action_text": "Required as indicated, unless accomplished previously: Installation/Replacement: Within 7 calendar months after the effective date of this AD, install new T/R hinge nuts, as defined in this AD, and apply a torque stripe at each location in accordance with the instructions of the SB.",
+      "action_types": [
+        "replacement"
+      ],
+      "compliance_rules": [
+        {
+          "raw_text": "Required as indicated, unless accomplished previously: Installation/Replacement: Within 7 calendar months after the effective date of this AD, install new T/R hinge nuts, as defined in this AD, and apply a torque stripe at each location in accordance with the instructions of the SB."
+        }
+      ]
+    }
+  ],
+  "relationships": [],
+  "classification": {
+    "ata_chapters": [
+      "78"
+    ],
+    "action_types": [
+      "replacement"
+    ]
+  },
+  "prediction_metadata": {
+    "method": "regex_rules",
+    "rules_version": "regex_v1",
+    "input_page_count": 2
+  }
+}

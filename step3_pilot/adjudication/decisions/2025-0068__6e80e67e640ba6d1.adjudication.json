@@ -1,0 +1,138 @@
+{
+  "ad_number": "2025-0068",
+  "logical_version_key": "2025-0068|UNCORRECTED",
+  "file_instance_id": "6e80e67e640ba6d1",
+  "annotator_a_file": "step3_pilot/submitted/annotator_a/2025-0068__6e80e67e640ba6d1.annotation.json",
+  "annotator_b_file": "step3_pilot/submitted/annotator_b/2025-0068__6e80e67e640ba6d1.annotation.json",
+  "adjudicator_id": "codex-a3",
+  "comparison_sha256": "3d665e1ec17611b8397c04ed643d223bcbd70d0846f4659981d0e836cc53b46d",
+  "decision_status": "machine_adjudicated_pending_human_review",
+  "resolved_record_file": "step3_pilot/adjudication/machine_candidates/2025-0068__6e80e67e640ba6d1.annotation.json",
+  "manual_review_required": true,
+  "sections": [
+    {
+      "section": "ad_identity",
+      "accepted_from": "annotator_b",
+      "source_pages": [
+        1
+      ],
+      "decision": "Use printed identity and supersedes edge to 2024-0038; the visible SUPERSEDED watermark supports lifecycle status only and names no successor."
+    },
+    {
+      "section": "publication",
+      "accepted_from": "annotator_b",
+      "source_pages": [
+        1
+      ],
+      "decision": "Keep exact type/model wording, dates, ATA 25, TCDS and Airbus manufacturer normalization."
+    },
+    {
+      "section": "applicability_groups",
+      "accepted_from": "annotator_b_visual",
+      "source_pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "decision": "Retain three groups and the visually checked 815-current-P/N set; exclude all 11 struck Appendix rows and preserve near-duplicate provenance."
+    },
+    {
+      "section": "definitions",
+      "accepted_from": "synthesized",
+      "source_pages": [
+        1,
+        2,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "decision": "Use the source affected-part wording and retain inspection/modification SB, manufacture-date and group definitions."
+    },
+    {
+      "section": "unsafe_condition",
+      "accepted_from": "annotator_b",
+      "source_pages": [
+        2
+      ],
+      "decision": "Retain work-deck/retainer-block damage, trolley-detachment risk and escape-path consequence without inferring a cause."
+    },
+    {
+      "section": "requirements",
+      "accepted_from": "annotator_b",
+      "source_pages": [
+        3,
+        4
+      ],
+      "decision": "Keep eight paragraph-level requirements with all Table 1/Table 2 timing branches, repetition and explicit terminating actions."
+    },
+    {
+      "section": "exceptions",
+      "accepted_from": "annotator_b",
+      "source_pages": [
+        3
+      ],
+      "decision": "Keep the standard previous-accomplishment exception and the Note 1 manufacture-date substitution."
+    },
+    {
+      "section": "previous_action_credit",
+      "accepted_from": "source_absent",
+      "source_pages": [
+        3,
+        4
+      ],
+      "decision": "No separately labelled revision-specific previous-action credit is stated."
+    },
+    {
+      "section": "referenced_publications",
+      "accepted_from": "annotator_b",
+      "source_pages": [
+        4
+      ],
+      "decision": "Retain 11 revision-specific inspection and modification SB records."
+    },
+    {
+      "section": "relationships",
+      "accepted_from": "annotator_b",
+      "source_pages": [
+        1,
+        2
+      ],
+      "decision": "Keep only explicit supersedes and retains-requirements-of edges to 2024-0038; both remain machine candidates."
+    },
+    {
+      "section": "amoc_and_contacts",
+      "accepted_from": "synthesized",
+      "source_pages": [
+        5
+      ],
+      "decision": "Preserve full EASA AMOC/regulatory and Airbus technical-contact wording."
+    },
+    {
+      "section": "classification",
+      "accepted_from": "synthesized",
+      "source_pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "decision": "Classify as mixed table-driven complex compliance with visual transcription; keep human_confirmed=false and manual review required."
+    }
+  ],
+  "overall_rationale": "Source-grounded machine reconciliation; a human reviewer must verify and approve before this record can enter the gold set."
+}

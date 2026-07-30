@@ -1,0 +1,124 @@
+{
+  "ad_number": "2017-0013",
+  "logical_version_key": "2017-0013|UNCORRECTED",
+  "file_instance_id": "67c94127f7b8e53d",
+  "annotator_a_file": "step3_pilot/submitted/annotator_a/2017-0013__67c94127f7b8e53d.annotation.json",
+  "annotator_b_file": "step3_pilot/submitted/annotator_b/2017-0013__67c94127f7b8e53d.annotation.json",
+  "adjudicator_id": "codex-a1",
+  "comparison_sha256": "e1b302ad4b259083ca26ad03bff79bbc58bd83527f4a1a2fb66c936d81a2d1bb",
+  "decision_status": "machine_adjudicated_pending_human_review",
+  "resolved_record_file": "step3_pilot/adjudication/machine_candidates/2017-0013__67c94127f7b8e53d.annotation.json",
+  "manual_review_required": true,
+  "sections": [
+    {
+      "section": "ad_identity",
+      "accepted_from": "synthesized",
+      "source_pages": [
+        1,
+        2
+      ],
+      "decision": "Use Original version, normalized Airbus holder, and the printed supersedure statement. No visual lifecycle stamp appears, so lifecycle remains unknown."
+    },
+    {
+      "section": "publication",
+      "accepted_from": "annotator_a_with_source_normalization",
+      "source_pages": [
+        1
+      ],
+      "decision": "Use source dates, A380/EASA.A.110 identity and normalized subject without the ATA prefix; normalize ATA 57 title to Wings."
+    },
+    {
+      "section": "applicability_groups",
+      "accepted_from": "synthesized",
+      "source_pages": [
+        1,
+        2,
+        4,
+        5,
+        6
+      ],
+      "decision": "Keep the all-MSN A380 group and an installed-flap group containing the exact 130 unique Appendix serials. Preserve TB2101 removal and the table evidence, including RH TB1056's revised date."
+    },
+    {
+      "section": "definitions",
+      "accepted_from": "synthesized",
+      "source_pages": [
+        2,
+        4
+      ],
+      "decision": "Retain the explicit serviceable-flap and transfer-of-title starting-date definitions, using full native-text evidence for Note 3 and the Appendix footnote."
+    },
+    {
+      "section": "unsafe_condition",
+      "accepted_from": "annotator_b",
+      "source_pages": [
+        1,
+        2
+      ],
+      "decision": "Keep wrong-alloy manufacture, reduced structural integrity and the stated identification/SDI/replacement mitigation; treat SB-list corrections as revision history, not a new unsafe-condition cause."
+    },
+    {
+      "section": "requirements",
+      "accepted_from": "annotator_b_with_evidence_correction",
+      "source_pages": [
+        2,
+        4,
+        5,
+        6
+      ],
+      "decision": "Use five atomic requirements: identify, table-triggered one-time SDI, contact, delegated-timing replacement and ongoing conditional installation. Preserve 7 years/4,300 FC whichever first from each row-specific date."
+    },
+    {
+      "section": "exceptions",
+      "accepted_from": "source",
+      "source_pages": [
+        2
+      ],
+      "decision": "Capture the printed unless-accomplished-previously blanket for one-time actions; do not use it to erase the ongoing installation condition."
+    },
+    {
+      "section": "previous_action_credit",
+      "accepted_from": "both",
+      "source_pages": [],
+      "decision": "No discrete previous-action-credit clause is present; keep an empty array."
+    },
+    {
+      "section": "referenced_publications",
+      "accepted_from": "both",
+      "source_pages": [
+        3
+      ],
+      "decision": "Retain original and Revision 1 of Airbus SB A380-57-8111 with exact dates and later-approved-revision allowance."
+    },
+    {
+      "section": "relationships",
+      "accepted_from": "source_with_target_resolution",
+      "source_pages": [
+        1,
+        2
+      ],
+      "decision": "Keep only the explicit supersedes and retains-requirements-of candidate edges to selected AD 2016-0095, resolve its record/logical key, and leave manually_verified=false."
+    },
+    {
+      "section": "amoc_and_contacts",
+      "accepted_from": "annotator_b",
+      "source_pages": [
+        3
+      ],
+      "decision": "Retain the EASA AMOC authority, EASA regulatory contact and Airbus A380 technical contact exactly from Remarks."
+    },
+    {
+      "section": "classification",
+      "accepted_from": "synthesized",
+      "source_pages": [
+        1,
+        2,
+        4,
+        5,
+        6
+      ],
+      "decision": "Classify A380, ATA 57, mixed frequency and table-driven compliance; preserve the frozen near-duplicate cluster and keep human_confirmed=false."
+    }
+  ],
+  "overall_rationale": "Source-grounded third-machine reconciliation of frozen A/B submissions; the candidate remains unreviewed and must be independently confirmed by a human before it can enter the gold set."
+}

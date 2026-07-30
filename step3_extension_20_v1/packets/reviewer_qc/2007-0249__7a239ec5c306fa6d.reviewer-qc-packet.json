@@ -1,0 +1,68 @@
+{
+  "packet_version": "1.0.0",
+  "packet_type": "reviewer_qc_source",
+  "record_id": "adann-7a239ec5c306fa6d",
+  "document_identity": {
+    "authority": "EASA",
+    "ad_number": "2007-0249",
+    "base_ad_number": "2007-0249",
+    "revision_number": 0,
+    "is_emergency": false,
+    "is_correction": false,
+    "correction_date_from_manifest": null,
+    "logical_version_key": "2007-0249|UNCORRECTED"
+  },
+  "pdf_provenance": {
+    "file_instance_id": "7a239ec5c306fa6d",
+    "content_id": "18185cd18d1593eb",
+    "file_name": "2007-0249__AD_2007-0249_1__easa_ad_2007_0249.pdf",
+    "relative_path": "2007-0249__AD_2007-0249_1__easa_ad_2007_0249.pdf",
+    "local_pdf_path": "/Users/tunwailin/Documents/Capstone/step3_extension_20_v1/source_pdfs/2007-0249__AD_2007-0249_1__easa_ad_2007_0249.pdf",
+    "official_pdf_url": "https://ad.easa.europa.eu/blob/easa_ad_2007_0249.pdf/AD_2007-0249_1",
+    "official_detail_url": "https://ad.easa.europa.eu/ad/2007-0249",
+    "file_sha256": "18185cd18d1593eb0b040e8a65fb4ff60e881622f180b1928af393479bc20f4e",
+    "manifest_normalized_text_sha256": "571c086d66dd5d97cd3db058d61e72b8a889c4d231a77c43fea529554bb59202",
+    "page_count": 2
+  },
+  "candidate_warning": "Everything under selection_screening and candidate_links is unverified screening metadata. It must never be copied into gold without PDF review.",
+  "selection_screening": {
+    "cohort": "2006-2018",
+    "family": "A318-A321",
+    "ata": "26",
+    "selection_strata": [
+      "legacy_format",
+      "simple"
+    ],
+    "selection_rationale": "Short cargo fire-extinguishing wiring inspection; adds ATA 26 coverage.",
+    "double_annotation": false,
+    "adjudication_assignment": null
+  },
+  "candidate_links": {
+    "candidate_near_duplicate_links": [],
+    "candidate_supersedure_links": []
+  },
+  "pages": [
+    {
+      "page_id": "7a239ec5c306fa6d:p0001",
+      "page_number": 1,
+      "page_count": 2,
+      "page_text_sha256": "59f2ad8919296dbcf865ec5258bc22ef24bafd4430fabab20a543f5d12adf21f",
+      "text_char_count": 3655,
+      "extraction_library": "pypdf",
+      "extraction_library_version": "6.10.0",
+      "extraction_mode": "layout",
+      "text": "       EASA AIRWORTHINESS DIRECTIVE\n\n\n\n                                       AD No.: 2007 - 0249\n\n\n\n\n                                       Date: 24 September 2007\n\n\n\nNo person may operate an aircraft to which an Airworthiness Directive applies,  except in accordance with the\nrequirements of that Airworthiness Directive unless otherwise agreed with the Authority of the State of Registry.\n\n    Type Approval Holder’s Name :                                               Type/Model designation(s) :\n\n    AIRBUS                                                                      A318, A319, A320 and A321 aircraft\n\n    TCDS Number: EASA A.064\n\n    Foreign AD: Not applicable\n\n    Supersedure: None\n\n\n                                    Fire Protection – Cargo Compartment Fire Extinguishing –\n      ATA 26                        Inspection of Bottle Wiring Connection – Inspection and Continuity\n                                    Check\n\n\n  Manufacturer(s): AIRBUS (formerly AIRBUS INDUSTRIE)\n\n  Applicability:                                                                                                                                                AIRBUS A318, A319, A320 and A321 aircraft, all certified models, all serial\n                                    numbers which have been delivered before 28 February 2007 and fitted with a\n                                    cargo compartment fire extinguisher bottle installed in production, or in service\n                                    by an Airbus Service Bulletin (SB), except aircraft on which MRBR task\n                                    26.23.00/03 or 26.23.00/07 has been performed.\n\n   Reason:                                                                                                                                                                                                       During planned maintenance visit on one A320 aircraft, a cross connection of\n                                    the fire extinguishing circuit system was identified. In case of fire, this cross\n                                    connection will activate (discharge) the wrong forward or aft cargo compartment\n                                    fire extinguisher bottle.\n                                    Failure to activate the correct bottle when required is classified as potentially\n                                    catastrophic.\n                                    For the reasons described above, this AD requires a one-time inspection and\n                                    check of the cargo firing circuit continuity to confirm the correct connection of\n                                    the dedicated wires between the discharge pushbutton switches and the\n                                    relevant cargo bottle.\n\n   Effective Date:                                                                                                         08 October 2007\n\n   Compliance:                                                                                                                                         Required as indicated, unless accomplished previously:\n                                    Within the next 600 Flight Hours after the effective date of this AD, perform the\n                                    inspection and continuity check of the cargo firing circuit continuity and, before\n                                    next flight, apply corrective actions, as necessary, in accordance with AIRBUS\n\n                                                                                                                                                        1/2"
+    },
+    {
+      "page_id": "7a239ec5c306fa6d:p0002",
+      "page_number": 2,
+      "page_count": 2,
+      "page_text_sha256": "c311298fbb6356ad12200e31135ead927d594e095b24abb14d21131d1b5a615e",
+      "text_char_count": 2022,
+      "extraction_library": "pypdf",
+      "extraction_library_version": "6.10.0",
+      "extraction_mode": "layout",
+      "text": "                                          SB A320-26A1068.\n                                          Accomplishment of MRBR task 26.23.00/03 or 26.23.00/07 is an acceptable\n                                          alternative method of compliance with the requirements of this directive.\n\n      Ref. Publications:                                                              AIRBUS Service Bulletin A320-26A1068 original issue,\n                                          or later approved revisions.\n\n       Remarks :                                                                                                                                                                       1.                        If requested and appropriately substantiated, EASA can accept Alternative\n                                                 Methods of Compliance for this AD.\n                                          2.                        This AD was posted on 13 June 2007 as PAD 07-095 for consultation until\n                                                 27 June 2007. The Comment Response Document can be found at\n                                                 http://ad.easa.europa.eu/.\n                                          3.                        Enquiries regarding this AD should be referred to the AD Focal Point -\n                                                 Certification Directorate, EASA. E-mail: ADs@easa.europa.eu .\n                                          4.                        For any question concerning the technical content of the requirements in\n                                                 this AD, please contact: AIRBUS – Airworthiness Office – EAS\n                                                 Fax: +33 5 61 93 44 51, E-mail: airworth-eas@airbus.com .\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n                                                                                                                                                                         2/2"
+    }
+  ]
+}

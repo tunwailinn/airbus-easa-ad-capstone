@@ -1,0 +1,131 @@
+{
+  "schema_version": "1.0.0",
+  "record_id": "adann-db594c767fc8f98e",
+  "source_document": {
+    "file_instance_id": "db594c767fc8f98e",
+    "content_id": "fdfe2bd216353199",
+    "canonical_file_instance_id": "db594c767fc8f98e",
+    "file_aliases": [],
+    "file_name": "2024-0038__AD_2024-0038_1__EASA_AD_2024_0038_superseded.pdf",
+    "relative_path": "2024-0038__AD_2024-0038_1__EASA_AD_2024_0038_superseded.pdf",
+    "file_sha256": "fdfe2bd21635319984f5a401e1b41a051e8fc533a64d9f07da5c0d8674549432",
+    "normalized_text_sha256": "c286db3fae614d6d0b9a171c737d8f2c431a8ea720797e5883dd5b1886d1676d",
+    "page_count": 10,
+    "extraction_status": "ok",
+    "needs_ocr": false,
+    "manifest_review_flags": [],
+    "source_url": "https://ad.easa.europa.eu/blob/EASA_AD_2024_0038_superseded.pdf/AD_2024-0038_1",
+    "text_extraction_method": "native_text",
+    "exact_duplicate_group": null,
+    "near_duplicate_cluster": "near-2024-0038--2025-0068--2026-0017"
+  },
+  "ad_identity": {
+    "authority": "EASA",
+    "document_type": "airworthiness_directive",
+    "ad_number": "2024-0038",
+    "base_ad_number": "2024-0038",
+    "revision_number": 0,
+    "publication_kind": "standard_ad",
+    "is_emergency": false,
+    "is_correction": false,
+    "correction_date": {
+      "state": "not_stated",
+      "value": null,
+      "raw_text": null,
+      "evidence_ids": []
+    },
+    "version_label": "2024-0038",
+    "logical_version_key": "2024-0038|UNCORRECTED",
+    "is_latest_version": null,
+    "lifecycle_status": "unknown",
+    "design_approval_holder": null,
+    "supersedure_statement": {
+      "state": "not_stated",
+      "value": null,
+      "raw_text": null,
+      "evidence_ids": []
+    },
+    "evidence_ids": []
+  },
+  "publication": {
+    "subject": null,
+    "issue_date": {
+      "state": "not_stated",
+      "value": null,
+      "raw_text": null,
+      "evidence_ids": []
+    },
+    "effective_date": {
+      "state": "not_stated",
+      "value": null,
+      "raw_text": null,
+      "evidence_ids": []
+    },
+    "ata_chapters": [],
+    "manufacturers": [],
+    "type_model_designations": [],
+    "tcds_numbers": [],
+    "foreign_ad": {
+      "state": "not_stated",
+      "value": null,
+      "raw_text": null,
+      "evidence_ids": []
+    }
+  },
+  "applicability_groups": [],
+  "definitions": [],
+  "unsafe_condition": null,
+  "requirements": [],
+  "exceptions": [],
+  "previous_action_credit": [],
+  "referenced_publications": [],
+  "relationships": [],
+  "amoc_and_contacts": [],
+  "classification": {
+    "airbus_families": [],
+    "ata_chapters": [],
+    "action_types": [],
+    "frequency": "unknown",
+    "emergency_status": "unknown",
+    "terminating_action_present": null,
+    "table_or_appendix_present": null,
+    "compliance_complexity": "unknown",
+    "human_confirmed": false,
+    "evidence_ids": []
+  },
+  "evidence_spans": [],
+  "field_assertions": [],
+  "annotation_metadata": {
+    "guideline_version": "1.0.0",
+    "record_status": "draft",
+    "creation_method": "manual",
+    "machine_provenance": null,
+    "annotators": [],
+    "events": [],
+    "quality_flags": [
+      "missing_required_action"
+    ],
+    "uncertainty_flags": [],
+    "notes": [
+      "Immutable source and identity provenance was prefilled from the frozen Step 1 selection.",
+      "All substantive fields, evidence, relationships, and review decisions require manual annotation."
+    ],
+    "source_text_sha256": "c286db3fae614d6d0b9a171c737d8f2c431a8ea720797e5883dd5b1886d1676d",
+    "created_at": null,
+    "updated_at": null
+  },
+  "benchmark_metadata": {
+    "split": "unassigned",
+    "split_group": "2024-0038",
+    "selection_strata": [
+      "complex_applicability",
+      "table_heavy",
+      "long_document",
+      "near_duplicate_cluster"
+    ],
+    "duplicate_cluster_ids": [
+      "near-2024-0038--2025-0068--2026-0017"
+    ],
+    "gold_record": false
+  }
+}

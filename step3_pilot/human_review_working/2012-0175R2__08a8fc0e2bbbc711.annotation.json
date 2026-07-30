@@ -1,0 +1,1835 @@
+{
+  "schema_version": "1.0.0",
+  "record_id": "adann-08a8fc0e2bbbc711",
+  "source_document": {
+    "file_instance_id": "08a8fc0e2bbbc711",
+    "content_id": "39f7f5de5a6846f2",
+    "canonical_file_instance_id": "08a8fc0e2bbbc711",
+    "file_aliases": [],
+    "file_name": "2012-0175R2__AD_2012-0175R2_1__EASA_AD_2012_0175_R2_superseded.pdf",
+    "relative_path": "2012-0175R2__AD_2012-0175R2_1__EASA_AD_2012_0175_R2_superseded.pdf",
+    "file_sha256": "39f7f5de5a6846f202d1e2a36b9e21fcd9028852e2f7fa3131e0ec874bd98ae0",
+    "normalized_text_sha256": "17e9800968d3c9825caca8bf44f6fd7d540b3b956dbf5f0089eaf1306affaa4a",
+    "page_count": 6,
+    "extraction_status": "hybrid",
+    "needs_ocr": false,
+    "manifest_review_flags": [],
+    "source_url": "https://ad.easa.europa.eu/blob/EASA_AD_2012_0175_R2_superseded.pdf/AD_2012-0175R2_1",
+    "text_extraction_method": "hybrid",
+    "exact_duplicate_group": null,
+    "near_duplicate_cluster": null
+  },
+  "ad_identity": {
+    "authority": "EASA",
+    "document_type": "airworthiness_directive",
+    "ad_number": "2012-0175R2",
+    "base_ad_number": "2012-0175",
+    "revision_number": 2,
+    "publication_kind": "standard_ad",
+    "is_emergency": false,
+    "is_correction": false,
+    "correction_date": {
+      "state": "not_stated",
+      "value": null,
+      "raw_text": null,
+      "evidence_ids": [
+        "EV-001"
+      ]
+    },
+    "version_label": "Revision 2",
+    "logical_version_key": "2012-0175R2|UNCORRECTED",
+    "is_latest_version": null,
+    "lifecycle_status": "superseded",
+    "design_approval_holder": {
+      "state": "present",
+      "value": "Airbus",
+      "raw_text": "Design Approval Holder’s Name: AIRBUS",
+      "evidence_ids": [
+        "EV-001"
+      ]
+    },
+    "supersedure_statement": {
+      "state": "present",
+      "value": "Revises EASA AD 2012-0175R1 dated 07 January 2014",
+      "raw_text": "Revision: This AD revises EASA AD 2012-0175R1 dated 07 January 2014.",
+      "evidence_ids": [
+        "EV-001"
+      ]
+    },
+    "evidence_ids": [
+      "EV-001",
+      "EV-015"
+    ]
+  },
+  "publication": {
+    "subject": {
+      "state": "present",
+      "value": "Flight Controls – Trimmable Horizontal Stabilizer Actuator Ballscrew Lower Splines – Inspection / Replacement",
+      "raw_text": "ATA 27 – Flight Controls – Trimmable Horizontal Stabilizer Actuator Ballscrew Lower Splines – Inspection / Replacement",
+      "evidence_ids": [
+        "EV-002"
+      ]
+    },
+    "issue_date": {
+      "state": "present",
+      "value": "2016-02-02",
+      "raw_text": "Issued: 02 February 2016",
+      "evidence_ids": [
+        "EV-001"
+      ]
+    },
+    "effective_date": {
+      "state": "present",
+      "value": "2016-02-04",
+      "raw_text": "Revision 2: 04 February 2016",
+      "evidence_ids": [
+        "EV-001"
+      ]
+    },
+    "ata_chapters": [
+      {
+        "code": "27",
+        "title": "Flight Controls",
+        "evidence_ids": [
+          "EV-002"
+        ]
+      }
+    ],
+    "manufacturers": [
+      {
+        "raw_name": "Airbus (formerly Airbus Industrie)",
+        "normalized_name": "Airbus",
+        "role": "manufacturer",
+        "evidence_ids": [
+          "EV-002"
+        ]
+      }
+    ],
+    "type_model_designations": [
+      "A318",
+      "A319",
+      "A320",
+      "A321"
+    ],
+    "tcds_numbers": [
+      "EASA.A.064"
+    ],
+    "foreign_ad": {
+      "state": "explicit_none",
+      "value": null,
+      "raw_text": "Foreign AD: Not applicable",
+      "evidence_ids": [
+        "EV-001"
+      ]
+    }
+  },
+  "applicability_groups": [
+    {
+      "group_id": "APP-001",
+      "label": "A320-family aeroplanes with an affected Appendix 1 THSA P/N",
+      "state": "present",
+      "raw_text": "Airbus A318-111, A318-112, A318-121, A318-122, A319-111, A319-112, A319-113, A319-114, A319-115, A319-131, A319-132, A319-133, A320-211, A320-212, A320-214, A320-215, A320-216, A320-231, A320-232, A320-233, A321-111, A321-112, A321-131, A321-211, A321-212, A321-213, A321-231 and A321-232 aeroplanes, all manufacturer serial numbers. Affected THSA are those having a P/N listed in Appendix 1.",
+      "aircraft_families": [
+        "A320 family"
+      ],
+      "models": [
+        "A318-111",
+        "A318-112",
+        "A318-121",
+        "A318-122",
+        "A319-111",
+        "A319-112",
+        "A319-113",
+        "A319-114",
+        "A319-115",
+        "A319-131",
+        "A319-132",
+        "A319-133",
+        "A320-211",
+        "A320-212",
+        "A320-214",
+        "A320-215",
+        "A320-216",
+        "A320-231",
+        "A320-232",
+        "A320-233",
+        "A321-111",
+        "A321-112",
+        "A321-131",
+        "A321-211",
+        "A321-212",
+        "A321-213",
+        "A321-231",
+        "A321-232"
+      ],
+      "serial_restrictions": [
+        {
+          "restriction_id": "MSN-001",
+          "kind": "all",
+          "raw_expression": "all manufacturer serial numbers",
+          "lower_bound": null,
+          "upper_bound": null,
+          "explicit_values": [],
+          "condition": null,
+          "evidence_ids": [
+            "EV-003"
+          ]
+        }
+      ],
+      "part_numbers": [
+        "47145-021",
+        "47145-030",
+        "47145-031",
+        "47145-032",
+        "47145-033",
+        "47145-034",
+        "47145-035",
+        "47145-036",
+        "47145-037",
+        "47145-050",
+        "47145-051",
+        "47145-052",
+        "47145-053",
+        "47145-054",
+        "47145-055",
+        "47145-056",
+        "47145-057",
+        "47145-121",
+        "47145-130",
+        "47145-131",
+        "47145-132",
+        "47145-133",
+        "47145-134",
+        "47145-135",
+        "47145-136",
+        "47145-137",
+        "47145-140",
+        "47145-141",
+        "47145-143",
+        "47145-144",
+        "47145-145",
+        "47145-146",
+        "47145-147",
+        "47145-150",
+        "47145-151",
+        "47145-152",
+        "47145-153",
+        "47145-154",
+        "47145-155",
+        "47145-156",
+        "47145-157",
+        "47145-160",
+        "47145-161",
+        "47145-162",
+        "47145-163",
+        "47145-164",
+        "47145-165",
+        "47145-166",
+        "47145-167",
+        "47145-230",
+        "47145-231",
+        "47145-232",
+        "47145-233",
+        "47145-234",
+        "47145-235",
+        "47145-236",
+        "47145-237",
+        "47145-240",
+        "47145-241",
+        "47145-242",
+        "47145-243",
+        "47145-244",
+        "47145-245",
+        "47145-246",
+        "47145-247",
+        "47145-250",
+        "47145-251",
+        "47145-252",
+        "47145-253",
+        "47145-254",
+        "47145-255",
+        "47145-256",
+        "47145-257",
+        "47145-260",
+        "47145-261",
+        "47145-262",
+        "47145-263",
+        "47145-264",
+        "47145-265",
+        "47145-266",
+        "47145-267"
+      ],
+      "configuration_conditions": [
+        "A THSA with a P/N listed in Appendix 1 is installed"
+      ],
+      "exclusions": [],
+      "boolean_logic": "all",
+      "evidence_ids": [
+        "EV-003",
+        "EV-016",
+        "EV-017"
+      ]
+    }
+  ],
+  "definitions": [
+    {
+      "definition_id": "DEF-001",
+      "term": "THSA first flight",
+      "definition_text": "The THSA ‘entry into service date’ as listed in Goodrich SB 47145-27-16; if the THSA P/N is not listed there, the manufacturing date engraved on the THSA identification plate.",
+      "evidence_ids": [
+        "EV-007"
+      ]
+    }
+  ],
+  "unsafe_condition": {
+    "state": "present",
+    "raw_reason_text": "Corrosion was found affecting THSA ballscrew lower splines. Technical investigation identified contact/friction removing Molykote, humidity ingress initiating oxidation, and water retention spreading corrosion. If not detected and corrected, ballscrew rupture may cause loss of transmission of THSA torque loads to the tie-bar, THSA blowback, and possible loss of control of the aeroplane.",
+    "observed_events_or_defects": [
+      "Corrosion affecting THSA ballscrew lower splines"
+    ],
+    "causes": [
+      "Contact and friction remove Molykote corrosion protection",
+      "Humidity ingress and water retention initiate and spread oxidation"
+    ],
+    "unsafe_conditions": [
+      "Possible THSA ballscrew rupture and loss of torque-load transmission to the tie-bar",
+      "THSA blowback"
+    ],
+    "potential_consequences": [
+      "Loss of control of the aeroplane"
+    ],
+    "affected_components": [
+      "THSA ballscrew lower splines",
+      "Tie bar",
+      "Screw-jack"
+    ],
+    "intended_risk_mitigation": [
+      "Repetitive detailed inspection",
+      "Corrective inspection and affected-THSA replacement",
+      "Optional installation of an unaffected THSA"
+    ],
+    "evidence_ids": [
+      "EV-004",
+      "EV-005"
+    ]
+  },
+  "requirements": [
+    {
+      "requirement_id": "REQ-001",
+      "paragraph_reference": "(1)",
+      "parent_requirement_id": null,
+      "applicability_group_ids": [
+        "APP-001"
+      ],
+      "action_types": [
+        "inspection"
+      ],
+      "obligation": "mandatory",
+      "action_text": "Accomplish a detailed inspection of the ballscrew of each affected THSA.",
+      "objects_or_components": [
+        "THSA ballscrew lower splines"
+      ],
+      "conditions": [
+        "THSA P/N is listed in Appendix 1",
+        "Unless accomplished previously"
+      ],
+      "method_publication_ids": [
+        "PUB-001"
+      ],
+      "compliance_rules": [
+        {
+          "compliance_id": "CMP-001",
+          "state": "present",
+          "raw_text": "Initially, whichever occurs later: before accumulating 22 years since THSA first flight, or within 3 months after 21 September 2012; thereafter at intervals not to exceed 24 months.",
+          "logic": "whichever_occurs_later",
+          "conditions": [],
+          "initial_limits": [
+            {
+              "limit_id": "LIM-001",
+              "relation": "before",
+              "quantity": 22,
+              "unit": "calendar_year",
+              "raw_value": "Before accumulating 22 years",
+              "reference_event": "THSA first flight",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-006",
+                "EV-007"
+              ]
+            },
+            {
+              "limit_id": "LIM-002",
+              "relation": "within",
+              "quantity": 3,
+              "unit": "calendar_month",
+              "raw_value": "Within 3 months after 21 September 2012",
+              "reference_event": "21 September 2012",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-006"
+              ]
+            }
+          ],
+          "is_repetitive": true,
+          "repetitive_intervals": [
+            {
+              "limit_id": "LIM-003",
+              "relation": "not_to_exceed",
+              "quantity": 24,
+              "unit": "calendar_month",
+              "raw_value": "intervals not to exceed 24 months",
+              "reference_event": "last detailed inspection",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-006"
+              ]
+            }
+          ],
+          "grace_periods": [],
+          "evidence_ids": [
+            "EV-006",
+            "EV-007"
+          ]
+        }
+      ],
+      "follow_on_requirement_ids": [
+        "REQ-002"
+      ],
+      "terminating_action": {
+        "state": "not_stated",
+        "present": false,
+        "scope": "none",
+        "action_text": null,
+        "terminates_requirement_ids": [],
+        "evidence_ids": []
+      },
+      "evidence_ids": [
+        "EV-006",
+        "EV-016",
+        "EV-017"
+      ]
+    },
+    {
+      "requirement_id": "REQ-002",
+      "paragraph_reference": "(2)",
+      "parent_requirement_id": "REQ-001",
+      "applicability_group_ids": [
+        "APP-001"
+      ],
+      "action_types": [
+        "inspection",
+        "replacement"
+      ],
+      "obligation": "conditional",
+      "action_text": "If corrosion is found, perform the applicable additional inspections and replace the affected THSA as instructed.",
+      "objects_or_components": [
+        "Affected THSA ballscrew",
+        "Affected THSA"
+      ],
+      "conditions": [
+        "Corrosion found during a paragraph (1) inspection"
+      ],
+      "method_publication_ids": [
+        "PUB-001"
+      ],
+      "compliance_rules": [
+        {
+          "compliance_id": "CMP-002",
+          "state": "present",
+          "raw_text": "If corrosion is found, within the applicable compliance time defined in Paragraph 1.E.(2) of Airbus SB A320-27-1214",
+          "logic": "conditional",
+          "conditions": [
+            "Corrosion found during a paragraph (1) inspection"
+          ],
+          "initial_limits": [],
+          "is_repetitive": false,
+          "repetitive_intervals": [],
+          "grace_periods": [],
+          "evidence_ids": [
+            "EV-008"
+          ]
+        }
+      ],
+      "follow_on_requirement_ids": [
+        "REQ-003"
+      ],
+      "terminating_action": {
+        "state": "present",
+        "present": false,
+        "scope": "none",
+        "action_text": null,
+        "terminates_requirement_ids": [],
+        "evidence_ids": [
+          "EV-009"
+        ]
+      },
+      "evidence_ids": [
+        "EV-008",
+        "EV-009"
+      ]
+    },
+    {
+      "requirement_id": "REQ-003",
+      "paragraph_reference": "(2)",
+      "parent_requirement_id": "REQ-002",
+      "applicability_group_ids": [
+        "APP-001"
+      ],
+      "action_types": [
+        "reporting"
+      ],
+      "obligation": "conditional",
+      "action_text": "Report to Airbus the results of an inspection where corrosion is found.",
+      "objects_or_components": [
+        "Inspection results"
+      ],
+      "conditions": [
+        "Corrosion found"
+      ],
+      "method_publication_ids": [],
+      "compliance_rules": [
+        {
+          "compliance_id": "CMP-003",
+          "state": "present",
+          "raw_text": "Within 90 days after an inspection where corrosion is found",
+          "logic": "conditional",
+          "conditions": [
+            "An inspection found corrosion"
+          ],
+          "initial_limits": [
+            {
+              "limit_id": "LIM-004",
+              "relation": "within",
+              "quantity": 90,
+              "unit": "calendar_day",
+              "raw_value": "Within 90 days",
+              "reference_event": "inspection where corrosion is found",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-008"
+              ]
+            }
+          ],
+          "is_repetitive": false,
+          "repetitive_intervals": [],
+          "grace_periods": [],
+          "evidence_ids": [
+            "EV-008"
+          ]
+        }
+      ],
+      "follow_on_requirement_ids": [],
+      "terminating_action": {
+        "state": "not_stated",
+        "present": false,
+        "scope": "none",
+        "action_text": null,
+        "terminates_requirement_ids": [],
+        "evidence_ids": []
+      },
+      "evidence_ids": [
+        "EV-008"
+      ]
+    },
+    {
+      "requirement_id": "REQ-004",
+      "paragraph_reference": "(4)",
+      "parent_requirement_id": null,
+      "applicability_group_ids": [
+        "APP-001"
+      ],
+      "action_types": [
+        "prohibition",
+        "install",
+        "inspection"
+      ],
+      "obligation": "prohibited",
+      "action_text": "Do not install an Appendix 1 THSA unless it is younger than 22 years since first flight or is Type 1 at installation and is subsequently inspected and corrected as required.",
+      "objects_or_components": [
+        "THSA with a P/N listed in Appendix 1"
+      ],
+      "conditions": [
+        "Allowed only under the paragraph (4) age or Type 1 conditions"
+      ],
+      "method_publication_ids": [
+        "PUB-001"
+      ],
+      "compliance_rules": [
+        {
+          "compliance_id": "CMP-004",
+          "state": "present",
+          "raw_text": "From 21 September 2012, do not install an Appendix 1 THSA unless an allowed condition is met",
+          "logic": "conditional",
+          "conditions": [
+            "The THSA has not accumulated 22 years since first flight, or is Type 1 at installation and will be inspected and corrected after installation"
+          ],
+          "initial_limits": [
+            {
+              "limit_id": "LIM-005",
+              "relation": "from",
+              "quantity": null,
+              "unit": "calendar_date",
+              "raw_value": "From 21 September 2012",
+              "reference_event": "effective date of the original issue",
+              "calendar_date": "2012-09-21",
+              "evidence_ids": [
+                "EV-010"
+              ]
+            }
+          ],
+          "is_repetitive": false,
+          "repetitive_intervals": [],
+          "grace_periods": [],
+          "evidence_ids": [
+            "EV-010"
+          ]
+        }
+      ],
+      "follow_on_requirement_ids": [],
+      "terminating_action": {
+        "state": "not_stated",
+        "present": false,
+        "scope": "none",
+        "action_text": null,
+        "terminates_requirement_ids": [],
+        "evidence_ids": []
+      },
+      "evidence_ids": [
+        "EV-010"
+      ]
+    },
+    {
+      "requirement_id": "REQ-005",
+      "paragraph_reference": "(5)",
+      "parent_requirement_id": null,
+      "applicability_group_ids": [
+        "APP-001"
+      ],
+      "action_types": [
+        "install",
+        "replacement",
+        "modification"
+      ],
+      "obligation": "optional_terminating",
+      "action_text": "Install a THSA having a P/N not listed in Appendix 1 using approved aircraft modification instructions.",
+      "objects_or_components": [
+        "THSA having a P/N not listed in Appendix 1"
+      ],
+      "conditions": [
+        "Installation uses approved aircraft modification instructions"
+      ],
+      "method_publication_ids": [
+        "PUB-002"
+      ],
+      "compliance_rules": [
+        {
+          "compliance_id": "CMP-005",
+          "state": "present",
+          "raw_text": "At installation of a THSA having a P/N not listed in Appendix 1, provided approved modification instructions are used",
+          "logic": "conditional",
+          "conditions": [
+            "P/N is not listed in Appendix 1",
+            "Approved aircraft modification instructions are used"
+          ],
+          "initial_limits": [],
+          "is_repetitive": false,
+          "repetitive_intervals": [],
+          "grace_periods": [],
+          "evidence_ids": [
+            "EV-011"
+          ]
+        }
+      ],
+      "follow_on_requirement_ids": [],
+      "terminating_action": {
+        "state": "present",
+        "present": true,
+        "scope": "full",
+        "action_text": "Installation of a THSA P/N not listed in Appendix 1 terminates paragraph (1) repetitive inspections for that aeroplane.",
+        "terminates_requirement_ids": [
+          "REQ-001"
+        ],
+        "evidence_ids": [
+          "EV-011"
+        ]
+      },
+      "evidence_ids": [
+        "EV-011"
+      ]
+    }
+  ],
+  "exceptions": [
+    {
+      "exception_id": "EXC-001",
+      "text": "Aeroplanes with production modification 154170 and/or 156952 are not affected by paragraph (1), provided no Appendix 1 THSA P/N is installed.",
+      "applies_to_requirement_ids": [
+        "REQ-001"
+      ],
+      "evidence_ids": [
+        "EV-012"
+      ]
+    }
+  ],
+  "previous_action_credit": [],
+  "referenced_publications": [
+    {
+      "publication_id": "PUB-001",
+      "publication_type": "service_bulletin",
+      "issuer": "Airbus",
+      "number": "A320-27-1214",
+      "revision": "Original issue",
+      "publication_date": "2012-02-23",
+      "title": null,
+      "roles": [
+        "required_method"
+      ],
+      "later_approved_revisions_allowed": true,
+      "evidence_ids": [
+        "EV-006",
+        "EV-008",
+        "EV-010",
+        "EV-013"
+      ]
+    },
+    {
+      "publication_id": "PUB-002",
+      "publication_type": "service_bulletin",
+      "issuer": "Airbus",
+      "number": "A320-27-1222",
+      "revision": "Original issue",
+      "publication_date": "2015-07-17",
+      "title": null,
+      "roles": [
+        "optional_method"
+      ],
+      "later_approved_revisions_allowed": true,
+      "evidence_ids": [
+        "EV-011",
+        "EV-013"
+      ]
+    },
+    {
+      "publication_id": "PUB-003",
+      "publication_type": "service_bulletin",
+      "issuer": "Goodrich",
+      "number": "47145-27-16",
+      "revision": "Original issue",
+      "publication_date": "2011-11-07",
+      "title": null,
+      "roles": [
+        "referenced_information"
+      ],
+      "later_approved_revisions_allowed": true,
+      "evidence_ids": [
+        "EV-007",
+        "EV-013"
+      ]
+    },
+    {
+      "publication_id": "PUB-004",
+      "publication_type": "service_bulletin",
+      "issuer": "UTAS",
+      "number": "47145-27-18",
+      "revision": "Original issue",
+      "publication_date": "2015-03-31",
+      "title": null,
+      "roles": [
+        "referenced_information"
+      ],
+      "later_approved_revisions_allowed": true,
+      "evidence_ids": [
+        "EV-013"
+      ]
+    },
+    {
+      "publication_id": "PUB-005",
+      "publication_type": "service_bulletin",
+      "issuer": "UTAS",
+      "number": "47145-27-20",
+      "revision": "Original issue",
+      "publication_date": "2015-07-16",
+      "title": null,
+      "roles": [
+        "referenced_information"
+      ],
+      "later_approved_revisions_allowed": true,
+      "evidence_ids": [
+        "EV-016",
+        "EV-017",
+        "EV-013"
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "relationship_id": "REL-001",
+      "relationship_type": "revises",
+      "target_ad_number": "2012-0175R1",
+      "target_record_id": null,
+      "target_logical_version_key": null,
+      "source": "revision_family",
+      "verification_status": "adjudicated",
+      "manually_verified": true,
+      "raw_text": "This AD revises EASA AD 2012-0175R1 dated 07 January 2014.",
+      "evidence_ids": [
+        "EV-001"
+      ]
+    }
+  ],
+  "amoc_and_contacts": [
+    {
+      "entry_id": "AMC-001",
+      "entry_type": "amoc_authority",
+      "authority_or_organization": "EASA",
+      "contact_text": "If requested and appropriately substantiated, EASA can approve Alternative Methods of Compliance for this AD.",
+      "conditions": [
+        "Requested and appropriately substantiated"
+      ],
+      "evidence_ids": [
+        "EV-014"
+      ]
+    },
+    {
+      "entry_id": "AMC-002",
+      "entry_type": "regulatory_contact",
+      "authority_or_organization": "EASA",
+      "contact_text": "Enquiries regarding this AD should be referred to EASA at ADs@easa.europa.eu.",
+      "conditions": [],
+      "evidence_ids": [
+        "EV-014"
+      ]
+    },
+    {
+      "entry_id": "AMC-003",
+      "entry_type": "technical_contact",
+      "authority_or_organization": "Airbus",
+      "contact_text": "For technical questions, contact AIRBUS – Airworthiness Office – EIAS, fax +33 5 61 93 44 51, account.airworth-eas@airbus.com.",
+      "conditions": [],
+      "evidence_ids": [
+        "EV-014"
+      ]
+    }
+  ],
+  "classification": {
+    "airbus_families": [
+      "A320 family"
+    ],
+    "ata_chapters": [
+      "27"
+    ],
+    "action_types": [
+      "inspection",
+      "replacement",
+      "reporting",
+      "prohibition",
+      "install",
+      "modification"
+    ],
+    "frequency": "mixed",
+    "emergency_status": "standard",
+    "terminating_action_present": true,
+    "table_or_appendix_present": true,
+    "compliance_complexity": "mixed",
+    "human_confirmed": true,
+    "evidence_ids": [
+      "EV-002",
+      "EV-003",
+      "EV-006",
+      "EV-008",
+      "EV-010",
+      "EV-011",
+      "EV-016",
+      "EV-017"
+    ]
+  },
+  "evidence_spans": [
+    {
+      "evidence_id": "EV-001",
+      "source_file_instance_id": "08a8fc0e2bbbc711",
+      "page_number": 1,
+      "printed_page_label": "Page 1 of 6",
+      "section": "cover",
+      "section_raw": "Cover identity",
+      "clause_path": null,
+      "exact_quote": "AD No.: 2012-0175R2. Issued: 02 February 2016. Design Approval Holder’s Name: AIRBUS. Type/Model designation(s): A318, A319, A320 and A321 aeroplanes. Effective Date: Revision 2: 04 February 2016; Revision 1: 21 January 2014; Original issue: 21 September 2012. TCDS Number(s): EASA.A.064. Foreign AD: Not applicable. Revision: This AD revises EASA AD 2012-0175R1 dated 07 January 2014.",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "94ff6b4e7eecde33f8fa4df0c27dfc532458d923a34411c4c23c6dbfe0b9d471",
+      "bbox_normalized": null,
+      "extraction_method": "visual_transcription",
+      "quality": "visual_transcription",
+      "table_context": null,
+      "annotation_note": "Visually transcribed from the rendered two-column cover because native extraction interleaves some labels and values."
+    },
+    {
+      "evidence_id": "EV-002",
+      "source_file_instance_id": "08a8fc0e2bbbc711",
+      "page_number": 1,
+      "printed_page_label": "Page 1 of 6",
+      "section": "cover",
+      "section_raw": "ATA / Manufacturer(s)",
+      "clause_path": null,
+      "exact_quote": "ATA 27 – Flight Controls – Trimmable Horizontal Stabilizer Actuator Ballscrew Lower Splines – Inspection / Replacement. Manufacturer(s): Airbus (formerly Airbus Industrie).",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "94ff6b4e7eecde33f8fa4df0c27dfc532458d923a34411c4c23c6dbfe0b9d471",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-003",
+      "source_file_instance_id": "08a8fc0e2bbbc711",
+      "page_number": 1,
+      "printed_page_label": "Page 1 of 6",
+      "section": "applicability",
+      "section_raw": "Applicability",
+      "clause_path": null,
+      "exact_quote": "Airbus A318-111, A318-112, A318-121, A318-122, A319-111, A319-112, A319-113, A319-114, A319-115, A319-131, A319-132, A319-133, A320-211, A320-212, A320-214, A320-215, A320-216, A320-231, A320-232, A320-233, A321-111, A321-112, A321-131, A321-211, A321-212, A321-213, A321-231 and A321-232 aeroplanes, all manufacturer serial numbers.",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "94ff6b4e7eecde33f8fa4df0c27dfc532458d923a34411c4c23c6dbfe0b9d471",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-004",
+      "source_file_instance_id": "08a8fc0e2bbbc711",
+      "page_number": 1,
+      "printed_page_label": "Page 1 of 6",
+      "section": "reason",
+      "section_raw": "Reason",
+      "clause_path": null,
+      "exact_quote": "Some Trimmable Horizontal Stabilizer Actuators (THSA), Part Number (P/N) 47147-500 fitted on A330/A340 aeroplanes were found with corrosion, affecting the ballscrew lower splines between the tie bar and the screw-jack. The affected ballscrew is made of steel and anti-corrosion protection is ensured, except on both extremities (upper and lower splines) where Molykote is applied. The results of the technical investigations identified that the corrosion was caused by a combination of contact/friction between the tie bar and the inner surface of the ballscrew leading to the removal",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "94ff6b4e7eecde33f8fa4df0c27dfc532458d923a34411c4c23c6dbfe0b9d471",
+      "bbox_normalized": null,
+      "extraction_method": "visual_transcription",
+      "quality": "visual_transcription",
+      "table_context": null,
+      "annotation_note": "Visually transcribed through the diagonal SUPERSEDED stamp, which interrupts the native token THSA; the clause stops at the page boundary and continues on page 2."
+    },
+    {
+      "evidence_id": "EV-005",
+      "source_file_instance_id": "08a8fc0e2bbbc711",
+      "page_number": 2,
+      "printed_page_label": "Page 2 of 6",
+      "section": "reason",
+      "section_raw": "Reason continued",
+      "clause_path": null,
+      "exact_quote": "of Molykote (corrosion protection) at the level of the tie bar splines, humidity ingress initiating surface oxidation starting from areas where Molykote is removed, and water retention in THSA lower part leading to corrosion spread out and to the creation of a brown deposit (iron oxide). The results of the technical investigations also concluded that the ballscrews of THSA P/N 47145-XXX (where XXX stands for a specific numerical value), installed on A320 family aeroplanes, might be affected by this corrosion issue. This condition, if not detected and corrected, may lead, in case of ballscrew rupture, to loss of transmission of THSA torque loads from the ballscrew to the tie-bar, prompting THSA blowback, possibly resulting in loss of control of the aeroplane.",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "b39b498c50af006a637b64502321979a96a8fba7086fd3c39039352d9e075af3",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": "Exact continuation from the top of page 2; whitespace normalized."
+    },
+    {
+      "evidence_id": "EV-006",
+      "source_file_instance_id": "08a8fc0e2bbbc711",
+      "page_number": 2,
+      "printed_page_label": "Page 2 of 6",
+      "section": "required_actions_and_compliance_times",
+      "section_raw": "Required Action(s) and Compliance Time(s)",
+      "clause_path": "(1) and Table 1",
+      "exact_quote": "(1) Initially, within the compliance time indicated in Table 1 of this AD, and thereafter at intervals not to exceed 24 months, accomplish a detailed inspection of the ballscrew of each THSA having a P/N listed in Appendix 1 of this AD, in accordance with the instructions of Airbus Service Bulletin (SB) A320-27-1214. Table 1 – Initial THSA inspection. Compliance Time (whichever occurs later, A or B): A Before accumulating 22 years (see Note 1 of this AD); B Within 3 months after 21 September 2012 [the effective date of the original issue of this AD].",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "b39b498c50af006a637b64502321979a96a8fba7086fd3c39039352d9e075af3",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-007",
+      "source_file_instance_id": "08a8fc0e2bbbc711",
+      "page_number": 2,
+      "printed_page_label": "Page 2 of 6",
+      "section": "definitions",
+      "section_raw": "Note 1",
+      "clause_path": null,
+      "exact_quote": "For the purpose of this AD, the definition of THSA first flight is the THSA ‘entry into service date’ as listed in Goodrich SB 47145-27-16. If the THSA P/N is not listed in Goodrich SB 47145-27-16, the THSA first flight is the manufacturing date engraved on the THSA identification plate.",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "b39b498c50af006a637b64502321979a96a8fba7086fd3c39039352d9e075af3",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-008",
+      "source_file_instance_id": "08a8fc0e2bbbc711",
+      "page_number": 3,
+      "printed_page_label": "Page 3 of 6",
+      "section": "required_actions_and_compliance_times",
+      "section_raw": "Required Action(s) and Compliance Time(s)",
+      "clause_path": "(2)",
+      "exact_quote": "(2) If, during any inspection as required by paragraph (1) of this AD, corrosion is found, within the applicable compliance time as defined in Paragraph 1.E.(2) of Airbus SB A320-27-1214, accomplish the applicable corrective actions (additional inspections of the affected THSA ballscrew, followed by replacement of the affected THSA) in accordance with the instructions of Airbus SB A320-27-1214. Within 90 days after an inspection where corrosion is found, report the results to Airbus.",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "f8827ea043fa85c2e4d56b71982fcae4be8cad30d10f76d8916d30048f81b12b",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-009",
+      "source_file_instance_id": "08a8fc0e2bbbc711",
+      "page_number": 3,
+      "printed_page_label": "Page 3 of 6",
+      "section": "required_actions_and_compliance_times",
+      "section_raw": "Required Action(s) and Compliance Time(s)",
+      "clause_path": "(3)",
+      "exact_quote": "(3) Replacement of a THSA as required by paragraph (2) of this AD does not constitute terminating action for the repetitive inspections as required by paragraph (1) of this AD, except as specified in paragraph (5) of this AD.",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "f8827ea043fa85c2e4d56b71982fcae4be8cad30d10f76d8916d30048f81b12b",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-010",
+      "source_file_instance_id": "08a8fc0e2bbbc711",
+      "page_number": 3,
+      "printed_page_label": "Page 3 of 6",
+      "section": "required_actions_and_compliance_times",
+      "section_raw": "Required Action(s) and Compliance Time(s)",
+      "clause_path": "(4)",
+      "exact_quote": "(4) From 21 September 2012 [the effective date of the original issue of this AD], do not install on any aeroplane a THSA having a P/N listed in Appendix 1 of this AD, unless the part has not yet accumulated 22 years since its first flight, or unless it has been determined that the THSA is classified as Type 1 (no corrosion) at the time of installation, in accordance with criteria defined in Airbus SB A320-27-1214, and on the condition that, following installation, the THSA is inspected and, depending on findings, corrected as required by this AD.",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "f8827ea043fa85c2e4d56b71982fcae4be8cad30d10f76d8916d30048f81b12b",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-011",
+      "source_file_instance_id": "08a8fc0e2bbbc711",
+      "page_number": 3,
+      "printed_page_label": "Page 3 of 6",
+      "section": "required_actions_and_compliance_times",
+      "section_raw": "Required Action(s) and Compliance Time(s)",
+      "clause_path": "(5)",
+      "exact_quote": "(5) Installation on an aeroplane of a THSA having a P/N not listed in Appendix 1 of this AD constitutes terminating action for the repetitive inspections as required by paragraph (1) of this AD for that aeroplane, provided the installation is accomplished in accordance with approved aircraft modification instructions. Using the instructions of Airbus SB A320-27-1222 to replace an affected THSA is an acceptable method to modify an aeroplane.",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "f8827ea043fa85c2e4d56b71982fcae4be8cad30d10f76d8916d30048f81b12b",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-012",
+      "source_file_instance_id": "08a8fc0e2bbbc711",
+      "page_number": 3,
+      "printed_page_label": "Page 3 of 6",
+      "section": "required_actions_and_compliance_times",
+      "section_raw": "Required Action(s) and Compliance Time(s)",
+      "clause_path": "(6)",
+      "exact_quote": "(6) An aeroplane on which Airbus modification 154170 (installation of THSA P/N 47145-168 with improved ballscrew design) and/or modification 156952 (installation of THSA P/N 47145-268 fitted with improved ballscrew design and Electrical Load Sensing Device -ELSD) has been embodied in production is not affected by the requirements of paragraphs (1) of this AD, provided that it is determined that no THSA with a P/N as listed in Appendix 1 of this AD is installed on that aeroplane.",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "f8827ea043fa85c2e4d56b71982fcae4be8cad30d10f76d8916d30048f81b12b",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-013",
+      "source_file_instance_id": "08a8fc0e2bbbc711",
+      "page_number": 3,
+      "printed_page_label": "Page 3 of 6",
+      "section": "reference_publications",
+      "section_raw": "Ref. Publications",
+      "clause_path": null,
+      "exact_quote": "Airbus SB A320-27-1214 original issue dated 23 February 2012. Airbus SB A320-27-1222 original issue dated 17 July 2015. Goodrich SB 47145-27-16 original issue dated 07 November 2011. UTAS SB 47145-27-18 original issue dated 31 March 2015. UTAS SB 47145-27-20 original issue dated 16 July 2015. The use of later approved revisions of these documents is acceptable for compliance with the requirements of this AD.",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "f8827ea043fa85c2e4d56b71982fcae4be8cad30d10f76d8916d30048f81b12b",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-014",
+      "source_file_instance_id": "08a8fc0e2bbbc711",
+      "page_number": 4,
+      "printed_page_label": "Page 4 of 6",
+      "section": "remarks",
+      "section_raw": "Remarks 1, 3 and 4",
+      "clause_path": null,
+      "exact_quote": "If requested and appropriately substantiated, EASA can approve Alternative Methods of Compliance for this AD. Enquiries regarding this AD should be referred to the EASA Safety Information Section, Certification Directorate. E-mail: ADs@easa.europa.eu. For any question concerning the technical content of the requirements in this AD, please contact: AIRBUS – Airworthiness Office – EIAS, Fax +33 5 61 93 44 51, E-mail: account.airworth-eas@airbus.com.",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "98a3a581f7ed686d83ff4e85343137764dd015366221bd36030f1c6b5b237a09",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-015",
+      "source_file_instance_id": "08a8fc0e2bbbc711",
+      "page_number": 4,
+      "printed_page_label": "Page 4 of 6",
+      "section": "other",
+      "section_raw": "Document status stamp",
+      "clause_path": null,
+      "exact_quote": "SUPERSEDED",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "98a3a581f7ed686d83ff4e85343137764dd015366221bd36030f1c6b5b237a09",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "exact",
+      "table_context": null,
+      "annotation_note": "Visible diagonal status stamp checked on the rendered PDF; the native extraction also contains this text."
+    },
+    {
+      "evidence_id": "EV-016",
+      "source_file_instance_id": "08a8fc0e2bbbc711",
+      "page_number": 5,
+      "printed_page_label": "Page 5 of 6",
+      "section": "table",
+      "section_raw": "Appendix 1 – Affected P/N 47145-XXX THSA",
+      "clause_path": null,
+      "exact_quote": "EASA AD No.: 2012-0175R2 Appendix 1 – Affected P/N 47145-XXX THSA P/N – no ELSD P/N with ELSD (post-UTAS SB 47145-27-20) 47145-021 47145-030 47145-031 47145-032 47145-033 47145-034 47145-035 47145-036 47145-037 47145-050 47145-051 47145-052 47145-053 47145-054 47145-055 47145-056 47145-057 47145-121 47145-130 47145-230 47145-131 47145-231 47145-132 47145-232 47145-133 47145-233 47145-134 47145-234 47145-135 47145-235 47145-136 47145-236 47145-137 47145-237 47145-140 47145-240 47145-141 47145-241 SUPERSEDED47145-142 47145-242 47145-143 47145-243 47145-144 47145-244 47145-145 47145-245 47145-146 47145-246 TE.CAP.00110-005 © European Aviation Safety Agency. All rights reserved. ISO9001 Certified. Page 5 of 6 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet. An agency of the European Union",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "9105d45b765253907e9b6295f0233643075ce8b55b8531768174a0d4e73a4a33",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": {
+        "table_label": "Appendix 1 – Affected P/N 47145-XXX THSA",
+        "row_headers": [],
+        "column_headers": [
+          "P/N – no ELSD",
+          "P/N with ELSD (post-UTAS SB 47145-27-20)"
+        ],
+        "footnotes": []
+      },
+      "annotation_note": "Full native-text transcription retained for row-level review."
+    },
+    {
+      "evidence_id": "EV-017",
+      "source_file_instance_id": "08a8fc0e2bbbc711",
+      "page_number": 6,
+      "printed_page_label": "Page 6 of 6",
+      "section": "table",
+      "section_raw": "Appendix 1 – Affected P/N 47145-XXX THSA (continued)",
+      "clause_path": null,
+      "exact_quote": "EASA AD No.: 2012-0175R2 Appendix 1 – Affected P/N 47145-XXX THSA (continued) P/N – no ELSD P/N with ELSD (post-UTAS SB 47145-27-20) 47145-147 47145-247 47145-150 47145-250 47145-151 47145-251 47145-152 47145-252 47145-153 47145-253 47145-154 47145-254 47145-155 47145-255 47145-156 47145-256 47145-157 47145-257 47145-160 47145-260 47145-161 47145-261 47145-162 47145-262 47145-163 47145-263 47145-164 47145-264 47145-165 47145-265 47145-166 47145-266 47145-167 47145-267 SUPERSEDED TE.CAP.00110-005 © European Aviation Safety Agency. All rights reserved. ISO9001 Certified. Page 6 of 6 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet. An agency of the European Union",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "f87cb5f02e10d51e26ea94a7bbc9d4c4bb0788c4bc2ed2ee2092692b15bae276",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": {
+        "table_label": "Appendix 1 – Affected P/N 47145-XXX THSA (continued)",
+        "row_headers": [],
+        "column_headers": [
+          "P/N – no ELSD",
+          "P/N with ELSD (post-UTAS SB 47145-27-20)"
+        ],
+        "footnotes": []
+      },
+      "annotation_note": "Full native-text transcription retained for row-level review."
+    }
+  ],
+  "field_assertions": [
+    {
+      "assertion_id": "AST-001",
+      "field_path": "/ad_identity",
+      "value_state": "present",
+      "origin": "human_annotated",
+      "verification_status": "accepted",
+      "confidence": null,
+      "evidence_ids": [
+        "EV-001",
+        "EV-015"
+      ],
+      "annotator_id": "human-reviewer-1",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Human reviewer accepted this substantive section against the canonical PDF."
+    },
+    {
+      "assertion_id": "AST-002",
+      "field_path": "/publication",
+      "value_state": "present",
+      "origin": "human_annotated",
+      "verification_status": "accepted",
+      "confidence": null,
+      "evidence_ids": [
+        "EV-002",
+        "EV-001"
+      ],
+      "annotator_id": "human-reviewer-1",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Human reviewer accepted this substantive section against the canonical PDF."
+    },
+    {
+      "assertion_id": "AST-003",
+      "field_path": "/applicability_groups",
+      "value_state": "present",
+      "origin": "human_annotated",
+      "verification_status": "accepted",
+      "confidence": null,
+      "evidence_ids": [
+        "EV-003",
+        "EV-016",
+        "EV-017"
+      ],
+      "annotator_id": "human-reviewer-1",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Human reviewer accepted this substantive section against the canonical PDF."
+    },
+    {
+      "assertion_id": "AST-004",
+      "field_path": "/definitions",
+      "value_state": "present",
+      "origin": "human_annotated",
+      "verification_status": "accepted",
+      "confidence": null,
+      "evidence_ids": [
+        "EV-007"
+      ],
+      "annotator_id": "human-reviewer-1",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Human reviewer accepted this substantive section against the canonical PDF."
+    },
+    {
+      "assertion_id": "AST-005",
+      "field_path": "/requirements",
+      "value_state": "present",
+      "origin": "human_annotated",
+      "verification_status": "accepted",
+      "confidence": null,
+      "evidence_ids": [
+        "EV-006",
+        "EV-016",
+        "EV-017",
+        "EV-008",
+        "EV-009",
+        "EV-010",
+        "EV-011"
+      ],
+      "annotator_id": "human-reviewer-1",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Human reviewer accepted this substantive section against the canonical PDF."
+    },
+    {
+      "assertion_id": "AST-006",
+      "field_path": "/exceptions",
+      "value_state": "present",
+      "origin": "human_annotated",
+      "verification_status": "accepted",
+      "confidence": null,
+      "evidence_ids": [
+        "EV-012"
+      ],
+      "annotator_id": "human-reviewer-1",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Human reviewer accepted this substantive section against the canonical PDF."
+    },
+    {
+      "assertion_id": "AST-007",
+      "field_path": "/previous_action_credit",
+      "value_state": "absent_in_source",
+      "origin": "human_annotated",
+      "verification_status": "accepted",
+      "confidence": null,
+      "evidence_ids": [],
+      "annotator_id": "human-reviewer-1",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Human reviewer accepted this substantive section against the canonical PDF."
+    },
+    {
+      "assertion_id": "AST-008",
+      "field_path": "/referenced_publications",
+      "value_state": "present",
+      "origin": "human_annotated",
+      "verification_status": "accepted",
+      "confidence": null,
+      "evidence_ids": [
+        "EV-006",
+        "EV-008",
+        "EV-010",
+        "EV-013",
+        "EV-011",
+        "EV-007",
+        "EV-016",
+        "EV-017"
+      ],
+      "annotator_id": "human-reviewer-1",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Human reviewer accepted this substantive section against the canonical PDF."
+    },
+    {
+      "assertion_id": "AST-009",
+      "field_path": "/relationships",
+      "value_state": "present",
+      "origin": "human_annotated",
+      "verification_status": "accepted",
+      "confidence": null,
+      "evidence_ids": [
+        "EV-001"
+      ],
+      "annotator_id": "human-reviewer-1",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Human reviewer accepted this substantive section against the canonical PDF."
+    },
+    {
+      "assertion_id": "AST-010",
+      "field_path": "/amoc_and_contacts",
+      "value_state": "present",
+      "origin": "human_annotated",
+      "verification_status": "accepted",
+      "confidence": null,
+      "evidence_ids": [
+        "EV-014"
+      ],
+      "annotator_id": "human-reviewer-1",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Human reviewer accepted this substantive section against the canonical PDF."
+    },
+    {
+      "assertion_id": "AST-011",
+      "field_path": "/ad_identity/ad_number",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.995,
+      "evidence_ids": [
+        "EV-001",
+        "EV-015"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Cover identity"
+    },
+    {
+      "assertion_id": "AST-012",
+      "field_path": "/ad_identity/supersedure_statement",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.99,
+      "evidence_ids": [
+        "EV-001"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Printed status field"
+    },
+    {
+      "assertion_id": "AST-013",
+      "field_path": "/publication/issue_date",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.995,
+      "evidence_ids": [
+        "EV-001"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Printed issue date"
+    },
+    {
+      "assertion_id": "AST-014",
+      "field_path": "/publication/effective_date",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.995,
+      "evidence_ids": [
+        "EV-001"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Printed effective date"
+    },
+    {
+      "assertion_id": "AST-015",
+      "field_path": "/publication/subject",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.99,
+      "evidence_ids": [
+        "EV-002"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Printed ATA subject"
+    },
+    {
+      "assertion_id": "AST-016",
+      "field_path": "/applicability_groups/0",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-003",
+        "EV-016",
+        "EV-017"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "applicability_groups"
+    },
+    {
+      "assertion_id": "AST-017",
+      "field_path": "/definitions/0",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-007"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "definitions"
+    },
+    {
+      "assertion_id": "AST-018",
+      "field_path": "/requirements/0",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.94,
+      "evidence_ids": [
+        "EV-006",
+        "EV-016",
+        "EV-017"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "requirements"
+    },
+    {
+      "assertion_id": "AST-019",
+      "field_path": "/requirements/1",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.94,
+      "evidence_ids": [
+        "EV-008",
+        "EV-009"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "requirements"
+    },
+    {
+      "assertion_id": "AST-020",
+      "field_path": "/requirements/2",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.94,
+      "evidence_ids": [
+        "EV-008"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "requirements"
+    },
+    {
+      "assertion_id": "AST-021",
+      "field_path": "/requirements/3",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.94,
+      "evidence_ids": [
+        "EV-010"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "requirements"
+    },
+    {
+      "assertion_id": "AST-022",
+      "field_path": "/requirements/4",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.94,
+      "evidence_ids": [
+        "EV-011"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "requirements"
+    },
+    {
+      "assertion_id": "AST-023",
+      "field_path": "/exceptions/0",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-012"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "exceptions"
+    },
+    {
+      "assertion_id": "AST-024",
+      "field_path": "/referenced_publications/0",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-006",
+        "EV-008",
+        "EV-010",
+        "EV-013"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "referenced_publications"
+    },
+    {
+      "assertion_id": "AST-025",
+      "field_path": "/referenced_publications/1",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-011",
+        "EV-013"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "referenced_publications"
+    },
+    {
+      "assertion_id": "AST-026",
+      "field_path": "/referenced_publications/2",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-007",
+        "EV-013"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "referenced_publications"
+    },
+    {
+      "assertion_id": "AST-027",
+      "field_path": "/referenced_publications/3",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-013"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "referenced_publications"
+    },
+    {
+      "assertion_id": "AST-028",
+      "field_path": "/referenced_publications/4",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-016",
+        "EV-017",
+        "EV-013"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "referenced_publications"
+    },
+    {
+      "assertion_id": "AST-029",
+      "field_path": "/relationships/0",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-001"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "relationships"
+    },
+    {
+      "assertion_id": "AST-030",
+      "field_path": "/amoc_and_contacts/0",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-014"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "amoc_and_contacts"
+    },
+    {
+      "assertion_id": "AST-031",
+      "field_path": "/amoc_and_contacts/1",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-014"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "amoc_and_contacts"
+    },
+    {
+      "assertion_id": "AST-032",
+      "field_path": "/amoc_and_contacts/2",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-014"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "amoc_and_contacts"
+    },
+    {
+      "assertion_id": "AST-033",
+      "field_path": "/unsafe_condition",
+      "value_state": "present",
+      "origin": "human_annotated",
+      "verification_status": "accepted",
+      "confidence": null,
+      "evidence_ids": [
+        "EV-004",
+        "EV-005"
+      ],
+      "annotator_id": "human-reviewer-1",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Human reviewer accepted this substantive section against the canonical PDF."
+    },
+    {
+      "assertion_id": "AST-034",
+      "field_path": "/classification",
+      "value_state": "present",
+      "origin": "human_annotated",
+      "verification_status": "accepted",
+      "confidence": null,
+      "evidence_ids": [
+        "EV-002",
+        "EV-003",
+        "EV-006",
+        "EV-008",
+        "EV-010",
+        "EV-011",
+        "EV-016",
+        "EV-017"
+      ],
+      "annotator_id": "human-reviewer-1",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Human reviewer accepted this substantive section against the canonical PDF."
+    },
+    {
+      "assertion_id": "AST-035",
+      "field_path": "/publication/type_model_designations",
+      "value_state": "present",
+      "origin": "human_annotated",
+      "verification_status": "accepted",
+      "confidence": null,
+      "evidence_ids": [
+        "EV-001",
+        "EV-002"
+      ],
+      "annotator_id": "human-reviewer-1",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Human reviewer accepted this normalized publication value against the canonical PDF."
+    },
+    {
+      "assertion_id": "AST-036",
+      "field_path": "/publication/tcds_numbers",
+      "value_state": "present",
+      "origin": "human_annotated",
+      "verification_status": "accepted",
+      "confidence": null,
+      "evidence_ids": [
+        "EV-001",
+        "EV-002"
+      ],
+      "annotator_id": "human-reviewer-1",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Human reviewer accepted this normalized publication value against the canonical PDF."
+    }
+  ],
+  "annotation_metadata": {
+    "guideline_version": "1.0.0",
+    "record_status": "approved",
+    "creation_method": "manual",
+    "machine_provenance": {
+      "system": "OpenAI Codex",
+      "model": "GPT-5",
+      "prompt_or_rules_version": "step2-guidelines-1.0.0-manual-pass-a3",
+      "generated_at": "2026-07-22T11:53:23Z"
+    },
+    "annotators": [
+      {
+        "annotator_id": "codex-a3",
+        "role": "annotator",
+        "started_at": "2026-07-22T11:45:00Z",
+        "submitted_at": "2026-07-22T12:45:00Z"
+      },
+      {
+        "annotator_id": "codex-source-audit",
+        "role": "reviewer",
+        "started_at": "2026-07-28T12:27:04Z",
+        "submitted_at": "2026-07-28T12:27:04Z"
+      },
+      {
+        "annotator_id": "human-reviewer-1",
+        "role": "reviewer",
+        "started_at": "2026-07-29T10:52:34Z",
+        "submitted_at": "2026-07-29T10:52:34Z"
+      }
+    ],
+    "events": [
+      {
+        "event_type": "created",
+        "actor_id": "codex-a3",
+        "timestamp": "2026-07-22T11:45:00Z",
+        "rationale": "Blind first-pass annotation from the source PDF and blind packet."
+      },
+      {
+        "event_type": "submitted",
+        "actor_id": "codex-a3",
+        "timestamp": "2026-07-22T12:45:00Z",
+        "rationale": "First pass completed; no human review or approval claimed."
+      },
+      {
+        "event_type": "reviewed",
+        "actor_id": "codex-source-audit",
+        "timestamp": "2026-07-28T12:27:04Z",
+        "rationale": "Machine-only comparison against every rendered PDF page and frozen page text; source corrections were applied where required and human acceptance remains pending."
+      },
+      {
+        "event_type": "reviewed",
+        "actor_id": "human-reviewer-1",
+        "timestamp": "2026-07-29T10:52:34Z",
+        "rationale": "Independent human reviewer confirmed that the complete annotation was reviewed against the canonical PDF."
+      },
+      {
+        "event_type": "approved",
+        "actor_id": "human-reviewer-1",
+        "timestamp": "2026-07-29T10:52:34Z",
+        "rationale": "The user explicitly approved the finalized human-reviewed annotation for inclusion in the gold pilot."
+      }
+    ],
+    "quality_flags": [
+      "complex_table",
+      "complex_applicability",
+      "complex_compliance",
+      "cross_page_clause",
+      "visual_transcription_used"
+    ],
+    "uncertainty_flags": [],
+    "notes": [
+      "All source pages were visually rendered and checked; populated assertions were accepted by the independent human reviewer.",
+      "Machine source audit corrected printed page labels and rechecked the visible superseded lifecycle, Revision 2 identity, Appendix 1 applicability, repetitive inspection logic, terminating action, and exceptions; all assertions were accepted by the independent human reviewer.",
+      "Independent human review and approval were recorded after comparison with the canonical PDF."
+    ],
+    "source_text_sha256": "17e9800968d3c9825caca8bf44f6fd7d540b3b956dbf5f0089eaf1306affaa4a",
+    "created_at": "2026-07-22T11:45:00Z",
+    "updated_at": "2026-07-29T10:52:34Z"
+  },
+  "benchmark_metadata": {
+    "split": "unassigned",
+    "split_group": "2012-0175",
+    "selection_strata": [],
+    "duplicate_cluster_ids": [],
+    "gold_record": true
+  }
+}

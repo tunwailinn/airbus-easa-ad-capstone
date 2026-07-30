@@ -1,0 +1,120 @@
+{
+  "ad_number": "2016-0095",
+  "logical_version_key": "2016-0095|UNCORRECTED",
+  "file_instance_id": "7f221fbcf3eea6a5",
+  "annotator_a_file": "step3_pilot/submitted/annotator_a/2016-0095__7f221fbcf3eea6a5.annotation.json",
+  "annotator_b_file": "step3_pilot/submitted/annotator_b/2016-0095__7f221fbcf3eea6a5.annotation.json",
+  "adjudicator_id": "codex-a2",
+  "comparison_sha256": "d07d35b61baa74f72690535023d95f372390a9b8aba2ee6853ee5410ceaf4014",
+  "decision_status": "machine_adjudicated_pending_human_review",
+  "resolved_record_file": "step3_pilot/adjudication/machine_candidates/2016-0095__7f221fbcf3eea6a5.annotation.json",
+  "manual_review_required": true,
+  "sections": [
+    {
+      "section": "ad_identity",
+      "accepted_from": "synthesized",
+      "source_pages": [
+        1
+      ],
+      "decision": "Use normalized Airbus holder and Original label; preserve explicit Supersedure: None and lifecycle=superseded from the visible watermark."
+    },
+    {
+      "section": "publication",
+      "accepted_from": "annotator_a",
+      "source_pages": [
+        1
+      ],
+      "decision": "Use normalized subject/type values while preserving exact raw text, dates, ATA 57, EASA.A.110 and manufacturer."
+    },
+    {
+      "section": "applicability_groups",
+      "accepted_from": "annotator_b",
+      "source_pages": [
+        1,
+        4,
+        5,
+        6
+      ],
+      "decision": "Retain general aircraft plus distinct middle/outboard groups and every row-level LH/RH serial/date mapping."
+    },
+    {
+      "section": "unsafe_condition",
+      "accepted_from": "annotator_b",
+      "source_pages": [
+        1
+      ],
+      "decision": "Retain wrong-alloy defect, affected flap structures, reduced structural integrity and the stated mitigation chain."
+    },
+    {
+      "section": "requirements",
+      "accepted_from": "synthesized",
+      "source_pages": [
+        2
+      ],
+      "decision": "Use five atomic actions; identify by check/records review, apply SDI/contact/replacement/install clauses to both flap groups, preserve delegated replacement timing, and add both effective-date and pre-install limits."
+    },
+    {
+      "section": "definitions",
+      "accepted_from": "annotator_b",
+      "source_pages": [
+        2,
+        4
+      ],
+      "decision": "Keep N/A, starting-date, and serviceable-flap definitions; all are explicitly stated and affect table interpretation or installation eligibility."
+    },
+    {
+      "section": "exceptions",
+      "accepted_from": "annotator_b",
+      "source_pages": [
+        2
+      ],
+      "decision": "Retain the explicit unless-accomplished-previously exception for the initial identification and inspection actions."
+    },
+    {
+      "section": "previous_action_credit",
+      "accepted_from": "both",
+      "source_pages": [
+        2
+      ],
+      "decision": "No discrete previous-action credit is stated; keep an empty array distinct from the global exception."
+    },
+    {
+      "section": "referenced_publications",
+      "accepted_from": "both",
+      "source_pages": [
+        2
+      ],
+      "decision": "Retain Airbus SB A380-57-8111 original issue dated 2016-01-07 as required method with later approved revisions allowed."
+    },
+    {
+      "section": "relationships",
+      "accepted_from": "source",
+      "source_pages": [
+        1
+      ],
+      "decision": "Keep relationships empty: the watermark does not name a successor and the structured field explicitly says None; no correction edge is present."
+    },
+    {
+      "section": "amoc_and_contacts",
+      "accepted_from": "annotator_b",
+      "source_pages": [
+        2,
+        3
+      ],
+      "decision": "Retain EASA AMOC/regulatory and Airbus A380 technical contacts."
+    },
+    {
+      "section": "classification",
+      "accepted_from": "synthesized",
+      "source_pages": [
+        1,
+        2,
+        4,
+        5,
+        6
+      ],
+      "decision": "Use mixed frequency and exact action union; retain B evidence and frozen near-duplicate cluster; mark machine-adjudicated, unreviewed and manual_review_required."
+    }
+  ],
+  "overall_rationale": "Source-grounded machine reconciliation; a human reviewer must verify and approve before this record can enter the gold set."
+}

@@ -1,0 +1,34 @@
+# Operating-system and local tool state.
+.DS_Store
+.playwright-mcp/
+
+# Python environments, caches, and coverage output.
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Local Google OAuth secrets and scraper state.
+credentials.json
+token.json
+easa_airbus_ad_manifest.csv
+
+# Interrupted downloads and quarantined source files.
+*.part
+*.quarantine-*
+
+# Local scratch space and reproducible visual-review renders.
+tmp/
+rendered/
+
+# Duplicate handoff archives are generated from the versioned source tree.
+*.zip
+
+# Canonical PDFs and derived page text remain in Google Drive. Their frozen
+# identities, hashes, selections, reports, annotations, and validators are
+# versioned in Git.
+corpus_raw/
+source_pdfs/
+page_text/

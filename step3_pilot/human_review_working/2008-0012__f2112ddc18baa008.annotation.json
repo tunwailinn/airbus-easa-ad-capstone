@@ -1,0 +1,1321 @@
+{
+  "schema_version": "1.0.0",
+  "record_id": "adann-f2112ddc18baa008",
+  "source_document": {
+    "file_instance_id": "f2112ddc18baa008",
+    "content_id": "8d4bb02fba9b8f90",
+    "canonical_file_instance_id": "f2112ddc18baa008",
+    "file_aliases": [],
+    "file_name": "2008-0012__AD_2008-0012_1__easa_ad_2008_0012.pdf",
+    "relative_path": "2008-0012__AD_2008-0012_1__easa_ad_2008_0012.pdf",
+    "file_sha256": "8d4bb02fba9b8f90b2f384d4369b549c564e10cca1944323309fa972ae7a41df",
+    "normalized_text_sha256": "a0480cc451a216e9270e1ec6817925699adbf1bc956f972a9090538679d3faa2",
+    "page_count": 3,
+    "extraction_status": "native_text",
+    "needs_ocr": false,
+    "manifest_review_flags": [],
+    "source_url": "https://ad.easa.europa.eu/blob/easa_ad_2008_0012.pdf/AD_2008-0012_1",
+    "text_extraction_method": "native_text",
+    "exact_duplicate_group": null,
+    "near_duplicate_cluster": null
+  },
+  "ad_identity": {
+    "authority": "EASA",
+    "document_type": "airworthiness_directive",
+    "ad_number": "2008-0012",
+    "base_ad_number": "2008-0012",
+    "revision_number": 0,
+    "publication_kind": "standard_ad",
+    "is_emergency": false,
+    "is_correction": false,
+    "correction_date": {
+      "state": "not_stated",
+      "value": null,
+      "raw_text": null,
+      "evidence_ids": []
+    },
+    "version_label": "Original",
+    "logical_version_key": "2008-0012|UNCORRECTED",
+    "is_latest_version": null,
+    "lifecycle_status": "unknown",
+    "design_approval_holder": {
+      "state": "present",
+      "value": "AIRBUS",
+      "raw_text": "AIRBUS",
+      "evidence_ids": [
+        "EV-001"
+      ]
+    },
+    "supersedure_statement": {
+      "state": "explicit_none",
+      "value": null,
+      "raw_text": "None",
+      "evidence_ids": [
+        "EV-001"
+      ]
+    },
+    "evidence_ids": [
+      "EV-001",
+      "EV-002"
+    ]
+  },
+  "publication": {
+    "subject": {
+      "state": "present",
+      "value": "Stabilizers - Carbon Fiber Reinforced Plastic (CFRP) Rudder - Inspection / Repair",
+      "raw_text": "Stabilizers - Carbon Fiber Reinforced Plastic (CFRP) Rudder - Inspection / Repair",
+      "evidence_ids": [
+        "EV-002"
+      ]
+    },
+    "issue_date": {
+      "state": "present",
+      "value": "2008-01-14",
+      "raw_text": "Date: 14 January 2008",
+      "evidence_ids": [
+        "EV-001"
+      ]
+    },
+    "effective_date": {
+      "state": "present",
+      "value": "2008-01-28",
+      "raw_text": "Effective Date: 28 January 2008",
+      "evidence_ids": [
+        "EV-005"
+      ]
+    },
+    "ata_chapters": [
+      {
+        "code": "55",
+        "title": "Stabilizers",
+        "evidence_ids": [
+          "EV-002"
+        ]
+      }
+    ],
+    "manufacturers": [
+      {
+        "raw_name": "AIRBUS (formerly AIRBUS INDUSTRIE)",
+        "normalized_name": "Airbus",
+        "role": "manufacturer",
+        "evidence_ids": [
+          "EV-003"
+        ]
+      }
+    ],
+    "type_model_designations": [
+      "A330-300",
+      "A340-200",
+      "A340-300"
+    ],
+    "tcds_numbers": [
+      "EASA A.004",
+      "EASA A.015"
+    ],
+    "foreign_ad": {
+      "state": "explicit_none",
+      "value": null,
+      "raw_text": "Not applicable",
+      "evidence_ids": [
+        "EV-001"
+      ]
+    }
+  },
+  "applicability_groups": [
+    {
+      "group_id": "APP-001",
+      "label": "Affected A330/A340 aeroplanes",
+      "state": "present",
+      "raw_text": "Applicability: AIRBUS aircraft A330-300, A340-200 and A340-300 series, all certified models, all serial numbers, on which CFRP rudder part number (PN) A55471500 series is fitted, and any rudder PN A55471500 series held as a spare. Note 1: CFRP rudder PN A55471500 series correspond to the pre-modification n° 40904 configuration. Note 2: CFRP rudder PN A55471500 has been fitted on A340-200/-300 production aircraft MSN 0001, 0002, 0003, 0004, 0005, 0006, 0007, 0008, 0009, 0011, 0013, 0014, 0015, 0016, 0018, 0019, 0020, 0021, 0022, 0023, 0024, 0025, 0026, 0027, 0028, 0029, 0031, 0032, 0033, 0034, 0035, 0038, 0041, 0043, 0044. Note 3: CFRP rudder PN A55471500 has been fitted on A330-300 production aircraft MSN 0012, 0017, 0030, 0037, 0045, 0050.",
+      "aircraft_families": [
+        "A330",
+        "A340"
+      ],
+      "models": [
+        "A330-300",
+        "A340-200",
+        "A340-300"
+      ],
+      "serial_restrictions": [
+        {
+          "restriction_id": "MSN-001",
+          "kind": "all",
+          "raw_expression": "all serial numbers",
+          "lower_bound": null,
+          "upper_bound": null,
+          "explicit_values": [],
+          "condition": "CFRP rudder P/N A55471500 series is fitted.",
+          "evidence_ids": [
+            "EV-003"
+          ]
+        }
+      ],
+      "part_numbers": [
+        "A55471500 series"
+      ],
+      "configuration_conditions": [
+        "CFRP rudder P/N A55471500 series is fitted."
+      ],
+      "exclusions": [],
+      "boolean_logic": "all",
+      "evidence_ids": [
+        "EV-003"
+      ]
+    },
+    {
+      "group_id": "APP-002",
+      "label": "Spare CFRP rudders",
+      "state": "present",
+      "raw_text": "any rudder PN A55471500 series held as a spare",
+      "aircraft_families": [
+        "A330",
+        "A340"
+      ],
+      "models": [],
+      "serial_restrictions": [],
+      "part_numbers": [
+        "A55471500 series"
+      ],
+      "configuration_conditions": [
+        "The rudder is held as a spare."
+      ],
+      "exclusions": [],
+      "boolean_logic": "all",
+      "evidence_ids": [
+        "EV-003"
+      ]
+    }
+  ],
+  "definitions": [],
+  "unsafe_condition": {
+    "state": "present",
+    "raw_reason_text": "Reason: Based on some recent in-service findings for fluid ingress and/or inner skin disbond damage on rudders which could result in reduced structural integrity of the rudder, AIRBUS decided to introduce some further structural inspections to specific rudder areas ; - a special detailed one time structural inspection to specific rudder areas to ensure earlier detection of damage at the inspected areas, - a repetitive specific ultrasonic inspection along the complete rudder panel front and bottom edges (complete z-profile area along the spar and the bottom rib) to detect any damage in this area. The aim of this Airworthiness Directive (AD) is to render mandatory this additional inspection program in order to maintain the structural integrity of the rudder.",
+    "observed_events_or_defects": [
+      "Fluid ingress and/or inner-skin disbond damage was found on rudders."
+    ],
+    "causes": [],
+    "unsafe_conditions": [
+      "Fluid ingress and/or inner skin disbond damage on rudders."
+    ],
+    "potential_consequences": [
+      "Reduced structural integrity of the rudder."
+    ],
+    "affected_components": [
+      "CFRP rudder",
+      "rudder Z-profile",
+      "rudder hoisting points",
+      "trailing-edge screw areas"
+    ],
+    "intended_risk_mitigation": [
+      "A special detailed one-time structural inspection and a repetitive specific ultrasonic inspection."
+    ],
+    "evidence_ids": [
+      "EV-004"
+    ]
+  },
+  "requirements": [
+    {
+      "requirement_id": "REQ-001",
+      "paragraph_reference": "1.1",
+      "parent_requirement_id": null,
+      "applicability_group_ids": [
+        "APP-001"
+      ],
+      "action_types": [
+        "inspection"
+      ],
+      "obligation": "mandatory",
+      "action_text": "Within 500 flight cycles or 6 months from the effective date, whichever occurs first, perform a one-time special detailed inspection at rudder hoisting points and trailing-edge screw areas.",
+      "objects_or_components": [
+        "rudder hoisting points",
+        "trailing-edge screw areas"
+      ],
+      "conditions": [
+        "Unless accomplished previously."
+      ],
+      "method_publication_ids": [
+        "PUB-001",
+        "PUB-002"
+      ],
+      "compliance_rules": [
+        {
+          "compliance_id": "CMP-001",
+          "state": "present",
+          "raw_text": "within 500 FC or 6 months from the effective date, whichever occurs first",
+          "logic": "whichever_occurs_first",
+          "conditions": [],
+          "initial_limits": [
+            {
+              "limit_id": "LIM-001",
+              "relation": "within",
+              "quantity": 500,
+              "unit": "flight_cycle",
+              "raw_value": "500 Flight Cycles",
+              "reference_event": "effective date of this AD",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-006"
+              ]
+            },
+            {
+              "limit_id": "LIM-002",
+              "relation": "within",
+              "quantity": 6,
+              "unit": "calendar_month",
+              "raw_value": "6 months",
+              "reference_event": "effective date of this AD",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-006"
+              ]
+            }
+          ],
+          "is_repetitive": false,
+          "repetitive_intervals": [],
+          "grace_periods": [],
+          "evidence_ids": [
+            "EV-006"
+          ]
+        }
+      ],
+      "follow_on_requirement_ids": [],
+      "terminating_action": {
+        "state": "not_stated",
+        "present": false,
+        "scope": "none",
+        "action_text": null,
+        "terminates_requirement_ids": [],
+        "evidence_ids": []
+      },
+      "evidence_ids": [
+        "EV-006"
+      ]
+    },
+    {
+      "requirement_id": "REQ-002",
+      "paragraph_reference": "1.2",
+      "parent_requirement_id": "REQ-001",
+      "applicability_group_ids": [
+        "APP-001"
+      ],
+      "action_types": [
+        "reporting"
+      ],
+      "obligation": "conditional",
+      "action_text": "If no damage is found, report to Airbus within 10 days after the inspection.",
+      "objects_or_components": [],
+      "conditions": [
+        "No damage is found during paragraph 1.1 inspection."
+      ],
+      "method_publication_ids": [
+        "PUB-001",
+        "PUB-002"
+      ],
+      "compliance_rules": [
+        {
+          "compliance_id": "CMP-002",
+          "state": "present",
+          "raw_text": "within 10 days after the inspection",
+          "logic": "single",
+          "conditions": [
+            "No damage is found."
+          ],
+          "initial_limits": [
+            {
+              "limit_id": "LIM-003",
+              "relation": "within",
+              "quantity": 10,
+              "unit": "calendar_day",
+              "raw_value": "10 days after the inspection",
+              "reference_event": "paragraph 1.1 inspection",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-006"
+              ]
+            }
+          ],
+          "is_repetitive": false,
+          "repetitive_intervals": [],
+          "grace_periods": [],
+          "evidence_ids": [
+            "EV-006"
+          ]
+        }
+      ],
+      "follow_on_requirement_ids": [],
+      "terminating_action": {
+        "state": "not_stated",
+        "present": false,
+        "scope": "none",
+        "action_text": null,
+        "terminates_requirement_ids": [],
+        "evidence_ids": []
+      },
+      "evidence_ids": [
+        "EV-006"
+      ]
+    },
+    {
+      "requirement_id": "REQ-003",
+      "paragraph_reference": "1.3",
+      "parent_requirement_id": "REQ-001",
+      "applicability_group_ids": [
+        "APP-001"
+      ],
+      "action_types": [
+        "reporting",
+        "contact_manufacturer",
+        "repair"
+      ],
+      "obligation": "conditional",
+      "action_text": "If findings exist, report to Airbus, obtain repair instructions, and accomplish the repair within the timescale in Flow Chart 1.",
+      "objects_or_components": [],
+      "conditions": [
+        "Damage is found."
+      ],
+      "method_publication_ids": [
+        "PUB-001",
+        "PUB-002"
+      ],
+      "compliance_rules": [
+        {
+          "compliance_id": "CMP-003",
+          "state": "present",
+          "raw_text": "Accomplish the repair within the timescale(s) indicated in Flow Chart 1",
+          "logic": "single",
+          "conditions": [
+            "Findings are present."
+          ],
+          "initial_limits": [],
+          "is_repetitive": false,
+          "repetitive_intervals": [],
+          "grace_periods": [],
+          "evidence_ids": [
+            "EV-006"
+          ]
+        }
+      ],
+      "follow_on_requirement_ids": [],
+      "terminating_action": {
+        "state": "not_stated",
+        "present": false,
+        "scope": "none",
+        "action_text": null,
+        "terminates_requirement_ids": [],
+        "evidence_ids": []
+      },
+      "evidence_ids": [
+        "EV-006"
+      ]
+    },
+    {
+      "requirement_id": "REQ-004",
+      "paragraph_reference": "2.1",
+      "parent_requirement_id": null,
+      "applicability_group_ids": [
+        "APP-001"
+      ],
+      "action_types": [
+        "inspection"
+      ],
+      "obligation": "mandatory",
+      "action_text": "Within 500 flight cycles or 6 months from the effective date, whichever occurs first, and thereafter at intervals not exceeding 5 000 flight cycles, inspect along the rudder Z-profile.",
+      "objects_or_components": [
+        "rudder Z-profile"
+      ],
+      "conditions": [],
+      "method_publication_ids": [
+        "PUB-003",
+        "PUB-004"
+      ],
+      "compliance_rules": [
+        {
+          "compliance_id": "CMP-004",
+          "state": "present",
+          "raw_text": "Within 500 FC or 6 months from the effective date, whichever occurs first, and thereafter at intervals not exceeding 5 000 FC",
+          "logic": "whichever_occurs_first",
+          "conditions": [],
+          "initial_limits": [
+            {
+              "limit_id": "LIM-004",
+              "relation": "within",
+              "quantity": 500,
+              "unit": "flight_cycle",
+              "raw_value": "500 FC",
+              "reference_event": "effective date of this AD",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-006"
+              ]
+            },
+            {
+              "limit_id": "LIM-005",
+              "relation": "within",
+              "quantity": 6,
+              "unit": "calendar_month",
+              "raw_value": "6 months",
+              "reference_event": "effective date of this AD",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-006"
+              ]
+            }
+          ],
+          "is_repetitive": true,
+          "repetitive_intervals": [
+            {
+              "limit_id": "LIM-006",
+              "relation": "not_to_exceed",
+              "quantity": 5000,
+              "unit": "flight_cycle",
+              "raw_value": "5 000 FC",
+              "reference_event": "previous paragraph 2.1 inspection",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-006"
+              ]
+            }
+          ],
+          "grace_periods": [],
+          "evidence_ids": [
+            "EV-006"
+          ]
+        }
+      ],
+      "follow_on_requirement_ids": [],
+      "terminating_action": {
+        "state": "not_stated",
+        "present": false,
+        "scope": "none",
+        "action_text": null,
+        "terminates_requirement_ids": [],
+        "evidence_ids": []
+      },
+      "evidence_ids": [
+        "EV-006"
+      ]
+    },
+    {
+      "requirement_id": "REQ-005",
+      "paragraph_reference": "2.2",
+      "parent_requirement_id": "REQ-004",
+      "applicability_group_ids": [
+        "APP-001"
+      ],
+      "action_types": [
+        "reporting"
+      ],
+      "obligation": "conditional",
+      "action_text": "If no damage is found, report to Airbus within 10 days after each inspection.",
+      "objects_or_components": [],
+      "conditions": [
+        "No damage is found during paragraph 2.1 inspection."
+      ],
+      "method_publication_ids": [
+        "PUB-003",
+        "PUB-004"
+      ],
+      "compliance_rules": [
+        {
+          "compliance_id": "CMP-005",
+          "state": "present",
+          "raw_text": "within 10 days after each inspection",
+          "logic": "single",
+          "conditions": [
+            "No damage is found."
+          ],
+          "initial_limits": [
+            {
+              "limit_id": "LIM-007",
+              "relation": "within",
+              "quantity": 10,
+              "unit": "calendar_day",
+              "raw_value": "10 days after each inspection",
+              "reference_event": "each paragraph 2.1 inspection",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-006"
+              ]
+            }
+          ],
+          "is_repetitive": false,
+          "repetitive_intervals": [],
+          "grace_periods": [],
+          "evidence_ids": [
+            "EV-006"
+          ]
+        }
+      ],
+      "follow_on_requirement_ids": [],
+      "terminating_action": {
+        "state": "not_stated",
+        "present": false,
+        "scope": "none",
+        "action_text": null,
+        "terminates_requirement_ids": [],
+        "evidence_ids": []
+      },
+      "evidence_ids": [
+        "EV-006"
+      ]
+    },
+    {
+      "requirement_id": "REQ-006",
+      "paragraph_reference": "2.3",
+      "parent_requirement_id": "REQ-004",
+      "applicability_group_ids": [
+        "APP-001"
+      ],
+      "action_types": [
+        "test_or_check",
+        "repair",
+        "reporting"
+      ],
+      "obligation": "conditional",
+      "action_text": "If findings occur, check them, apply associated corrective actions within the Flow Chart 1 timescales, and report within 10 days after inspection or repair.",
+      "objects_or_components": [],
+      "conditions": [
+        "Findings occur during a paragraph 2.1 inspection."
+      ],
+      "method_publication_ids": [
+        "PUB-003",
+        "PUB-004"
+      ],
+      "compliance_rules": [
+        {
+          "compliance_id": "CMP-006",
+          "state": "present",
+          "raw_text": "Within 10 days after the inspection / repair, submit a report",
+          "logic": "single",
+          "conditions": [
+            "Findings occur; corrective-action times are governed by Flow Chart 1."
+          ],
+          "initial_limits": [
+            {
+              "limit_id": "LIM-008",
+              "relation": "within",
+              "quantity": 10,
+              "unit": "calendar_day",
+              "raw_value": "10 days after the inspection / repair",
+              "reference_event": "inspection or repair",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-006"
+              ]
+            }
+          ],
+          "is_repetitive": false,
+          "repetitive_intervals": [],
+          "grace_periods": [],
+          "evidence_ids": [
+            "EV-006"
+          ]
+        }
+      ],
+      "follow_on_requirement_ids": [],
+      "terminating_action": {
+        "state": "not_stated",
+        "present": false,
+        "scope": "none",
+        "action_text": null,
+        "terminates_requirement_ids": [],
+        "evidence_ids": []
+      },
+      "evidence_ids": [
+        "EV-006"
+      ]
+    },
+    {
+      "requirement_id": "REQ-007",
+      "paragraph_reference": "3",
+      "parent_requirement_id": null,
+      "applicability_group_ids": [
+        "APP-001",
+        "APP-002"
+      ],
+      "action_types": [
+        "install",
+        "prohibition",
+        "inspection",
+        "repair"
+      ],
+      "obligation": "prohibited",
+      "action_text": "After 6 months from the effective date, do not install a spare rudder P/N A55471500 series unless it has been inspected and, as necessary, repaired under the applicable service bulletins.",
+      "objects_or_components": [
+        "spare rudder P/N A55471500 series"
+      ],
+      "conditions": [
+        "Installation is permitted only after required inspection and repair."
+      ],
+      "method_publication_ids": [
+        "PUB-001",
+        "PUB-002",
+        "PUB-003",
+        "PUB-004"
+      ],
+      "compliance_rules": [
+        {
+          "compliance_id": "CMP-007",
+          "state": "present",
+          "raw_text": "After 6 months from the effective date of this AD",
+          "logic": "single",
+          "conditions": [],
+          "initial_limits": [
+            {
+              "limit_id": "LIM-009",
+              "relation": "after",
+              "quantity": 6,
+              "unit": "calendar_month",
+              "raw_value": "6 months from the effective date of this AD",
+              "reference_event": "effective date of this AD",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-006"
+              ]
+            }
+          ],
+          "is_repetitive": false,
+          "repetitive_intervals": [],
+          "grace_periods": [],
+          "evidence_ids": [
+            "EV-006"
+          ]
+        }
+      ],
+      "follow_on_requirement_ids": [],
+      "terminating_action": {
+        "state": "not_stated",
+        "present": false,
+        "scope": "none",
+        "action_text": null,
+        "terminates_requirement_ids": [],
+        "evidence_ids": []
+      },
+      "evidence_ids": [
+        "EV-006"
+      ]
+    }
+  ],
+  "exceptions": [],
+  "previous_action_credit": [],
+  "referenced_publications": [
+    {
+      "publication_id": "PUB-001",
+      "publication_type": "service_bulletin",
+      "issuer": "Airbus",
+      "number": "A330-55-3037",
+      "revision": "original issue",
+      "publication_date": null,
+      "title": null,
+      "roles": [
+        "required_method"
+      ],
+      "later_approved_revisions_allowed": true,
+      "evidence_ids": [
+        "EV-006",
+        "EV-007"
+      ]
+    },
+    {
+      "publication_id": "PUB-002",
+      "publication_type": "service_bulletin",
+      "issuer": "Airbus",
+      "number": "A340-55-4033",
+      "revision": "original issue",
+      "publication_date": null,
+      "title": null,
+      "roles": [
+        "required_method"
+      ],
+      "later_approved_revisions_allowed": true,
+      "evidence_ids": [
+        "EV-006",
+        "EV-007"
+      ]
+    },
+    {
+      "publication_id": "PUB-003",
+      "publication_type": "service_bulletin",
+      "issuer": "Airbus",
+      "number": "A330-55-3038",
+      "revision": "original issue",
+      "publication_date": null,
+      "title": null,
+      "roles": [
+        "required_method"
+      ],
+      "later_approved_revisions_allowed": true,
+      "evidence_ids": [
+        "EV-006",
+        "EV-007"
+      ]
+    },
+    {
+      "publication_id": "PUB-004",
+      "publication_type": "service_bulletin",
+      "issuer": "Airbus",
+      "number": "A340-55-4034",
+      "revision": "original issue",
+      "publication_date": null,
+      "title": null,
+      "roles": [
+        "required_method"
+      ],
+      "later_approved_revisions_allowed": true,
+      "evidence_ids": [
+        "EV-006",
+        "EV-007"
+      ]
+    }
+  ],
+  "relationships": [],
+  "amoc_and_contacts": [
+    {
+      "entry_id": "AMC-001",
+      "entry_type": "amoc_authority",
+      "authority_or_organization": "EASA",
+      "contact_text": "EASA can accept Alternative Methods of Compliance for this AD.",
+      "conditions": [
+        "If requested and appropriately substantiated."
+      ],
+      "evidence_ids": [
+        "EV-008"
+      ]
+    },
+    {
+      "entry_id": "AMC-002",
+      "entry_type": "regulatory_contact",
+      "authority_or_organization": "Airworthiness Directive Focal Point - Certification Directorate, EASA",
+      "contact_text": "E-mail: ADs@easa.europa.eu.",
+      "conditions": [],
+      "evidence_ids": [
+        "EV-008"
+      ]
+    },
+    {
+      "entry_id": "AMC-003",
+      "entry_type": "technical_contact",
+      "authority_or_organization": "AIRBUS SAS – Airworthiness Office – EAL",
+      "contact_text": "E-mail: airworthiness.A330-A340@airbus.com.",
+      "conditions": [],
+      "evidence_ids": [
+        "EV-008"
+      ]
+    }
+  ],
+  "classification": {
+    "airbus_families": [
+      "A330",
+      "A340"
+    ],
+    "ata_chapters": [
+      "55"
+    ],
+    "action_types": [
+      "inspection",
+      "reporting",
+      "contact_manufacturer",
+      "repair",
+      "test_or_check",
+      "install",
+      "prohibition"
+    ],
+    "frequency": "mixed",
+    "emergency_status": "standard",
+    "terminating_action_present": false,
+    "table_or_appendix_present": false,
+    "compliance_complexity": "conditional_branches",
+    "human_confirmed": true,
+    "evidence_ids": [
+      "EV-002",
+      "EV-003",
+      "EV-004",
+      "EV-006"
+    ]
+  },
+  "evidence_spans": [
+    {
+      "evidence_id": "EV-001",
+      "source_file_instance_id": "f2112ddc18baa008",
+      "page_number": 1,
+      "printed_page_label": "1/3",
+      "section": "cover",
+      "section_raw": null,
+      "clause_path": "cover",
+      "exact_quote": "EASA AIRWORTHINESS DIRECTIVE\n\n\n\n                                        AD No.: 2008-0012\n\n\n\n\n                                        Date: 14 January 2008\n\n\n\nNo person may operate an aircraft to which an Airworthiness Directive applies, except in accordance with the\nrequirements of that Airworthiness Directive unless otherwise agreed with the Authority of the State of Registry.\n\nType Approval Holder’s Name:                                           Type/Model designations:\n\nAIRBUS                                                                 A330 and A340-200/-300 series aircraft\n\nTCDS Number: EASA A.004, EASA A.015\n\nForeign AD: Not applicable\n\n\nSupersedure: None",
+      "start_char": 9,
+      "end_char": 683,
+      "page_text_sha256": "9e0c935b51764a982c386f76d9af2c53267a0999cdd1e245f2dca38ddf5cd717",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "exact",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-002",
+      "source_file_instance_id": "f2112ddc18baa008",
+      "page_number": 1,
+      "printed_page_label": "1/3",
+      "section": "cover",
+      "section_raw": null,
+      "clause_path": "subject",
+      "exact_quote": "ATA 55                                                                                                              Stabilizers - Carbon Fiber Reinfor ced Plastic (CFRP) Rudder -Inspection / Repair",
+      "start_char": 696,
+      "end_char": 893,
+      "page_text_sha256": "9e0c935b51764a982c386f76d9af2c53267a0999cdd1e245f2dca38ddf5cd717",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "exact",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-003",
+      "source_file_instance_id": "f2112ddc18baa008",
+      "page_number": 1,
+      "printed_page_label": "1/3",
+      "section": "applicability",
+      "section_raw": null,
+      "clause_path": "Applicability and Notes 1-3",
+      "exact_quote": "Applicability:                                                                                                                                                  AIRBUS aircraft A330-300, A340-200 and A340-300 series, all certified models,\n                                 all serial numbers, on which CFRP rudder part number (PN) A55471500 series is\n                                 fitted,\n                                 and\n                                 any rudder PN A55471500 series held as a spare.\n\n\n                                 Note 1:                                     CFRP rudder PN A55471500 series correspond to the pre-\n                                                 modification n° 40904 configuration.\n\n\n                                  Note 2:                            CFRP rudder PN A55471500 has been fitted on A340-200/-300\n                                                 production aircraft MSN 0001, 0002, 0003, 0004, 0005, 0006, 0007,\n                                                 0008, 0009, 0011, 0013, 0014, 0015, 0016, 0018, 0019, 0020, 0021,\n                                                 0022, 0023, 0024, 0025, 0026, 0027, 0028, 0029, 0031, 0032, 0033,\n                                                 0034, 0035, 0038, 0041, 0043, 0044.\n\n\n                                  Note 3:                            CFRP rudder PN A55471500 has been fitted on A330-300 production\n                                                 aircraft MSN 0012, 0017, 0030, 0037, 0045, 0050.\n\n                                                                                                                                                       1/3",
+      "start_char": 1083,
+      "end_char": 2758,
+      "page_text_sha256": "9e0c935b51764a982c386f76d9af2c53267a0999cdd1e245f2dca38ddf5cd717",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "exact",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-004",
+      "source_file_instance_id": "f2112ddc18baa008",
+      "page_number": 2,
+      "printed_page_label": "2/3",
+      "section": "reason",
+      "section_raw": null,
+      "clause_path": "Reason",
+      "exact_quote": "Reason:                                                                                                                                                                                                                         Based on some recent in-service findings for fluid ingress and/or inner skin\n                                  disbond damage on rudders which could result in reduced structural integrity of\n                                  the rudder, AIRBUS decided to introduce some further structural inspections to\n                                  specific rudder areas ;\n                                  -                                        a special detailed one time structural inspection to specific rudder areas to\n                                        ensure earlier detection of damage at the inspected areas,\n                                  -                                        a repetitive specific ultrasonic inspection along the complete rudder panel\n                                        front and bottom edges (complete z-profile area along the spar and the\n                                        bottom rib) to detect any damage in this area.\n                                  The aim of this Airworthiness Directive (AD) is to render mandatory this\n                                  additional inspection program in order to maintain the structural integrity of the\n                                  rudder.",
+      "start_char": 0,
+      "end_char": 1452,
+      "page_text_sha256": "59192be8f971ec7ef342de384d484d749979c8f1113c57f7bf5a16e595c5a30c",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "exact",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-005",
+      "source_file_instance_id": "f2112ddc18baa008",
+      "page_number": 2,
+      "printed_page_label": "2/3",
+      "section": "cover",
+      "section_raw": null,
+      "clause_path": "effective date",
+      "exact_quote": "Effective Date:                                                                                                                            28 January 2008",
+      "start_char": 1454,
+      "end_char": 1608,
+      "page_text_sha256": "59192be8f971ec7ef342de384d484d749979c8f1113c57f7bf5a16e595c5a30c",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "exact",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-006",
+      "source_file_instance_id": "f2112ddc18baa008",
+      "page_number": 2,
+      "printed_page_label": "2/3",
+      "section": "compliance",
+      "section_raw": null,
+      "clause_path": "paragraphs 1-3",
+      "exact_quote": "Compliance:                                                                                                                                                            Required as indicated:\n                                  1. Structural Inspection at rudder hoisting points and trailing edge screw\n                                     areas:\n                                  1.1 Unless accomplished previously,\n                                        within 500 Flight Cycles (FC) or 6 months from the effective date of this AD,\n                                        whichever occurs first, perform a special detailed one-time inspection in the\n                                        areas of rudder hoisting points and trailing edge screw, in accordance with\n                                        the instructions given in AIRBUS Service Bulletin (SB) A330-55-3037 or SB\n                                        A340-55-4033.\n                                  1.2 If no damage is found, within 10 days after the inspection, report to AIRBUS\n                                        using Appendix 1 of SB A330-55-3037 or SB A340-55-4033.\n                                  1.3 In case of findings, report to AIRBUS using Appendix 1 of SB A330-55-3037\n                                        or SB A340-55-4033, to get further instructions for repair. Accomplish the\n                                        repair within the timescale(s) indicated in Flow Chart 1, and in accordance\n                                        with the instructions given in SB A330-55-3037 or SB A340-55-4033.\n                                  2. Structural inspection along the rudder Z-profile:\n                                  2.1 Within 500 FC or 6 months from the effective date of this AD, whichever\n                                        occurs first, and thereafter at intervals not exceeding 5 000 FC, perform a\n                                        special detailed inspection along the rudder Z-profile in accordance with the\n                                        instructions given in SB A330-55-3038 or SB A340-55-4034. For temporary\n                                        repair along the rudder Z-profile refer to paragraph 3.C (1) of SB A330-55-\n                                        3038 or SB A340-55-4034.\n                                  2.2 If no damage is found, within 10 days after each inspection, report to\n                                        AIRBUS using Appendix 1 of SB A330-55-3038 or SB A340-55-4034.\n                                  2.3 In case of findings during any inspection as required by paragraph 2.1 of this\n                                        directive, check the findings and apply associated corrective actions within\n                                        the timescale(s) indicated in Flow Chart 1, and in accordance with\n                                        instructions given in SB A330-55-3038 or SB A340-55-4034. Within 10 days\n                                        after the inspection / repair, submit a report to AIRBUS using Appendix 1 of\n                                        SB A330-55-3038 or SB A340-55-4034.\n                                  3. Installation of spare rudder PN A55471500 series as a replacement:\n                                     After 6 months from the effective date of this AD, no person shall install a PN\n                                     A55471500 series rudder on an aircraft as a replacement part, unless it has\n                                     been inspected and, as necessary, repaired in accordance with the\n                                     instructions of SB A330-55-3037 or SB A340-55-4033, and SB A330-55-3038\n                                     or SB A340-55-4034.\n\n\n                                                                                                                                                      2/3",
+      "start_char": 1610,
+      "end_char": 5545,
+      "page_text_sha256": "59192be8f971ec7ef342de384d484d749979c8f1113c57f7bf5a16e595c5a30c",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "exact",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-007",
+      "source_file_instance_id": "f2112ddc18baa008",
+      "page_number": 3,
+      "printed_page_label": "3/3",
+      "section": "reference_publications",
+      "section_raw": null,
+      "clause_path": "Ref. Publications",
+      "exact_quote": "Ref. Publications:                                                                         AIRBUS Service Bulletin A330-55-3037 original issue;\n                                    AIRBUS Service Bulletin A340-55-4033 original issue;\n                                    AIRBUS Service Bulletin A330-55-3038 original issue;\n                                    AIRBUS Service Bulletin A340-55-4034 original issue.\n                                    The use of later approved revisions of these documents is acceptable for\n                                    compliance with the requirements of this AD.",
+      "start_char": 1,
+      "end_char": 601,
+      "page_text_sha256": "5ecb3361325ba0a46433f548aab527b317c56ead409a893e4f26b33e6f2db563",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "exact",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-008",
+      "source_file_instance_id": "f2112ddc18baa008",
+      "page_number": 3,
+      "printed_page_label": "3/3",
+      "section": "remarks",
+      "section_raw": null,
+      "clause_path": "Remarks",
+      "exact_quote": "Remarks :                                                                                                                                                                                             1. If requested and appropriately substantiated, EASA can accept Alternative\n                                        Methods of Compliance for this AD.\n                                     2. This AD was posted as PAD 07-218 on 28 November 2007 for consultation until\n                                        12 December 2007. No comments were received during the consultation period.\n                                     3. Enquiries regarding this Airworthiness Directive should be referred to the\n                                        Airworthiness Directive Focal Point - Certification Directorate, EASA.\n                                        E-mail: ADs@easa.europa.eu .\n                                     4. For any question concerning the technical content of the requirements in this\n                                        AD, please contact AIRBUS SAS – Airworthiness Office – EAL\n                                        E- mail: airworthiness.A330-A340@airbus.com .\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n                                                                                                                                                              3/3",
+      "start_char": 604,
+      "end_char": 1983,
+      "page_text_sha256": "5ecb3361325ba0a46433f548aab527b317c56ead409a893e4f26b33e6f2db563",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "exact",
+      "table_context": null,
+      "annotation_note": null
+    }
+  ],
+  "field_assertions": [
+    {
+      "assertion_id": "AST-001",
+      "field_path": "/ad_identity",
+      "value_state": "present",
+      "origin": "human_annotated",
+      "verification_status": "accepted",
+      "confidence": null,
+      "evidence_ids": [
+        "EV-001",
+        "EV-002"
+      ],
+      "annotator_id": "human-reviewer-1",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Human reviewer accepted this substantive section against the canonical PDF."
+    },
+    {
+      "assertion_id": "AST-002",
+      "field_path": "/publication",
+      "value_state": "present",
+      "origin": "human_annotated",
+      "verification_status": "accepted",
+      "confidence": null,
+      "evidence_ids": [
+        "EV-002",
+        "EV-001",
+        "EV-005",
+        "EV-003"
+      ],
+      "annotator_id": "human-reviewer-1",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Human reviewer accepted this substantive section against the canonical PDF."
+    },
+    {
+      "assertion_id": "AST-003",
+      "field_path": "/applicability_groups",
+      "value_state": "present",
+      "origin": "human_annotated",
+      "verification_status": "accepted",
+      "confidence": null,
+      "evidence_ids": [
+        "EV-003"
+      ],
+      "annotator_id": "human-reviewer-1",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Human reviewer accepted this substantive section against the canonical PDF."
+    },
+    {
+      "assertion_id": "AST-004",
+      "field_path": "/definitions",
+      "value_state": "absent_in_source",
+      "origin": "human_annotated",
+      "verification_status": "accepted",
+      "confidence": null,
+      "evidence_ids": [
+        "EV-003",
+        "EV-004"
+      ],
+      "annotator_id": "human-reviewer-1",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Human reviewer accepted this substantive section against the canonical PDF."
+    },
+    {
+      "assertion_id": "AST-005",
+      "field_path": "/unsafe_condition",
+      "value_state": "present",
+      "origin": "human_annotated",
+      "verification_status": "accepted",
+      "confidence": null,
+      "evidence_ids": [
+        "EV-004"
+      ],
+      "annotator_id": "human-reviewer-1",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Human reviewer accepted this substantive section against the canonical PDF."
+    },
+    {
+      "assertion_id": "AST-006",
+      "field_path": "/requirements",
+      "value_state": "present",
+      "origin": "human_annotated",
+      "verification_status": "accepted",
+      "confidence": null,
+      "evidence_ids": [
+        "EV-006"
+      ],
+      "annotator_id": "human-reviewer-1",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Human reviewer accepted this substantive section against the canonical PDF."
+    },
+    {
+      "assertion_id": "AST-007",
+      "field_path": "/exceptions",
+      "value_state": "absent_in_source",
+      "origin": "human_annotated",
+      "verification_status": "accepted",
+      "confidence": null,
+      "evidence_ids": [
+        "EV-006"
+      ],
+      "annotator_id": "human-reviewer-1",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Human reviewer accepted this substantive section against the canonical PDF."
+    },
+    {
+      "assertion_id": "AST-008",
+      "field_path": "/previous_action_credit",
+      "value_state": "absent_in_source",
+      "origin": "human_annotated",
+      "verification_status": "accepted",
+      "confidence": null,
+      "evidence_ids": [],
+      "annotator_id": "human-reviewer-1",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Human reviewer accepted this substantive section against the canonical PDF."
+    },
+    {
+      "assertion_id": "AST-009",
+      "field_path": "/referenced_publications",
+      "value_state": "present",
+      "origin": "human_annotated",
+      "verification_status": "accepted",
+      "confidence": null,
+      "evidence_ids": [
+        "EV-006",
+        "EV-007"
+      ],
+      "annotator_id": "human-reviewer-1",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Human reviewer accepted this substantive section against the canonical PDF."
+    },
+    {
+      "assertion_id": "AST-010",
+      "field_path": "/relationships",
+      "value_state": "not_applicable",
+      "origin": "human_annotated",
+      "verification_status": "accepted",
+      "confidence": null,
+      "evidence_ids": [
+        "EV-001"
+      ],
+      "annotator_id": "human-reviewer-1",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Human reviewer accepted this substantive section against the canonical PDF."
+    },
+    {
+      "assertion_id": "AST-011",
+      "field_path": "/amoc_and_contacts",
+      "value_state": "present",
+      "origin": "human_annotated",
+      "verification_status": "accepted",
+      "confidence": null,
+      "evidence_ids": [
+        "EV-008"
+      ],
+      "annotator_id": "human-reviewer-1",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Human reviewer accepted this substantive section against the canonical PDF."
+    },
+    {
+      "assertion_id": "AST-012",
+      "field_path": "/classification",
+      "value_state": "present",
+      "origin": "human_annotated",
+      "verification_status": "accepted",
+      "confidence": null,
+      "evidence_ids": [
+        "EV-002",
+        "EV-003",
+        "EV-004",
+        "EV-006"
+      ],
+      "annotator_id": "human-reviewer-1",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Human reviewer accepted this substantive section against the canonical PDF."
+    },
+    {
+      "assertion_id": "AST-013",
+      "field_path": "/publication/issue_date",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.92,
+      "evidence_ids": [
+        "EV-001"
+      ],
+      "annotator_id": "codex-a2",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Source-grounded first-pass assertion; independent review pending."
+    },
+    {
+      "assertion_id": "AST-014",
+      "field_path": "/publication/effective_date",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.92,
+      "evidence_ids": [
+        "EV-005"
+      ],
+      "annotator_id": "codex-a2",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Source-grounded first-pass assertion; independent review pending."
+    },
+    {
+      "assertion_id": "AST-015",
+      "field_path": "/publication/type_model_designations",
+      "value_state": "present",
+      "origin": "human_annotated",
+      "verification_status": "accepted",
+      "confidence": null,
+      "evidence_ids": [
+        "EV-001",
+        "EV-002",
+        "EV-003",
+        "EV-005"
+      ],
+      "annotator_id": "human-reviewer-1",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Human reviewer accepted this normalized publication value against the canonical PDF."
+    },
+    {
+      "assertion_id": "AST-016",
+      "field_path": "/publication/tcds_numbers",
+      "value_state": "present",
+      "origin": "human_annotated",
+      "verification_status": "accepted",
+      "confidence": null,
+      "evidence_ids": [
+        "EV-001",
+        "EV-002",
+        "EV-003",
+        "EV-005"
+      ],
+      "annotator_id": "human-reviewer-1",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Human reviewer accepted this normalized publication value against the canonical PDF."
+    }
+  ],
+  "annotation_metadata": {
+    "guideline_version": "1.0.0",
+    "record_status": "approved",
+    "creation_method": "manual",
+    "machine_provenance": {
+      "system": "OpenAI Codex",
+      "model": "GPT-5",
+      "prompt_or_rules_version": "step2-guidelines-1.0.0-manual-pass-a2",
+      "generated_at": "2026-07-22T12:06:38Z"
+    },
+    "annotators": [
+      {
+        "annotator_id": "codex-a2",
+        "role": "annotator",
+        "started_at": "2026-07-22T12:06:38Z",
+        "submitted_at": "2026-07-22T12:06:38Z"
+      },
+      {
+        "annotator_id": "codex-source-audit",
+        "role": "reviewer",
+        "started_at": "2026-07-28T11:42:19Z",
+        "submitted_at": "2026-07-28T11:42:19Z"
+      },
+      {
+        "annotator_id": "human-reviewer-1",
+        "role": "reviewer",
+        "started_at": "2026-07-29T10:52:34Z",
+        "submitted_at": "2026-07-29T10:52:34Z"
+      }
+    ],
+    "events": [
+      {
+        "event_type": "created",
+        "actor_id": "codex-a2",
+        "timestamp": "2026-07-22T12:06:38Z",
+        "rationale": "Source-only machine-assisted first annotation pass."
+      },
+      {
+        "event_type": "submitted",
+        "actor_id": "codex-a2",
+        "timestamp": "2026-07-22T12:06:38Z",
+        "rationale": "First pass completed from the rendered source PDF and blind page-text packet; no human approval is asserted."
+      },
+      {
+        "event_type": "reviewed",
+        "actor_id": "codex-source-audit",
+        "timestamp": "2026-07-28T11:42:19Z",
+        "rationale": "Machine-only comparison against every rendered PDF page corrected source fidelity and semantics; human acceptance remains pending."
+      },
+      {
+        "event_type": "reviewed",
+        "actor_id": "human-reviewer-1",
+        "timestamp": "2026-07-29T10:52:34Z",
+        "rationale": "Independent human reviewer confirmed that the complete annotation was reviewed against the canonical PDF."
+      },
+      {
+        "event_type": "approved",
+        "actor_id": "human-reviewer-1",
+        "timestamp": "2026-07-29T10:52:34Z",
+        "rationale": "The user explicitly approved the finalized human-reviewed annotation for inclusion in the gold pilot."
+      }
+    ],
+    "quality_flags": [
+      "complex_applicability",
+      "complex_compliance"
+    ],
+    "uncertainty_flags": [],
+    "notes": [
+      "Independent Codex annotator-a2 first pass; was accepted by the independent human reviewer.",
+      "Only the source PDF, blind page packet, section index, and frozen Step 2 rules were used.",
+      "Machine source audit corrected subject, applicability text, unsafe-condition semantics, paragraph 1.1 condition, contact names, printed page labels, and absent-credit state; all assertions were accepted by the independent human reviewer.",
+      "Independent human review and approval were recorded after comparison with the canonical PDF."
+    ],
+    "source_text_sha256": "a0480cc451a216e9270e1ec6817925699adbf1bc956f972a9090538679d3faa2",
+    "created_at": "2026-07-22T12:06:38Z",
+    "updated_at": "2026-07-29T10:52:34Z"
+  },
+  "benchmark_metadata": {
+    "split": "unassigned",
+    "split_group": "2008-0012",
+    "selection_strata": [],
+    "duplicate_cluster_ids": [],
+    "gold_record": true
+  }
+}

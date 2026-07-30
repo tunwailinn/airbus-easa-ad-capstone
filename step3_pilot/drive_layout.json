@@ -1,0 +1,34 @@
+{
+  "root": {
+    "id": "1A88u28fC2EXWub5_bFMbvDlyE-40zIjz",
+    "url": "https://drive.google.com/drive/folders/1A88u28fC2EXWub5_bFMbvDlyE-40zIjz"
+  },
+  "selection": "1XKsWCJbPpNtpUvA9xzLtwroqQ9qJrWci",
+  "source_pdfs": "1PdRlx-SBwsBcu_88O9k0M2D9degFfbC4",
+  "page_text": "1U_CUpU0X7_9k5UH2DxCaxpFnNwc7COEB",
+  "packets": {
+    "root": "1BpEi-sFZ875_ljNJ2pAuELqbUKauJX0m",
+    "blind": "1JBLIC0yTbXw_XoFrTvAJ9rQEVs4gN_6k",
+    "reviewer_qc": "1T0k7HwWsLOThSA1okuHC8-vSkMrYrwGl"
+  },
+  "annotations": {
+    "root": "1qD4iaLYWIlIv5K8aQ1nbUsSyFvkTgZaV",
+    "annotator_a": "1WENwlykmCj8Kn8nN1T0ESnzAD4qrzszi",
+    "annotator_b": "1-g-6Izpv9FvCdb5QLEVt1xXS5UFHP9JA"
+  },
+  "submitted": {
+    "root": "12I7gM-dD67AVWiXhyFHewl7Eec9_NMXG",
+    "annotator_a": "1V_o9cIyH1zBbh-XcN8ESyuZIGdyWkxdj",
+    "annotator_b": "1J4SJNKHVKub9wZK2LDLB7OXEr-K2Fv8y"
+  },
+  "adjudication": "1v5JBhYd8KGUGhAqhPDVzTjRf7dF95IFk",
+  "gold": "1Y7EkwvAAReNnxkf7z33heEoQV5qSsG0e",
+  "validation": "1H6BWTj18EQCsPTSiucOwRiOb2hU8K3QJ",
+  "baselines": {
+    "root": "1Yph9JpzZYFV3fhxDvKKRy5s4UukXhqSh",
+    "regex": "12UDkXiWRLgE9-tl9WyaT_tmSRjfneV3n",
+    "zero_shot": "1GyDfxSt_ZqoVVYRKTrf8qj8VcEW48ppG",
+    "schema_guided": "1PhQ2etVIDRP2BFEKMxkKhDQa7s_jSv2a"
+  },
+  "metrics": "1s9kaLhTcLGtMyal10wMiYDhcsSAiqZg4"
+}

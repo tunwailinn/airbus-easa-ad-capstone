@@ -1,0 +1,1215 @@
+{
+  "schema_version": "1.0.0",
+  "record_id": "adann-843fc74e8a4f44c0",
+  "source_document": {
+    "file_instance_id": "843fc74e8a4f44c0",
+    "content_id": "38d8906ac3e9ee2b",
+    "canonical_file_instance_id": "843fc74e8a4f44c0",
+    "file_aliases": [],
+    "file_name": "2008-0066__AD_2008-0066_1__easa_ad_2008_0066.pdf",
+    "relative_path": "2008-0066__AD_2008-0066_1__easa_ad_2008_0066.pdf",
+    "file_sha256": "38d8906ac3e9ee2bae16dcd13c81d3a8732873de06d24b8188dbd490b2637e74",
+    "normalized_text_sha256": "77f9b447970692a7bb33f2a1d78932922d5fe4c739778b37afdd270f0bd69a4e",
+    "page_count": 2,
+    "extraction_status": "native_text",
+    "needs_ocr": false,
+    "manifest_review_flags": [],
+    "source_url": "https://ad.easa.europa.eu/blob/easa_ad_2008_0066.pdf/AD_2008-0066_1",
+    "text_extraction_method": "native_text",
+    "exact_duplicate_group": null,
+    "near_duplicate_cluster": null
+  },
+  "ad_identity": {
+    "authority": "EASA",
+    "document_type": "airworthiness_directive",
+    "ad_number": "2008-0066",
+    "base_ad_number": "2008-0066",
+    "revision_number": 0,
+    "publication_kind": "standard_ad",
+    "is_emergency": false,
+    "is_correction": false,
+    "correction_date": {
+      "state": "not_stated",
+      "value": null,
+      "raw_text": null,
+      "evidence_ids": [
+        "EV-001"
+      ]
+    },
+    "version_label": "Original",
+    "logical_version_key": "2008-0066|UNCORRECTED",
+    "is_latest_version": null,
+    "lifecycle_status": "unknown",
+    "design_approval_holder": {
+      "state": "present",
+      "value": "Airbus SAS",
+      "raw_text": "Airbus SAS",
+      "evidence_ids": [
+        "EV-001"
+      ]
+    },
+    "supersedure_statement": {
+      "state": "explicit_none",
+      "value": null,
+      "raw_text": "Supersedure: None",
+      "evidence_ids": [
+        "EV-001"
+      ]
+    },
+    "evidence_ids": [
+      "EV-001"
+    ]
+  },
+  "publication": {
+    "subject": {
+      "state": "present",
+      "value": "Nacelles / Pylons – Pylon Box Rib 5 Lower Side – Inspection",
+      "raw_text": "ATA 54 Nacelles / Pylons – Pylon Box Rib 5 Lower Side – Inspection",
+      "evidence_ids": [
+        "EV-001"
+      ]
+    },
+    "issue_date": {
+      "state": "present",
+      "value": "2008-03-31",
+      "raw_text": "Date: 31 March 2008",
+      "evidence_ids": [
+        "EV-001"
+      ]
+    },
+    "effective_date": {
+      "state": "present",
+      "value": "2008-04-14",
+      "raw_text": "Effective Date: 14 April 2008",
+      "evidence_ids": [
+        "EV-001"
+      ]
+    },
+    "ata_chapters": [
+      {
+        "code": "54",
+        "title": "Nacelles / Pylons",
+        "evidence_ids": [
+          "EV-001"
+        ]
+      }
+    ],
+    "manufacturers": [
+      {
+        "raw_name": "Manufacturer(s): AIRBUS (formerly AIRBUS INDUSTRIE)",
+        "normalized_name": "Airbus",
+        "role": "manufacturer",
+        "evidence_ids": [
+          "EV-002"
+        ]
+      }
+    ],
+    "type_model_designations": [
+      "A310-203",
+      "A310-203C",
+      "A310-204",
+      "A310-304",
+      "A310-308"
+    ],
+    "tcds_numbers": [
+      "France No 145"
+    ],
+    "foreign_ad": {
+      "state": "explicit_none",
+      "value": null,
+      "raw_text": "Foreign AD: None or Not applicable",
+      "evidence_ids": [
+        "EV-001"
+      ]
+    }
+  },
+  "applicability_groups": [
+    {
+      "group_id": "APP-001",
+      "label": "A310 applicability stated in the AD",
+      "state": "present",
+      "raw_text": "Applicability: Airbus A310-203, A310-203C, A310-204, A310-304 and A310-308 aircraft models, all serial numbers, except aircraft that have received AIRBUS Modification 11110 during production or that have been modified in service in accordance with AIRBUS Service Bulletin (SB) A310-54-2032 (Mod. 11109).",
+      "aircraft_families": [
+        "A310"
+      ],
+      "models": [
+        "A310-203",
+        "A310-203C",
+        "A310-204",
+        "A310-304",
+        "A310-308"
+      ],
+      "serial_restrictions": [
+        {
+          "restriction_id": "MSN-001",
+          "kind": "all",
+          "raw_expression": "all serial numbers",
+          "lower_bound": null,
+          "upper_bound": null,
+          "explicit_values": [],
+          "condition": null,
+          "evidence_ids": [
+            "EV-003"
+          ]
+        }
+      ],
+      "part_numbers": [],
+      "configuration_conditions": [],
+      "exclusions": [
+        "except aircraft that have received AIRBUS Modification 11110 during production or that have been modified in service in accordance with AIRBUS Service Bulletin (SB) A310-54-2032 (Mod"
+      ],
+      "boolean_logic": "all",
+      "evidence_ids": [
+        "EV-003"
+      ]
+    }
+  ],
+  "definitions": [],
+  "unsafe_condition": {
+    "state": "present",
+    "raw_reason_text": "Reason: Two operators of A300 aircraft fitted with General Electric (GE) CF6-50 engine series have reported cracks on the lower side of Rib 5 in the pylon box. The concerned area is similar on A310 aircraft fitted with GE CF6-80A or CF6-80C series engines. Investigations disclosed that these cracks are due to the stresses resulting from the pressure applied by the thrust reverser cowl bumpers. As a result of the A310 Extended Service Goal (ESG) study, an inspection programme of this area is required by this Airworthiness Directive (AD). A similar inspection programme is being contemplated for A300 and A300-600 series aircraft.",
+    "observed_events_or_defects": [
+      "Two operators of A300 aircraft fitted with General Electric (GE) CF6-50 engine series have reported cracks on the lower side of Rib 5 in the pylon box."
+    ],
+    "causes": [],
+    "unsafe_conditions": [
+      "As a result of the A310 Extended Service Goal (ESG) study, an inspection programme of this area is required by this Airworthiness Directive (AD)."
+    ],
+    "potential_consequences": [
+      "As a result of the A310 Extended Service Goal (ESG) study, an inspection programme of this area is required by this Airworthiness Directive (AD)."
+    ],
+    "affected_components": [],
+    "intended_risk_mitigation": [],
+    "evidence_ids": [
+      "EV-004"
+    ]
+  },
+  "requirements": [
+    {
+      "requirement_id": "REQ-001",
+      "paragraph_reference": "(1)",
+      "parent_requirement_id": null,
+      "applicability_group_ids": [
+        "APP-001"
+      ],
+      "action_types": [
+        "inspection",
+        "reporting",
+        "modification"
+      ],
+      "obligation": "mandatory",
+      "action_text": "(1) Perform an High Frequency Eddy Current (HFEC) inspection and a detailed visual inspection on the lower side of Rib 5 of LH and RH pylon in accordance with the instructions defined in AIRBUS SB A310-54-2036 Revision 2 at the 1/2 latest of the following thresholds, as applicable to the aircraft model: For A310-203, A310-203C and A310-204 : - Prior to accumulation of 40 000 flight cycles (FC) or 60 000 flight hours (FH), whichever occurs first; or - Within 250 FH after the effective date of this AD. For A310-304 and A310-308 : - Prior to accumulation of 35 000 FC or 60 000 FH, whichever occurs first, or - Within 250 FH after the effective date of this AD.",
+      "objects_or_components": [],
+      "conditions": [],
+      "method_publication_ids": [
+        "PUB-001",
+        "PUB-002",
+        "PUB-003"
+      ],
+      "compliance_rules": [
+        {
+          "compliance_id": "CMP-001",
+          "state": "present",
+          "raw_text": "(1) Perform an High Frequency Eddy Current (HFEC) inspection and a detailed visual inspection on the lower side of Rib 5 of LH and RH pylon in accordance with the instructions defined in AIRBUS SB A310-54-2036 Revision 2 at the 1/2 latest of the following thresholds, as applicable to the aircraft model: For A310-203, A310-203C and A310-204 : - Prior to accumulation of 40 000 flight cycles (FC) or 60 000 flight hours (FH), whichever occurs first; or - Within 250 FH after the effective date of this AD. For A310-304 and A310-308 : - Prior to accumulation of 35 000 FC or 60 000 FH, whichever occurs first, or - Within 250 FH after the effective date of this AD.",
+          "logic": "whichever_occurs_first",
+          "conditions": [],
+          "initial_limits": [
+            {
+              "limit_id": "LIM-001",
+              "relation": "before",
+              "quantity": 40000,
+              "unit": "flight_cycle",
+              "raw_value": "Prior to accumulation of 40 000 flight cycles",
+              "reference_event": "effective date of this AD",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-006",
+                "EV-007"
+              ]
+            },
+            {
+              "limit_id": "LIM-002",
+              "relation": "within",
+              "quantity": 250,
+              "unit": "flight_hour",
+              "raw_value": "Within 250 FH",
+              "reference_event": "effective date of this AD",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-006",
+                "EV-007"
+              ]
+            },
+            {
+              "limit_id": "LIM-003",
+              "relation": "before",
+              "quantity": 35000,
+              "unit": "flight_cycle",
+              "raw_value": "Prior to accumulation of 35 000 FC",
+              "reference_event": "effective date of this AD",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-006",
+                "EV-007"
+              ]
+            },
+            {
+              "limit_id": "LIM-004",
+              "relation": "within",
+              "quantity": 60000,
+              "unit": "flight_hour",
+              "raw_value": "60 000 flight hours",
+              "reference_event": "effective date of this AD",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-006",
+                "EV-007"
+              ]
+            }
+          ],
+          "is_repetitive": false,
+          "repetitive_intervals": [],
+          "grace_periods": [],
+          "evidence_ids": [
+            "EV-006",
+            "EV-007"
+          ]
+        }
+      ],
+      "follow_on_requirement_ids": [],
+      "terminating_action": {
+        "state": "not_stated",
+        "present": false,
+        "scope": "none",
+        "action_text": null,
+        "terminates_requirement_ids": [],
+        "evidence_ids": []
+      },
+      "evidence_ids": [
+        "EV-006",
+        "EV-007"
+      ]
+    },
+    {
+      "requirement_id": "REQ-002",
+      "paragraph_reference": "(2)",
+      "parent_requirement_id": null,
+      "applicability_group_ids": [
+        "APP-001"
+      ],
+      "action_types": [
+        "inspection",
+        "reporting",
+        "modification"
+      ],
+      "obligation": "conditional",
+      "action_text": "(2) If no cracks are found, repeat the inspection described above at intervals not to exceed 15 000 FH in accordance with the instructions of AIRBUS SB A310-54- 2036 Revision 2; Note: Inspections (initial or repetitive) accomplished before the effective date of this AD in accordance with SB A310-54-2036 revision 1 are acceptable for compliance with paragraphs (1) and (2) of this AD. Repetitive inspections occurring after the effective date of this AD must be done in accordance with AIRBUS SB A310-54- 2036 revision 2, as required by paragraph (2) of this AD.",
+      "objects_or_components": [],
+      "conditions": [],
+      "method_publication_ids": [
+        "PUB-001",
+        "PUB-002",
+        "PUB-003"
+      ],
+      "compliance_rules": [
+        {
+          "compliance_id": "CMP-002",
+          "state": "present",
+          "raw_text": "(2) If no cracks are found, repeat the inspection described above at intervals not to exceed 15 000 FH in accordance with the instructions of AIRBUS SB A310-54- 2036 Revision 2; Note: Inspections (initial or repetitive) accomplished before the effective date of this AD in accordance with SB A310-54-2036 revision 1 are acceptable for compliance with paragraphs (1) and (2) of this AD. Repetitive inspections occurring after the effective date of this AD must be done in accordance with AIRBUS SB A310-54- 2036 revision 2, as required by paragraph (2) of this AD.",
+          "logic": "conditional",
+          "conditions": [],
+          "initial_limits": [],
+          "is_repetitive": true,
+          "repetitive_intervals": [
+            {
+              "limit_id": "LIM-005",
+              "relation": "not_to_exceed",
+              "quantity": 15000,
+              "unit": "flight_hour",
+              "raw_value": "at intervals not to exceed 15 000 FH",
+              "reference_event": "effective date of this AD",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-006",
+                "EV-007"
+              ]
+            }
+          ],
+          "grace_periods": [],
+          "evidence_ids": [
+            "EV-006",
+            "EV-007"
+          ]
+        }
+      ],
+      "follow_on_requirement_ids": [],
+      "terminating_action": {
+        "state": "not_stated",
+        "present": false,
+        "scope": "none",
+        "action_text": null,
+        "terminates_requirement_ids": [],
+        "evidence_ids": []
+      },
+      "evidence_ids": [
+        "EV-006",
+        "EV-007"
+      ]
+    },
+    {
+      "requirement_id": "REQ-003",
+      "paragraph_reference": "(3)",
+      "parent_requirement_id": null,
+      "applicability_group_ids": [
+        "APP-001"
+      ],
+      "action_types": [
+        "inspection",
+        "reporting",
+        "modification"
+      ],
+      "obligation": "mandatory",
+      "action_text": "(3) Within 30 days after each inspection performed in accordance with SB A310- 54-2036 revision 2, report to AIRBUS inspection results, whatever they are;",
+      "objects_or_components": [],
+      "conditions": [],
+      "method_publication_ids": [
+        "PUB-001",
+        "PUB-002",
+        "PUB-003"
+      ],
+      "compliance_rules": [
+        {
+          "compliance_id": "CMP-003",
+          "state": "present",
+          "raw_text": "(3) Within 30 days after each inspection performed in accordance with SB A310- 54-2036 revision 2, report to AIRBUS inspection results, whatever they are;",
+          "logic": "single",
+          "conditions": [],
+          "initial_limits": [
+            {
+              "limit_id": "LIM-006",
+              "relation": "within",
+              "quantity": 30,
+              "unit": "calendar_day",
+              "raw_value": "Within 30 days",
+              "reference_event": null,
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-006",
+                "EV-007"
+              ]
+            }
+          ],
+          "is_repetitive": false,
+          "repetitive_intervals": [],
+          "grace_periods": [],
+          "evidence_ids": [
+            "EV-006",
+            "EV-007"
+          ]
+        }
+      ],
+      "follow_on_requirement_ids": [],
+      "terminating_action": {
+        "state": "not_stated",
+        "present": false,
+        "scope": "none",
+        "action_text": null,
+        "terminates_requirement_ids": [],
+        "evidence_ids": []
+      },
+      "evidence_ids": [
+        "EV-006",
+        "EV-007"
+      ]
+    },
+    {
+      "requirement_id": "REQ-004",
+      "paragraph_reference": "(4)",
+      "parent_requirement_id": null,
+      "applicability_group_ids": [
+        "APP-001"
+      ],
+      "action_types": [
+        "inspection",
+        "reporting",
+        "modification"
+      ],
+      "obligation": "mandatory",
+      "action_text": "(4) If cracks are found during any inspection as required by paragraph (1) or (2) of this AD, within 250 FH, modify the rib 5 in the pylon box using the instructions of AIRBUS SB A310-54-2032; After modification of the rib 5 pylon in accordance with the instructions of AIRBUS SB A310-54-2032, no further actions are required by this AD.",
+      "objects_or_components": [],
+      "conditions": [],
+      "method_publication_ids": [
+        "PUB-001",
+        "PUB-002",
+        "PUB-003"
+      ],
+      "compliance_rules": [
+        {
+          "compliance_id": "CMP-004",
+          "state": "present",
+          "raw_text": "(4) If cracks are found during any inspection as required by paragraph (1) or (2) of this AD, within 250 FH, modify the rib 5 in the pylon box using the instructions of AIRBUS SB A310-54-2032; After modification of the rib 5 pylon in accordance with the instructions of AIRBUS SB A310-54-2032, no further actions are required by this AD.",
+          "logic": "conditional",
+          "conditions": [],
+          "initial_limits": [
+            {
+              "limit_id": "LIM-007",
+              "relation": "within",
+              "quantity": 250,
+              "unit": "flight_hour",
+              "raw_value": "within 250 FH",
+              "reference_event": null,
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-006",
+                "EV-007"
+              ]
+            }
+          ],
+          "is_repetitive": false,
+          "repetitive_intervals": [],
+          "grace_periods": [],
+          "evidence_ids": [
+            "EV-006",
+            "EV-007"
+          ]
+        }
+      ],
+      "follow_on_requirement_ids": [],
+      "terminating_action": {
+        "state": "present",
+        "present": true,
+        "scope": "partial",
+        "action_text": "(4) If cracks are found during any inspection as required by paragraph (1) or (2) of this AD, within 250 FH, modify the rib 5 in the pylon box using the instructions of AIRBUS SB A310-54-2032; After modification of the rib 5 pylon in accordance with the instructions of AIRBUS SB A310-54-2032, no further actions are required by this AD.",
+        "terminates_requirement_ids": [
+          "REQ-001",
+          "REQ-002",
+          "REQ-003"
+        ],
+        "evidence_ids": [
+          "EV-006",
+          "EV-007"
+        ]
+      },
+      "evidence_ids": [
+        "EV-006",
+        "EV-007"
+      ]
+    }
+  ],
+  "exceptions": [],
+  "previous_action_credit": [],
+  "referenced_publications": [
+    {
+      "publication_id": "PUB-001",
+      "publication_type": "service_bulletin",
+      "issuer": "Airbus",
+      "number": "A310-54-2036",
+      "revision": "Revision 1",
+      "publication_date": null,
+      "title": null,
+      "roles": [
+        "required_method"
+      ],
+      "later_approved_revisions_allowed": true,
+      "evidence_ids": [
+        "EV-005"
+      ]
+    },
+    {
+      "publication_id": "PUB-002",
+      "publication_type": "service_bulletin",
+      "issuer": "Airbus",
+      "number": "A310-54-2036",
+      "revision": "Revision 2",
+      "publication_date": null,
+      "title": null,
+      "roles": [
+        "required_method"
+      ],
+      "later_approved_revisions_allowed": true,
+      "evidence_ids": [
+        "EV-005"
+      ]
+    },
+    {
+      "publication_id": "PUB-003",
+      "publication_type": "service_bulletin",
+      "issuer": "Airbus",
+      "number": "A310-54-2032",
+      "revision": "Original issue",
+      "publication_date": null,
+      "title": null,
+      "roles": [
+        "required_method"
+      ],
+      "later_approved_revisions_allowed": true,
+      "evidence_ids": [
+        "EV-005"
+      ]
+    }
+  ],
+  "relationships": [],
+  "amoc_and_contacts": [
+    {
+      "entry_id": "AMC-001",
+      "entry_type": "amoc_authority",
+      "authority_or_organization": "EASA",
+      "contact_text": "Remarks : 1. If requested and appropriately substantiated, EASA can accept Alternative Methods of Compliance for this AD. 2. This AD was posted on 19 February 2008 as PAD 08-025 for consultation until 18 March 2008. No comments were received during the consultation period. 3. Enquiries regarding this AD should be referred to the AD Focal Point - Certification Directorate, EASA. E-mail: ADs@easa.europa.eu . 4. For any question concerning the technical content of the requirements in this AD, please contact: AIRBUS SAS – EAW (Airworthiness Office, Telephone: + 33 5 61 93 36 96, Fax:+ 33 5 61 93 44 51). 2/2",
+      "conditions": [
+        "Requested and appropriately substantiated"
+      ],
+      "evidence_ids": [
+        "EV-008"
+      ]
+    },
+    {
+      "entry_id": "AMC-002",
+      "entry_type": "regulatory_contact",
+      "authority_or_organization": "EASA and the technical contact stated in the AD",
+      "contact_text": "Remarks : 1. If requested and appropriately substantiated, EASA can accept Alternative Methods of Compliance for this AD. 2. This AD was posted on 19 February 2008 as PAD 08-025 for consultation until 18 March 2008. No comments were received during the consultation period. 3. Enquiries regarding this AD should be referred to the AD Focal Point - Certification Directorate, EASA. E-mail: ADs@easa.europa.eu . 4. For any question concerning the technical content of the requirements in this AD, please contact: AIRBUS SAS – EAW (Airworthiness Office, Telephone: + 33 5 61 93 36 96, Fax:+ 33 5 61 93 44 51). 2/2",
+      "conditions": [],
+      "evidence_ids": [
+        "EV-008"
+      ]
+    }
+  ],
+  "classification": {
+    "airbus_families": [
+      "A310"
+    ],
+    "ata_chapters": [
+      "54"
+    ],
+    "action_types": [
+      "inspection",
+      "reporting",
+      "modification"
+    ],
+    "frequency": "mixed",
+    "emergency_status": "standard",
+    "terminating_action_present": true,
+    "table_or_appendix_present": false,
+    "compliance_complexity": "conditional_branches",
+    "human_confirmed": false,
+    "evidence_ids": [
+      "EV-001",
+      "EV-003",
+      "EV-004",
+      "EV-006",
+      "EV-007"
+    ]
+  },
+  "evidence_spans": [
+    {
+      "evidence_id": "EV-001",
+      "source_file_instance_id": "843fc74e8a4f44c0",
+      "page_number": 1,
+      "printed_page_label": "1/2",
+      "section": "cover",
+      "section_raw": "Cover identity and publication",
+      "clause_path": "cover",
+      "exact_quote": "EASA AIRWORTHINESS DIRECTIVE AD No : 2008-0066 Date: 31 March 2008 No person may operate an aircraft to which an Airworthiness Directive applies, except in accordance with the requirements of that Airworthiness Directive unless otherwise agreed with the Authority of the State of Registry. Type Approval Holder’s Name : Type/Model designation(s) : AIRBUS SAS A310 aircraft TCDS Number: France No 145 Foreign AD: Not applicable Supersedure: None ATA 54 Nacelles / Pylons – Pylon Box Rib 5 Lower Side – Inspection Manufacturer(s): AIRBUS (formerly AIRBUS INDUSTRIE) Applicability: Airbus A310-203, A310-203C, A310-204, A310-304 and A310-308 aircraft models, all serial numbers, except aircraft that have received AIRBUS Modification 11110 during production or that have been modified in service in accordance with AIRBUS Service Bulletin (SB) A310-54-2032 (Mod. 11109). Reason: Two operators of A300 aircraft fitted with General Electric (GE) CF6-50 engine series have reported cracks on the lower side of Rib 5 in the pylon box. The concerned area is similar on A310 aircraft fitted with GE CF6-80A or CF6-80C series engines. Investigations disclosed that these cracks are due to the stresses resulting from the pressure applied by the thrust reverser cowl bumpers. As a result of the A310 Extended Service Goal (ESG) study, an inspection programme of this area is required by this Airworthiness Directive (AD). A similar inspection programme is being contemplated for A300 and A300-600 series aircraft. Effective Date: 14 April 2008 Compliance: The following measures are required from the effective date of this AD: (1) Perform an High Frequency Eddy Current (HFEC) inspection and a detailed visual inspection on the lower side of Rib 5 of LH and RH pylon in accordance with the instructions defined in AIRBUS SB A310-54-2036 Revision 2 at the 1/2",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "2ee7b4731b17a059289b5dc197d10408942dae6eb578d7eec2fca6a1d47d0b13",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-002",
+      "source_file_instance_id": "843fc74e8a4f44c0",
+      "page_number": 1,
+      "printed_page_label": "1/2",
+      "section": "cover",
+      "section_raw": "Manufacturer(s)",
+      "clause_path": "Manufacturer(s)",
+      "exact_quote": "Manufacturer(s): AIRBUS (formerly AIRBUS INDUSTRIE)",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "2ee7b4731b17a059289b5dc197d10408942dae6eb578d7eec2fca6a1d47d0b13",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-003",
+      "source_file_instance_id": "843fc74e8a4f44c0",
+      "page_number": 1,
+      "printed_page_label": "1/2",
+      "section": "applicability",
+      "section_raw": "Applicability",
+      "clause_path": "Applicability",
+      "exact_quote": "Applicability: Airbus A310-203, A310-203C, A310-204, A310-304 and A310-308 aircraft models, all serial numbers, except aircraft that have received AIRBUS Modification 11110 during production or that have been modified in service in accordance with AIRBUS Service Bulletin (SB) A310-54-2032 (Mod. 11109).",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "2ee7b4731b17a059289b5dc197d10408942dae6eb578d7eec2fca6a1d47d0b13",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-004",
+      "source_file_instance_id": "843fc74e8a4f44c0",
+      "page_number": 1,
+      "printed_page_label": "1/2",
+      "section": "reason",
+      "section_raw": "Reason",
+      "clause_path": "Reason",
+      "exact_quote": "Reason: Two operators of A300 aircraft fitted with General Electric (GE) CF6-50 engine series have reported cracks on the lower side of Rib 5 in the pylon box. The concerned area is similar on A310 aircraft fitted with GE CF6-80A or CF6-80C series engines. Investigations disclosed that these cracks are due to the stresses resulting from the pressure applied by the thrust reverser cowl bumpers. As a result of the A310 Extended Service Goal (ESG) study, an inspection programme of this area is required by this Airworthiness Directive (AD). A similar inspection programme is being contemplated for A300 and A300-600 series aircraft.",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "2ee7b4731b17a059289b5dc197d10408942dae6eb578d7eec2fca6a1d47d0b13",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-005",
+      "source_file_instance_id": "843fc74e8a4f44c0",
+      "page_number": 2,
+      "printed_page_label": "2/2",
+      "section": "reference_publications",
+      "section_raw": "Ref. Publications",
+      "clause_path": "Ref. Publications",
+      "exact_quote": "Ref. Publications: AIRBUS Service Bulletins A310-54-2036 revision 1, revision 2; and A310-54-2032 original issue; The use of later approved revisions of these documents is acceptable for compliance with the requirements of this AD.",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "5c43cf29948b745426eaf277e42dae902601832454c41057fa3a6b8d863abcb2",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-006",
+      "source_file_instance_id": "843fc74e8a4f44c0",
+      "page_number": 1,
+      "printed_page_label": "1/2",
+      "section": "required_actions_and_compliance_times",
+      "section_raw": "Required Action(s) and Compliance Time(s)",
+      "clause_path": "compliance",
+      "exact_quote": "Compliance: The following measures are required from the effective date of this AD: (1) Perform an High Frequency Eddy Current (HFEC) inspection and a detailed visual inspection on the lower side of Rib 5 of LH and RH pylon in accordance with the instructions defined in AIRBUS SB A310-54-2036 Revision 2 at the 1/2",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "2ee7b4731b17a059289b5dc197d10408942dae6eb578d7eec2fca6a1d47d0b13",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-007",
+      "source_file_instance_id": "843fc74e8a4f44c0",
+      "page_number": 2,
+      "printed_page_label": "2/2",
+      "section": "required_actions_and_compliance_times",
+      "section_raw": "Required Action(s) and Compliance Time(s)",
+      "clause_path": "compliance",
+      "exact_quote": "latest of the following thresholds, as applicable to the aircraft model: For A310-203, A310-203C and A310-204 : - Prior to accumulation of 40 000 flight cycles (FC) or 60 000 flight hours (FH), whichever occurs first; or - Within 250 FH after the effective date of this AD. For A310-304 and A310-308 : - Prior to accumulation of 35 000 FC or 60 000 FH, whichever occurs first, or - Within 250 FH after the effective date of this AD. (2) If no cracks are found, repeat the inspection described above at intervals not to exceed 15 000 FH in accordance with the instructions of AIRBUS SB A310-54- 2036 Revision 2; Note: Inspections (initial or repetitive) accomplished before the effective date of this AD in accordance with SB A310-54-2036 revision 1 are acceptable for compliance with paragraphs (1) and (2) of this AD. Repetitive inspections occurring after the effective date of this AD must be done in accordance with AIRBUS SB A310-54- 2036 revision 2, as required by paragraph (2) of this AD. (3) Within 30 days after each inspection performed in accordance with SB A310- 54-2036 revision 2, report to AIRBUS inspection results, whatever they are; (4) If cracks are found during any inspection as required by paragraph (1) or (2) of this AD, within 250 FH, modify the rib 5 in the pylon box using the instructions of AIRBUS SB A310-54-2032; After modification of the rib 5 pylon in accordance with the instructions of AIRBUS SB A310-54-2032, no further actions are required by this AD.",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "5c43cf29948b745426eaf277e42dae902601832454c41057fa3a6b8d863abcb2",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-008",
+      "source_file_instance_id": "843fc74e8a4f44c0",
+      "page_number": 2,
+      "printed_page_label": "2/2",
+      "section": "remarks",
+      "section_raw": "Remarks",
+      "clause_path": "Remarks",
+      "exact_quote": "Remarks : 1. If requested and appropriately substantiated, EASA can accept Alternative Methods of Compliance for this AD. 2. This AD was posted on 19 February 2008 as PAD 08-025 for consultation until 18 March 2008. No comments were received during the consultation period. 3. Enquiries regarding this AD should be referred to the AD Focal Point - Certification Directorate, EASA. E-mail: ADs@easa.europa.eu . 4. For any question concerning the technical content of the requirements in this AD, please contact: AIRBUS SAS – EAW (Airworthiness Office, Telephone: + 33 5 61 93 36 96, Fax:+ 33 5 61 93 44 51). 2/2",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "5c43cf29948b745426eaf277e42dae902601832454c41057fa3a6b8d863abcb2",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    }
+  ],
+  "field_assertions": [
+    {
+      "assertion_id": "AST-001",
+      "field_path": "/ad_identity",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.995,
+      "evidence_ids": [
+        "EV-001"
+      ],
+      "annotator_id": "codex-extension-extractor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Section completion: AD identity"
+    },
+    {
+      "assertion_id": "AST-002",
+      "field_path": "/publication",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.99,
+      "evidence_ids": [
+        "EV-001"
+      ],
+      "annotator_id": "codex-extension-extractor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Section completion: publication"
+    },
+    {
+      "assertion_id": "AST-003",
+      "field_path": "/applicability_groups",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.95,
+      "evidence_ids": [
+        "EV-003"
+      ],
+      "annotator_id": "codex-extension-extractor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Section completion: applicability_groups"
+    },
+    {
+      "assertion_id": "AST-004",
+      "field_path": "/definitions",
+      "value_state": "absent_in_source",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.9,
+      "evidence_ids": [],
+      "annotator_id": "codex-extension-extractor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Section completion: definitions"
+    },
+    {
+      "assertion_id": "AST-005",
+      "field_path": "/requirements",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.95,
+      "evidence_ids": [
+        "EV-006",
+        "EV-007"
+      ],
+      "annotator_id": "codex-extension-extractor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Section completion: requirements"
+    },
+    {
+      "assertion_id": "AST-006",
+      "field_path": "/exceptions",
+      "value_state": "absent_in_source",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.9,
+      "evidence_ids": [],
+      "annotator_id": "codex-extension-extractor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Section completion: exceptions"
+    },
+    {
+      "assertion_id": "AST-007",
+      "field_path": "/previous_action_credit",
+      "value_state": "absent_in_source",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.9,
+      "evidence_ids": [],
+      "annotator_id": "codex-extension-extractor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Section completion: previous_action_credit"
+    },
+    {
+      "assertion_id": "AST-008",
+      "field_path": "/referenced_publications",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.95,
+      "evidence_ids": [
+        "EV-005"
+      ],
+      "annotator_id": "codex-extension-extractor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Section completion: referenced_publications"
+    },
+    {
+      "assertion_id": "AST-009",
+      "field_path": "/relationships",
+      "value_state": "absent_in_source",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.9,
+      "evidence_ids": [
+        "EV-001"
+      ],
+      "annotator_id": "codex-extension-extractor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Section completion: relationships"
+    },
+    {
+      "assertion_id": "AST-010",
+      "field_path": "/amoc_and_contacts",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.95,
+      "evidence_ids": [
+        "EV-008"
+      ],
+      "annotator_id": "codex-extension-extractor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Section completion: amoc_and_contacts"
+    },
+    {
+      "assertion_id": "AST-011",
+      "field_path": "/ad_identity/ad_number",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.995,
+      "evidence_ids": [
+        "EV-001"
+      ],
+      "annotator_id": "codex-extension-extractor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Cover identity"
+    },
+    {
+      "assertion_id": "AST-012",
+      "field_path": "/ad_identity/supersedure_statement",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.99,
+      "evidence_ids": [
+        "EV-001"
+      ],
+      "annotator_id": "codex-extension-extractor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Printed status field"
+    },
+    {
+      "assertion_id": "AST-013",
+      "field_path": "/publication/issue_date",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.995,
+      "evidence_ids": [
+        "EV-001"
+      ],
+      "annotator_id": "codex-extension-extractor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Printed issue date"
+    },
+    {
+      "assertion_id": "AST-014",
+      "field_path": "/publication/effective_date",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.995,
+      "evidence_ids": [
+        "EV-001"
+      ],
+      "annotator_id": "codex-extension-extractor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Printed effective date"
+    },
+    {
+      "assertion_id": "AST-015",
+      "field_path": "/publication/subject",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.99,
+      "evidence_ids": [
+        "EV-001"
+      ],
+      "annotator_id": "codex-extension-extractor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Printed ATA subject"
+    },
+    {
+      "assertion_id": "AST-016",
+      "field_path": "/applicability_groups/0",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-003"
+      ],
+      "annotator_id": "codex-extension-extractor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "applicability_groups"
+    },
+    {
+      "assertion_id": "AST-017",
+      "field_path": "/requirements/0",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.94,
+      "evidence_ids": [
+        "EV-006",
+        "EV-007"
+      ],
+      "annotator_id": "codex-extension-extractor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "requirements"
+    },
+    {
+      "assertion_id": "AST-018",
+      "field_path": "/requirements/1",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.94,
+      "evidence_ids": [
+        "EV-006",
+        "EV-007"
+      ],
+      "annotator_id": "codex-extension-extractor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "requirements"
+    },
+    {
+      "assertion_id": "AST-019",
+      "field_path": "/requirements/2",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.94,
+      "evidence_ids": [
+        "EV-006",
+        "EV-007"
+      ],
+      "annotator_id": "codex-extension-extractor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "requirements"
+    },
+    {
+      "assertion_id": "AST-020",
+      "field_path": "/requirements/3",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.94,
+      "evidence_ids": [
+        "EV-006",
+        "EV-007"
+      ],
+      "annotator_id": "codex-extension-extractor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "requirements"
+    },
+    {
+      "assertion_id": "AST-021",
+      "field_path": "/referenced_publications/0",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-005"
+      ],
+      "annotator_id": "codex-extension-extractor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "referenced_publications"
+    },
+    {
+      "assertion_id": "AST-022",
+      "field_path": "/referenced_publications/1",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-005"
+      ],
+      "annotator_id": "codex-extension-extractor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "referenced_publications"
+    },
+    {
+      "assertion_id": "AST-023",
+      "field_path": "/referenced_publications/2",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-005"
+      ],
+      "annotator_id": "codex-extension-extractor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "referenced_publications"
+    },
+    {
+      "assertion_id": "AST-024",
+      "field_path": "/amoc_and_contacts/0",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-008"
+      ],
+      "annotator_id": "codex-extension-extractor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "amoc_and_contacts"
+    },
+    {
+      "assertion_id": "AST-025",
+      "field_path": "/amoc_and_contacts/1",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-008"
+      ],
+      "annotator_id": "codex-extension-extractor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "amoc_and_contacts"
+    },
+    {
+      "assertion_id": "AST-026",
+      "field_path": "/unsafe_condition",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-004"
+      ],
+      "annotator_id": "codex-extension-extractor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Reason and unsafe condition"
+    },
+    {
+      "assertion_id": "AST-027",
+      "field_path": "/classification",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.9,
+      "evidence_ids": [
+        "EV-001",
+        "EV-003",
+        "EV-004",
+        "EV-006",
+        "EV-007"
+      ],
+      "annotator_id": "codex-extension-extractor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Schema classification"
+    }
+  ],
+  "annotation_metadata": {
+    "guideline_version": "1.0.0",
+    "record_status": "first_pass_complete",
+    "creation_method": "hybrid",
+    "machine_provenance": {
+      "system": "OpenAI Codex",
+      "model": "GPT-5",
+      "prompt_or_rules_version": "step3-extension-populated-extraction-1.0.0",
+      "generated_at": "2026-07-30T09:02:01Z"
+    },
+    "annotators": [
+      {
+        "annotator_id": "codex-extension-extractor",
+        "role": "annotator",
+        "started_at": "2026-07-30T09:02:01Z",
+        "submitted_at": "2026-07-30T09:02:01Z"
+      }
+    ],
+    "events": [
+      {
+        "event_type": "created",
+        "actor_id": "codex-extension-extractor",
+        "timestamp": "2026-07-30T09:02:01Z",
+        "rationale": "Blind first-pass annotation from the source PDF and blind packet."
+      },
+      {
+        "event_type": "submitted",
+        "actor_id": "codex-extension-extractor",
+        "timestamp": "2026-07-30T09:02:01Z",
+        "rationale": "First pass completed; no human review or approval claimed."
+      }
+    ],
+    "quality_flags": [
+      "manual_review_required",
+      "complex_compliance",
+      "complex_applicability"
+    ],
+    "uncertainty_flags": [],
+    "notes": [
+      "Machine-assisted populated extraction from the complete frozen PDF/page-text packet.",
+      "Requirements were split from numbered source paragraphs where possible; every field assertion remains unreviewed.",
+      "No supersedure relationship was created because the cover explicitly states Supersedure: None.",
+      "Independent human comparison and correction are required before approval or gold promotion."
+    ],
+    "source_text_sha256": "77f9b447970692a7bb33f2a1d78932922d5fe4c739778b37afdd270f0bd69a4e",
+    "created_at": "2026-07-30T09:02:01Z",
+    "updated_at": "2026-07-30T09:02:01Z"
+  },
+  "benchmark_metadata": {
+    "split": "unassigned",
+    "split_group": "2008-0066",
+    "selection_strata": [
+      "other"
+    ],
+    "duplicate_cluster_ids": [],
+    "gold_record": false
+  }
+}

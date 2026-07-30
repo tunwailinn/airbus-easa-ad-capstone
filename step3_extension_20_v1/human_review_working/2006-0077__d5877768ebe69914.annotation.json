@@ -1,0 +1,856 @@
+{
+  "schema_version": "1.0.0",
+  "record_id": "adann-d5877768ebe69914",
+  "source_document": {
+    "file_instance_id": "d5877768ebe69914",
+    "content_id": "f2f2257c6fdb4893",
+    "canonical_file_instance_id": "d5877768ebe69914",
+    "file_aliases": [],
+    "file_name": "2006-0077__AD_2006-0077_1__easa_ad_2006_0077.pdf",
+    "relative_path": "2006-0077__AD_2006-0077_1__easa_ad_2006_0077.pdf",
+    "file_sha256": "f2f2257c6fdb4893eaee3f660d41da367a26c8a7186a6a7333c372d2a1905389",
+    "normalized_text_sha256": "2436b9690783c9ed9c8e5e6a1a08f7f2f255690ae4d0569909fd8a42ce6cee2e",
+    "page_count": 2,
+    "extraction_status": "native_text",
+    "needs_ocr": false,
+    "manifest_review_flags": [],
+    "source_url": "https://ad.easa.europa.eu/blob/easa_ad_2006_0077.pdf/AD_2006-0077_1",
+    "text_extraction_method": "native_text",
+    "exact_duplicate_group": null,
+    "near_duplicate_cluster": null
+  },
+  "ad_identity": {
+    "authority": "EASA",
+    "document_type": "airworthiness_directive",
+    "ad_number": "2006-0077",
+    "base_ad_number": "2006-0077",
+    "revision_number": 0,
+    "publication_kind": "standard_ad",
+    "is_emergency": false,
+    "is_correction": false,
+    "correction_date": {
+      "state": "not_stated",
+      "value": null,
+      "raw_text": null,
+      "evidence_ids": [
+        "EV-001"
+      ]
+    },
+    "version_label": "Original",
+    "logical_version_key": "2006-0077|UNCORRECTED",
+    "is_latest_version": null,
+    "lifecycle_status": "unknown",
+    "design_approval_holder": {
+      "state": "present",
+      "value": "Airbus SAS",
+      "raw_text": "Airbus SAS",
+      "evidence_ids": [
+        "EV-001"
+      ]
+    },
+    "supersedure_statement": {
+      "state": "explicit_none",
+      "value": null,
+      "raw_text": "Supersedure: None",
+      "evidence_ids": [
+        "EV-001"
+      ]
+    },
+    "evidence_ids": [
+      "EV-001"
+    ]
+  },
+  "publication": {
+    "subject": {
+      "state": "present",
+      "value": "Lights - BRUCE Floor Proximity Emergency Escape Path Marking System FPEEPMS",
+      "raw_text": "ATA 33 Lights - BRUCE Floor Proximity Emergency Escape Path Marking System FPEEPMS",
+      "evidence_ids": [
+        "EV-001"
+      ]
+    },
+    "issue_date": {
+      "state": "present",
+      "value": "2006-04-03",
+      "raw_text": "Date: 03 April 2006",
+      "evidence_ids": [
+        "EV-001"
+      ]
+    },
+    "effective_date": {
+      "state": "present",
+      "value": "2006-04-12",
+      "raw_text": "Effective Date: 12 April 2006",
+      "evidence_ids": [
+        "EV-001"
+      ]
+    },
+    "ata_chapters": [
+      {
+        "code": "33",
+        "title": "Lights",
+        "evidence_ids": [
+          "EV-001"
+        ]
+      }
+    ],
+    "manufacturers": [
+      {
+        "raw_name": "Manufacturer(s): AIRBUS SAS, AIRBUS INDUSTRIES.",
+        "normalized_name": "Airbus",
+        "role": "manufacturer",
+        "evidence_ids": [
+          "EV-002"
+        ]
+      }
+    ],
+    "type_model_designations": [
+      "A310-308",
+      "A310-324",
+      "A310-325",
+      "A300B4-605R"
+    ],
+    "tcds_numbers": [
+      "France No 145"
+    ],
+    "foreign_ad": {
+      "state": "explicit_none",
+      "value": null,
+      "raw_text": "Foreign AD: None or Not applicable",
+      "evidence_ids": [
+        "EV-001"
+      ]
+    }
+  },
+  "applicability_groups": [
+    {
+      "group_id": "APP-001",
+      "label": "A300/A310 applicability stated in the AD",
+      "state": "present",
+      "raw_text": "Applicability: AIRBUS aircraft, models A310-308, A310-324, A310-325, A300B4-605R, all serial numbers on which one of the two AIRBUS modifications, No. 06810 or 06934 (Bruce Floor Proximity Emergency Escape Path Marking System - FPEEPMS) has been embodied in production and on which AIRBUS Service Bulletin (SB) A310-33-2045 Revision 1 or A300-33-6047 Revision 1 as applicable (AIRBUS modifications n° 12751 and 13084) has not been embodied in service.",
+      "aircraft_families": [
+        "A300/A310"
+      ],
+      "models": [
+        "A310-308",
+        "A310-324",
+        "A310-325",
+        "A300B4-605R"
+      ],
+      "serial_restrictions": [
+        {
+          "restriction_id": "MSN-001",
+          "kind": "all",
+          "raw_expression": "all serial numbers",
+          "lower_bound": null,
+          "upper_bound": null,
+          "explicit_values": [],
+          "condition": null,
+          "evidence_ids": [
+            "EV-003"
+          ]
+        }
+      ],
+      "part_numbers": [],
+      "configuration_conditions": [],
+      "exclusions": [],
+      "boolean_logic": "all",
+      "evidence_ids": [
+        "EV-003"
+      ]
+    }
+  ],
+  "definitions": [],
+  "unsafe_condition": {
+    "state": "present",
+    "raw_reason_text": "Reason: A study has shown that the architecture of the BRUCE FPEEPMS is not in compliance with regulatory requirement FAR 25.812 as, in case of vertical segregation of the fuselage forward of door 1, the FPEEPMS and the EXIT signs do not come on. Airworthiness Directive (AD) 2004-102, which dealt with the same subject, rendered mandatory modifications to the FPEEPMS to ensure its operation in compliance with the regulatory requirements. SBs A310-33-2045 and A300-33-6047 at original issue were issued for this purpose. However, it turns out that the instructions given in the original issues of these SBs were not fully satisfactory. This is the reason why AD 2004-102 had been cancelled and this AD renders mandatory the embodiment of revision 1 of these SBs.",
+    "observed_events_or_defects": [
+      "A study has shown that the architecture of the BRUCE FPEEPMS is not in compliance with regulatory requirement FAR 25.812 as, in case of vertical segregation of the fuselage forward of door 1, the FPEEPMS and the EXIT signs do not come on."
+    ],
+    "causes": [],
+    "unsafe_conditions": [
+      "A study has shown that the architecture of the BRUCE FPEEPMS is not in compliance with regulatory requirement FAR 25.812 as, in case of vertical segregation of the fuselage forward of door 1, the FPEEPMS and the EXIT signs do not come on."
+    ],
+    "potential_consequences": [],
+    "affected_components": [],
+    "intended_risk_mitigation": [],
+    "evidence_ids": [
+      "EV-004"
+    ]
+  },
+  "requirements": [
+    {
+      "requirement_id": "REQ-001",
+      "paragraph_reference": "Compliance section",
+      "parent_requirement_id": null,
+      "applicability_group_ids": [
+        "APP-001"
+      ],
+      "action_types": [
+        "modification"
+      ],
+      "obligation": "mandatory",
+      "action_text": "Compliance: Before July 31st, 2007, unless already accomplished, carry out the electrical modifications to the BRUCE FPEEPMS in accordance with the instructions of SB A310-33-2045 Revision 1 or A300-33-6047 Revision 1.",
+      "objects_or_components": [],
+      "conditions": [],
+      "method_publication_ids": [
+        "PUB-001",
+        "PUB-002"
+      ],
+      "compliance_rules": [
+        {
+          "compliance_id": "CMP-001",
+          "state": "present",
+          "raw_text": "Compliance: Before July 31st, 2007, unless already accomplished, carry out the electrical modifications to the BRUCE FPEEPMS in accordance with the instructions of SB A310-33-2045 Revision 1 or A300-33-6047 Revision 1.",
+          "logic": "single",
+          "conditions": [],
+          "initial_limits": [
+            {
+              "limit_id": "LIM-001",
+              "relation": "before",
+              "quantity": null,
+              "unit": "calendar_date",
+              "raw_value": "Before July 31st, 2007",
+              "reference_event": null,
+              "calendar_date": "2007-07-31",
+              "evidence_ids": [
+                "EV-006"
+              ]
+            }
+          ],
+          "is_repetitive": false,
+          "repetitive_intervals": [],
+          "grace_periods": [],
+          "evidence_ids": [
+            "EV-006"
+          ]
+        }
+      ],
+      "follow_on_requirement_ids": [],
+      "terminating_action": {
+        "state": "not_stated",
+        "present": false,
+        "scope": "none",
+        "action_text": null,
+        "terminates_requirement_ids": [],
+        "evidence_ids": []
+      },
+      "evidence_ids": [
+        "EV-006"
+      ]
+    }
+  ],
+  "exceptions": [],
+  "previous_action_credit": [],
+  "referenced_publications": [
+    {
+      "publication_id": "PUB-001",
+      "publication_type": "service_bulletin",
+      "issuer": "Airbus",
+      "number": "A310-33-2045",
+      "revision": "Revision 1",
+      "publication_date": null,
+      "title": null,
+      "roles": [
+        "required_method"
+      ],
+      "later_approved_revisions_allowed": true,
+      "evidence_ids": [
+        "EV-005"
+      ]
+    },
+    {
+      "publication_id": "PUB-002",
+      "publication_type": "service_bulletin",
+      "issuer": "Airbus",
+      "number": "A300-33-6047",
+      "revision": "Revision 1",
+      "publication_date": null,
+      "title": null,
+      "roles": [
+        "required_method"
+      ],
+      "later_approved_revisions_allowed": true,
+      "evidence_ids": [
+        "EV-005"
+      ]
+    }
+  ],
+  "relationships": [],
+  "amoc_and_contacts": [
+    {
+      "entry_id": "AMC-001",
+      "entry_type": "amoc_authority",
+      "authority_or_organization": "EASA",
+      "contact_text": "Remarks: 1. If requested and appropriately substantiated the responsible EASA manager for the related product has the authority to accept Alternative Methods of Compliance (AMOCs) for this AD. 2. This AD was posted as PAD 06-036 for consultation on 15 February 2006 with a comment period until 14 March 2006. The Comment Response Document can be found at http://www.easa.eu.int/home/aw_dir_en_html. 3. Enquiries regarding this Airworthiness Directive should be referred to Mr. M. Capaccio, Airworthiness Directive Focal Point - Certification Directorate, EASA. E-mail: ADs@easa.eu.int. 4. For any question concerning the technical content of the requirements in this AD, please contact AIRBUS SAS - EAW (Airworthiness Office, Ph.: + 33 5 61 93 36 96; Fax: + 33 5 61 93 44 51). 2/2",
+      "conditions": [
+        "Requested and appropriately substantiated"
+      ],
+      "evidence_ids": [
+        "EV-007"
+      ]
+    },
+    {
+      "entry_id": "AMC-002",
+      "entry_type": "regulatory_contact",
+      "authority_or_organization": "EASA and the technical contact stated in the AD",
+      "contact_text": "Remarks: 1. If requested and appropriately substantiated the responsible EASA manager for the related product has the authority to accept Alternative Methods of Compliance (AMOCs) for this AD. 2. This AD was posted as PAD 06-036 for consultation on 15 February 2006 with a comment period until 14 March 2006. The Comment Response Document can be found at http://www.easa.eu.int/home/aw_dir_en_html. 3. Enquiries regarding this Airworthiness Directive should be referred to Mr. M. Capaccio, Airworthiness Directive Focal Point - Certification Directorate, EASA. E-mail: ADs@easa.eu.int. 4. For any question concerning the technical content of the requirements in this AD, please contact AIRBUS SAS - EAW (Airworthiness Office, Ph.: + 33 5 61 93 36 96; Fax: + 33 5 61 93 44 51). 2/2",
+      "conditions": [],
+      "evidence_ids": [
+        "EV-007"
+      ]
+    }
+  ],
+  "classification": {
+    "airbus_families": [
+      "A300/A310"
+    ],
+    "ata_chapters": [
+      "33"
+    ],
+    "action_types": [
+      "modification"
+    ],
+    "frequency": "one_time",
+    "emergency_status": "standard",
+    "terminating_action_present": false,
+    "table_or_appendix_present": false,
+    "compliance_complexity": "simple",
+    "human_confirmed": false,
+    "evidence_ids": [
+      "EV-001",
+      "EV-003",
+      "EV-004",
+      "EV-006"
+    ]
+  },
+  "evidence_spans": [
+    {
+      "evidence_id": "EV-001",
+      "source_file_instance_id": "d5877768ebe69914",
+      "page_number": 1,
+      "printed_page_label": "1/2",
+      "section": "cover",
+      "section_raw": "Cover identity and publication",
+      "clause_path": "cover",
+      "exact_quote": "EASA AIRWORTHINESS DIRECTIVE AD No: 2006 - 0077 Date: 03 April 2006 No person may operate an aircraft to which an Airworthiness Directive applies, except in accordance with the requirements of that Airworthiness Directive unless otherwise agreed with the Authority of the State of Registry. Type Approval Holder’s Name: Type/Model designations: AIRBUS SAS A310 and A300-600 aircraft TCDS Number: France No 145 Foreign AD: None Supersedure: None ATA 33 Lights - BRUCE Floor Proximity Emergency Escape Path Marking System FPEEPMS Manufacturer(s): AIRBUS SAS, AIRBUS INDUSTRIES. Applicability: AIRBUS aircraft, models A310-308, A310-324, A310-325, A300B4-605R, all serial numbers on which one of the two AIRBUS modifications, No. 06810 or 06934 (Bruce Floor Proximity Emergency Escape Path Marking System - FPEEPMS) has been embodied in production and on which AIRBUS Service Bulletin (SB) A310-33-2045 Revision 1 or A300-33-6047 Revision 1 as applicable (AIRBUS modifications n° 12751 and 13084) has not been embodied in service. Reason: A study has shown that the architecture of the BRUCE FPEEPMS is not in compliance with regulatory requirement FAR 25.812 as, in case of vertical segregation of the fuselage forward of door 1, the FPEEPMS and the EXIT signs do not come on. Airworthiness Directive (AD) 2004-102, which dealt with the same subject, rendered mandatory modifications to the FPEEPMS to ensure its operation in compliance with the regulatory requirements. SBs A310-33-2045 and A300-33-6047 at original issue were issued for this purpose. However, it turns out that the instructions given in the original issues of these SBs were not fully satisfactory. This is the reason why AD 2004-102 had been cancelled and this AD renders mandatory the embodiment of revision 1 of these SBs. Effective Date: 12 April 2006. 1/2",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "63677b980c58a90aa64980fa678f1267bce7ce40d27138b1e7d55ba0e7b45678",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-002",
+      "source_file_instance_id": "d5877768ebe69914",
+      "page_number": 1,
+      "printed_page_label": "1/2",
+      "section": "cover",
+      "section_raw": "Manufacturer(s)",
+      "clause_path": "Manufacturer(s)",
+      "exact_quote": "Manufacturer(s): AIRBUS SAS, AIRBUS INDUSTRIES.",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "63677b980c58a90aa64980fa678f1267bce7ce40d27138b1e7d55ba0e7b45678",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-003",
+      "source_file_instance_id": "d5877768ebe69914",
+      "page_number": 1,
+      "printed_page_label": "1/2",
+      "section": "applicability",
+      "section_raw": "Applicability",
+      "clause_path": "Applicability",
+      "exact_quote": "Applicability: AIRBUS aircraft, models A310-308, A310-324, A310-325, A300B4-605R, all serial numbers on which one of the two AIRBUS modifications, No. 06810 or 06934 (Bruce Floor Proximity Emergency Escape Path Marking System - FPEEPMS) has been embodied in production and on which AIRBUS Service Bulletin (SB) A310-33-2045 Revision 1 or A300-33-6047 Revision 1 as applicable (AIRBUS modifications n° 12751 and 13084) has not been embodied in service.",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "63677b980c58a90aa64980fa678f1267bce7ce40d27138b1e7d55ba0e7b45678",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-004",
+      "source_file_instance_id": "d5877768ebe69914",
+      "page_number": 1,
+      "printed_page_label": "1/2",
+      "section": "reason",
+      "section_raw": "Reason",
+      "clause_path": "Reason",
+      "exact_quote": "Reason: A study has shown that the architecture of the BRUCE FPEEPMS is not in compliance with regulatory requirement FAR 25.812 as, in case of vertical segregation of the fuselage forward of door 1, the FPEEPMS and the EXIT signs do not come on. Airworthiness Directive (AD) 2004-102, which dealt with the same subject, rendered mandatory modifications to the FPEEPMS to ensure its operation in compliance with the regulatory requirements. SBs A310-33-2045 and A300-33-6047 at original issue were issued for this purpose. However, it turns out that the instructions given in the original issues of these SBs were not fully satisfactory. This is the reason why AD 2004-102 had been cancelled and this AD renders mandatory the embodiment of revision 1 of these SBs.",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "63677b980c58a90aa64980fa678f1267bce7ce40d27138b1e7d55ba0e7b45678",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-005",
+      "source_file_instance_id": "d5877768ebe69914",
+      "page_number": 2,
+      "printed_page_label": "2/2",
+      "section": "reference_publications",
+      "section_raw": "Ref. Publications",
+      "clause_path": "Ref. Publications",
+      "exact_quote": "Ref. Publications: AIRBUS Service Bulletins: A310-33-2045 Revision 1 A300-33-6047 Revision 1 or later approved revisions.",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "942a045856a03968352e8c8d5fad8ae58c7d03a317c19025d2dee715aa86e14a",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-006",
+      "source_file_instance_id": "d5877768ebe69914",
+      "page_number": 2,
+      "printed_page_label": "2/2",
+      "section": "required_actions_and_compliance_times",
+      "section_raw": "Required Action(s) and Compliance Time(s)",
+      "clause_path": "compliance",
+      "exact_quote": "Compliance: Before July 31st, 2007, unless already accomplished, carry out the electrical modifications to the BRUCE FPEEPMS in accordance with the instructions of SB A310-33-2045 Revision 1 or A300-33-6047 Revision 1.",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "942a045856a03968352e8c8d5fad8ae58c7d03a317c19025d2dee715aa86e14a",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-007",
+      "source_file_instance_id": "d5877768ebe69914",
+      "page_number": 2,
+      "printed_page_label": "2/2",
+      "section": "remarks",
+      "section_raw": "Remarks",
+      "clause_path": "Remarks",
+      "exact_quote": "Remarks: 1. If requested and appropriately substantiated the responsible EASA manager for the related product has the authority to accept Alternative Methods of Compliance (AMOCs) for this AD. 2. This AD was posted as PAD 06-036 for consultation on 15 February 2006 with a comment period until 14 March 2006. The Comment Response Document can be found at http://www.easa.eu.int/home/aw_dir_en_html. 3. Enquiries regarding this Airworthiness Directive should be referred to Mr. M. Capaccio, Airworthiness Directive Focal Point - Certification Directorate, EASA. E-mail: ADs@easa.eu.int. 4. For any question concerning the technical content of the requirements in this AD, please contact AIRBUS SAS - EAW (Airworthiness Office, Ph.: + 33 5 61 93 36 96; Fax: + 33 5 61 93 44 51). 2/2",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "942a045856a03968352e8c8d5fad8ae58c7d03a317c19025d2dee715aa86e14a",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    }
+  ],
+  "field_assertions": [
+    {
+      "assertion_id": "AST-001",
+      "field_path": "/ad_identity",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.995,
+      "evidence_ids": [
+        "EV-001"
+      ],
+      "annotator_id": "codex-extension-extractor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Section completion: AD identity"
+    },
+    {
+      "assertion_id": "AST-002",
+      "field_path": "/publication",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.99,
+      "evidence_ids": [
+        "EV-001"
+      ],
+      "annotator_id": "codex-extension-extractor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Section completion: publication"
+    },
+    {
+      "assertion_id": "AST-003",
+      "field_path": "/applicability_groups",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.95,
+      "evidence_ids": [
+        "EV-003"
+      ],
+      "annotator_id": "codex-extension-extractor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Section completion: applicability_groups"
+    },
+    {
+      "assertion_id": "AST-004",
+      "field_path": "/definitions",
+      "value_state": "absent_in_source",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.9,
+      "evidence_ids": [],
+      "annotator_id": "codex-extension-extractor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Section completion: definitions"
+    },
+    {
+      "assertion_id": "AST-005",
+      "field_path": "/requirements",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.95,
+      "evidence_ids": [
+        "EV-006"
+      ],
+      "annotator_id": "codex-extension-extractor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Section completion: requirements"
+    },
+    {
+      "assertion_id": "AST-006",
+      "field_path": "/exceptions",
+      "value_state": "absent_in_source",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.9,
+      "evidence_ids": [],
+      "annotator_id": "codex-extension-extractor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Section completion: exceptions"
+    },
+    {
+      "assertion_id": "AST-007",
+      "field_path": "/previous_action_credit",
+      "value_state": "absent_in_source",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.9,
+      "evidence_ids": [],
+      "annotator_id": "codex-extension-extractor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Section completion: previous_action_credit"
+    },
+    {
+      "assertion_id": "AST-008",
+      "field_path": "/referenced_publications",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.95,
+      "evidence_ids": [
+        "EV-005"
+      ],
+      "annotator_id": "codex-extension-extractor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Section completion: referenced_publications"
+    },
+    {
+      "assertion_id": "AST-009",
+      "field_path": "/relationships",
+      "value_state": "absent_in_source",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.9,
+      "evidence_ids": [
+        "EV-001"
+      ],
+      "annotator_id": "codex-extension-extractor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Section completion: relationships"
+    },
+    {
+      "assertion_id": "AST-010",
+      "field_path": "/amoc_and_contacts",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.95,
+      "evidence_ids": [
+        "EV-007"
+      ],
+      "annotator_id": "codex-extension-extractor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Section completion: amoc_and_contacts"
+    },
+    {
+      "assertion_id": "AST-011",
+      "field_path": "/ad_identity/ad_number",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.995,
+      "evidence_ids": [
+        "EV-001"
+      ],
+      "annotator_id": "codex-extension-extractor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Cover identity"
+    },
+    {
+      "assertion_id": "AST-012",
+      "field_path": "/ad_identity/supersedure_statement",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.99,
+      "evidence_ids": [
+        "EV-001"
+      ],
+      "annotator_id": "codex-extension-extractor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Printed status field"
+    },
+    {
+      "assertion_id": "AST-013",
+      "field_path": "/publication/issue_date",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.995,
+      "evidence_ids": [
+        "EV-001"
+      ],
+      "annotator_id": "codex-extension-extractor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Printed issue date"
+    },
+    {
+      "assertion_id": "AST-014",
+      "field_path": "/publication/effective_date",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.995,
+      "evidence_ids": [
+        "EV-001"
+      ],
+      "annotator_id": "codex-extension-extractor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Printed effective date"
+    },
+    {
+      "assertion_id": "AST-015",
+      "field_path": "/publication/subject",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.99,
+      "evidence_ids": [
+        "EV-001"
+      ],
+      "annotator_id": "codex-extension-extractor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Printed ATA subject"
+    },
+    {
+      "assertion_id": "AST-016",
+      "field_path": "/applicability_groups/0",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-003"
+      ],
+      "annotator_id": "codex-extension-extractor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "applicability_groups"
+    },
+    {
+      "assertion_id": "AST-017",
+      "field_path": "/requirements/0",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.94,
+      "evidence_ids": [
+        "EV-006"
+      ],
+      "annotator_id": "codex-extension-extractor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "requirements"
+    },
+    {
+      "assertion_id": "AST-018",
+      "field_path": "/referenced_publications/0",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-005"
+      ],
+      "annotator_id": "codex-extension-extractor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "referenced_publications"
+    },
+    {
+      "assertion_id": "AST-019",
+      "field_path": "/referenced_publications/1",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-005"
+      ],
+      "annotator_id": "codex-extension-extractor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "referenced_publications"
+    },
+    {
+      "assertion_id": "AST-020",
+      "field_path": "/amoc_and_contacts/0",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-007"
+      ],
+      "annotator_id": "codex-extension-extractor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "amoc_and_contacts"
+    },
+    {
+      "assertion_id": "AST-021",
+      "field_path": "/amoc_and_contacts/1",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-007"
+      ],
+      "annotator_id": "codex-extension-extractor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "amoc_and_contacts"
+    },
+    {
+      "assertion_id": "AST-022",
+      "field_path": "/unsafe_condition",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-004"
+      ],
+      "annotator_id": "codex-extension-extractor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Reason and unsafe condition"
+    },
+    {
+      "assertion_id": "AST-023",
+      "field_path": "/classification",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.9,
+      "evidence_ids": [
+        "EV-001",
+        "EV-003",
+        "EV-004",
+        "EV-006"
+      ],
+      "annotator_id": "codex-extension-extractor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Schema classification"
+    }
+  ],
+  "annotation_metadata": {
+    "guideline_version": "1.0.0",
+    "record_status": "first_pass_complete",
+    "creation_method": "hybrid",
+    "machine_provenance": {
+      "system": "OpenAI Codex",
+      "model": "GPT-5",
+      "prompt_or_rules_version": "step3-extension-populated-extraction-1.0.0",
+      "generated_at": "2026-07-30T09:02:01Z"
+    },
+    "annotators": [
+      {
+        "annotator_id": "codex-extension-extractor",
+        "role": "annotator",
+        "started_at": "2026-07-30T09:02:01Z",
+        "submitted_at": "2026-07-30T09:02:01Z"
+      }
+    ],
+    "events": [
+      {
+        "event_type": "created",
+        "actor_id": "codex-extension-extractor",
+        "timestamp": "2026-07-30T09:02:01Z",
+        "rationale": "Blind first-pass annotation from the source PDF and blind packet."
+      },
+      {
+        "event_type": "submitted",
+        "actor_id": "codex-extension-extractor",
+        "timestamp": "2026-07-30T09:02:01Z",
+        "rationale": "First pass completed; no human review or approval claimed."
+      }
+    ],
+    "quality_flags": [
+      "manual_review_required",
+      "complex_applicability"
+    ],
+    "uncertainty_flags": [],
+    "notes": [
+      "Machine-assisted populated extraction from the complete frozen PDF/page-text packet.",
+      "Requirements were split from numbered source paragraphs where possible; every field assertion remains unreviewed.",
+      "No supersedure relationship was created because the cover explicitly states Supersedure: None.",
+      "Independent human comparison and correction are required before approval or gold promotion."
+    ],
+    "source_text_sha256": "2436b9690783c9ed9c8e5e6a1a08f7f2f255690ae4d0569909fd8a42ce6cee2e",
+    "created_at": "2026-07-30T09:02:01Z",
+    "updated_at": "2026-07-30T09:02:01Z"
+  },
+  "benchmark_metadata": {
+    "split": "unassigned",
+    "split_group": "2006-0077",
+    "selection_strata": [
+      "other",
+      "complex_applicability"
+    ],
+    "duplicate_cluster_ids": [],
+    "gold_record": false
+  }
+}

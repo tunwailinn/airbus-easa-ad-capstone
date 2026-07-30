@@ -1,0 +1,86 @@
+{
+  "source_document": {
+    "file_instance_id": "7f221fbcf3eea6a5",
+    "file_name": "2016-0095__AD_2016-0095_1__EASA_AD_2016_0095_superseded.pdf"
+  },
+  "ad_identity": {
+    "ad_number": "2016-0095",
+    "base_ad_number": "2016-0095",
+    "revision_number": null,
+    "is_emergency": false,
+    "is_correction": false,
+    "correction_date": {
+      "value": null
+    },
+    "design_approval_holder": {
+      "value": null
+    },
+    "supersedure_statement": {
+      "state": "explicit_none",
+      "value": null
+    }
+  },
+  "publication": {
+    "subject": {
+      "value": "Wings – Flap Parts – Identification / Inspection [Wrong material] Manufacturer(s): Airbus"
+    },
+    "issue_date": {
+      "value": "2016-05-19"
+    },
+    "effective_date": {
+      "value": "2016-06-02"
+    },
+    "ata_chapters": [
+      {
+        "code": "57"
+      }
+    ],
+    "manufacturers": [
+      {
+        "raw_name": "Airbus",
+        "normalized_name": "Airbus"
+      }
+    ],
+    "type_model_designations": [
+      "A380",
+      "A380-57-8111",
+      "A380-841",
+      "A380-842",
+      "A380-861"
+    ],
+    "tcds_numbers": [
+      "EASA.A.110"
+    ]
+  },
+  "unsafe_condition": {
+    "state": "present",
+    "raw_reason_text": "Following an Airbus quality control review on the final assembly line, it was discovered that non-conforming aluminium alloy had been used to manufacture several structural parts located on the middle and outboard flaps. This condition, if not detected and corrected, could reduce the structural integrity of the aeroplane. To address this potential unsafe condition, Airbus issued Service Bulletin (SB) A380-57-8111 to provide instructions to identify and inspect the potentially affected parts. For the reasons described above, this AD requires identification of the potentially affected middle and outboard flap parts, a one-time Special Detailed Inspection (SDI) to identify which material they are made of and, depending on findings, replacement with serviceable parts. TE.CAP.00110-005 © European Aviation Safety Agency. All rights reserved. ISO9001 Certified. Page 1 of 6 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet. An agency of the European Union EASA AD No.: 2016-0095"
+  },
+  "requirements": [
+    {
+      "raw_action_text": "Required as indicated, unless accomplished previously: Note 1: Appendix 1 of this AD lists the potentially affected middle (Table 1) and outboard (Table 2) flaps by serial number (s/n). (1) Within 3 months after the effective date of this AD, identify the s/n of the left hand (LH) and right hand (RH) middle and outboard flaps installed on the aeroplane. A review of aeroplane delivery and/or maintenance records is acceptable for identifying the installed flaps, provided those records can be relied upon for that purpose and the s/n of the affected parts can be positively identified from that review. Note 2: Airbus SB A380-57-8111 lists the batch of affected LH and RH middle and outboard flaps and the corresponding aeroplane MSN on which these parts were installed on production line. That MSN list is for information only, as it cannot be excluded that an affected middle or outboard flap has been removed from an aeroplane and later re-installed on another aeroplane. (2) For each middle and outboard flap, identified as required by paragraph (1) of this AD, and having a s/n as listed in Appendix 1 of this AD, within 7 years or 4 300 flight cycles (FC), whichever occurs first, accumulated by the affected flap from the date as defined in Appendix 1 of this AD, depending on the affected flap s/n, accomplish a SDI of the affected flap parts, in accordance with the instructions of Airbus SB A380-57-8111. (3) If, during the SDI as required by paragraph (2) of this AD, a part manufactured from non-conforming material is detected, within 30 days after the SDI as required by paragraph (2) of this AD, contact Airbus for replacement instructions and within the compliance time indicated in those instructions, accomplish the replacement accordingly. (4) From the effective date of this AD, it is allowed to install on an aeroplane a middle or outboard flap having a s/n listed in Appendix 1 of this AD, provided that, prior to installation, it has been determined that the part is a serviceable part as defined in Note 3 of this AD. Note 3: For the purpose of this AD, a serviceable middle or outboard flap is a part that is not listed by s/n in Appendix 1 of this AD, or has a s/n listed in Appendix 1 of this AD but has passed an SDI in accordance with the instructions of Airbus SB A380-57-8111.",
+      "action_types": [
+        "replacement"
+      ],
+      "compliance_rules": [
+        {
+          "raw_text": "Required as indicated, unless accomplished previously: Note 1: Appendix 1 of this AD lists the potentially affected middle (Table 1) and outboard (Table 2) flaps by serial number (s/n). (1) Within 3 months after the effective date of this AD, identify the s/n of the left hand (LH) and right hand (RH) middle and outboard flaps installed on the aeroplane. A review of aeroplane delivery and/or maintenance records is acceptable for identifying the installed flaps, provided those records can be relied upon for that purpose and the s/n of the affected parts can be positively identified from that review. Note 2: Airbus SB A380-57-8111 lists the batch of affected LH and RH middle and outboard flaps and the corresponding aeroplane MSN on which these parts were installed on production line. That MSN list is for information only, as it cannot be excluded that an affected middle or outboard flap has been removed from an aeroplane and later re-installed on another aeroplane. (2) For each middle and outboard flap, identified as required by paragraph (1) of this AD, and having a s/n as listed in Appendix 1 of this AD, within 7 years or 4 300 flight cycles (FC), whichever occurs first, accumulated by the affected flap from the date as defined in Appendix 1 of this AD, depending on the affected flap s/n, accomplish a SDI of the affected flap parts, in accordance with the instructions of Airbus SB A380-57-8111. (3) If, during the SDI as required by paragraph (2) of this AD, a part manufactured from non-conforming material is detected, within 30 days after the SDI as required by paragraph (2) of this AD, contact Airbus for replacement instructions and within the compliance time indicated in those instructions, accomplish the replacement accordingly. (4) From the effective date of this AD, it is allowed to install on an aeroplane a middle or outboard flap having a s/n listed in Appendix 1 of this AD, provided that, prior to installation, it has been determined that the part is a serviceable part as defined in Note 3 of this AD. Note 3: For the purpose of this AD, a serviceable middle or outboard flap is a part that is not listed by s/n in Appendix 1 of this AD, or has a s/n listed in Appendix 1 of this AD but has passed an SDI in accordance with the instructions of Airbus SB A380-57-8111."
+        }
+      ]
+    }
+  ],
+  "relationships": [],
+  "classification": {
+    "ata_chapters": [
+      "57"
+    ],
+    "action_types": [
+      "replacement"
+    ]
+  },
+  "prediction_metadata": {
+    "method": "regex_rules",
+    "rules_version": "regex_v1",
+    "input_page_count": 6
+  }
+}

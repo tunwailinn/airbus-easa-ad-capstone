@@ -1,0 +1,93 @@
+{
+  "source_document": {
+    "file_instance_id": "1949a5e809ac47e1",
+    "file_name": "2019-0011R2__AD_2019-0011R2_2__EASA_AD_2019_0011_R2.pdf"
+  },
+  "ad_identity": {
+    "ad_number": "2019-0011R2",
+    "base_ad_number": "2019-0011",
+    "revision_number": 2,
+    "is_emergency": false,
+    "is_correction": false,
+    "correction_date": {
+      "value": null
+    },
+    "design_approval_holder": {
+      "value": null
+    },
+    "supersedure_statement": {
+      "state": "not_stated",
+      "value": null
+    }
+  },
+  "publication": {
+    "subject": {
+      "value": "Fuselage – Aft Fitting of Frame 40 – Inspection Manufacturer(s): Airbus, formerly Airbus Industrie"
+    },
+    "issue_date": {
+      "value": "2025-08-08"
+    },
+    "effective_date": {
+      "value": null
+    },
+    "ata_chapters": [
+      {
+        "code": "53"
+      }
+    ],
+    "manufacturers": [
+      {
+        "raw_name": "Airbus, formerly Airbus Industrie",
+        "normalized_name": "Airbus"
+      }
+    ],
+    "type_model_designations": [
+      "A300",
+      "A300-53",
+      "A300-53-0161",
+      "A300-53-0296",
+      "A300-53-6048",
+      "A300-53-9017",
+      "A300-600",
+      "A300-600ST"
+    ],
+    "tcds_numbers": [
+      "EASA.A.172"
+    ]
+  },
+  "unsafe_condition": {
+    "state": "present",
+    "raw_reason_text": "After embodiment of Airbus SB A300-53-0161, cracks were reported on three aeroplanes. Investigations highlighted that these cracks were caused by a local stress concentration at FR40 upper flange run-out, where the profile of the FR40 changes at the centre wing box connection. This condition, if not detected and corrected , could affect the structural integrity of the aeroplane. Subsequently to this finding, Airbus established a High Frequency Eddy Current (HFEC) inspection program for A300 aeroplanes implemented in service through Airbus SB A300 -53-0296. In the same time, Airbus launched mod. 10430 in production line associated to SB A300 -53-6048 for the retrofit campaign for A300-600. The same HFEC inspection program was defined for A300-600 aeroplanes and included in SB A300-53-6048 instructions. DGAC France AD F-1998-481-270 was published to mandate the embodiment of these two SBs. DGAC France AD F-2000-038-032 was also published later to mandate Airbus SB A300-53-9017 applicable to A300-600ST aeroplanes. Since DGAC France AD F-1998-481-270 and F-2000-038-032 were issued, material data used in the frame of fatigue and damage tolerance analysis was changed. It was determined that the existing threshold and interval values must be reduced for A300-600 fleet. Consequently, Airbus revised SB A300-53-6048 to Revision 05 to take into account the new thresholds and intervals and EASA issued AD 2019-0011 (later revised) retaining the requirement of DGAC France AD F -1998-481-270R2 and F-2000-038-032R1, which were superseded, and introduced new thresholds and intervals for A300-600 and A300-600ST aeroplanes. Since EASA AD 2019-0011R1 was issued Airbus introduced new inspection scheduled for A300-600ST aeroplanes and EASA published AD 2025-0177 taking over and amending the requirements for those aeroplanes. Consequently, in parallel with the issuance of AD 2025-0177, this AD is revised to remove A300-600ST aeroplanes from the Applicability. TE.CAP.00110-012 © European Union Aviation Safety Agency. All rights reserved. ISO9001 Certified. Page 2 of 5 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet. An agency of the European Union EASA AD No.: 2019-0011R2"
+  },
+  "requirements": [
+    {
+      "raw_action_text": "Required as indicated, unless accomplished previously: Modification: (1) For Group 1 aeroplanes, within the threshold defined in the applicable SB, accomplish the modification of the profile of FR40 aft fittings in accordance with the in structions of the applicable SB. (2) For Group 2 aeroplanes, before next flight after 06 February 2019 [the effective date of this AD at original issue], contact Airbus for approved instructions and accomplish those instructions accordingly. Inspection(s): (3) For Group 1 aeroplanes, within the compliance time defined in the applicable SB, accomplish an HFEC inspection of the affected area in accordance with the instructions of the applicable SB. (4) For Group 3 and Group 4 aeroplanes: Within the applicable threshold(s) defined in Table 1a or Table 1b of this AD, as applicable, and, thereafter, at intervals not to exceed the values defined in Table 2 of this AD, as applicable, accomplish an HFEC inspection of the affected area in accordance with the instructions of the applicable SB. Table 1a – Aeroplanes not previously inspected per any previous Revision of the applicable SB Compliance Time(s) (whichever occurs later, A or B) Group AFT ≥ 1,5 AFT < 1,5 3 Within the compliance time defined in the applicable SB A Within 13 900 FC or 30 000 FH, Within 15 000 FC or 22 500 FH, 4 whichever occurs first since whichever occurs first since aeroplane first flight aeroplane first flight Within 12 months after the effective date of this AD at original issue, B without exceeding the inspection threshold defined in Airbus SB A300-53-6048 Revision 01, 02, 03 or 04, as applicable Table 1b – Aeroplanes previously inspected per any previous Revision of the applicable SB Compliance Time(s) (whichever occurs later, C or D) AFT ≥ 1,5 AFT < 1,5 Within 7 100 FC or 15 300 FH, Within 7 600 FC or 11 500 FH, C whichever occurs first since last whichever occurs first since last inspection inspection Within 12 months after the effective date of this AD at original issue, D without exceeding the inspection interval defined in Airbus SB A300-53-6048 Revision 01, 02, 03 or 04 TE.CAP.00110-012 © European Union Aviation Safety Agency. All rights reserved. ISO9001 Certified. Page 3 of 5 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet. An agency of the European Union EASA AD No.: 2019-0011R2 Table 2 – Inspection Interval AFT Compliance Times ≥ 1,5 Within 7 100 FC or 15 300 FH, whichever occurs first since last inspection < 1,5 Within 7 600 FC or 11 500 FH, whichever occurs first since last inspection Corrective Action(s): (5) If, during any inspection as required by paragraph (3) of this AD, a crack is detected, before next flight, accomplish corrective actions in accordance with the instructions of the applicable SB, or contact Airbus to obtain approved instructions for corrective action and accomplish those instructions accordingly. (6) If, during any inspection as required by paragraph (4) of this AD, a crack is detected, before next flight, contact Airbus to obtain approved instructions for corrective action and accomplish those instructions accordingly. Reporting: (7) If, during any inspection as required by paragraph (3) or (4) of this AD, a crack is detected, within 10 days after the inspection, report inspection results to Airbus. Using the inspection report in accordance with the instructions of the applicable SB is acceptable to comply with this requirement. (8) If, during any inspection as required by paragraph (3) or (4) of this AD, no cracks are detected, within 30 days after the inspection, report inspection results to Airbus. Using the inspection report in accordance with the instructions of the applicable SB is acceptable to comply with this requirement. Credit: (9) Inspection(s) and corrective action(s) accomplished on an aeroplane, before 22 February 2019 [the effective date of EASA AD 2019-0011R1] in accordance with the instructions of SB A300-53- 6048 Revision 01 (or subsequent revisions) are acceptable to comply with the initial requirements of paragraphs (4) and (6) of this AD for that aeroplane. After the effective date of this AD, the repetitive inspections required by paragraph (4) and corrective actions required by paragraph (6) of this AD must be accomplished in accordance with the instructions of the applicable SB.",
+      "action_types": [
+        "inspection",
+        "modification",
+        "reporting"
+      ],
+      "compliance_rules": [
+        {
+          "raw_text": "Required as indicated, unless accomplished previously: Modification: (1) For Group 1 aeroplanes, within the threshold defined in the applicable SB, accomplish the modification of the profile of FR40 aft fittings in accordance with the in structions of the applicable SB. (2) For Group 2 aeroplanes, before next flight after 06 February 2019 [the effective date of this AD at original issue], contact Airbus for approved instructions and accomplish those instructions accordingly. Inspection(s): (3) For Group 1 aeroplanes, within the compliance time defined in the applicable SB, accomplish an HFEC inspection of the affected area in accordance with the instructions of the applicable SB. (4) For Group 3 and Group 4 aeroplanes: Within the applicable threshold(s) defined in Table 1a or Table 1b of this AD, as applicable, and, thereafter, at intervals not to exceed the values defined in Table 2 of this AD, as applicable, accomplish an HFEC inspection of the affected area in accordance with the instructions of the applicable SB. Table 1a – Aeroplanes not previously inspected per any previous Revision of the applicable SB Compliance Time(s) (whichever occurs later, A or B) Group AFT ≥ 1,5 AFT < 1,5 3 Within the compliance time defined in the applicable SB A Within 13 900 FC or 30 000 FH, Within 15 000 FC or 22 500 FH, 4 whichever occurs first since whichever occurs first since aeroplane first flight aeroplane first flight Within 12 months after the effective date of this AD at original issue, B without exceeding the inspection threshold defined in Airbus SB A300-53-6048 Revision 01, 02, 03 or 04, as applicable Table 1b – Aeroplanes previously inspected per any previous Revision of the applicable SB Compliance Time(s) (whichever occurs later, C or D) AFT ≥ 1,5 AFT < 1,5 Within 7 100 FC or 15 300 FH, Within 7 600 FC or 11 500 FH, C whichever occurs first since last whichever occurs first since last inspection inspection Within 12 months after the effective date of this AD at original issue, D without exceeding the inspection interval defined in Airbus SB A300-53-6048 Revision 01, 02, 03 or 04 TE.CAP.00110-012 © European Union Aviation Safety Agency. All rights reserved. ISO9001 Certified. Page 3 of 5 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet. An agency of the European Union EASA AD No.: 2019-0011R2 Table 2 – Inspection Interval AFT Compliance Times ≥ 1,5 Within 7 100 FC or 15 300 FH, whichever occurs first since last inspection < 1,5 Within 7 600 FC or 11 500 FH, whichever occurs first since last inspection Corrective Action(s): (5) If, during any inspection as required by paragraph (3) of this AD, a crack is detected, before next flight, accomplish corrective actions in accordance with the instructions of the applicable SB, or contact Airbus to obtain approved instructions for corrective action and accomplish those instructions accordingly. (6) If, during any inspection as required by paragraph (4) of this AD, a crack is detected, before next flight, contact Airbus to obtain approved instructions for corrective action and accomplish those instructions accordingly. Reporting: (7) If, during any inspection as required by paragraph (3) or (4) of this AD, a crack is detected, within 10 days after the inspection, report inspection results to Airbus. Using the inspection report in accordance with the instructions of the applicable SB is acceptable to comply with this requirement. (8) If, during any inspection as required by paragraph (3) or (4) of this AD, no cracks are detected, within 30 days after the inspection, report inspection results to Airbus. Using the inspection report in accordance with the instructions of the applicable SB is acceptable to comply with this requirement. Credit: (9) Inspection(s) and corrective action(s) accomplished on an aeroplane, before 22 February 2019 [the effective date of EASA AD 2019-0011R1] in accordance with the instructions of SB A300-53- 6048 Revision 01 (or subsequent revisions) are acceptable to comply with the initial requirements of paragraphs (4) and (6) of this AD for that aeroplane. After the effective date of this AD, the repetitive inspections required by paragraph (4) and corrective actions required by paragraph (6) of this AD must be accomplished in accordance with the instructions of the applicable SB."
+        }
+      ]
+    }
+  ],
+  "relationships": [],
+  "classification": {
+    "ata_chapters": [
+      "53"
+    ],
+    "action_types": [
+      "inspection",
+      "modification",
+      "reporting"
+    ]
+  },
+  "prediction_metadata": {
+    "method": "regex_rules",
+    "rules_version": "regex_v1",
+    "input_page_count": 5
+  }
+}

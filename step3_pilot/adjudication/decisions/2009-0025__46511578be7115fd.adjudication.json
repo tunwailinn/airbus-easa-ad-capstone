@@ -1,0 +1,112 @@
+{
+  "ad_number": "2009-0025",
+  "logical_version_key": "2009-0025|CORRECTED:2009-02-11",
+  "file_instance_id": "46511578be7115fd",
+  "annotator_a_file": "step3_pilot/submitted/annotator_a/2009-0025__46511578be7115fd.annotation.json",
+  "annotator_b_file": "step3_pilot/submitted/annotator_b/2009-0025__46511578be7115fd.annotation.json",
+  "adjudicator_id": "codex-a1",
+  "comparison_sha256": "e117e32fa86f6638c4f9388039e4711edd1748d19b3fa17240dcfaaa2aced32f",
+  "decision_status": "machine_adjudicated_pending_human_review",
+  "resolved_record_file": "step3_pilot/adjudication/machine_candidates/2009-0025__46511578be7115fd.annotation.json",
+  "manual_review_required": true,
+  "sections": [
+    {
+      "section": "ad_identity",
+      "accepted_from": "annotator_b_with_normalization",
+      "source_pages": [
+        1,
+        2
+      ],
+      "decision": "Keep the printed correction date and Supersedure: None; no lifecycle stamp appears on the rendered PDF, so lifecycle remains unknown and no correction relationship is invented."
+    },
+    {
+      "section": "publication",
+      "accepted_from": "annotator_b_with_normalization",
+      "source_pages": [
+        1,
+        2
+      ],
+      "decision": "Keep source dates, A318-A321 designations, EASA.A.064 and manufacturer; remove ATA text from the normalized subject and normalize ATA 57 title to Wings."
+    },
+    {
+      "section": "applicability_groups",
+      "accepted_from": "annotator_b",
+      "source_pages": [
+        1
+      ],
+      "decision": "Use separate exact-model groups for A318/A319/A320 and A321 because paragraph 1(a) assigns different Service Bulletins to those populations."
+    },
+    {
+      "section": "definitions",
+      "accepted_from": "both",
+      "source_pages": [],
+      "decision": "No formal definition clause is present; keep an empty array."
+    },
+    {
+      "section": "unsafe_condition",
+      "accepted_from": "annotator_b",
+      "source_pages": [
+        1,
+        2
+      ],
+      "decision": "Preserve the migrated bearing, maintenance without special tools, possible assembly/flap separation and loss-of-control consequence; keep correction history separate from the unsafe-condition cause."
+    },
+    {
+      "section": "requirements",
+      "accepted_from": "annotator_b_with_timing_normalization",
+      "source_pages": [
+        2
+      ],
+      "decision": "Use eight atomic clauses: two model-specific inspections, migrated-bearing replacement, contact plus model-specific correction branches, and two ongoing prohibitions. Preserve 'before further flight' versus 'before next flight' exactly."
+    },
+    {
+      "section": "exceptions",
+      "accepted_from": "annotator_b",
+      "source_pages": [
+        2
+      ],
+      "decision": "Retain all four explicit paragraph 2 alternatives and apply them only to paragraph 1 requirements, not to the paragraph 3 ongoing prohibitions."
+    },
+    {
+      "section": "previous_action_credit",
+      "accepted_from": "both",
+      "source_pages": [],
+      "decision": "No previous-action-credit clause is stated; paragraph 2 alternatives are exceptions, not credit."
+    },
+    {
+      "section": "referenced_publications",
+      "accepted_from": "annotator_b",
+      "source_pages": [
+        2
+      ],
+      "decision": "Retain the two dated A320-57-1144 editions and dated A320-57A1146 alert SB with later-approved-revision allowance; do not infer missing titles."
+    },
+    {
+      "section": "relationships",
+      "accepted_from": "source",
+      "source_pages": [
+        1,
+        2
+      ],
+      "decision": "Keep the relationship list empty because the structured field explicitly states None and no distinct correction target publication is in scope."
+    },
+    {
+      "section": "amoc_and_contacts",
+      "accepted_from": "annotator_b",
+      "source_pages": [
+        3
+      ],
+      "decision": "Retain the exact EASA AMOC authority plus the printed regulatory and Airbus technical contacts."
+    },
+    {
+      "section": "classification",
+      "accepted_from": "synthesized",
+      "source_pages": [
+        1,
+        2
+      ],
+      "decision": "Classify A320 family, ATA 57, mixed one-time/ongoing frequency and conditional branches; derive action types from the resolved clauses and keep human_confirmed=false."
+    }
+  ],
+  "overall_rationale": "Source-grounded third-machine reconciliation of frozen A/B submissions; the candidate remains unreviewed and must be independently confirmed by a human before it can enter the gold set."
+}

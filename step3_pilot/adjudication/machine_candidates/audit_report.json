@@ -1,0 +1,31 @@
+{
+  "annotation_dir": "step3_pilot/adjudication/machine_candidates",
+  "expected_stream": "double",
+  "expected_status": "adjudicated",
+  "expected_count": 3,
+  "found_count": 3,
+  "missing_file_instance_ids": [],
+  "unexpected_file_instance_ids": [],
+  "load_errors": [],
+  "error_count": 0,
+  "records": [
+    {
+      "ad_number": "2010-0164",
+      "file": "step3_pilot/adjudication/machine_candidates/2010-0164__60596be378420b04.annotation.json",
+      "status": "pass",
+      "errors": []
+    },
+    {
+      "ad_number": "2016-0095",
+      "file": "step3_pilot/adjudication/machine_candidates/2016-0095__7f221fbcf3eea6a5.annotation.json",
+      "status": "pass",
+      "errors": []
+    },
+    {
+      "ad_number": "2023-0093R1",
+      "file": "step3_pilot/adjudication/machine_candidates/2023-0093R1__f8c89a351f146b17.annotation.json",
+      "status": "pass",
+      "errors": []
+    }
+  ]
+}

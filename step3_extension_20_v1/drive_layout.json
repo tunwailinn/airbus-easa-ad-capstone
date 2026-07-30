@@ -1,0 +1,58 @@
+{
+  "root": {
+    "id": "1CLjBRSkynSlGzKAix238YUDmwJcc21Sz",
+    "url": "https://drive.google.com/drive/folders/1CLjBRSkynSlGzKAix238YUDmwJcc21Sz"
+  },
+  "status": "uploaded_verified",
+  "verified_at": "2026-07-30",
+  "subfolders": {
+    "selection": {
+      "id": "1cVVryK6BPNxsMyBqgBKL7C5BE4Lh6Fnz",
+      "file_count": 5
+    },
+    "source_pdfs": {
+      "id": "1BCXR7FyM0pGo6iz2Hu3a-yLm3Vw-ymvx",
+      "file_count": 20
+    },
+    "page_text": {
+      "id": "1pBTo3NBI-DnvFGcDK0hv6mIrpVJrXY0N",
+      "file_count": 21
+    },
+    "packets": {
+      "id": "1lh5yYS1BEeQJPW-G6nw3oPhokxUB_HQW",
+      "file_count": 41,
+      "count_basis": "recursive files",
+      "child_folders": {
+        "blind": "1PYuz66WrmDie_wkNFWyluyfmbcGGtNld",
+        "reviewer_qc": "1Y_M549jUINm1c0-RVtQ3w9fHQ-TwM4c8"
+      }
+    },
+    "annotations": {
+      "id": "1PwfrYicWHc3md0hD71vQupZgU6mf-UGh",
+      "file_count": 20,
+      "count_basis": "recursive annotation files",
+      "child_folders": {
+        "annotator_a": "1W4fgWCabhGUpJMVqzoEm8aAeAVjJuBI5"
+      }
+    },
+    "human_review_working": {
+      "id": "1v5bPt-meY7Js1EhdBJ8bAs_oU0HF8LGo",
+      "file_count": 22,
+      "annotation_count": 20
+    },
+    "human_review_queue": {
+      "id": "1XrP_YRBaunPOh620BJ0fkHFeShJeP-YN",
+      "file_count": 22,
+      "annotation_count": 20
+    },
+    "validation": {
+      "id": "1k0aeNXJORvdmlcW8h__5y8oe0a__pozZ",
+      "file_count": 2
+    },
+    "gold": {
+      "id": "1uh9kX9IM9PvQtFUsKwLDd_wOIEWbwrDa",
+      "file_count": 0
+    }
+  },
+  "existing_30_record_gold_unchanged": true
+}

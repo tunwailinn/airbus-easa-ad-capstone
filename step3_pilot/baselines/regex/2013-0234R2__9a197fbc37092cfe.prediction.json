@@ -1,0 +1,71 @@
+{
+  "source_document": {
+    "file_instance_id": "9a197fbc37092cfe",
+    "file_name": "2013-0234R2__AD_2013-0234R2_1__easa_ad_2013_0234_R2.pdf"
+  },
+  "ad_identity": {
+    "ad_number": "2013-0234R2",
+    "base_ad_number": "2013-0234",
+    "revision_number": 2,
+    "is_emergency": false,
+    "is_correction": false,
+    "correction_date": {
+      "value": null
+    },
+    "design_approval_holder": {
+      "value": null
+    },
+    "supersedure_statement": {
+      "state": "not_stated",
+      "value": null
+    }
+  },
+  "publication": {
+    "subject": {
+      "value": null
+    },
+    "issue_date": {
+      "value": "2013-10-07"
+    },
+    "effective_date": {
+      "value": "2013-10-08"
+    },
+    "ata_chapters": [
+      {
+        "code": "57"
+      }
+    ],
+    "manufacturers": [
+      {
+        "raw_name": "Airbus",
+        "normalized_name": "Airbus"
+      }
+    ],
+    "type_model_designations": [
+      "A300",
+      "A300-57",
+      "A300-57-0116",
+      "A300-57-0128",
+      "A300-57-6005",
+      "A300-600"
+    ],
+    "tcds_numbers": []
+  },
+  "unsafe_condition": {
+    "state": "present",
+    "raw_reason_text": "Fatigue and \"fail safe\" tests developed on a test specimen confirmed that cracks may appear and propagate from the bolt holes of the base member and the side members of flap beam No. 2. The development of such cracks, if not detected, could result in a rupture of flap beams No. 2, which could adversely affect the structural integrity of the airframe. To address this potential unsafe condition, Airbus issued Service Bulletin (SB) A300-57-0116 and SB A300-57-6005 and DGAC France issued AD 1986-187-076(B), later revised, to require a repetitive inspection programme for A300 and A300-600 aeroplanes. For A300 aeroplanes, and in the frame of the Extended Service Goal (ESG) exercise, it was shown that design changes (Airbus Mod. 4740/Airbus SB A300-57-0128 or Airbus Mod. 5815/Airbus SB A300-57- 0141) were not sufficient to enable full ESG life without inspections. TE.CAP.00110-003 © European Aviation Safety Agency. All rights reserved. 1/5 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet. EASA AD No.: 2013-0234R2 For A300-600 aeroplanes, since DGAC France AD 1986-187-076(B) was issued, a fleet survey and updated Fatigue and Damage Tolerance analyses have been performed in order to substantiate the second A300-600 ESG2 exercise. Airbus SB A300-57-6005 has been revised accordingly to decrease the inspection thresholds and intervals. For the reasons described above, this AD retains the requirements of DGAC France AD 1986-187-076(B)R4, which is superseded, and requires those inspections to be accomplished at reduced thresholds and intervals. This AD has been revised to correct typographical errors in some compliance times defined in Appendix 1, Tables 1 and 2."
+  },
+  "requirements": [],
+  "relationships": [],
+  "classification": {
+    "ata_chapters": [
+      "57"
+    ],
+    "action_types": []
+  },
+  "prediction_metadata": {
+    "method": "regex_rules",
+    "rules_version": "regex_v1",
+    "input_page_count": 5
+  }
+}

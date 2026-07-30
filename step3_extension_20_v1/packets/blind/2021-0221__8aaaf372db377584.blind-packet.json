@@ -1,0 +1,89 @@
+{
+  "packet_version": "1.0.0",
+  "packet_type": "blind_annotation_source",
+  "record_id": "adann-8aaaf372db377584",
+  "document_identity": {
+    "authority": "EASA",
+    "ad_number": "2021-0221",
+    "base_ad_number": "2021-0221",
+    "revision_number": 0,
+    "is_emergency": false,
+    "is_correction": false,
+    "correction_date_from_manifest": null,
+    "logical_version_key": "2021-0221|UNCORRECTED"
+  },
+  "pdf_provenance": {
+    "file_instance_id": "8aaaf372db377584",
+    "content_id": "9b565f697bd0ec4d",
+    "file_name": "2021-0221__AD_2021-0221_1__EASA_AD_2021_0221.pdf",
+    "relative_path": "2021-0221__AD_2021-0221_1__EASA_AD_2021_0221.pdf",
+    "local_pdf_path": "/Users/tunwailin/Documents/Capstone/step3_extension_20_v1/source_pdfs/2021-0221__AD_2021-0221_1__EASA_AD_2021_0221.pdf",
+    "official_pdf_url": "https://ad.easa.europa.eu/blob/EASA_AD_2021_0221.pdf/AD_2021-0221_1",
+    "official_detail_url": "https://ad.easa.europa.eu/ad/2021-0221",
+    "file_sha256": "9b565f697bd0ec4d6090cee2c07c9ba265545777b3f8c8340211965d6b00d3d5",
+    "manifest_normalized_text_sha256": "73d68b6d97defa98c53f34327754a574b549a70c88c1531a78da6a9b604f4cf1",
+    "page_count": 5
+  },
+  "instructions": [
+    "Annotate only what the rendered PDF and supplied page text state.",
+    "Do not infer relationships, applicability, actions, or deadlines from filenames.",
+    "Add exact page evidence for every safety-critical value."
+  ],
+  "pages": [
+    {
+      "page_id": "8aaaf372db377584:p0001",
+      "page_number": 1,
+      "page_count": 5,
+      "page_text_sha256": "c3d5c0afce788c497f2fd4e2295edf50e0a6499b5a925f1cb35b33e740d46df5",
+      "text_char_count": 3445,
+      "extraction_library": "pypdf",
+      "extraction_library_version": "6.10.0",
+      "extraction_mode": "layout",
+      "text": "                                                                                                              EASA AD No.: 2021-0221\n\n                                                        Airworthiness Directive\n                                                        AD No.:            2021-0221\n                                                        Issued:            01 October 2021\n\n                                                        Note: This Airworthiness Directive (AD) is issued by EASA, acting in accordance with Regulation\n                                                        (EU) 2018/1139 on behalf of the European Union, its Member States and of the European third\n                                                        countries that participate in the activities of EASA under Article 129 of that Regulation.\n\n     This AD is issued in accordance with Regulation (EU) 748/2012, Part 21.A.3B. In accordance with Regulation (EU) 1321/2014 Annex I, Part M.A.301, the\n     continuing airworthiness of an aircraft shall be ensured by accomplishing any applicable ADs. Consequently, no person may operate an aircraft to which\n     an AD applies, except in accordance with the requirements of that AD, unless otherwise specified by the Agency [Regulation (EU) 1321/2014 Annex I,\n     Part M.A.303] or agreed with the Authority of the State of Registry [Regulation (EU) 2018/1139, Article 71 exemption].\n\n     Design Approval Holder’s Name:                                            Type/Model designation(s):\n     AIRBUS                                                                    A380 aeroplanes\n\n     Effective Date:           15 October 2021\n     TCDS Number(s):           EASA.A.110\n     Foreign AD:               Not applicable\n     Supersedure:              None\n\n     ATA 21 – Air Conditioning – Belly Fairing Air Cooling Pack Discharge Duct Adjustable\n     Rods – Replacement\n     ATA 24 – Electrical Power – Generator and Ground Power Control Unit –\n     Replacement / Software Update\n     ATA 25 – Equipment / Furnishings – Modified Door Lining Panels – Installation\n     ATA 28 – Fuel – Refuel Diffusers / Engine Feed Fuel Pipe End Fittings – Replacement\n     ATA 53 – Fuselage – Nose Landing Gear Bay Bulkhead Panel – Inspection\n     ATA 71 – Powerplant – Redesigned Fan Cowl Latch Access Panels – Installation\n\n\n     Manufacturer(s):\n     Airbus\n\n     Applicability:\n     Airbus A380-841, A380-842 and A380-861 aeroplanes, manufacturer serial numbers (MSN) 0006,\n     0008, 0009, 0011, 0014 to 0017 inclusive, 0020, 0022, 0023, 0025, 0027, 0029, 0033, 0034, 0038 to\n     0041 inclusive, 0043, 0044, 0048 to 0051 inclusive, 0056, 0058, 0059, 0061, 0062, 0063,                                0067, 0069,\n     0070, 0072, 0074, 0078, 0080, 0081, 0082, 0084, 0086, 0087, 0089, 0094, 0099, 0100, 0111, 0117,\n     0125, 0131, 0137, 0142, 0143, 0145, 0146, 0150, 0153, 0154, 0157                           to 0160 inclusive, 0164, 0165,\n     0166, 0168 to 0172 inclusive, 0174 to              0184 inclusive, 0186 to 0192 inclusive, 0194, 0195, 0198,\n     0200 to 0208 inclusive, 0230 and 0231.\n\n\n                       TE.CAP.00110-010 © European Union Aviation Safety Agency. All rights reserved. ISO9001 Certified.                Page 1 of 5\n                       Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet.\nAn agency of the European Union\n"
+    },
+    {
+      "page_id": "8aaaf372db377584:p0002",
+      "page_number": 2,
+      "page_count": 5,
+      "page_text_sha256": "dfd631cfd7ee9ead471ba7b1a368be7e18caa7b2f1fe1d56a89b7fd5501bd856",
+      "text_char_count": 2984,
+      "extraction_library": "pypdf",
+      "extraction_library_version": "6.10.0",
+      "extraction_mode": "layout",
+      "text": "                                                                                                        EASA AD No.: 2021-0221\n\n     Definitions:\n     For the purpose of this AD, the following definitions apply:\n\n     SB1: Airbus Service Bulletin (SB) A380-21-8092 Revision 01 (right-hand (RH) side) and\n     SB A380-21-8093 Revision 01 (left-hand (LH) side).\n     SB2: Airbus SB A380-24-8130.\n     SB3: Airbus SB A380-25-8195, SB A380-25-8196, SB A380-25-8197, SB A380-25-8198,\n     SB A380-25-8199, SB A380-25-8200, SB A380-25-8201 and SB A380-25-8202 (for eight different\n     door positions).\n     SB4: Airbus SB A380-28-8047.\n     SB5: Airbus SB A380-28-8050 Revision 02.\n     SB6: Airbus SB A380-71-8006.\n     SB7: Airbus SB A380-53-8122.\n\n     Aeroplane date of manufacture: The date of transfer of title (ownership), which is referenced in\n     Airbus documentation at the time of first delivery to an operator.\n\n     Reason:\n     For some Airbus modification SBs and one inspection SB, it was initially decided to accomplish fleet\n     monitoring campaigns for accomplishment of those SBs in service, with no issuance of any AD.\n     Following the end of these campaigns, it was determined that certain aeroplanes had not been\n     modified, or inspected, respectively.\n\n     This condition, if not detected and corrected, could lead to an unsafe condition.\n\n     To address this condition, it was decided to require accomplishment of the modifications in those\n     SBs on aeroplanes that did not embody them.\n\n     For the reason described above, this AD requires accomplishment of the actions specified in each\n     related SB, as applicable.\n\n     Required Action(s) and Compliance Time(s):\n     Required as indicated, unless accomplished previously:\n\n     Modifications:\n     (1)   For MSN 0006, 0008, 0022, 0027, 0029, 0033, 0039, 0040, 0043,0048, 0051, 0058, 0059, 0067,\n           0069, 0074, 0078, 0081, 0084, 0089, 0094, 0099,               0111, 0117, 0125, 0131, 0142, 0153, 0154,\n           0171, 0175, 0177, 0180, 0181, 0184, 0189, 0230 and 0231: Within 12 months after the effective\n           date of this AD, replace the adjustable discharge duct rods in the belly fairing, on RH and LH\n           sides, in accordance with the instructions of SB1            .\n\n     (2)   For MSN 0006, 0008, 0014, 0015, 0029, 0033, 0040, 0043, 0049, 0050, 0051, 0061, 0062, 0063,\n           0069, 0070, 0072, 0074, 0082, 0087, 0099, 0100, 0117, 0146 and 0177: Within 12 months after\n           the effective date of this AD, modify or replace the Generator and Ground Power Control Unit\n           hardware and software in accordance with the instructions of SB2.\n\n\n\n\n\n                      TE.CAP.00110-010 © European Union Aviation Safety Agency. All rights reserved. ISO9001 Certified.          Page 2 of 5\n                      Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet.\nAn agency of the European Union\n"
+    },
+    {
+      "page_id": "8aaaf372db377584:p0003",
+      "page_number": 3,
+      "page_count": 5,
+      "page_text_sha256": "3fb93fe5a6b50716a399d5886d145e2c29449993f30b72149a2b381cd64c6251",
+      "text_char_count": 3706,
+      "extraction_library": "pypdf",
+      "extraction_library_version": "6.10.0",
+      "extraction_mode": "layout",
+      "text": "                                                                                                         EASA AD No.: 2021-0221\n\n     (3)   For MSN 0008: Within 12 months after the effective date of this AD, install modified door\n           linings panels, having additional clearance for the door swivel actuator, in accordance with the\n           instructions of SB3.\n\n     (4)   Within the compliance time specified in Table 1 of this AD, as applicable to MSN, replace all\n           refuel diffusers on RH and LH wings in accordance with the instructions of SB4.\n\n                                             Table 1 – Refuel Diffusers Replacement\n                                   MSN                                                  Compliance Time\n            0023                                                  Before exceeding 12 years since aeroplane date of\n                                                                  manufacture\n            0038, 0041, 0044, 0048, 0117, 0125,\n            0131, 0142, 0153, 0154, 0157, 0158,                   Before exceeding 6 years since aeroplane date of\n            0159, 0164, 0166, 0168 to 0172                        manufacture, or within 12 months after the\n            inclusive, 0174 to 0184 inclusive, 0186               effective date of this AD, whichever occurs later\n            to 0192 inclusive, 0194, 0195, 0198,\n            and 0200 to 0208 inclusive\n\n     (5)   Within the compliance time specified in Table 2 of this AD, as applicable to MSN, replace all fuel\n           pipe end fittings of the Engine Feed Fuel Pump System in accordance with the instructions of\n           SB5.\n\n                                         Table 2 – Fuel Pipe End Fittings Replacement\n                                   MSN                                                  Compliance Time\n            0011, 0016, 0017, 0020, 0022, 0023,                   Before exceeding 12 years since aeroplane date of\n            0025, 0027, 0029 and 0034                             manufacture\n            0117, 0137, 0142, 0143, 0145, 0150,\n            0153, 0154, 0157 to 0160 inclusive,                   Before exceeding 6 years since aeroplane date of\n            0164, 0165, 0166, 0168 to 0172                        manufacture, or within 12 months after the\n            inclusive, 0174 to 0184 inclusive, 0186               effective date of this AD, whichever occurs later\n            to 0192 inclusive, 0200, 0201 and 0202\n\n     (6)   For MSN 0039, 0056, 0080 and 0086: Within 12 months after the effective date of this AD,\n           install redesigned fan cowl latch access panels in accordance with the instructions of SB6.\n\n     Inspection:\n     (7)   For MSN 0009: Before exceeding 8 800 flight cycles or 64 800 flight hours, whichever occurs\n           first since aeroplane date of manufacture, inspect the LH-side nose landing gear bay lateral\n           bulkhead panel at flight test installation crossing and satellite holes in accordance with the\n           instructions of SB7.\n\n     Corrective Action(s):\n     (8)   If, during the inspection as required by paragraph (7) of this AD, cracks are found, before next\n           flight after that inspection, contact Airbus for approved repair instructions and within the\n           compliance time specified therein, accomplish those instructions accordingly                       .\n\n                      TE.CAP.00110-010 © European Union Aviation Safety Agency. All rights reserved. ISO9001 Certified.           Page 3 of 5\n                      Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet.\nAn agency of the European Union\n"
+    },
+    {
+      "page_id": "8aaaf372db377584:p0004",
+      "page_number": 4,
+      "page_count": 5,
+      "page_text_sha256": "4c48b8704d333c1bcf7bcb15b750d61de8de022d9e1a978193586aa1d885f85c",
+      "text_char_count": 2397,
+      "extraction_library": "pypdf",
+      "extraction_library_version": "6.10.0",
+      "extraction_mode": "layout",
+      "text": "                                                                                                        EASA AD No.: 2021-0221\n\n     Ref. Publications:\n     Airbus SB A380-21-8092 original issue dated 08 March 2018, or Revision 01 dated 19 December\n     2018.\n\n     Airbus SB A380-21-8093 original issue dated 08 March 2018, or Revision 01 dated 19 December\n     2018.\n\n     Airbus SB A380-24-8130 original issue dated 02 October 2017.\n\n     Airbus SB A380-25-8195 original issue dated 04 April 2017.\n\n     Airbus SB A380-25-8196 original issue dated 04 April 2017.\n\n     Airbus SB A380-25-8197 original issue dated 04 April 2017.\n\n     Airbus SB A380-25-8198 original issue dated 04 April 2017.\n\n     Airbus SB A380-25-8199 original issue dated 04 April 2017.\n\n     Airbus SB A380-25-8200 original issue dated 04 April 2017.\n\n     Airbus SB A380-25-8201 original issue dated 04 April 2017.\n\n     Airbus SB A380-25-8202 original issue dated 04 April 2017.\n\n     Airbus SB A380-28-8047 original issue dated 02 September 2015.\n\n     Airbus SB A380-28-8050 original issue dated 10 September 2015, or Revision 01 dated 09 January\n     2017, or Revision 02 dated 20 December 2017.\n\n     Airbus SB A380-53-8122 original issue dated 23 August 2018.\n\n     Airbus SB A380-71-8006 original issue dated 23 April 2013.\n\n     The use of later approved revisions of the above-mentioned documents is acceptable for\n     compliance with the requirements of this AD.\n\n     Remarks:\n     1.    If requested and appropriately substantiated, EASA can approve Alternative Methods of\n           Compliance for this AD.\n\n     2.    This AD was posted on 25 June 2021 as PAD 21-092 for consultation until 23 July 2021 and\n           thereafter re-published on 16 September 2021 as PAD 21-092R1 for additional consultation\n           until 30 September 2021. No comments were received during the additional consultation\n           period. The Comment Response Document for PAD 21-092 can be found in the EASA Safety\n           Publications Tool, in the compressed (zipped) file attached to the record for this AD.\n\n\n\n\n                      TE.CAP.00110-010 © European Union Aviation Safety Agency. All rights reserved. ISO9001 Certified.          Page 4 of 5\n                      Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet.\nAn agency of the European Union\n"
+    },
+    {
+      "page_id": "8aaaf372db377584:p0005",
+      "page_number": 5,
+      "page_count": 5,
+      "page_text_sha256": "15eb1e24a4cbc3dbb5cef0ddfbe169e4dd0c35fb2a1435d54b8c85858c277236",
+      "text_char_count": 1679,
+      "extraction_library": "pypdf",
+      "extraction_library_version": "6.10.0",
+      "extraction_mode": "layout",
+      "text": "                                                                                                           EASA AD No.: 2021-0221\n\n     3.    Enquiries regarding this AD should be referred to the EASA Safety Information Section,\n           Certification Directorate. E-mail: ADs@easa.europa.eu.\n\n     4.    Information about any failures, malfunctions, defects or other occurrences, which may be\n           similar to the unsafe condition addressed by this AD, and which may occur, or have occurred on\n           a product, part or appliance not affected by this AD, can be reported to the EU aviation safety\n           reporting system. This may include reporting on the same or similar components, other than\n           those covered by the design to which this AD applies, if the same unsafe condition can exist or\n           may develop on an aircraft with those components installed. Such components may be\n           installed under an FAA Parts Manufacturer Approval (PMA), Supplemental Type Certificate\n           (STC) or other modification.\n\n     5.    For any question concerning the technical content of the requirements in this AD, please\n           contact: AIRBUS SAS - IIANA (Airworthiness Office), Telephone: +33 562 110 253,\n           Fax: +33 562 110 307, E-mail: account.airworth-A380@airbus.com.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n                      TE.CAP.00110-010 © European Union Aviation Safety Agency. All rights reserved. ISO9001 Certified.             Page 5 of 5\n                      Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet.\nAn agency of the European Union\n"
+    }
+  ]
+}

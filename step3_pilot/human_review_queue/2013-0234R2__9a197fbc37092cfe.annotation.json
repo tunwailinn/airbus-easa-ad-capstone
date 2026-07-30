@@ -1,0 +1,1642 @@
+{
+  "schema_version": "1.0.0",
+  "record_id": "adann-9a197fbc37092cfe",
+  "source_document": {
+    "file_instance_id": "9a197fbc37092cfe",
+    "content_id": "229ea53cfbd154f6",
+    "canonical_file_instance_id": "9a197fbc37092cfe",
+    "file_aliases": [],
+    "file_name": "2013-0234R2__AD_2013-0234R2_1__easa_ad_2013_0234_R2.pdf",
+    "relative_path": "2013-0234R2__AD_2013-0234R2_1__easa_ad_2013_0234_R2.pdf",
+    "file_sha256": "229ea53cfbd154f681361497f182ce9e07b353ca8fd9c10e86054e4a6484f416",
+    "normalized_text_sha256": "3e0420a1c466a02b668f3b37d65745ab6ebef1dba465753e8a4f27e5cc729944",
+    "page_count": 5,
+    "extraction_status": "hybrid",
+    "needs_ocr": false,
+    "manifest_review_flags": [],
+    "source_url": "https://ad.easa.europa.eu/blob/easa_ad_2013_0234_R2.pdf/AD_2013-0234R2_1",
+    "text_extraction_method": "hybrid",
+    "exact_duplicate_group": null,
+    "near_duplicate_cluster": null
+  },
+  "ad_identity": {
+    "authority": "EASA",
+    "document_type": "airworthiness_directive",
+    "ad_number": "2013-0234R2",
+    "base_ad_number": "2013-0234",
+    "revision_number": 2,
+    "publication_kind": "standard_ad",
+    "is_emergency": false,
+    "is_correction": false,
+    "correction_date": {
+      "state": "not_stated",
+      "value": null,
+      "raw_text": null,
+      "evidence_ids": [
+        "EV-001"
+      ]
+    },
+    "version_label": "Revision 2",
+    "logical_version_key": "2013-0234R2|UNCORRECTED",
+    "is_latest_version": null,
+    "lifecycle_status": "unknown",
+    "design_approval_holder": {
+      "state": "present",
+      "value": "Airbus",
+      "raw_text": "Design Approval Holder’s Name: AIRBUS",
+      "evidence_ids": [
+        "EV-001"
+      ]
+    },
+    "supersedure_statement": {
+      "state": "present",
+      "value": "Revises EASA AD 2013-0234R1 dated 02 October 2013",
+      "raw_text": "Revision: This AD revises EASA AD 2013-0234R1 dated 02 October 2013.",
+      "evidence_ids": [
+        "EV-001"
+      ]
+    },
+    "evidence_ids": [
+      "EV-001"
+    ]
+  },
+  "publication": {
+    "subject": {
+      "state": "present",
+      "value": "Wings – Flap Beam Base – Inspection / Replacement",
+      "raw_text": "ATA 57 Wings – Flap Beam Base – Inspection / Replacement",
+      "evidence_ids": [
+        "EV-002"
+      ]
+    },
+    "issue_date": {
+      "state": "present",
+      "value": "2013-10-07",
+      "raw_text": "Date: 07 October 2013",
+      "evidence_ids": [
+        "EV-001"
+      ]
+    },
+    "effective_date": {
+      "state": "present",
+      "value": "2013-10-08",
+      "raw_text": "Effective Date: 08 October 2013 (same as original)",
+      "evidence_ids": [
+        "EV-006"
+      ]
+    },
+    "ata_chapters": [
+      {
+        "code": "57",
+        "title": "Wings",
+        "evidence_ids": [
+          "EV-002"
+        ]
+      }
+    ],
+    "manufacturers": [
+      {
+        "raw_name": "Airbus (formerly Airbus Industrie)",
+        "normalized_name": "Airbus",
+        "role": "manufacturer",
+        "evidence_ids": [
+          "EV-002"
+        ]
+      }
+    ],
+    "type_model_designations": [
+      "A300",
+      "A300-600"
+    ],
+    "tcds_numbers": [
+      "France No. 145"
+    ],
+    "foreign_ad": {
+      "state": "explicit_none",
+      "value": null,
+      "raw_text": "Foreign AD: Not applicable",
+      "evidence_ids": [
+        "EV-001"
+      ]
+    }
+  },
+  "applicability_groups": [
+    {
+      "group_id": "APP-001",
+      "label": "All certified A300 models and all MSN",
+      "state": "present",
+      "raw_text": "Airbus A300 aeroplanes, all certified models, all manufacturer serial numbers (MSN).",
+      "aircraft_families": [
+        "A300 family"
+      ],
+      "models": [
+        "A300"
+      ],
+      "serial_restrictions": [
+        {
+          "restriction_id": "MSN-001",
+          "kind": "all",
+          "raw_expression": "all manufacturer serial numbers",
+          "lower_bound": null,
+          "upper_bound": null,
+          "explicit_values": [],
+          "condition": null,
+          "evidence_ids": [
+            "EV-003"
+          ]
+        }
+      ],
+      "part_numbers": [],
+      "configuration_conditions": [],
+      "exclusions": [],
+      "boolean_logic": "all",
+      "evidence_ids": [
+        "EV-003",
+        "EV-014"
+      ]
+    },
+    {
+      "group_id": "APP-002",
+      "label": "All certified A300-600 models and all MSN, subject to modification exclusions",
+      "state": "present",
+      "raw_text": "Airbus A300-600 aeroplanes, all certified models, all MSN, except the listed A300F4-622R and A300F4-605R modification configurations.",
+      "aircraft_families": [
+        "A300-600 family"
+      ],
+      "models": [
+        "A300-600"
+      ],
+      "serial_restrictions": [
+        {
+          "restriction_id": "MSN-002",
+          "kind": "all",
+          "raw_expression": "all manufacturer serial numbers",
+          "lower_bound": null,
+          "upper_bound": null,
+          "explicit_values": [],
+          "condition": null,
+          "evidence_ids": [
+            "EV-003"
+          ]
+        }
+      ],
+      "part_numbers": [],
+      "configuration_conditions": [],
+      "exclusions": [
+        "A300F4-622R with Airbus Mods 11133, 12047, 12048 and 12050 all embodied",
+        "A300F4-605R or A300F4-622R with Airbus Mods 11133 and 12699 both embodied"
+      ],
+      "boolean_logic": "all",
+      "evidence_ids": [
+        "EV-003",
+        "EV-015"
+      ]
+    }
+  ],
+  "definitions": [],
+  "unsafe_condition": {
+    "state": "present",
+    "raw_reason_text": "Fatigue and fail-safe tests confirmed that cracks may appear and propagate from bolt holes of the base member and side members of flap beam No. 2. If not detected, the cracks could rupture flap beam No. 2 and adversely affect airframe structural integrity. Reduced repetitive inspection thresholds and intervals are required.",
+    "observed_events_or_defects": [
+      "Cracks may initiate and propagate from bolt holes in flap beam No. 2 members"
+    ],
+    "causes": [
+      "Fatigue"
+    ],
+    "unsafe_conditions": [
+      "Rupture of flap beam No. 2"
+    ],
+    "potential_consequences": [
+      "Adverse effect on structural integrity of the airframe"
+    ],
+    "affected_components": [
+      "Flap beam No. 2 base member",
+      "Flap beam No. 2 side members"
+    ],
+    "intended_risk_mitigation": [
+      "Repetitive ultrasonic inspection at reduced thresholds and intervals",
+      "Replacement when crack extension exceeds 4 mm"
+    ],
+    "evidence_ids": [
+      "EV-004",
+      "EV-005"
+    ]
+  },
+  "requirements": [
+    {
+      "requirement_id": "REQ-001",
+      "paragraph_reference": "(1)",
+      "parent_requirement_id": null,
+      "applicability_group_ids": [
+        "APP-001",
+        "APP-002"
+      ],
+      "action_types": [
+        "inspection"
+      ],
+      "obligation": "mandatory",
+      "action_text": "Ultrasonically inspect the steel base member and aluminium side members of flap beam No. 2 on the left-hand and right-hand sides.",
+      "objects_or_components": [
+        "Flap beam No. 2 steel base member",
+        "Aluminium side members, LH and RH"
+      ],
+      "conditions": [
+        "Applicable table branch by aeroplane model and configuration",
+        "Unless accomplished previously"
+      ],
+      "method_publication_ids": [
+        "PUB-001",
+        "PUB-002"
+      ],
+      "compliance_rules": [
+        {
+          "compliance_id": "CMP-001",
+          "state": "present",
+          "raw_text": "Initial threshold from Appendix 1 Table 1 for the applicable A300 configuration and AFT branch; thereafter at the applicable Table 3 interval. Each table cell uses whichever occurs first, FC or FH.",
+          "logic": "conditional",
+          "conditions": [
+            "Applicable A300 model, modification configuration, bolt size and AFT branch"
+          ],
+          "initial_limits": [
+            {
+              "limit_id": "LIM-001",
+              "relation": "other",
+              "quantity": null,
+              "unit": "other",
+              "raw_value": "Applicable Table 1 threshold (whichever occurs first, FC or FH)",
+              "reference_event": "first flight or applicable modification embodiment",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-014"
+              ]
+            }
+          ],
+          "is_repetitive": true,
+          "repetitive_intervals": [
+            {
+              "limit_id": "LIM-002",
+              "relation": "not_to_exceed",
+              "quantity": null,
+              "unit": "other",
+              "raw_value": "Applicable Table 3 interval (whichever occurs first, FC or FH)",
+              "reference_event": "last paragraph (1) inspection",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-015"
+              ]
+            }
+          ],
+          "grace_periods": [],
+          "evidence_ids": [
+            "EV-007",
+            "EV-014",
+            "EV-015"
+          ]
+        },
+        {
+          "compliance_id": "CMP-002",
+          "state": "present",
+          "raw_text": "Initial threshold from Appendix 1 Table 2 for the applicable A300-600 configuration and AFT branch; thereafter at the applicable Table 4 interval. Each table cell uses whichever occurs first, FC or FH. A 300 FC or 640 FH grace period, whichever occurs first after the effective date, may be applied to initial and repetitive inspections.",
+          "logic": "conditional",
+          "conditions": [
+            "Applicable A300-600 modification configuration and AFT branch"
+          ],
+          "initial_limits": [
+            {
+              "limit_id": "LIM-003",
+              "relation": "other",
+              "quantity": null,
+              "unit": "other",
+              "raw_value": "Applicable Table 2 threshold (whichever occurs first, FC or FH)",
+              "reference_event": "first flight or Mod. 5815 embodiment",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-015"
+              ]
+            }
+          ],
+          "is_repetitive": true,
+          "repetitive_intervals": [
+            {
+              "limit_id": "LIM-004",
+              "relation": "not_to_exceed",
+              "quantity": null,
+              "unit": "other",
+              "raw_value": "Applicable Table 4 interval (whichever occurs first, FC or FH)",
+              "reference_event": "last paragraph (1) inspection",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-015"
+              ]
+            }
+          ],
+          "grace_periods": [
+            {
+              "limit_id": "LIM-005",
+              "relation": "within",
+              "quantity": 300,
+              "unit": "flight_cycle",
+              "raw_value": "300 FC",
+              "reference_event": "effective date of this AD",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-015"
+              ]
+            },
+            {
+              "limit_id": "LIM-006",
+              "relation": "within",
+              "quantity": 640,
+              "unit": "flight_hour",
+              "raw_value": "640 FH",
+              "reference_event": "effective date of this AD",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-015"
+              ]
+            }
+          ],
+          "evidence_ids": [
+            "EV-007",
+            "EV-015"
+          ]
+        }
+      ],
+      "follow_on_requirement_ids": [
+        "REQ-002",
+        "REQ-003"
+      ],
+      "terminating_action": {
+        "state": "not_stated",
+        "present": false,
+        "scope": "none",
+        "action_text": null,
+        "terminates_requirement_ids": [],
+        "evidence_ids": []
+      },
+      "evidence_ids": [
+        "EV-007",
+        "EV-014",
+        "EV-015"
+      ]
+    },
+    {
+      "requirement_id": "REQ-002",
+      "paragraph_reference": "(2)",
+      "parent_requirement_id": "REQ-001",
+      "applicability_group_ids": [
+        "APP-001",
+        "APP-002"
+      ],
+      "action_types": [
+        "inspection"
+      ],
+      "obligation": "conditional",
+      "action_text": "If a crack reaches the bolt-hole edge or extends up to 4 mm beyond it, repeatedly ultrasonically inspect the flap beam members.",
+      "objects_or_components": [
+        "Flap beam No. 2 base or side member"
+      ],
+      "conditions": [
+        "Crack reaches the edge of or extends no more than 4 mm beyond the bolt hole"
+      ],
+      "method_publication_ids": [
+        "PUB-001",
+        "PUB-002"
+      ],
+      "compliance_rules": [
+        {
+          "compliance_id": "CMP-003",
+          "state": "present",
+          "raw_text": "If a crack extends to the edge of or up to 4 mm beyond the bolt hole, inspect within 250 FC and thereafter at intervals not to exceed 250 FC.",
+          "logic": "conditional",
+          "conditions": [
+            "Crack extends to the edge of or up to 4 mm beyond the bolt hole"
+          ],
+          "initial_limits": [
+            {
+              "limit_id": "LIM-007",
+              "relation": "within",
+              "quantity": 250,
+              "unit": "flight_cycle",
+              "raw_value": "within 250 flight cycles",
+              "reference_event": "inspection that found the crack",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-008"
+              ]
+            }
+          ],
+          "is_repetitive": true,
+          "repetitive_intervals": [
+            {
+              "limit_id": "LIM-008",
+              "relation": "not_to_exceed",
+              "quantity": 250,
+              "unit": "flight_cycle",
+              "raw_value": "intervals not to exceed 250 FC",
+              "reference_event": "last paragraph (2) inspection",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-008"
+              ]
+            }
+          ],
+          "grace_periods": [],
+          "evidence_ids": [
+            "EV-008"
+          ]
+        }
+      ],
+      "follow_on_requirement_ids": [],
+      "terminating_action": {
+        "state": "not_stated",
+        "present": false,
+        "scope": "none",
+        "action_text": null,
+        "terminates_requirement_ids": [],
+        "evidence_ids": []
+      },
+      "evidence_ids": [
+        "EV-008"
+      ]
+    },
+    {
+      "requirement_id": "REQ-003",
+      "paragraph_reference": "(3)-(4)",
+      "parent_requirement_id": "REQ-001",
+      "applicability_group_ids": [
+        "APP-001",
+        "APP-002"
+      ],
+      "action_types": [
+        "replacement"
+      ],
+      "obligation": "conditional",
+      "action_text": "If a crack extends more than 4 mm beyond the bolt hole, replace the flap beam before next flight.",
+      "objects_or_components": [
+        "Affected flap beam"
+      ],
+      "conditions": [
+        "Crack extends more than 4 mm beyond the bolt hole"
+      ],
+      "method_publication_ids": [
+        "PUB-003",
+        "PUB-004"
+      ],
+      "compliance_rules": [
+        {
+          "compliance_id": "CMP-004",
+          "state": "present",
+          "raw_text": "If a crack extends more than 4 mm beyond the bolt hole, replace the flap beam before next flight.",
+          "logic": "conditional",
+          "conditions": [
+            "Crack extends more than 4 mm beyond the bolt hole"
+          ],
+          "initial_limits": [
+            {
+              "limit_id": "LIM-009",
+              "relation": "before",
+              "quantity": null,
+              "unit": "before_next_flight",
+              "raw_value": "before next flight",
+              "reference_event": "inspection that found the crack",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-009"
+              ]
+            }
+          ],
+          "is_repetitive": false,
+          "repetitive_intervals": [],
+          "grace_periods": [],
+          "evidence_ids": [
+            "EV-009"
+          ]
+        }
+      ],
+      "follow_on_requirement_ids": [],
+      "terminating_action": {
+        "state": "present",
+        "present": false,
+        "scope": "none",
+        "action_text": null,
+        "terminates_requirement_ids": [],
+        "evidence_ids": [
+          "EV-009"
+        ]
+      },
+      "evidence_ids": [
+        "EV-009"
+      ]
+    }
+  ],
+  "exceptions": [],
+  "previous_action_credit": [
+    {
+      "credit_id": "CRD-001",
+      "text": "Inspections completed before the effective date under any previous issue of Airbus SB A300-57-0116 or A300-57-6005 receive credit for the initial paragraph (1) and (2) requirements.",
+      "applies_to_requirement_ids": [
+        "REQ-001",
+        "REQ-002"
+      ],
+      "credited_publication_ids": [
+        "PUB-005",
+        "PUB-006"
+      ],
+      "conditions": [
+        "Inspection accomplished before the effective date",
+        "Applicable previous SB issue used"
+      ],
+      "evidence_ids": [
+        "EV-010"
+      ]
+    }
+  ],
+  "referenced_publications": [
+    {
+      "publication_id": "PUB-001",
+      "publication_type": "service_bulletin",
+      "issuer": "Airbus",
+      "number": "A300-57-0116",
+      "revision": "Revision 07",
+      "publication_date": "2011-09-19",
+      "title": null,
+      "roles": [
+        "required_method"
+      ],
+      "later_approved_revisions_allowed": true,
+      "evidence_ids": [
+        "EV-007",
+        "EV-008",
+        "EV-011"
+      ]
+    },
+    {
+      "publication_id": "PUB-002",
+      "publication_type": "service_bulletin",
+      "issuer": "Airbus",
+      "number": "A300-57-6005",
+      "revision": "Revision 05",
+      "publication_date": "2013-04-25",
+      "title": null,
+      "roles": [
+        "required_method"
+      ],
+      "later_approved_revisions_allowed": true,
+      "evidence_ids": [
+        "EV-007",
+        "EV-008",
+        "EV-011"
+      ]
+    },
+    {
+      "publication_id": "PUB-003",
+      "publication_type": "maintenance_manual",
+      "issuer": "Airbus",
+      "number": "Applicable Structural Repair Manual",
+      "revision": null,
+      "publication_date": null,
+      "title": null,
+      "roles": [
+        "required_method"
+      ],
+      "later_approved_revisions_allowed": null,
+      "evidence_ids": [
+        "EV-009"
+      ]
+    },
+    {
+      "publication_id": "PUB-004",
+      "publication_type": "maintenance_manual",
+      "issuer": "Airbus",
+      "number": "Applicable Aircraft Maintenance Manual",
+      "revision": null,
+      "publication_date": null,
+      "title": null,
+      "roles": [
+        "required_method"
+      ],
+      "later_approved_revisions_allowed": null,
+      "evidence_ids": [
+        "EV-009"
+      ]
+    },
+    {
+      "publication_id": "PUB-005",
+      "publication_type": "service_bulletin",
+      "issuer": "Airbus",
+      "number": "A300-57-0116",
+      "revision": "Any previous issue",
+      "publication_date": null,
+      "title": null,
+      "roles": [
+        "previous_action_credit"
+      ],
+      "later_approved_revisions_allowed": null,
+      "evidence_ids": [
+        "EV-010"
+      ]
+    },
+    {
+      "publication_id": "PUB-006",
+      "publication_type": "service_bulletin",
+      "issuer": "Airbus",
+      "number": "A300-57-6005",
+      "revision": "Any previous issue",
+      "publication_date": null,
+      "title": null,
+      "roles": [
+        "previous_action_credit"
+      ],
+      "later_approved_revisions_allowed": null,
+      "evidence_ids": [
+        "EV-010"
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "relationship_id": "REL-001",
+      "relationship_type": "revises",
+      "target_ad_number": "2013-0234R1",
+      "target_record_id": null,
+      "target_logical_version_key": null,
+      "source": "revision_family",
+      "verification_status": "candidate",
+      "manually_verified": false,
+      "raw_text": "This AD revises EASA AD 2013-0234R1 dated 02 October 2013.",
+      "evidence_ids": [
+        "EV-001"
+      ]
+    },
+    {
+      "relationship_id": "REL-002",
+      "relationship_type": "retains_requirements_of",
+      "target_ad_number": "F-1986-187-076",
+      "target_record_id": null,
+      "target_logical_version_key": null,
+      "source": "explicit_directional_sentence",
+      "verification_status": "candidate",
+      "manually_verified": false,
+      "raw_text": "This AD retains the requirements of DGAC France AD 1986-187-076(B)R4, which is superseded.",
+      "evidence_ids": [
+        "EV-005"
+      ]
+    }
+  ],
+  "amoc_and_contacts": [
+    {
+      "entry_id": "AMC-001",
+      "entry_type": "amoc_authority",
+      "authority_or_organization": "EASA",
+      "contact_text": "If requested and appropriately substantiated, EASA can approve Alternative Methods of Compliance for this AD.",
+      "conditions": [
+        "Requested and appropriately substantiated"
+      ],
+      "evidence_ids": [
+        "EV-012"
+      ]
+    },
+    {
+      "entry_id": "AMC-002",
+      "entry_type": "regulatory_contact",
+      "authority_or_organization": "EASA",
+      "contact_text": "Enquiries regarding this AD should be referred to EASA at ADs@easa.europa.eu.",
+      "conditions": [],
+      "evidence_ids": [
+        "EV-013"
+      ]
+    },
+    {
+      "entry_id": "AMC-003",
+      "entry_type": "technical_contact",
+      "authority_or_organization": "Airbus",
+      "contact_text": "For technical questions, contact AIRBUS SAS – EIAW at continued.airworthiness-wb.external@airbus.com.",
+      "conditions": [],
+      "evidence_ids": [
+        "EV-013"
+      ]
+    }
+  ],
+  "classification": {
+    "airbus_families": [
+      "A300 family",
+      "A300-600 family"
+    ],
+    "ata_chapters": [
+      "57"
+    ],
+    "action_types": [
+      "inspection",
+      "replacement"
+    ],
+    "frequency": "repetitive",
+    "emergency_status": "standard",
+    "terminating_action_present": false,
+    "table_or_appendix_present": true,
+    "compliance_complexity": "table_driven",
+    "human_confirmed": false,
+    "evidence_ids": [
+      "EV-002",
+      "EV-003",
+      "EV-007",
+      "EV-008",
+      "EV-009",
+      "EV-014",
+      "EV-015"
+    ]
+  },
+  "evidence_spans": [
+    {
+      "evidence_id": "EV-001",
+      "source_file_instance_id": "9a197fbc37092cfe",
+      "page_number": 1,
+      "printed_page_label": "1/5",
+      "section": "cover",
+      "section_raw": "Cover identity",
+      "clause_path": null,
+      "exact_quote": "AD No.: 2013-0234R2. Date: 07 October 2013. Design Approval Holder’s Name: AIRBUS. Type/Model designation(s): A300 and A300-600 aeroplanes. TCDS Number: France No. 145. Foreign AD: Not applicable. Revision: This AD revises EASA AD 2013-0234R1 dated 02 October 2013.",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "13f5ac031961e631b466792204335d202d07e69c0a338987aa8097a4a843d41e",
+      "bbox_normalized": null,
+      "extraction_method": "visual_transcription",
+      "quality": "visual_transcription",
+      "table_context": null,
+      "annotation_note": "Visually transcribed from the rendered two-column cover because native extraction interleaves some labels and values."
+    },
+    {
+      "evidence_id": "EV-002",
+      "source_file_instance_id": "9a197fbc37092cfe",
+      "page_number": 1,
+      "printed_page_label": "1/5",
+      "section": "cover",
+      "section_raw": "ATA / Manufacturer(s)",
+      "clause_path": null,
+      "exact_quote": "ATA 57 Wings – Flap Beam Base – Inspection / Replacement. Manufacturer(s): Airbus (formerly Airbus Industrie).",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "13f5ac031961e631b466792204335d202d07e69c0a338987aa8097a4a843d41e",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-003",
+      "source_file_instance_id": "9a197fbc37092cfe",
+      "page_number": 1,
+      "printed_page_label": "1/5",
+      "section": "applicability",
+      "section_raw": "Applicability",
+      "clause_path": null,
+      "exact_quote": "Airbus A300 aeroplanes, all certified models, all manufacturer serial numbers (MSN), and Airbus A300-600 aeroplanes, all certified models, all MSN, except: - A300F4-622R aeroplanes on which all of the following Airbus modifications (Mod.) have been embodied: 11133, 12047, 12048 and 12050. - A300F4-605R and A300F4-622R aeroplanes on which both Airbus Mod. 11133 and 12699 have been embodied.",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "13f5ac031961e631b466792204335d202d07e69c0a338987aa8097a4a843d41e",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-004",
+      "source_file_instance_id": "9a197fbc37092cfe",
+      "page_number": 1,
+      "printed_page_label": "1/5",
+      "section": "reason",
+      "section_raw": "Reason",
+      "clause_path": null,
+      "exact_quote": "Fatigue and ‘fail safe’ tests developed on a test specimen confirmed that cracks may appear and propagate from the bolt holes of the base member and the side members of flap beam No. 2. The development of such cracks, if not detected, could result in a rupture of flap beams No. 2, which could adversely affect the structural integrity of the airframe. Airbus issued SB A300-57-0116 and SB A300-57-6005 and DGAC France issued AD 1986-187-076(B), later revised, to require a repetitive inspection programme.",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "13f5ac031961e631b466792204335d202d07e69c0a338987aa8097a4a843d41e",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-005",
+      "source_file_instance_id": "9a197fbc37092cfe",
+      "page_number": 2,
+      "printed_page_label": "2/5",
+      "section": "reason",
+      "section_raw": "Reason continued",
+      "clause_path": null,
+      "exact_quote": "For the reasons described above, this AD retains the requirements of DGAC France AD 1986-187-076(B)R4, which is superseded, and requires those inspections to be accomplished at reduced thresholds and intervals. This AD has been revised to correct typographical errors in some compliance times defined in Appendix 1, Tables 1 and 2.",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "963c9264e869dc924a9ac525b398a83faa620289b2d29f439ea819080aed3303",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-006",
+      "source_file_instance_id": "9a197fbc37092cfe",
+      "page_number": 2,
+      "printed_page_label": "2/5",
+      "section": "cover",
+      "section_raw": "Effective Date",
+      "clause_path": null,
+      "exact_quote": "Effective Date: 08 October 2013 (same as original)",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "963c9264e869dc924a9ac525b398a83faa620289b2d29f439ea819080aed3303",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-007",
+      "source_file_instance_id": "9a197fbc37092cfe",
+      "page_number": 2,
+      "printed_page_label": "2/5",
+      "section": "required_actions_and_compliance_times",
+      "section_raw": "Required Action(s) and Compliance Time(s)",
+      "clause_path": "(1)",
+      "exact_quote": "(1) Within the compliance time defined in Table 1 or in Table 2 of Appendix 1 of this AD, as applicable to aeroplane model, and, thereafter, at intervals not to exceed those defined in Table 3 or in Table 4 of Appendix 1 of this AD, as applicable, accomplish an ultrasonic inspection of the steel base member and the aluminium side members’ flap beam on the left hand (LH) and right hand (RH) side in accordance with the instructions of Airbus SB A300-57-0116 Revision 07 or SB A300-57-6005 Revision 05, as applicable to aeroplane model.",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "963c9264e869dc924a9ac525b398a83faa620289b2d29f439ea819080aed3303",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-008",
+      "source_file_instance_id": "9a197fbc37092cfe",
+      "page_number": 2,
+      "printed_page_label": "2/5",
+      "section": "required_actions_and_compliance_times",
+      "section_raw": "Required Action(s) and Compliance Time(s)",
+      "clause_path": "(2)",
+      "exact_quote": "(2) If, during any inspection as required by paragraph (1) of this AD, a crack is found in the base member or a side member, and that crack extends to the edge of or up to 4 mm beyond the bolt hole, within 250 flight cycles (FC) and, thereafter, at intervals not to exceed 250 FC, accomplish an ultrasonic inspection of the steel base member and the aluminium side members’ flap beam on the LH and RH side in accordance with the instructions of Airbus SB A300-57-0116 Revision 07 or SB A300-57-6005 Revision 05, as applicable to aeroplane model.",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "963c9264e869dc924a9ac525b398a83faa620289b2d29f439ea819080aed3303",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-009",
+      "source_file_instance_id": "9a197fbc37092cfe",
+      "page_number": 2,
+      "printed_page_label": "2/5",
+      "section": "required_actions_and_compliance_times",
+      "section_raw": "Required Action(s) and Compliance Time(s)",
+      "clause_path": "(3)-(4)",
+      "exact_quote": "(3) If, during any inspection as required by paragraph (1) of this AD, a crack is found in the base member or a side member, and that crack extends more than 4 mm beyond the bolt hole, before next flight, replace the flap beam in accordance with the instructions of the applicable Structural Repair Manual/Aircraft Maintenance Manual, as applicable to aeroplane model. (4) Replacement of the flap beam as required by paragraph (3) of this AD does not constitute terminating action for the inspections required by paragraph (1) of this AD.",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "963c9264e869dc924a9ac525b398a83faa620289b2d29f439ea819080aed3303",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-010",
+      "source_file_instance_id": "9a197fbc37092cfe",
+      "page_number": 2,
+      "printed_page_label": "2/5",
+      "section": "credit",
+      "section_raw": "Required Action(s) and Compliance Time(s)",
+      "clause_path": "(5)",
+      "exact_quote": "(5) Inspections, accomplished before the effective date of this AD in accordance with any previous issue of Airbus SB A300-57-0116 or SB A300-57-6005, as applicable to aeroplane model, are acceptable for compliance with the initial requirements of paragraphs (1) and (2) of this AD.",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "963c9264e869dc924a9ac525b398a83faa620289b2d29f439ea819080aed3303",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-011",
+      "source_file_instance_id": "9a197fbc37092cfe",
+      "page_number": 2,
+      "printed_page_label": "2/5",
+      "section": "reference_publications",
+      "section_raw": "Ref. Publications",
+      "clause_path": null,
+      "exact_quote": "Airbus SB A300-57-0116 Revision 07 dated 19 September 2011. Airbus SB A300-57-6005 Revision 05 dated 25 April 2013. The use of later approved revisions of these documents is acceptable for compliance with the requirements of this AD.",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "963c9264e869dc924a9ac525b398a83faa620289b2d29f439ea819080aed3303",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-012",
+      "source_file_instance_id": "9a197fbc37092cfe",
+      "page_number": 2,
+      "printed_page_label": "2/5",
+      "section": "remarks",
+      "section_raw": "Remarks 1",
+      "clause_path": null,
+      "exact_quote": "If requested and appropriately substantiated, EASA can approve Alternative Methods of Compliance for this AD.",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "963c9264e869dc924a9ac525b398a83faa620289b2d29f439ea819080aed3303",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-013",
+      "source_file_instance_id": "9a197fbc37092cfe",
+      "page_number": 3,
+      "printed_page_label": "3/5",
+      "section": "remarks",
+      "section_raw": "Remarks 3 and 4",
+      "clause_path": null,
+      "exact_quote": "Enquiries regarding this AD should be referred to the Safety Information Section, Executive Directorate, EASA. E-mail: ADs@easa.europa.eu. For any question concerning the technical content of the requirements in this AD, please contact: AIRBUS SAS – EIAW (Airworthiness Office), E-mail: continued.airworthiness-wb.external@airbus.com.",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "d6f066c58e6402bb3621d76b8e8a07c33ac488cdc8ba71b25d58b5ebc8a9f35b",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-014",
+      "source_file_instance_id": "9a197fbc37092cfe",
+      "page_number": 4,
+      "printed_page_label": "4/5",
+      "section": "table",
+      "section_raw": "Appendix 1 Table 1 – Inspection thresholds for A300",
+      "clause_path": null,
+      "exact_quote": "EASA AD No.: 2013-0234R2 APPENDIX 1 Table 1: Inspection thresholds for A300 (whichever occurs first, FC or FH) Compliance Time Aeroplane configuration Average Flight Time AFT ≥ 1,5 (AFT) < 1,5 15 000 Flight cycles (FC) or A300B2 16 900 Flight hours (FH) Aeroplanes on which since first flight Airbus Mod. 4740 and 15 000 FC or Airbus Mod. 5815 A300B4-100 20 500 FH have not been embodied since first flight A300B4-200, 16 200 FC or 15 000 FC or A300C4-200, 22 200 FH 34 000 FH A300F4-200 since first flight since first flight 12 000 FC or A300B2 13 500 FH since Mod. 4740 embodiment Aeroplanes on which 12 000 FC or Airbus Mod. 4740 A300B4-100 16 400 FH has been embodied since Mod. 4740 embodiment A300B4-200, 12 900 FC or 12 000 FC or A300C4-200, 17 700 FH 27 200 FH A300F4-200 since Mod. 4740 since Mod. 4740 embodiment embodiment 33 000 FC or A300B2 37 200 FH Aeroplanes on which since Mod. 5815 embodiment Airbus Mod. 5815 33 000 FC or has been embodied and no A300B4-100 45 200 FH bolt larger than 7/16 inch since Mod. 5815 embodiment diameter is fitted A300B4-200, 35 600 FC or 33 000 FC or A300C4-200, 48 800 FH 74 900 FH A300F4-200 since Mod. 5815 since Mod. 5815 embodiment embodiment 22 000 FC or A300B2 24 800 FH Aeroplanes on which since Mod. 5815 embodiment Airbus Mod. 5815 22 000 FC or has been embodied A300B4-100 30 100 FH and at least one bolt 15/32 since Mod. 5815 embodiment inch diameter is fitted A300B4-200, 23 700 FC or 22 000 FC or A300C4-200, 32 500 FH 49 900 FH A300F4-200 since Mod. 5815 since Mod. 5815 embodiment embodiment TE.CAP.00110-003 © European Aviation Safety Agency. All rights reserved. 4/5 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet.",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "2461d69a7e351dd379d1ee41a1e619207ffb09fb9b2a01edc06f3e28cfd72ea3",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": {
+        "table_label": "Appendix 1 Table 1 – Inspection thresholds for A300",
+        "row_headers": [
+          "A300B2",
+          "A300B4-100",
+          "A300B4-200 / A300C4-200 / A300F4-200"
+        ],
+        "column_headers": [
+          "Aeroplane configuration",
+          "Average Flight Time (AFT) < 1.5",
+          "AFT ≥ 1.5",
+          "Compliance Time"
+        ],
+        "footnotes": []
+      },
+      "annotation_note": "Full table text retained because thresholds depend on model, modification, bolt diameter and AFT branch."
+    },
+    {
+      "evidence_id": "EV-015",
+      "source_file_instance_id": "9a197fbc37092cfe",
+      "page_number": 5,
+      "printed_page_label": "5/5",
+      "section": "table",
+      "section_raw": "Appendix 1 Tables 2–4 – A300-600 thresholds and A300/A300-600 intervals",
+      "clause_path": null,
+      "exact_quote": "EASA AD No.: 2013-0234R2 APPENDIX 1 - continued Table 2 : Inspection thresholds for A300-600 (whichever occurs first, FC or FH) Aeroplane configuration Compliance Time AFT < 1,5 AFT ≥ 1,5 Aeroplanes on which Airbus Mod. 5815 and 16 200 FC or 15 000 FC or Airbus Mod 11133 have not been embodied 24 300 FH 32 400 FH since first flight since first flight Aeroplanes on which Airbus Mod. 5815 has 35 600 FC or 33 000 FC or been embodied and no bolt larger than 7/16 53 400 FH 71 200 FH inch diameter is fitted since Mod. 5815 since Mod. 5815 embodiment embodiment Aeroplanes on which Airbus Mod. 5815 has 23 700 FC or 22 000 FC or been embodied and at least one bolt 15/32 inch 35 600 FH 47 500 FH diameter is fitted since Mod. 5815 since Mod. 5815 embodiment embodiment Aeroplanes on which Airbus Mod. 11133 has 35 600 FC or 33 000 FC or been embodied 53 400 FH 71 200 FH since first flight since first flight Note: For A300-600 aeroplanes, a grace period of 300 FC or 640 FH, whichever occurs first after the effective date of this AD, may be applied for the initial inspection as required by paragraph (1) of this AD. Table 3: Inspection intervals for A300 (whichever occurs first, FC or FH) Aeroplane Compliance Time AFT < 1,5 AFT ≥ 1,5 A300B2 1 500 FC or 1 600 FH A300B4-100 1 500 FC or 2 000 FH A300B4-200, 1 600 FC or 1 500 FC or A300C4-200, 2 200 FH 3 400 FH A300F4-200 Table 4 : Inspection intervals for A300-600 (whichever occurs first, FC or FH) Aeroplane Compliance Time AFT < 1,5 AFT ≥ 1,5 A300-600 1 600 FC or 1 500 FC or 2 400 FH 3 200 FH Note: For A300-600 aeroplanes, a grace period of 300 FC or 640 FH, whichever occurs first after the effective date of this AD, may be applied for the repetitive inspections as required by paragraph (1) of this AD. TE.CAP.00110-003 © European Aviation Safety Agency. All rights reserved. 5/5 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet.",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "e514e02e98cdf8932c2d389c1248b5cc600a67a6b9418816ec325f402e753057",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": {
+        "table_label": "Appendix 1 Tables 2–4 – A300-600 thresholds and A300/A300-600 intervals",
+        "row_headers": [
+          "A300-600 configurations",
+          "A300 interval rows",
+          "A300-600 interval row"
+        ],
+        "column_headers": [
+          "Aeroplane configuration",
+          "AFT < 1.5",
+          "AFT ≥ 1.5",
+          "Compliance Time"
+        ],
+        "footnotes": [
+          "A300-600 grace period: 300 FC or 640 FH, whichever occurs first after the effective date, for initial and repetitive inspections"
+        ]
+      },
+      "annotation_note": "Full table and both grace-period notes retained for branch-level review."
+    }
+  ],
+  "field_assertions": [
+    {
+      "assertion_id": "AST-001",
+      "field_path": "/ad_identity",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.995,
+      "evidence_ids": [
+        "EV-001"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Section completion: AD identity"
+    },
+    {
+      "assertion_id": "AST-002",
+      "field_path": "/publication",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.99,
+      "evidence_ids": [
+        "EV-002",
+        "EV-001",
+        "EV-006"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Section completion: publication"
+    },
+    {
+      "assertion_id": "AST-003",
+      "field_path": "/applicability_groups",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.95,
+      "evidence_ids": [
+        "EV-003",
+        "EV-014",
+        "EV-015"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Section completion: applicability_groups"
+    },
+    {
+      "assertion_id": "AST-004",
+      "field_path": "/definitions",
+      "value_state": "absent_in_source",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.9,
+      "evidence_ids": [],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Section completion: definitions"
+    },
+    {
+      "assertion_id": "AST-005",
+      "field_path": "/requirements",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.95,
+      "evidence_ids": [
+        "EV-007",
+        "EV-014",
+        "EV-015",
+        "EV-008",
+        "EV-009"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Section completion: requirements"
+    },
+    {
+      "assertion_id": "AST-006",
+      "field_path": "/exceptions",
+      "value_state": "absent_in_source",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.9,
+      "evidence_ids": [],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Section completion: exceptions"
+    },
+    {
+      "assertion_id": "AST-007",
+      "field_path": "/previous_action_credit",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.95,
+      "evidence_ids": [
+        "EV-010"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Section completion: previous_action_credit"
+    },
+    {
+      "assertion_id": "AST-008",
+      "field_path": "/referenced_publications",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.95,
+      "evidence_ids": [
+        "EV-007",
+        "EV-008",
+        "EV-011",
+        "EV-009",
+        "EV-010"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Section completion: referenced_publications"
+    },
+    {
+      "assertion_id": "AST-009",
+      "field_path": "/relationships",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.95,
+      "evidence_ids": [
+        "EV-001",
+        "EV-005"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Section completion: relationships"
+    },
+    {
+      "assertion_id": "AST-010",
+      "field_path": "/amoc_and_contacts",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.95,
+      "evidence_ids": [
+        "EV-012",
+        "EV-013"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Section completion: amoc_and_contacts"
+    },
+    {
+      "assertion_id": "AST-011",
+      "field_path": "/ad_identity/ad_number",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.995,
+      "evidence_ids": [
+        "EV-001"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Cover identity"
+    },
+    {
+      "assertion_id": "AST-012",
+      "field_path": "/ad_identity/supersedure_statement",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.99,
+      "evidence_ids": [
+        "EV-001"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Printed status field"
+    },
+    {
+      "assertion_id": "AST-013",
+      "field_path": "/publication/issue_date",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.995,
+      "evidence_ids": [
+        "EV-001"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Printed issue date"
+    },
+    {
+      "assertion_id": "AST-014",
+      "field_path": "/publication/effective_date",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.995,
+      "evidence_ids": [
+        "EV-006"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Printed effective date"
+    },
+    {
+      "assertion_id": "AST-015",
+      "field_path": "/publication/subject",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.99,
+      "evidence_ids": [
+        "EV-002"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Printed ATA subject"
+    },
+    {
+      "assertion_id": "AST-016",
+      "field_path": "/applicability_groups/0",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-003",
+        "EV-014"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "applicability_groups"
+    },
+    {
+      "assertion_id": "AST-017",
+      "field_path": "/applicability_groups/1",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-003",
+        "EV-015"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "applicability_groups"
+    },
+    {
+      "assertion_id": "AST-018",
+      "field_path": "/requirements/0",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.94,
+      "evidence_ids": [
+        "EV-007",
+        "EV-014",
+        "EV-015"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "requirements"
+    },
+    {
+      "assertion_id": "AST-019",
+      "field_path": "/requirements/1",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.94,
+      "evidence_ids": [
+        "EV-008"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "requirements"
+    },
+    {
+      "assertion_id": "AST-020",
+      "field_path": "/requirements/2",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.94,
+      "evidence_ids": [
+        "EV-009"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "requirements"
+    },
+    {
+      "assertion_id": "AST-021",
+      "field_path": "/previous_action_credit/0",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-010"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "previous_action_credit"
+    },
+    {
+      "assertion_id": "AST-022",
+      "field_path": "/referenced_publications/0",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-007",
+        "EV-008",
+        "EV-011"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "referenced_publications"
+    },
+    {
+      "assertion_id": "AST-023",
+      "field_path": "/referenced_publications/1",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-007",
+        "EV-008",
+        "EV-011"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "referenced_publications"
+    },
+    {
+      "assertion_id": "AST-024",
+      "field_path": "/referenced_publications/2",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-009"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "referenced_publications"
+    },
+    {
+      "assertion_id": "AST-025",
+      "field_path": "/referenced_publications/3",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-009"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "referenced_publications"
+    },
+    {
+      "assertion_id": "AST-026",
+      "field_path": "/referenced_publications/4",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-010"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "referenced_publications"
+    },
+    {
+      "assertion_id": "AST-027",
+      "field_path": "/referenced_publications/5",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-010"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "referenced_publications"
+    },
+    {
+      "assertion_id": "AST-028",
+      "field_path": "/relationships/0",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-001"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "relationships"
+    },
+    {
+      "assertion_id": "AST-029",
+      "field_path": "/relationships/1",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-005"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "relationships"
+    },
+    {
+      "assertion_id": "AST-030",
+      "field_path": "/amoc_and_contacts/0",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-012"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "amoc_and_contacts"
+    },
+    {
+      "assertion_id": "AST-031",
+      "field_path": "/amoc_and_contacts/1",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-013"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "amoc_and_contacts"
+    },
+    {
+      "assertion_id": "AST-032",
+      "field_path": "/amoc_and_contacts/2",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-013"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "amoc_and_contacts"
+    },
+    {
+      "assertion_id": "AST-033",
+      "field_path": "/unsafe_condition",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-004",
+        "EV-005"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Reason and unsafe condition"
+    },
+    {
+      "assertion_id": "AST-034",
+      "field_path": "/classification",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.9,
+      "evidence_ids": [
+        "EV-002",
+        "EV-003",
+        "EV-007",
+        "EV-008",
+        "EV-009",
+        "EV-014",
+        "EV-015"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Schema classification"
+    }
+  ],
+  "annotation_metadata": {
+    "guideline_version": "1.0.0",
+    "record_status": "first_pass_complete",
+    "creation_method": "hybrid",
+    "machine_provenance": {
+      "system": "OpenAI Codex",
+      "model": "GPT-5",
+      "prompt_or_rules_version": "step2-guidelines-1.0.0-manual-pass-a3",
+      "generated_at": "2026-07-22T11:53:23Z"
+    },
+    "annotators": [
+      {
+        "annotator_id": "codex-a3",
+        "role": "annotator",
+        "started_at": "2026-07-22T11:45:00Z",
+        "submitted_at": "2026-07-22T12:45:00Z"
+      }
+    ],
+    "events": [
+      {
+        "event_type": "created",
+        "actor_id": "codex-a3",
+        "timestamp": "2026-07-22T11:45:00Z",
+        "rationale": "Blind first-pass annotation from the source PDF and blind packet."
+      },
+      {
+        "event_type": "submitted",
+        "actor_id": "codex-a3",
+        "timestamp": "2026-07-22T12:45:00Z",
+        "rationale": "First pass completed; no human review or approval claimed."
+      }
+    ],
+    "quality_flags": [
+      "complex_table",
+      "complex_applicability",
+      "complex_compliance",
+      "cross_page_clause",
+      "visual_transcription_used"
+    ],
+    "uncertainty_flags": [],
+    "notes": [
+      "All source pages were visually rendered and checked; populated assertions remain unreviewed."
+    ],
+    "source_text_sha256": "3e0420a1c466a02b668f3b37d65745ab6ebef1dba465753e8a4f27e5cc729944",
+    "created_at": "2026-07-22T11:45:00Z",
+    "updated_at": "2026-07-22T12:45:00Z"
+  },
+  "benchmark_metadata": {
+    "split": "unassigned",
+    "split_group": "2013-0234",
+    "selection_strata": [],
+    "duplicate_cluster_ids": [],
+    "gold_record": false
+  }
+}

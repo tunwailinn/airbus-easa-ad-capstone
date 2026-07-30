@@ -1,0 +1,84 @@
+{
+  "source_document": {
+    "file_instance_id": "75144c1f05797c10",
+    "file_name": "2018-0108__AD_2018-0108_1__EASA_AD_2018_0108.pdf"
+  },
+  "ad_identity": {
+    "ad_number": "2018-0108",
+    "base_ad_number": "2018-0108",
+    "revision_number": null,
+    "is_emergency": false,
+    "is_correction": false,
+    "correction_date": {
+      "value": null
+    },
+    "design_approval_holder": {
+      "value": null
+    },
+    "supersedure_statement": {
+      "state": "explicit_none",
+      "value": null
+    }
+  },
+  "publication": {
+    "subject": {
+      "value": "Door – Passenger Doors Frameside Fittings – Modification Manufacturer(s): Airbus"
+    },
+    "issue_date": {
+      "value": "2018-05-15"
+    },
+    "effective_date": {
+      "value": "2018-05-29"
+    },
+    "ata_chapters": [
+      {
+        "code": "52"
+      }
+    ],
+    "manufacturers": [
+      {
+        "raw_name": "Airbus",
+        "normalized_name": "Airbus"
+      }
+    ],
+    "type_model_designations": [
+      "A350",
+      "A350-52-P012",
+      "A350-941"
+    ],
+    "tcds_numbers": [
+      "EASA.A.151"
+    ]
+  },
+  "unsafe_condition": {
+    "state": "present",
+    "raw_reason_text": "Due to the misinterpretation of the prevailing requirements for multimaterial (hybrid) joints of the passenger door frame fittings, the interfay sealant, which prevents water ingress, was only applied on the surface in direct contact with the aluminium parts and not between all surfaces of the joint parts. For sealing of multi-material-stacks involving aluminium, application of interfay sealant is necessary between all assembled parts, even between parts made of corrosion resistant material, in TE.CAP.00110-006 © European Aviation Safety Agency. All rights reserved. ISO9001 Certified. Page 1 of 2 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet. An agency of the European Union EASA AD No.: 2018-0108 order to ensure a double barrier to prevent water ingress in the joint and subsequent potential galvanic corrosion on the aluminium holes. This condition, if not corrected, could lead to failure of the door to perform its intended function, possibly resulting in reduced evacuation capacity from the aeroplane during an emergency and consequent injury to occupants. To address this unsafe condition, Airbus developed production mod 110790 and mod 109554 to improve protection against corrosion, and issued the SB to provide modification instructions for in-service pre-mod aeroplanes. For the reasons described above, this AD requires a modification by adding sealant and protective treatment on the affected passenger doors."
+  },
+  "requirements": [
+    {
+      "raw_action_text": "Required as indicated, unless accomplished previously: Modification: Before exceeding 48 months since the aeroplane date of manufacture, apply additional corrosion protection to the hybrid joints of the doors 1, 2, 3 and 4, left-hand and right-hand sides, in accordance with the instructions of the SB.",
+      "action_types": [
+        "modification"
+      ],
+      "compliance_rules": [
+        {
+          "raw_text": "Required as indicated, unless accomplished previously: Modification: Before exceeding 48 months since the aeroplane date of manufacture, apply additional corrosion protection to the hybrid joints of the doors 1, 2, 3 and 4, left-hand and right-hand sides, in accordance with the instructions of the SB."
+        }
+      ]
+    }
+  ],
+  "relationships": [],
+  "classification": {
+    "ata_chapters": [
+      "52"
+    ],
+    "action_types": [
+      "modification"
+    ]
+  },
+  "prediction_metadata": {
+    "method": "regex_rules",
+    "rules_version": "regex_v1",
+    "input_page_count": 2
+  }
+}

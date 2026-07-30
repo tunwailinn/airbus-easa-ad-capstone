@@ -1,0 +1,75 @@
+{
+  "source_document": {
+    "file_instance_id": "58916308a3527d59",
+    "file_name": "2014-0062__AD_2014-0062_1__easa_ad_2014_0062.pdf"
+  },
+  "ad_identity": {
+    "ad_number": "2014-0062",
+    "base_ad_number": "2014-0062",
+    "revision_number": null,
+    "is_emergency": false,
+    "is_correction": false,
+    "correction_date": {
+      "value": null
+    },
+    "design_approval_holder": {
+      "value": null
+    },
+    "supersedure_statement": {
+      "state": "explicit_none",
+      "value": null
+    }
+  },
+  "publication": {
+    "subject": {
+      "value": null
+    },
+    "issue_date": {
+      "value": "2014-03-11"
+    },
+    "effective_date": {
+      "value": "2014-03-25"
+    },
+    "ata_chapters": [
+      {
+        "code": "78"
+      }
+    ],
+    "manufacturers": [
+      {
+        "raw_name": "Airbus",
+        "normalized_name": "Airbus"
+      }
+    ],
+    "type_model_designations": [
+      "A330",
+      "A330-243",
+      "A330-243F",
+      "A330-341",
+      "A330-342",
+      "A330-343",
+      "A330-78-3021",
+      "A330-A340"
+    ],
+    "tcds_numbers": [
+      "EASA.A.004"
+    ]
+  },
+  "unsafe_condition": {
+    "state": "present",
+    "raw_reason_text": "A manufacturing discrepancy (lack of heat treatment) on a batch of the N°3 and N°4 hinge sleeves installed on Thrust Reverser Unit (TRU) was identified. Those parts are only installed on A330 aeroplanes equipped with Rolls-Royce (RR) Trent 700 engines. This condition, if not corrected, in case of a Fan Blade Off event due to high vibration level, could cause in-flight loss of some heavy components of the TRU, possibly resulting in injury to persons on the ground. As current hinge sleeves are not serialized, it is not possible to identify the TRU hinge sleeves which did not receive the heat treatment. The part supplier has developed an identification procedure for these TRU hinge sleeves in order to identify the affected hinge sleeves, and to allow a better part traceability in the future. For the reason described above, this AD requires identification and replacement of the affected TRU hinge sleeves."
+  },
+  "requirements": [],
+  "relationships": [],
+  "classification": {
+    "ata_chapters": [
+      "78"
+    ],
+    "action_types": []
+  },
+  "prediction_metadata": {
+    "method": "regex_rules",
+    "rules_version": "regex_v1",
+    "input_page_count": 2
+  }
+}

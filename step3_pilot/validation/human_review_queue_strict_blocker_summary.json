@@ -1,0 +1,596 @@
+{
+  "generated_at": "2026-07-22T13:39:25.825027+00:00",
+  "source_report": "/Users/tunwailin/Documents/Capstone/step3_pilot/validation/human_review_queue_strict_blockers.json",
+  "source_report_sha256": "5f103ea9f515f96bc7ecedd9cfb19de87b421765d57bc218e99f9cda183b9b6c",
+  "source_validator_passed": false,
+  "record_count": 30,
+  "selection_count": 30,
+  "total_error_count": 1544,
+  "expected_human_gate_count": 1544,
+  "pre_human_blocker_count": 0,
+  "records_with_pre_human_blockers": [],
+  "record_count_with_pre_human_blockers": 0,
+  "ready_for_human_review": true,
+  "classification_policy": {
+    "unknown_findings": "pre_human_blocker",
+    "exit_zero_when": "pre_human_blocker_count == 0",
+    "note": "A zero exit means only expected human-gold gates remain; it does not mean the final gold pilot passes strict validation."
+  },
+  "expected_human_gates": {
+    "categories": [
+      {
+        "category": "human_assertion_review",
+        "error_count": 964,
+        "record_count": 30,
+        "reason": "A human must accept or correct every assertion.",
+        "signatures": [
+          {
+            "count": 906,
+            "message": "[step3] /field_assertions/N/verification_status: final pilot assertions must be accepted or corrected"
+          },
+          {
+            "count": 30,
+            "message": "[step3] /publication/type_model_designations: populated important value requires a reviewed evidence assertion"
+          },
+          {
+            "count": 28,
+            "message": "[step3] /publication/tcds_numbers: populated important value requires a reviewed evidence assertion"
+          }
+        ]
+      },
+      {
+        "category": "human_section_review",
+        "error_count": 360,
+        "record_count": 30,
+        "reason": "A human must explicitly mark every substantive section reviewed.",
+        "signatures": [
+          {
+            "count": 30,
+            "message": "[step3] /ad_identity: missing accepted/corrected human section-completion assertion"
+          },
+          {
+            "count": 30,
+            "message": "[step3] /amoc_and_contacts: missing accepted/corrected human section-completion assertion"
+          },
+          {
+            "count": 30,
+            "message": "[step3] /applicability_groups: missing accepted/corrected human section-completion assertion"
+          },
+          {
+            "count": 30,
+            "message": "[step3] /classification: missing accepted/corrected human section-completion assertion"
+          },
+          {
+            "count": 30,
+            "message": "[step3] /definitions: missing accepted/corrected human section-completion assertion"
+          },
+          {
+            "count": 30,
+            "message": "[step3] /exceptions: missing accepted/corrected human section-completion assertion"
+          },
+          {
+            "count": 30,
+            "message": "[step3] /previous_action_credit: missing accepted/corrected human section-completion assertion"
+          },
+          {
+            "count": 30,
+            "message": "[step3] /publication: missing accepted/corrected human section-completion assertion"
+          },
+          {
+            "count": 30,
+            "message": "[step3] /referenced_publications: missing accepted/corrected human section-completion assertion"
+          },
+          {
+            "count": 30,
+            "message": "[step3] /relationships: missing accepted/corrected human section-completion assertion"
+          },
+          {
+            "count": 30,
+            "message": "[step3] /requirements: missing accepted/corrected human section-completion assertion"
+          },
+          {
+            "count": 30,
+            "message": "[step3] /unsafe_condition: missing accepted/corrected human section-completion assertion"
+          }
+        ]
+      },
+      {
+        "category": "approval_status",
+        "error_count": 60,
+        "record_count": 30,
+        "reason": "Approval is intentionally deferred until human review is complete.",
+        "signatures": [
+          {
+            "count": 30,
+            "message": "[step2-strict] $.annotation_metadata.record_status: strict validation requires approved"
+          },
+          {
+            "count": 30,
+            "message": "[step3] /annotation_metadata/record_status: final pilot record must be approved"
+          }
+        ]
+      },
+      {
+        "category": "independent_review",
+        "error_count": 40,
+        "record_count": 20,
+        "reason": "The independent reviewer/approver is added during human review.",
+        "signatures": [
+          {
+            "count": 20,
+            "message": "[step2-strict] $.annotation_metadata.annotators: an approved record requires independent review"
+          },
+          {
+            "count": 20,
+            "message": "[step3] /annotation_metadata/annotators: independent reviewer/approver is missing"
+          }
+        ]
+      },
+      {
+        "category": "approval_event",
+        "error_count": 30,
+        "record_count": 30,
+        "reason": "An authorized reviewer records the approval event after review.",
+        "signatures": [
+          {
+            "count": 30,
+            "message": "[step2-strict] $.annotation_metadata.events: an approved record requires an approved event"
+          }
+        ]
+      },
+      {
+        "category": "gold_flag",
+        "error_count": 30,
+        "record_count": 30,
+        "reason": "Gold status is set after review and approval.",
+        "signatures": [
+          {
+            "count": 30,
+            "message": "[step3] /benchmark_metadata/gold_record: final pilot record must set gold_record=true"
+          }
+        ]
+      },
+      {
+        "category": "human_confirmation",
+        "error_count": 30,
+        "record_count": 30,
+        "reason": "A human must explicitly confirm the final classification.",
+        "signatures": [
+          {
+            "count": 30,
+            "message": "[step2-strict] $.classification.human_confirmed: strict validation requires true"
+          }
+        ]
+      },
+      {
+        "category": "manual_gold_creation",
+        "error_count": 30,
+        "record_count": 30,
+        "reason": "The reviewed gold label must be recorded as manually finalized.",
+        "signatures": [
+          {
+            "count": 30,
+            "message": "[step3] /annotation_metadata/creation_method: gold pilot labels must be manual"
+          }
+        ]
+      }
+    ],
+    "records": [
+      {
+        "record": "2006-0047__8dd9dd9099deb529",
+        "error_count": 36,
+        "categories": {
+          "approval_event": 1,
+          "approval_status": 2,
+          "gold_flag": 1,
+          "human_assertion_review": 16,
+          "human_confirmation": 1,
+          "human_section_review": 12,
+          "independent_review": 2,
+          "manual_gold_creation": 1
+        }
+      },
+      {
+        "record": "2007-0022__cdccd0ff024c4b72",
+        "error_count": 36,
+        "categories": {
+          "approval_event": 1,
+          "approval_status": 2,
+          "gold_flag": 1,
+          "human_assertion_review": 16,
+          "human_confirmation": 1,
+          "human_section_review": 12,
+          "independent_review": 2,
+          "manual_gold_creation": 1
+        }
+      },
+      {
+        "record": "2007-0278__0b6a17dbe6f95907",
+        "error_count": 34,
+        "categories": {
+          "approval_event": 1,
+          "approval_status": 2,
+          "gold_flag": 1,
+          "human_assertion_review": 16,
+          "human_confirmation": 1,
+          "human_section_review": 12,
+          "manual_gold_creation": 1
+        }
+      },
+      {
+        "record": "2008-0012__f2112ddc18baa008",
+        "error_count": 36,
+        "categories": {
+          "approval_event": 1,
+          "approval_status": 2,
+          "gold_flag": 1,
+          "human_assertion_review": 16,
+          "human_confirmation": 1,
+          "human_section_review": 12,
+          "independent_review": 2,
+          "manual_gold_creation": 1
+        }
+      },
+      {
+        "record": "2009-0025__46511578be7115fd",
+        "error_count": 34,
+        "categories": {
+          "approval_event": 1,
+          "approval_status": 2,
+          "gold_flag": 1,
+          "human_assertion_review": 16,
+          "human_confirmation": 1,
+          "human_section_review": 12,
+          "manual_gold_creation": 1
+        }
+      },
+      {
+        "record": "2009-0141__cb57166de0385f86",
+        "error_count": 62,
+        "categories": {
+          "approval_event": 1,
+          "approval_status": 2,
+          "gold_flag": 1,
+          "human_assertion_review": 42,
+          "human_confirmation": 1,
+          "human_section_review": 12,
+          "independent_review": 2,
+          "manual_gold_creation": 1
+        }
+      },
+      {
+        "record": "2010-0164__60596be378420b04",
+        "error_count": 34,
+        "categories": {
+          "approval_event": 1,
+          "approval_status": 2,
+          "gold_flag": 1,
+          "human_assertion_review": 16,
+          "human_confirmation": 1,
+          "human_section_review": 12,
+          "manual_gold_creation": 1
+        }
+      },
+      {
+        "record": "2011-0112__7a321140308c146d",
+        "error_count": 45,
+        "categories": {
+          "approval_event": 1,
+          "approval_status": 2,
+          "gold_flag": 1,
+          "human_assertion_review": 25,
+          "human_confirmation": 1,
+          "human_section_review": 12,
+          "independent_review": 2,
+          "manual_gold_creation": 1
+        }
+      },
+      {
+        "record": "2012-0175R2__08a8fc0e2bbbc711",
+        "error_count": 56,
+        "categories": {
+          "approval_event": 1,
+          "approval_status": 2,
+          "gold_flag": 1,
+          "human_assertion_review": 36,
+          "human_confirmation": 1,
+          "human_section_review": 12,
+          "independent_review": 2,
+          "manual_gold_creation": 1
+        }
+      },
+      {
+        "record": "2013-0234R2__9a197fbc37092cfe",
+        "error_count": 56,
+        "categories": {
+          "approval_event": 1,
+          "approval_status": 2,
+          "gold_flag": 1,
+          "human_assertion_review": 36,
+          "human_confirmation": 1,
+          "human_section_review": 12,
+          "independent_review": 2,
+          "manual_gold_creation": 1
+        }
+      },
+      {
+        "record": "2014-0062__58916308a3527d59",
+        "error_count": 49,
+        "categories": {
+          "approval_event": 1,
+          "approval_status": 2,
+          "gold_flag": 1,
+          "human_assertion_review": 29,
+          "human_confirmation": 1,
+          "human_section_review": 12,
+          "independent_review": 2,
+          "manual_gold_creation": 1
+        }
+      },
+      {
+        "record": "2015-0135R3__ffb267d0dfbcbbd9",
+        "error_count": 94,
+        "categories": {
+          "approval_event": 1,
+          "approval_status": 2,
+          "gold_flag": 1,
+          "human_assertion_review": 74,
+          "human_confirmation": 1,
+          "human_section_review": 12,
+          "independent_review": 2,
+          "manual_gold_creation": 1
+        }
+      },
+      {
+        "record": "2016-0095__7f221fbcf3eea6a5",
+        "error_count": 34,
+        "categories": {
+          "approval_event": 1,
+          "approval_status": 2,
+          "gold_flag": 1,
+          "human_assertion_review": 16,
+          "human_confirmation": 1,
+          "human_section_review": 12,
+          "manual_gold_creation": 1
+        }
+      },
+      {
+        "record": "2017-0013__67c94127f7b8e53d",
+        "error_count": 34,
+        "categories": {
+          "approval_event": 1,
+          "approval_status": 2,
+          "gold_flag": 1,
+          "human_assertion_review": 16,
+          "human_confirmation": 1,
+          "human_section_review": 12,
+          "manual_gold_creation": 1
+        }
+      },
+      {
+        "record": "2018-0108__75144c1f05797c10",
+        "error_count": 47,
+        "categories": {
+          "approval_event": 1,
+          "approval_status": 2,
+          "gold_flag": 1,
+          "human_assertion_review": 27,
+          "human_confirmation": 1,
+          "human_section_review": 12,
+          "independent_review": 2,
+          "manual_gold_creation": 1
+        }
+      },
+      {
+        "record": "2019-0011R2__1949a5e809ac47e1",
+        "error_count": 52,
+        "categories": {
+          "approval_event": 1,
+          "approval_status": 2,
+          "gold_flag": 1,
+          "human_assertion_review": 32,
+          "human_confirmation": 1,
+          "human_section_review": 12,
+          "independent_review": 2,
+          "manual_gold_creation": 1
+        }
+      },
+      {
+        "record": "2019-0183__5577514a19f6917c",
+        "error_count": 53,
+        "categories": {
+          "approval_event": 1,
+          "approval_status": 2,
+          "gold_flag": 1,
+          "human_assertion_review": 35,
+          "human_confirmation": 1,
+          "human_section_review": 12,
+          "manual_gold_creation": 1
+        }
+      },
+      {
+        "record": "2020-0028__734af537e02af649",
+        "error_count": 52,
+        "categories": {
+          "approval_event": 1,
+          "approval_status": 2,
+          "gold_flag": 1,
+          "human_assertion_review": 32,
+          "human_confirmation": 1,
+          "human_section_review": 12,
+          "independent_review": 2,
+          "manual_gold_creation": 1
+        }
+      },
+      {
+        "record": "2020-0085R1__5ced2074d6402f32",
+        "error_count": 90,
+        "categories": {
+          "approval_event": 1,
+          "approval_status": 2,
+          "gold_flag": 1,
+          "human_assertion_review": 72,
+          "human_confirmation": 1,
+          "human_section_review": 12,
+          "manual_gold_creation": 1
+        }
+      },
+      {
+        "record": "2021-0087__9e367bf311641409",
+        "error_count": 52,
+        "categories": {
+          "approval_event": 1,
+          "approval_status": 2,
+          "gold_flag": 1,
+          "human_assertion_review": 32,
+          "human_confirmation": 1,
+          "human_section_review": 12,
+          "independent_review": 2,
+          "manual_gold_creation": 1
+        }
+      },
+      {
+        "record": "2021-0242__3d05d4995d986ef5",
+        "error_count": 52,
+        "categories": {
+          "approval_event": 1,
+          "approval_status": 2,
+          "gold_flag": 1,
+          "human_assertion_review": 32,
+          "human_confirmation": 1,
+          "human_section_review": 12,
+          "independent_review": 2,
+          "manual_gold_creation": 1
+        }
+      },
+      {
+        "record": "2022-0026__2003cabcfcd8976a",
+        "error_count": 52,
+        "categories": {
+          "approval_event": 1,
+          "approval_status": 2,
+          "gold_flag": 1,
+          "human_assertion_review": 32,
+          "human_confirmation": 1,
+          "human_section_review": 12,
+          "independent_review": 2,
+          "manual_gold_creation": 1
+        }
+      },
+      {
+        "record": "2022-0197__2f70e87899358165",
+        "error_count": 52,
+        "categories": {
+          "approval_event": 1,
+          "approval_status": 2,
+          "gold_flag": 1,
+          "human_assertion_review": 32,
+          "human_confirmation": 1,
+          "human_section_review": 12,
+          "independent_review": 2,
+          "manual_gold_creation": 1
+        }
+      },
+      {
+        "record": "2023-0093R1__f8c89a351f146b17",
+        "error_count": 86,
+        "categories": {
+          "approval_event": 1,
+          "approval_status": 2,
+          "gold_flag": 1,
+          "human_assertion_review": 68,
+          "human_confirmation": 1,
+          "human_section_review": 12,
+          "manual_gold_creation": 1
+        }
+      },
+      {
+        "record": "2024-0038__db594c767fc8f98e",
+        "error_count": 52,
+        "categories": {
+          "approval_event": 1,
+          "approval_status": 2,
+          "gold_flag": 1,
+          "human_assertion_review": 32,
+          "human_confirmation": 1,
+          "human_section_review": 12,
+          "independent_review": 2,
+          "manual_gold_creation": 1
+        }
+      },
+      {
+        "record": "2024-0095__53e4fefd2d273164",
+        "error_count": 35,
+        "categories": {
+          "approval_event": 1,
+          "approval_status": 2,
+          "gold_flag": 1,
+          "human_assertion_review": 15,
+          "human_confirmation": 1,
+          "human_section_review": 12,
+          "independent_review": 2,
+          "manual_gold_creation": 1
+        }
+      },
+      {
+        "record": "2025-0008__b829efee031a2fcf",
+        "error_count": 36,
+        "categories": {
+          "approval_event": 1,
+          "approval_status": 2,
+          "gold_flag": 1,
+          "human_assertion_review": 16,
+          "human_confirmation": 1,
+          "human_section_review": 12,
+          "independent_review": 2,
+          "manual_gold_creation": 1
+        }
+      },
+      {
+        "record": "2025-0068__6e80e67e640ba6d1",
+        "error_count": 78,
+        "categories": {
+          "approval_event": 1,
+          "approval_status": 2,
+          "gold_flag": 1,
+          "human_assertion_review": 60,
+          "human_confirmation": 1,
+          "human_section_review": 12,
+          "manual_gold_creation": 1
+        }
+      },
+      {
+        "record": "2026-0017__1f3af1a66dad0ea4",
+        "error_count": 80,
+        "categories": {
+          "approval_event": 1,
+          "approval_status": 2,
+          "gold_flag": 1,
+          "human_assertion_review": 62,
+          "human_confirmation": 1,
+          "human_section_review": 12,
+          "manual_gold_creation": 1
+        }
+      },
+      {
+        "record": "2026-0079__1f16f3df632283df",
+        "error_count": 35,
+        "categories": {
+          "approval_event": 1,
+          "approval_status": 2,
+          "gold_flag": 1,
+          "human_assertion_review": 15,
+          "human_confirmation": 1,
+          "human_section_review": 12,
+          "independent_review": 2,
+          "manual_gold_creation": 1
+        }
+      }
+    ]
+  },
+  "pre_human_blockers": {
+    "categories": [],
+    "records": [],
+    "findings": []
+  }
+}

@@ -1,0 +1,91 @@
+{
+  "source_document": {
+    "file_instance_id": "8dd9dd9099deb529",
+    "file_name": "2006-0047__AD_2006-0047_1__easa_ad_2006_0047_superseded.pdf"
+  },
+  "ad_identity": {
+    "ad_number": "2006-0047",
+    "base_ad_number": "2006-0047",
+    "revision_number": null,
+    "is_emergency": false,
+    "is_correction": false,
+    "correction_date": {
+      "value": null
+    },
+    "design_approval_holder": {
+      "value": null
+    },
+    "supersedure_statement": {
+      "state": "not_stated",
+      "value": null
+    }
+  },
+  "publication": {
+    "subject": {
+      "value": null
+    },
+    "issue_date": {
+      "value": "2006-02-16"
+    },
+    "effective_date": {
+      "value": "2006-03-01"
+    },
+    "ata_chapters": [
+      {
+        "code": "25"
+      }
+    ],
+    "manufacturers": [
+      {
+        "raw_name": "AIRBUS",
+        "normalized_name": "Airbus"
+      }
+    ],
+    "type_model_designations": [
+      "A330",
+      "A330-25",
+      "A330-25-3227",
+      "A330-25-3249"
+    ],
+    "tcds_numbers": [
+      "EASA.A.004"
+    ]
+  },
+  "unsafe_condition": {
+    "state": "present",
+    "raw_reason_text": "One A330 operator has reported damage of a bracket PN F2511012920000, which is one of the 8 parts used to attach the cockpit instrument panel to the aircraft structure. This bracket has been found cracked on two aircraft and, in one case, both vertical flanges of this bracket were found completely broken. Investigations have revealed that the damage is a bending crack caused by the assembly procedure (tightening of the bracket), combined with lateral load introduced by differential pressure and inertial effects. This hidden failure, breaking of this bracket, combined with failure of horizontal beam, can lead to collapse the left part of the cockpit panel which could result in the worst case in a reduced controllability of the aircraft. In order to prevent the risk of having the bracket fully broken, and further damage to the surrounding structure, the Airworthiness Directive (AD) F- 2004-140 required a mandatory repetitive detailed visual inspection of the affected bracket. This new AD: 1/4 - takes over the AD F-2004-140 inspection requirements, - clarifies the inspection threshold of the new bracket as defined in § 1.3 below, - and renders mandatory the terminating action which consists in replacing the bracket by a new reinforced one made of Titanium."
+  },
+  "requirements": [
+    {
+      "raw_action_text": "1. INSPECTION: The following measures are rendered mandatory from August 28, 2004 (effective date of the AD F-2004-140): 1.1. Unless already accomplished, before accumulation of 16 500 flight cycles (FC), perform a detailed visual inspection of the LH bracket without removal of fasteners in accordance with instructions given in AIRBUS Service Bulletin (SB) A330-25-3227 Revision 01. 1.2. If the two flanges of the bracket are fully broken, perform a detailed visual inspection of the horizontal beam in accordance with AIRBUS SB A330-25-3227 Revision 01: • If crack is found on the horizontal beam, contact AIRBUS before next flight. • If no crack is found on the horizontal beam, apply AIRBUS SB A330- 25-3249 before next flight. 1.3. If any crack is found on the bracket during the inspection defined in § 1.1.: - before next flight, replace the affected bracket in accordance with instructions given in AIRBUS SB A330-25-3227 Revision 01, - and perform the inspection defined in § 1.1 of the new installed bracket at a threshold of 16 500 FC from the last replacement, - and according to the results of this inspection, perform the actions mentioned in § 1.2 or 1.3 or 1.4 of this AD. Note 1: AIRBUS recommends to replace the bracket by a new reinforced one in accordance with SB A330-25-3249 instructions before reaching the second inspection threshold. 1.4. If no crack has been detected, repeat the inspection mentioned in § 1.1. at intervals not exceeding 13 800 FC. 1.5. Report any cracked or broken bracket occurrence to AIRBUS. 2/4 Note 2 : Accomplishment of SB A330-25-3227 instructions at original issue is acceptable to comply with the initial inspection requirements of paragraph 1.1, 1.2 or 1.3 of this AD, provided the additional corrective actions given by AIRBUS in case the two flanges of the bracket are fully broken are applied. The repetitive inspections and subsequent corrective actions have to be continued in accordance with instructions given in SB A330- 25-3227 Revision 01. 2. MODIFICATION: 2.1. Unless already accomplished, no later than 31 January 2012 , remove the concerned bracket on the LH section of the instrument panel in accordance with instructions given in AIRBUS SB A330-25-3249. 2.2. Perform a detailed visual inspection of the removed bracket in accordance with instructions given in AIRBUS SB A330-25-3249. - If the two flanges are fully broken, perform a detailed visual inspection of the horizontal beam in accordance with AIRBUS SB A330-25-3249: • if a crack is found on the horizontal beam, contact AIRBUS before next flight, • if no crack is found on the horizontal beam, replace the bracket on the LH section of the instrument panel by a new reinforced bracket in accordance with instructions given in AIRBUS SB A330-25- 3249. - If the two flanges of the LH bracket are not fully broken, replace the bracket on the LH section of the instrument panel by a new reinforced bracket in accordance with instructions given in AIRBUS SB A330-25- 3249. Note 3: the replacement of the affected bracket by a new reinforced one by application of SB A330-25-3249 cancels the requirements of the repetitive inspection.",
+      "action_types": [
+        "inspection",
+        "modification",
+        "replacement",
+        "reporting"
+      ],
+      "compliance_rules": [
+        {
+          "raw_text": "1. INSPECTION: The following measures are rendered mandatory from August 28, 2004 (effective date of the AD F-2004-140): 1.1. Unless already accomplished, before accumulation of 16 500 flight cycles (FC), perform a detailed visual inspection of the LH bracket without removal of fasteners in accordance with instructions given in AIRBUS Service Bulletin (SB) A330-25-3227 Revision 01. 1.2. If the two flanges of the bracket are fully broken, perform a detailed visual inspection of the horizontal beam in accordance with AIRBUS SB A330-25-3227 Revision 01: • If crack is found on the horizontal beam, contact AIRBUS before next flight. • If no crack is found on the horizontal beam, apply AIRBUS SB A330- 25-3249 before next flight. 1.3. If any crack is found on the bracket during the inspection defined in § 1.1.: - before next flight, replace the affected bracket in accordance with instructions given in AIRBUS SB A330-25-3227 Revision 01, - and perform the inspection defined in § 1.1 of the new installed bracket at a threshold of 16 500 FC from the last replacement, - and according to the results of this inspection, perform the actions mentioned in § 1.2 or 1.3 or 1.4 of this AD. Note 1: AIRBUS recommends to replace the bracket by a new reinforced one in accordance with SB A330-25-3249 instructions before reaching the second inspection threshold. 1.4. If no crack has been detected, repeat the inspection mentioned in § 1.1. at intervals not exceeding 13 800 FC. 1.5. Report any cracked or broken bracket occurrence to AIRBUS. 2/4 Note 2 : Accomplishment of SB A330-25-3227 instructions at original issue is acceptable to comply with the initial inspection requirements of paragraph 1.1, 1.2 or 1.3 of this AD, provided the additional corrective actions given by AIRBUS in case the two flanges of the bracket are fully broken are applied. The repetitive inspections and subsequent corrective actions have to be continued in accordance with instructions given in SB A330- 25-3227 Revision 01. 2. MODIFICATION: 2.1. Unless already accomplished, no later than 31 January 2012 , remove the concerned bracket on the LH section of the instrument panel in accordance with instructions given in AIRBUS SB A330-25-3249. 2.2. Perform a detailed visual inspection of the removed bracket in accordance with instructions given in AIRBUS SB A330-25-3249. - If the two flanges are fully broken, perform a detailed visual inspection of the horizontal beam in accordance with AIRBUS SB A330-25-3249: • if a crack is found on the horizontal beam, contact AIRBUS before next flight, • if no crack is found on the horizontal beam, replace the bracket on the LH section of the instrument panel by a new reinforced bracket in accordance with instructions given in AIRBUS SB A330-25- 3249. - If the two flanges of the LH bracket are not fully broken, replace the bracket on the LH section of the instrument panel by a new reinforced bracket in accordance with instructions given in AIRBUS SB A330-25- 3249. Note 3: the replacement of the affected bracket by a new reinforced one by application of SB A330-25-3249 cancels the requirements of the repetitive inspection."
+        }
+      ]
+    }
+  ],
+  "relationships": [],
+  "classification": {
+    "ata_chapters": [
+      "25"
+    ],
+    "action_types": [
+      "inspection",
+      "modification",
+      "replacement",
+      "reporting"
+    ]
+  },
+  "prediction_metadata": {
+    "method": "regex_rules",
+    "rules_version": "regex_v1",
+    "input_page_count": 4
+  }
+}

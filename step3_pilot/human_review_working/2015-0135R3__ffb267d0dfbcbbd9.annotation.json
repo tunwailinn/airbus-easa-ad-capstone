@@ -1,0 +1,4169 @@
+{
+  "schema_version": "1.0.0",
+  "record_id": "adann-ffb267d0dfbcbbd9",
+  "source_document": {
+    "file_instance_id": "ffb267d0dfbcbbd9",
+    "content_id": "4991cb05f2dd3499",
+    "canonical_file_instance_id": "ffb267d0dfbcbbd9",
+    "file_aliases": [],
+    "file_name": "2015-0135R3__AD_2015-0135R3_1__EASA_AD_2015_0135_R3.pdf",
+    "relative_path": "2015-0135R3__AD_2015-0135R3_1__EASA_AD_2015_0135_R3.pdf",
+    "file_sha256": "4991cb05f2dd349934fc0368dedcbf20cd38ed4b817cfe36ceecd30343840048",
+    "normalized_text_sha256": "7d2f1789ca7dcbac8a3dcf6f272ab71e16a3bb433a7d8001a17bf016f271b0aa",
+    "page_count": 8,
+    "extraction_status": "hybrid",
+    "needs_ocr": false,
+    "manifest_review_flags": [],
+    "source_url": "https://ad.easa.europa.eu/blob/EASA_AD_2015_0135_R3.pdf/AD_2015-0135R3_1",
+    "text_extraction_method": "hybrid",
+    "exact_duplicate_group": null,
+    "near_duplicate_cluster": null
+  },
+  "ad_identity": {
+    "authority": "EASA",
+    "document_type": "airworthiness_directive",
+    "ad_number": "2015-0135R3",
+    "base_ad_number": "2015-0135",
+    "revision_number": 3,
+    "publication_kind": "standard_ad",
+    "is_emergency": false,
+    "is_correction": false,
+    "correction_date": {
+      "state": "not_stated",
+      "value": null,
+      "raw_text": null,
+      "evidence_ids": [
+        "EV-001"
+      ]
+    },
+    "version_label": "Revision 3",
+    "logical_version_key": "2015-0135R3|UNCORRECTED",
+    "is_latest_version": null,
+    "lifecycle_status": "unknown",
+    "design_approval_holder": {
+      "state": "present",
+      "value": "Airbus",
+      "raw_text": "Design Approval Holder’s Name: AIRBUS",
+      "evidence_ids": [
+        "EV-001"
+      ]
+    },
+    "supersedure_statement": {
+      "state": "present",
+      "value": "Revises EASA AD 2015-0135R2; original issue superseded EASA AD 2015-0087",
+      "raw_text": "Revision: This AD revises EASA AD 2015-0135R2 dated 23 February 2018. The original issue of this AD superseded EASA AD 2015-0087 dated 22 May 2015.",
+      "evidence_ids": [
+        "EV-001"
+      ]
+    },
+    "evidence_ids": [
+      "EV-001"
+    ]
+  },
+  "publication": {
+    "subject": {
+      "state": "present",
+      "value": "Navigation – Angle of Attack Sensors – Replacement",
+      "raw_text": "ATA 34 – Navigation – Angle of Attack Sensors – Replacement",
+      "evidence_ids": [
+        "EV-002"
+      ]
+    },
+    "issue_date": {
+      "state": "present",
+      "value": "2018-03-13",
+      "raw_text": "Issued: 13 March 2018",
+      "evidence_ids": [
+        "EV-001"
+      ]
+    },
+    "effective_date": {
+      "state": "present",
+      "value": "2018-03-13",
+      "raw_text": "Revision 3: 13 March 2018",
+      "evidence_ids": [
+        "EV-001"
+      ]
+    },
+    "ata_chapters": [
+      {
+        "code": "34",
+        "title": "Navigation",
+        "evidence_ids": [
+          "EV-002"
+        ]
+      }
+    ],
+    "manufacturers": [
+      {
+        "raw_name": "Airbus (formerly Airbus Industrie)",
+        "normalized_name": "Airbus",
+        "role": "manufacturer",
+        "evidence_ids": [
+          "EV-002"
+        ]
+      }
+    ],
+    "type_model_designations": [
+      "A318",
+      "A319",
+      "A320",
+      "A321"
+    ],
+    "tcds_numbers": [
+      "EASA.A.064"
+    ],
+    "foreign_ad": {
+      "state": "explicit_none",
+      "value": null,
+      "raw_text": "Foreign AD: Not applicable",
+      "evidence_ids": [
+        "EV-001"
+      ]
+    }
+  },
+  "applicability_groups": [
+    {
+      "group_id": "APP-001",
+      "label": "All listed A318/A319/A320/A321 models and all MSN",
+      "state": "present",
+      "raw_text": "Airbus A318-111, A318-112, A318-121, A318-122, A319-111, A319-112, A319-113, A319-114, A319-115, A319-131, A319-132, A319-133, A320-211, A320-212, A320-214, A320-215, A320-216, A320-231, A320-232, A320-233, A321-111, A321-112, A321-131, A321-211, A321-212, A321-213, A321-231 and A321-232 aeroplanes, all manufacturer serial numbers.",
+      "aircraft_families": [
+        "A320 family"
+      ],
+      "models": [
+        "A318-111",
+        "A318-112",
+        "A318-121",
+        "A318-122",
+        "A319-111",
+        "A319-112",
+        "A319-113",
+        "A319-114",
+        "A319-115",
+        "A319-131",
+        "A319-132",
+        "A319-133",
+        "A320-211",
+        "A320-212",
+        "A320-214",
+        "A320-215",
+        "A320-216",
+        "A320-231",
+        "A320-232",
+        "A320-233",
+        "A321-111",
+        "A321-112",
+        "A321-131",
+        "A321-211",
+        "A321-212",
+        "A321-213",
+        "A321-231",
+        "A321-232"
+      ],
+      "serial_restrictions": [
+        {
+          "restriction_id": "MSN-001",
+          "kind": "all",
+          "raw_expression": "all manufacturer serial numbers",
+          "lower_bound": null,
+          "upper_bound": null,
+          "explicit_values": [],
+          "condition": null,
+          "evidence_ids": [
+            "EV-003"
+          ]
+        }
+      ],
+      "part_numbers": [],
+      "configuration_conditions": [],
+      "exclusions": [],
+      "boolean_logic": "all",
+      "evidence_ids": [
+        "EV-003"
+      ]
+    },
+    {
+      "group_id": "APP-002",
+      "label": "A318 and A321 model branches in Table 1",
+      "state": "present",
+      "raw_text": "Applicable A318 and A321 aeroplanes from the AD applicability, with the sensor configuration specified by the linked requirement and Table 1.",
+      "aircraft_families": [
+        "A320 family"
+      ],
+      "models": [
+        "A318-111",
+        "A318-112",
+        "A318-121",
+        "A318-122",
+        "A321-111",
+        "A321-112",
+        "A321-131",
+        "A321-211",
+        "A321-212",
+        "A321-213",
+        "A321-231",
+        "A321-232"
+      ],
+      "serial_restrictions": [
+        {
+          "restriction_id": "MSN-002",
+          "kind": "all",
+          "raw_expression": "all manufacturer serial numbers",
+          "lower_bound": null,
+          "upper_bound": null,
+          "explicit_values": [],
+          "condition": null,
+          "evidence_ids": [
+            "EV-003"
+          ]
+        }
+      ],
+      "part_numbers": [],
+      "configuration_conditions": [
+        "Sensor P/N/configuration specified by the linked requirement"
+      ],
+      "exclusions": [],
+      "boolean_logic": "all",
+      "evidence_ids": [
+        "EV-003",
+        "EV-017"
+      ]
+    },
+    {
+      "group_id": "APP-003",
+      "label": "A319 and A320 model branches in Table 1",
+      "state": "present",
+      "raw_text": "Applicable A319 and A320 aeroplanes from the AD applicability, with the sensor configuration specified by the linked requirement and Table 1.",
+      "aircraft_families": [
+        "A320 family"
+      ],
+      "models": [
+        "A319-111",
+        "A319-112",
+        "A319-113",
+        "A319-114",
+        "A319-115",
+        "A319-131",
+        "A319-132",
+        "A319-133",
+        "A320-211",
+        "A320-212",
+        "A320-214",
+        "A320-215",
+        "A320-216",
+        "A320-231",
+        "A320-232",
+        "A320-233"
+      ],
+      "serial_restrictions": [
+        {
+          "restriction_id": "MSN-003",
+          "kind": "all",
+          "raw_expression": "all manufacturer serial numbers",
+          "lower_bound": null,
+          "upper_bound": null,
+          "explicit_values": [],
+          "condition": null,
+          "evidence_ids": [
+            "EV-003"
+          ]
+        }
+      ],
+      "part_numbers": [],
+      "configuration_conditions": [
+        "Sensor P/N/configuration specified by the linked requirement"
+      ],
+      "exclusions": [],
+      "boolean_logic": "all",
+      "evidence_ids": [
+        "EV-003",
+        "EV-017"
+      ]
+    }
+  ],
+  "definitions": [],
+  "unsafe_condition": {
+    "state": "present",
+    "raw_reason_text": "An A321 experienced blockage of two Angle of Attack probes during climb, activating Alpha Protection while Mach increased. Blocked probes can cause flight-control laws to command a continuous nose-down pitch rate that cannot be stopped with full backward sidestick; increasing Mach lowers the Alpha Protection AOA value and sustains the command. The condition could cause loss of control. Certain UTAS and SEXTANT/THOMSON sensors are more susceptible to adverse environmental conditions than the latest Thales P/N C16291AB sensor.",
+    "observed_events_or_defects": [
+      "Blockage of two AOA probes during climb with Alpha Protection activation"
+    ],
+    "causes": [
+      "Certain AOA sensors are more susceptible to adverse environmental conditions"
+    ],
+    "unsafe_conditions": [
+      "Continuous nose-down pitch command that may not be stopped by full backward sidestick input"
+    ],
+    "potential_consequences": [
+      "Loss of control of the aeroplane"
+    ],
+    "affected_components": [
+      "Angle of Attack sensors",
+      "Elevator Aileron Computer configuration",
+      "Aircraft Flight Manual emergency procedure"
+    ],
+    "intended_risk_mitigation": [
+      "Replace affected AOA sensors and conic plates",
+      "Apply installation prohibitions",
+      "Perform repetitive functional heating tests",
+      "Insert and conditionally remove an AFM emergency procedure"
+    ],
+    "evidence_ids": [
+      "EV-004",
+      "EV-005"
+    ]
+  },
+  "requirements": [
+    {
+      "requirement_id": "REQ-001",
+      "paragraph_reference": "(1)",
+      "parent_requirement_id": null,
+      "applicability_group_ids": [
+        "APP-001"
+      ],
+      "action_types": [
+        "replacement",
+        "records_review"
+      ],
+      "obligation": "mandatory",
+      "action_text": "Replace each Thales P/N C16291AA AOA sensor whose s/n is listed in Thales SB C16291A-34-007 Revision 04.",
+      "objects_or_components": [
+        "Thales P/N C16291AA AOA sensors with listed s/n"
+      ],
+      "conditions": [
+        "P/N C16291AA installed and s/n listed in Thales SB C16291A-34-007 Revision 04"
+      ],
+      "method_publication_ids": [
+        "PUB-006",
+        "PUB-007",
+        "PUB-015"
+      ],
+      "compliance_rules": [
+        {
+          "compliance_id": "CMP-001",
+          "state": "present",
+          "raw_text": "Within 12 months after 27 October 2011",
+          "logic": "single",
+          "conditions": [],
+          "initial_limits": [
+            {
+              "limit_id": "LIM-001",
+              "relation": "within",
+              "quantity": 12,
+              "unit": "calendar_month",
+              "raw_value": "within 12 months",
+              "reference_event": "27 October 2011, effective date of EASA AD 2011-0203",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-006"
+              ]
+            }
+          ],
+          "is_repetitive": false,
+          "repetitive_intervals": [],
+          "grace_periods": [],
+          "evidence_ids": [
+            "EV-006"
+          ]
+        }
+      ],
+      "follow_on_requirement_ids": [],
+      "terminating_action": {
+        "state": "not_stated",
+        "present": false,
+        "scope": "none",
+        "action_text": null,
+        "terminates_requirement_ids": [],
+        "evidence_ids": []
+      },
+      "evidence_ids": [
+        "EV-006"
+      ]
+    },
+    {
+      "requirement_id": "REQ-002",
+      "paragraph_reference": "(2)",
+      "parent_requirement_id": null,
+      "applicability_group_ids": [
+        "APP-001"
+      ],
+      "action_types": [
+        "replacement"
+      ],
+      "obligation": "mandatory",
+      "action_text": "Replace each P/N C16291AB AOA sensor whose s/n is listed in Thales SB C16291A-34-007 Revision 04.",
+      "objects_or_components": [
+        "Thales P/N C16291AB AOA sensors with listed s/n"
+      ],
+      "conditions": [
+        "P/N C16291AB installed and s/n listed in Thales SB C16291A-34-007 Revision 04"
+      ],
+      "method_publication_ids": [
+        "PUB-006",
+        "PUB-007",
+        "PUB-015"
+      ],
+      "compliance_rules": [
+        {
+          "compliance_id": "CMP-002",
+          "state": "present",
+          "raw_text": "Within 3 months after 23 November 2012",
+          "logic": "single",
+          "conditions": [],
+          "initial_limits": [
+            {
+              "limit_id": "LIM-002",
+              "relation": "within",
+              "quantity": 3,
+              "unit": "calendar_month",
+              "raw_value": "within 3 months",
+              "reference_event": "23 November 2012, effective date of EASA AD 2012-0236 at original issue",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-007"
+              ]
+            }
+          ],
+          "is_repetitive": false,
+          "repetitive_intervals": [],
+          "grace_periods": [],
+          "evidence_ids": [
+            "EV-007"
+          ]
+        }
+      ],
+      "follow_on_requirement_ids": [],
+      "terminating_action": {
+        "state": "not_stated",
+        "present": false,
+        "scope": "none",
+        "action_text": null,
+        "terminates_requirement_ids": [],
+        "evidence_ids": []
+      },
+      "evidence_ids": [
+        "EV-007"
+      ]
+    },
+    {
+      "requirement_id": "REQ-003",
+      "paragraph_reference": "(4)",
+      "parent_requirement_id": null,
+      "applicability_group_ids": [
+        "APP-001"
+      ],
+      "action_types": [
+        "prohibition",
+        "install"
+      ],
+      "obligation": "prohibited",
+      "action_text": "Do not install a listed-s/n P/N C16291AA or C16291AB sensor unless it passed one of the permitted inspections.",
+      "objects_or_components": [
+        "P/N C16291AA or C16291AB AOA sensor with listed s/n"
+      ],
+      "conditions": [
+        "Installation allowed only after the specified Thales inspection"
+      ],
+      "method_publication_ids": [
+        "PUB-012",
+        "PUB-017"
+      ],
+      "compliance_rules": [
+        {
+          "compliance_id": "CMP-003",
+          "state": "present",
+          "raw_text": "From 23 November 2012, do not install an affected C16291AA or C16291AB sensor unless it passed an allowed inspection",
+          "logic": "conditional",
+          "conditions": [
+            "Sensor P/N and s/n are listed in Thales SB C16291A-34-007 Revision 04",
+            "Installation allowed only after a qualifying inspection"
+          ],
+          "initial_limits": [
+            {
+              "limit_id": "LIM-003",
+              "relation": "from",
+              "quantity": null,
+              "unit": "calendar_date",
+              "raw_value": "From 23 November 2012",
+              "reference_event": "effective date of EASA AD 2012-0236 at original issue",
+              "calendar_date": "2012-11-23",
+              "evidence_ids": [
+                "EV-009"
+              ]
+            }
+          ],
+          "is_repetitive": false,
+          "repetitive_intervals": [],
+          "grace_periods": [],
+          "evidence_ids": [
+            "EV-009"
+          ]
+        }
+      ],
+      "follow_on_requirement_ids": [],
+      "terminating_action": {
+        "state": "not_stated",
+        "present": false,
+        "scope": "none",
+        "action_text": null,
+        "terminates_requirement_ids": [],
+        "evidence_ids": []
+      },
+      "evidence_ids": [
+        "EV-009"
+      ]
+    },
+    {
+      "requirement_id": "REQ-004",
+      "paragraph_reference": "(5)-(5.2)",
+      "parent_requirement_id": null,
+      "applicability_group_ids": [
+        "APP-001"
+      ],
+      "action_types": [
+        "remove",
+        "install",
+        "modification"
+      ],
+      "obligation": "mandatory",
+      "action_text": "Remove all listed AOA sensor conic plates and install one of the approved flat-plate configurations.",
+      "objects_or_components": [
+        "Conic plates P/N F3411060200000 and F3411060900000",
+        "Approved AOA sensor flat plate"
+      ],
+      "conditions": [],
+      "method_publication_ids": [
+        "PUB-008",
+        "PUB-009"
+      ],
+      "compliance_rules": [
+        {
+          "compliance_id": "CMP-004",
+          "state": "present",
+          "raw_text": "Within 5 months after 15 February 2013",
+          "logic": "single",
+          "conditions": [],
+          "initial_limits": [
+            {
+              "limit_id": "LIM-004",
+              "relation": "within",
+              "quantity": 5,
+              "unit": "calendar_month",
+              "raw_value": "within 5 months",
+              "reference_event": "15 February 2013, effective date of EASA AD 2013-0022",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-010"
+              ]
+            }
+          ],
+          "is_repetitive": false,
+          "repetitive_intervals": [],
+          "grace_periods": [],
+          "evidence_ids": [
+            "EV-010"
+          ]
+        }
+      ],
+      "follow_on_requirement_ids": [],
+      "terminating_action": {
+        "state": "not_stated",
+        "present": false,
+        "scope": "none",
+        "action_text": null,
+        "terminates_requirement_ids": [],
+        "evidence_ids": []
+      },
+      "evidence_ids": [
+        "EV-010"
+      ]
+    },
+    {
+      "requirement_id": "REQ-005",
+      "paragraph_reference": "(7)",
+      "parent_requirement_id": null,
+      "applicability_group_ids": [
+        "APP-001"
+      ],
+      "action_types": [
+        "prohibition",
+        "install"
+      ],
+      "obligation": "prohibited",
+      "action_text": "Do not install AOA sensor conic plate P/N F3411060200000 or F3411060900000.",
+      "objects_or_components": [
+        "AOA sensor conic plates F3411060200000 and F3411060900000"
+      ],
+      "conditions": [],
+      "method_publication_ids": [],
+      "compliance_rules": [
+        {
+          "compliance_id": "CMP-005",
+          "state": "present",
+          "raw_text": "From 15 February 2013, do not install the listed conic plates",
+          "logic": "single",
+          "conditions": [],
+          "initial_limits": [
+            {
+              "limit_id": "LIM-005",
+              "relation": "from",
+              "quantity": null,
+              "unit": "calendar_date",
+              "raw_value": "From 15 February 2013",
+              "reference_event": "effective date of EASA AD 2013-0022",
+              "calendar_date": "2013-02-15",
+              "evidence_ids": [
+                "EV-012"
+              ]
+            }
+          ],
+          "is_repetitive": false,
+          "repetitive_intervals": [],
+          "grace_periods": [],
+          "evidence_ids": [
+            "EV-012"
+          ]
+        }
+      ],
+      "follow_on_requirement_ids": [],
+      "terminating_action": {
+        "state": "not_stated",
+        "present": false,
+        "scope": "none",
+        "action_text": null,
+        "terminates_requirement_ids": [],
+        "evidence_ids": []
+      },
+      "evidence_ids": [
+        "EV-012"
+      ]
+    },
+    {
+      "requirement_id": "REQ-006",
+      "paragraph_reference": "(7)",
+      "parent_requirement_id": null,
+      "applicability_group_ids": [
+        "APP-001"
+      ],
+      "action_types": [
+        "prohibition"
+      ],
+      "obligation": "prohibited",
+      "action_text": "Do not use AOA protection cover P/N 98D34203003000.",
+      "objects_or_components": [
+        "AOA protection cover P/N 98D34203003000"
+      ],
+      "conditions": [],
+      "method_publication_ids": [],
+      "compliance_rules": [
+        {
+          "compliance_id": "CMP-006",
+          "state": "present",
+          "raw_text": "From 15 February 2013, do not use AOA protection cover P/N 98D34203003000",
+          "logic": "single",
+          "conditions": [],
+          "initial_limits": [
+            {
+              "limit_id": "LIM-006",
+              "relation": "from",
+              "quantity": null,
+              "unit": "calendar_date",
+              "raw_value": "From 15 February 2013",
+              "reference_event": "effective date of EASA AD 2013-0022",
+              "calendar_date": "2013-02-15",
+              "evidence_ids": [
+                "EV-012"
+              ]
+            }
+          ],
+          "is_repetitive": false,
+          "repetitive_intervals": [],
+          "grace_periods": [],
+          "evidence_ids": [
+            "EV-012"
+          ]
+        }
+      ],
+      "follow_on_requirement_ids": [],
+      "terminating_action": {
+        "state": "not_stated",
+        "present": false,
+        "scope": "none",
+        "action_text": null,
+        "terminates_requirement_ids": [],
+        "evidence_ids": []
+      },
+      "evidence_ids": [
+        "EV-012"
+      ]
+    },
+    {
+      "requirement_id": "REQ-007",
+      "paragraph_reference": "(8)",
+      "parent_requirement_id": null,
+      "applicability_group_ids": [
+        "APP-001"
+      ],
+      "action_types": [
+        "document_amendment"
+      ],
+      "obligation": "mandatory",
+      "action_text": "Amend the applicable AFM by inserting Airbus AFM A320 TR 502 issue 1 or Appendix 1 of this AD into Emergency Procedures.",
+      "objects_or_components": [
+        "Applicable Aircraft Flight Manual"
+      ],
+      "conditions": [],
+      "method_publication_ids": [
+        "PUB-018"
+      ],
+      "compliance_rules": [
+        {
+          "compliance_id": "CMP-007",
+          "state": "present",
+          "raw_text": "Before next flight after 11 December 2014",
+          "logic": "single",
+          "conditions": [],
+          "initial_limits": [
+            {
+              "limit_id": "LIM-007",
+              "relation": "before",
+              "quantity": null,
+              "unit": "before_next_flight",
+              "raw_value": "Before next flight after 11 December 2014",
+              "reference_event": "11 December 2014, effective date of EASA Emergency AD 2014-0266-E",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-013"
+              ]
+            }
+          ],
+          "is_repetitive": false,
+          "repetitive_intervals": [],
+          "grace_periods": [],
+          "evidence_ids": [
+            "EV-013"
+          ]
+        }
+      ],
+      "follow_on_requirement_ids": [
+        "REQ-008"
+      ],
+      "terminating_action": {
+        "state": "not_stated",
+        "present": false,
+        "scope": "none",
+        "action_text": null,
+        "terminates_requirement_ids": [],
+        "evidence_ids": []
+      },
+      "evidence_ids": [
+        "EV-013",
+        "EV-033"
+      ]
+    },
+    {
+      "requirement_id": "REQ-008",
+      "paragraph_reference": "(9)",
+      "parent_requirement_id": "REQ-007",
+      "applicability_group_ids": [
+        "APP-001"
+      ],
+      "action_types": [
+        "operational_procedure"
+      ],
+      "obligation": "mandatory",
+      "action_text": "Inform all flight crews and operate the aeroplane according to the inserted emergency procedure.",
+      "objects_or_components": [
+        "Flight crews",
+        "Aeroplane operations"
+      ],
+      "conditions": [
+        "Concurrent with the paragraph (8) AFM amendment"
+      ],
+      "method_publication_ids": [],
+      "compliance_rules": [
+        {
+          "compliance_id": "CMP-008",
+          "state": "present",
+          "raw_text": "Concurrent with the paragraph (8) AFM amendment",
+          "logic": "conditional",
+          "conditions": [
+            "Paragraph (8) AFM amendment is made"
+          ],
+          "initial_limits": [],
+          "is_repetitive": false,
+          "repetitive_intervals": [],
+          "grace_periods": [],
+          "evidence_ids": [
+            "EV-014"
+          ]
+        }
+      ],
+      "follow_on_requirement_ids": [],
+      "terminating_action": {
+        "state": "not_stated",
+        "present": false,
+        "scope": "none",
+        "action_text": null,
+        "terminates_requirement_ids": [],
+        "evidence_ids": []
+      },
+      "evidence_ids": [
+        "EV-014",
+        "EV-033"
+      ]
+    },
+    {
+      "requirement_id": "REQ-009",
+      "paragraph_reference": "(10)",
+      "parent_requirement_id": null,
+      "applicability_group_ids": [
+        "APP-002",
+        "APP-003"
+      ],
+      "action_types": [
+        "replacement"
+      ],
+      "obligation": "mandatory",
+      "action_text": "Replace the Captain and First Officer UTAS P/N 0861ED or 0861ED2 AOA sensors with Thales P/N C16291AB sensors.",
+      "objects_or_components": [
+        "Captain and First Officer AOA sensors"
+      ],
+      "conditions": [
+        "UTAS P/N 0861ED or 0861ED2 installed"
+      ],
+      "method_publication_ids": [
+        "PUB-010",
+        "PUB-011"
+      ],
+      "compliance_rules": [
+        {
+          "compliance_id": "CMP-009",
+          "state": "present",
+          "raw_text": "A318/A321 with P/N 0861ED: within 7 months after 01 June 2015",
+          "logic": "conditional",
+          "conditions": [
+            "A318 or A321",
+            "UTAS P/N 0861ED installed"
+          ],
+          "initial_limits": [
+            {
+              "limit_id": "LIM-008",
+              "relation": "within",
+              "quantity": 7,
+              "unit": "calendar_month",
+              "raw_value": "within 7 months",
+              "reference_event": "01 June 2015",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-015",
+                "EV-017"
+              ]
+            }
+          ],
+          "is_repetitive": false,
+          "repetitive_intervals": [],
+          "grace_periods": [],
+          "evidence_ids": [
+            "EV-015",
+            "EV-017"
+          ]
+        },
+        {
+          "compliance_id": "CMP-010",
+          "state": "present",
+          "raw_text": "A319/A320 with P/N 0861ED: within 22 months after 01 June 2015",
+          "logic": "conditional",
+          "conditions": [
+            "A319 or A320",
+            "UTAS P/N 0861ED installed"
+          ],
+          "initial_limits": [
+            {
+              "limit_id": "LIM-009",
+              "relation": "within",
+              "quantity": 22,
+              "unit": "calendar_month",
+              "raw_value": "within 22 months",
+              "reference_event": "01 June 2015",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-015",
+                "EV-017"
+              ]
+            }
+          ],
+          "is_repetitive": false,
+          "repetitive_intervals": [],
+          "grace_periods": [],
+          "evidence_ids": [
+            "EV-015",
+            "EV-017"
+          ]
+        },
+        {
+          "compliance_id": "CMP-011",
+          "state": "present",
+          "raw_text": "A318/A321 with P/N 0861ED2: within 4 months after 01 June 2015",
+          "logic": "conditional",
+          "conditions": [
+            "A318 or A321",
+            "UTAS P/N 0861ED2 installed"
+          ],
+          "initial_limits": [
+            {
+              "limit_id": "LIM-010",
+              "relation": "within",
+              "quantity": 4,
+              "unit": "calendar_month",
+              "raw_value": "within 4 months",
+              "reference_event": "01 June 2015",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-015",
+                "EV-017"
+              ]
+            }
+          ],
+          "is_repetitive": false,
+          "repetitive_intervals": [],
+          "grace_periods": [],
+          "evidence_ids": [
+            "EV-015",
+            "EV-017"
+          ]
+        },
+        {
+          "compliance_id": "CMP-012",
+          "state": "present",
+          "raw_text": "A319/A320 with P/N 0861ED2: within 7 months after 01 June 2015",
+          "logic": "conditional",
+          "conditions": [
+            "A319 or A320",
+            "UTAS P/N 0861ED2 installed"
+          ],
+          "initial_limits": [
+            {
+              "limit_id": "LIM-011",
+              "relation": "within",
+              "quantity": 7,
+              "unit": "calendar_month",
+              "raw_value": "within 7 months",
+              "reference_event": "01 June 2015",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-015",
+                "EV-017"
+              ]
+            }
+          ],
+          "is_repetitive": false,
+          "repetitive_intervals": [],
+          "grace_periods": [],
+          "evidence_ids": [
+            "EV-015",
+            "EV-017"
+          ]
+        }
+      ],
+      "follow_on_requirement_ids": [],
+      "terminating_action": {
+        "state": "not_stated",
+        "present": false,
+        "scope": "none",
+        "action_text": null,
+        "terminates_requirement_ids": [],
+        "evidence_ids": []
+      },
+      "evidence_ids": [
+        "EV-015",
+        "EV-017"
+      ]
+    },
+    {
+      "requirement_id": "REQ-010",
+      "paragraph_reference": "(11)",
+      "parent_requirement_id": null,
+      "applicability_group_ids": [
+        "APP-002",
+        "APP-003"
+      ],
+      "action_types": [
+        "replacement"
+      ],
+      "obligation": "mandatory",
+      "action_text": "Replace each SEXTANT/THOMSON P/N 45150320 or P/N 16990568 AOA sensor with a Thales P/N C16291AB sensor.",
+      "objects_or_components": [
+        "SEXTANT/THOMSON P/N 45150320 and 16990568 AOA sensors"
+      ],
+      "conditions": [
+        "An affected SEXTANT/THOMSON sensor is installed"
+      ],
+      "method_publication_ids": [
+        "PUB-004",
+        "PUB-005"
+      ],
+      "compliance_rules": [
+        {
+          "compliance_id": "CMP-013",
+          "state": "present",
+          "raw_text": "A318/A321 with P/N 45150320 or 16990568: within 7 months after 01 June 2015",
+          "logic": "conditional",
+          "conditions": [
+            "A318 or A321",
+            "SEXTANT/THOMSON P/N 45150320 or 16990568 installed"
+          ],
+          "initial_limits": [
+            {
+              "limit_id": "LIM-012",
+              "relation": "within",
+              "quantity": 7,
+              "unit": "calendar_month",
+              "raw_value": "within 7 months",
+              "reference_event": "01 June 2015",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-016",
+                "EV-017"
+              ]
+            }
+          ],
+          "is_repetitive": false,
+          "repetitive_intervals": [],
+          "grace_periods": [],
+          "evidence_ids": [
+            "EV-016",
+            "EV-017"
+          ]
+        },
+        {
+          "compliance_id": "CMP-014",
+          "state": "present",
+          "raw_text": "A319/A320 with P/N 45150320 or 16990568: within 22 months after 01 June 2015",
+          "logic": "conditional",
+          "conditions": [
+            "A319 or A320",
+            "SEXTANT/THOMSON P/N 45150320 or 16990568 installed"
+          ],
+          "initial_limits": [
+            {
+              "limit_id": "LIM-013",
+              "relation": "within",
+              "quantity": 22,
+              "unit": "calendar_month",
+              "raw_value": "within 22 months",
+              "reference_event": "01 June 2015",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-016",
+                "EV-017"
+              ]
+            }
+          ],
+          "is_repetitive": false,
+          "repetitive_intervals": [],
+          "grace_periods": [],
+          "evidence_ids": [
+            "EV-016",
+            "EV-017"
+          ]
+        }
+      ],
+      "follow_on_requirement_ids": [],
+      "terminating_action": {
+        "state": "not_stated",
+        "present": false,
+        "scope": "none",
+        "action_text": null,
+        "terminates_requirement_ids": [],
+        "evidence_ids": []
+      },
+      "evidence_ids": [
+        "EV-016",
+        "EV-017"
+      ]
+    },
+    {
+      "requirement_id": "REQ-011",
+      "paragraph_reference": "(12)",
+      "parent_requirement_id": null,
+      "applicability_group_ids": [
+        "APP-001"
+      ],
+      "action_types": [
+        "test_or_check"
+      ],
+      "obligation": "mandatory",
+      "action_text": "Perform repetitive functional heating tests of each installed Thales P/N C16291AA AOA sensor.",
+      "objects_or_components": [
+        "Thales P/N C16291AA AOA sensor"
+      ],
+      "conditions": [
+        "One or more P/N C16291AA sensors are installed"
+      ],
+      "method_publication_ids": [
+        "PUB-002",
+        "PUB-003"
+      ],
+      "compliance_rules": [
+        {
+          "compliance_id": "CMP-015",
+          "state": "present",
+          "raw_text": "Before exceeding 5 200 FH since first installation or within 6 months after 01 June 2015, whichever occurs later; thereafter at intervals not to exceed 2 000 FH",
+          "logic": "whichever_occurs_later",
+          "conditions": [
+            "One or more Thales P/N C16291AA sensors are installed"
+          ],
+          "initial_limits": [
+            {
+              "limit_id": "LIM-014",
+              "relation": "before",
+              "quantity": 5200,
+              "unit": "flight_hour",
+              "raw_value": "before exceeding 5 200 flight hours",
+              "reference_event": "first installation of each Thales AOA sensor",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-018"
+              ]
+            },
+            {
+              "limit_id": "LIM-015",
+              "relation": "within",
+              "quantity": 6,
+              "unit": "calendar_month",
+              "raw_value": "within 6 months after 01 June 2015",
+              "reference_event": "01 June 2015",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-018"
+              ]
+            }
+          ],
+          "is_repetitive": true,
+          "repetitive_intervals": [
+            {
+              "limit_id": "LIM-016",
+              "relation": "not_to_exceed",
+              "quantity": 2000,
+              "unit": "flight_hour",
+              "raw_value": "intervals not to exceed 2 000 FH",
+              "reference_event": "last functional heating test",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-018"
+              ]
+            }
+          ],
+          "grace_periods": [],
+          "evidence_ids": [
+            "EV-018"
+          ]
+        }
+      ],
+      "follow_on_requirement_ids": [
+        "REQ-012"
+      ],
+      "terminating_action": {
+        "state": "not_stated",
+        "present": false,
+        "scope": "none",
+        "action_text": null,
+        "terminates_requirement_ids": [],
+        "evidence_ids": []
+      },
+      "evidence_ids": [
+        "EV-018"
+      ]
+    },
+    {
+      "requirement_id": "REQ-012",
+      "paragraph_reference": "(13)",
+      "parent_requirement_id": "REQ-011",
+      "applicability_group_ids": [
+        "APP-001"
+      ],
+      "action_types": [
+        "replacement"
+      ],
+      "obligation": "conditional",
+      "action_text": "If a functional heating test finds discrepancies, replace all affected sensors with tested P/N C16291AA sensors or P/N C16291AB sensors.",
+      "objects_or_components": [
+        "Affected AOA sensors"
+      ],
+      "conditions": [
+        "Discrepancy detected during paragraph (12) test"
+      ],
+      "method_publication_ids": [
+        "PUB-002",
+        "PUB-003"
+      ],
+      "compliance_rules": [
+        {
+          "compliance_id": "CMP-016",
+          "state": "present",
+          "raw_text": "Before next flight if a paragraph (12) functional heating test detects discrepancies",
+          "logic": "conditional",
+          "conditions": [
+            "Discrepancies detected during a paragraph (12) functional heating test"
+          ],
+          "initial_limits": [
+            {
+              "limit_id": "LIM-017",
+              "relation": "before",
+              "quantity": null,
+              "unit": "before_next_flight",
+              "raw_value": "before next flight",
+              "reference_event": "functional heating test that detected discrepancies",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-019",
+                "EV-020"
+              ]
+            }
+          ],
+          "is_repetitive": false,
+          "repetitive_intervals": [],
+          "grace_periods": [],
+          "evidence_ids": [
+            "EV-019",
+            "EV-020"
+          ]
+        }
+      ],
+      "follow_on_requirement_ids": [],
+      "terminating_action": {
+        "state": "not_stated",
+        "present": false,
+        "scope": "none",
+        "action_text": null,
+        "terminates_requirement_ids": [],
+        "evidence_ids": []
+      },
+      "evidence_ids": [
+        "EV-019",
+        "EV-020"
+      ]
+    },
+    {
+      "requirement_id": "REQ-013",
+      "paragraph_reference": "(15)",
+      "parent_requirement_id": null,
+      "applicability_group_ids": [
+        "APP-001"
+      ],
+      "action_types": [
+        "replacement",
+        "modification"
+      ],
+      "obligation": "optional_terminating",
+      "action_text": "Replace every Thales P/N C16291AA sensor with a Thales P/N C16291AB sensor.",
+      "objects_or_components": [
+        "All Thales P/N C16291AA AOA sensors"
+      ],
+      "conditions": [],
+      "method_publication_ids": [
+        "PUB-004",
+        "PUB-005"
+      ],
+      "compliance_rules": [
+        {
+          "compliance_id": "CMP-017",
+          "state": "present",
+          "raw_text": "Optional replacement under paragraph (15)",
+          "logic": "conditional",
+          "conditions": [
+            "Operator elects the terminating modification"
+          ],
+          "initial_limits": [],
+          "is_repetitive": false,
+          "repetitive_intervals": [],
+          "grace_periods": [],
+          "evidence_ids": [
+            "EV-022"
+          ]
+        }
+      ],
+      "follow_on_requirement_ids": [],
+      "terminating_action": {
+        "state": "present",
+        "present": true,
+        "scope": "full",
+        "action_text": "Replacing every P/N C16291AA sensor with P/N C16291AB under Airbus SB A320-34-1444 terminates paragraph (12) repetitive tests for that aeroplane.",
+        "terminates_requirement_ids": [
+          "REQ-011"
+        ],
+        "evidence_ids": [
+          "EV-022"
+        ]
+      },
+      "evidence_ids": [
+        "EV-022"
+      ]
+    },
+    {
+      "requirement_id": "REQ-014",
+      "paragraph_reference": "(16)",
+      "parent_requirement_id": null,
+      "applicability_group_ids": [
+        "APP-001"
+      ],
+      "action_types": [
+        "prohibition",
+        "install"
+      ],
+      "obligation": "prohibited",
+      "action_text": "Do not install a Thales P/N C16291AA sensor on an aeroplane fitted only with P/N C16291AB sensors.",
+      "objects_or_components": [
+        "Thales P/N C16291AA AOA sensor"
+      ],
+      "conditions": [
+        "Only P/N C16291AB sensors are installed, or paragraph (15) modification completed"
+      ],
+      "method_publication_ids": [],
+      "compliance_rules": [
+        {
+          "compliance_id": "CMP-018",
+          "state": "present",
+          "raw_text": "From 01 June 2015, or after paragraph (15) optional modification, do not install P/N C16291AA",
+          "logic": "conditional",
+          "conditions": [
+            "Only P/N C16291AB sensors are installed, or paragraph (15) modification has been completed"
+          ],
+          "initial_limits": [
+            {
+              "limit_id": "LIM-018",
+              "relation": "from",
+              "quantity": null,
+              "unit": "calendar_date",
+              "raw_value": "From 01 June 2015",
+              "reference_event": "effective date of EASA AD 2015-0087",
+              "calendar_date": "2015-06-01",
+              "evidence_ids": [
+                "EV-023"
+              ]
+            }
+          ],
+          "is_repetitive": false,
+          "repetitive_intervals": [],
+          "grace_periods": [],
+          "evidence_ids": [
+            "EV-023"
+          ]
+        }
+      ],
+      "follow_on_requirement_ids": [],
+      "terminating_action": {
+        "state": "not_stated",
+        "present": false,
+        "scope": "none",
+        "action_text": null,
+        "terminates_requirement_ids": [],
+        "evidence_ids": []
+      },
+      "evidence_ids": [
+        "EV-023"
+      ]
+    },
+    {
+      "requirement_id": "REQ-015",
+      "paragraph_reference": "(17)",
+      "parent_requirement_id": null,
+      "applicability_group_ids": [
+        "APP-001"
+      ],
+      "action_types": [
+        "prohibition",
+        "install"
+      ],
+      "obligation": "prohibited",
+      "action_text": "Do not install any AOA sensor P/N listed in Table 2 on the specified Thales-sensor configurations.",
+      "objects_or_components": [
+        "Table 2 AOA sensor P/N"
+      ],
+      "conditions": [
+        "P/N C16291AA and/or C16291AB sensors are installed, or paragraph (11) modification completed"
+      ],
+      "method_publication_ids": [],
+      "compliance_rules": [
+        {
+          "compliance_id": "CMP-019",
+          "state": "present",
+          "raw_text": "From 01 June 2015, or after paragraph (11) modification, do not install a Table 2 sensor P/N",
+          "logic": "conditional",
+          "conditions": [
+            "P/N C16291AA and/or C16291AB sensors are installed, or paragraph (11) modification has been completed"
+          ],
+          "initial_limits": [
+            {
+              "limit_id": "LIM-019",
+              "relation": "from",
+              "quantity": null,
+              "unit": "calendar_date",
+              "raw_value": "From 01 June 2015",
+              "reference_event": "effective date of EASA AD 2015-0087",
+              "calendar_date": "2015-06-01",
+              "evidence_ids": [
+                "EV-024"
+              ]
+            }
+          ],
+          "is_repetitive": false,
+          "repetitive_intervals": [],
+          "grace_periods": [],
+          "evidence_ids": [
+            "EV-024",
+            "EV-026"
+          ]
+        }
+      ],
+      "follow_on_requirement_ids": [],
+      "terminating_action": {
+        "state": "not_stated",
+        "present": false,
+        "scope": "none",
+        "action_text": null,
+        "terminates_requirement_ids": [],
+        "evidence_ids": []
+      },
+      "evidence_ids": [
+        "EV-024",
+        "EV-026"
+      ]
+    },
+    {
+      "requirement_id": "REQ-016",
+      "paragraph_reference": "(18)",
+      "parent_requirement_id": null,
+      "applicability_group_ids": [
+        "APP-001"
+      ],
+      "action_types": [
+        "prohibition",
+        "install"
+      ],
+      "obligation": "prohibited",
+      "action_text": "After paragraph (10) modification, do not install a Table 2 AOA sensor P/N, except P/N 0861ED in the standby position.",
+      "objects_or_components": [
+        "Table 2 AOA sensor P/N"
+      ],
+      "conditions": [
+        "Paragraph (10) modification completed"
+      ],
+      "method_publication_ids": [],
+      "compliance_rules": [
+        {
+          "compliance_id": "CMP-020",
+          "state": "present",
+          "raw_text": "After paragraph (10) modification, do not install a Table 2 sensor P/N except UTAS P/N 0861ED in the standby position",
+          "logic": "conditional",
+          "conditions": [
+            "Paragraph (10) modification has been completed"
+          ],
+          "initial_limits": [],
+          "is_repetitive": false,
+          "repetitive_intervals": [],
+          "grace_periods": [],
+          "evidence_ids": [
+            "EV-025",
+            "EV-026"
+          ]
+        }
+      ],
+      "follow_on_requirement_ids": [],
+      "terminating_action": {
+        "state": "not_stated",
+        "present": false,
+        "scope": "none",
+        "action_text": null,
+        "terminates_requirement_ids": [],
+        "evidence_ids": []
+      },
+      "evidence_ids": [
+        "EV-025",
+        "EV-026"
+      ]
+    },
+    {
+      "requirement_id": "REQ-017",
+      "paragraph_reference": "(19)-(19.2)",
+      "parent_requirement_id": null,
+      "applicability_group_ids": [
+        "APP-001"
+      ],
+      "action_types": [
+        "install",
+        "modification"
+      ],
+      "obligation": "conditional",
+      "action_text": "Install an AOA sensor P/N approved after 01 June 2015 under EASA or Airbus DOA approval, using similarly approved modification instructions, as an alternative compliance method for paragraph (10) or (11).",
+      "objects_or_components": [
+        "Post-01 June 2015 approved AOA sensor P/N"
+      ],
+      "conditions": [
+        "P/N approved by EASA or under Airbus DOA",
+        "Installation instructions approved by EASA or under Airbus DOA"
+      ],
+      "method_publication_ids": [],
+      "compliance_rules": [
+        {
+          "compliance_id": "CMP-021",
+          "state": "present",
+          "raw_text": "Installation of a post-01 June 2015 approved AOA sensor P/N equals compliance with paragraph (10) or (11) if both approval conditions are met",
+          "logic": "conditional",
+          "conditions": [
+            "Sensor P/N approved by EASA or under Airbus DOA",
+            "Installation instructions approved by EASA or under Airbus DOA"
+          ],
+          "initial_limits": [],
+          "is_repetitive": false,
+          "repetitive_intervals": [],
+          "grace_periods": [],
+          "evidence_ids": [
+            "EV-027",
+            "EV-028"
+          ]
+        }
+      ],
+      "follow_on_requirement_ids": [],
+      "terminating_action": {
+        "state": "not_stated",
+        "present": false,
+        "scope": "none",
+        "action_text": null,
+        "terminates_requirement_ids": [],
+        "evidence_ids": []
+      },
+      "evidence_ids": [
+        "EV-027",
+        "EV-028"
+      ]
+    },
+    {
+      "requirement_id": "REQ-018",
+      "paragraph_reference": "(20)",
+      "parent_requirement_id": null,
+      "applicability_group_ids": [
+        "APP-001"
+      ],
+      "action_types": [
+        "document_amendment"
+      ],
+      "obligation": "conditional",
+      "action_text": "For an eligible ELAC and AOA sensor configuration, amend the AFM to remove the previously inserted abnormal-alpha-protection procedure.",
+      "objects_or_components": [
+        "Applicable Aircraft Flight Manual"
+      ],
+      "conditions": [
+        "ELAC configuration from Table 3 or later",
+        "AOA configuration from Table 4 or paragraph (19)"
+      ],
+      "method_publication_ids": [
+        "PUB-018",
+        "PUB-019",
+        "PUB-020",
+        "PUB-021",
+        "PUB-022"
+      ],
+      "compliance_rules": [
+        {
+          "compliance_id": "CMP-022",
+          "state": "present",
+          "raw_text": "AFM procedure may be removed for a Table 3-or-later ELAC configuration together with a Table 4 or paragraph (19) AOA configuration",
+          "logic": "conditional",
+          "conditions": [
+            "Eligible ELAC configuration",
+            "Eligible AOA sensor configuration"
+          ],
+          "initial_limits": [],
+          "is_repetitive": false,
+          "repetitive_intervals": [],
+          "grace_periods": [],
+          "evidence_ids": [
+            "EV-029",
+            "EV-030"
+          ]
+        }
+      ],
+      "follow_on_requirement_ids": [
+        "REQ-019"
+      ],
+      "terminating_action": {
+        "state": "not_stated",
+        "present": false,
+        "scope": "none",
+        "action_text": null,
+        "terminates_requirement_ids": [],
+        "evidence_ids": []
+      },
+      "evidence_ids": [
+        "EV-029",
+        "EV-030"
+      ]
+    },
+    {
+      "requirement_id": "REQ-019",
+      "paragraph_reference": "(20)",
+      "parent_requirement_id": "REQ-018",
+      "applicability_group_ids": [
+        "APP-001"
+      ],
+      "action_types": [
+        "operational_procedure"
+      ],
+      "obligation": "conditional",
+      "action_text": "After removing the AFM procedure, inform all flight crews and operate the aeroplane accordingly.",
+      "objects_or_components": [
+        "Flight crews",
+        "Aeroplane operations"
+      ],
+      "conditions": [
+        "Paragraph (20) AFM amendment completed"
+      ],
+      "method_publication_ids": [],
+      "compliance_rules": [
+        {
+          "compliance_id": "CMP-023",
+          "state": "present",
+          "raw_text": "After the paragraph (20) AFM amendment, inform all flight crews and operate accordingly",
+          "logic": "conditional",
+          "conditions": [
+            "Paragraph (20) AFM amendment removing the procedure has been made"
+          ],
+          "initial_limits": [],
+          "is_repetitive": false,
+          "repetitive_intervals": [],
+          "grace_periods": [],
+          "evidence_ids": [
+            "EV-029",
+            "EV-033"
+          ]
+        }
+      ],
+      "follow_on_requirement_ids": [],
+      "terminating_action": {
+        "state": "not_stated",
+        "present": false,
+        "scope": "none",
+        "action_text": null,
+        "terminates_requirement_ids": [],
+        "evidence_ids": []
+      },
+      "evidence_ids": [
+        "EV-029",
+        "EV-033"
+      ]
+    }
+  ],
+  "exceptions": [
+    {
+      "exception_id": "EXC-001",
+      "text": "Paragraph (2) replacement is not required if maintenance records demonstrate that the affected P/N C16291AB sensor passed the inspection under Thales SB C16291A-34-007 Revision 01.",
+      "applies_to_requirement_ids": [
+        "REQ-002"
+      ],
+      "evidence_ids": [
+        "EV-007"
+      ]
+    },
+    {
+      "exception_id": "EXC-002",
+      "text": "Paragraph (4) permits installation if the sensor passed the inspection under Thales SB C16291A-34-007 Revision 01 or C16291A-34-009 Revision 01.",
+      "applies_to_requirement_ids": [
+        "REQ-003"
+      ],
+      "evidence_ids": [
+        "EV-009"
+      ]
+    },
+    {
+      "exception_id": "EXC-003",
+      "text": "After paragraph (10) modification, UTAS P/N 0861ED remains allowed in the standby position.",
+      "applies_to_requirement_ids": [
+        "REQ-016"
+      ],
+      "evidence_ids": [
+        "EV-025"
+      ]
+    }
+  ],
+  "previous_action_credit": [
+    {
+      "credit_id": "CRD-001",
+      "text": "Production modification 150006 or 26934 provides credit for paragraphs (1) and (2) if no AOA sensor has been replaced since manufacture.",
+      "applies_to_requirement_ids": [
+        "REQ-001",
+        "REQ-002"
+      ],
+      "credited_publication_ids": [],
+      "conditions": [
+        "Applicable production modification embodied",
+        "No AOA sensor replaced since manufacture"
+      ],
+      "evidence_ids": [
+        "EV-008"
+      ]
+    },
+    {
+      "credit_id": "CRD-002",
+      "text": "Production modifications 154863 and 154864 provide credit for paragraph (5) if no listed conic plate has been installed since first flight.",
+      "applies_to_requirement_ids": [
+        "REQ-004"
+      ],
+      "credited_publication_ids": [],
+      "conditions": [
+        "Mods 154863 and 154864 embodied in production",
+        "No listed conic plate installed since first flight"
+      ],
+      "evidence_ids": [
+        "EV-011"
+      ]
+    },
+    {
+      "credit_id": "CRD-003",
+      "text": "Production mod 150006 without mod 26934 provides conditional credit for paragraphs (10) through (13) if no Table 2 sensor P/N has been installed since manufacture.",
+      "applies_to_requirement_ids": [
+        "REQ-009",
+        "REQ-010",
+        "REQ-011",
+        "REQ-012"
+      ],
+      "credited_publication_ids": [],
+      "conditions": [
+        "Mod 150006 embodied without mod 26934",
+        "No Table 2 AOA sensor P/N installed since manufacture"
+      ],
+      "evidence_ids": [
+        "EV-021"
+      ]
+    }
+  ],
+  "referenced_publications": [
+    {
+      "publication_id": "PUB-001",
+      "publication_type": "other",
+      "issuer": "Airbus",
+      "number": "OIT 999.0015/15",
+      "revision": "Revision 01",
+      "publication_date": "2015-06-29",
+      "title": "Operators Information Transmission",
+      "roles": [
+        "referenced_information"
+      ],
+      "later_approved_revisions_allowed": true,
+      "evidence_ids": [
+        "EV-005",
+        "EV-031"
+      ]
+    },
+    {
+      "publication_id": "PUB-002",
+      "publication_type": "service_bulletin",
+      "issuer": "Airbus",
+      "number": "A320-34-1415",
+      "revision": "Revision 03",
+      "publication_date": "2010-07-08",
+      "title": null,
+      "roles": [
+        "required_method"
+      ],
+      "later_approved_revisions_allowed": true,
+      "evidence_ids": [
+        "EV-018",
+        "EV-019",
+        "EV-020",
+        "EV-031"
+      ]
+    },
+    {
+      "publication_id": "PUB-003",
+      "publication_type": "service_bulletin",
+      "issuer": "Airbus",
+      "number": "A320-34-1415",
+      "revision": "Revision 04",
+      "publication_date": "2015-07-30",
+      "title": null,
+      "roles": [
+        "required_method"
+      ],
+      "later_approved_revisions_allowed": true,
+      "evidence_ids": [
+        "EV-031"
+      ]
+    },
+    {
+      "publication_id": "PUB-004",
+      "publication_type": "service_bulletin",
+      "issuer": "Airbus",
+      "number": "A320-34-1444",
+      "revision": "Original issue",
+      "publication_date": "2009-10-07",
+      "title": null,
+      "roles": [
+        "required_method",
+        "optional_method"
+      ],
+      "later_approved_revisions_allowed": true,
+      "evidence_ids": [
+        "EV-016",
+        "EV-022",
+        "EV-031"
+      ]
+    },
+    {
+      "publication_id": "PUB-005",
+      "publication_type": "service_bulletin",
+      "issuer": "Airbus",
+      "number": "A320-34-1444",
+      "revision": "Revision 01",
+      "publication_date": "2011-03-17",
+      "title": null,
+      "roles": [
+        "required_method",
+        "optional_method"
+      ],
+      "later_approved_revisions_allowed": true,
+      "evidence_ids": [
+        "EV-031"
+      ]
+    },
+    {
+      "publication_id": "PUB-006",
+      "publication_type": "service_bulletin",
+      "issuer": "Airbus",
+      "number": "A320-34-1452",
+      "revision": "Original issue",
+      "publication_date": "2010-01-29",
+      "title": null,
+      "roles": [
+        "required_method"
+      ],
+      "later_approved_revisions_allowed": true,
+      "evidence_ids": [
+        "EV-006",
+        "EV-007",
+        "EV-031"
+      ]
+    },
+    {
+      "publication_id": "PUB-007",
+      "publication_type": "service_bulletin",
+      "issuer": "Airbus",
+      "number": "A320-34-1452",
+      "revision": "Revision 01",
+      "publication_date": "2013-09-16",
+      "title": null,
+      "roles": [
+        "required_method"
+      ],
+      "later_approved_revisions_allowed": true,
+      "evidence_ids": [
+        "EV-031"
+      ]
+    },
+    {
+      "publication_id": "PUB-008",
+      "publication_type": "service_bulletin",
+      "issuer": "Airbus",
+      "number": "A320-34-1564",
+      "revision": "Original issue",
+      "publication_date": "2013-01-25",
+      "title": null,
+      "roles": [
+        "required_method"
+      ],
+      "later_approved_revisions_allowed": true,
+      "evidence_ids": [
+        "EV-010",
+        "EV-031"
+      ]
+    },
+    {
+      "publication_id": "PUB-009",
+      "publication_type": "service_bulletin",
+      "issuer": "Airbus",
+      "number": "A320-34-1564",
+      "revision": "Revision 01",
+      "publication_date": "2013-08-26",
+      "title": null,
+      "roles": [
+        "required_method"
+      ],
+      "later_approved_revisions_allowed": true,
+      "evidence_ids": [
+        "EV-031"
+      ]
+    },
+    {
+      "publication_id": "PUB-010",
+      "publication_type": "service_bulletin",
+      "issuer": "Airbus",
+      "number": "A320-34-1610",
+      "revision": "Original issue",
+      "publication_date": "2015-03-31",
+      "title": null,
+      "roles": [
+        "required_method"
+      ],
+      "later_approved_revisions_allowed": true,
+      "evidence_ids": [
+        "EV-015",
+        "EV-031"
+      ]
+    },
+    {
+      "publication_id": "PUB-011",
+      "publication_type": "service_bulletin",
+      "issuer": "Airbus",
+      "number": "A320-34-1610",
+      "revision": "Revision 01",
+      "publication_date": "2015-07-30",
+      "title": null,
+      "roles": [
+        "required_method"
+      ],
+      "later_approved_revisions_allowed": true,
+      "evidence_ids": [
+        "EV-031"
+      ]
+    },
+    {
+      "publication_id": "PUB-012",
+      "publication_type": "service_bulletin",
+      "issuer": "Thales",
+      "number": "C16291A-34-007",
+      "revision": "Revision 01",
+      "publication_date": "2009-12-03",
+      "title": null,
+      "roles": [
+        "required_method"
+      ],
+      "later_approved_revisions_allowed": true,
+      "evidence_ids": [
+        "EV-007",
+        "EV-009",
+        "EV-031"
+      ]
+    },
+    {
+      "publication_id": "PUB-013",
+      "publication_type": "service_bulletin",
+      "issuer": "Thales",
+      "number": "C16291A-34-007",
+      "revision": "Revision 02",
+      "publication_date": "2011-12-16",
+      "title": null,
+      "roles": [
+        "referenced_information"
+      ],
+      "later_approved_revisions_allowed": true,
+      "evidence_ids": [
+        "EV-031"
+      ]
+    },
+    {
+      "publication_id": "PUB-014",
+      "publication_type": "service_bulletin",
+      "issuer": "Thales",
+      "number": "C16291A-34-007",
+      "revision": "Revision 03",
+      "publication_date": "2012-04-10",
+      "title": null,
+      "roles": [
+        "referenced_information"
+      ],
+      "later_approved_revisions_allowed": true,
+      "evidence_ids": [
+        "EV-031"
+      ]
+    },
+    {
+      "publication_id": "PUB-015",
+      "publication_type": "service_bulletin",
+      "issuer": "Thales",
+      "number": "C16291A-34-007",
+      "revision": "Revision 04",
+      "publication_date": "2012-10-11",
+      "title": null,
+      "roles": [
+        "required_method"
+      ],
+      "later_approved_revisions_allowed": true,
+      "evidence_ids": [
+        "EV-006",
+        "EV-007",
+        "EV-009",
+        "EV-031"
+      ]
+    },
+    {
+      "publication_id": "PUB-016",
+      "publication_type": "service_bulletin",
+      "issuer": "Thales",
+      "number": "C16291A-34-009",
+      "revision": "Original issue",
+      "publication_date": "2009-09-10",
+      "title": null,
+      "roles": [
+        "referenced_information"
+      ],
+      "later_approved_revisions_allowed": true,
+      "evidence_ids": [
+        "EV-031"
+      ]
+    },
+    {
+      "publication_id": "PUB-017",
+      "publication_type": "service_bulletin",
+      "issuer": "Thales",
+      "number": "C16291A-34-009",
+      "revision": "Revision 01",
+      "publication_date": "2010-01-07",
+      "title": null,
+      "roles": [
+        "required_method"
+      ],
+      "later_approved_revisions_allowed": true,
+      "evidence_ids": [
+        "EV-009",
+        "EV-031"
+      ]
+    },
+    {
+      "publication_id": "PUB-018",
+      "publication_type": "other",
+      "issuer": "Airbus",
+      "number": "AFM A320 TR 502",
+      "revision": "Issue 1",
+      "publication_date": "2014-12-05",
+      "title": "Abnormal V alpha Prot",
+      "roles": [
+        "required_method"
+      ],
+      "later_approved_revisions_allowed": true,
+      "evidence_ids": [
+        "EV-013",
+        "EV-029",
+        "EV-033",
+        "EV-031"
+      ]
+    },
+    {
+      "publication_id": "PUB-019",
+      "publication_type": "service_bulletin",
+      "issuer": "Airbus",
+      "number": "A320-27-1243",
+      "revision": null,
+      "publication_date": null,
+      "title": null,
+      "roles": [
+        "referenced_information"
+      ],
+      "later_approved_revisions_allowed": null,
+      "evidence_ids": [
+        "EV-029",
+        "EV-030"
+      ]
+    },
+    {
+      "publication_id": "PUB-020",
+      "publication_type": "service_bulletin",
+      "issuer": "Airbus",
+      "number": "A320-27-1244",
+      "revision": null,
+      "publication_date": null,
+      "title": null,
+      "roles": [
+        "referenced_information"
+      ],
+      "later_approved_revisions_allowed": null,
+      "evidence_ids": [
+        "EV-029",
+        "EV-030"
+      ]
+    },
+    {
+      "publication_id": "PUB-021",
+      "publication_type": "service_bulletin",
+      "issuer": "Airbus",
+      "number": "A320-27-1263",
+      "revision": null,
+      "publication_date": null,
+      "title": null,
+      "roles": [
+        "referenced_information"
+      ],
+      "later_approved_revisions_allowed": null,
+      "evidence_ids": [
+        "EV-029",
+        "EV-030"
+      ]
+    },
+    {
+      "publication_id": "PUB-022",
+      "publication_type": "service_bulletin",
+      "issuer": "Airbus",
+      "number": "A320-27-1264",
+      "revision": null,
+      "publication_date": null,
+      "title": null,
+      "roles": [
+        "referenced_information"
+      ],
+      "later_approved_revisions_allowed": null,
+      "evidence_ids": [
+        "EV-029",
+        "EV-030"
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "relationship_id": "REL-001",
+      "relationship_type": "revises",
+      "target_ad_number": "2015-0135R2",
+      "target_record_id": null,
+      "target_logical_version_key": null,
+      "source": "revision_family",
+      "verification_status": "adjudicated",
+      "manually_verified": true,
+      "raw_text": "This AD revises EASA AD 2015-0135R2 dated 23 February 2018.",
+      "evidence_ids": [
+        "EV-001"
+      ]
+    },
+    {
+      "relationship_id": "REL-002",
+      "relationship_type": "supersedes",
+      "target_ad_number": "2015-0087",
+      "target_record_id": null,
+      "target_logical_version_key": null,
+      "source": "structured_supersedure_field",
+      "verification_status": "adjudicated",
+      "manually_verified": true,
+      "raw_text": "The original issue of this AD superseded EASA AD 2015-0087 dated 22 May 2015.",
+      "evidence_ids": [
+        "EV-001"
+      ]
+    }
+  ],
+  "amoc_and_contacts": [
+    {
+      "entry_id": "AMC-001",
+      "entry_type": "amoc_authority",
+      "authority_or_organization": "EASA",
+      "contact_text": "If requested and appropriately substantiated, EASA can approve Alternative Methods of Compliance for this AD.",
+      "conditions": [
+        "Requested and appropriately substantiated"
+      ],
+      "evidence_ids": [
+        "EV-032"
+      ]
+    },
+    {
+      "entry_id": "AMC-002",
+      "entry_type": "regulatory_contact",
+      "authority_or_organization": "EASA",
+      "contact_text": "Enquiries regarding this AD should be referred to EASA at ADs@easa.europa.eu.",
+      "conditions": [],
+      "evidence_ids": [
+        "EV-032"
+      ]
+    },
+    {
+      "entry_id": "AMC-003",
+      "entry_type": "technical_contact",
+      "authority_or_organization": "Airbus",
+      "contact_text": "For technical questions, contact AIRBUS – Airworthiness Office – EIAS at account.airworth-eas@airbus.com.",
+      "conditions": [],
+      "evidence_ids": [
+        "EV-032"
+      ]
+    }
+  ],
+  "classification": {
+    "airbus_families": [
+      "A320 family"
+    ],
+    "ata_chapters": [
+      "34"
+    ],
+    "action_types": [
+      "replacement",
+      "records_review",
+      "prohibition",
+      "install",
+      "remove",
+      "modification",
+      "document_amendment",
+      "operational_procedure",
+      "test_or_check"
+    ],
+    "frequency": "mixed",
+    "emergency_status": "standard",
+    "terminating_action_present": true,
+    "table_or_appendix_present": true,
+    "compliance_complexity": "mixed",
+    "human_confirmed": true,
+    "evidence_ids": [
+      "EV-002",
+      "EV-003",
+      "EV-006",
+      "EV-007",
+      "EV-009",
+      "EV-010",
+      "EV-012",
+      "EV-013",
+      "EV-015",
+      "EV-016",
+      "EV-017",
+      "EV-018",
+      "EV-019",
+      "EV-020",
+      "EV-022",
+      "EV-023",
+      "EV-024",
+      "EV-025",
+      "EV-026",
+      "EV-027",
+      "EV-028",
+      "EV-029",
+      "EV-030",
+      "EV-033"
+    ]
+  },
+  "evidence_spans": [
+    {
+      "evidence_id": "EV-001",
+      "source_file_instance_id": "ffb267d0dfbcbbd9",
+      "page_number": 1,
+      "printed_page_label": "Page 1 of 8",
+      "section": "cover",
+      "section_raw": "Cover identity",
+      "clause_path": null,
+      "exact_quote": "AD No.: 2015-0135R3. Issued: 13 March 2018. Design Approval Holder’s Name: AIRBUS. Type/Model designation(s): A318, A319, A320 and A321 aeroplanes. Effective Date: Revision 3: 13 March 2018; Revision 2: 23 February 2018; Revision 1: 11 January 2018; Original issue: 15 July 2015. TCDS Number(s): EASA.A.064. Foreign AD: Not applicable. Revision: This AD revises EASA AD 2015-0135R2 dated 23 February 2018. The original issue of this AD superseded EASA AD 2015-0087 dated 22 May 2015.",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "771514a3c9903395d757f6426e80a86369dd77bbec83efc50c3c21fc8c36665c",
+      "bbox_normalized": null,
+      "extraction_method": "visual_transcription",
+      "quality": "visual_transcription",
+      "table_context": null,
+      "annotation_note": "Visually transcribed from the rendered two-column cover to preserve identity, revision history and supersedure fields in reading order."
+    },
+    {
+      "evidence_id": "EV-002",
+      "source_file_instance_id": "ffb267d0dfbcbbd9",
+      "page_number": 1,
+      "printed_page_label": "Page 1 of 8",
+      "section": "cover",
+      "section_raw": "ATA / Manufacturer(s)",
+      "clause_path": null,
+      "exact_quote": "ATA 34 – Navigation – Angle of Attack Sensors – Replacement. Manufacturer(s): Airbus (formerly Airbus Industrie).",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "771514a3c9903395d757f6426e80a86369dd77bbec83efc50c3c21fc8c36665c",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-003",
+      "source_file_instance_id": "ffb267d0dfbcbbd9",
+      "page_number": 1,
+      "printed_page_label": "Page 1 of 8",
+      "section": "applicability",
+      "section_raw": "Applicability",
+      "clause_path": null,
+      "exact_quote": "Airbus A318-111, A318-112, A318-121, A318-122, A319-111, A319-112, A319-113, A319-114, A319-115, A319-131, A319-132, A319-133, A320-211, A320-212, A320-214, A320-215, A320-216, A320-231, A320-232, A320-233, A321-111, A321-112, A321-131, A321-211, A321-212, A321-213, A321-231 and A321-232 aeroplanes, all manufacturer serial numbers.",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "771514a3c9903395d757f6426e80a86369dd77bbec83efc50c3c21fc8c36665c",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-004",
+      "source_file_instance_id": "ffb267d0dfbcbbd9",
+      "page_number": 1,
+      "printed_page_label": "Page 1 of 8",
+      "section": "reason",
+      "section_raw": "Reason",
+      "clause_path": null,
+      "exact_quote": "Reason: An occurrence was reported where an Airbus A321 aeroplane encountered a blockage of two Angle of Attack (AOA) probes during climb, leading to activation of the Alpha Protection (Alpha Prot) while the Mach number increased. The flight crew managed to regain full control and the flight landed uneventfully. When Alpha Prot is activated due to blocked AOA probes, the flight control laws order a continuous nose down pitch rate that, in a worst case scenario, cannot be stopped with backward sidestick inputs, even in the full backward position. If the Mach number increases during a nose down order, TE.CAP.00110-006 © European Aviation Safety Agency. All rights reserved. ISO9001 Certified. Page 1 of 8 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet. An agency of the European Union",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "771514a3c9903395d757f6426e80a86369dd77bbec83efc50c3c21fc8c36665c",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": "Exact native-text excerpt from the Reason heading to the page boundary; the clause continues on page 2."
+    },
+    {
+      "evidence_id": "EV-005",
+      "source_file_instance_id": "ffb267d0dfbcbbd9",
+      "page_number": 2,
+      "printed_page_label": "Page 2 of 8",
+      "section": "reason",
+      "section_raw": "Reason continued",
+      "clause_path": null,
+      "exact_quote": "the AOA value of the Alpha Prot will continue to decrease. As a result, the flight control laws will continue to order a nose down pitch rate, even if the speed is above minimum selectable speed, known as VLS. This condition, if not corrected, could result in loss of control of the aeroplane. Investigation results indicated that A320 family aeroplanes equipped with certain UTC Aerospace (UTAS, formerly known as Goodrich) AOA sensors, or equipped with certain SEXTANT/THOMSON AOA sensors, appear to have a greater susceptibility to adverse environmental conditions than aeroplanes equipped with the latest Thales AOA sensor, Part Number (P/N) C16291AB, which was designed to improve A320 aeroplane AOA indication behaviour in heavy rain conditions. Having determined that replacement of these AOA sensors was necessary to achieve and maintain the required safety level of the aeroplane, EASA issued AD 2015-0087, retaining the requirements of EASA AD 2012-0236R1, AD 2013-0022 (partially), and AD 2014-0266-E, which were superseded, and requiring the insertion of an Emergency Procedure in the Aircraft Flight Manual (AFM), modification of the aeroplanes by replacement of the affected P/N sensors, and, after modification, prohibiting (re-)installation of those P/N AOA sensors. That AD also required repetitive detailed visual inspections (DET) and functional heating tests of certain Thales AOA sensors and provided an optional terminating action for those inspections. After EASA AD 2015-0087 was issued, based on further analysis results, Airbus issued Operators Information Transmission (OIT) Ref. 999.0015/15 Revision 1, instructing operators to speed up the removal from service of UTAS P/N 0861ED2 AOA sensors. Consequently, EASA issued AD 2015-0135, retaining the requirements of EASA AD 2015-0087, which was superseded, but reducing the compliance times for aeroplanes with UTAS P/N 0861ED2 AOA sensors installed. EASA AD 2015-0135 was revised to remove the requirement for repetitive DET of certain Thales AOA sensors, and to allow, for certain configurations of AOA sensors and Elevator Aileron Computer (ELAC), the removal of the Emergency Procedure from the AFM. Since EASA AD 2015-135R2 was issued, it was determined that the AFM Emergency Procedure can also be removed for other AOA sensors and ELAC configurations. This AD revises paragraph (20) accordingly.",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "ff32057e3791e633c61d2126a7962ec110a3043a47c42f719dc319b908b0fe63",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-006",
+      "source_file_instance_id": "ffb267d0dfbcbbd9",
+      "page_number": 2,
+      "printed_page_label": "Page 2 of 8",
+      "section": "required_actions_and_compliance_times",
+      "section_raw": "Modification",
+      "clause_path": "(1)",
+      "exact_quote": "(1) For aeroplanes fitted with Thales Avionics P/N C16291AA AOA sensors: Within 12 months after 27 October 2011 [the effective date of EASA AD 2011-0203], replace each P/N C16291AA AOA sensor installed on the aeroplane, if identified to have a serial number (s/n) as listed in Thales Avionics Service Bulletin (SB) C16291A-34-007 Revision 04, in accordance with the instructions of Airbus SB A320-34-1452. TE.CAP.00110-006 © European Aviation Safety Agency. All rights reserved. ISO9001 Certified. Page 2 of 8 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet. An agency of the European Union",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "ff32057e3791e633c61d2126a7962ec110a3043a47c42f719dc319b908b0fe63",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-007",
+      "source_file_instance_id": "ffb267d0dfbcbbd9",
+      "page_number": 3,
+      "printed_page_label": "Page 3 of 8",
+      "section": "required_actions_and_compliance_times",
+      "section_raw": "Modification",
+      "clause_path": "(2)",
+      "exact_quote": "(2) For aeroplanes fitted with P/N C16291AB AOA sensors with s/n listed in Thales Avionics SB C16291A-34-007 Revision 04: Within 3 months after 23 November 2012 [the effective date of EASA AD 2012-0236 at original issue], replace each P/N C16291AB AOA sensor installed on the aeroplane, in accordance with the instructions of Airbus SB A320-34-1452, unless it can be demonstrated by maintenance records that the affected AOA sensor has passed the inspection in accordance with the instructions of Thales Avionics SB C16291A-34-007 Revision 01. Credit:",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "6c0386bc19347ec548a85808a43df37448081a139e3e7d9654219b7aa02ae0a0",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-008",
+      "source_file_instance_id": "ffb267d0dfbcbbd9",
+      "page_number": 3,
+      "printed_page_label": "Page 3 of 8",
+      "section": "credit",
+      "section_raw": "Credit",
+      "clause_path": "(3)",
+      "exact_quote": "(3) An aeroplane on which Airbus modification (mod) 150006 (installation of AOA sensors P/N C16291AB) or mod 26934 (installation of AOA sensors P/N 0861ED) has been embodied in production is not affected by the requirements of paragraphs (1) and (2) of this AD, provided it is determined that no AOA sensor has been replaced on that aeroplane since its date of manufacture. Parts Installation:",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "6c0386bc19347ec548a85808a43df37448081a139e3e7d9654219b7aa02ae0a0",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-009",
+      "source_file_instance_id": "ffb267d0dfbcbbd9",
+      "page_number": 3,
+      "printed_page_label": "Page 3 of 8",
+      "section": "required_actions_and_compliance_times",
+      "section_raw": "Parts Installation",
+      "clause_path": "(4)",
+      "exact_quote": "(4) From 23 November 2012 [the effective date of EASA AD 2012-0236 at original issue], do not install on any aeroplane a P/N C16291AA or P/N C16291AB AOA sensor having a s/n as listed in Thales Avionics SB C16291A-34-007 Revision 04, unless it has passed the inspection in accordance with the instructions of Thales Avionics SB C16291A-34-007 Revision 01, or in accordance with the instructions of Thales Avionics SB C16291A-34-009 Revision 01. Modification:",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "6c0386bc19347ec548a85808a43df37448081a139e3e7d9654219b7aa02ae0a0",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-010",
+      "source_file_instance_id": "ffb267d0dfbcbbd9",
+      "page_number": 3,
+      "printed_page_label": "Page 3 of 8",
+      "section": "required_actions_and_compliance_times",
+      "section_raw": "Modification",
+      "clause_path": "(5)-(5.2)",
+      "exact_quote": "(5) Within 5 months after 15 February 2013 [the effective date of EASA AD 2013-0022], remove from service all AOA sensor conic plates P/N F3411060200000 and P/N F3411060900000 and install AOA sensor flat plates, as required by paragraph (5.1) or (5.2) of this AD. (5.1) P/N D3411013520200 in accordance with the instructions of Airbus SB A320-34-1564. (5.2) P/N D3411007620000, or P/N D3411013520000, in accordance with approved aeroplane modification instructions. Credit:",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "6c0386bc19347ec548a85808a43df37448081a139e3e7d9654219b7aa02ae0a0",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-011",
+      "source_file_instance_id": "ffb267d0dfbcbbd9",
+      "page_number": 3,
+      "printed_page_label": "Page 3 of 8",
+      "section": "credit",
+      "section_raw": "Credit",
+      "clause_path": "(6)",
+      "exact_quote": "(6) An aeroplane on which Airbus mod 154863 (installation of AOA sensor flat plate) and mod 154864 (coating protection) have been embodied in production is not affected by the requirements of paragraph (5) of this AD, provided that, since first flight, no AOA sensor conic plate P/N F3411060200000 or P/N F3411060900000 has been installed on that aeroplane. Parts Installation:",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "6c0386bc19347ec548a85808a43df37448081a139e3e7d9654219b7aa02ae0a0",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-012",
+      "source_file_instance_id": "ffb267d0dfbcbbd9",
+      "page_number": 3,
+      "printed_page_label": "Page 3 of 8",
+      "section": "required_actions_and_compliance_times",
+      "section_raw": "Parts Installation",
+      "clause_path": "(7)",
+      "exact_quote": "(7) From 15 February 2013 [the effective date of EASA AD 2013-0022], do not install on any aeroplane an AOA sensor conic plate having P/N F3411060200000 or P/N F3411060900000, and do not use on any aeroplane an AOA protection cover P/N 98D34203003000. TE.CAP.00110-006 © European Aviation Safety Agency. All rights reserved. ISO9001 Certified. Page 3 of 8 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet. An agency of the European Union",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "6c0386bc19347ec548a85808a43df37448081a139e3e7d9654219b7aa02ae0a0",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-013",
+      "source_file_instance_id": "ffb267d0dfbcbbd9",
+      "page_number": 4,
+      "printed_page_label": "Page 4 of 8",
+      "section": "required_actions_and_compliance_times",
+      "section_raw": "AFM Amendment",
+      "clause_path": "(8)",
+      "exact_quote": "(8) Before next flight after 11 December 2014 [the effective date of EASA Emergency AD 2014-0266-E], amend the applicable AFM by inserting a copy of Airbus AFM A320 TR 502 “Abnormal V alpha Prot”, issue 1. Alternatively, amending the applicable AFM can be accomplished by inserting of a copy of Appendix 1 of this AD into the Section “Emergency Procedures”.",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "316caae24e46562c0e0a860bbb4c8a5598e0aadd40fdfe6863fc33eaa9f931a3",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-014",
+      "source_file_instance_id": "ffb267d0dfbcbbd9",
+      "page_number": 4,
+      "printed_page_label": "Page 4 of 8",
+      "section": "required_actions_and_compliance_times",
+      "section_raw": "AFM Amendment",
+      "clause_path": "(9)",
+      "exact_quote": "(9) Concurrent with the AFM amendment as required by paragraph (8) of this AD, inform all flight crews and, thereafter, operate the aeroplane accordingly. Modification:",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "316caae24e46562c0e0a860bbb4c8a5598e0aadd40fdfe6863fc33eaa9f931a3",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-015",
+      "source_file_instance_id": "ffb267d0dfbcbbd9",
+      "page_number": 4,
+      "printed_page_label": "Page 4 of 8",
+      "section": "required_actions_and_compliance_times",
+      "section_raw": "Modification",
+      "clause_path": "(10)",
+      "exact_quote": "(10) For aeroplanes on which UTAS (formerly Goodrich) P/N 0861ED or P/N 0861ED2 AOA sensors are installed, within the compliance time defined in Table 1 of this AD, as applicable, replace the Captain and First Officer AOA sensors with Thales P/N C16291AB AOA sensors in accordance with the instructions of Airbus SB A320-34-1610.",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "316caae24e46562c0e0a860bbb4c8a5598e0aadd40fdfe6863fc33eaa9f931a3",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-016",
+      "source_file_instance_id": "ffb267d0dfbcbbd9",
+      "page_number": 4,
+      "printed_page_label": "Page 4 of 8",
+      "section": "required_actions_and_compliance_times",
+      "section_raw": "Modification",
+      "clause_path": "(11)",
+      "exact_quote": "(11) For aeroplanes on which SEXTANT/THOMSON P/N 45150320 or P/N 16990568 AOA sensors are installed, within the compliance time defined in Table 1 of this AD, as applicable, replace each SEXTANT/THOMSON P/N 45150320 and P/N 16990568 AOA sensor with a Thales P/N C16291AB AOA sensor in accordance with the instructions of Airbus SB A320-34-1444, as applicable. Table 1 – AOA Sensors Replacement Aeroplanes P/N AOA Sensor(s) Compliance Time (after 01 June 2015, the (all models) installed effective date of EASA AD 2015-0087) A318 and A321 P/N 0861ED, 7 months A319 and A320 P/N 45150320, or 22 months P/N 16990568 A318 and A321 P/N 0861ED2 4 months A319 and A320 7 months Repetitive Functional Heating Tests:",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "316caae24e46562c0e0a860bbb4c8a5598e0aadd40fdfe6863fc33eaa9f931a3",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-017",
+      "source_file_instance_id": "ffb267d0dfbcbbd9",
+      "page_number": 4,
+      "printed_page_label": "Page 4 of 8",
+      "section": "table",
+      "section_raw": "Table 1 – AOA Sensors Replacement",
+      "clause_path": null,
+      "exact_quote": "EASA AD No.: 2015-0135R3 AFM Amendment: (8) Before next flight after 11 December 2014 [the effective date of EASA Emergency AD 2014-0266-E], amend the applicable AFM by inserting a copy of Airbus AFM A320 TR 502 “Abnormal V alpha Prot”, issue 1. Alternatively, amending the applicable AFM can be accomplished by inserting of a copy of Appendix 1 of this AD into the Section “Emergency Procedures”. (9) Concurrent with the AFM amendment as required by paragraph (8) of this AD, inform all flight crews and, thereafter, operate the aeroplane accordingly. Modification: (10) For aeroplanes on which UTAS (formerly Goodrich) P/N 0861ED or P/N 0861ED2 AOA sensors are installed, within the compliance time defined in Table 1 of this AD, as applicable, replace the Captain and First Officer AOA sensors with Thales P/N C16291AB AOA sensors in accordance with the instructions of Airbus SB A320-34-1610. (11) For aeroplanes on which SEXTANT/THOMSON P/N 45150320 or P/N 16990568 AOA sensors are installed, within the compliance time defined in Table 1 of this AD, as applicable, replace each SEXTANT/THOMSON P/N 45150320 and P/N 16990568 AOA sensor with a Thales P/N C16291AB AOA sensor in accordance with the instructions of Airbus SB A320-34-1444, as applicable. Table 1 – AOA Sensors Replacement Aeroplanes P/N AOA Sensor(s) Compliance Time (after 01 June 2015, the (all models) installed effective date of EASA AD 2015-0087) A318 and A321 P/N 0861ED, 7 months A319 and A320 P/N 45150320, or 22 months P/N 16990568 A318 and A321 P/N 0861ED2 4 months A319 and A320 7 months Repetitive Functional Heating Tests: (12) For an aeroplane on which one or more Thales P/N C16291AA AOA sensors are installed, before exceeding 5 200 flight hours (FH) accumulated by each Thales AOA sensor since its first installation on an aeroplane, or within 6 months after 01 June 2015 [the effective date of EASA AD 2015-0087], whichever occurs later, and thereafter at intervals not to exceed 2 000 FH, accomplish a functional heating test of each P/N C16291AA AOA sensor in accordance with the instructions of Airbus SB A320-34-1415 Revision 03. Corrective Action(s): (13) If, during any functional heating test as required by paragraph (12) of this AD, discrepancies are detected, before next flight, replace all affected AOA sensors with Thales P/N C16291AA AOA sensors that have passed a functional heating test in accordance with the instructions of TE.CAP.00110-006 © European Aviation Safety Agency. All rights reserved. ISO9001 Certified. Page 4 of 8 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet. An agency of the European Union",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "316caae24e46562c0e0a860bbb4c8a5598e0aadd40fdfe6863fc33eaa9f931a3",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": {
+        "table_label": "Table 1 – AOA Sensors Replacement",
+        "row_headers": [
+          "A318 and A321",
+          "A319 and A320"
+        ],
+        "column_headers": [
+          "Aeroplanes (all models)",
+          "P/N AOA Sensor(s) installed",
+          "Compliance Time after 01 June 2015"
+        ],
+        "footnotes": []
+      },
+      "annotation_note": "Full page retained because the merged table cells bind model groups, sensor P/N and four different month limits."
+    },
+    {
+      "evidence_id": "EV-018",
+      "source_file_instance_id": "ffb267d0dfbcbbd9",
+      "page_number": 4,
+      "printed_page_label": "Page 4 of 8",
+      "section": "required_actions_and_compliance_times",
+      "section_raw": "Repetitive Functional Heating Tests",
+      "clause_path": "(12)",
+      "exact_quote": "(12) For an aeroplane on which one or more Thales P/N C16291AA AOA sensors are installed, before exceeding 5 200 flight hours (FH) accumulated by each Thales AOA sensor since its first installation on an aeroplane, or within 6 months after 01 June 2015 [the effective date of EASA AD 2015-0087], whichever occurs later, and thereafter at intervals not to exceed 2 000 FH, accomplish a functional heating test of each P/N C16291AA AOA sensor in accordance with the instructions of Airbus SB A320-34-1415 Revision 03. Corrective Action(s):",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "316caae24e46562c0e0a860bbb4c8a5598e0aadd40fdfe6863fc33eaa9f931a3",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-019",
+      "source_file_instance_id": "ffb267d0dfbcbbd9",
+      "page_number": 4,
+      "printed_page_label": "Page 4 of 8",
+      "section": "required_actions_and_compliance_times",
+      "section_raw": "Corrective Action(s)",
+      "clause_path": "(13), page 1 of 2",
+      "exact_quote": "(13) If, during any functional heating test as required by paragraph (12) of this AD, discrepancies are detected, before next flight, replace all affected AOA sensors with Thales P/N C16291AA AOA sensors that have passed a functional heating test in accordance with the instructions of TE.CAP.00110-006 © European Aviation Safety Agency. All rights reserved. ISO9001 Certified. Page 4 of 8 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet. An agency of the European Union",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "316caae24e46562c0e0a860bbb4c8a5598e0aadd40fdfe6863fc33eaa9f931a3",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": "Exact native-text first part through the page boundary; the sentence continues on page 5."
+    },
+    {
+      "evidence_id": "EV-020",
+      "source_file_instance_id": "ffb267d0dfbcbbd9",
+      "page_number": 5,
+      "printed_page_label": "Page 5 of 8",
+      "section": "required_actions_and_compliance_times",
+      "section_raw": "Corrective Action(s)",
+      "clause_path": "(13), page 2 of 2",
+      "exact_quote": "Airbus SB A320-34-1415 Revision 03, or with Thales P/N C16291AB AOA sensors, in accordance with the instructions of Airbus SB A320-34-1415 Revision 03.",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "a349e18482999fd8d8a0747fc3bd3a0779798b5485f2007a6017d3a8fdef73bb",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-021",
+      "source_file_instance_id": "ffb267d0dfbcbbd9",
+      "page_number": 5,
+      "printed_page_label": "Page 5 of 8",
+      "section": "credit",
+      "section_raw": "Conditional Credit",
+      "clause_path": "(14)",
+      "exact_quote": "(14) An aeroplane with Airbus mod 150006 (installation of Thales P/N C16291AB AOA sensors) but without mod 26934 (installation of UTAS P/N 0861ED AOA sensors) embodied in production is not affected by the requirements of paragraphs (10) through (13) of this AD, provided it is determined that no AOA sensor having a P/N as listed in Table 2 of this AD has been installed on that aeroplane since its date of manufacture. Terminating Actions:",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "a349e18482999fd8d8a0747fc3bd3a0779798b5485f2007a6017d3a8fdef73bb",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-022",
+      "source_file_instance_id": "ffb267d0dfbcbbd9",
+      "page_number": 5,
+      "printed_page_label": "Page 5 of 8",
+      "section": "required_actions_and_compliance_times",
+      "section_raw": "Terminating Actions",
+      "clause_path": "(15)",
+      "exact_quote": "(15) Modification of an aeroplane by replacing each Thales P/N C16291AA AOA sensor with a Thales P/N C16291AB AOA sensor in accordance with the instructions of Airbus SB A320-34-1444 constitutes terminating action for the repetitive functional heating tests as required by paragraph (12) of this AD for that aeroplane. Parts Installation:",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "a349e18482999fd8d8a0747fc3bd3a0779798b5485f2007a6017d3a8fdef73bb",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-023",
+      "source_file_instance_id": "ffb267d0dfbcbbd9",
+      "page_number": 5,
+      "printed_page_label": "Page 5 of 8",
+      "section": "required_actions_and_compliance_times",
+      "section_raw": "Parts Installation",
+      "clause_path": "(16)",
+      "exact_quote": "(16) For an aeroplane on which only Thales P/N C16291AB AOA sensors are installed, from 01 June 2015 [the effective date of EASA AD 2015-0087], or after optional modification of the aeroplane as specified in paragraph (15) of this AD, as applicable, do not install a Thales P/N C16291AA AOA sensor on that aeroplane.",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "a349e18482999fd8d8a0747fc3bd3a0779798b5485f2007a6017d3a8fdef73bb",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-024",
+      "source_file_instance_id": "ffb267d0dfbcbbd9",
+      "page_number": 5,
+      "printed_page_label": "Page 5 of 8",
+      "section": "required_actions_and_compliance_times",
+      "section_raw": "Parts Installation",
+      "clause_path": "(17)",
+      "exact_quote": "(17) For an aeroplane on which Thales P/N C16291AA and/or Thales P/N C16291AB AOA sensors are installed, from 01 June 2015 [the effective date of EASA AD 2015-0087], or after modification of the aeroplane as required by paragraph (11) of this AD, as applicable, do not install any AOA sensor with a P/N as listed in Table 2 of this AD on that aeroplane.",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "a349e18482999fd8d8a0747fc3bd3a0779798b5485f2007a6017d3a8fdef73bb",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-025",
+      "source_file_instance_id": "ffb267d0dfbcbbd9",
+      "page_number": 5,
+      "printed_page_label": "Page 5 of 8",
+      "section": "required_actions_and_compliance_times",
+      "section_raw": "Parts Installation",
+      "clause_path": "(18)",
+      "exact_quote": "(18) After modification of an aeroplane as required by paragraph (10) of this AD, do not install any AOA sensor with a P/N as listed in Table 2 of this AD on that aeroplane, with the exception that it remains allowed to install a UTAS P/N 0861ED AOA sensor in the standby position of that aeroplane. Table 2 – AOA Sensors AOA Sensor Manufacturer P/N SEXTANT/THOMSON 45150320 16990568 UTAS (formerly Goodrich) 0861ED 0861ED2",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "a349e18482999fd8d8a0747fc3bd3a0779798b5485f2007a6017d3a8fdef73bb",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-026",
+      "source_file_instance_id": "ffb267d0dfbcbbd9",
+      "page_number": 5,
+      "printed_page_label": "Page 5 of 8",
+      "section": "table",
+      "section_raw": "Table 2 – AOA Sensors",
+      "clause_path": null,
+      "exact_quote": "EASA AD No.: 2015-0135R3 Airbus SB A320-34-1415 Revision 03, or with Thales P/N C16291AB AOA sensors, in accordance with the instructions of Airbus SB A320-34-1415 Revision 03. Conditional Credit: (14) An aeroplane with Airbus mod 150006 (installation of Thales P/N C16291AB AOA sensors) but without mod 26934 (installation of UTAS P/N 0861ED AOA sensors) embodied in production is not affected by the requirements of paragraphs (10) through (13) of this AD, provided it is determined that no AOA sensor having a P/N as listed in Table 2 of this AD has been installed on that aeroplane since its date of manufacture. Terminating Actions: (15) Modification of an aeroplane by replacing each Thales P/N C16291AA AOA sensor with a Thales P/N C16291AB AOA sensor in accordance with the instructions of Airbus SB A320-34-1444 constitutes terminating action for the repetitive functional heating tests as required by paragraph (12) of this AD for that aeroplane. Parts Installation: (16) For an aeroplane on which only Thales P/N C16291AB AOA sensors are installed, from 01 June 2015 [the effective date of EASA AD 2015-0087], or after optional modification of the aeroplane as specified in paragraph (15) of this AD, as applicable, do not install a Thales P/N C16291AA AOA sensor on that aeroplane. (17) For an aeroplane on which Thales P/N C16291AA and/or Thales P/N C16291AB AOA sensors are installed, from 01 June 2015 [the effective date of EASA AD 2015-0087], or after modification of the aeroplane as required by paragraph (11) of this AD, as applicable, do not install any AOA sensor with a P/N as listed in Table 2 of this AD on that aeroplane. (18) After modification of an aeroplane as required by paragraph (10) of this AD, do not install any AOA sensor with a P/N as listed in Table 2 of this AD on that aeroplane, with the exception that it remains allowed to install a UTAS P/N 0861ED AOA sensor in the standby position of that aeroplane. Table 2 – AOA Sensors AOA Sensor Manufacturer P/N SEXTANT/THOMSON 45150320 16990568 UTAS (formerly Goodrich) 0861ED 0861ED2 (19) Installation of AOA sensors having a P/N approved after 01 June 2015 [the effective date of EASA AD 2015-0087] is equal to compliance with the requirements of paragraph (10) or (11) of this AD, as applicable, provided the conditions as specified in paragraphs (19.1) and (19.2) of this AD are met. (19.1) The AOA sensor P/N must be approved by EASA, or approved under Airbus DOA; and TE.CAP.00110-006 © European Aviation Safety Agency. All rights reserved. ISO9001 Certified. Page 5 of 8 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet. An agency of the European Union",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "a349e18482999fd8d8a0747fc3bd3a0779798b5485f2007a6017d3a8fdef73bb",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": {
+        "table_label": "Table 2 – AOA Sensors",
+        "row_headers": [
+          "SEXTANT/THOMSON",
+          "UTAS (formerly Goodrich)"
+        ],
+        "column_headers": [
+          "AOA Sensor Manufacturer",
+          "P/N"
+        ],
+        "footnotes": []
+      },
+      "annotation_note": "Full page retained to preserve the four prohibited sensor P/N values."
+    },
+    {
+      "evidence_id": "EV-027",
+      "source_file_instance_id": "ffb267d0dfbcbbd9",
+      "page_number": 5,
+      "printed_page_label": "Page 5 of 8",
+      "section": "required_actions_and_compliance_times",
+      "section_raw": "Parts Installation",
+      "clause_path": "(19)-(19.1), page 1 of 2",
+      "exact_quote": "(19) Installation of AOA sensors having a P/N approved after 01 June 2015 [the effective date of EASA AD 2015-0087] is equal to compliance with the requirements of paragraph (10) or (11) of this AD, as applicable, provided the conditions as specified in paragraphs (19.1) and (19.2) of this AD are met. (19.1) The AOA sensor P/N must be approved by EASA, or approved under Airbus DOA; and TE.CAP.00110-006 © European Aviation Safety Agency. All rights reserved. ISO9001 Certified. Page 5 of 8 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet. An agency of the European Union",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "a349e18482999fd8d8a0747fc3bd3a0779798b5485f2007a6017d3a8fdef73bb",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": "Exact native-text first part through the page boundary; paragraph (19.2) continues on page 6."
+    },
+    {
+      "evidence_id": "EV-028",
+      "source_file_instance_id": "ffb267d0dfbcbbd9",
+      "page_number": 6,
+      "printed_page_label": "Page 6 of 8",
+      "section": "required_actions_and_compliance_times",
+      "section_raw": "Parts Installation",
+      "clause_path": "(19.2)",
+      "exact_quote": "(19.2) The installation must be accomplished in accordance with aeroplane modification instructions approved by EASA, or approved under Airbus DOA.",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "f0aa67f613ac40982408856bf8b5a10cd5fc4fc2aba4b6314570afc48c17a513",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-029",
+      "source_file_instance_id": "ffb267d0dfbcbbd9",
+      "page_number": 6,
+      "printed_page_label": "Page 6 of 8",
+      "section": "required_actions_and_compliance_times",
+      "section_raw": "AFM Amendment",
+      "clause_path": "(20)",
+      "exact_quote": "(20) For an aeroplane fitted with an ELAC configuration as identified in Table 3 of this AD, or later, and with an AOA sensors configuration as identified in Table 4 of this AD, or as identified in paragraph (19) of this AD, as applicable, it is allowed to amend the applicable AFM by removing the copy of Airbus AFM A320 TR 502 “Abnormal V alpha Prot”, issue 1, or the copy of Appendix 1 of AD 2015-0135, as applicable, previously inserted in the AFM as required by paragraph (8) of this AD for that aeroplane. After amendment of the AFM, inform all flight crews and operate the aeroplane accordingly. Table 3 – Minimum ELAC Configuration Aeroplane ELAC P/N Configuration introduced by: applicability Airbus mod Airbus SB A320 3945129109 (L97+) 156546 A320-27-1243 3945128215 (L97+) 156550 A320-27-1244 A318/A319/A321 3945129111 (L99) 161843 A320-27-1263 3945128217 (L99) 159979 A320-27-1264 Table 4 – AOA Sensor Installation configurations AOA Sensor P/N AOA Sensor P/N AOA Sensor P/N - Standby - Pilot - First Officer C16291AA or C16291AA or C16291AA, C16291AB, 0861ED or C16291AB C16291AB 0861ED2 TE.CAP.00110-006 © European Aviation Safety Agency. All rights reserved. ISO9001 Certified. Page 6 of 8 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet. An agency of the European Union",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "f0aa67f613ac40982408856bf8b5a10cd5fc4fc2aba4b6314570afc48c17a513",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-030",
+      "source_file_instance_id": "ffb267d0dfbcbbd9",
+      "page_number": 6,
+      "printed_page_label": "Page 6 of 8",
+      "section": "table",
+      "section_raw": "Tables 3 and 4 – Minimum ELAC and AOA Sensor Installation Configurations",
+      "clause_path": null,
+      "exact_quote": "EASA AD No.: 2015-0135R3 (19.2) The installation must be accomplished in accordance with aeroplane modification instructions approved by EASA, or approved under Airbus DOA. AFM Amendment: (20) For an aeroplane fitted with an ELAC configuration as identified in Table 3 of this AD, or later, and with an AOA sensors configuration as identified in Table 4 of this AD, or as identified in paragraph (19) of this AD, as applicable, it is allowed to amend the applicable AFM by removing the copy of Airbus AFM A320 TR 502 “Abnormal V alpha Prot”, issue 1, or the copy of Appendix 1 of AD 2015-0135, as applicable, previously inserted in the AFM as required by paragraph (8) of this AD for that aeroplane. After amendment of the AFM, inform all flight crews and operate the aeroplane accordingly. Table 3 – Minimum ELAC Configuration Aeroplane ELAC P/N Configuration introduced by: applicability Airbus mod Airbus SB A320 3945129109 (L97+) 156546 A320-27-1243 3945128215 (L97+) 156550 A320-27-1244 A318/A319/A321 3945129111 (L99) 161843 A320-27-1263 3945128217 (L99) 159979 A320-27-1264 Table 4 – AOA Sensor Installation configurations AOA Sensor P/N AOA Sensor P/N AOA Sensor P/N - Standby - Pilot - First Officer C16291AA or C16291AA or C16291AA, C16291AB, 0861ED or C16291AB C16291AB 0861ED2 TE.CAP.00110-006 © European Aviation Safety Agency. All rights reserved. ISO9001 Certified. Page 6 of 8 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet. An agency of the European Union",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "f0aa67f613ac40982408856bf8b5a10cd5fc4fc2aba4b6314570afc48c17a513",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": {
+        "table_label": "Tables 3 and 4 – Minimum ELAC and AOA Sensor Installation Configurations",
+        "row_headers": [
+          "A320",
+          "A318/A319/A321",
+          "AOA sensor installation configuration"
+        ],
+        "column_headers": [
+          "Aeroplane applicability",
+          "ELAC P/N",
+          "Configuration introduced by Airbus mod/SB",
+          "Pilot / First Officer / Standby AOA sensor P/N"
+        ],
+        "footnotes": []
+      },
+      "annotation_note": "Full page retained because AFM-removal eligibility depends jointly on the ELAC and AOA configurations."
+    },
+    {
+      "evidence_id": "EV-031",
+      "source_file_instance_id": "ffb267d0dfbcbbd9",
+      "page_number": 7,
+      "printed_page_label": "Page 7 of 8",
+      "section": "reference_publications",
+      "section_raw": "Ref. Publications",
+      "clause_path": null,
+      "exact_quote": "Ref. Publications: Airbus OIT 999.0015/15 Revision 01 dated 29 June 2015. Airbus SB A320-34-1415 Revision 03 dated 08 July 2010, or Revision 04 dated 30 July 2015. Airbus SB A320-34-1444 original issue dated 07 October 2009, or Revision 01 dated 17 March 2011. Airbus SB A320-34-1452 original issue dated 29 January 2010, or Revision 01 dated 16 September 2013. Airbus SB A320-34-1564 original issue dated 25 January 2013, or Revision 01 dated 26 August 2013. Airbus SB A320-34-1610 original issue dated 31 March 2015, or Revision 01 dated 30 July 2015. Thales SB C16291A-34-007 Revision 01 dated 03 December 2009, or Revision 02 dated 16 December 2011, or Revision 03 dated 10 April 2012, or Revision 04 dated 11 October 2012. Thales SB C16291A-34-009 original issue dated 10 September 2009, or Revision 01 dated 07 January 2010. Airbus AFM A320 TR 502 issue 1, EASA approved 05 December 2014. The use of later approved revisions of the above mentioned documents is acceptable for compliance with the requirements of this AD.",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "2cfe9a5819952b6f0301dc6b7732cc3db4c9910db7626267f70310296023d487",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-032",
+      "source_file_instance_id": "ffb267d0dfbcbbd9",
+      "page_number": 7,
+      "printed_page_label": "Page 7 of 8",
+      "section": "remarks",
+      "section_raw": "Remarks",
+      "clause_path": null,
+      "exact_quote": "Remarks: 1. If requested and appropriately substantiated, EASA can approve Alternative Methods of Compliance for this AD. 2. Based on the required actions and the compliance time, EASA have decided to issue a Final AD with Request for Comments, postponing the public consultation process until after publication. 3. Enquiries regarding this AD should be referred to the Safety Information Section, Certification Directorate, EASA. E-mail: ADs@easa.europa.eu. 4. For any question concerning the technical content of the requirements in this AD, please contact: AIRBUS – Airworthiness Office – EIAS; Fax +33 5 61 93 44 51; E-mail: account.airworth-eas@airbus.com. TE.CAP.00110-006 © European Aviation Safety Agency. All rights reserved. ISO9001 Certified. Page 7 of 8 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet. An agency of the European Union",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "2cfe9a5819952b6f0301dc6b7732cc3db4c9910db7626267f70310296023d487",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-033",
+      "source_file_instance_id": "ffb267d0dfbcbbd9",
+      "page_number": 8,
+      "printed_page_label": "Page 8 of 8",
+      "section": "appendix",
+      "section_raw": "Appendix 1 – AFM Procedure",
+      "clause_path": null,
+      "exact_quote": "Appendix 1 – AFM Procedure. At any time, with a speed above VLS, if the aircraft goes to a continuous nose down pitch rate that cannot be stopped with backward sidestick inputs, immediately: Keep on one ADR. Turn off two ADRs. If the Alpha Max strip (red) hides completely the Alpha Prot strip (black and amber) in a stabilized wings-level flight path, keep on one ADR and turn off two ADRs. If the Alpha Prot strip (black and amber) rapidly moves by more than 30 kt during flight manoeuvres, with AP ON and speed brakes retracted, keep on one ADR and turn off two ADRs. In case of dispatch with one ADR inoperative, switch only one ADR to OFF. Caution: Risk of erroneous display of the VSW strip (red and black). Consider using the Flight Path Vector (FPV).",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "56ce14a7161386b11374a849a808bbd0ed2e698583671bead2d8caa72d76b2ef",
+      "bbox_normalized": null,
+      "extraction_method": "visual_transcription",
+      "quality": "visual_transcription",
+      "table_context": null,
+      "annotation_note": "Visually transcribed from the embedded yellow AFM-procedure image on rendered page 8; native PDF text contains only the appendix heading."
+    }
+  ],
+  "field_assertions": [
+    {
+      "assertion_id": "AST-001",
+      "field_path": "/ad_identity",
+      "value_state": "present",
+      "origin": "human_annotated",
+      "verification_status": "accepted",
+      "confidence": null,
+      "evidence_ids": [
+        "EV-001"
+      ],
+      "annotator_id": "human-reviewer-1",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Human reviewer accepted this substantive section against the canonical PDF."
+    },
+    {
+      "assertion_id": "AST-002",
+      "field_path": "/publication",
+      "value_state": "present",
+      "origin": "human_annotated",
+      "verification_status": "accepted",
+      "confidence": null,
+      "evidence_ids": [
+        "EV-002",
+        "EV-001"
+      ],
+      "annotator_id": "human-reviewer-1",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Human reviewer accepted this substantive section against the canonical PDF."
+    },
+    {
+      "assertion_id": "AST-003",
+      "field_path": "/applicability_groups",
+      "value_state": "present",
+      "origin": "human_annotated",
+      "verification_status": "accepted",
+      "confidence": null,
+      "evidence_ids": [
+        "EV-003",
+        "EV-017"
+      ],
+      "annotator_id": "human-reviewer-1",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Human reviewer accepted this substantive section against the canonical PDF."
+    },
+    {
+      "assertion_id": "AST-004",
+      "field_path": "/definitions",
+      "value_state": "absent_in_source",
+      "origin": "human_annotated",
+      "verification_status": "accepted",
+      "confidence": null,
+      "evidence_ids": [],
+      "annotator_id": "human-reviewer-1",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Human reviewer accepted this substantive section against the canonical PDF."
+    },
+    {
+      "assertion_id": "AST-005",
+      "field_path": "/requirements",
+      "value_state": "present",
+      "origin": "human_annotated",
+      "verification_status": "accepted",
+      "confidence": null,
+      "evidence_ids": [
+        "EV-006",
+        "EV-007",
+        "EV-009",
+        "EV-010",
+        "EV-012",
+        "EV-013",
+        "EV-033",
+        "EV-014",
+        "EV-015",
+        "EV-017",
+        "EV-016",
+        "EV-018",
+        "EV-019",
+        "EV-020",
+        "EV-022",
+        "EV-023",
+        "EV-024",
+        "EV-026",
+        "EV-025",
+        "EV-027",
+        "EV-028",
+        "EV-029",
+        "EV-030"
+      ],
+      "annotator_id": "human-reviewer-1",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Human reviewer accepted this substantive section against the canonical PDF."
+    },
+    {
+      "assertion_id": "AST-006",
+      "field_path": "/exceptions",
+      "value_state": "present",
+      "origin": "human_annotated",
+      "verification_status": "accepted",
+      "confidence": null,
+      "evidence_ids": [
+        "EV-007",
+        "EV-009",
+        "EV-025"
+      ],
+      "annotator_id": "human-reviewer-1",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Human reviewer accepted this substantive section against the canonical PDF."
+    },
+    {
+      "assertion_id": "AST-007",
+      "field_path": "/previous_action_credit",
+      "value_state": "present",
+      "origin": "human_annotated",
+      "verification_status": "accepted",
+      "confidence": null,
+      "evidence_ids": [
+        "EV-008",
+        "EV-011",
+        "EV-021"
+      ],
+      "annotator_id": "human-reviewer-1",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Human reviewer accepted this substantive section against the canonical PDF."
+    },
+    {
+      "assertion_id": "AST-008",
+      "field_path": "/referenced_publications",
+      "value_state": "present",
+      "origin": "human_annotated",
+      "verification_status": "accepted",
+      "confidence": null,
+      "evidence_ids": [
+        "EV-005",
+        "EV-031",
+        "EV-018",
+        "EV-019",
+        "EV-020",
+        "EV-016",
+        "EV-022",
+        "EV-006",
+        "EV-007",
+        "EV-010",
+        "EV-015",
+        "EV-009",
+        "EV-013",
+        "EV-029",
+        "EV-033",
+        "EV-030"
+      ],
+      "annotator_id": "human-reviewer-1",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Human reviewer accepted this substantive section against the canonical PDF."
+    },
+    {
+      "assertion_id": "AST-009",
+      "field_path": "/relationships",
+      "value_state": "present",
+      "origin": "human_annotated",
+      "verification_status": "accepted",
+      "confidence": null,
+      "evidence_ids": [
+        "EV-001"
+      ],
+      "annotator_id": "human-reviewer-1",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Human reviewer accepted this substantive section against the canonical PDF."
+    },
+    {
+      "assertion_id": "AST-010",
+      "field_path": "/amoc_and_contacts",
+      "value_state": "present",
+      "origin": "human_annotated",
+      "verification_status": "accepted",
+      "confidence": null,
+      "evidence_ids": [
+        "EV-032"
+      ],
+      "annotator_id": "human-reviewer-1",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Human reviewer accepted this substantive section against the canonical PDF."
+    },
+    {
+      "assertion_id": "AST-011",
+      "field_path": "/ad_identity/ad_number",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.995,
+      "evidence_ids": [
+        "EV-001"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Cover identity"
+    },
+    {
+      "assertion_id": "AST-012",
+      "field_path": "/ad_identity/supersedure_statement",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.99,
+      "evidence_ids": [
+        "EV-001"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Printed status field"
+    },
+    {
+      "assertion_id": "AST-013",
+      "field_path": "/publication/issue_date",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.995,
+      "evidence_ids": [
+        "EV-001"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Printed issue date"
+    },
+    {
+      "assertion_id": "AST-014",
+      "field_path": "/publication/effective_date",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.995,
+      "evidence_ids": [
+        "EV-001"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Printed effective date"
+    },
+    {
+      "assertion_id": "AST-015",
+      "field_path": "/publication/subject",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.99,
+      "evidence_ids": [
+        "EV-002"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Printed ATA subject"
+    },
+    {
+      "assertion_id": "AST-016",
+      "field_path": "/applicability_groups/0",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-003"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "applicability_groups"
+    },
+    {
+      "assertion_id": "AST-017",
+      "field_path": "/applicability_groups/1",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-003",
+        "EV-017"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "applicability_groups"
+    },
+    {
+      "assertion_id": "AST-018",
+      "field_path": "/applicability_groups/2",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-003",
+        "EV-017"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "applicability_groups"
+    },
+    {
+      "assertion_id": "AST-019",
+      "field_path": "/requirements/0",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.94,
+      "evidence_ids": [
+        "EV-006"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "requirements"
+    },
+    {
+      "assertion_id": "AST-020",
+      "field_path": "/requirements/1",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.94,
+      "evidence_ids": [
+        "EV-007"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "requirements"
+    },
+    {
+      "assertion_id": "AST-021",
+      "field_path": "/requirements/2",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.94,
+      "evidence_ids": [
+        "EV-009"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "requirements"
+    },
+    {
+      "assertion_id": "AST-022",
+      "field_path": "/requirements/3",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.94,
+      "evidence_ids": [
+        "EV-010"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "requirements"
+    },
+    {
+      "assertion_id": "AST-023",
+      "field_path": "/requirements/4",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.94,
+      "evidence_ids": [
+        "EV-012"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "requirements"
+    },
+    {
+      "assertion_id": "AST-024",
+      "field_path": "/requirements/5",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.94,
+      "evidence_ids": [
+        "EV-012"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "requirements"
+    },
+    {
+      "assertion_id": "AST-025",
+      "field_path": "/requirements/6",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.94,
+      "evidence_ids": [
+        "EV-013",
+        "EV-033"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "requirements"
+    },
+    {
+      "assertion_id": "AST-026",
+      "field_path": "/requirements/7",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.94,
+      "evidence_ids": [
+        "EV-014",
+        "EV-033"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "requirements"
+    },
+    {
+      "assertion_id": "AST-027",
+      "field_path": "/requirements/8",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.94,
+      "evidence_ids": [
+        "EV-015",
+        "EV-017"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "requirements"
+    },
+    {
+      "assertion_id": "AST-028",
+      "field_path": "/requirements/9",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.94,
+      "evidence_ids": [
+        "EV-016",
+        "EV-017"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "requirements"
+    },
+    {
+      "assertion_id": "AST-029",
+      "field_path": "/requirements/10",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.94,
+      "evidence_ids": [
+        "EV-018"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "requirements"
+    },
+    {
+      "assertion_id": "AST-030",
+      "field_path": "/requirements/11",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.94,
+      "evidence_ids": [
+        "EV-019",
+        "EV-020"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "requirements"
+    },
+    {
+      "assertion_id": "AST-031",
+      "field_path": "/requirements/12",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.94,
+      "evidence_ids": [
+        "EV-022"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "requirements"
+    },
+    {
+      "assertion_id": "AST-032",
+      "field_path": "/requirements/13",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.94,
+      "evidence_ids": [
+        "EV-023"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "requirements"
+    },
+    {
+      "assertion_id": "AST-033",
+      "field_path": "/requirements/14",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.94,
+      "evidence_ids": [
+        "EV-024",
+        "EV-026"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "requirements"
+    },
+    {
+      "assertion_id": "AST-034",
+      "field_path": "/requirements/15",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.94,
+      "evidence_ids": [
+        "EV-025",
+        "EV-026"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "requirements"
+    },
+    {
+      "assertion_id": "AST-035",
+      "field_path": "/requirements/16",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.94,
+      "evidence_ids": [
+        "EV-027",
+        "EV-028"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "requirements"
+    },
+    {
+      "assertion_id": "AST-036",
+      "field_path": "/requirements/17",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.94,
+      "evidence_ids": [
+        "EV-029",
+        "EV-030"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "requirements"
+    },
+    {
+      "assertion_id": "AST-037",
+      "field_path": "/requirements/18",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.94,
+      "evidence_ids": [
+        "EV-029",
+        "EV-033"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "requirements"
+    },
+    {
+      "assertion_id": "AST-038",
+      "field_path": "/exceptions/0",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-007"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "exceptions"
+    },
+    {
+      "assertion_id": "AST-039",
+      "field_path": "/exceptions/1",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-009"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "exceptions"
+    },
+    {
+      "assertion_id": "AST-040",
+      "field_path": "/exceptions/2",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-025"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "exceptions"
+    },
+    {
+      "assertion_id": "AST-041",
+      "field_path": "/previous_action_credit/0",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-008"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "previous_action_credit"
+    },
+    {
+      "assertion_id": "AST-042",
+      "field_path": "/previous_action_credit/1",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-011"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "previous_action_credit"
+    },
+    {
+      "assertion_id": "AST-043",
+      "field_path": "/previous_action_credit/2",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-021"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "previous_action_credit"
+    },
+    {
+      "assertion_id": "AST-044",
+      "field_path": "/referenced_publications/0",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-005",
+        "EV-031"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "referenced_publications"
+    },
+    {
+      "assertion_id": "AST-045",
+      "field_path": "/referenced_publications/1",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-018",
+        "EV-019",
+        "EV-020",
+        "EV-031"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "referenced_publications"
+    },
+    {
+      "assertion_id": "AST-046",
+      "field_path": "/referenced_publications/2",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-031"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "referenced_publications"
+    },
+    {
+      "assertion_id": "AST-047",
+      "field_path": "/referenced_publications/3",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-016",
+        "EV-022",
+        "EV-031"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "referenced_publications"
+    },
+    {
+      "assertion_id": "AST-048",
+      "field_path": "/referenced_publications/4",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-031"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "referenced_publications"
+    },
+    {
+      "assertion_id": "AST-049",
+      "field_path": "/referenced_publications/5",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-006",
+        "EV-007",
+        "EV-031"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "referenced_publications"
+    },
+    {
+      "assertion_id": "AST-050",
+      "field_path": "/referenced_publications/6",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-031"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "referenced_publications"
+    },
+    {
+      "assertion_id": "AST-051",
+      "field_path": "/referenced_publications/7",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-010",
+        "EV-031"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "referenced_publications"
+    },
+    {
+      "assertion_id": "AST-052",
+      "field_path": "/referenced_publications/8",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-031"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "referenced_publications"
+    },
+    {
+      "assertion_id": "AST-053",
+      "field_path": "/referenced_publications/9",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-015",
+        "EV-031"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "referenced_publications"
+    },
+    {
+      "assertion_id": "AST-054",
+      "field_path": "/referenced_publications/10",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-031"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "referenced_publications"
+    },
+    {
+      "assertion_id": "AST-055",
+      "field_path": "/referenced_publications/11",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-007",
+        "EV-009",
+        "EV-031"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "referenced_publications"
+    },
+    {
+      "assertion_id": "AST-056",
+      "field_path": "/referenced_publications/12",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-031"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "referenced_publications"
+    },
+    {
+      "assertion_id": "AST-057",
+      "field_path": "/referenced_publications/13",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-031"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "referenced_publications"
+    },
+    {
+      "assertion_id": "AST-058",
+      "field_path": "/referenced_publications/14",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-006",
+        "EV-007",
+        "EV-009",
+        "EV-031"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "referenced_publications"
+    },
+    {
+      "assertion_id": "AST-059",
+      "field_path": "/referenced_publications/15",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-031"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "referenced_publications"
+    },
+    {
+      "assertion_id": "AST-060",
+      "field_path": "/referenced_publications/16",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-009",
+        "EV-031"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "referenced_publications"
+    },
+    {
+      "assertion_id": "AST-061",
+      "field_path": "/referenced_publications/17",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-013",
+        "EV-029",
+        "EV-033",
+        "EV-031"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "referenced_publications"
+    },
+    {
+      "assertion_id": "AST-062",
+      "field_path": "/referenced_publications/18",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-029",
+        "EV-030"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "referenced_publications"
+    },
+    {
+      "assertion_id": "AST-063",
+      "field_path": "/referenced_publications/19",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-029",
+        "EV-030"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "referenced_publications"
+    },
+    {
+      "assertion_id": "AST-064",
+      "field_path": "/referenced_publications/20",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-029",
+        "EV-030"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "referenced_publications"
+    },
+    {
+      "assertion_id": "AST-065",
+      "field_path": "/referenced_publications/21",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-029",
+        "EV-030"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "referenced_publications"
+    },
+    {
+      "assertion_id": "AST-066",
+      "field_path": "/relationships/0",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-001"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "relationships"
+    },
+    {
+      "assertion_id": "AST-067",
+      "field_path": "/relationships/1",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-001"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "relationships"
+    },
+    {
+      "assertion_id": "AST-068",
+      "field_path": "/amoc_and_contacts/0",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-032"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "amoc_and_contacts"
+    },
+    {
+      "assertion_id": "AST-069",
+      "field_path": "/amoc_and_contacts/1",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-032"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "amoc_and_contacts"
+    },
+    {
+      "assertion_id": "AST-070",
+      "field_path": "/amoc_and_contacts/2",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-032"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "amoc_and_contacts"
+    },
+    {
+      "assertion_id": "AST-071",
+      "field_path": "/unsafe_condition",
+      "value_state": "present",
+      "origin": "human_annotated",
+      "verification_status": "accepted",
+      "confidence": null,
+      "evidence_ids": [
+        "EV-004",
+        "EV-005"
+      ],
+      "annotator_id": "human-reviewer-1",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Human reviewer accepted this substantive section against the canonical PDF."
+    },
+    {
+      "assertion_id": "AST-072",
+      "field_path": "/classification",
+      "value_state": "present",
+      "origin": "human_annotated",
+      "verification_status": "accepted",
+      "confidence": null,
+      "evidence_ids": [
+        "EV-002",
+        "EV-003",
+        "EV-006",
+        "EV-007",
+        "EV-009",
+        "EV-010",
+        "EV-012",
+        "EV-013",
+        "EV-015",
+        "EV-016",
+        "EV-017",
+        "EV-018",
+        "EV-019",
+        "EV-020",
+        "EV-022",
+        "EV-023",
+        "EV-024",
+        "EV-025",
+        "EV-026",
+        "EV-027",
+        "EV-028",
+        "EV-029",
+        "EV-030",
+        "EV-033"
+      ],
+      "annotator_id": "human-reviewer-1",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Human reviewer accepted this substantive section against the canonical PDF."
+    },
+    {
+      "assertion_id": "AST-073",
+      "field_path": "/publication/type_model_designations",
+      "value_state": "present",
+      "origin": "human_annotated",
+      "verification_status": "accepted",
+      "confidence": null,
+      "evidence_ids": [
+        "EV-001",
+        "EV-002"
+      ],
+      "annotator_id": "human-reviewer-1",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Human reviewer accepted this normalized publication value against the canonical PDF."
+    },
+    {
+      "assertion_id": "AST-074",
+      "field_path": "/publication/tcds_numbers",
+      "value_state": "present",
+      "origin": "human_annotated",
+      "verification_status": "accepted",
+      "confidence": null,
+      "evidence_ids": [
+        "EV-001",
+        "EV-002"
+      ],
+      "annotator_id": "human-reviewer-1",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Human reviewer accepted this normalized publication value against the canonical PDF."
+    }
+  ],
+  "annotation_metadata": {
+    "guideline_version": "1.0.0",
+    "record_status": "approved",
+    "creation_method": "manual",
+    "machine_provenance": {
+      "system": "OpenAI Codex",
+      "model": "GPT-5",
+      "prompt_or_rules_version": "step2-guidelines-1.0.0-manual-pass-a3",
+      "generated_at": "2026-07-22T11:53:23Z"
+    },
+    "annotators": [
+      {
+        "annotator_id": "codex-a3",
+        "role": "annotator",
+        "started_at": "2026-07-22T11:45:00Z",
+        "submitted_at": "2026-07-22T12:45:00Z"
+      },
+      {
+        "annotator_id": "codex-source-audit",
+        "role": "reviewer",
+        "started_at": "2026-07-28T12:27:04Z",
+        "submitted_at": "2026-07-28T12:27:04Z"
+      },
+      {
+        "annotator_id": "human-reviewer-1",
+        "role": "reviewer",
+        "started_at": "2026-07-29T10:52:34Z",
+        "submitted_at": "2026-07-29T10:52:34Z"
+      }
+    ],
+    "events": [
+      {
+        "event_type": "created",
+        "actor_id": "codex-a3",
+        "timestamp": "2026-07-22T11:45:00Z",
+        "rationale": "Blind first-pass annotation from the source PDF and blind packet."
+      },
+      {
+        "event_type": "submitted",
+        "actor_id": "codex-a3",
+        "timestamp": "2026-07-22T12:45:00Z",
+        "rationale": "First pass completed; no human review or approval claimed."
+      },
+      {
+        "event_type": "reviewed",
+        "actor_id": "codex-source-audit",
+        "timestamp": "2026-07-28T12:27:04Z",
+        "rationale": "Machine-only comparison against every rendered PDF page and frozen page text; source corrections were applied where required and human acceptance remains pending."
+      },
+      {
+        "event_type": "reviewed",
+        "actor_id": "human-reviewer-1",
+        "timestamp": "2026-07-29T10:52:34Z",
+        "rationale": "Independent human reviewer confirmed that the complete annotation was reviewed against the canonical PDF."
+      },
+      {
+        "event_type": "approved",
+        "actor_id": "human-reviewer-1",
+        "timestamp": "2026-07-29T10:52:34Z",
+        "rationale": "The user explicitly approved the finalized human-reviewed annotation for inclusion in the gold pilot."
+      }
+    ],
+    "quality_flags": [
+      "complex_table",
+      "complex_applicability",
+      "complex_compliance",
+      "cross_page_clause",
+      "visual_transcription_used"
+    ],
+    "uncertainty_flags": [],
+    "notes": [
+      "All source pages were visually rendered and checked; populated assertions were accepted by the independent human reviewer.",
+      "Machine source audit rechecked all eight rendered pages, Revision 3 identity, configuration logic, replacement and prohibition branches, AFM actions, credit, publications, and relationships; no source-semantic correction was required and all assertions were accepted by the independent human reviewer.",
+      "Independent human review and approval were recorded after comparison with the canonical PDF."
+    ],
+    "source_text_sha256": "7d2f1789ca7dcbac8a3dcf6f272ab71e16a3bb433a7d8001a17bf016f271b0aa",
+    "created_at": "2026-07-22T11:45:00Z",
+    "updated_at": "2026-07-29T10:52:34Z"
+  },
+  "benchmark_metadata": {
+    "split": "unassigned",
+    "split_group": "2015-0135",
+    "selection_strata": [],
+    "duplicate_cluster_ids": [],
+    "gold_record": true
+  }
+}

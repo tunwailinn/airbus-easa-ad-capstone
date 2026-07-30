@@ -1,0 +1,96 @@
+{
+  "framework_version": "1.0.0",
+  "project_root": "/Users/tunwailin/Documents/Capstone",
+  "artifact_states": [
+    "selected",
+    "source_verified",
+    "machine_first_pass",
+    "human_review_pending",
+    "human_review_in_progress",
+    "human_approved",
+    "gold_validated",
+    "gold_published"
+  ],
+  "scripts": [
+    {
+      "stage": "selection",
+      "path": "step3_extension_20_v1/select_extension.py",
+      "role": "Freeze the chosen AD membership and source identity.",
+      "reusability": "batch_specific",
+      "important_limit": "The selected AD list and expected count of 20 are hard-coded."
+    },
+    {
+      "stage": "source_retrieval",
+      "path": "step3_extension_20_v1/retrieve_extension_sources.py",
+      "role": "Retrieve official EASA PDFs, verify frozen hashes and page counts, and create page-level text.",
+      "reusability": "thin_batch_wrapper",
+      "delegates_to": "step3_pilot/retrieve_pilot_sources.py",
+      "important_limit": "The wrapper sets the expected count to 20."
+    },
+    {
+      "stage": "review_packet_preparation",
+      "path": "step3_extension_20_v1/prepare_extension_review_files.py",
+      "role": "Create blind and reviewer packets, identity-prefilled annotation drafts, queue copies, working copies, manifests, and checksums.",
+      "reusability": "batch_specific",
+      "delegates_to": "step3_pilot/prepare_annotation_packets.py",
+      "important_limit": "The expected count and no-supersedure policy are hard-coded."
+    },
+    {
+      "stage": "machine_first_pass",
+      "path": "step3_extension_20_v1/build_extracted_review_candidates.py",
+      "role": "Populate source-grounded candidate annotations and evidence spans from verified PDF text.",
+      "reusability": "batch_specific_extractor",
+      "important_limit": "Contains parsing rules and overrides tailored to the current 20 records; it must not be treated as a general extractor without regression tests."
+    },
+    {
+      "stage": "review_queue_publication",
+      "path": "step3_extension_20_v1/publish_extracted_review_candidates.py",
+      "role": "Publish byte-identical candidates to annotator_a, immutable review queue, and editable working folder; regenerate manifests.",
+      "reusability": "batch_specific",
+      "important_limit": "The expected count is hard-coded to 20."
+    },
+    {
+      "stage": "schema_and_semantic_validation",
+      "path": "step2_ad_schema/validate_annotations.py",
+      "role": "Validate JSON Schema, field semantics, cross-record rules, and strict gold approval rules.",
+      "reusability": "reusable",
+      "strict_only_after_human_approval": true
+    },
+    {
+      "stage": "evidence_validation",
+      "path": "step3_pilot/validate_evidence_quotes.py",
+      "role": "Verify exact quotes, page hashes, offsets, and source file identity against the frozen page-text cache.",
+      "reusability": "reusable"
+    },
+    {
+      "stage": "pilot_gold_validation",
+      "path": "step3_pilot/validate_step3_pilot.py",
+      "role": "Validate the frozen 30-record pilot design and its human-review provenance.",
+      "reusability": "pilot_only",
+      "important_limit": "Requires exactly 30 records, a 15 plus 15 cohort split, and at least 10 double annotations."
+    },
+    {
+      "stage": "versioned_gold_release_validation",
+      "path": "dataset_framework/validate_gold_release.py",
+      "role": "Reusable strict gate for any versioned release using its own frozen selection, source PDFs, and page-text cache.",
+      "reusability": "reusable"
+    }
+  ],
+  "authoritative_definition_files": [
+    "step2_ad_schema/easa_airbus_ad_annotation.schema.json",
+    "step2_ad_schema/annotation_guidelines.md",
+    "step2_ad_schema/controlled_vocabularies.json",
+    "step2_ad_schema/blank_ad_annotation.json"
+  ],
+  "audit_artifacts": [
+    "selection/*.json",
+    "selection/*.csv",
+    "selection/selected_sources.sha256",
+    "source_verification_report.json",
+    "source_verification_report.csv",
+    "packets/packet_inventory.json",
+    "human_review_queue/*manifest.csv",
+    "human_review_working/*manifest.csv",
+    "validation/*.json"
+  ]
+}

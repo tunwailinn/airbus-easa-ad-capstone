@@ -1,0 +1,128 @@
+{
+  "source_document": {
+    "file_instance_id": "3d05d4995d986ef5",
+    "file_name": "2021-0242__AD_2021-0242_2__EASA_AD_2021_0242.pdf"
+  },
+  "ad_identity": {
+    "ad_number": "2021-0242",
+    "base_ad_number": "2021-0242",
+    "revision_number": null,
+    "is_emergency": false,
+    "is_correction": false,
+    "correction_date": {
+      "value": null
+    },
+    "design_approval_holder": {
+      "value": null
+    },
+    "supersedure_statement": {
+      "state": "present",
+      "value": "This AD supersedes EASA AD 2016-0238 dated 02 December 2016, including its Correction dated 04 January 2017."
+    }
+  },
+  "publication": {
+    "subject": {
+      "value": "Fuselage – Door Stop Fitting Holes at Frame 66/68 – Inspection / Repair Manufacturer(s): Airbus, formerly Airbus Industrie"
+    },
+    "issue_date": {
+      "value": "2021-11-08"
+    },
+    "effective_date": {
+      "value": "2021-11-22"
+    },
+    "ata_chapters": [
+      {
+        "code": "53"
+      }
+    ],
+    "manufacturers": [
+      {
+        "raw_name": "Airbus, formerly Airbus Industrie",
+        "normalized_name": "Airbus"
+      }
+    ],
+    "type_model_designations": [
+      "A318",
+      "A318-111",
+      "A318-112",
+      "A318-121",
+      "A318-122",
+      "A318-PAX",
+      "A319",
+      "A319-111",
+      "A319-112",
+      "A319-113",
+      "A319-114",
+      "A319-115",
+      "A319-131",
+      "A319-132",
+      "A319-133",
+      "A319-PAX",
+      "A320",
+      "A320-00-1219",
+      "A320-211",
+      "A320-212",
+      "A320-214",
+      "A320-215",
+      "A320-216",
+      "A320-231",
+      "A320-232",
+      "A320-233",
+      "A320-53-1288",
+      "A320-53-1290",
+      "A320-57-1193",
+      "A321",
+      "A321-111",
+      "A321-112",
+      "A321-131",
+      "A321-211",
+      "A321-212",
+      "A321-213",
+      "A321-231",
+      "A321-232"
+    ],
+    "tcds_numbers": [
+      "EASA.A.064"
+    ]
+  },
+  "unsafe_condition": {
+    "state": "present",
+    "raw_reason_text": "During an A320 fatigue test campaign, it was determined that fatigue damage could appear in the affected areas. This condition, if not detected and corrected, could affect the structural integrity of the airframe. Two inspections were introduced through the Airworthiness Limitations Item (ALI) tasks 534129 and 534130. Since these ALI tasks were implemented, a significant number of reports was received concerning non-critical damage and early crack findings. Prompted by these reports, Airbus published SB A320-53-1288 (later revised) and the modification SB, providing instructions for inspection to improve damage management, and instructions for modification. Consequently, EASA issued AD 2016-0015, requiring repetitive rototest inspections of the affected areas and, depending on findings, repair of any cracked area(s). After that AD was issued, Airworthiness Limitation Section (ALS) Part 2 Revision 04 and later on Revision 05 were published, introducing updated thresholds and/or intervals for some tasks as specified in the inspection SB, introducing a new aeroplane configuration with RETRO WING, having embodied SB A320-57-1193 (mod 160080), and keeping the thr eshold or interval only in flight cycles (FC). ALI Task 534129 and ALI Task 534 130 were removed from ALS Part 2 at Revision 05. Consequently, EASA issued AD 2016-0238, retaining the requirement of EASA AD 2016 -0015, which was superseded, and requiring those actions within updated thresholds and intervals. Since that AD was issued, f ollowing operators’ occurrence reporting and new analysis, Airbus issued the inspection SB, as defined in this AD, to optimise thresholds and intervals accordingly. For the reasons described above, this AD retains the requirements of EASA AD 2016-0238, which is superseded, but requires the inspections at different thresholds and intervals."
+  },
+  "requirements": [
+    {
+      "raw_action_text": "Required as indicated, unless accomplished previously: Inspection(s): (1) Within the threshold as defined in Table 1 of this AD, depending on FC accumulated on the effective date of this AD and, thereafter, at intervals not to exceed 19 700 FC, accomplish a rototest inspection of each affected area in accordance with the instructions of the inspection SB. TE.CAP.00110-010 © European Union Aviation Safety Agency. All rights reserved. ISO9001 Certified. Page 2 of 6 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet. An agency of the European Union EASA AD No.: 2021-0242 Table 1 – Inspection Threshold Door Stop Fitting Holes (see Note 1 of this AD) Affected FC Accumulated on Area the effective date of Threshold(s) this AD 25 300 or less Before exceeding 25 300 FC, or within 4000 FC after the effective date of this AD, whichever occurs later more than 25 300, not Within 4000 FC after the effective date of this AD, FR66 web exceeding 39 000 without exceeding the threshold as defined in LH/RH Appendix 1 - Table 2 of this AD, as applicable Within 2000 FC after the effective date of this AD, more than 39 000 without exceeding the threshold as defined in Appendix 1 - Table 2 of this AD, as applicable 20 000 or less Before exceeding 20 000 FC, or within 4000 FC after the effective date of this AD, whichever occurs later more than 20 000, not Within 4000 FC after the effective date of this AD, FR68 web exceeding 33 700 without exceeding the threshold as defined in LH/RH Appendix 1 - Table 3 of this AD, as applicable Within 2000 FC after the effective date of this AD, more than 33 700 without exceeding the threshold as defined in Appendix 1 - Table 3 of this AD, as applicable Note 1: The FC specified in Table 1 of this AD are those accumulated by the aeroplane since first flight. Corrective Action(s): (2) If, during any inspection as required by paragraph (1) of this AD, a crack is detected and identified within the limit defined in the applicable Structural Repair Manual (SRM), before next flight, accomplish the applicable repair instructions and corrective action(s) in accordance with the applicable SRM. (3) If, during any inspection as required by paragraph (1) of this AD, a crack is detected and identified exceeding the limit defined in the applicable SRM, before next flight, contact Airbus for approved instructions for corrective action and accomplish those instructions accordingly. Credit: (4) Inspections on an aeroplane, accomplished before the effective date of this AD in accordance with the instructions of the inspection SB at original issue or Revision 01 or as per ALI 534129 or 534130 are acceptable to comply with the requirements of paragraph (1) of this AD for that aeroplane. (5) For an aeroplane that has been inspected per ALI task 534129 or ALI task 534130 or inspection SB at original issue or Revision 01, and repaired, before the effective date of this AD, in accordance with the instructions of the applicable SRM, or in accordance with instructions TE.CAP.00110-010 © European Union Aviation Safety Agency. All rights reserved. ISO9001 Certified. Page 3 of 6 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet. An agency of the European Union EASA AD No.: 2021-0242 approved by Airbus DOA, accomplish the actions as required by paragraph (5.1) or (5.2) of this AD (see note 2 of this AD): (5.1) Accomplish the next inspections for each repaired fastener hole in accordance with, and within the time period after repair, as specified in the SRM or in the Airbus DOA approved instructions, as applicable. (5.2) Within the compliance time as specified in paragraph (1) of this AD, as applicable, contact Airbus for approved instructions and accomplish those instructions accordingly. Note 2: For all fastener holes where no damage or cracks was detected (i.e. those not repaired), see paragraph (4) of this AD. (6) For an aeroplane that, before the effective date of this AD, has been repaired in an affected area, as defined in this AD, in accordance with instructions approved by Airbus DOA unrelated to ALI task 534129 or ALI task 534130 or the inspection SB, within the compliance time as specified in paragraph (1) of this AD, as applicable, contact Airbus for approved instructions and accomplish those instructions accordingly. Terminating Action: (7) Repair of a fastener hole at a door stop location of an aeroplane, and accomplishment of post repair instructions, as applicable, as required by paragraph (2) of this AD constitute terminating action for the repetitive inspections as required by paragraph (1) of this AD for that fastener hole. (8) Repair of a fastener hole at a door stop location of an aeroplane as required by paragraph (3) of this AD does not constitute terminating action for the repetitive inspections as required by paragraph (1) of this AD for that fastener hole, unless specified otherwise in the instructions provided by Airbus. (9) Modification in accordance with the instructions of the modification SB of a fastener hole at a door stop location, accomplished before next flight after an inspection as required by paragraph (1) of this AD where no damage or cracks was detected on that fastener hole, constitutes terminating action for the repetitive inspections of that fastener hole as required by paragraph (1) of this AD. (10) Modification of an affected area of an aeroplane in accordance with the instructions of the modification SB, accomplished before next flight after an inspection as required by paragraph (1) of this AD where no damage or cracks was detected on that affected area, constitutes terminating action for the repetitive inspections as required by paragraph (1) of this AD for that affected area of that aeroplane. (11) Accomplishment of inspection(s) and corrective actions on an aeroplane, as specified by paragraph (5.2) or (6) of this AD, as applicable, does not constitute terminating action for the repetitive inspections as required by paragraph (1) on the repaired hole for that aeroplane, unless specified otherwise in the instructions provided by Airbus. TE.CAP.00110-010 © European Union Aviation Safety Agency. All rights reserved. ISO9001 Certified. Page 4 of 6 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet. An agency of the European Union EASA AD No.: 2021-0242 (12) Accomplishment of inspection(s) and corrective actions on an aeroplane, as specified by paragraph (5.1) of this AD, as applicable, constitutes terminating action for the repetitive inspections as required by paragraph (1) on the repaired hole for that aeroplane.",
+      "action_types": [
+        "inspection",
+        "modification",
+        "repair"
+      ],
+      "compliance_rules": [
+        {
+          "raw_text": "Required as indicated, unless accomplished previously: Inspection(s): (1) Within the threshold as defined in Table 1 of this AD, depending on FC accumulated on the effective date of this AD and, thereafter, at intervals not to exceed 19 700 FC, accomplish a rototest inspection of each affected area in accordance with the instructions of the inspection SB. TE.CAP.00110-010 © European Union Aviation Safety Agency. All rights reserved. ISO9001 Certified. Page 2 of 6 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet. An agency of the European Union EASA AD No.: 2021-0242 Table 1 – Inspection Threshold Door Stop Fitting Holes (see Note 1 of this AD) Affected FC Accumulated on Area the effective date of Threshold(s) this AD 25 300 or less Before exceeding 25 300 FC, or within 4000 FC after the effective date of this AD, whichever occurs later more than 25 300, not Within 4000 FC after the effective date of this AD, FR66 web exceeding 39 000 without exceeding the threshold as defined in LH/RH Appendix 1 - Table 2 of this AD, as applicable Within 2000 FC after the effective date of this AD, more than 39 000 without exceeding the threshold as defined in Appendix 1 - Table 2 of this AD, as applicable 20 000 or less Before exceeding 20 000 FC, or within 4000 FC after the effective date of this AD, whichever occurs later more than 20 000, not Within 4000 FC after the effective date of this AD, FR68 web exceeding 33 700 without exceeding the threshold as defined in LH/RH Appendix 1 - Table 3 of this AD, as applicable Within 2000 FC after the effective date of this AD, more than 33 700 without exceeding the threshold as defined in Appendix 1 - Table 3 of this AD, as applicable Note 1: The FC specified in Table 1 of this AD are those accumulated by the aeroplane since first flight. Corrective Action(s): (2) If, during any inspection as required by paragraph (1) of this AD, a crack is detected and identified within the limit defined in the applicable Structural Repair Manual (SRM), before next flight, accomplish the applicable repair instructions and corrective action(s) in accordance with the applicable SRM. (3) If, during any inspection as required by paragraph (1) of this AD, a crack is detected and identified exceeding the limit defined in the applicable SRM, before next flight, contact Airbus for approved instructions for corrective action and accomplish those instructions accordingly. Credit: (4) Inspections on an aeroplane, accomplished before the effective date of this AD in accordance with the instructions of the inspection SB at original issue or Revision 01 or as per ALI 534129 or 534130 are acceptable to comply with the requirements of paragraph (1) of this AD for that aeroplane. (5) For an aeroplane that has been inspected per ALI task 534129 or ALI task 534130 or inspection SB at original issue or Revision 01, and repaired, before the effective date of this AD, in accordance with the instructions of the applicable SRM, or in accordance with instructions TE.CAP.00110-010 © European Union Aviation Safety Agency. All rights reserved. ISO9001 Certified. Page 3 of 6 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet. An agency of the European Union EASA AD No.: 2021-0242 approved by Airbus DOA, accomplish the actions as required by paragraph (5.1) or (5.2) of this AD (see note 2 of this AD): (5.1) Accomplish the next inspections for each repaired fastener hole in accordance with, and within the time period after repair, as specified in the SRM or in the Airbus DOA approved instructions, as applicable. (5.2) Within the compliance time as specified in paragraph (1) of this AD, as applicable, contact Airbus for approved instructions and accomplish those instructions accordingly. Note 2: For all fastener holes where no damage or cracks was detected (i.e. those not repaired), see paragraph (4) of this AD. (6) For an aeroplane that, before the effective date of this AD, has been repaired in an affected area, as defined in this AD, in accordance with instructions approved by Airbus DOA unrelated to ALI task 534129 or ALI task 534130 or the inspection SB, within the compliance time as specified in paragraph (1) of this AD, as applicable, contact Airbus for approved instructions and accomplish those instructions accordingly. Terminating Action: (7) Repair of a fastener hole at a door stop location of an aeroplane, and accomplishment of post repair instructions, as applicable, as required by paragraph (2) of this AD constitute terminating action for the repetitive inspections as required by paragraph (1) of this AD for that fastener hole. (8) Repair of a fastener hole at a door stop location of an aeroplane as required by paragraph (3) of this AD does not constitute terminating action for the repetitive inspections as required by paragraph (1) of this AD for that fastener hole, unless specified otherwise in the instructions provided by Airbus. (9) Modification in accordance with the instructions of the modification SB of a fastener hole at a door stop location, accomplished before next flight after an inspection as required by paragraph (1) of this AD where no damage or cracks was detected on that fastener hole, constitutes terminating action for the repetitive inspections of that fastener hole as required by paragraph (1) of this AD. (10) Modification of an affected area of an aeroplane in accordance with the instructions of the modification SB, accomplished before next flight after an inspection as required by paragraph (1) of this AD where no damage or cracks was detected on that affected area, constitutes terminating action for the repetitive inspections as required by paragraph (1) of this AD for that affected area of that aeroplane. (11) Accomplishment of inspection(s) and corrective actions on an aeroplane, as specified by paragraph (5.2) or (6) of this AD, as applicable, does not constitute terminating action for the repetitive inspections as required by paragraph (1) on the repaired hole for that aeroplane, unless specified otherwise in the instructions provided by Airbus. TE.CAP.00110-010 © European Union Aviation Safety Agency. All rights reserved. ISO9001 Certified. Page 4 of 6 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet. An agency of the European Union EASA AD No.: 2021-0242 (12) Accomplishment of inspection(s) and corrective actions on an aeroplane, as specified by paragraph (5.1) of this AD, as applicable, constitutes terminating action for the repetitive inspections as required by paragraph (1) on the repaired hole for that aeroplane."
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "relationship_type": "supersedes",
+      "target_ad_number": "2016-0238"
+    }
+  ],
+  "classification": {
+    "ata_chapters": [
+      "53"
+    ],
+    "action_types": [
+      "inspection",
+      "modification",
+      "repair"
+    ]
+  },
+  "prediction_metadata": {
+    "method": "regex_rules",
+    "rules_version": "regex_v1",
+    "input_page_count": 6
+  }
+}

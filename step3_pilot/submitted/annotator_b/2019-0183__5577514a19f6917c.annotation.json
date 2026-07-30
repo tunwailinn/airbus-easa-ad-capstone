@@ -1,0 +1,1214 @@
+{
+  "schema_version": "1.0.0",
+  "record_id": "adann-5577514a19f6917c",
+  "source_document": {
+    "file_instance_id": "5577514a19f6917c",
+    "content_id": "c00f2ba68574cd32",
+    "canonical_file_instance_id": "5577514a19f6917c",
+    "file_aliases": [],
+    "file_name": "2019-0183__AD_2019-0183_1__EASA_AD_2019_0183.pdf",
+    "relative_path": "2019-0183__AD_2019-0183_1__EASA_AD_2019_0183.pdf",
+    "file_sha256": "c00f2ba68574cd324b09588bb2ea67f510b806cd5e05fe58146c2bb90b1d0ddd",
+    "normalized_text_sha256": "e460b80b05dcd9c698e9f8d03479cbf1b3923b88cd1b70c74c4810d1101fd54c",
+    "page_count": 2,
+    "extraction_status": "ok",
+    "needs_ocr": false,
+    "manifest_review_flags": [],
+    "source_url": "https://ad.easa.europa.eu/blob/EASA_AD_2019_0183.pdf/AD_2019-0183_1",
+    "text_extraction_method": "native_text",
+    "exact_duplicate_group": null,
+    "near_duplicate_cluster": null
+  },
+  "ad_identity": {
+    "authority": "EASA",
+    "document_type": "airworthiness_directive",
+    "ad_number": "2019-0183",
+    "base_ad_number": "2019-0183",
+    "revision_number": 0,
+    "publication_kind": "standard_ad",
+    "is_emergency": false,
+    "is_correction": false,
+    "correction_date": {
+      "state": "not_stated",
+      "value": null,
+      "raw_text": null,
+      "evidence_ids": []
+    },
+    "version_label": "2019-0183",
+    "logical_version_key": "2019-0183|UNCORRECTED",
+    "is_latest_version": null,
+    "lifecycle_status": "unknown",
+    "design_approval_holder": {
+      "state": "present",
+      "value": "Airbus",
+      "raw_text": "AIRBUS",
+      "evidence_ids": [
+        "EV-002"
+      ]
+    },
+    "supersedure_statement": {
+      "state": "explicit_none",
+      "value": null,
+      "raw_text": "None",
+      "evidence_ids": [
+        "EV-003"
+      ]
+    },
+    "evidence_ids": [
+      "EV-001",
+      "EV-002",
+      "EV-003"
+    ]
+  },
+  "publication": {
+    "subject": {
+      "state": "present",
+      "value": "ATA 92 – Electric and Electronic Common Installation – Cargo Lining Gutter Assemblies – Modification",
+      "raw_text": "ATA 92 – Electric and Electronic Common Installation – Cargo Lining Gutter Assemblies – Modification",
+      "evidence_ids": [
+        "EV-004"
+      ]
+    },
+    "issue_date": {
+      "state": "present",
+      "value": "2019-07-26",
+      "raw_text": "26 July 2019",
+      "evidence_ids": [
+        "EV-001"
+      ]
+    },
+    "effective_date": {
+      "state": "present",
+      "value": "2019-08-09",
+      "raw_text": "09 August 2019",
+      "evidence_ids": [
+        "EV-003"
+      ]
+    },
+    "ata_chapters": [
+      {
+        "code": "92",
+        "title": "Electric and Electronic Common Installation",
+        "evidence_ids": [
+          "EV-004"
+        ]
+      }
+    ],
+    "manufacturers": [
+      {
+        "raw_name": "Airbus",
+        "normalized_name": "Airbus",
+        "role": "manufacturer",
+        "evidence_ids": [
+          "EV-005"
+        ]
+      }
+    ],
+    "type_model_designations": [
+      "A350"
+    ],
+    "tcds_numbers": [
+      "EASA.A.151"
+    ],
+    "foreign_ad": {
+      "state": "explicit_none",
+      "value": null,
+      "raw_text": "Not applicable",
+      "evidence_ids": [
+        "EV-003"
+      ]
+    }
+  },
+  "applicability_groups": [
+    {
+      "group_id": "APP-001",
+      "label": "A350-941 all MSNs excluding production modification 111827",
+      "state": "present",
+      "raw_text": "Airbus A350-941 aeroplanes, all manufacturer serial numbers, except those on which Airbus modification (mod) 111827 has been embodied in production.",
+      "aircraft_families": [
+        "A350"
+      ],
+      "models": [
+        "A350-941"
+      ],
+      "serial_restrictions": [
+        {
+          "restriction_id": "MSN-001",
+          "kind": "all",
+          "raw_expression": "all manufacturer serial numbers",
+          "lower_bound": null,
+          "upper_bound": null,
+          "explicit_values": [],
+          "condition": null,
+          "evidence_ids": [
+            "EV-006"
+          ]
+        }
+      ],
+      "part_numbers": [],
+      "configuration_conditions": [],
+      "exclusions": [
+        "Airbus modification 111827 embodied in production"
+      ],
+      "boolean_logic": "mixed",
+      "evidence_ids": [
+        "EV-006"
+      ]
+    }
+  ],
+  "definitions": [
+    {
+      "definition_id": "DEF-001",
+      "term": "The SB",
+      "definition_text": "Airbus Service Bulletin (SB) A350-92-P014.",
+      "evidence_ids": [
+        "EV-007"
+      ]
+    },
+    {
+      "definition_id": "DEF-002",
+      "term": "Airbus date of manufacture",
+      "definition_text": "The date of transfer of title (ownership) of the aeroplane upon delivery by Airbus to the first operator.",
+      "evidence_ids": [
+        "EV-008"
+      ]
+    }
+  ],
+  "unsafe_condition": {
+    "state": "present",
+    "raw_reason_text": "The cargo lining gutter assembly may be unable to drain water from a potable water distribution pipe leakage or rupture near the electronics bay entrance, creating overflow and water spillage. Fluid contamination of electrical equipment and connectors could cause loss of several flight-control functions and reduced control of the aeroplane.",
+    "observed_events_or_defects": [
+      "The cargo lining gutter assembly would not be able to correctly drain a certain quantity of water following a potable-water pipe leakage or rupture near the electronics bay entrance."
+    ],
+    "causes": [
+      "Insufficient cargo lining gutter drainage capacity for the stated potable-water leakage or rupture case."
+    ],
+    "unsafe_conditions": [
+      "Overflow and risk of water spillage during flight."
+    ],
+    "potential_consequences": [
+      "Fluid contamination of electrical equipment and connectors.",
+      "Loss of several flight-control functions with consequent reduced control of the aeroplane."
+    ],
+    "affected_components": [
+      "Cargo lining gutter assemblies",
+      "Components behind avionics racks 1100 VU and 1200 VU",
+      "PRIM, SEC1 and SEC2 related functions",
+      "Four pairs of spoilers and the left elevator"
+    ],
+    "intended_risk_mitigation": [
+      "Introduce a new drain gutter design with improved outlets on both sides."
+    ],
+    "evidence_ids": [
+      "EV-009",
+      "EV-010",
+      "EV-011"
+    ]
+  },
+  "requirements": [
+    {
+      "requirement_id": "REQ-001",
+      "paragraph_reference": "Modification",
+      "parent_requirement_id": null,
+      "applicability_group_ids": [
+        "APP-001"
+      ],
+      "action_types": [
+        "modification"
+      ],
+      "obligation": "mandatory",
+      "action_text": "Modify the cargo lining gutter assemblies in accordance with the instructions of the SB.",
+      "objects_or_components": [
+        "cargo lining gutter assemblies"
+      ],
+      "conditions": [],
+      "method_publication_ids": [
+        "PUB-001"
+      ],
+      "compliance_rules": [
+        {
+          "compliance_id": "CMP-001",
+          "state": "present",
+          "raw_text": "Before exceeding 80 months since Airbus date of manufacture.",
+          "logic": "single",
+          "conditions": [],
+          "initial_limits": [
+            {
+              "limit_id": "LIM-001",
+              "relation": "before",
+              "quantity": 80,
+              "unit": "calendar_month",
+              "raw_value": "Before exceeding 80 months",
+              "reference_event": "Airbus date of manufacture",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-012"
+              ]
+            }
+          ],
+          "is_repetitive": false,
+          "repetitive_intervals": [],
+          "grace_periods": [],
+          "evidence_ids": [
+            "EV-012"
+          ]
+        }
+      ],
+      "follow_on_requirement_ids": [],
+      "terminating_action": {
+        "state": "not_stated",
+        "present": false,
+        "scope": "none",
+        "action_text": null,
+        "terminates_requirement_ids": [],
+        "evidence_ids": []
+      },
+      "evidence_ids": [
+        "EV-012"
+      ]
+    }
+  ],
+  "exceptions": [],
+  "previous_action_credit": [],
+  "referenced_publications": [
+    {
+      "publication_id": "PUB-001",
+      "publication_type": "service_bulletin",
+      "issuer": "Airbus",
+      "number": "A350-92-P014",
+      "revision": "Original issue",
+      "publication_date": "2018-10-29",
+      "title": null,
+      "roles": [
+        "required_method"
+      ],
+      "later_approved_revisions_allowed": true,
+      "evidence_ids": [
+        "EV-013"
+      ]
+    }
+  ],
+  "relationships": [],
+  "amoc_and_contacts": [
+    {
+      "entry_id": "AMC-001",
+      "entry_type": "amoc_authority",
+      "authority_or_organization": "EASA",
+      "contact_text": "EASA can approve Alternative Methods of Compliance for this AD.",
+      "conditions": [
+        "Requested and appropriately substantiated"
+      ],
+      "evidence_ids": [
+        "EV-014"
+      ]
+    },
+    {
+      "entry_id": "AMC-002",
+      "entry_type": "regulatory_contact",
+      "authority_or_organization": "EASA Programming and Continued Airworthiness Information Section, Certification Directorate",
+      "contact_text": "ADs@easa.europa.eu",
+      "conditions": [
+        "Enquiries regarding this AD"
+      ],
+      "evidence_ids": [
+        "EV-015"
+      ]
+    },
+    {
+      "entry_id": "AMC-003",
+      "entry_type": "technical_contact",
+      "authority_or_organization": "Airbus",
+      "contact_text": "continued-airworthiness.a350@airbus.com",
+      "conditions": [
+        "Questions concerning the technical content of the requirements"
+      ],
+      "evidence_ids": [
+        "EV-016"
+      ]
+    }
+  ],
+  "classification": {
+    "airbus_families": [
+      "A350"
+    ],
+    "ata_chapters": [
+      "92"
+    ],
+    "action_types": [
+      "modification"
+    ],
+    "frequency": "one_time",
+    "emergency_status": "standard",
+    "terminating_action_present": false,
+    "table_or_appendix_present": false,
+    "compliance_complexity": "simple",
+    "human_confirmed": false,
+    "evidence_ids": [
+      "EV-004",
+      "EV-006",
+      "EV-012"
+    ]
+  },
+  "evidence_spans": [
+    {
+      "evidence_id": "EV-001",
+      "source_file_instance_id": "5577514a19f6917c",
+      "page_number": 1,
+      "printed_page_label": "Page 1 of 2",
+      "section": "cover",
+      "section_raw": null,
+      "clause_path": "AD No.; Issued",
+      "exact_quote": "AD No.:            2019-0183\n                                                            Issued:            26 July 2019",
+      "start_char": 284,
+      "end_char": 404,
+      "page_text_sha256": "737cdb59e091938c565b24e28faaae7400b7574e4db753d962c06dd2c28e4bdd",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-002",
+      "source_file_instance_id": "5577514a19f6917c",
+      "page_number": 1,
+      "printed_page_label": "Page 1 of 2",
+      "section": "cover",
+      "section_raw": null,
+      "clause_path": "Design Approval Holder; Type/Model designation(s)",
+      "exact_quote": "Design Approval Holder’s Name::                                               Type/Model designation(s):\n      AIRBUS                                                                        A350 aeroplanes",
+      "start_char": 1463,
+      "end_char": 1667,
+      "page_text_sha256": "737cdb59e091938c565b24e28faaae7400b7574e4db753d962c06dd2c28e4bdd",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-003",
+      "source_file_instance_id": "5577514a19f6917c",
+      "page_number": 1,
+      "printed_page_label": "Page 1 of 2",
+      "section": "cover",
+      "section_raw": null,
+      "clause_path": "Effective Date; TCDS; Foreign AD; Supersedure",
+      "exact_quote": "Effective Date:            09 August 2019\n      TCDS Number(s):            EASA.A.151\n      Foreign AD:                Not applicable\n      Supersedure:               None",
+      "start_char": 1675,
+      "end_char": 1846,
+      "page_text_sha256": "737cdb59e091938c565b24e28faaae7400b7574e4db753d962c06dd2c28e4bdd",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-004",
+      "source_file_instance_id": "5577514a19f6917c",
+      "page_number": 1,
+      "printed_page_label": "Page 1 of 2",
+      "section": "cover",
+      "section_raw": null,
+      "clause_path": "ATA / Subject",
+      "exact_quote": "ATA 92 – Electric and Electronic Common Installation – Cargo Lining Gutter\n      Assemblies – Modification",
+      "start_char": 1854,
+      "end_char": 1960,
+      "page_text_sha256": "737cdb59e091938c565b24e28faaae7400b7574e4db753d962c06dd2c28e4bdd",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-005",
+      "source_file_instance_id": "5577514a19f6917c",
+      "page_number": 1,
+      "printed_page_label": "Page 1 of 2",
+      "section": "applicability",
+      "section_raw": null,
+      "clause_path": "Manufacturer(s)",
+      "exact_quote": "Manufacturer(s):\n      Airbus",
+      "start_char": 1969,
+      "end_char": 1998,
+      "page_text_sha256": "737cdb59e091938c565b24e28faaae7400b7574e4db753d962c06dd2c28e4bdd",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-006",
+      "source_file_instance_id": "5577514a19f6917c",
+      "page_number": 1,
+      "printed_page_label": "Page 1 of 2",
+      "section": "applicability",
+      "section_raw": null,
+      "clause_path": "Applicability",
+      "exact_quote": "Applicability:\n      Airbus A350-941 aeroplanes, all manufacturer serial numbers, except those on which Airbus\n      modification (mod) 111827 has been embodied in production.",
+      "start_char": 2006,
+      "end_char": 2181,
+      "page_text_sha256": "737cdb59e091938c565b24e28faaae7400b7574e4db753d962c06dd2c28e4bdd",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-007",
+      "source_file_instance_id": "5577514a19f6917c",
+      "page_number": 1,
+      "printed_page_label": "Page 1 of 2",
+      "section": "definitions",
+      "section_raw": null,
+      "clause_path": "Definitions / The SB",
+      "exact_quote": "The SB: Airbus Service Bulletin (SB) A350-92-P014.",
+      "start_char": 2276,
+      "end_char": 2326,
+      "page_text_sha256": "737cdb59e091938c565b24e28faaae7400b7574e4db753d962c06dd2c28e4bdd",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-008",
+      "source_file_instance_id": "5577514a19f6917c",
+      "page_number": 1,
+      "printed_page_label": "Page 1 of 2",
+      "section": "definitions",
+      "section_raw": null,
+      "clause_path": "Definitions / Airbus date of manufacture",
+      "exact_quote": "Airbus date of manufacture: The date of transfer of title (ownership) of the aeroplane upon\n      delivery by Airbus to the first operator.",
+      "start_char": 2334,
+      "end_char": 2473,
+      "page_text_sha256": "737cdb59e091938c565b24e28faaae7400b7574e4db753d962c06dd2c28e4bdd",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-009",
+      "source_file_instance_id": "5577514a19f6917c",
+      "page_number": 1,
+      "printed_page_label": "Page 1 of 2",
+      "section": "reason",
+      "section_raw": null,
+      "clause_path": "Reason",
+      "exact_quote": "Reason:\n      The function of the cargo lining gutter assembly is to collect floor umbrella drainage, condensation\n      water from ceiling panels, system port drainage, potable water shroud drainage and supplemental\n      cooling system shroud drainage. As a result of investigations and analysis by Airbus, it was identified\n      that this assembly would not be able to correctly drain a certain quantity of water in case of potable",
+      "start_char": 2481,
+      "end_char": 2916,
+      "page_text_sha256": "737cdb59e091938c565b24e28faaae7400b7574e4db753d962c06dd2c28e4bdd",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-010",
+      "source_file_instance_id": "5577514a19f6917c",
+      "page_number": 2,
+      "printed_page_label": "Page 2 of 2",
+      "section": "reason",
+      "section_raw": null,
+      "clause_path": "Reason (continued)",
+      "exact_quote": "water distribution pipe leakage, or rupture of the pipe close to the electronics bay entrance. This\n     could lead to overflow and create the risk of water spillage during flight.\n\n     This condition, if not corrected, could lead to fluid contamination of certain electrical equipment\n     and connectors, possibly resulting in the loss of several flight control functions, with consequent\n     reduced control of the aeroplane.",
+      "start_char": 134,
+      "end_char": 564,
+      "page_text_sha256": "e6b14fd4061c82d23da15ef8241ede7a38df9fe96e3ea5082582904b95bf74e9",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-011",
+      "source_file_instance_id": "5577514a19f6917c",
+      "page_number": 2,
+      "printed_page_label": "Page 2 of 2",
+      "section": "reason",
+      "section_raw": null,
+      "clause_path": "Reason / affected components and mitigation",
+      "exact_quote": "To address this potential unsafe condition, affecting components located on the rear side of the\n     surrounding avionics racks 1100 View Unit (VU) and 1200 VU, related to the functioning of all PRIM,\n     SEC1 and SEC2, 4 pairs of spoilers and left elevator, Airbus issued the SB to introduce a new drain\n     gutter design with improved outlets on both sides for a better water drainage.",
+      "start_char": 571,
+      "end_char": 961,
+      "page_text_sha256": "e6b14fd4061c82d23da15ef8241ede7a38df9fe96e3ea5082582904b95bf74e9",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-012",
+      "source_file_instance_id": "5577514a19f6917c",
+      "page_number": 2,
+      "printed_page_label": "Page 2 of 2",
+      "section": "required_actions_and_compliance_times",
+      "section_raw": "Modification",
+      "clause_path": "Modification",
+      "exact_quote": "Before exceeding 80 months since Airbus date of manufacture, modify the cargo lining gutter\n     assemblies in accordance with the instructions of the SB.",
+      "start_char": 1204,
+      "end_char": 1358,
+      "page_text_sha256": "e6b14fd4061c82d23da15ef8241ede7a38df9fe96e3ea5082582904b95bf74e9",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-013",
+      "source_file_instance_id": "5577514a19f6917c",
+      "page_number": 2,
+      "printed_page_label": "Page 2 of 2",
+      "section": "reference_publications",
+      "section_raw": null,
+      "clause_path": "Ref. Publications",
+      "exact_quote": "Ref. Publications:\n     Airbus SB A350-92-P014 original issue dated 29 October 2018.\n\n     The use of later approved revisions of the above-mentioned document is acceptable for compliance\n     with the requirements of this AD.",
+      "start_char": 1365,
+      "end_char": 1591,
+      "page_text_sha256": "e6b14fd4061c82d23da15ef8241ede7a38df9fe96e3ea5082582904b95bf74e9",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-014",
+      "source_file_instance_id": "5577514a19f6917c",
+      "page_number": 2,
+      "printed_page_label": "Page 2 of 2",
+      "section": "remarks",
+      "section_raw": null,
+      "clause_path": "Remarks / 1",
+      "exact_quote": "If requested and appropriately substantiated, EASA can approve Alternative Methods of\n           Compliance for this AD.",
+      "start_char": 1618,
+      "end_char": 1738,
+      "page_text_sha256": "e6b14fd4061c82d23da15ef8241ede7a38df9fe96e3ea5082582904b95bf74e9",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-015",
+      "source_file_instance_id": "5577514a19f6917c",
+      "page_number": 2,
+      "printed_page_label": "Page 2 of 2",
+      "section": "remarks",
+      "section_raw": null,
+      "clause_path": "Remarks / 3",
+      "exact_quote": "Enquiries regarding this AD should be referred to the EASA Programming and Continued\n           Airworthiness Information Section, Certification Directorate. E-mail: ADs@easa.europa.eu.",
+      "start_char": 1918,
+      "end_char": 2103,
+      "page_text_sha256": "e6b14fd4061c82d23da15ef8241ede7a38df9fe96e3ea5082582904b95bf74e9",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-016",
+      "source_file_instance_id": "5577514a19f6917c",
+      "page_number": 2,
+      "printed_page_label": "Page 2 of 2",
+      "section": "remarks",
+      "section_raw": null,
+      "clause_path": "Remarks / 5",
+      "exact_quote": "For any question concerning the technical content of the requirements in this AD, please\n           contact: continued-airworthiness.a350@airbus.com.",
+      "start_char": 2459,
+      "end_char": 2608,
+      "page_text_sha256": "e6b14fd4061c82d23da15ef8241ede7a38df9fe96e3ea5082582904b95bf74e9",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    }
+  ],
+  "field_assertions": [
+    {
+      "assertion_id": "AST-001",
+      "field_path": "/ad_identity",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.98,
+      "evidence_ids": [
+        "EV-002",
+        "EV-003",
+        "EV-001"
+      ],
+      "annotator_id": "codex-b2",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Step 3 section-completion marker."
+    },
+    {
+      "assertion_id": "AST-002",
+      "field_path": "/publication",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.98,
+      "evidence_ids": [
+        "EV-004",
+        "EV-001",
+        "EV-003",
+        "EV-005"
+      ],
+      "annotator_id": "codex-b2",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Step 3 section-completion marker."
+    },
+    {
+      "assertion_id": "AST-003",
+      "field_path": "/applicability_groups",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.98,
+      "evidence_ids": [
+        "EV-006"
+      ],
+      "annotator_id": "codex-b2",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Step 3 section-completion marker."
+    },
+    {
+      "assertion_id": "AST-004",
+      "field_path": "/definitions",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.98,
+      "evidence_ids": [
+        "EV-007",
+        "EV-008"
+      ],
+      "annotator_id": "codex-b2",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Step 3 section-completion marker."
+    },
+    {
+      "assertion_id": "AST-005",
+      "field_path": "/unsafe_condition",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.98,
+      "evidence_ids": [
+        "EV-009",
+        "EV-010",
+        "EV-011"
+      ],
+      "annotator_id": "codex-b2",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Step 3 section-completion marker."
+    },
+    {
+      "assertion_id": "AST-006",
+      "field_path": "/requirements",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.98,
+      "evidence_ids": [
+        "EV-012"
+      ],
+      "annotator_id": "codex-b2",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Step 3 section-completion marker."
+    },
+    {
+      "assertion_id": "AST-007",
+      "field_path": "/exceptions",
+      "value_state": "absent_in_source",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.96,
+      "evidence_ids": [],
+      "annotator_id": "codex-b2",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Step 3 section-completion marker."
+    },
+    {
+      "assertion_id": "AST-008",
+      "field_path": "/previous_action_credit",
+      "value_state": "absent_in_source",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.96,
+      "evidence_ids": [],
+      "annotator_id": "codex-b2",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Step 3 section-completion marker."
+    },
+    {
+      "assertion_id": "AST-009",
+      "field_path": "/referenced_publications",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.98,
+      "evidence_ids": [
+        "EV-013"
+      ],
+      "annotator_id": "codex-b2",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Step 3 section-completion marker."
+    },
+    {
+      "assertion_id": "AST-010",
+      "field_path": "/relationships",
+      "value_state": "absent_in_source",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.96,
+      "evidence_ids": [],
+      "annotator_id": "codex-b2",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Step 3 section-completion marker."
+    },
+    {
+      "assertion_id": "AST-011",
+      "field_path": "/amoc_and_contacts",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.98,
+      "evidence_ids": [
+        "EV-014",
+        "EV-015",
+        "EV-016"
+      ],
+      "annotator_id": "codex-b2",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Step 3 section-completion marker."
+    },
+    {
+      "assertion_id": "AST-012",
+      "field_path": "/classification",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.98,
+      "evidence_ids": [
+        "EV-004",
+        "EV-006",
+        "EV-012"
+      ],
+      "annotator_id": "codex-b2",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Step 3 section-completion marker."
+    },
+    {
+      "assertion_id": "AST-013",
+      "field_path": "/ad_identity/ad_number",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.99,
+      "evidence_ids": [
+        "EV-001"
+      ],
+      "annotator_id": "codex-b2",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": null
+    },
+    {
+      "assertion_id": "AST-014",
+      "field_path": "/ad_identity/design_approval_holder",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.99,
+      "evidence_ids": [
+        "EV-002"
+      ],
+      "annotator_id": "codex-b2",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": null
+    },
+    {
+      "assertion_id": "AST-015",
+      "field_path": "/ad_identity/supersedure_statement",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.99,
+      "evidence_ids": [
+        "EV-003"
+      ],
+      "annotator_id": "codex-b2",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": null
+    },
+    {
+      "assertion_id": "AST-016",
+      "field_path": "/publication/subject",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.99,
+      "evidence_ids": [
+        "EV-004"
+      ],
+      "annotator_id": "codex-b2",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": null
+    },
+    {
+      "assertion_id": "AST-017",
+      "field_path": "/publication/issue_date",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.99,
+      "evidence_ids": [
+        "EV-001"
+      ],
+      "annotator_id": "codex-b2",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": null
+    },
+    {
+      "assertion_id": "AST-018",
+      "field_path": "/publication/effective_date",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.99,
+      "evidence_ids": [
+        "EV-003"
+      ],
+      "annotator_id": "codex-b2",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": null
+    },
+    {
+      "assertion_id": "AST-019",
+      "field_path": "/publication/ata_chapters",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.99,
+      "evidence_ids": [
+        "EV-004"
+      ],
+      "annotator_id": "codex-b2",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": null
+    },
+    {
+      "assertion_id": "AST-020",
+      "field_path": "/publication/manufacturers",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.99,
+      "evidence_ids": [
+        "EV-005"
+      ],
+      "annotator_id": "codex-b2",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": null
+    },
+    {
+      "assertion_id": "AST-021",
+      "field_path": "/publication/type_model_designations",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.98,
+      "evidence_ids": [
+        "EV-002"
+      ],
+      "annotator_id": "codex-b2",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": null
+    },
+    {
+      "assertion_id": "AST-022",
+      "field_path": "/publication/tcds_numbers",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.99,
+      "evidence_ids": [
+        "EV-003"
+      ],
+      "annotator_id": "codex-b2",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": null
+    },
+    {
+      "assertion_id": "AST-023",
+      "field_path": "/publication/foreign_ad",
+      "value_state": "not_applicable",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.99,
+      "evidence_ids": [
+        "EV-003"
+      ],
+      "annotator_id": "codex-b2",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": null
+    },
+    {
+      "assertion_id": "AST-024",
+      "field_path": "/applicability_groups/0",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.98,
+      "evidence_ids": [
+        "EV-006"
+      ],
+      "annotator_id": "codex-b2",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": null
+    },
+    {
+      "assertion_id": "AST-025",
+      "field_path": "/definitions/0",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.99,
+      "evidence_ids": [
+        "EV-007"
+      ],
+      "annotator_id": "codex-b2",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": null
+    },
+    {
+      "assertion_id": "AST-026",
+      "field_path": "/definitions/1",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.99,
+      "evidence_ids": [
+        "EV-008"
+      ],
+      "annotator_id": "codex-b2",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": null
+    },
+    {
+      "assertion_id": "AST-027",
+      "field_path": "/requirements/0",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.98,
+      "evidence_ids": [
+        "EV-012"
+      ],
+      "annotator_id": "codex-b2",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": null
+    },
+    {
+      "assertion_id": "AST-028",
+      "field_path": "/referenced_publications/0",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.98,
+      "evidence_ids": [
+        "EV-013"
+      ],
+      "annotator_id": "codex-b2",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": null
+    },
+    {
+      "assertion_id": "AST-029",
+      "field_path": "/amoc_and_contacts/0",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.98,
+      "evidence_ids": [
+        "EV-014"
+      ],
+      "annotator_id": "codex-b2",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": null
+    },
+    {
+      "assertion_id": "AST-030",
+      "field_path": "/amoc_and_contacts/1",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.99,
+      "evidence_ids": [
+        "EV-015"
+      ],
+      "annotator_id": "codex-b2",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": null
+    },
+    {
+      "assertion_id": "AST-031",
+      "field_path": "/amoc_and_contacts/2",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.99,
+      "evidence_ids": [
+        "EV-016"
+      ],
+      "annotator_id": "codex-b2",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": null
+    },
+    {
+      "assertion_id": "AST-032",
+      "field_path": "/classification/action_types",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.97,
+      "evidence_ids": [
+        "EV-012"
+      ],
+      "annotator_id": "codex-b2",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": null
+    },
+    {
+      "assertion_id": "AST-033",
+      "field_path": "/classification/frequency",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-012"
+      ],
+      "annotator_id": "codex-b2",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": null
+    },
+    {
+      "assertion_id": "AST-034",
+      "field_path": "/classification/compliance_complexity",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-012"
+      ],
+      "annotator_id": "codex-b2",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": null
+    }
+  ],
+  "annotation_metadata": {
+    "guideline_version": "1.0.0",
+    "record_status": "first_pass_complete",
+    "creation_method": "hybrid",
+    "machine_provenance": {
+      "system": "OpenAI Codex",
+      "model": "GPT-5",
+      "prompt_or_rules_version": "step2-guidelines-1.0.0-manual-pass-b2",
+      "generated_at": "2026-07-22T12:54:14Z"
+    },
+    "annotators": [
+      {
+        "annotator_id": "codex-b2",
+        "role": "annotator",
+        "started_at": "2026-07-22T12:54:14Z",
+        "submitted_at": "2026-07-22T12:54:14Z"
+      }
+    ],
+    "events": [
+      {
+        "event_type": "created",
+        "actor_id": "codex-b2",
+        "timestamp": "2026-07-22T12:54:14Z",
+        "rationale": "Independent blind Annotator-B source review begun."
+      },
+      {
+        "event_type": "submitted",
+        "actor_id": "codex-b2",
+        "timestamp": "2026-07-22T12:54:14Z",
+        "rationale": "First-pass source annotation completed for independent review."
+      }
+    ],
+    "quality_flags": [
+      "cross_page_clause"
+    ],
+    "uncertainty_flags": [],
+    "notes": [
+      "Independent Annotator-B pass based only on the assigned blank template, original PDF, frozen blind page text, and Step 2 guidance.",
+      "All field assertions remain automatic-origin and unreviewed until independent human review or adjudication.",
+      "Supersedure is explicitly stated as None; no positive relationship edge was created."
+    ],
+    "source_text_sha256": "e460b80b05dcd9c698e9f8d03479cbf1b3923b88cd1b70c74c4810d1101fd54c",
+    "created_at": "2026-07-22T12:54:14Z",
+    "updated_at": "2026-07-22T12:54:14Z"
+  },
+  "benchmark_metadata": {
+    "split": "unassigned",
+    "split_group": "2019-0183",
+    "selection_strata": [
+      "simple"
+    ],
+    "duplicate_cluster_ids": [],
+    "gold_record": false
+  }
+}

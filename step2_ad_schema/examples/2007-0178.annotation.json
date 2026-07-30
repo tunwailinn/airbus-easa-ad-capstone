@@ -1,0 +1,693 @@
+{
+  "schema_version": "1.0.0",
+  "record_id": "adann-1a4036487173c76e",
+  "source_document": {
+    "file_instance_id": "1a4036487173c76e",
+    "content_id": "768d248e27fc73f2",
+    "canonical_file_instance_id": "1a4036487173c76e",
+    "file_aliases": [],
+    "file_name": "2007-0178__AD_2007-0178_1__easa_ad_2007_0178_superseded.pdf",
+    "relative_path": "2007-0178__AD_2007-0178_1__easa_ad_2007_0178_superseded.pdf",
+    "file_sha256": "768d248e27fc73f281d4113089a263d68ca00c7a5af269bcf53b1457f8af671f",
+    "normalized_text_sha256": "a59d475f2e3ad0666f6b0b29422c8da9660704eb7e046ba23e77d3468f423ea3",
+    "page_count": 2,
+    "extraction_status": "ok",
+    "needs_ocr": false,
+    "manifest_review_flags": [],
+    "source_url": "https://drive.google.com/file/d/1tHhi4pbavi-KYcHuCM5lgOcP1uegS2xf",
+    "text_extraction_method": "native_text",
+    "exact_duplicate_group": null,
+    "near_duplicate_cluster": null
+  },
+  "ad_identity": {
+    "authority": "EASA",
+    "document_type": "airworthiness_directive",
+    "ad_number": "2007-0178",
+    "base_ad_number": "2007-0178",
+    "revision_number": 0,
+    "publication_kind": "standard_ad",
+    "is_emergency": false,
+    "is_correction": false,
+    "correction_date": {
+      "state": "not_stated",
+      "value": null,
+      "raw_text": null,
+      "evidence_ids": [
+        "EV-001"
+      ]
+    },
+    "version_label": "2007-0178",
+    "logical_version_key": "2007-0178|original",
+    "is_latest_version": true,
+    "lifecycle_status": "superseded",
+    "design_approval_holder": {
+      "state": "present",
+      "value": "Airbus",
+      "raw_text": "Type Approval Holder’s Name: AIRBUS",
+      "evidence_ids": [
+        "EV-001"
+      ]
+    },
+    "supersedure_statement": {
+      "state": "explicit_none",
+      "value": null,
+      "raw_text": "Supersedure: None",
+      "evidence_ids": [
+        "EV-001"
+      ]
+    },
+    "evidence_ids": [
+      "EV-001",
+      "EV-008"
+    ]
+  },
+  "publication": {
+    "subject": {
+      "state": "present",
+      "value": "Flight Controls – Trimmable Horizontal Stabilizer Actuator – Inspection",
+      "raw_text": "ATA 27 Flight controls – Trimmable Horizontal Stabilizer Actuator - Inspection",
+      "evidence_ids": [
+        "EV-002"
+      ]
+    },
+    "issue_date": {
+      "state": "present",
+      "value": "2007-06-22",
+      "raw_text": "Date: 22 June 2007",
+      "evidence_ids": [
+        "EV-001"
+      ]
+    },
+    "effective_date": {
+      "state": "present",
+      "value": "2007-07-06",
+      "raw_text": "Effective Date: 06 July 2007",
+      "evidence_ids": [
+        "EV-005"
+      ]
+    },
+    "ata_chapters": [
+      {
+        "code": "27",
+        "title": "Flight Controls",
+        "evidence_ids": [
+          "EV-002"
+        ]
+      }
+    ],
+    "manufacturers": [
+      {
+        "raw_name": "AIRBUS (formerly AIRBUS INDUSTRIE)",
+        "normalized_name": "Airbus",
+        "role": "manufacturer",
+        "evidence_ids": [
+          "EV-002"
+        ]
+      }
+    ],
+    "type_model_designations": [
+      "A318",
+      "A319",
+      "A320",
+      "A321"
+    ],
+    "tcds_numbers": [
+      "EASA A.064"
+    ],
+    "foreign_ad": {
+      "state": "explicit_none",
+      "value": null,
+      "raw_text": "Foreign AD: Not applicable",
+      "evidence_ids": [
+        "EV-001"
+      ]
+    }
+  },
+  "applicability_groups": [
+    {
+      "group_id": "APP-001",
+      "label": "All certified A318/A319/A320/A321 models up to MSN 2860",
+      "state": "present",
+      "raw_text": "AIRBUS A318, A319, A320 and A321 all certified models, all manufactured serial numbers (MSN) up to MSN 2860.",
+      "aircraft_families": [
+        "A320 family"
+      ],
+      "models": [
+        "A318",
+        "A319",
+        "A320",
+        "A321"
+      ],
+      "serial_restrictions": [
+        {
+          "restriction_id": "MSN-001",
+          "kind": "include_range",
+          "raw_expression": "all manufactured serial numbers (MSN) up to MSN 2860",
+          "lower_bound": null,
+          "upper_bound": "2860",
+          "explicit_values": [],
+          "condition": null,
+          "evidence_ids": [
+            "EV-003"
+          ]
+        }
+      ],
+      "part_numbers": [],
+      "configuration_conditions": [],
+      "exclusions": [],
+      "boolean_logic": "all",
+      "evidence_ids": [
+        "EV-003"
+      ]
+    }
+  ],
+  "definitions": [],
+  "unsafe_condition": {
+    "state": "present",
+    "raw_reason_text": "A number of occurrences of an incorrect installation of the trimmable horizontal stabilizer actuator (THSA) have been found and reported during the accomplishment of AIRBUS Service Bulletin A320-27-1164 mandated by EASA AD 2006-0223. These issues could lead to a degradation of the integrity of the THSA primary load path and to secondary load path partial or full engagement. This AD therefore mandates a one-time detailed visual inspection of specific parts of the THSA attachments.",
+    "observed_events_or_defects": [
+      "Incorrect installation of the trimmable horizontal stabilizer actuator"
+    ],
+    "causes": [],
+    "unsafe_conditions": [
+      "Degradation of the integrity of the THSA primary load path"
+    ],
+    "potential_consequences": [
+      "Secondary load path partial or full engagement"
+    ],
+    "affected_components": [
+      "Trimmable horizontal stabilizer actuator attachments"
+    ],
+    "intended_risk_mitigation": [
+      "One-time detailed visual inspection of specified THSA attachment parts"
+    ],
+    "evidence_ids": [
+      "EV-004"
+    ]
+  },
+  "requirements": [
+    {
+      "requirement_id": "REQ-001",
+      "paragraph_reference": "Compliance",
+      "parent_requirement_id": null,
+      "applicability_group_ids": [
+        "APP-001"
+      ],
+      "action_types": [
+        "inspection"
+      ],
+      "obligation": "mandatory",
+      "action_text": "Inspect the lower and the upper THSA attachments in accordance with SB A320-27A1179.",
+      "objects_or_components": [
+        "Lower THSA attachment",
+        "Upper THSA attachment"
+      ],
+      "conditions": [
+        "Unless already accomplished"
+      ],
+      "method_publication_ids": [
+        "PUB-001"
+      ],
+      "compliance_rules": [
+        {
+          "compliance_id": "CMP-001",
+          "state": "present",
+          "raw_text": "Unless already accomplished, within 600 flight hours or 750 flight cycles or 100 days after the effective date of this AD, whichever occurs first",
+          "logic": "whichever_occurs_first",
+          "conditions": [
+            "Unless already accomplished"
+          ],
+          "initial_limits": [
+            {
+              "limit_id": "LIM-001",
+              "relation": "within",
+              "quantity": 600,
+              "unit": "flight_hour",
+              "raw_value": "within 600 flight hours",
+              "reference_event": "effective date of this AD",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-005"
+              ]
+            },
+            {
+              "limit_id": "LIM-002",
+              "relation": "within",
+              "quantity": 750,
+              "unit": "flight_cycle",
+              "raw_value": "750 flight cycles",
+              "reference_event": "effective date of this AD",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-005"
+              ]
+            },
+            {
+              "limit_id": "LIM-003",
+              "relation": "within",
+              "quantity": 100,
+              "unit": "calendar_day",
+              "raw_value": "100 days after the effective date of this AD",
+              "reference_event": "effective date of this AD",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-005"
+              ]
+            }
+          ],
+          "is_repetitive": false,
+          "repetitive_intervals": [],
+          "grace_periods": [],
+          "evidence_ids": [
+            "EV-005"
+          ]
+        }
+      ],
+      "follow_on_requirement_ids": [
+        "REQ-002"
+      ],
+      "terminating_action": {
+        "state": "not_stated",
+        "present": false,
+        "scope": "none",
+        "action_text": null,
+        "terminates_requirement_ids": [],
+        "evidence_ids": []
+      },
+      "evidence_ids": [
+        "EV-005"
+      ]
+    },
+    {
+      "requirement_id": "REQ-002",
+      "paragraph_reference": "Compliance",
+      "parent_requirement_id": "REQ-001",
+      "applicability_group_ids": [
+        "APP-001"
+      ],
+      "action_types": [
+        "other"
+      ],
+      "obligation": "conditional",
+      "action_text": "Perform any necessary actions in accordance with SB A320-27A1179.",
+      "objects_or_components": [
+        "THSA attachments"
+      ],
+      "conditions": [
+        "When necessary actions are identified by SB A320-27A1179"
+      ],
+      "method_publication_ids": [
+        "PUB-001"
+      ],
+      "compliance_rules": [
+        {
+          "compliance_id": "CMP-002",
+          "state": "present",
+          "raw_text": "perform any necessary actions in accordance with SB",
+          "logic": "conditional",
+          "conditions": [
+            "When necessary actions are identified by SB A320-27A1179"
+          ],
+          "initial_limits": [],
+          "is_repetitive": false,
+          "repetitive_intervals": [],
+          "grace_periods": [],
+          "evidence_ids": [
+            "EV-005"
+          ]
+        }
+      ],
+      "follow_on_requirement_ids": [],
+      "terminating_action": {
+        "state": "not_stated",
+        "present": false,
+        "scope": "none",
+        "action_text": null,
+        "terminates_requirement_ids": [],
+        "evidence_ids": []
+      },
+      "evidence_ids": [
+        "EV-005"
+      ]
+    }
+  ],
+  "exceptions": [],
+  "previous_action_credit": [],
+  "referenced_publications": [
+    {
+      "publication_id": "PUB-001",
+      "publication_type": "service_bulletin",
+      "issuer": "Airbus",
+      "number": "A320-27A1179",
+      "revision": "Original issue",
+      "publication_date": null,
+      "title": null,
+      "roles": [
+        "required_method"
+      ],
+      "later_approved_revisions_allowed": true,
+      "evidence_ids": [
+        "EV-005",
+        "EV-006"
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "relationship_id": "REL-001",
+      "relationship_type": "referenced_only",
+      "target_ad_number": "2006-0223",
+      "target_record_id": null,
+      "target_logical_version_key": null,
+      "source": "historical_reference",
+      "verification_status": "annotator_verified",
+      "manually_verified": true,
+      "raw_text": "AIRBUS Service Bulletin A320-27-1164 mandated by EASA AD 2006-0223",
+      "evidence_ids": [
+        "EV-004"
+      ]
+    }
+  ],
+  "amoc_and_contacts": [
+    {
+      "entry_id": "AMC-001",
+      "entry_type": "amoc_authority",
+      "authority_or_organization": "EASA",
+      "contact_text": "If requested and appropriately substantiated the responsible EASA manager for the related product has the authority to accept Alternative Methods of Compliance (AMOCs) for this AD.",
+      "conditions": [
+        "Requested and appropriately substantiated"
+      ],
+      "evidence_ids": [
+        "EV-007"
+      ]
+    },
+    {
+      "entry_id": "AMC-002",
+      "entry_type": "technical_contact",
+      "authority_or_organization": "Airbus",
+      "contact_text": "For any question concerning the technical content of the requirements in this AD, please contact AIRBUS - Fax 33 5 61 93 44 51.",
+      "conditions": [],
+      "evidence_ids": [
+        "EV-007"
+      ]
+    }
+  ],
+  "classification": {
+    "airbus_families": [
+      "A320 family"
+    ],
+    "ata_chapters": [
+      "27"
+    ],
+    "action_types": [
+      "inspection",
+      "other"
+    ],
+    "frequency": "one_time",
+    "emergency_status": "standard",
+    "terminating_action_present": false,
+    "table_or_appendix_present": false,
+    "compliance_complexity": "alternative_limits",
+    "human_confirmed": true,
+    "evidence_ids": [
+      "EV-002",
+      "EV-003",
+      "EV-005"
+    ]
+  },
+  "evidence_spans": [
+    {
+      "evidence_id": "EV-001",
+      "source_file_instance_id": "1a4036487173c76e",
+      "page_number": 1,
+      "printed_page_label": "1/2",
+      "section": "cover",
+      "section_raw": "EASA AIRWORTHINESS DIRECTIVE",
+      "clause_path": null,
+      "exact_quote": "AD No.: 2007 - 0178. Date: 22 June 2007. Type Approval Holder’s Name: AIRBUS. Type/Model designation(s): A318, A319, A320 and A321 aircraft. TCDS Number: EASA A.064. Foreign AD: Not applicable. Supersedure: None.",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": null,
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": "Whitespace and line breaks normalized; wording preserved."
+    },
+    {
+      "evidence_id": "EV-002",
+      "source_file_instance_id": "1a4036487173c76e",
+      "page_number": 1,
+      "printed_page_label": "1/2",
+      "section": "cover",
+      "section_raw": "ATA / Manufacturer(s)",
+      "clause_path": null,
+      "exact_quote": "ATA 27 Flight controls – Trimmable Horizontal Stabilizer Actuator - Inspection. Manufacturer(s): AIRBUS (formerly AIRBUS INDUSTRIE).",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": null,
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-003",
+      "source_file_instance_id": "1a4036487173c76e",
+      "page_number": 1,
+      "printed_page_label": "1/2",
+      "section": "applicability",
+      "section_raw": "Applicability",
+      "clause_path": null,
+      "exact_quote": "AIRBUS A318, A319, A320 and A321 all certified models, all manufactured serial numbers (MSN) up to MSN 2860.",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": null,
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-004",
+      "source_file_instance_id": "1a4036487173c76e",
+      "page_number": 1,
+      "printed_page_label": "1/2",
+      "section": "reason",
+      "section_raw": "Reason",
+      "clause_path": null,
+      "exact_quote": "A number of occurrences of an incorrect installation of the trimmable horizontal stabilizer actuator (THSA) have been found and reported during the accomplishment of the AIRBUS Service Bulletin (SB) A320-27-1164 mandated by EASA AD 2006-0223. These issues could lead to a degradation of the integrity of the THSA primary load path and to secondary load path partial or full engagement. This AD therefore mandates a one-time detailed visual inspection of specific parts of the THSA attachments.",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": null,
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": "The mention of AD 2006-0223 is historical, not supersedure."
+    },
+    {
+      "evidence_id": "EV-005",
+      "source_file_instance_id": "1a4036487173c76e",
+      "page_number": 1,
+      "printed_page_label": "1/2",
+      "section": "compliance",
+      "section_raw": "Effective Date / Compliance",
+      "clause_path": null,
+      "exact_quote": "Effective Date: 06 July 2007. Compliance: Unless already accomplished, within 600 flight hours or 750 flight cycles or 100 days after the effective date of this AD, whichever occurs first, inspect the lower and the upper THSA attachments in accordance with SB A320-27A1179 and perform any necessary actions in accordance with SB.",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": null,
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-006",
+      "source_file_instance_id": "1a4036487173c76e",
+      "page_number": 1,
+      "printed_page_label": "1/2",
+      "section": "reference_publications",
+      "section_raw": "Ref. Publications",
+      "clause_path": null,
+      "exact_quote": "AIRBUS Service Bulletin A320-27A1179 at original issue or later approved revisions.",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": null,
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-007",
+      "source_file_instance_id": "1a4036487173c76e",
+      "page_number": 2,
+      "printed_page_label": "2/2",
+      "section": "remarks",
+      "section_raw": "Remarks",
+      "clause_path": "Remarks 1 and 4",
+      "exact_quote": "If requested and appropriately substantiated the responsible EASA manager for the related product has the authority to accept Alternative Methods of Compliance (AMOCs) for this AD. For any question concerning the technical content of the requirements in this AD, please contact AIRBUS - Fax 33 5 61 93 44 51.",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": null,
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-008",
+      "source_file_instance_id": "1a4036487173c76e",
+      "page_number": 2,
+      "printed_page_label": "2/2",
+      "section": "other",
+      "section_raw": "Document status stamp",
+      "clause_path": null,
+      "exact_quote": "SUPERSEDED",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": null,
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "exact",
+      "table_context": null,
+      "annotation_note": "The stamp establishes status but does not name the superseding AD."
+    }
+  ],
+  "field_assertions": [
+    {
+      "assertion_id": "AST-001",
+      "field_path": "/ad_identity/ad_number",
+      "value_state": "present",
+      "origin": "human_corrected",
+      "verification_status": "accepted",
+      "confidence": null,
+      "evidence_ids": [
+        "EV-001"
+      ],
+      "annotator_id": "annotator-demo",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "The prior parser incorrectly selected the historical AD mention; the cover header is authoritative."
+    },
+    {
+      "assertion_id": "AST-002",
+      "field_path": "/requirements/0/compliance_rules/0",
+      "value_state": "present",
+      "origin": "human_annotated",
+      "verification_status": "accepted",
+      "confidence": null,
+      "evidence_ids": [
+        "EV-005"
+      ],
+      "annotator_id": "annotator-demo",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "All three alternative limits are retained with whichever-occurs-first logic."
+    },
+    {
+      "assertion_id": "AST-003",
+      "field_path": "/relationships/0",
+      "value_state": "present",
+      "origin": "human_annotated",
+      "verification_status": "accepted",
+      "confidence": null,
+      "evidence_ids": [
+        "EV-001",
+        "EV-004"
+      ],
+      "annotator_id": "annotator-demo",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Supersedure is explicitly None; AD 2006-0223 is retained only as referenced_only."
+    },
+    {
+      "assertion_id": "AST-004",
+      "field_path": "/ad_identity/is_latest_version",
+      "value_state": "present",
+      "origin": "derived",
+      "verification_status": "accepted",
+      "confidence": null,
+      "evidence_ids": [],
+      "annotator_id": null,
+      "derivation_rule": "Step 1 base_ad_number family chain at the 2026-07-22 corpus snapshot",
+      "input_field_paths": [
+        "/ad_identity/base_ad_number"
+      ],
+      "notes": "Latest within the 2007-0178 revision family; the publication is nevertheless superseded by a different AD number."
+    },
+    {
+      "assertion_id": "AST-005",
+      "field_path": "/ad_identity/supersedure_statement",
+      "value_state": "not_applicable",
+      "origin": "human_annotated",
+      "verification_status": "accepted",
+      "confidence": null,
+      "evidence_ids": [
+        "EV-001"
+      ],
+      "annotator_id": "annotator-demo",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "The structured field explicitly states Supersedure: None; no positive supersedes edge is created."
+    }
+  ],
+  "annotation_metadata": {
+    "guideline_version": "1.0.0",
+    "record_status": "approved",
+    "creation_method": "manual",
+    "machine_provenance": null,
+    "annotators": [
+      {
+        "annotator_id": "annotator-demo",
+        "role": "annotator",
+        "started_at": "2026-07-22T00:00:00Z",
+        "submitted_at": "2026-07-22T00:30:00Z"
+      },
+      {
+        "annotator_id": "reviewer-demo",
+        "role": "reviewer",
+        "started_at": "2026-07-22T00:30:00Z",
+        "submitted_at": "2026-07-22T00:45:00Z"
+      }
+    ],
+    "events": [
+      {
+        "event_type": "created",
+        "actor_id": "annotator-demo",
+        "timestamp": "2026-07-22T00:00:00Z",
+        "rationale": null
+      },
+      {
+        "event_type": "approved",
+        "actor_id": "reviewer-demo",
+        "timestamp": "2026-07-22T00:45:00Z",
+        "rationale": "Approved as a regression example for historical-reference and compound-compliance handling."
+      }
+    ],
+    "quality_flags": [],
+    "uncertainty_flags": [],
+    "notes": [
+      "Demonstration record; annotator IDs and timestamps are illustrative."
+    ],
+    "source_text_sha256": "a59d475f2e3ad0666f6b0b29422c8da9660704eb7e046ba23e77d3468f423ea3",
+    "created_at": "2026-07-22T00:00:00Z",
+    "updated_at": "2026-07-22T00:45:00Z"
+  },
+  "benchmark_metadata": {
+    "split": "unassigned",
+    "split_group": "2007-0178",
+    "selection_strata": [
+      "simple"
+    ],
+    "duplicate_cluster_ids": [],
+    "gold_record": true
+  }
+}

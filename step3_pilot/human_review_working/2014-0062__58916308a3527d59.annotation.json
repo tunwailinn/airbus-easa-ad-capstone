@@ -1,0 +1,1223 @@
+{
+  "schema_version": "1.0.0",
+  "record_id": "adann-58916308a3527d59",
+  "source_document": {
+    "file_instance_id": "58916308a3527d59",
+    "content_id": "7ef7267c79cd3515",
+    "canonical_file_instance_id": "58916308a3527d59",
+    "file_aliases": [],
+    "file_name": "2014-0062__AD_2014-0062_1__easa_ad_2014_0062.pdf",
+    "relative_path": "2014-0062__AD_2014-0062_1__easa_ad_2014_0062.pdf",
+    "file_sha256": "7ef7267c79cd35156c742bc7494f80e0dc29f405897eb9a8f708581309434eea",
+    "normalized_text_sha256": "fdcbcdaf2a8412cd3a3ad2f77f97fe1c6bb4ccc75faa340c123b1ca6d2c813d9",
+    "page_count": 2,
+    "extraction_status": "hybrid",
+    "needs_ocr": false,
+    "manifest_review_flags": [],
+    "source_url": "https://ad.easa.europa.eu/blob/easa_ad_2014_0062.pdf/AD_2014-0062_1",
+    "text_extraction_method": "hybrid",
+    "exact_duplicate_group": null,
+    "near_duplicate_cluster": null
+  },
+  "ad_identity": {
+    "authority": "EASA",
+    "document_type": "airworthiness_directive",
+    "ad_number": "2014-0062",
+    "base_ad_number": "2014-0062",
+    "revision_number": 0,
+    "publication_kind": "standard_ad",
+    "is_emergency": false,
+    "is_correction": false,
+    "correction_date": {
+      "state": "not_stated",
+      "value": null,
+      "raw_text": null,
+      "evidence_ids": [
+        "EV-001"
+      ]
+    },
+    "version_label": "Original",
+    "logical_version_key": "2014-0062|UNCORRECTED",
+    "is_latest_version": null,
+    "lifecycle_status": "unknown",
+    "design_approval_holder": {
+      "state": "present",
+      "value": "Airbus",
+      "raw_text": "Design Approval Holder’s Name: AIRBUS",
+      "evidence_ids": [
+        "EV-001"
+      ]
+    },
+    "supersedure_statement": {
+      "state": "explicit_none",
+      "value": null,
+      "raw_text": "Supersedure: None",
+      "evidence_ids": [
+        "EV-001"
+      ]
+    },
+    "evidence_ids": [
+      "EV-001"
+    ]
+  },
+  "publication": {
+    "subject": {
+      "state": "present",
+      "value": "Exhaust – Thrust Reverser Cowl Door Hinge Sleeves – Identification / Replacement",
+      "raw_text": "ATA 78 Exhaust – Thrust Reverser Cowl Door Hinge Sleeves – Identification / Replacement",
+      "evidence_ids": [
+        "EV-002"
+      ]
+    },
+    "issue_date": {
+      "state": "present",
+      "value": "2014-03-11",
+      "raw_text": "Date: 11 March 2014",
+      "evidence_ids": [
+        "EV-001"
+      ]
+    },
+    "effective_date": {
+      "state": "present",
+      "value": "2014-03-25",
+      "raw_text": "Effective Date: 25 March 2014",
+      "evidence_ids": [
+        "EV-005"
+      ]
+    },
+    "ata_chapters": [
+      {
+        "code": "78",
+        "title": "Exhaust",
+        "evidence_ids": [
+          "EV-002"
+        ]
+      }
+    ],
+    "manufacturers": [
+      {
+        "raw_name": "Airbus (formerly Airbus Industrie)",
+        "normalized_name": "Airbus",
+        "role": "manufacturer",
+        "evidence_ids": [
+          "EV-002"
+        ]
+      }
+    ],
+    "type_model_designations": [
+      "A330"
+    ],
+    "tcds_numbers": [
+      "EASA.A.004"
+    ],
+    "foreign_ad": {
+      "state": "explicit_none",
+      "value": null,
+      "raw_text": "Foreign AD: Not applicable",
+      "evidence_ids": [
+        "EV-001"
+      ]
+    }
+  },
+  "applicability_groups": [
+    {
+      "group_id": "APP-001",
+      "label": "Affected Rolls-Royce Trent 700 powered A330 models",
+      "state": "present",
+      "raw_text": "Airbus A330-243, A330-243F, A330-341, A330-342, and A330-343 aeroplanes, all manufacturer serial numbers.",
+      "aircraft_families": [
+        "A330 family"
+      ],
+      "models": [
+        "A330-243",
+        "A330-243F",
+        "A330-341",
+        "A330-342",
+        "A330-343"
+      ],
+      "serial_restrictions": [
+        {
+          "restriction_id": "MSN-001",
+          "kind": "all",
+          "raw_expression": "all manufacturer serial numbers",
+          "lower_bound": null,
+          "upper_bound": null,
+          "explicit_values": [],
+          "condition": null,
+          "evidence_ids": [
+            "EV-003"
+          ]
+        }
+      ],
+      "part_numbers": [],
+      "configuration_conditions": [
+        "Equipped with Rolls-Royce Trent 700 engines"
+      ],
+      "exclusions": [],
+      "boolean_logic": "all",
+      "evidence_ids": [
+        "EV-003"
+      ]
+    }
+  ],
+  "definitions": [],
+  "unsafe_condition": {
+    "state": "present",
+    "raw_reason_text": "A manufacturing discrepancy (lack of heat treatment) on a batch of the N°3 and N°4 hinge sleeves installed on Thrust Reverser Unit (TRU) was identified. This condition, if not corrected, in case of a Fan Blade Off event due to high vibration level, could cause in-flight loss of some heavy components of the TRU, possibly resulting in injury to persons on the ground.",
+    "observed_events_or_defects": [
+      "Lack of heat treatment on a batch of N°3 and N°4 TRU hinge sleeves"
+    ],
+    "causes": [
+      "Manufacturing discrepancy"
+    ],
+    "unsafe_conditions": [
+      "Affected hinge sleeves may not withstand a high-vibration fan-blade-off event"
+    ],
+    "potential_consequences": [
+      "In-flight loss of heavy TRU components",
+      "Injury to persons on the ground"
+    ],
+    "affected_components": [
+      "TRU cowl door hinge sleeves N°3 and N°4"
+    ],
+    "intended_risk_mitigation": [
+      "Identify and replace affected hinge sleeves"
+    ],
+    "evidence_ids": [
+      "EV-004"
+    ]
+  },
+  "requirements": [
+    {
+      "requirement_id": "REQ-001",
+      "paragraph_reference": "(1)",
+      "parent_requirement_id": null,
+      "applicability_group_ids": [
+        "APP-001"
+      ],
+      "action_types": [
+        "test_or_check"
+      ],
+      "obligation": "mandatory",
+      "action_text": "Identify the N°3 and N°4 hinge sleeves of the TRU cowl door.",
+      "objects_or_components": [
+        "TRU cowl door hinge sleeves N°3 and N°4"
+      ],
+      "conditions": [
+        "Unless accomplished previously"
+      ],
+      "method_publication_ids": [
+        "PUB-002"
+      ],
+      "compliance_rules": [
+        {
+          "compliance_id": "CMP-001",
+          "state": "present",
+          "raw_text": "Within 12 months after the effective date of this AD",
+          "logic": "single",
+          "conditions": [],
+          "initial_limits": [
+            {
+              "limit_id": "LIM-001",
+              "relation": "within",
+              "quantity": 12,
+              "unit": "calendar_month",
+              "raw_value": "Within 12 months",
+              "reference_event": "effective date of this AD",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-006"
+              ]
+            }
+          ],
+          "is_repetitive": false,
+          "repetitive_intervals": [],
+          "grace_periods": [],
+          "evidence_ids": [
+            "EV-006"
+          ]
+        }
+      ],
+      "follow_on_requirement_ids": [
+        "REQ-002"
+      ],
+      "terminating_action": {
+        "state": "not_stated",
+        "present": false,
+        "scope": "none",
+        "action_text": null,
+        "terminates_requirement_ids": [],
+        "evidence_ids": []
+      },
+      "evidence_ids": [
+        "EV-006"
+      ]
+    },
+    {
+      "requirement_id": "REQ-002",
+      "paragraph_reference": "(1)",
+      "parent_requirement_id": "REQ-001",
+      "applicability_group_ids": [
+        "APP-001"
+      ],
+      "action_types": [
+        "replacement"
+      ],
+      "obligation": "conditional",
+      "action_text": "Replace the N°3 and N°4 TRU cowl door hinge sleeves if they are found to be affected.",
+      "objects_or_components": [
+        "Affected TRU cowl door hinge sleeves N°3 and N°4"
+      ],
+      "conditions": [
+        "Hinge sleeves found affected"
+      ],
+      "method_publication_ids": [
+        "PUB-002"
+      ],
+      "compliance_rules": [
+        {
+          "compliance_id": "CMP-002",
+          "state": "present",
+          "raw_text": "Within 12 months after the effective date of this AD, if found to be affected",
+          "logic": "conditional",
+          "conditions": [
+            "Hinge sleeves are found to be affected"
+          ],
+          "initial_limits": [
+            {
+              "limit_id": "LIM-002",
+              "relation": "within",
+              "quantity": 12,
+              "unit": "calendar_month",
+              "raw_value": "Within 12 months",
+              "reference_event": "effective date of this AD",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-006"
+              ]
+            }
+          ],
+          "is_repetitive": false,
+          "repetitive_intervals": [],
+          "grace_periods": [],
+          "evidence_ids": [
+            "EV-006"
+          ]
+        }
+      ],
+      "follow_on_requirement_ids": [],
+      "terminating_action": {
+        "state": "not_stated",
+        "present": false,
+        "scope": "none",
+        "action_text": null,
+        "terminates_requirement_ids": [],
+        "evidence_ids": []
+      },
+      "evidence_ids": [
+        "EV-006"
+      ]
+    },
+    {
+      "requirement_id": "REQ-003",
+      "paragraph_reference": "(3)",
+      "parent_requirement_id": null,
+      "applicability_group_ids": [
+        "APP-001"
+      ],
+      "action_types": [
+        "install",
+        "test_or_check",
+        "prohibition"
+      ],
+      "obligation": "conditional",
+      "action_text": "Install a TRU only after determining that its cowl door hinge sleeves are not affected by this AD.",
+      "objects_or_components": [
+        "Thrust Reverser Unit",
+        "TRU cowl door hinge sleeves"
+      ],
+      "conditions": [
+        "Prior to installation",
+        "Hinge sleeves determined not affected"
+      ],
+      "method_publication_ids": [
+        "PUB-001",
+        "PUB-002"
+      ],
+      "compliance_rules": [
+        {
+          "compliance_id": "CMP-003",
+          "state": "present",
+          "raw_text": "From the effective date of this AD, installation is allowed only after determining that the installed cowl door hinge sleeves are not affected",
+          "logic": "conditional",
+          "conditions": [
+            "Before installing a TRU",
+            "Hinge sleeves determined not affected"
+          ],
+          "initial_limits": [
+            {
+              "limit_id": "LIM-003",
+              "relation": "from",
+              "quantity": null,
+              "unit": "calendar_date",
+              "raw_value": "From the effective date of this AD",
+              "reference_event": "effective date of this AD",
+              "calendar_date": "2014-03-25",
+              "evidence_ids": [
+                "EV-008"
+              ]
+            }
+          ],
+          "is_repetitive": false,
+          "repetitive_intervals": [],
+          "grace_periods": [],
+          "evidence_ids": [
+            "EV-008"
+          ]
+        }
+      ],
+      "follow_on_requirement_ids": [],
+      "terminating_action": {
+        "state": "not_stated",
+        "present": false,
+        "scope": "none",
+        "action_text": null,
+        "terminates_requirement_ids": [],
+        "evidence_ids": []
+      },
+      "evidence_ids": [
+        "EV-008"
+      ]
+    }
+  ],
+  "exceptions": [],
+  "previous_action_credit": [
+    {
+      "credit_id": "CRD-001",
+      "text": "Aeroplanes with Airbus Modification 202463 embodied in production or modified under Airbus SB A330-78-3021 original issue comply with paragraph (1).",
+      "applies_to_requirement_ids": [
+        "REQ-001",
+        "REQ-002"
+      ],
+      "credited_publication_ids": [
+        "PUB-001"
+      ],
+      "conditions": [
+        "Modification 202463 embodied in production, or SB original issue accomplished"
+      ],
+      "evidence_ids": [
+        "EV-007"
+      ]
+    }
+  ],
+  "referenced_publications": [
+    {
+      "publication_id": "PUB-001",
+      "publication_type": "service_bulletin",
+      "issuer": "Airbus",
+      "number": "A330-78-3021",
+      "revision": "Original issue",
+      "publication_date": "2012-10-17",
+      "title": null,
+      "roles": [
+        "previous_action_credit",
+        "required_method"
+      ],
+      "later_approved_revisions_allowed": true,
+      "evidence_ids": [
+        "EV-007",
+        "EV-009"
+      ]
+    },
+    {
+      "publication_id": "PUB-002",
+      "publication_type": "service_bulletin",
+      "issuer": "Airbus",
+      "number": "A330-78-3021",
+      "revision": "Revision 01",
+      "publication_date": "2013-07-30",
+      "title": null,
+      "roles": [
+        "required_method"
+      ],
+      "later_approved_revisions_allowed": true,
+      "evidence_ids": [
+        "EV-006",
+        "EV-009"
+      ]
+    }
+  ],
+  "relationships": [],
+  "amoc_and_contacts": [
+    {
+      "entry_id": "AMC-001",
+      "entry_type": "amoc_authority",
+      "authority_or_organization": "EASA",
+      "contact_text": "If requested and appropriately substantiated, EASA can approve Alternative Methods of Compliance for this AD.",
+      "conditions": [
+        "Requested and appropriately substantiated"
+      ],
+      "evidence_ids": [
+        "EV-010"
+      ]
+    },
+    {
+      "entry_id": "AMC-002",
+      "entry_type": "regulatory_contact",
+      "authority_or_organization": "EASA",
+      "contact_text": "Enquiries regarding this AD should be referred to EASA at ADs@easa.europa.eu.",
+      "conditions": [],
+      "evidence_ids": [
+        "EV-010"
+      ]
+    },
+    {
+      "entry_id": "AMC-003",
+      "entry_type": "technical_contact",
+      "authority_or_organization": "Airbus",
+      "contact_text": "For technical questions, contact AIRBUS – Airworthiness Office – EIAL at airworthiness.A330-A340@airbus.com.",
+      "conditions": [],
+      "evidence_ids": [
+        "EV-010"
+      ]
+    }
+  ],
+  "classification": {
+    "airbus_families": [
+      "A330 family"
+    ],
+    "ata_chapters": [
+      "78"
+    ],
+    "action_types": [
+      "test_or_check",
+      "replacement",
+      "install",
+      "prohibition"
+    ],
+    "frequency": "mixed",
+    "emergency_status": "standard",
+    "terminating_action_present": false,
+    "table_or_appendix_present": false,
+    "compliance_complexity": "conditional_branches",
+    "human_confirmed": true,
+    "evidence_ids": [
+      "EV-002",
+      "EV-003",
+      "EV-006",
+      "EV-008"
+    ]
+  },
+  "evidence_spans": [
+    {
+      "evidence_id": "EV-001",
+      "source_file_instance_id": "58916308a3527d59",
+      "page_number": 1,
+      "printed_page_label": "1/2",
+      "section": "cover",
+      "section_raw": "Cover identity",
+      "clause_path": null,
+      "exact_quote": "AD No.: 2014-0062. Date: 11 March 2014. Design Approval Holder’s Name: AIRBUS. Type/Model designation(s): A330 aeroplanes. TCDS Number: EASA.A.004. Foreign AD: Not applicable. Supersedure: None.",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "2095fcf23b7de9be732ee4f3bb6f52dc48283436c3dd8a598f1da45322913d30",
+      "bbox_normalized": null,
+      "extraction_method": "visual_transcription",
+      "quality": "visual_transcription",
+      "table_context": null,
+      "annotation_note": "Visually transcribed from the rendered two-column cover because native extraction interleaves labels and values."
+    },
+    {
+      "evidence_id": "EV-002",
+      "source_file_instance_id": "58916308a3527d59",
+      "page_number": 1,
+      "printed_page_label": "1/2",
+      "section": "cover",
+      "section_raw": "ATA / Manufacturer(s)",
+      "clause_path": null,
+      "exact_quote": "ATA 78 Exhaust – Thrust Reverser Cowl Door Hinge Sleeves – Identification / Replacement. Manufacturer(s): Airbus (formerly Airbus Industrie).",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "2095fcf23b7de9be732ee4f3bb6f52dc48283436c3dd8a598f1da45322913d30",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-003",
+      "source_file_instance_id": "58916308a3527d59",
+      "page_number": 1,
+      "printed_page_label": "1/2",
+      "section": "applicability",
+      "section_raw": "Applicability",
+      "clause_path": null,
+      "exact_quote": "Airbus A330-243, A330-243F, A330-341, A330-342, and A330-343 aeroplanes, all manufacturer serial numbers.",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "2095fcf23b7de9be732ee4f3bb6f52dc48283436c3dd8a598f1da45322913d30",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-004",
+      "source_file_instance_id": "58916308a3527d59",
+      "page_number": 1,
+      "printed_page_label": "1/2",
+      "section": "reason",
+      "section_raw": "Reason",
+      "clause_path": null,
+      "exact_quote": "A manufacturing discrepancy (lack of heat treatment) on a batch of the N°3 and N°4 hinge sleeves installed on Thrust Reverser Unit (TRU) was identified. Those parts are only installed on A330 aeroplanes equipped with Rolls-Royce (RR) Trent 700 engines. This condition, if not corrected, in case of a Fan Blade Off event due to high vibration level, could cause in-flight loss of some heavy components of the TRU, possibly resulting in injury to persons on the ground. As current hinge sleeves are not serialized, it is not possible to identify the TRU hinge sleeves which did not receive the heat treatment. For the reason described above, this AD requires identification and replacement of the affected TRU hinge sleeves.",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "2095fcf23b7de9be732ee4f3bb6f52dc48283436c3dd8a598f1da45322913d30",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-005",
+      "source_file_instance_id": "58916308a3527d59",
+      "page_number": 1,
+      "printed_page_label": "1/2",
+      "section": "cover",
+      "section_raw": "Effective Date",
+      "clause_path": null,
+      "exact_quote": "Effective Date: 25 March 2014",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "2095fcf23b7de9be732ee4f3bb6f52dc48283436c3dd8a598f1da45322913d30",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-006",
+      "source_file_instance_id": "58916308a3527d59",
+      "page_number": 2,
+      "printed_page_label": "2/2",
+      "section": "required_actions_and_compliance_times",
+      "section_raw": "Required Action(s) and Compliance Time(s)",
+      "clause_path": "(1)",
+      "exact_quote": "(1) Within 12 months after the effective date of this AD, identify and, if found to be affected, replace the hinge sleeves N°3 and N°4 of the TRU cowl door in accordance with the instructions of Airbus Service Bulletin (SB) A330-78-3021 Revision 01.",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "413f41489bc84a40fe815c4ad7b0548e9d2da4616002ea3c2f47aeba3f3b8f23",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-007",
+      "source_file_instance_id": "58916308a3527d59",
+      "page_number": 2,
+      "printed_page_label": "2/2",
+      "section": "credit",
+      "section_raw": "Required Action(s) and Compliance Time(s)",
+      "clause_path": "(2)",
+      "exact_quote": "(2) Aeroplanes on which Airbus Modification 202463 has been embodied in production or aeroplanes modified in accordance with the instructions of Airbus SB A330-78-3021 at original issue, are compliant with the requirement of paragraph (1) of this AD.",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "413f41489bc84a40fe815c4ad7b0548e9d2da4616002ea3c2f47aeba3f3b8f23",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-008",
+      "source_file_instance_id": "58916308a3527d59",
+      "page_number": 2,
+      "printed_page_label": "2/2",
+      "section": "required_actions_and_compliance_times",
+      "section_raw": "Required Action(s) and Compliance Time(s)",
+      "clause_path": "(3)",
+      "exact_quote": "(3) From the effective date of this AD, installation of a TRU is allowed, provided that, prior to installation, it is determined, in accordance with the instructions of Airbus SB A330-78-3021, that the cowl door hinge sleeves installed on the TRU are not affected by the requirements of this AD.",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "413f41489bc84a40fe815c4ad7b0548e9d2da4616002ea3c2f47aeba3f3b8f23",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-009",
+      "source_file_instance_id": "58916308a3527d59",
+      "page_number": 2,
+      "printed_page_label": "2/2",
+      "section": "reference_publications",
+      "section_raw": "Ref. Publications",
+      "clause_path": null,
+      "exact_quote": "Airbus SB A330-78-3021 at original issue dated 17 October 2012, or Revision 01 dated 30 July 2013. The use of later approved revisions of this document is acceptable for compliance with the requirements of this AD.",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "413f41489bc84a40fe815c4ad7b0548e9d2da4616002ea3c2f47aeba3f3b8f23",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-010",
+      "source_file_instance_id": "58916308a3527d59",
+      "page_number": 2,
+      "printed_page_label": "2/2",
+      "section": "remarks",
+      "section_raw": "Remarks 1, 3 and 4",
+      "clause_path": null,
+      "exact_quote": "If requested and appropriately substantiated, EASA can approve Alternative Methods of Compliance for this AD. Enquiries regarding this AD should be referred to the Safety Information Section, Executive Directorate, EASA. E-mail: ADs@easa.europa.eu. For any question concerning the technical content of the requirements in this AD, please contact: AIRBUS – Airworthiness Office – EIAL; E-mail: airworthiness.A330-A340@airbus.com.",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "413f41489bc84a40fe815c4ad7b0548e9d2da4616002ea3c2f47aeba3f3b8f23",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    }
+  ],
+  "field_assertions": [
+    {
+      "assertion_id": "AST-001",
+      "field_path": "/ad_identity",
+      "value_state": "present",
+      "origin": "human_annotated",
+      "verification_status": "accepted",
+      "confidence": null,
+      "evidence_ids": [
+        "EV-001"
+      ],
+      "annotator_id": "human-reviewer-1",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Human reviewer accepted this substantive section against the canonical PDF."
+    },
+    {
+      "assertion_id": "AST-002",
+      "field_path": "/publication",
+      "value_state": "present",
+      "origin": "human_annotated",
+      "verification_status": "accepted",
+      "confidence": null,
+      "evidence_ids": [
+        "EV-002",
+        "EV-001",
+        "EV-005"
+      ],
+      "annotator_id": "human-reviewer-1",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Human reviewer accepted this substantive section against the canonical PDF."
+    },
+    {
+      "assertion_id": "AST-003",
+      "field_path": "/applicability_groups",
+      "value_state": "present",
+      "origin": "human_annotated",
+      "verification_status": "accepted",
+      "confidence": null,
+      "evidence_ids": [
+        "EV-003"
+      ],
+      "annotator_id": "human-reviewer-1",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Human reviewer accepted this substantive section against the canonical PDF."
+    },
+    {
+      "assertion_id": "AST-004",
+      "field_path": "/definitions",
+      "value_state": "absent_in_source",
+      "origin": "human_annotated",
+      "verification_status": "accepted",
+      "confidence": null,
+      "evidence_ids": [],
+      "annotator_id": "human-reviewer-1",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Human reviewer accepted this substantive section against the canonical PDF."
+    },
+    {
+      "assertion_id": "AST-005",
+      "field_path": "/requirements",
+      "value_state": "present",
+      "origin": "human_annotated",
+      "verification_status": "accepted",
+      "confidence": null,
+      "evidence_ids": [
+        "EV-006",
+        "EV-008"
+      ],
+      "annotator_id": "human-reviewer-1",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Human reviewer accepted this substantive section against the canonical PDF."
+    },
+    {
+      "assertion_id": "AST-006",
+      "field_path": "/exceptions",
+      "value_state": "absent_in_source",
+      "origin": "human_annotated",
+      "verification_status": "accepted",
+      "confidence": null,
+      "evidence_ids": [],
+      "annotator_id": "human-reviewer-1",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Human reviewer accepted this substantive section against the canonical PDF."
+    },
+    {
+      "assertion_id": "AST-007",
+      "field_path": "/previous_action_credit",
+      "value_state": "present",
+      "origin": "human_annotated",
+      "verification_status": "accepted",
+      "confidence": null,
+      "evidence_ids": [
+        "EV-007"
+      ],
+      "annotator_id": "human-reviewer-1",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Human reviewer accepted this substantive section against the canonical PDF."
+    },
+    {
+      "assertion_id": "AST-008",
+      "field_path": "/referenced_publications",
+      "value_state": "present",
+      "origin": "human_annotated",
+      "verification_status": "accepted",
+      "confidence": null,
+      "evidence_ids": [
+        "EV-007",
+        "EV-009",
+        "EV-006"
+      ],
+      "annotator_id": "human-reviewer-1",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Human reviewer accepted this substantive section against the canonical PDF."
+    },
+    {
+      "assertion_id": "AST-009",
+      "field_path": "/relationships",
+      "value_state": "absent_in_source",
+      "origin": "human_annotated",
+      "verification_status": "accepted",
+      "confidence": null,
+      "evidence_ids": [
+        "EV-001"
+      ],
+      "annotator_id": "human-reviewer-1",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Human reviewer accepted this substantive section against the canonical PDF."
+    },
+    {
+      "assertion_id": "AST-010",
+      "field_path": "/amoc_and_contacts",
+      "value_state": "present",
+      "origin": "human_annotated",
+      "verification_status": "accepted",
+      "confidence": null,
+      "evidence_ids": [
+        "EV-010"
+      ],
+      "annotator_id": "human-reviewer-1",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Human reviewer accepted this substantive section against the canonical PDF."
+    },
+    {
+      "assertion_id": "AST-011",
+      "field_path": "/ad_identity/ad_number",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.995,
+      "evidence_ids": [
+        "EV-001"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Cover identity"
+    },
+    {
+      "assertion_id": "AST-012",
+      "field_path": "/ad_identity/supersedure_statement",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.99,
+      "evidence_ids": [
+        "EV-001"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Printed status field"
+    },
+    {
+      "assertion_id": "AST-013",
+      "field_path": "/publication/issue_date",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.995,
+      "evidence_ids": [
+        "EV-001"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Printed issue date"
+    },
+    {
+      "assertion_id": "AST-014",
+      "field_path": "/publication/effective_date",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.995,
+      "evidence_ids": [
+        "EV-005"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Printed effective date"
+    },
+    {
+      "assertion_id": "AST-015",
+      "field_path": "/publication/subject",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.99,
+      "evidence_ids": [
+        "EV-002"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Printed ATA subject"
+    },
+    {
+      "assertion_id": "AST-016",
+      "field_path": "/applicability_groups/0",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-003"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "applicability_groups"
+    },
+    {
+      "assertion_id": "AST-017",
+      "field_path": "/requirements/0",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.94,
+      "evidence_ids": [
+        "EV-006"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "requirements"
+    },
+    {
+      "assertion_id": "AST-018",
+      "field_path": "/requirements/1",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.94,
+      "evidence_ids": [
+        "EV-006"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "requirements"
+    },
+    {
+      "assertion_id": "AST-019",
+      "field_path": "/requirements/2",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.94,
+      "evidence_ids": [
+        "EV-008"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "requirements"
+    },
+    {
+      "assertion_id": "AST-020",
+      "field_path": "/previous_action_credit/0",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-007"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "previous_action_credit"
+    },
+    {
+      "assertion_id": "AST-021",
+      "field_path": "/referenced_publications/0",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-007",
+        "EV-009"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "referenced_publications"
+    },
+    {
+      "assertion_id": "AST-022",
+      "field_path": "/referenced_publications/1",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-006",
+        "EV-009"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "referenced_publications"
+    },
+    {
+      "assertion_id": "AST-023",
+      "field_path": "/amoc_and_contacts/0",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-010"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "amoc_and_contacts"
+    },
+    {
+      "assertion_id": "AST-024",
+      "field_path": "/amoc_and_contacts/1",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-010"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "amoc_and_contacts"
+    },
+    {
+      "assertion_id": "AST-025",
+      "field_path": "/amoc_and_contacts/2",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-010"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "amoc_and_contacts"
+    },
+    {
+      "assertion_id": "AST-026",
+      "field_path": "/unsafe_condition",
+      "value_state": "present",
+      "origin": "human_annotated",
+      "verification_status": "accepted",
+      "confidence": null,
+      "evidence_ids": [
+        "EV-004"
+      ],
+      "annotator_id": "human-reviewer-1",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Human reviewer accepted this substantive section against the canonical PDF."
+    },
+    {
+      "assertion_id": "AST-027",
+      "field_path": "/classification",
+      "value_state": "present",
+      "origin": "human_annotated",
+      "verification_status": "accepted",
+      "confidence": null,
+      "evidence_ids": [
+        "EV-002",
+        "EV-003",
+        "EV-006",
+        "EV-008"
+      ],
+      "annotator_id": "human-reviewer-1",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Human reviewer accepted this substantive section against the canonical PDF."
+    },
+    {
+      "assertion_id": "AST-028",
+      "field_path": "/publication/type_model_designations",
+      "value_state": "present",
+      "origin": "human_annotated",
+      "verification_status": "accepted",
+      "confidence": null,
+      "evidence_ids": [
+        "EV-001",
+        "EV-002",
+        "EV-005"
+      ],
+      "annotator_id": "human-reviewer-1",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Human reviewer accepted this normalized publication value against the canonical PDF."
+    },
+    {
+      "assertion_id": "AST-029",
+      "field_path": "/publication/tcds_numbers",
+      "value_state": "present",
+      "origin": "human_annotated",
+      "verification_status": "accepted",
+      "confidence": null,
+      "evidence_ids": [
+        "EV-001",
+        "EV-002",
+        "EV-005"
+      ],
+      "annotator_id": "human-reviewer-1",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Human reviewer accepted this normalized publication value against the canonical PDF."
+    }
+  ],
+  "annotation_metadata": {
+    "guideline_version": "1.0.0",
+    "record_status": "approved",
+    "creation_method": "manual",
+    "machine_provenance": {
+      "system": "OpenAI Codex",
+      "model": "GPT-5",
+      "prompt_or_rules_version": "step2-guidelines-1.0.0-manual-pass-a3",
+      "generated_at": "2026-07-22T11:53:23Z"
+    },
+    "annotators": [
+      {
+        "annotator_id": "codex-a3",
+        "role": "annotator",
+        "started_at": "2026-07-22T11:45:00Z",
+        "submitted_at": "2026-07-22T12:45:00Z"
+      },
+      {
+        "annotator_id": "codex-source-audit",
+        "role": "reviewer",
+        "started_at": "2026-07-28T12:27:04Z",
+        "submitted_at": "2026-07-28T12:27:04Z"
+      },
+      {
+        "annotator_id": "human-reviewer-1",
+        "role": "reviewer",
+        "started_at": "2026-07-29T10:52:34Z",
+        "submitted_at": "2026-07-29T10:52:34Z"
+      }
+    ],
+    "events": [
+      {
+        "event_type": "created",
+        "actor_id": "codex-a3",
+        "timestamp": "2026-07-22T11:45:00Z",
+        "rationale": "Blind first-pass annotation from the source PDF and blind packet."
+      },
+      {
+        "event_type": "submitted",
+        "actor_id": "codex-a3",
+        "timestamp": "2026-07-22T12:45:00Z",
+        "rationale": "First pass completed; no human review or approval claimed."
+      },
+      {
+        "event_type": "reviewed",
+        "actor_id": "codex-source-audit",
+        "timestamp": "2026-07-28T12:27:04Z",
+        "rationale": "Machine-only comparison against every rendered PDF page and frozen page text; source corrections were applied where required and human acceptance remains pending."
+      },
+      {
+        "event_type": "reviewed",
+        "actor_id": "human-reviewer-1",
+        "timestamp": "2026-07-29T10:52:34Z",
+        "rationale": "Independent human reviewer confirmed that the complete annotation was reviewed against the canonical PDF."
+      },
+      {
+        "event_type": "approved",
+        "actor_id": "human-reviewer-1",
+        "timestamp": "2026-07-29T10:52:34Z",
+        "rationale": "The user explicitly approved the finalized human-reviewed annotation for inclusion in the gold pilot."
+      }
+    ],
+    "quality_flags": [
+      "complex_compliance",
+      "visual_transcription_used"
+    ],
+    "uncertainty_flags": [],
+    "notes": [
+      "All source pages were visually rendered and checked; populated assertions were accepted by the independent human reviewer.",
+      "Machine source audit rechecked both rendered pages, applicability, unsafe-condition semantics, identification and replacement branches, installation control, credit, publications, and contacts; no source-semantic correction was required and all assertions were accepted by the independent human reviewer.",
+      "Independent human review and approval were recorded after comparison with the canonical PDF."
+    ],
+    "source_text_sha256": "fdcbcdaf2a8412cd3a3ad2f77f97fe1c6bb4ccc75faa340c123b1ca6d2c813d9",
+    "created_at": "2026-07-22T11:45:00Z",
+    "updated_at": "2026-07-29T10:52:34Z"
+  },
+  "benchmark_metadata": {
+    "split": "unassigned",
+    "split_group": "2014-0062",
+    "selection_strata": [],
+    "duplicate_cluster_ids": [],
+    "gold_record": true
+  }
+}

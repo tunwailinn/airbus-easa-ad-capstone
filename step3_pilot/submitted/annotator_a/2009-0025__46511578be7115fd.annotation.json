@@ -1,0 +1,1076 @@
+{
+  "schema_version": "1.0.0",
+  "record_id": "adann-46511578be7115fd",
+  "source_document": {
+    "file_instance_id": "46511578be7115fd",
+    "content_id": "9e738087562162da",
+    "canonical_file_instance_id": "46511578be7115fd",
+    "file_aliases": [],
+    "file_name": "2009-0025__AD_2009-0025_1__easa_ad_2009_0025_Corrected.pdf",
+    "relative_path": "2009-0025__AD_2009-0025_1__easa_ad_2009_0025_Corrected.pdf",
+    "file_sha256": "9e738087562162dabd117aa81c78b99adc4db1c51c3054c8d0736dbaa89981b8",
+    "normalized_text_sha256": "73e0979c4dc89064a846aa1ac1c89967cafdccfdb7d5fde3306e8144562c2145",
+    "page_count": 3,
+    "extraction_status": "native_text",
+    "needs_ocr": false,
+    "manifest_review_flags": [],
+    "source_url": "https://ad.easa.europa.eu/blob/easa_ad_2009_0025_Corrected.pdf/AD_2009-0025_1",
+    "text_extraction_method": "native_text",
+    "exact_duplicate_group": null,
+    "near_duplicate_cluster": null
+  },
+  "ad_identity": {
+    "authority": "EASA",
+    "document_type": "airworthiness_directive",
+    "ad_number": "2009-0025",
+    "base_ad_number": "2009-0025",
+    "revision_number": 0,
+    "publication_kind": "standard_ad",
+    "is_emergency": false,
+    "is_correction": true,
+    "correction_date": {
+      "state": "present",
+      "value": "2009-02-11",
+      "raw_text": "[Corrected: 11 February 2009]",
+      "evidence_ids": [
+        "EV-001"
+      ]
+    },
+    "version_label": "Corrected 11 February 2009",
+    "logical_version_key": "2009-0025|CORRECTED:2009-02-11",
+    "is_latest_version": null,
+    "lifecycle_status": "unknown",
+    "design_approval_holder": {
+      "state": "present",
+      "value": "AIRBUS",
+      "raw_text": "AIRBUS",
+      "evidence_ids": [
+        "EV-001"
+      ]
+    },
+    "supersedure_statement": {
+      "state": "explicit_none",
+      "value": null,
+      "raw_text": "None",
+      "evidence_ids": [
+        "EV-001"
+      ]
+    },
+    "evidence_ids": [
+      "EV-001",
+      "EV-002",
+      "EV-005"
+    ]
+  },
+  "publication": {
+    "subject": {
+      "state": "present",
+      "value": "ATA 57 – Wings – Flap Track No.1 Pendulum Assembly – Inspection / Replacement",
+      "raw_text": "ATA 57 – Wings – Flap Track No.1 Pendulum Assembly – Inspection / Replacement",
+      "evidence_ids": [
+        "EV-002"
+      ]
+    },
+    "issue_date": {
+      "state": "present",
+      "value": "2009-02-10",
+      "raw_text": "Date: 10 February 2009",
+      "evidence_ids": [
+        "EV-001"
+      ]
+    },
+    "effective_date": {
+      "state": "present",
+      "value": "2009-02-24",
+      "raw_text": "Effective Date: 24 February 2009",
+      "evidence_ids": [
+        "EV-006"
+      ]
+    },
+    "ata_chapters": [
+      {
+        "code": "57",
+        "title": "Wings",
+        "evidence_ids": [
+          "EV-002"
+        ]
+      }
+    ],
+    "manufacturers": [
+      {
+        "raw_name": "AIRBUS (formerly AIRBUS INDUSTRIE)",
+        "normalized_name": "Airbus",
+        "role": "manufacturer",
+        "evidence_ids": [
+          "EV-003"
+        ]
+      }
+    ],
+    "type_model_designations": [
+      "A318",
+      "A319",
+      "A320",
+      "A321"
+    ],
+    "tcds_numbers": [
+      "EASA.A.064"
+    ],
+    "foreign_ad": {
+      "state": "explicit_none",
+      "value": null,
+      "raw_text": "Not applicable",
+      "evidence_ids": [
+        "EV-001"
+      ]
+    }
+  },
+  "applicability_groups": [
+    {
+      "group_id": "APP-001",
+      "label": "All listed A318/A319/A320/A321 models",
+      "state": "present",
+      "raw_text": "Applicability: AIRBUS A318-111, A318-112, A318-121, A318-122, A319-111, A319-112, A319-113, A319-114, A319-115, A319-131, A319-132, A319-133, A320-111, A320-211, A320-212, A320-214, A320-215, A320-216, A320-231, A320-232, A320-233, A321-111, A321-112, A321-131, A321-211, A321-212, A321-213, A321-231 and A321-232 aircraft models, all manufacturer serial numbers.",
+      "aircraft_families": [
+        "A320 Family"
+      ],
+      "models": [
+        "A318-111",
+        "A318-112",
+        "A318-121",
+        "A318-122",
+        "A319-111",
+        "A319-112",
+        "A319-113",
+        "A319-114",
+        "A319-115",
+        "A319-131",
+        "A319-132",
+        "A319-133",
+        "A320-111",
+        "A320-211",
+        "A320-212",
+        "A320-214",
+        "A320-215",
+        "A320-216",
+        "A320-231",
+        "A320-232",
+        "A320-233",
+        "A321-111",
+        "A321-112",
+        "A321-131",
+        "A321-211",
+        "A321-212",
+        "A321-213",
+        "A321-231",
+        "A321-232"
+      ],
+      "serial_restrictions": [
+        {
+          "restriction_id": "MSN-001",
+          "kind": "all",
+          "raw_expression": "all manufacturer serial numbers",
+          "lower_bound": null,
+          "upper_bound": null,
+          "explicit_values": [],
+          "condition": null,
+          "evidence_ids": [
+            "EV-003"
+          ]
+        }
+      ],
+      "part_numbers": [],
+      "configuration_conditions": [],
+      "exclusions": [],
+      "boolean_logic": "all",
+      "evidence_ids": [
+        "EV-003"
+      ]
+    }
+  ],
+  "definitions": [],
+  "unsafe_condition": {
+    "state": "present",
+    "raw_reason_text": "Reason: During a routine inspection on an Airbus A321 aircraft, the operator discovered that a bearing of the flap track No.1 pendulum assembly had migrated out of position. The investigation has confirmed that the pendulum bearing migration was probably due to the methods used during in-service replacement of the bearing during maintenance, whereby the necessary special tools, fixtures and equipment were not used. This condition, if not corrected, could lead to separation of the bearing/flap track assembly, resulting in the detachment of the affected flap surface from the wing and consequent loss of control of the aircraft. For the reasons described above, this AD requires a one-time inspection of the affected flap track No.1 pendulum assembly for bearing migration and, in case any bearing is found to have migrated, the replacement of the affected flap track pendulum assembly. Note: Based on this in-service experience, showing the potential safety effect of not following the TC Holder’s accomplishment instructions, Airbus has removed the instructions to replace the bearing in the pendulum assembly from the A320 Family aircraft maintenance documentation. Component Maintenance Manual (CMM) references are 27-54-43 for the A318, A319 and A320, and 27-54-42 for the A321. EASA Form 110 Page 1/3",
+    "observed_events_or_defects": [
+      "A flap-track No.1 pendulum bearing migrated out of position."
+    ],
+    "causes": [
+      "In-service bearing replacement without the necessary special tools, fixtures and equipment."
+    ],
+    "unsafe_conditions": [
+      "Pendulum-bearing migration or incorrect swaging."
+    ],
+    "potential_consequences": [
+      "Bearing/flap-track separation, detachment of the affected flap surface, and consequent loss of control."
+    ],
+    "affected_components": [
+      "flap track No.1 pendulum assembly",
+      "pendulum bearing",
+      "flap surface"
+    ],
+    "intended_risk_mitigation": [
+      "One-time inspection and replacement or corrective action when migration or incorrect swaging is found."
+    ],
+    "evidence_ids": [
+      "EV-004"
+    ]
+  },
+  "requirements": [
+    {
+      "requirement_id": "REQ-001",
+      "paragraph_reference": "1.a",
+      "parent_requirement_id": null,
+      "applicability_group_ids": [
+        "APP-001"
+      ],
+      "action_types": [
+        "inspection"
+      ],
+      "obligation": "mandatory",
+      "action_text": "Within 600 flight hours after the effective date, inspect the flap track No.1 pendulum assembly using SB A320-57A1146 for A318/A319/A320 or SB A320-57-1144 for A321, as applicable.",
+      "objects_or_components": [
+        "flap track No.1 pendulum assembly"
+      ],
+      "conditions": [
+        "Use the service bulletin applicable to the aircraft model."
+      ],
+      "method_publication_ids": [
+        "PUB-002",
+        "PUB-001"
+      ],
+      "compliance_rules": [
+        {
+          "compliance_id": "CMP-001",
+          "state": "present",
+          "raw_text": "Within 600 flight hours after the effective date of this AD",
+          "logic": "single",
+          "conditions": [],
+          "initial_limits": [
+            {
+              "limit_id": "LIM-001",
+              "relation": "within",
+              "quantity": 600,
+              "unit": "flight_hour",
+              "raw_value": "600 flight hours after the effective date of this AD",
+              "reference_event": "effective date of this AD",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-007"
+              ]
+            }
+          ],
+          "is_repetitive": false,
+          "repetitive_intervals": [],
+          "grace_periods": [],
+          "evidence_ids": [
+            "EV-007"
+          ]
+        }
+      ],
+      "follow_on_requirement_ids": [],
+      "terminating_action": {
+        "state": "not_stated",
+        "present": false,
+        "scope": "none",
+        "action_text": null,
+        "terminates_requirement_ids": [],
+        "evidence_ids": []
+      },
+      "evidence_ids": [
+        "EV-007"
+      ]
+    },
+    {
+      "requirement_id": "REQ-002",
+      "paragraph_reference": "1.b",
+      "parent_requirement_id": "REQ-001",
+      "applicability_group_ids": [
+        "APP-001"
+      ],
+      "action_types": [
+        "replacement"
+      ],
+      "obligation": "conditional",
+      "action_text": "If a pendulum-assembly bearing has migrated, replace the affected flap-track pendulum assembly before further flight.",
+      "objects_or_components": [
+        "affected flap track pendulum assembly"
+      ],
+      "conditions": [
+        "Bearing migration is found."
+      ],
+      "method_publication_ids": [],
+      "compliance_rules": [
+        {
+          "compliance_id": "CMP-002",
+          "state": "present",
+          "raw_text": "before further flight",
+          "logic": "single",
+          "conditions": [
+            "Bearing migration is found."
+          ],
+          "initial_limits": [
+            {
+              "limit_id": "LIM-002",
+              "relation": "before",
+              "quantity": null,
+              "unit": "before_next_flight",
+              "raw_value": "before further flight",
+              "reference_event": null,
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-007"
+              ]
+            }
+          ],
+          "is_repetitive": false,
+          "repetitive_intervals": [],
+          "grace_periods": [],
+          "evidence_ids": [
+            "EV-007"
+          ]
+        }
+      ],
+      "follow_on_requirement_ids": [],
+      "terminating_action": {
+        "state": "not_stated",
+        "present": false,
+        "scope": "none",
+        "action_text": null,
+        "terminates_requirement_ids": [],
+        "evidence_ids": []
+      },
+      "evidence_ids": [
+        "EV-007"
+      ]
+    },
+    {
+      "requirement_id": "REQ-003",
+      "paragraph_reference": "1.c",
+      "parent_requirement_id": "REQ-001",
+      "applicability_group_ids": [
+        "APP-001"
+      ],
+      "action_types": [
+        "contact_manufacturer",
+        "repair"
+      ],
+      "obligation": "conditional",
+      "action_text": "If a bearing is found incorrectly swaged, contact Airbus before next flight and accomplish the relevant corrective actions using the applicable service bulletin.",
+      "objects_or_components": [
+        "incorrectly swaged pendulum bearing"
+      ],
+      "conditions": [
+        "A pendulum-assembly bearing is found incorrectly swaged."
+      ],
+      "method_publication_ids": [
+        "PUB-002",
+        "PUB-001"
+      ],
+      "compliance_rules": [
+        {
+          "compliance_id": "CMP-003",
+          "state": "present",
+          "raw_text": "before next flight contact Airbus for further instructions and accomplish the relevant corrective actions",
+          "logic": "single",
+          "conditions": [
+            "A bearing is found incorrectly swaged."
+          ],
+          "initial_limits": [
+            {
+              "limit_id": "LIM-003",
+              "relation": "before",
+              "quantity": null,
+              "unit": "before_next_flight",
+              "raw_value": "before next flight",
+              "reference_event": null,
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-007"
+              ]
+            }
+          ],
+          "is_repetitive": false,
+          "repetitive_intervals": [],
+          "grace_periods": [],
+          "evidence_ids": [
+            "EV-007"
+          ]
+        }
+      ],
+      "follow_on_requirement_ids": [],
+      "terminating_action": {
+        "state": "not_stated",
+        "present": false,
+        "scope": "none",
+        "action_text": null,
+        "terminates_requirement_ids": [],
+        "evidence_ids": []
+      },
+      "evidence_ids": [
+        "EV-007"
+      ]
+    },
+    {
+      "requirement_id": "REQ-004",
+      "paragraph_reference": "3",
+      "parent_requirement_id": null,
+      "applicability_group_ids": [
+        "APP-001"
+      ],
+      "action_types": [
+        "replacement",
+        "install",
+        "prohibition",
+        "records_review"
+      ],
+      "obligation": "prohibited",
+      "action_text": "After the effective date, do not replace a bearing in the flap-track pendulum assembly or install a pendulum assembly unless it is new manufacture or records demonstrate that its bearing has not been replaced or re-swaged since new manufacture.",
+      "objects_or_components": [
+        "pendulum bearing",
+        "pendulum assembly"
+      ],
+      "conditions": [
+        "Allowed only for a new-manufacture assembly or with qualifying records."
+      ],
+      "method_publication_ids": [],
+      "compliance_rules": [
+        {
+          "compliance_id": "CMP-004",
+          "state": "present",
+          "raw_text": "After the effective date of this AD",
+          "logic": "single",
+          "conditions": [
+            "Continuous parts-installation restriction."
+          ],
+          "initial_limits": [
+            {
+              "limit_id": "LIM-004",
+              "relation": "after",
+              "quantity": null,
+              "unit": "other",
+              "raw_value": "after the effective date of this AD",
+              "reference_event": "effective date of this AD",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-007"
+              ]
+            }
+          ],
+          "is_repetitive": false,
+          "repetitive_intervals": [],
+          "grace_periods": [],
+          "evidence_ids": [
+            "EV-007"
+          ]
+        }
+      ],
+      "follow_on_requirement_ids": [],
+      "terminating_action": {
+        "state": "not_stated",
+        "present": false,
+        "scope": "none",
+        "action_text": null,
+        "terminates_requirement_ids": [],
+        "evidence_ids": []
+      },
+      "evidence_ids": [
+        "EV-007"
+      ]
+    }
+  ],
+  "exceptions": [
+    {
+      "exception_id": "EXC-001",
+      "text": "Aircraft originally delivered after the effective date of this AD.",
+      "applies_to_requirement_ids": [
+        "REQ-001",
+        "REQ-002",
+        "REQ-003"
+      ],
+      "evidence_ids": [
+        "EV-007"
+      ]
+    },
+    {
+      "exception_id": "EXC-002",
+      "text": "Records demonstrate that no pendulum-assembly bearing has been replaced or re-swaged since original delivery.",
+      "applies_to_requirement_ids": [
+        "REQ-001",
+        "REQ-002",
+        "REQ-003"
+      ],
+      "evidence_ids": [
+        "EV-007"
+      ]
+    },
+    {
+      "exception_id": "EXC-003",
+      "text": "The aircraft was inspected before the effective date with the applicable SB and records show no subsequent installation of an assembly whose bearing was replaced or re-swaged since new manufacture.",
+      "applies_to_requirement_ids": [
+        "REQ-001",
+        "REQ-002",
+        "REQ-003"
+      ],
+      "evidence_ids": [
+        "EV-007"
+      ]
+    },
+    {
+      "exception_id": "EXC-004",
+      "text": "The aircraft was inspected before the effective date with the applicable SB and records show no subsequent bearing replacement or re-swaging.",
+      "applies_to_requirement_ids": [
+        "REQ-001",
+        "REQ-002",
+        "REQ-003"
+      ],
+      "evidence_ids": [
+        "EV-007"
+      ]
+    }
+  ],
+  "previous_action_credit": [],
+  "referenced_publications": [
+    {
+      "publication_id": "PUB-001",
+      "publication_type": "service_bulletin",
+      "issuer": "Airbus",
+      "number": "A320-57-1144",
+      "revision": "original issue or Revision 1",
+      "publication_date": null,
+      "title": null,
+      "roles": [
+        "required_method"
+      ],
+      "later_approved_revisions_allowed": true,
+      "evidence_ids": [
+        "EV-007",
+        "EV-008"
+      ]
+    },
+    {
+      "publication_id": "PUB-002",
+      "publication_type": "alert_service_bulletin",
+      "issuer": "Airbus",
+      "number": "A320-57A1146",
+      "revision": "original issue",
+      "publication_date": "2007-09-21",
+      "title": null,
+      "roles": [
+        "required_method"
+      ],
+      "later_approved_revisions_allowed": true,
+      "evidence_ids": [
+        "EV-007",
+        "EV-008"
+      ]
+    }
+  ],
+  "relationships": [],
+  "amoc_and_contacts": [
+    {
+      "entry_id": "AMC-001",
+      "entry_type": "amoc_authority",
+      "authority_or_organization": "EASA",
+      "contact_text": "EASA can approve Alternative Methods of Compliance for this AD.",
+      "conditions": [
+        "Requested and appropriately substantiated."
+      ],
+      "evidence_ids": [
+        "EV-009"
+      ]
+    },
+    {
+      "entry_id": "AMC-002",
+      "entry_type": "regulatory_contact",
+      "authority_or_organization": "EASA Airworthiness Directives, Safety Management & Research Section",
+      "contact_text": "E-mail: ADs@easa.europa.eu.",
+      "conditions": [],
+      "evidence_ids": [
+        "EV-009"
+      ]
+    },
+    {
+      "entry_id": "AMC-003",
+      "entry_type": "technical_contact",
+      "authority_or_organization": "Airbus Airworthiness Office – EAS",
+      "contact_text": "Fax: +33 5 61 93 44 51; E-mail: account.airworth-eas@airbus.com.",
+      "conditions": [],
+      "evidence_ids": [
+        "EV-009"
+      ]
+    }
+  ],
+  "classification": {
+    "airbus_families": [
+      "A320 Family"
+    ],
+    "ata_chapters": [
+      "57"
+    ],
+    "action_types": [
+      "inspection",
+      "replacement",
+      "contact_manufacturer",
+      "repair",
+      "install",
+      "prohibition",
+      "records_review"
+    ],
+    "frequency": "mixed",
+    "emergency_status": "standard",
+    "terminating_action_present": false,
+    "table_or_appendix_present": false,
+    "compliance_complexity": "conditional_branches",
+    "human_confirmed": false,
+    "evidence_ids": [
+      "EV-002",
+      "EV-003",
+      "EV-004",
+      "EV-007"
+    ]
+  },
+  "evidence_spans": [
+    {
+      "evidence_id": "EV-001",
+      "source_file_instance_id": "46511578be7115fd",
+      "page_number": 1,
+      "printed_page_label": "Page 1 of 3",
+      "section": "cover",
+      "section_raw": null,
+      "clause_path": "cover",
+      "exact_quote": "EASA AIRWORTHINESS DIRECTIVE\n\n                                                                       AD No.: 2009-0025\n                                                                       [Corrected: 11 February 2009]\n\n\n                                                                       Date: 10 February 2009\n\n                                                                       Note: This Airworthiness Directive (AD) is  issued by EASA, acting in accordance with\n                                                                       Regulation (EC) No 216/2008 on behalf of the European Community, its Member States and of\n                                                                       the European third countries that participate in  the activities of EASA under Article 66 of that\n                                                                       Regulation.\n\n     This AD is issued in accordance with EC 1702/2003, Part 21A.3 B. In accordance with EC 2042/2003 Annex I, Part M.A.301, the\n     continuing airworthiness of an aircraft s hall be ensured by accomplishing any applicable ADs. Consequently, no person may opera  te\n     an aircraft to which an AD applies, except in accordance with the  requirements of that AD unless otherwise specified by the Age ncy\n     [EC 2042/2003 Annex I, Part M.A.303] or agreed with the Authority of the State of Registry [EC 216/2008, Article 14(4) exemptio n].\n\n             Type Approval Holder’s Name :                                                                                    Type/Model designation(s) :\n\n             AIRBUS                                                                                                           A318, A319, A320 and A321 aircraft\n\n             TCDS Number :                                                  EASA.A.064\n\n             Foreign AD :                                                                                                        Not applicable\n\n             Supersedure :                                                                                None",
+      "start_char": 232,
+      "end_char": 2323,
+      "page_text_sha256": "b0639c6d99339ece3fc7605ec8bad3e498102c4cc1ed936ebd7cc4a9d0ca3e95",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "exact",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-002",
+      "source_file_instance_id": "46511578be7115fd",
+      "page_number": 1,
+      "printed_page_label": "Page 1 of 3",
+      "section": "cover",
+      "section_raw": null,
+      "clause_path": "subject",
+      "exact_quote": "ATA 57                                                                                                                                                                                                                                                    Wings – Flap Track No.1 Pendulum Assembly – Inspection / Replacement",
+      "start_char": 2339,
+      "end_char": 2657,
+      "page_text_sha256": "b0639c6d99339ece3fc7605ec8bad3e498102c4cc1ed936ebd7cc4a9d0ca3e95",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "exact",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-003",
+      "source_file_instance_id": "46511578be7115fd",
+      "page_number": 1,
+      "printed_page_label": "Page 1 of 3",
+      "section": "applicability",
+      "section_raw": null,
+      "clause_path": "Applicability",
+      "exact_quote": "Applicability:                                                                                                                                                                                           AIRBUS A318-111, A318-112, A318-121, A318-122, A319-111, A319-112, A319-113, A319-114, A319-115, A319-131, A319-132, A319-133, A320-111,\n\n                                                                  A320-211, A320-212, A320-214, A320-215, A320-216, A320-231, A320-232,\n                                                                  A320-233, A321-111, A321-112, A321-131, A321-211, A321-212, A321-213,\n                                                                  A321-231 and A321-232 aircraft models, all manufacturer serial numbers.",
+      "start_char": 2861,
+      "end_char": 3609,
+      "page_text_sha256": "b0639c6d99339ece3fc7605ec8bad3e498102c4cc1ed936ebd7cc4a9d0ca3e95",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "exact",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-004",
+      "source_file_instance_id": "46511578be7115fd",
+      "page_number": 1,
+      "printed_page_label": "Page 1 of 3",
+      "section": "reason",
+      "section_raw": null,
+      "clause_path": "Reason",
+      "exact_quote": "Reason:                                                                                                                                                                                                                                                              During a routine inspection on an Airbus A321 aircraft, the operator discovered that a bearing of the flap track No.1 pendulum assembly had migrated out of\n\n                                                                  position. The investigation has confirmed that the pendulum bearing migration\n                                                                  was probably due to the methods used during in-service replacement of the\n                                                                  bearing during maintenance, whereby the necessary special tools, fixtures and\n                                                                  equipment were not used. This condition, if not corrected, could lead to\n                                                                  separation of the bearing/flap track assembly, resulting in the detachment of\n                                                                  the affected flap surface from the wing and consequent loss of control of the\n                                                                  aircraft.\n                                                                  For the reasons described above, this AD requires a one-time inspection of the\n                                                                  affected flap track No.1 pendulum assembly for bearing migration and, in case\n                                                                  any bearing is found to have migrated, the replacement of the affected flap\n                                                                  track pendulum assembly.\n                                                                  Note: Based on this in-service experience, showing the potential safety effect\n                                                                  of not following the TC Holder’s accomplishment instructions, Airbus has\n                                                                  removed the instructions to replace the bearing in the pendulum assembly from\n                                                                  the A320 Family aircraft maintenance documentation. Component\n                                                                  Maintenance Manual (CMM) references are 27-54-43 for the A318, A319 and\n                                                                  A320, and 27-54-42 for the A321.",
+      "start_char": 3624,
+      "end_char": 6287,
+      "page_text_sha256": "b0639c6d99339ece3fc7605ec8bad3e498102c4cc1ed936ebd7cc4a9d0ca3e95",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "exact",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-005",
+      "source_file_instance_id": "46511578be7115fd",
+      "page_number": 2,
+      "printed_page_label": "Page 2 of 3",
+      "section": "other",
+      "section_raw": null,
+      "clause_path": "correction notice",
+      "exact_quote": "This Correction is issued to amend typographical errors in the Required action\n                                                             and Compliance Time section. The Service Bulletin numbers had been inverted.",
+      "start_char": 265,
+      "end_char": 481,
+      "page_text_sha256": "5ec6763d464b73170c3e2e8c285bf78ea5428c706b53ba05cda9f3e3aac65021",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "exact",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-006",
+      "source_file_instance_id": "46511578be7115fd",
+      "page_number": 2,
+      "printed_page_label": "Page 2 of 3",
+      "section": "cover",
+      "section_raw": null,
+      "clause_path": "effective date",
+      "exact_quote": "Effective Date:                                                                                                                                                         24 February 2009",
+      "start_char": 495,
+      "end_char": 679,
+      "page_text_sha256": "5ec6763d464b73170c3e2e8c285bf78ea5428c706b53ba05cda9f3e3aac65021",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "exact",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-007",
+      "source_file_instance_id": "46511578be7115fd",
+      "page_number": 2,
+      "printed_page_label": "Page 2 of 3",
+      "section": "required_actions_and_compliance_times",
+      "section_raw": null,
+      "clause_path": "paragraphs 1-3",
+      "exact_quote": "Required Action(s)                            1.                Required as indicated:\n           and Compliance\n           Time(s):                                              a.                         Within 600 flight hours after the effective date of this AD, inspect the flap\n\n                                                                         track No.1 pendulum assembly in accordance with the instructions of\n                                                                         Airbus Service Bulletin (SB) A320-57A1146 for A318, A319 and A320\n                                                                         aircraft, or in accordance with the instructions of Airbus SB\n                                                                         A320-57-1144 for A321 aircraft, as applicable to aircraft model.\n                                                                 b.                         If the bearing of a pendulum assembly is found to have migrated, before\n                                                                         further flight, replace the affected flap track pendulum assembly.\n                                                                 c.                           If the bearing of a pendulum assembly is found incorrectly swaged,\n                                                                         before next flight contact Airbus for further instructions and accomplish\n                                                                         the relevant corrective actions in accordance with the instructions of\n                                                                         Airbus SB A320-57A1146 for A318, A319 and A320 aircraft, or Airbus\n                                                                         SB A320-57-1144 for A321 aircraft, as applicable to aircraft model.\n\n\n                                                         2.                The required actions as per paragraph 1. of this AD are not required when\n                                                                one of the following applies:\n\n\n                                                                 a.                         Aircraft originally delivered after the effective date of this AD;\n                                                                 b.                         Aircraft on which it can be demonstrated from data records that the\n                                                                         bearing of any pendulum assembly has not been replaced or re-swaged\n                                                                         since its original delivery date;\n                                                                 c.                           Aircraft inspected prior to the effective date of this AD in accordance with\n                                                                         Airbus Service Bulletin SB A320- 57A1146 for A318, A319 and A320\n                                                                         aircraft or SB A320-57-1144 for A321 aircraft, as applicable to aircraft\n                                                                         model, and on which it can be demonstrated from data records that\n                                                                         thereafter no replacement with a pendulum assembly whose bearing has\n                                                                         been replaced or re-swaged since new manufacture was performed;\n                                                                 d.                         Aircraft inspected prior to the effective date of this AD in accordance with\n                                                                         Airbus Service Bulletin SB A320- 57A1146 for A318, A319 and A320\n                                                                         aircraft or SB A320-57-1144 for A321 aircraft, as applicable to aircraft\n                                                                         model, and on which it can be demonstrated from data records that\n                                                                         thereafter no pendulum bearing replacement or re-swaging was\n                                                                         performed.\n\n\n                                                         3.                After the effective date of this AD, no person shall replace the bearing in the\n                                                                flap track pendulum assembly or install a pendulum assembly, unless:\n\n\n                                                                 a.                the pendulum assembly is of new manufacture, or\n                                                                 b.                         it can be demonstrated from data records that the bearing of the\n                                                                         pendulum assembly has not been replaced or re-swaged since new\n                                                                         manufacture",
+      "start_char": 692,
+      "end_char": 5863,
+      "page_text_sha256": "5ec6763d464b73170c3e2e8c285bf78ea5428c706b53ba05cda9f3e3aac65021",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "exact",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-008",
+      "source_file_instance_id": "46511578be7115fd",
+      "page_number": 2,
+      "printed_page_label": "Page 2 of 3",
+      "section": "reference_publications",
+      "section_raw": null,
+      "clause_path": "Ref. Publications",
+      "exact_quote": "Ref. Publications:                                                                                                           AIRBUS SB A320-57-1144 dated 06 February 2007, or SB A320-57-1144\n                                                             Revision 1 dated 18 June 2007.\n                                                             AIRBUS SB A320-57A1146 dated 21 September 2007.\n                                                             The use of later approved revisions of these documents is acceptable for\n                                                             compliance with the requirements of this AD.",
+      "start_char": 5877,
+      "end_char": 6508,
+      "page_text_sha256": "5ec6763d464b73170c3e2e8c285bf78ea5428c706b53ba05cda9f3e3aac65021",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "exact",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-009",
+      "source_file_instance_id": "46511578be7115fd",
+      "page_number": 3,
+      "printed_page_label": "Page 3 of 3",
+      "section": "remarks",
+      "section_raw": null,
+      "clause_path": "Remarks",
+      "exact_quote": "Remarks :                                                                                                                                                                                                                            1.                         If requested and appropriately substantiated, EASA can approve\n                                                                                                                           Alternative Methods of Compliance for this AD.\n                                                                                                             2.                         This AD was published on 26 November 2008 as PAD 08-094 for\n                                                                                                                           consultation until 24 December 2008. The Comment Response Document\n                                                                                                                           can be found at http://ad.easa.europa.eu/ .\n                                                                                                             3.                         Enquiries regarding this AD should be referred to the Airworthiness\n                                                                                                                           Directives, Safety Management & Research Section, Certification\n                                                                                                                           Directorate, EASA. E-mail: ADs@easa.europa.eu .\n                                                                                                             4.                         For any question concerning the technical content of the requirements in\n                                                                                                                           this AD, please contact: AIRBUS – Airworthiness Office – EAS\n                                                                                                                           Fax: +33 5 61 93 44 51, E-mail: account.airworth-eas@airbus.com .",
+      "start_char": 354,
+      "end_char": 2539,
+      "page_text_sha256": "38421e99efb351a87f7a29944d8fb11be51a39fc75f31e091e2b224ae374d5f3",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "exact",
+      "table_context": null,
+      "annotation_note": null
+    }
+  ],
+  "field_assertions": [
+    {
+      "assertion_id": "AST-001",
+      "field_path": "/ad_identity",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.92,
+      "evidence_ids": [
+        "EV-001",
+        "EV-002",
+        "EV-005"
+      ],
+      "annotator_id": "codex-a2",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Source-grounded first-pass assertion; independent review pending."
+    },
+    {
+      "assertion_id": "AST-002",
+      "field_path": "/publication",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.92,
+      "evidence_ids": [
+        "EV-002",
+        "EV-001",
+        "EV-006",
+        "EV-003"
+      ],
+      "annotator_id": "codex-a2",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Source-grounded first-pass assertion; independent review pending."
+    },
+    {
+      "assertion_id": "AST-003",
+      "field_path": "/applicability_groups",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.92,
+      "evidence_ids": [
+        "EV-003"
+      ],
+      "annotator_id": "codex-a2",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Source-grounded first-pass assertion; independent review pending."
+    },
+    {
+      "assertion_id": "AST-004",
+      "field_path": "/definitions",
+      "value_state": "absent_in_source",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.85,
+      "evidence_ids": [
+        "EV-003",
+        "EV-004"
+      ],
+      "annotator_id": "codex-a2",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Source-grounded first-pass assertion; independent review pending."
+    },
+    {
+      "assertion_id": "AST-005",
+      "field_path": "/unsafe_condition",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.92,
+      "evidence_ids": [
+        "EV-004"
+      ],
+      "annotator_id": "codex-a2",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Source-grounded first-pass assertion; independent review pending."
+    },
+    {
+      "assertion_id": "AST-006",
+      "field_path": "/requirements",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.92,
+      "evidence_ids": [
+        "EV-007"
+      ],
+      "annotator_id": "codex-a2",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Source-grounded first-pass assertion; independent review pending."
+    },
+    {
+      "assertion_id": "AST-007",
+      "field_path": "/exceptions",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.92,
+      "evidence_ids": [
+        "EV-007"
+      ],
+      "annotator_id": "codex-a2",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Source-grounded first-pass assertion; independent review pending."
+    },
+    {
+      "assertion_id": "AST-008",
+      "field_path": "/previous_action_credit",
+      "value_state": "not_applicable",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.85,
+      "evidence_ids": [
+        "EV-007",
+        "EV-008"
+      ],
+      "annotator_id": "codex-a2",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Source-grounded first-pass assertion; independent review pending."
+    },
+    {
+      "assertion_id": "AST-009",
+      "field_path": "/referenced_publications",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.92,
+      "evidence_ids": [
+        "EV-007",
+        "EV-008"
+      ],
+      "annotator_id": "codex-a2",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Source-grounded first-pass assertion; independent review pending."
+    },
+    {
+      "assertion_id": "AST-010",
+      "field_path": "/relationships",
+      "value_state": "not_applicable",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.85,
+      "evidence_ids": [
+        "EV-001",
+        "EV-005"
+      ],
+      "annotator_id": "codex-a2",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Source-grounded first-pass assertion; independent review pending."
+    },
+    {
+      "assertion_id": "AST-011",
+      "field_path": "/amoc_and_contacts",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.92,
+      "evidence_ids": [
+        "EV-009"
+      ],
+      "annotator_id": "codex-a2",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Source-grounded first-pass assertion; independent review pending."
+    },
+    {
+      "assertion_id": "AST-012",
+      "field_path": "/classification",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.92,
+      "evidence_ids": [
+        "EV-002",
+        "EV-003",
+        "EV-004",
+        "EV-007"
+      ],
+      "annotator_id": "codex-a2",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Source-grounded first-pass assertion; independent review pending."
+    },
+    {
+      "assertion_id": "AST-013",
+      "field_path": "/publication/issue_date",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.92,
+      "evidence_ids": [
+        "EV-001"
+      ],
+      "annotator_id": "codex-a2",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Source-grounded first-pass assertion; independent review pending."
+    },
+    {
+      "assertion_id": "AST-014",
+      "field_path": "/publication/effective_date",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.92,
+      "evidence_ids": [
+        "EV-006"
+      ],
+      "annotator_id": "codex-a2",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Source-grounded first-pass assertion; independent review pending."
+    }
+  ],
+  "annotation_metadata": {
+    "guideline_version": "1.0.0",
+    "record_status": "first_pass_complete",
+    "creation_method": "hybrid",
+    "machine_provenance": {
+      "system": "OpenAI Codex",
+      "model": "GPT-5",
+      "prompt_or_rules_version": "step2-guidelines-1.0.0-manual-pass-a2",
+      "generated_at": "2026-07-22T12:20:11Z"
+    },
+    "annotators": [
+      {
+        "annotator_id": "codex-a2",
+        "role": "annotator",
+        "started_at": "2026-07-22T12:20:11Z",
+        "submitted_at": "2026-07-22T12:20:11Z"
+      }
+    ],
+    "events": [
+      {
+        "event_type": "created",
+        "actor_id": "codex-a2",
+        "timestamp": "2026-07-22T12:20:11Z",
+        "rationale": "Source-only machine-assisted first annotation pass."
+      },
+      {
+        "event_type": "submitted",
+        "actor_id": "codex-a2",
+        "timestamp": "2026-07-22T12:20:11Z",
+        "rationale": "First pass completed from the rendered source PDF and blind page-text packet; no human approval is asserted."
+      }
+    ],
+    "quality_flags": [
+      "manual_review_required",
+      "complex_applicability",
+      "complex_compliance"
+    ],
+    "uncertainty_flags": [
+      "correction_target_publication_not_present_in_pilot"
+    ],
+    "notes": [
+      "Independent Codex annotator-a2 first pass; requires human review.",
+      "Only the source PDF, blind page packet, section index, and frozen Step 2 rules were used.",
+      "The PDF explicitly identifies this as a correction, but the distinct uncorrected publication is not present in the pilot; no correction relationship target was fabricated."
+    ],
+    "source_text_sha256": "73e0979c4dc89064a846aa1ac1c89967cafdccfdb7d5fde3306e8144562c2145",
+    "created_at": "2026-07-22T12:20:11Z",
+    "updated_at": "2026-07-22T12:20:11Z"
+  },
+  "benchmark_metadata": {
+    "split": "unassigned",
+    "split_group": "2009-0025",
+    "selection_strata": [],
+    "duplicate_cluster_ids": [],
+    "gold_record": false
+  }
+}

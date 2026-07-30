@@ -1,0 +1,73 @@
+{
+  "annotation_dir": "step3_pilot/submitted/annotator_b",
+  "expected_stream": "double",
+  "expected_status": "first_pass_complete",
+  "expected_count": 10,
+  "found_count": 10,
+  "missing_file_instance_ids": [],
+  "unexpected_file_instance_ids": [],
+  "load_errors": [],
+  "error_count": 0,
+  "records": [
+    {
+      "ad_number": "2007-0278",
+      "file": "step3_pilot/submitted/annotator_b/2007-0278__0b6a17dbe6f95907.annotation.json",
+      "status": "pass",
+      "errors": []
+    },
+    {
+      "ad_number": "2026-0017",
+      "file": "step3_pilot/submitted/annotator_b/2026-0017__1f3af1a66dad0ea4.annotation.json",
+      "status": "pass",
+      "errors": []
+    },
+    {
+      "ad_number": "2009-0025",
+      "file": "step3_pilot/submitted/annotator_b/2009-0025__46511578be7115fd.annotation.json",
+      "status": "pass",
+      "errors": []
+    },
+    {
+      "ad_number": "2019-0183",
+      "file": "step3_pilot/submitted/annotator_b/2019-0183__5577514a19f6917c.annotation.json",
+      "status": "pass",
+      "errors": []
+    },
+    {
+      "ad_number": "2020-0085R1",
+      "file": "step3_pilot/submitted/annotator_b/2020-0085R1__5ced2074d6402f32.annotation.json",
+      "status": "pass",
+      "errors": []
+    },
+    {
+      "ad_number": "2010-0164",
+      "file": "step3_pilot/submitted/annotator_b/2010-0164__60596be378420b04.annotation.json",
+      "status": "pass",
+      "errors": []
+    },
+    {
+      "ad_number": "2017-0013",
+      "file": "step3_pilot/submitted/annotator_b/2017-0013__67c94127f7b8e53d.annotation.json",
+      "status": "pass",
+      "errors": []
+    },
+    {
+      "ad_number": "2025-0068",
+      "file": "step3_pilot/submitted/annotator_b/2025-0068__6e80e67e640ba6d1.annotation.json",
+      "status": "pass",
+      "errors": []
+    },
+    {
+      "ad_number": "2016-0095",
+      "file": "step3_pilot/submitted/annotator_b/2016-0095__7f221fbcf3eea6a5.annotation.json",
+      "status": "pass",
+      "errors": []
+    },
+    {
+      "ad_number": "2023-0093R1",
+      "file": "step3_pilot/submitted/annotator_b/2023-0093R1__f8c89a351f146b17.annotation.json",
+      "status": "pass",
+      "errors": []
+    }
+  ]
+}

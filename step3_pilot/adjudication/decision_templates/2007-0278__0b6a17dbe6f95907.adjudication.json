@@ -1,0 +1,1358 @@
+{
+  "ad_number": "2007-0278",
+  "logical_version_key": "2007-0278|CORRECTED:2007-11-08",
+  "file_instance_id": "0b6a17dbe6f95907",
+  "annotator_a_file": "step3_pilot/submitted/annotator_a/2007-0278__0b6a17dbe6f95907.annotation.json",
+  "annotator_b_file": "step3_pilot/submitted/annotator_b/2007-0278__0b6a17dbe6f95907.annotation.json",
+  "adjudicator_id": "codex-a1",
+  "comparison_sha256": "1409b29fc5f0adea64cd2a93f29187ef21d66ce09d5ad687fb97b4bbf0812b28",
+  "decision_status": "pending",
+  "resolved_record_file": null,
+  "decisions": [
+    {
+      "field_path": "/ad_identity/lifecycle_status",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/ad_identity/supersedure_statement/value",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/ad_identity/version_label",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/amoc_and_contacts/0/conditions/0",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/amoc_and_contacts/0/contact_text",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/amoc_and_contacts/1/authority_or_organization",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/amoc_and_contacts/1/contact_text",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/amoc_and_contacts/2/authority_or_organization",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/0/aircraft_families/0",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/0/aircraft_families/1",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/0/exclusions/0",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/0/label",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/0/models/0",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/0/models/1",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/0/models/2",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/0/raw_text",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/aircraft_families/0",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/aircraft_families/1",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/boolean_logic",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/exclusions/0",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/exclusions/1",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/exclusions/2",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/label",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/1/raw_text",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/2/aircraft_families/0",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/2/aircraft_families/1",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/2/boolean_logic",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/2/configuration_conditions/0",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/2/exclusions/0",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/2/exclusions/1",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/2/label",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/2/raw_text",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/3/aircraft_families/0",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/3/boolean_logic",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/3/configuration_conditions/0",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/3/exclusions/0",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/3/label",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/3/raw_text",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/4/aircraft_families/0",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/4/aircraft_families/1",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/4/exclusions/0",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/4/exclusions/1",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/4/label",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/4/models/5",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/4/models/6",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/4/raw_text",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/5/aircraft_families/0",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/5/exclusions/0",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/5/exclusions/1",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/5/label",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/5/raw_text",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/6",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/applicability_groups/7",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/classification/action_types/1",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/classification/action_types/3",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/classification/action_types/4",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/classification/action_types/5",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/classification/airbus_families/0",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/classification/airbus_families/1",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/classification/frequency",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/previous_action_credit/0/conditions/0",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/previous_action_credit/0/text",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/previous_action_credit/1/text",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/previous_action_credit/2/text",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/previous_action_credit/3",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/publication/ata_chapters/0/title",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/publication/subject/raw_text",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/publication/subject/value",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/referenced_publications/0/roles/1",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/referenced_publications/1/roles/1",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/referenced_publications/2/roles/1",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/referenced_publications/3/roles/1",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/referenced_publications/4/roles/1",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/referenced_publications/5/roles/1",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/referenced_publications/6/roles/1",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/referenced_publications/7/roles/1",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/referenced_publications/8/roles/1",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/referenced_publications/9/roles/1",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/referenced_publications/10",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/referenced_publications/11",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/referenced_publications/12",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/referenced_publications/13",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/referenced_publications/14",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/referenced_publications/15",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/referenced_publications/16",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/referenced_publications/17",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/referenced_publications/18",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/referenced_publications/19",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/referenced_publications/20",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/referenced_publications/21",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/referenced_publications/22",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/referenced_publications/23",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/referenced_publications/24",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/relationships/0/raw_text",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/relationships/1",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/requirements/0/action_text",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/requirements/0/action_types/1",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/requirements/0/applicability_group_ids/0",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/requirements/0/compliance_rules/0/initial_limits/0/raw_value",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/requirements/0/objects_or_components/0",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/requirements/1/action_text",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/requirements/1/action_types/0",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/requirements/1/applicability_group_ids/0",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/requirements/1/compliance_rules/0/initial_limits/0/raw_value",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/requirements/1/conditions/0",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/requirements/1/objects_or_components/0",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/requirements/1/obligation",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/requirements/1/paragraph_reference",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/requirements/2/action_text",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/requirements/2/applicability_group_ids/0",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/requirements/2/compliance_rules/0/conditions/0",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/requirements/2/compliance_rules/0/initial_limits/0/calendar_date",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/requirements/2/compliance_rules/0/initial_limits/0/raw_value",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/requirements/2/compliance_rules/0/raw_text",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/requirements/2/conditions/0",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/requirements/2/objects_or_components/0",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/requirements/2/obligation",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/requirements/2/paragraph_reference",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/requirements/3/action_text",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/requirements/3/applicability_group_ids/0",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/requirements/3/compliance_rules/0/initial_limits/0/calendar_date",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/requirements/3/compliance_rules/0/initial_limits/0/raw_value",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/requirements/3/compliance_rules/0/raw_text",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/requirements/3/objects_or_components/0",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/requirements/3/paragraph_reference",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/requirements/4/action_text",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/requirements/4/action_types/1",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/requirements/4/applicability_group_ids/0",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/requirements/4/compliance_rules/0/conditions/0",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/requirements/4/compliance_rules/0/initial_limits/0/raw_value",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/requirements/4/compliance_rules/1",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/requirements/4/objects_or_components/0",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/requirements/4/paragraph_reference",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/requirements/5/action_text",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/requirements/5/action_types/0",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/requirements/5/action_types/1",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/requirements/5/applicability_group_ids/0",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/requirements/5/compliance_rules/0/compliance_id",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/requirements/5/compliance_rules/0/conditions/0",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/requirements/5/compliance_rules/0/initial_limits/0/calendar_date",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/requirements/5/compliance_rules/0/initial_limits/0/limit_id",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/requirements/5/compliance_rules/0/initial_limits/0/raw_value",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/requirements/5/compliance_rules/0/initial_limits/0/reference_event",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/requirements/5/compliance_rules/0/initial_limits/0/relation",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/requirements/5/compliance_rules/0/initial_limits/0/unit",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/requirements/5/compliance_rules/0/raw_text",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/requirements/5/conditions/0",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/requirements/5/objects_or_components/0",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/requirements/5/paragraph_reference",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/requirements/6",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/requirements/7",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/requirements/8",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/unsafe_condition/affected_components/0",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/unsafe_condition/affected_components/1",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/unsafe_condition/affected_components/2",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/unsafe_condition/affected_components/4",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/unsafe_condition/causes/0",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/unsafe_condition/causes/1",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/unsafe_condition/causes/2",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/unsafe_condition/causes/3",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/unsafe_condition/intended_risk_mitigation/0",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/unsafe_condition/intended_risk_mitigation/1",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/unsafe_condition/intended_risk_mitigation/2",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/unsafe_condition/intended_risk_mitigation/3",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/unsafe_condition/observed_events_or_defects/0",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/unsafe_condition/potential_consequences/0",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/unsafe_condition/raw_reason_text",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    },
+    {
+      "field_path": "/unsafe_condition/unsafe_conditions/0",
+      "resolution": "pending",
+      "accepted_value_from": null,
+      "resolved_value": null,
+      "source_page_numbers": [],
+      "rationale": null
+    }
+  ],
+  "overall_rationale": null
+}

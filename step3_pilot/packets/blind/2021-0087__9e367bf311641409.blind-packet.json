@@ -1,0 +1,56 @@
+{
+  "packet_version": "1.0.0",
+  "packet_type": "blind_annotation_source",
+  "record_id": "adann-9e367bf311641409",
+  "document_identity": {
+    "authority": "EASA",
+    "ad_number": "2021-0087",
+    "base_ad_number": "2021-0087",
+    "revision_number": 0,
+    "is_emergency": false,
+    "is_correction": false,
+    "correction_date_from_manifest": null,
+    "logical_version_key": "2021-0087|UNCORRECTED"
+  },
+  "pdf_provenance": {
+    "file_instance_id": "9e367bf311641409",
+    "content_id": "bade33627bb01d44",
+    "file_name": "2021-0087__AD_2021-0087_1__EASA_AD_2021_0087.pdf",
+    "relative_path": "2021-0087__AD_2021-0087_1__EASA_AD_2021_0087.pdf",
+    "local_pdf_path": "/Users/tunwailin/Documents/Capstone/step3_pilot/source_pdfs/2021-0087__AD_2021-0087_1__EASA_AD_2021_0087.pdf",
+    "official_pdf_url": "https://ad.easa.europa.eu/blob/EASA_AD_2021_0087.pdf/AD_2021-0087_1",
+    "official_detail_url": "https://ad.easa.europa.eu/ad/2021-0087",
+    "file_sha256": "bade33627bb01d44b31f286dcbaa512546d5acef8b9e211c08f4986933de2353",
+    "manifest_normalized_text_sha256": "49efe5f0b0fc1efaf685c027de80d6962119882e06574a83ac26dc146ef03668",
+    "page_count": 2
+  },
+  "instructions": [
+    "Annotate only what the rendered PDF and supplied page text state.",
+    "Do not infer relationships, applicability, actions, or deadlines from filenames.",
+    "Add exact page evidence for every safety-critical value."
+  ],
+  "pages": [
+    {
+      "page_id": "9e367bf311641409:p0001",
+      "page_number": 1,
+      "page_count": 2,
+      "page_text_sha256": "d10abd3c2e507705162c19d8d3df8c9cac0da90101079df65a80dc818e33795e",
+      "text_char_count": 3201,
+      "extraction_library": "pypdf",
+      "extraction_library_version": "6.10.0",
+      "extraction_mode": "layout",
+      "text": "                                                                                                                    EASA AD No.: 2021-0087\n\n                                                           Airworthiness Directive\n                                                           AD No.:             2021-0087\n                                                           Issued:             24 March 2021\n\n                                                           Note: This Airworthiness Directive (AD) is issued by EASA, acting in accordance with Regulation\n                                                           (EU) 2018/1139 on behalf of the European Union, its Member States and of the European third\n                                                           countries that participate in the activities of EASA under Article 129 of that Regulation.\n\n      This AD is issued in accordance with Regulation (EU) 748/2012, Part 21.A.3B. In accordance with Regulation (EU) 1321/2014 Annex I, Part M.A.301, the\n      continuing airworthiness of an aircraft shall be ensured by accomplishing any applicable ADs. Consequently, no person may operate an aircraft to which\n      an AD applies, except in accordance with the requirements of that AD, unless otherwise specified by the Agency [Regulation (EU) 1321/2014 Annex I,\n      Part M.A.303] or agreed with the Authority of the State of Registry [Regulation (EU) 2018/1139, Article 71 exemption].\n\n      Design Approval Holder’s Name:                                               Type/Model designation(s):\n      AIRBUS                                                                       A380 aeroplanes\n\n      Effective Date:            07 April 2021\n      TCDS Number(s):            EASA.A.110\n      Foreign AD:                Not applicable\n      Supersedure:               None\n\n      ATA 73 – Engine Fuel & Control – Master Minimum Equipment List – Handling Bleed\n      Valve Inoperative – Amendment\n\n\n      Manufacturer(s):\n      Airbus\n\n      Applicability:\n      Airbus A380-841 and A380-842 aeroplanes, all manufacturer serial numbers.\n\n      Definitions:\n      For the purpose of this AD, the following definition applies:\n\n      The MER: Airbus A380 Master Minimum Equipment List (MMEL), Major Event Revision (MER),\n      approval date 06 October 2020.\n\n      Reason:\n      Following an Airbus A380 design review for windmill relight capability in bad weather conditions, it\n      was demonstrated that handling bleed valve (HBV) failures in closed position have significant effects\n      on engine relight and engine surge margins, leading to HBV dispatch conditions that do not meet\n      the MMEL safety objective.\n\n      This condition, if not corrected, could, in case two engines are affected by this issue, lead to a\n      severe loss of thrust, possibly resulting in loss of control of the aeroplane.\n\n\n                        TE.CAP.00110-010 © European Union Aviation Safety Agency. All rights reserved. ISO9001 Certified.                      Page 1 of 2\n                        Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet.\nAn agency of the European Union\n"
+    },
+    {
+      "page_id": "9e367bf311641409:p0002",
+      "page_number": 2,
+      "page_count": 2,
+      "page_text_sha256": "79af8bd0edd43cb67dba8bf530ca3f0015a385688327c301f1e169ec141268c6",
+      "text_char_count": 3148,
+      "extraction_library": "pypdf",
+      "extraction_library_version": "6.10.0",
+      "extraction_mode": "layout",
+      "text": "                                                                                                        EASA AD No.: 2021-0087\n\n     To address this potential unsafe condition, Airbus issued the MER of the A380 MMEL that\n     incorporates temporary dispatch restrictions for MMEL item 73-25-01.\n\n     For the reason described above, this AD requires implementation of certain dispatch restrictions.\n\n     This AD is considered to be an interim action and further AD action may follow.\n\n     Required Action(s) and Compliance Time(s):\n     Required as indicated, unless accomplished previously:\n\n     MMEL Changes / Dispatch Restrictions:\n     (1)   Within 30 days after the effective date of           this AD, amend the MMEL, on the basis of which the\n           operator MEL must be made, in accordance with the instructions of the                      MER, inform all flight\n           crews, and, thereafter, operate the aeroplane accordingly.\n\n     (2)   [reserved]\n\n     Ref. Publications:\n     Airbus A380 MMEL MER, approv             al date 06 October 2020.\n\n     The use of later approved revisions of th          e above-mentioned document is acceptable fo                r compliance\n     with the requirements of this AD.\n\n     Remarks:\n     1.    If requested and appropriately substantiated, EASA can approve alternative methods of\n           compliance for this AD.\n\n     2.    This AD was posted on 08 March 2021 as PAD 21-035 for consultation until 22 March 2021. The\n           Comment Response Document can be found in the EASA Safety Publications Tool, in the\n           compressed (zipped) file attached to the record for this AD.\n\n     3.    Enquiries regarding this AD should be referred to the EASA Safety Information Section,\n           Certification Directorate. E-mail: ADs@easa.europa.eu.\n\n     3.    Information about any failures, malfunctions, defects or other occurrences, which may be\n           similar to the unsafe condition addressed by this AD, and which may occur, or have occurred on\n           a product, part or appliance not affected by this AD, can be reported to the EU aviation safety\n           reporting system. This may include reporting on the same or similar components, other than\n           those covered by the design to which this AD applies, if the same unsafe condition can exist or\n           may develop on an aircraft with those components installed. Such components may be\n           installed under an FAA Parts Manufacturer Approval (PMA), Supplemental Type Certificate\n           (STC) or other modification.\n\n     4.    For any question concerning the technical content of the requirements in this AD, please\n           contact: AIRBUS SAS - EIANA (Airworthiness Office), Telephone: +33 562 110 253,\n           Fax: +33 562 110 307, E-mail: account.airworth-A380@airbus.com.\n\n\n\n\n                      TE.CAP.00110-010 © European Union Aviation Safety Agency. All rights reserved. ISO9001 Certified.         Page 2 of 2\n                      Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet.\nAn agency of the European Union\n"
+    }
+  ]
+}
