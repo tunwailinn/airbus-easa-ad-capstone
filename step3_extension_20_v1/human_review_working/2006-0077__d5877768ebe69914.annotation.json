@@ -152,7 +152,10 @@
         }
       ],
       "part_numbers": [],
-      "configuration_conditions": [],
+      "configuration_conditions": [
+        "AIRBUS modification No. 06810 or 06934 has been embodied in production",
+        "AIRBUS SB A310-33-2045 Revision 1 or A300-33-6047 Revision 1, as applicable (AIRBUS modifications No. 12751 and 13084), has not been embodied in service"
+      ],
       "exclusions": [],
       "boolean_logic": "all",
       "evidence_ids": [
@@ -167,13 +170,20 @@
     "observed_events_or_defects": [
       "A study has shown that the architecture of the BRUCE FPEEPMS is not in compliance with regulatory requirement FAR 25.812 as, in case of vertical segregation of the fuselage forward of door 1, the FPEEPMS and the EXIT signs do not come on."
     ],
-    "causes": [],
+    "causes": [
+      "The architecture of the BRUCE FPEEPMS is not in compliance with FAR 25.812."
+    ],
     "unsafe_conditions": [
       "A study has shown that the architecture of the BRUCE FPEEPMS is not in compliance with regulatory requirement FAR 25.812 as, in case of vertical segregation of the fuselage forward of door 1, the FPEEPMS and the EXIT signs do not come on."
     ],
     "potential_consequences": [],
-    "affected_components": [],
-    "intended_risk_mitigation": [],
+    "affected_components": [
+      "BRUCE Floor Proximity Emergency Escape Path Marking System (FPEEPMS)",
+      "EXIT signs"
+    ],
+    "intended_risk_mitigation": [
+      "Embodiment of Revision 1 of AIRBUS SB A310-33-2045 or A300-33-6047, as applicable."
+    ],
     "evidence_ids": [
       "EV-004"
     ]
@@ -191,8 +201,12 @@
       ],
       "obligation": "mandatory",
       "action_text": "Compliance: Before July 31st, 2007, unless already accomplished, carry out the electrical modifications to the BRUCE FPEEPMS in accordance with the instructions of SB A310-33-2045 Revision 1 or A300-33-6047 Revision 1.",
-      "objects_or_components": [],
-      "conditions": [],
+      "objects_or_components": [
+        "BRUCE Floor Proximity Emergency Escape Path Marking System (FPEEPMS)"
+      ],
+      "conditions": [
+        "Unless already accomplished"
+      ],
       "method_publication_ids": [
         "PUB-001",
         "PUB-002"
@@ -837,11 +851,12 @@
       "Machine-assisted populated extraction from the complete frozen PDF/page-text packet.",
       "Requirements were split from numbered source paragraphs where possible; every field assertion remains unreviewed.",
       "No supersedure relationship was created because the cover explicitly states Supersedure: None.",
-      "Independent human comparison and correction are required before approval or gold promotion."
+      "Independent human comparison and correction are required before approval or gold promotion.",
+      "Source-audit corrections applied by GPT-5.6 against the frozen rendered PDF and page-text cache; no human approval or gold status is claimed."
     ],
     "source_text_sha256": "2436b9690783c9ed9c8e5e6a1a08f7f2f255690ae4d0569909fd8a42ce6cee2e",
     "created_at": "2026-07-30T09:02:01Z",
-    "updated_at": "2026-07-30T09:02:01Z"
+    "updated_at": "2026-07-30T17:10:00Z"
   },
   "benchmark_metadata": {
     "split": "unassigned",

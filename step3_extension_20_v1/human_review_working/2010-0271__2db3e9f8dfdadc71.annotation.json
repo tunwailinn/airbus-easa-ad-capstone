@@ -105,8 +105,28 @@
       }
     ],
     "type_model_designations": [
-      "A330",
-      "A340"
+      "A330-201",
+      "A330-202",
+      "A330-203",
+      "A330-223",
+      "A330-223F",
+      "A330-243",
+      "A330-243F",
+      "A330-301",
+      "A330-302",
+      "A330-303",
+      "A330-321",
+      "A330-322",
+      "A330-323",
+      "A330-341",
+      "A330-342",
+      "A330-343",
+      "A340-211",
+      "A340-212",
+      "A340-213",
+      "A340-311",
+      "A340-312",
+      "A340-313"
     ],
     "tcds_numbers": [
       "EASA.A.004 and EASA.A.015"
@@ -130,8 +150,28 @@
         "A330/A340"
       ],
       "models": [
-        "A330",
-        "A340"
+        "A330-201",
+        "A330-202",
+        "A330-203",
+        "A330-223",
+        "A330-223F",
+        "A330-243",
+        "A330-243F",
+        "A330-301",
+        "A330-302",
+        "A330-303",
+        "A330-321",
+        "A330-322",
+        "A330-323",
+        "A330-341",
+        "A330-342",
+        "A330-343",
+        "A340-211",
+        "A340-212",
+        "A340-213",
+        "A340-311",
+        "A340-312",
+        "A340-313"
       ],
       "serial_restrictions": [
         {
@@ -165,20 +205,22 @@
     ],
     "causes": [],
     "unsafe_conditions": [
-      "It has been identified that, after such an event, if two airspeed sources become similar while still erroneous, the flight guidance computers will: - Display FD bars again, and - Enable autopilot and auto-thrust re-engagement However, in some cases, the autopilot orders may be inappropriate, such as possible abrupt pitch command.",
-      "In order to prevent such event which may, under specific circumstances, constitute an unsafe condition, this AD requires an amendment of the Flight Manual to ensure that flight crews apply the appropriate operational procedure."
+      "After airspeed disagreement, two erroneous airspeed sources can become similar, causing flight-director bars to reappear and enabling autopilot and auto-thrust re-engagement."
     ],
     "potential_consequences": [
-      "It has been identified that, after such an event, if two airspeed sources become similar while still erroneous, the flight guidance computers will: - Display FD bars again, and - Enable autopilot and auto-thrust re-engagement However, in some cases, the autopilot orders may be inappropriate, such as possible abrupt pitch command.",
-      "In order to prevent such event which may, under specific circumstances, constitute an unsafe condition, this AD requires an amendment of the Flight Manual to ensure that flight crews apply the appropriate operational procedure."
+      "Inappropriate autopilot orders, including a possible abrupt pitch command."
     ],
-    "affected_components": [],
+    "affected_components": [
+      "Flight guidance computers",
+      "Autopilot",
+      "Auto-thrust",
+      "Flight Directors"
+    ],
     "intended_risk_mitigation": [
-      "In order to prevent such event which may, under specific circumstances, constitute an unsafe condition, this AD requires an amendment of the Flight Manual to ensure that flight crews apply the appropriate operational procedure."
+      "Amend the Airplane Flight Manual and require flight crews to apply the specified operational procedure."
     ],
     "evidence_ids": [
-      "EV-004",
-      "EV-005"
+      "EV-004"
     ]
   },
   "requirements": [
@@ -195,8 +237,13 @@
       ],
       "obligation": "mandatory",
       "action_text": "(1) Within 15 days after the effective date of this AD, amend the applicable Time(s): Airplane Flight Manual (AFM) to incorporate the following operational procedure, and operate the aeroplane accordingly: PROCEDURE : When autopilot and auto-thrust are automatically disconnected and flight controls have reverted to alternate law: - Do not engage the AP and the A/THR, even if FD bars have reappeared - Do not follow the FD orders - ALL SPEED INDICATIONS............................................X-CHECK  If unreliable speed indication is suspected:  UNRELIABLE SPEED INDIC/ADR CHECK PROC...........APPLY  If at least two ADRs provide reliable speed indication for at least 30 seconds, and the aircraft is stabilised on the intended path: AP/FD and A/THR ........................................................As required Note : This operational procedure is described in the following Temporary Revisions (TR) of the AFM : A330 AFM TR 149 (OEB N°82/1) A340 AFM TR 150 (OEB N°95/1)",
-      "objects_or_components": [],
-      "conditions": [],
+      "objects_or_components": [
+        "Applicable Airplane Flight Manual",
+        "Autopilot, auto-thrust and Flight Director operational procedure"
+      ],
+      "conditions": [
+        "Autopilot and auto-thrust automatically disconnect and flight controls revert to alternate law"
+      ],
       "method_publication_ids": [
         "PUB-001",
         "PUB-002"
@@ -207,7 +254,9 @@
           "state": "present",
           "raw_text": "(1) Within 15 days after the effective date of this AD, amend the applicable Time(s): Airplane Flight Manual (AFM) to incorporate the following operational procedure, and operate the aeroplane accordingly: PROCEDURE : When autopilot and auto-thrust are automatically disconnected and flight controls have reverted to alternate law: - Do not engage the AP and the A/THR, even if FD bars have reappeared - Do not follow the FD orders - ALL SPEED INDICATIONS............................................X-CHECK  If unreliable speed indication is suspected:  UNRELIABLE SPEED INDIC/ADR CHECK PROC...........APPLY  If at least two ADRs provide reliable speed indication for at least 30 seconds, and the aircraft is stabilised on the intended path: AP/FD and A/THR ........................................................As required Note : This operational procedure is described in the following Temporary Revisions (TR) of the AFM : A330 AFM TR 149 (OEB N°82/1) A340 AFM TR 150 (OEB N°95/1)",
           "logic": "conditional",
-          "conditions": [],
+          "conditions": [
+            "Autopilot and auto-thrust automatically disconnect and flight controls revert to alternate law"
+          ],
           "initial_limits": [
             {
               "limit_id": "LIM-001",
@@ -251,13 +300,16 @@
         "APP-001"
       ],
       "action_types": [
-        "document_amendment",
-        "operational_procedure"
+        "document_amendment"
       ],
-      "obligation": "mandatory",
+      "obligation": "conditional",
       "action_text": "(2) Incorporation of the appropriate AFM TR, or inserting the above operational procedure or a copy of this AD into the AFM, is acceptable to comply with the requirements of paragraph (1) of this AD.",
-      "objects_or_components": [],
-      "conditions": [],
+      "objects_or_components": [
+        "Applicable Airplane Flight Manual"
+      ],
+      "conditions": [
+        "Used as an acceptable means of complying with paragraph (1)"
+      ],
       "method_publication_ids": [
         "PUB-001",
         "PUB-002"
@@ -267,8 +319,10 @@
           "compliance_id": "CMP-002",
           "state": "present",
           "raw_text": "(2) Incorporation of the appropriate AFM TR, or inserting the above operational procedure or a copy of this AD into the AFM, is acceptable to comply with the requirements of paragraph (1) of this AD.",
-          "logic": "single",
-          "conditions": [],
+          "logic": "any",
+          "conditions": [
+            "Incorporate the appropriate AFM TR, insert the operational procedure, or insert a copy of this AD into the AFM"
+          ],
           "initial_limits": [],
           "is_repetitive": false,
           "repetitive_intervals": [],
@@ -374,7 +428,6 @@
       "EV-001",
       "EV-003",
       "EV-004",
-      "EV-005",
       "EV-007"
     ]
   },
@@ -857,8 +910,7 @@
       "verification_status": "unreviewed",
       "confidence": 0.96,
       "evidence_ids": [
-        "EV-004",
-        "EV-005"
+        "EV-004"
       ],
       "annotator_id": "codex-extension-extractor",
       "derivation_rule": null,
@@ -926,11 +978,12 @@
       "Machine-assisted populated extraction from the complete frozen PDF/page-text packet.",
       "Requirements were split from numbered source paragraphs where possible; every field assertion remains unreviewed.",
       "No supersedure relationship was created because the cover explicitly states Supersedure: None.",
-      "Independent human comparison and correction are required before approval or gold promotion."
+      "Independent human comparison and correction are required before approval or gold promotion.",
+      "Source-audit corrections applied by GPT-5.6 against the frozen rendered PDF and page-text cache; no human approval or gold status is claimed."
     ],
     "source_text_sha256": "8d2b79a61c0b9d63b2ceecd1c30273fc5dec98dc4f48d5398402291858450036",
     "created_at": "2026-07-30T09:02:01Z",
-    "updated_at": "2026-07-30T09:02:01Z"
+    "updated_at": "2026-07-30T17:10:00Z"
   },
   "benchmark_metadata": {
     "split": "unassigned",

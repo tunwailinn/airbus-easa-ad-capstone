@@ -63,8 +63,8 @@
   "publication": {
     "subject": {
       "state": "present",
-      "value": "Inspection of Bottle Wiring Connection – Inspection and Continuity Check",
-      "raw_text": "ATA 26 Inspection of Bottle Wiring Connection – Inspection and Continuity Check",
+      "value": "Fire Protection – Cargo Compartment Fire Extinguishing – Inspection of Bottle Wiring Connection – Inspection and Continuity Check",
+      "raw_text": "ATA 26 Fire Protection – Cargo Compartment Fire Extinguishing – Inspection of Bottle Wiring Connection – Inspection and Continuity Check",
       "evidence_ids": [
         "EV-001"
       ]
@@ -152,9 +152,12 @@
         }
       ],
       "part_numbers": [],
-      "configuration_conditions": [],
+      "configuration_conditions": [
+        "Delivered before 28 February 2007",
+        "Fitted with a cargo compartment fire extinguisher bottle installed in production or in service by an Airbus Service Bulletin"
+      ],
       "exclusions": [
-        "except aircraft on which MRBR task 26"
+        "Aircraft on which MRBR task 26.23.00/03 or 26.23.00/07 has been performed"
       ],
       "boolean_logic": "all",
       "evidence_ids": [
@@ -171,10 +174,15 @@
     ],
     "causes": [],
     "unsafe_conditions": [
-      "During planned maintenance visit on one A320 aircraft, a cross connection of the fire extinguishing circuit system was identified."
+      "A cross connection can discharge the wrong forward or aft cargo compartment fire extinguisher bottle in case of fire."
     ],
-    "potential_consequences": [],
-    "affected_components": [],
+    "potential_consequences": [
+      "Failure to activate the correct fire extinguisher bottle when required is classified as potentially catastrophic."
+    ],
+    "affected_components": [
+      "Cargo compartment fire extinguishing circuit",
+      "Forward and aft cargo compartment fire extinguisher bottles"
+    ],
     "intended_risk_mitigation": [
       "For the reasons described above, this AD requires a one-time inspection and check of the cargo firing circuit continuity to confirm the correct connection of the dedicated wires between the discharge pushbutton switches and the relevant cargo bottle."
     ],
@@ -192,12 +200,14 @@
       ],
       "action_types": [
         "inspection",
-        "test_or_check",
-        "repair"
+        "test_or_check"
       ],
       "obligation": "mandatory",
-      "action_text": "Compliance: Required as indicated, unless accomplished previously: Within the next 600 Flight Hours after the effective date of this AD, perform the inspection and continuity check of the cargo firing circuit continuity and, before next flight, apply corrective actions, as necessary, in accordance with AIRBUS 1/2 SB A320-26A1068. Accomplishment of MRBR task 26.23.00/03 or 26.23.00/07 is an acceptable alternative method of compliance with the requirements of this directive.",
-      "objects_or_components": [],
+      "action_text": "Within the next 600 Flight Hours after the effective date of this AD, perform the inspection and continuity check of the cargo firing circuit continuity in accordance with AIRBUS SB A320-26A1068.",
+      "objects_or_components": [
+        "Cargo firing circuit continuity",
+        "Dedicated wiring between discharge pushbutton switches and cargo bottles"
+      ],
       "conditions": [],
       "method_publication_ids": [
         "PUB-001"
@@ -206,8 +216,8 @@
         {
           "compliance_id": "CMP-001",
           "state": "present",
-          "raw_text": "Compliance: Required as indicated, unless accomplished previously: Within the next 600 Flight Hours after the effective date of this AD, perform the inspection and continuity check of the cargo firing circuit continuity and, before next flight, apply corrective actions, as necessary, in accordance with AIRBUS 1/2 SB A320-26A1068. Accomplishment of MRBR task 26.23.00/03 or 26.23.00/07 is an acceptable alternative method of compliance with the requirements of this directive.",
-          "logic": "all",
+          "raw_text": "Within the next 600 Flight Hours after the effective date of this AD, perform the inspection and continuity check of the cargo firing circuit continuity in accordance with AIRBUS SB A320-26A1068.",
+          "logic": "single",
           "conditions": [],
           "initial_limits": [
             {
@@ -222,7 +232,64 @@
                 "EV-006",
                 "EV-007"
               ]
-            },
+            }
+          ],
+          "is_repetitive": false,
+          "repetitive_intervals": [],
+          "grace_periods": [],
+          "evidence_ids": [
+            "EV-006",
+            "EV-007"
+          ]
+        }
+      ],
+      "follow_on_requirement_ids": [
+        "REQ-002"
+      ],
+      "terminating_action": {
+        "state": "not_stated",
+        "present": false,
+        "scope": "none",
+        "action_text": null,
+        "terminates_requirement_ids": [],
+        "evidence_ids": []
+      },
+      "evidence_ids": [
+        "EV-006",
+        "EV-007"
+      ]
+    },
+    {
+      "requirement_id": "REQ-002",
+      "paragraph_reference": "Compliance section – corrective action",
+      "parent_requirement_id": "REQ-001",
+      "applicability_group_ids": [
+        "APP-001"
+      ],
+      "action_types": [
+        "other"
+      ],
+      "obligation": "conditional",
+      "action_text": "If corrective action is necessary following the inspection and continuity check, apply the corrective action before next flight in accordance with AIRBUS SB A320-26A1068.",
+      "objects_or_components": [
+        "Cargo fire extinguishing circuit wiring"
+      ],
+      "conditions": [
+        "Corrective action is necessary following the inspection and continuity check"
+      ],
+      "method_publication_ids": [
+        "PUB-001"
+      ],
+      "compliance_rules": [
+        {
+          "compliance_id": "CMP-002",
+          "state": "present",
+          "raw_text": "If corrective action is necessary following the inspection and continuity check, apply the corrective action before next flight in accordance with AIRBUS SB A320-26A1068.",
+          "logic": "conditional",
+          "conditions": [
+            "Corrective action is necessary following the inspection and continuity check"
+          ],
+          "initial_limits": [
             {
               "limit_id": "LIM-002",
               "relation": "before",
@@ -261,7 +328,19 @@
       ]
     }
   ],
-  "exceptions": [],
+  "exceptions": [
+    {
+      "exception_id": "EXC-001",
+      "text": "Accomplishment of MRBR task 26.23.00/03 or 26.23.00/07 is an acceptable alternative method of compliance with the requirements of this directive.",
+      "applies_to_requirement_ids": [
+        "REQ-001",
+        "REQ-002"
+      ],
+      "evidence_ids": [
+        "EV-007"
+      ]
+    }
+  ],
   "previous_action_credit": [],
   "referenced_publications": [
     {
@@ -316,7 +395,7 @@
     "action_types": [
       "inspection",
       "test_or_check",
-      "repair"
+      "other"
     ],
     "frequency": "one_time",
     "emergency_status": "standard",
@@ -851,11 +930,12 @@
       "Machine-assisted populated extraction from the complete frozen PDF/page-text packet.",
       "Requirements were split from numbered source paragraphs where possible; every field assertion remains unreviewed.",
       "No supersedure relationship was created because the cover explicitly states Supersedure: None.",
-      "Independent human comparison and correction are required before approval or gold promotion."
+      "Independent human comparison and correction are required before approval or gold promotion.",
+      "Source-audit corrections applied by GPT-5.6 against the frozen rendered PDF and page-text cache; no human approval or gold status is claimed."
     ],
     "source_text_sha256": "571c086d66dd5d97cd3db058d61e72b8a889c4d231a77c43fea529554bb59202",
     "created_at": "2026-07-30T09:02:01Z",
-    "updated_at": "2026-07-30T09:02:01Z"
+    "updated_at": "2026-07-30T17:10:00Z"
   },
   "benchmark_metadata": {
     "split": "unassigned",

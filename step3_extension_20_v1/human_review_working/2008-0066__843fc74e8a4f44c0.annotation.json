@@ -156,7 +156,8 @@
       "part_numbers": [],
       "configuration_conditions": [],
       "exclusions": [
-        "except aircraft that have received AIRBUS Modification 11110 during production or that have been modified in service in accordance with AIRBUS Service Bulletin (SB) A310-54-2032 (Mod"
+        "Aircraft that received AIRBUS Modification 11110 during production",
+        "Aircraft modified in service in accordance with AIRBUS SB A310-54-2032 (Modification 11109)"
       ],
       "boolean_logic": "all",
       "evidence_ids": [
@@ -171,15 +172,20 @@
     "observed_events_or_defects": [
       "Two operators of A300 aircraft fitted with General Electric (GE) CF6-50 engine series have reported cracks on the lower side of Rib 5 in the pylon box."
     ],
-    "causes": [],
+    "causes": [
+      "Stresses resulting from pressure applied by the thrust reverser cowl bumpers."
+    ],
     "unsafe_conditions": [
-      "As a result of the A310 Extended Service Goal (ESG) study, an inspection programme of this area is required by this Airworthiness Directive (AD)."
+      "Cracks on the lower side of Rib 5 in the pylon box."
     ],
-    "potential_consequences": [
-      "As a result of the A310 Extended Service Goal (ESG) study, an inspection programme of this area is required by this Airworthiness Directive (AD)."
+    "potential_consequences": [],
+    "affected_components": [
+      "Lower side of Rib 5 in the pylon box",
+      "Left-hand and right-hand pylons"
     ],
-    "affected_components": [],
-    "intended_risk_mitigation": [],
+    "intended_risk_mitigation": [
+      "Inspection programme of the lower side of Rib 5 in the pylon box."
+    ],
     "evidence_ids": [
       "EV-004"
     ]
@@ -193,14 +199,16 @@
         "APP-001"
       ],
       "action_types": [
-        "inspection",
-        "reporting",
-        "modification"
+        "inspection"
       ],
       "obligation": "mandatory",
       "action_text": "(1) Perform an High Frequency Eddy Current (HFEC) inspection and a detailed visual inspection on the lower side of Rib 5 of LH and RH pylon in accordance with the instructions defined in AIRBUS SB A310-54-2036 Revision 2 at the 1/2 latest of the following thresholds, as applicable to the aircraft model: For A310-203, A310-203C and A310-204 : - Prior to accumulation of 40 000 flight cycles (FC) or 60 000 flight hours (FH), whichever occurs first; or - Within 250 FH after the effective date of this AD. For A310-304 and A310-308 : - Prior to accumulation of 35 000 FC or 60 000 FH, whichever occurs first, or - Within 250 FH after the effective date of this AD.",
-      "objects_or_components": [],
-      "conditions": [],
+      "objects_or_components": [
+        "Lower side of Rib 5 of the LH and RH pylons"
+      ],
+      "conditions": [
+        "Threshold depends on aircraft model"
+      ],
       "method_publication_ids": [
         "PUB-001",
         "PUB-002",
@@ -210,17 +218,19 @@
         {
           "compliance_id": "CMP-001",
           "state": "present",
-          "raw_text": "(1) Perform an High Frequency Eddy Current (HFEC) inspection and a detailed visual inspection on the lower side of Rib 5 of LH and RH pylon in accordance with the instructions defined in AIRBUS SB A310-54-2036 Revision 2 at the 1/2 latest of the following thresholds, as applicable to the aircraft model: For A310-203, A310-203C and A310-204 : - Prior to accumulation of 40 000 flight cycles (FC) or 60 000 flight hours (FH), whichever occurs first; or - Within 250 FH after the effective date of this AD. For A310-304 and A310-308 : - Prior to accumulation of 35 000 FC or 60 000 FH, whichever occurs first, or - Within 250 FH after the effective date of this AD.",
-          "logic": "whichever_occurs_first",
-          "conditions": [],
+          "raw_text": "For A310-203, A310-203C and A310-204: at the latest of (a) prior to accumulation of 40 000 FC or 60 000 FH, whichever occurs first, or (b) within 250 FH after the effective date of this AD.",
+          "logic": "conditional",
+          "conditions": [
+            "Applicable to A310-203, A310-203C and A310-204"
+          ],
           "initial_limits": [
             {
               "limit_id": "LIM-001",
               "relation": "before",
               "quantity": 40000,
               "unit": "flight_cycle",
-              "raw_value": "Prior to accumulation of 40 000 flight cycles",
-              "reference_event": "effective date of this AD",
+              "raw_value": "Prior to accumulation of 40 000 FC",
+              "reference_event": null,
               "calendar_date": null,
               "evidence_ids": [
                 "EV-006",
@@ -229,6 +239,19 @@
             },
             {
               "limit_id": "LIM-002",
+              "relation": "before",
+              "quantity": 60000,
+              "unit": "flight_hour",
+              "raw_value": "60 000 FH",
+              "reference_event": null,
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-006",
+                "EV-007"
+              ]
+            },
+            {
+              "limit_id": "LIM-003",
               "relation": "within",
               "quantity": 250,
               "unit": "flight_hour",
@@ -239,14 +262,32 @@
                 "EV-006",
                 "EV-007"
               ]
-            },
+            }
+          ],
+          "is_repetitive": false,
+          "repetitive_intervals": [],
+          "grace_periods": [],
+          "evidence_ids": [
+            "EV-006",
+            "EV-007"
+          ]
+        },
+        {
+          "compliance_id": "CMP-002",
+          "state": "present",
+          "raw_text": "For A310-304 and A310-308: at the latest of (a) prior to accumulation of 35 000 FC or 60 000 FH, whichever occurs first, or (b) within 250 FH after the effective date of this AD.",
+          "logic": "conditional",
+          "conditions": [
+            "Applicable to A310-304 and A310-308"
+          ],
+          "initial_limits": [
             {
-              "limit_id": "LIM-003",
+              "limit_id": "LIM-004",
               "relation": "before",
               "quantity": 35000,
               "unit": "flight_cycle",
               "raw_value": "Prior to accumulation of 35 000 FC",
-              "reference_event": "effective date of this AD",
+              "reference_event": null,
               "calendar_date": null,
               "evidence_ids": [
                 "EV-006",
@@ -254,11 +295,24 @@
               ]
             },
             {
-              "limit_id": "LIM-004",
-              "relation": "within",
+              "limit_id": "LIM-005",
+              "relation": "before",
               "quantity": 60000,
               "unit": "flight_hour",
-              "raw_value": "60 000 flight hours",
+              "raw_value": "60 000 FH",
+              "reference_event": null,
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-006",
+                "EV-007"
+              ]
+            },
+            {
+              "limit_id": "LIM-006",
+              "relation": "within",
+              "quantity": 250,
+              "unit": "flight_hour",
+              "raw_value": "Within 250 FH",
               "reference_event": "effective date of this AD",
               "calendar_date": null,
               "evidence_ids": [
@@ -298,14 +352,16 @@
         "APP-001"
       ],
       "action_types": [
-        "inspection",
-        "reporting",
-        "modification"
+        "inspection"
       ],
       "obligation": "conditional",
       "action_text": "(2) If no cracks are found, repeat the inspection described above at intervals not to exceed 15 000 FH in accordance with the instructions of AIRBUS SB A310-54- 2036 Revision 2; Note: Inspections (initial or repetitive) accomplished before the effective date of this AD in accordance with SB A310-54-2036 revision 1 are acceptable for compliance with paragraphs (1) and (2) of this AD. Repetitive inspections occurring after the effective date of this AD must be done in accordance with AIRBUS SB A310-54- 2036 revision 2, as required by paragraph (2) of this AD.",
-      "objects_or_components": [],
-      "conditions": [],
+      "objects_or_components": [
+        "Lower side of Rib 5 of the LH and RH pylons"
+      ],
+      "conditions": [
+        "No cracks are found"
+      ],
       "method_publication_ids": [
         "PUB-001",
         "PUB-002",
@@ -313,21 +369,23 @@
       ],
       "compliance_rules": [
         {
-          "compliance_id": "CMP-002",
+          "compliance_id": "CMP-003",
           "state": "present",
           "raw_text": "(2) If no cracks are found, repeat the inspection described above at intervals not to exceed 15 000 FH in accordance with the instructions of AIRBUS SB A310-54- 2036 Revision 2; Note: Inspections (initial or repetitive) accomplished before the effective date of this AD in accordance with SB A310-54-2036 revision 1 are acceptable for compliance with paragraphs (1) and (2) of this AD. Repetitive inspections occurring after the effective date of this AD must be done in accordance with AIRBUS SB A310-54- 2036 revision 2, as required by paragraph (2) of this AD.",
           "logic": "conditional",
-          "conditions": [],
+          "conditions": [
+            "No cracks are found"
+          ],
           "initial_limits": [],
           "is_repetitive": true,
           "repetitive_intervals": [
             {
-              "limit_id": "LIM-005",
+              "limit_id": "LIM-007",
               "relation": "not_to_exceed",
               "quantity": 15000,
               "unit": "flight_hour",
               "raw_value": "at intervals not to exceed 15 000 FH",
-              "reference_event": "effective date of this AD",
+              "reference_event": "previous inspection",
               "calendar_date": null,
               "evidence_ids": [
                 "EV-006",
@@ -364,13 +422,13 @@
         "APP-001"
       ],
       "action_types": [
-        "inspection",
-        "reporting",
-        "modification"
+        "reporting"
       ],
       "obligation": "mandatory",
       "action_text": "(3) Within 30 days after each inspection performed in accordance with SB A310- 54-2036 revision 2, report to AIRBUS inspection results, whatever they are;",
-      "objects_or_components": [],
+      "objects_or_components": [
+        "Inspection results"
+      ],
       "conditions": [],
       "method_publication_ids": [
         "PUB-001",
@@ -379,19 +437,19 @@
       ],
       "compliance_rules": [
         {
-          "compliance_id": "CMP-003",
+          "compliance_id": "CMP-004",
           "state": "present",
           "raw_text": "(3) Within 30 days after each inspection performed in accordance with SB A310- 54-2036 revision 2, report to AIRBUS inspection results, whatever they are;",
           "logic": "single",
           "conditions": [],
           "initial_limits": [
             {
-              "limit_id": "LIM-006",
+              "limit_id": "LIM-008",
               "relation": "within",
               "quantity": 30,
               "unit": "calendar_day",
               "raw_value": "Within 30 days",
-              "reference_event": null,
+              "reference_event": "each inspection performed in accordance with SB A310-54-2036 Revision 2",
               "calendar_date": null,
               "evidence_ids": [
                 "EV-006",
@@ -430,14 +488,16 @@
         "APP-001"
       ],
       "action_types": [
-        "inspection",
-        "reporting",
         "modification"
       ],
-      "obligation": "mandatory",
+      "obligation": "conditional",
       "action_text": "(4) If cracks are found during any inspection as required by paragraph (1) or (2) of this AD, within 250 FH, modify the rib 5 in the pylon box using the instructions of AIRBUS SB A310-54-2032; After modification of the rib 5 pylon in accordance with the instructions of AIRBUS SB A310-54-2032, no further actions are required by this AD.",
-      "objects_or_components": [],
-      "conditions": [],
+      "objects_or_components": [
+        "Rib 5 in the pylon box"
+      ],
+      "conditions": [
+        "Cracks are found during an inspection required by paragraph (1) or (2)"
+      ],
       "method_publication_ids": [
         "PUB-001",
         "PUB-002",
@@ -445,19 +505,21 @@
       ],
       "compliance_rules": [
         {
-          "compliance_id": "CMP-004",
+          "compliance_id": "CMP-005",
           "state": "present",
           "raw_text": "(4) If cracks are found during any inspection as required by paragraph (1) or (2) of this AD, within 250 FH, modify the rib 5 in the pylon box using the instructions of AIRBUS SB A310-54-2032; After modification of the rib 5 pylon in accordance with the instructions of AIRBUS SB A310-54-2032, no further actions are required by this AD.",
           "logic": "conditional",
-          "conditions": [],
+          "conditions": [
+            "Cracks are found during an inspection required by paragraph (1) or (2)"
+          ],
           "initial_limits": [
             {
-              "limit_id": "LIM-007",
+              "limit_id": "LIM-009",
               "relation": "within",
               "quantity": 250,
               "unit": "flight_hour",
               "raw_value": "within 250 FH",
-              "reference_event": null,
+              "reference_event": "finding cracks during an inspection required by paragraph (1) or (2)",
               "calendar_date": null,
               "evidence_ids": [
                 "EV-006",
@@ -478,8 +540,8 @@
       "terminating_action": {
         "state": "present",
         "present": true,
-        "scope": "partial",
-        "action_text": "(4) If cracks are found during any inspection as required by paragraph (1) or (2) of this AD, within 250 FH, modify the rib 5 in the pylon box using the instructions of AIRBUS SB A310-54-2032; After modification of the rib 5 pylon in accordance with the instructions of AIRBUS SB A310-54-2032, no further actions are required by this AD.",
+        "scope": "full",
+        "action_text": "After modification of the rib 5 pylon in accordance with AIRBUS SB A310-54-2032, no further actions are required by this AD.",
         "terminates_requirement_ids": [
           "REQ-001",
           "REQ-002",
@@ -497,7 +559,26 @@
     }
   ],
   "exceptions": [],
-  "previous_action_credit": [],
+  "previous_action_credit": [
+    {
+      "credit_id": "CRD-001",
+      "text": "Inspections (initial or repetitive) accomplished before the effective date of this AD in accordance with SB A310-54-2036 Revision 1 are acceptable for compliance with paragraphs (1) and (2).",
+      "applies_to_requirement_ids": [
+        "REQ-001",
+        "REQ-002"
+      ],
+      "credited_publication_ids": [
+        "PUB-001"
+      ],
+      "conditions": [
+        "Inspection accomplished before the effective date of this AD"
+      ],
+      "evidence_ids": [
+        "EV-006",
+        "EV-007"
+      ]
+    }
+  ],
   "referenced_publications": [
     {
       "publication_id": "PUB-001",
@@ -508,7 +589,7 @@
       "publication_date": null,
       "title": null,
       "roles": [
-        "required_method"
+        "previous_action_credit"
       ],
       "later_approved_revisions_allowed": true,
       "evidence_ids": [
@@ -585,7 +666,7 @@
       "reporting",
       "modification"
     ],
-    "frequency": "mixed",
+    "frequency": "repetitive",
     "emergency_status": "standard",
     "terminating_action_present": true,
     "table_or_appendix_present": false,
@@ -1197,11 +1278,12 @@
       "Machine-assisted populated extraction from the complete frozen PDF/page-text packet.",
       "Requirements were split from numbered source paragraphs where possible; every field assertion remains unreviewed.",
       "No supersedure relationship was created because the cover explicitly states Supersedure: None.",
-      "Independent human comparison and correction are required before approval or gold promotion."
+      "Independent human comparison and correction are required before approval or gold promotion.",
+      "Source-audit corrections applied by GPT-5.6 against the frozen rendered PDF and page-text cache; no human approval or gold status is claimed."
     ],
     "source_text_sha256": "77f9b447970692a7bb33f2a1d78932922d5fe4c739778b37afdd270f0bd69a4e",
     "created_at": "2026-07-30T09:02:01Z",
-    "updated_at": "2026-07-30T09:02:01Z"
+    "updated_at": "2026-07-30T17:10:00Z"
   },
   "benchmark_metadata": {
     "split": "unassigned",
