@@ -163,32 +163,29 @@
   "definitions": [
     {
       "definition_id": "DEF-001",
-      "term": "Definitions in this AD",
-      "definition_text": "For the purpose of this AD, the following definitions apply: The new CMR task: Variation 1.1 to A300-600 (including A300-600ST) and A310 Airworthiness Limitations Section (ALS) Part 3, Revision 1, introducing the new Certification Maintenance Requirement (CMR) task 291000-00003-1-C \"Main and Auxiliary (Hydraulic Power) - Functional Check of Reservoir Air Pressurization Line for Pipe Rupture\". Note 1: Aircraft Maintenance Manual (AMM) task 29-14-00 PB 501 contains instructions to perform the new CMR task. TE.CAP.00110-009 © European Union Aviation Safety Agency. All rights reserved. ISO9001 Certified. Page 1 of 3 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet. An agency of the European Union EASA AD No.: 2019-0188",
+      "term": "The new CMR task",
+      "definition_text": "Variation 1.1 to A300-600 (including A300-600ST) and A310 ALS Part 3 Revision 1, introducing CMR task 291000-00003-1-C, Main and Auxiliary (Hydraulic Power) - Functional Check of Reservoir Air Pressurization Line for Pipe Rupture. AMM task 29-14-00 PB 501 contains instructions to perform the task.",
       "evidence_ids": [
-        "EV-004",
-        "EV-005"
+        "EV-004"
       ]
     }
   ],
   "unsafe_condition": {
     "state": "present",
     "raw_reason_text": "Reason: The airworthiness limitations for Airbus A300-600, A300-600ST and A310 aeroplanes, which are approved by EASA, are currently defined and published in the A300-600 and A310 ALS documents. The airworthiness limitations applicable to the CMR are published in the ALS Part 3 documents. Failure to accomplish these instructions could result in an unsafe condition. Previously, EASA issued AD 2017-0203 to require accomplishment of all maintenance tasks as described in A300-600 and A310 ALS Part 3 at Revision 1. Since that AD was issued, Airbus published Variation 1.1 to A300-600 ALS Part 3 Revision 01 and Variation 1.1 to A310 ALS Part 3 Revision 01, which introduce the new CMR task as defined in this AD. This new CMR task comprises a functional test of the reservoir air pressurization lines for pipe rupture, to detect any possible air leak. It is expected that Airbus will issue ALS Part 3 Revision 2 for A300-600 and A310 that would incorporate this task. However, since it is not known when this ALS revision will be published, it was decided that early implementation of the new task is necessary. For the reason described above, this AD requires repetitive pressurization tests of the reservoir air pressurization lines and, depending on findings, repair or replacement of parts. It is expected that, when ALS Part 3 Revision 2 is issued, EASA will issue a new AD for that, in which case both EASA AD 2017-0203 and this AD will be superseded.",
-    "observed_events_or_defects": [
-      "The airworthiness limitations for Airbus A300-600, A300-600ST and A310 aeroplanes, which are approved by EASA, are currently defined and published in the A300-600 and A310 ALS documents."
-    ],
+    "observed_events_or_defects": [],
     "causes": [],
     "unsafe_conditions": [
-      "Failure to accomplish these instructions could result in an unsafe condition.",
-      "It is expected that Airbus will issue ALS Part 3 Revision 2 for A300-600 and A310 that would incorporate this task."
+      "Failure to accomplish the mandatory new CMR functional test could leave a possible air leak in a reservoir air pressurization line undetected."
     ],
-    "potential_consequences": [
-      "Failure to accomplish these instructions could result in an unsafe condition.",
-      "It is expected that Airbus will issue ALS Part 3 Revision 2 for A300-600 and A310 that would incorporate this task."
+    "potential_consequences": [],
+    "affected_components": [
+      "Main and auxiliary hydraulic reservoir air pressurization lines",
+      "Reservoir pressure indicators",
+      "Hydraulic pipes, ducts and pressurization lines"
     ],
-    "affected_components": [],
     "intended_risk_mitigation": [
-      "For the reason described above, this AD requires repetitive pressurization tests of the reservoir air pressurization lines and, depending on findings, repair or replacement of parts."
+      "Repetitive functional testing of reservoir air pressurization lines for pipe rupture and repair or replacement when the pressure indicators do not reach 3.5 bar (50 PSI)."
     ],
     "evidence_ids": [
       "EV-006"
@@ -203,13 +200,16 @@
         "APP-001"
       ],
       "action_types": [
-        "test_or_check",
-        "reporting"
+        "test_or_check"
       ],
       "obligation": "mandatory",
-      "action_text": "(1) Within 19 months after the effective date of this AD, and, thereafter, at intervals not exceeding 4 000 flight hours, accomplish the new CMR task, as defined in this AD. Corrective Action(s):",
-      "objects_or_components": [],
-      "conditions": [],
+      "action_text": "(1) Within 19 months after the effective date of this AD and thereafter at intervals not exceeding 4 000 flight hours, accomplish the new CMR task.",
+      "objects_or_components": [
+        "Hydraulic reservoir air pressurization lines"
+      ],
+      "conditions": [
+        "Unless accomplished previously"
+      ],
       "method_publication_ids": [
         "PUB-001",
         "PUB-002"
@@ -218,9 +218,11 @@
         {
           "compliance_id": "CMP-001",
           "state": "present",
-          "raw_text": "(1) Within 19 months after the effective date of this AD, and, thereafter, at intervals not exceeding 4 000 flight hours, accomplish the new CMR task, as defined in this AD. Corrective Action(s):",
+          "raw_text": "(1) Within 19 months after the effective date of this AD and thereafter at intervals not exceeding 4 000 flight hours, accomplish the new CMR task.",
           "logic": "single",
-          "conditions": [],
+          "conditions": [
+            "Unless accomplished previously"
+          ],
           "initial_limits": [
             {
               "limit_id": "LIM-001",
@@ -242,8 +244,8 @@
               "relation": "not_to_exceed",
               "quantity": 4000,
               "unit": "flight_hour",
-              "raw_value": "not exceeding 4 000 flight hours",
-              "reference_event": "effective date of this AD",
+              "raw_value": "At intervals not exceeding 4 000 flight hours",
+              "reference_event": "previous test",
               "calendar_date": null,
               "evidence_ids": [
                 "EV-009"
@@ -256,7 +258,9 @@
           ]
         }
       ],
-      "follow_on_requirement_ids": [],
+      "follow_on_requirement_ids": [
+        "REQ-002"
+      ],
       "terminating_action": {
         "state": "not_stated",
         "present": false,
@@ -272,37 +276,44 @@
     {
       "requirement_id": "REQ-002",
       "paragraph_reference": "(2)",
-      "parent_requirement_id": null,
+      "parent_requirement_id": "REQ-001",
       "applicability_group_ids": [
         "APP-001"
       ],
       "action_types": [
         "test_or_check",
-        "reporting"
+        "repair",
+        "replacement"
       ],
       "obligation": "conditional",
-      "action_text": "(2) If, during any test as required by paragraph (1) of this AD, the reservoir pressure indicators do not reach 3.5 bars (50 PSI), before next flight, identify the leak and repair or replace the affected hydraulic pipes(s) or duct(s), or the affected pressurization line. This can be accomplished in accordance with AMM task 20-23-11 or task 36-11-00, as applicable. Terminating Action:",
-      "objects_or_components": [],
-      "conditions": [],
+      "action_text": "(2) If, during a test required by paragraph (1), the reservoir pressure indicators do not reach 3.5 bar (50 PSI), before next flight identify the leak and repair or replace the affected hydraulic pipe, duct or pressurization line. AMM task 20-23-11 or task 36-11-00, as applicable, is an acceptable method.",
+      "objects_or_components": [
+        "Hydraulic pipes, ducts and pressurization line"
+      ],
+      "conditions": [
+        "Reservoir pressure indicators do not reach 3.5 bar (50 PSI) during a test required by REQ-001"
+      ],
       "method_publication_ids": [
-        "PUB-001",
-        "PUB-002"
+        "PUB-003",
+        "PUB-004"
       ],
       "compliance_rules": [
         {
           "compliance_id": "CMP-002",
           "state": "present",
-          "raw_text": "(2) If, during any test as required by paragraph (1) of this AD, the reservoir pressure indicators do not reach 3.5 bars (50 PSI), before next flight, identify the leak and repair or replace the affected hydraulic pipes(s) or duct(s), or the affected pressurization line. This can be accomplished in accordance with AMM task 20-23-11 or task 36-11-00, as applicable. Terminating Action:",
-          "logic": "single",
-          "conditions": [],
+          "raw_text": "(2) If, during a test required by paragraph (1), the reservoir pressure indicators do not reach 3.5 bar (50 PSI), before next flight identify the leak and repair or replace the affected hydraulic pipe, duct or pressurization line. AMM task 20-23-11 or task 36-11-00, as applicable, is an acceptable method.",
+          "logic": "conditional",
+          "conditions": [
+            "Pressure indicators do not reach 3.5 bar (50 PSI)"
+          ],
           "initial_limits": [
             {
               "limit_id": "LIM-003",
               "relation": "before",
               "quantity": null,
               "unit": "before_next_flight",
-              "raw_value": "before next flight",
-              "reference_event": "next flight",
+              "raw_value": "Before next flight",
+              "reference_event": "next flight after the test",
               "calendar_date": null,
               "evidence_ids": [
                 "EV-009"
@@ -319,16 +330,12 @@
       ],
       "follow_on_requirement_ids": [],
       "terminating_action": {
-        "state": "present",
-        "present": true,
-        "scope": "partial",
-        "action_text": "(2) If, during any test as required by paragraph (1) of this AD, the reservoir pressure indicators do not reach 3.5 bars (50 PSI), before next flight, identify the leak and repair or replace the affected hydraulic pipes(s) or duct(s), or the affected pressurization line. This can be accomplished in accordance with AMM task 20-23-11 or task 36-11-00, as applicable. Terminating Action:",
-        "terminates_requirement_ids": [
-          "REQ-001"
-        ],
-        "evidence_ids": [
-          "EV-009"
-        ]
+        "state": "not_stated",
+        "present": false,
+        "scope": "none",
+        "action_text": null,
+        "terminates_requirement_ids": [],
+        "evidence_ids": []
       },
       "evidence_ids": [
         "EV-009"
@@ -371,6 +378,38 @@
         "EV-007",
         "EV-008"
       ]
+    },
+    {
+      "publication_id": "PUB-003",
+      "publication_type": "maintenance_manual",
+      "issuer": "Airbus",
+      "number": "AMM task 20-23-11",
+      "revision": null,
+      "publication_date": null,
+      "title": null,
+      "roles": [
+        "optional_method"
+      ],
+      "later_approved_revisions_allowed": false,
+      "evidence_ids": [
+        "EV-009"
+      ]
+    },
+    {
+      "publication_id": "PUB-004",
+      "publication_type": "maintenance_manual",
+      "issuer": "Airbus",
+      "number": "AMM task 36-11-00",
+      "revision": null,
+      "publication_date": null,
+      "title": null,
+      "roles": [
+        "optional_method"
+      ],
+      "later_approved_revisions_allowed": false,
+      "evidence_ids": [
+        "EV-009"
+      ]
     }
   ],
   "relationships": [],
@@ -400,6 +439,8 @@
   ],
   "classification": {
     "airbus_families": [
+      "A300-600",
+      "A310",
       "A300-600ST"
     ],
     "ata_chapters": [
@@ -407,13 +448,14 @@
     ],
     "action_types": [
       "test_or_check",
-      "reporting"
+      "repair",
+      "replacement"
     ],
     "frequency": "mixed",
     "emergency_status": "standard",
-    "terminating_action_present": true,
+    "terminating_action_present": false,
     "table_or_appendix_present": false,
-    "compliance_complexity": "simple",
+    "compliance_complexity": "conditional_branches",
     "human_confirmed": false,
     "evidence_ids": [
       "EV-001",
@@ -611,14 +653,14 @@
       "value_state": "present",
       "origin": "auto_extracted",
       "verification_status": "unreviewed",
-      "confidence": 0.995,
+      "confidence": 0.99,
       "evidence_ids": [
         "EV-001"
       ],
-      "annotator_id": "codex-extension-extractor",
+      "annotator_id": "gpt-5.6-source-auditor",
       "derivation_rule": null,
       "input_field_paths": [],
-      "notes": "Section completion: AD identity"
+      "notes": "AD identity source-audited; no human acceptance claimed."
     },
     {
       "assertion_id": "AST-002",
@@ -630,10 +672,10 @@
       "evidence_ids": [
         "EV-001"
       ],
-      "annotator_id": "codex-extension-extractor",
+      "annotator_id": "gpt-5.6-source-auditor",
       "derivation_rule": null,
       "input_field_paths": [],
-      "notes": "Section completion: publication"
+      "notes": "Publication metadata source-audited; no human acceptance claimed."
     },
     {
       "assertion_id": "AST-003",
@@ -641,14 +683,14 @@
       "value_state": "present",
       "origin": "auto_extracted",
       "verification_status": "unreviewed",
-      "confidence": 0.95,
+      "confidence": 0.99,
       "evidence_ids": [
         "EV-003"
       ],
-      "annotator_id": "codex-extension-extractor",
+      "annotator_id": "gpt-5.6-source-auditor",
       "derivation_rule": null,
       "input_field_paths": [],
-      "notes": "Section completion: applicability_groups"
+      "notes": "Applicability source-audited; no human acceptance claimed."
     },
     {
       "assertion_id": "AST-004",
@@ -656,333 +698,133 @@
       "value_state": "present",
       "origin": "auto_extracted",
       "verification_status": "unreviewed",
-      "confidence": 0.95,
+      "confidence": 0.99,
       "evidence_ids": [
-        "EV-004",
-        "EV-005"
+        "EV-004"
       ],
-      "annotator_id": "codex-extension-extractor",
+      "annotator_id": "gpt-5.6-source-auditor",
       "derivation_rule": null,
       "input_field_paths": [],
-      "notes": "Section completion: definitions"
+      "notes": "Definitions source-audited; no human acceptance claimed."
     },
     {
       "assertion_id": "AST-005",
-      "field_path": "/requirements",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.95,
-      "evidence_ids": [
-        "EV-009"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "Section completion: requirements"
-    },
-    {
-      "assertion_id": "AST-006",
-      "field_path": "/exceptions",
-      "value_state": "absent_in_source",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.9,
-      "evidence_ids": [],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "Section completion: exceptions"
-    },
-    {
-      "assertion_id": "AST-007",
-      "field_path": "/previous_action_credit",
-      "value_state": "absent_in_source",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.9,
-      "evidence_ids": [],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "Section completion: previous_action_credit"
-    },
-    {
-      "assertion_id": "AST-008",
-      "field_path": "/referenced_publications",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.95,
-      "evidence_ids": [
-        "EV-007",
-        "EV-008"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "Section completion: referenced_publications"
-    },
-    {
-      "assertion_id": "AST-009",
-      "field_path": "/relationships",
-      "value_state": "absent_in_source",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.9,
-      "evidence_ids": [
-        "EV-001"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "Section completion: relationships"
-    },
-    {
-      "assertion_id": "AST-010",
-      "field_path": "/amoc_and_contacts",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.95,
-      "evidence_ids": [
-        "EV-010"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "Section completion: amoc_and_contacts"
-    },
-    {
-      "assertion_id": "AST-011",
-      "field_path": "/ad_identity/ad_number",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.995,
-      "evidence_ids": [
-        "EV-001"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "Cover identity"
-    },
-    {
-      "assertion_id": "AST-012",
-      "field_path": "/ad_identity/supersedure_statement",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.99,
-      "evidence_ids": [
-        "EV-001"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "Printed status field"
-    },
-    {
-      "assertion_id": "AST-013",
-      "field_path": "/publication/issue_date",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.995,
-      "evidence_ids": [
-        "EV-001"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "Printed issue date"
-    },
-    {
-      "assertion_id": "AST-014",
-      "field_path": "/publication/effective_date",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.995,
-      "evidence_ids": [
-        "EV-001"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "Printed effective date"
-    },
-    {
-      "assertion_id": "AST-015",
-      "field_path": "/publication/subject",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.99,
-      "evidence_ids": [
-        "EV-001"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "Printed ATA subject"
-    },
-    {
-      "assertion_id": "AST-016",
-      "field_path": "/applicability_groups/0",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.96,
-      "evidence_ids": [
-        "EV-003"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "applicability_groups"
-    },
-    {
-      "assertion_id": "AST-017",
-      "field_path": "/definitions/0",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.96,
-      "evidence_ids": [
-        "EV-004",
-        "EV-005"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "definitions"
-    },
-    {
-      "assertion_id": "AST-018",
-      "field_path": "/requirements/0",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.94,
-      "evidence_ids": [
-        "EV-009"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "requirements"
-    },
-    {
-      "assertion_id": "AST-019",
-      "field_path": "/requirements/1",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.94,
-      "evidence_ids": [
-        "EV-009"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "requirements"
-    },
-    {
-      "assertion_id": "AST-020",
-      "field_path": "/referenced_publications/0",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.96,
-      "evidence_ids": [
-        "EV-007",
-        "EV-008"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "referenced_publications"
-    },
-    {
-      "assertion_id": "AST-021",
-      "field_path": "/referenced_publications/1",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.96,
-      "evidence_ids": [
-        "EV-007",
-        "EV-008"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "referenced_publications"
-    },
-    {
-      "assertion_id": "AST-022",
-      "field_path": "/amoc_and_contacts/0",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.96,
-      "evidence_ids": [
-        "EV-010"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "amoc_and_contacts"
-    },
-    {
-      "assertion_id": "AST-023",
-      "field_path": "/amoc_and_contacts/1",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.96,
-      "evidence_ids": [
-        "EV-010"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "amoc_and_contacts"
-    },
-    {
-      "assertion_id": "AST-024",
       "field_path": "/unsafe_condition",
       "value_state": "present",
       "origin": "auto_extracted",
       "verification_status": "unreviewed",
-      "confidence": 0.96,
+      "confidence": 0.99,
       "evidence_ids": [
         "EV-006"
       ],
-      "annotator_id": "codex-extension-extractor",
+      "annotator_id": "gpt-5.6-source-auditor",
       "derivation_rule": null,
       "input_field_paths": [],
-      "notes": "Reason and unsafe condition"
+      "notes": "Unsafe condition source-audited; no human acceptance claimed."
     },
     {
-      "assertion_id": "AST-025",
+      "assertion_id": "AST-006",
+      "field_path": "/requirements",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.99,
+      "evidence_ids": [
+        "EV-009"
+      ],
+      "annotator_id": "gpt-5.6-source-auditor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Atomic requirements and compliance logic source-audited; no human acceptance claimed."
+    },
+    {
+      "assertion_id": "AST-007",
+      "field_path": "/exceptions",
+      "value_state": "absent_in_source",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.95,
+      "evidence_ids": [],
+      "annotator_id": "gpt-5.6-source-auditor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Requirement exceptions source-audited; no human acceptance claimed."
+    },
+    {
+      "assertion_id": "AST-008",
+      "field_path": "/previous_action_credit",
+      "value_state": "absent_in_source",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.95,
+      "evidence_ids": [],
+      "annotator_id": "gpt-5.6-source-auditor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Previous-action credit source-audited; no human acceptance claimed."
+    },
+    {
+      "assertion_id": "AST-009",
+      "field_path": "/referenced_publications",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.99,
+      "evidence_ids": [
+        "EV-007",
+        "EV-008",
+        "EV-009"
+      ],
+      "annotator_id": "gpt-5.6-source-auditor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Referenced publications source-audited; no human acceptance claimed."
+    },
+    {
+      "assertion_id": "AST-010",
+      "field_path": "/relationships",
+      "value_state": "absent_in_source",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.95,
+      "evidence_ids": [],
+      "annotator_id": "gpt-5.6-source-auditor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Relationships source-audited; no human acceptance claimed."
+    },
+    {
+      "assertion_id": "AST-011",
+      "field_path": "/amoc_and_contacts",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.99,
+      "evidence_ids": [
+        "EV-010"
+      ],
+      "annotator_id": "gpt-5.6-source-auditor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "AMOC and contacts source-audited; no human acceptance claimed."
+    },
+    {
+      "assertion_id": "AST-012",
       "field_path": "/classification",
       "value_state": "present",
       "origin": "auto_extracted",
       "verification_status": "unreviewed",
-      "confidence": 0.9,
+      "confidence": 0.99,
       "evidence_ids": [
         "EV-001",
         "EV-003",
         "EV-006",
         "EV-009"
       ],
-      "annotator_id": "codex-extension-extractor",
+      "annotator_id": "gpt-5.6-source-auditor",
       "derivation_rule": null,
       "input_field_paths": [],
-      "notes": "Schema classification"
+      "notes": "Classification reconciled with corrected requirements; no human acceptance claimed."
     }
   ],
   "annotation_metadata": {
@@ -1001,6 +843,12 @@
         "role": "annotator",
         "started_at": "2026-07-30T09:02:01Z",
         "submitted_at": "2026-07-30T09:02:01Z"
+      },
+      {
+        "annotator_id": "gpt-5.6-source-auditor",
+        "role": "reviewer",
+        "started_at": "2026-07-30T18:00:46Z",
+        "submitted_at": "2026-07-30T18:00:46Z"
       }
     ],
     "events": [
@@ -1015,22 +863,29 @@
         "actor_id": "codex-extension-extractor",
         "timestamp": "2026-07-30T09:02:01Z",
         "rationale": "First pass completed; no human review or approval claimed."
+      },
+      {
+        "event_type": "reviewed",
+        "actor_id": "gpt-5.6-source-auditor",
+        "timestamp": "2026-07-30T18:00:46Z",
+        "rationale": "Machine-assisted source audit against the exact rendered PDF and frozen page-text cache; corrections applied without human approval."
       }
     ],
     "quality_flags": [
       "manual_review_required",
-      "complex_applicability"
+      "complex_compliance"
     ],
     "uncertainty_flags": [],
     "notes": [
       "Machine-assisted populated extraction from the complete frozen PDF/page-text packet.",
       "Requirements were split from numbered source paragraphs where possible; every field assertion remains unreviewed.",
       "No supersedure relationship was created because the cover explicitly states Supersedure: None.",
-      "Independent human comparison and correction are required before approval or gold promotion."
+      "Independent human comparison and correction are required before approval or gold promotion.",
+      "Machine-assisted source-audit corrections applied against the exact rendered PDF and frozen page-text cache; independent human acceptance is still required before approval or gold promotion."
     ],
     "source_text_sha256": "3c417c43e50e3656994d29a18a07371e50d80dd2beec6f19ae1729ec5b2db725",
     "created_at": "2026-07-30T09:02:01Z",
-    "updated_at": "2026-07-30T09:02:01Z"
+    "updated_at": "2026-07-30T18:00:46Z"
   },
   "benchmark_metadata": {
     "split": "unassigned",

@@ -203,10 +203,34 @@
   "definitions": [
     {
       "definition_id": "DEF-001",
-      "term": "Definitions in this AD",
-      "definition_text": "For the purpose of this AD, the following definitions apply: The SB: Honeywell Service Bulletin (SB) GTCP331-49-7954. Affected part: Auxiliary Power Unit (APU) fuel control units, having Part Number (P/N) 3883240-3, P/N 3883240-5 or P/N 3883240-6 and a serial number as listed in the SB; or APU fuel control units, having P/N 3883240-3, P/N 3883240-5 or P/N 3883240-6, equipped with an housing assembly TE.CAP.00110-011 © European Union Aviation Safety Agency. All rights reserved. ISO9001 Certified. Page 1 of 3 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet. An agency of the European Union EASA AD No.: 2023-0057 which received an epoxy-type repair, as identified by code P30148, P30149, P30150, or P31178 marked on the nameplate. Serviceable part: Any APU fuel control unit, eligible for installation, which is not an affected part. An APU fuel control unit which is re-identified with the SB number (331 -49-7954) on its identification plate is a serviceable part. Affected APU: Honeywell GTCP331-350[C] APUs that have an affected part installed. Serviceable APU: Any Honeywell GTCP331-350[C] APU which is not an affected APU. The SB provides instructions to modify an affected APU into a serviceable APU. Groups: Group 1 aeroplanes are those that have an affected part installed. Group 2 aeroplanes are those that do not have an affected part installed.",
+      "term": "The SB",
+      "definition_text": "Honeywell Service Bulletin GTCP331-49-7954.",
+      "evidence_ids": [
+        "EV-004"
+      ]
+    },
+    {
+      "definition_id": "DEF-002",
+      "term": "Affected part",
+      "definition_text": "APU fuel control unit P/N 3883240-3, -5 or -6 with a serial number listed in the SB, or one with an epoxy-type housing repair identified by code P30148, P30149, P30150 or P31178.",
       "evidence_ids": [
         "EV-004",
+        "EV-005"
+      ]
+    },
+    {
+      "definition_id": "DEF-003",
+      "term": "Serviceable part",
+      "definition_text": "An eligible APU fuel control unit that is not affected; a unit re-identified with SB number 331-49-7954 is serviceable.",
+      "evidence_ids": [
+        "EV-005"
+      ]
+    },
+    {
+      "definition_id": "DEF-004",
+      "term": "Groups",
+      "definition_text": "Group 1 aeroplanes have an affected part installed; Group 2 aeroplanes do not.",
+      "evidence_ids": [
         "EV-005"
       ]
     }
@@ -217,17 +241,24 @@
     "observed_events_or_defects": [
       "An occurrence has been reported where cracks were found in the fuel control unit housing assembly of a Honeywell GTCP331-350 APU, which caused fuel leakage in the APU compartment."
     ],
-    "causes": [],
+    "causes": [
+      "Cracking in the Honeywell GTCP331-350 APU fuel-control-unit housing assembly."
+    ],
     "unsafe_conditions": [
-      "This condition, if not corrected, could lead to an uncommanded APU in-flight shutdown, or fire in the APU compartment, possibly resulting in damage to the aeroplane .",
-      "To address this potential unsafe condition, Honeywell issued the SB, as defined in this AD, providing a list of known affected parts, and instructions for in -shop modification ."
+      "Cracked fuel-control-unit housing can leak fuel into the APU compartment."
     ],
     "potential_consequences": [
-      "This condition, if not corrected, could lead to an uncommanded APU in-flight shutdown, or fire in the APU compartment, possibly resulting in damage to the aeroplane .",
-      "To address this potential unsafe condition, Honeywell issued the SB, as defined in this AD, providing a list of known affected parts, and instructions for in -shop modification ."
+      "Uncommanded in-flight APU shutdown",
+      "Fire in the APU compartment",
+      "Damage to the aeroplane"
     ],
-    "affected_components": [],
-    "intended_risk_mitigation": [],
+    "affected_components": [
+      "Honeywell GTCP331-350[C] APU fuel control unit housing assembly",
+      "APU compartment"
+    ],
+    "intended_risk_mitigation": [
+      "Replace the affected fuel-control unit or affected APU with a serviceable unit and prohibit later installation of affected units."
+    ],
     "evidence_ids": [
       "EV-006"
     ]
@@ -241,24 +272,29 @@
         "APP-001"
       ],
       "action_types": [
-        "modification",
-        "replacement",
-        "prohibition"
+        "replacement"
       ],
       "obligation": "mandatory",
-      "action_text": "(1) For Group 1 aeroplanes: Within 36 months after the effective date of this AD, replace the affected part with a serviceable part . This can be accomplished in accordance with the instruction of the applicable Airbus aircraft maintenance manual (AMM).",
-      "objects_or_components": [],
-      "conditions": [],
+      "action_text": "(1) For Group 1 aeroplanes, within 36 months after the effective date of this AD, replace the affected APU fuel-control unit with a serviceable part. The applicable Airbus AMM is an acceptable method.",
+      "objects_or_components": [
+        "Affected APU fuel control unit"
+      ],
+      "conditions": [
+        "Group 1 aeroplane",
+        "Unless accomplished previously"
+      ],
       "method_publication_ids": [
-        "PUB-001"
+        "PUB-002"
       ],
       "compliance_rules": [
         {
           "compliance_id": "CMP-001",
           "state": "present",
-          "raw_text": "(1) For Group 1 aeroplanes: Within 36 months after the effective date of this AD, replace the affected part with a serviceable part . This can be accomplished in accordance with the instruction of the applicable Airbus aircraft maintenance manual (AMM).",
+          "raw_text": "(1) For Group 1 aeroplanes, within 36 months after the effective date of this AD, replace the affected APU fuel-control unit with a serviceable part. The applicable Airbus AMM is an acceptable method.",
           "logic": "single",
-          "conditions": [],
+          "conditions": [
+            "Group 1 aeroplane"
+          ],
           "initial_limits": [
             {
               "limit_id": "LIM-001",
@@ -269,7 +305,72 @@
               "reference_event": "effective date of this AD",
               "calendar_date": null,
               "evidence_ids": [
-                "EV-008",
+                "EV-008"
+              ]
+            }
+          ],
+          "is_repetitive": false,
+          "repetitive_intervals": [],
+          "grace_periods": [],
+          "evidence_ids": [
+            "EV-008"
+          ]
+        }
+      ],
+      "follow_on_requirement_ids": [
+        "REQ-002"
+      ],
+      "terminating_action": {
+        "state": "not_stated",
+        "present": false,
+        "scope": "none",
+        "action_text": null,
+        "terminates_requirement_ids": [],
+        "evidence_ids": []
+      },
+      "evidence_ids": [
+        "EV-008"
+      ]
+    },
+    {
+      "requirement_id": "REQ-002",
+      "paragraph_reference": "(3.1)",
+      "parent_requirement_id": "REQ-001",
+      "applicability_group_ids": [
+        "APP-001"
+      ],
+      "action_types": [
+        "prohibition"
+      ],
+      "obligation": "prohibited",
+      "action_text": "(3.1) For Group 1 aeroplanes, after completing the replacement required by paragraph (1), or the accepted APU-replacement alternative in paragraph (2), do not install an affected part or affected APU.",
+      "objects_or_components": [
+        "Affected APU fuel control unit or affected APU"
+      ],
+      "conditions": [
+        "Group 1 aeroplane",
+        "After completion of REQ-001 or accepted APU replacement"
+      ],
+      "method_publication_ids": [],
+      "compliance_rules": [
+        {
+          "compliance_id": "CMP-002",
+          "state": "present",
+          "raw_text": "(3.1) For Group 1 aeroplanes, after completing the replacement required by paragraph (1), or the accepted APU-replacement alternative in paragraph (2), do not install an affected part or affected APU.",
+          "logic": "conditional",
+          "conditions": [
+            "After replacement"
+          ],
+          "initial_limits": [
+            {
+              "limit_id": "LIM-002",
+              "relation": "after",
+              "quantity": null,
+              "unit": "other",
+              "raw_value": "After replacement",
+              "reference_event": "completion of REQ-001 or accepted alternative",
+              "calendar_date": null,
+              "evidence_ids": [
                 "EV-009"
               ]
             }
@@ -278,7 +379,6 @@
           "repetitive_intervals": [],
           "grace_periods": [],
           "evidence_ids": [
-            "EV-008",
             "EV-009"
           ]
         }
@@ -293,92 +393,55 @@
         "evidence_ids": []
       },
       "evidence_ids": [
-        "EV-008",
-        "EV-009"
-      ]
-    },
-    {
-      "requirement_id": "REQ-002",
-      "paragraph_reference": "(2)",
-      "parent_requirement_id": null,
-      "applicability_group_ids": [
-        "APP-001"
-      ],
-      "action_types": [
-        "modification",
-        "replacement",
-        "prohibition"
-      ],
-      "obligation": "mandatory",
-      "action_text": "(2) Replacement of an affected APU with a serviceable APU on an aeroplane is an acceptable method to comply with the requirements of paragraph (1) of this AD for that aeroplane. This can be accomplished in accordance with the instruction of the applicable Airbus AMM. TE.CAP.00110-011 © European Union Aviation Safety Agency. All rights reserved. ISO9001 Certified. Page 2 of 3 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet. An agency of the European Union EASA AD No.: 2023-0057 Part Installation:",
-      "objects_or_components": [],
-      "conditions": [],
-      "method_publication_ids": [
-        "PUB-001"
-      ],
-      "compliance_rules": [
-        {
-          "compliance_id": "CMP-002",
-          "state": "present",
-          "raw_text": "(2) Replacement of an affected APU with a serviceable APU on an aeroplane is an acceptable method to comply with the requirements of paragraph (1) of this AD for that aeroplane. This can be accomplished in accordance with the instruction of the applicable Airbus AMM. TE.CAP.00110-011 © European Union Aviation Safety Agency. All rights reserved. ISO9001 Certified. Page 2 of 3 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet. An agency of the European Union EASA AD No.: 2023-0057 Part Installation:",
-          "logic": "single",
-          "conditions": [],
-          "initial_limits": [],
-          "is_repetitive": false,
-          "repetitive_intervals": [],
-          "grace_periods": [],
-          "evidence_ids": [
-            "EV-008",
-            "EV-009"
-          ]
-        }
-      ],
-      "follow_on_requirement_ids": [],
-      "terminating_action": {
-        "state": "not_stated",
-        "present": false,
-        "scope": "none",
-        "action_text": null,
-        "terminates_requirement_ids": [],
-        "evidence_ids": []
-      },
-      "evidence_ids": [
-        "EV-008",
         "EV-009"
       ]
     },
     {
       "requirement_id": "REQ-003",
-      "paragraph_reference": "(3)",
+      "paragraph_reference": "(3.2)",
       "parent_requirement_id": null,
       "applicability_group_ids": [
         "APP-001"
       ],
       "action_types": [
-        "modification",
-        "replacement",
         "prohibition"
       ],
-      "obligation": "mandatory",
-      "action_text": "(3) Do not install an affected part or an affected APU on any aeroplane, as required by paragraph (3.1) or (3.2) of this AD, as applicable: (3.1) For Group 1 aeroplanes: After modification of the aeroplane as required by paragraph (1) of this AD, or as specified in paragraph (2) of this AD. (3.2) For Group 2 aeroplanes: From the effective date of this AD.",
-      "objects_or_components": [],
-      "conditions": [],
-      "method_publication_ids": [
-        "PUB-001"
+      "obligation": "prohibited",
+      "action_text": "(3.2) For Group 2 aeroplanes, from the effective date of this AD, do not install an affected part or affected APU.",
+      "objects_or_components": [
+        "Affected APU fuel control unit or affected APU"
       ],
+      "conditions": [
+        "Group 2 aeroplane"
+      ],
+      "method_publication_ids": [],
       "compliance_rules": [
         {
           "compliance_id": "CMP-003",
           "state": "present",
-          "raw_text": "(3) Do not install an affected part or an affected APU on any aeroplane, as required by paragraph (3.1) or (3.2) of this AD, as applicable: (3.1) For Group 1 aeroplanes: After modification of the aeroplane as required by paragraph (1) of this AD, or as specified in paragraph (2) of this AD. (3.2) For Group 2 aeroplanes: From the effective date of this AD.",
-          "logic": "single",
-          "conditions": [],
-          "initial_limits": [],
+          "raw_text": "(3.2) For Group 2 aeroplanes, from the effective date of this AD, do not install an affected part or affected APU.",
+          "logic": "conditional",
+          "conditions": [
+            "Group 2 aeroplane"
+          ],
+          "initial_limits": [
+            {
+              "limit_id": "LIM-003",
+              "relation": "from",
+              "quantity": null,
+              "unit": "other",
+              "raw_value": "From the effective date of this AD",
+              "reference_event": "effective date of this AD",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-009"
+              ]
+            }
+          ],
           "is_repetitive": false,
           "repetitive_intervals": [],
           "grace_periods": [],
           "evidence_ids": [
-            "EV-008",
             "EV-009"
           ]
         }
@@ -393,12 +456,22 @@
         "evidence_ids": []
       },
       "evidence_ids": [
-        "EV-008",
         "EV-009"
       ]
     }
   ],
-  "exceptions": [],
+  "exceptions": [
+    {
+      "exception_id": "EXC-001",
+      "text": "Replacing an affected APU with a serviceable APU is an acceptable alternative method to comply with REQ-001.",
+      "applies_to_requirement_ids": [
+        "REQ-001"
+      ],
+      "evidence_ids": [
+        "EV-008"
+      ]
+    }
+  ],
   "previous_action_credit": [],
   "referenced_publications": [
     {
@@ -410,11 +483,27 @@
       "publication_date": "2007-12-19",
       "title": null,
       "roles": [
-        "required_method"
+        "referenced_information"
       ],
-      "later_approved_revisions_allowed": null,
+      "later_approved_revisions_allowed": false,
       "evidence_ids": [
         "EV-007"
+      ]
+    },
+    {
+      "publication_id": "PUB-002",
+      "publication_type": "maintenance_manual",
+      "issuer": "Airbus",
+      "number": "Applicable Airbus AMM",
+      "revision": null,
+      "publication_date": null,
+      "title": null,
+      "roles": [
+        "optional_method"
+      ],
+      "later_approved_revisions_allowed": false,
+      "evidence_ids": [
+        "EV-008"
       ]
     }
   ],
@@ -451,7 +540,6 @@
       "49"
     ],
     "action_types": [
-      "modification",
       "replacement",
       "prohibition"
     ],
@@ -658,14 +746,14 @@
       "value_state": "present",
       "origin": "auto_extracted",
       "verification_status": "unreviewed",
-      "confidence": 0.995,
+      "confidence": 0.99,
       "evidence_ids": [
         "EV-001"
       ],
-      "annotator_id": "codex-extension-extractor",
+      "annotator_id": "gpt-5.6-source-auditor",
       "derivation_rule": null,
       "input_field_paths": [],
-      "notes": "Section completion: AD identity"
+      "notes": "AD identity source-audited; no human acceptance claimed."
     },
     {
       "assertion_id": "AST-002",
@@ -677,10 +765,10 @@
       "evidence_ids": [
         "EV-001"
       ],
-      "annotator_id": "codex-extension-extractor",
+      "annotator_id": "gpt-5.6-source-auditor",
       "derivation_rule": null,
       "input_field_paths": [],
-      "notes": "Section completion: publication"
+      "notes": "Publication metadata source-audited; no human acceptance claimed."
     },
     {
       "assertion_id": "AST-003",
@@ -688,14 +776,14 @@
       "value_state": "present",
       "origin": "auto_extracted",
       "verification_status": "unreviewed",
-      "confidence": 0.95,
+      "confidence": 0.99,
       "evidence_ids": [
         "EV-003"
       ],
-      "annotator_id": "codex-extension-extractor",
+      "annotator_id": "gpt-5.6-source-auditor",
       "derivation_rule": null,
       "input_field_paths": [],
-      "notes": "Section completion: applicability_groups"
+      "notes": "Applicability source-audited; no human acceptance claimed."
     },
     {
       "assertion_id": "AST-004",
@@ -703,324 +791,126 @@
       "value_state": "present",
       "origin": "auto_extracted",
       "verification_status": "unreviewed",
-      "confidence": 0.95,
+      "confidence": 0.99,
       "evidence_ids": [
         "EV-004",
         "EV-005"
       ],
-      "annotator_id": "codex-extension-extractor",
+      "annotator_id": "gpt-5.6-source-auditor",
       "derivation_rule": null,
       "input_field_paths": [],
-      "notes": "Section completion: definitions"
+      "notes": "Definitions source-audited; no human acceptance claimed."
     },
     {
       "assertion_id": "AST-005",
-      "field_path": "/requirements",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.95,
-      "evidence_ids": [
-        "EV-008",
-        "EV-009"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "Section completion: requirements"
-    },
-    {
-      "assertion_id": "AST-006",
-      "field_path": "/exceptions",
-      "value_state": "absent_in_source",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.9,
-      "evidence_ids": [],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "Section completion: exceptions"
-    },
-    {
-      "assertion_id": "AST-007",
-      "field_path": "/previous_action_credit",
-      "value_state": "absent_in_source",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.9,
-      "evidence_ids": [],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "Section completion: previous_action_credit"
-    },
-    {
-      "assertion_id": "AST-008",
-      "field_path": "/referenced_publications",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.95,
-      "evidence_ids": [
-        "EV-007"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "Section completion: referenced_publications"
-    },
-    {
-      "assertion_id": "AST-009",
-      "field_path": "/relationships",
-      "value_state": "absent_in_source",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.9,
-      "evidence_ids": [
-        "EV-001"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "Section completion: relationships"
-    },
-    {
-      "assertion_id": "AST-010",
-      "field_path": "/amoc_and_contacts",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.95,
-      "evidence_ids": [
-        "EV-010"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "Section completion: amoc_and_contacts"
-    },
-    {
-      "assertion_id": "AST-011",
-      "field_path": "/ad_identity/ad_number",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.995,
-      "evidence_ids": [
-        "EV-001"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "Cover identity"
-    },
-    {
-      "assertion_id": "AST-012",
-      "field_path": "/ad_identity/supersedure_statement",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.99,
-      "evidence_ids": [
-        "EV-001"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "Printed status field"
-    },
-    {
-      "assertion_id": "AST-013",
-      "field_path": "/publication/issue_date",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.995,
-      "evidence_ids": [
-        "EV-001"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "Printed issue date"
-    },
-    {
-      "assertion_id": "AST-014",
-      "field_path": "/publication/effective_date",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.995,
-      "evidence_ids": [
-        "EV-001"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "Printed effective date"
-    },
-    {
-      "assertion_id": "AST-015",
-      "field_path": "/publication/subject",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.99,
-      "evidence_ids": [
-        "EV-001"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "Printed ATA subject"
-    },
-    {
-      "assertion_id": "AST-016",
-      "field_path": "/applicability_groups/0",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.96,
-      "evidence_ids": [
-        "EV-003"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "applicability_groups"
-    },
-    {
-      "assertion_id": "AST-017",
-      "field_path": "/definitions/0",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.96,
-      "evidence_ids": [
-        "EV-004",
-        "EV-005"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "definitions"
-    },
-    {
-      "assertion_id": "AST-018",
-      "field_path": "/requirements/0",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.94,
-      "evidence_ids": [
-        "EV-008",
-        "EV-009"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "requirements"
-    },
-    {
-      "assertion_id": "AST-019",
-      "field_path": "/requirements/1",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.94,
-      "evidence_ids": [
-        "EV-008",
-        "EV-009"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "requirements"
-    },
-    {
-      "assertion_id": "AST-020",
-      "field_path": "/requirements/2",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.94,
-      "evidence_ids": [
-        "EV-008",
-        "EV-009"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "requirements"
-    },
-    {
-      "assertion_id": "AST-021",
-      "field_path": "/referenced_publications/0",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.96,
-      "evidence_ids": [
-        "EV-007"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "referenced_publications"
-    },
-    {
-      "assertion_id": "AST-022",
-      "field_path": "/amoc_and_contacts/0",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.96,
-      "evidence_ids": [
-        "EV-010"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "amoc_and_contacts"
-    },
-    {
-      "assertion_id": "AST-023",
-      "field_path": "/amoc_and_contacts/1",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.96,
-      "evidence_ids": [
-        "EV-010"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "amoc_and_contacts"
-    },
-    {
-      "assertion_id": "AST-024",
       "field_path": "/unsafe_condition",
       "value_state": "present",
       "origin": "auto_extracted",
       "verification_status": "unreviewed",
-      "confidence": 0.96,
+      "confidence": 0.99,
       "evidence_ids": [
         "EV-006"
       ],
-      "annotator_id": "codex-extension-extractor",
+      "annotator_id": "gpt-5.6-source-auditor",
       "derivation_rule": null,
       "input_field_paths": [],
-      "notes": "Reason and unsafe condition"
+      "notes": "Unsafe condition source-audited; no human acceptance claimed."
     },
     {
-      "assertion_id": "AST-025",
+      "assertion_id": "AST-006",
+      "field_path": "/requirements",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.99,
+      "evidence_ids": [
+        "EV-008",
+        "EV-009"
+      ],
+      "annotator_id": "gpt-5.6-source-auditor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Atomic requirements and compliance logic source-audited; no human acceptance claimed."
+    },
+    {
+      "assertion_id": "AST-007",
+      "field_path": "/exceptions",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.99,
+      "evidence_ids": [
+        "EV-008"
+      ],
+      "annotator_id": "gpt-5.6-source-auditor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Requirement exceptions source-audited; no human acceptance claimed."
+    },
+    {
+      "assertion_id": "AST-008",
+      "field_path": "/previous_action_credit",
+      "value_state": "absent_in_source",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.95,
+      "evidence_ids": [],
+      "annotator_id": "gpt-5.6-source-auditor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Previous-action credit source-audited; no human acceptance claimed."
+    },
+    {
+      "assertion_id": "AST-009",
+      "field_path": "/referenced_publications",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.99,
+      "evidence_ids": [
+        "EV-007",
+        "EV-008"
+      ],
+      "annotator_id": "gpt-5.6-source-auditor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Referenced publications source-audited; no human acceptance claimed."
+    },
+    {
+      "assertion_id": "AST-010",
+      "field_path": "/relationships",
+      "value_state": "absent_in_source",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.95,
+      "evidence_ids": [],
+      "annotator_id": "gpt-5.6-source-auditor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Relationships source-audited; no human acceptance claimed."
+    },
+    {
+      "assertion_id": "AST-011",
+      "field_path": "/amoc_and_contacts",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.99,
+      "evidence_ids": [
+        "EV-010"
+      ],
+      "annotator_id": "gpt-5.6-source-auditor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "AMOC and contacts source-audited; no human acceptance claimed."
+    },
+    {
+      "assertion_id": "AST-012",
       "field_path": "/classification",
       "value_state": "present",
       "origin": "auto_extracted",
       "verification_status": "unreviewed",
-      "confidence": 0.9,
+      "confidence": 0.99,
       "evidence_ids": [
         "EV-001",
         "EV-003",
@@ -1028,10 +918,10 @@
         "EV-008",
         "EV-009"
       ],
-      "annotator_id": "codex-extension-extractor",
+      "annotator_id": "gpt-5.6-source-auditor",
       "derivation_rule": null,
       "input_field_paths": [],
-      "notes": "Schema classification"
+      "notes": "Classification reconciled with corrected requirements; no human acceptance claimed."
     }
   ],
   "annotation_metadata": {
@@ -1050,6 +940,12 @@
         "role": "annotator",
         "started_at": "2026-07-30T09:02:01Z",
         "submitted_at": "2026-07-30T09:02:01Z"
+      },
+      {
+        "annotator_id": "gpt-5.6-source-auditor",
+        "role": "reviewer",
+        "started_at": "2026-07-30T18:00:46Z",
+        "submitted_at": "2026-07-30T18:00:46Z"
       }
     ],
     "events": [
@@ -1064,23 +960,29 @@
         "actor_id": "codex-extension-extractor",
         "timestamp": "2026-07-30T09:02:01Z",
         "rationale": "First pass completed; no human review or approval claimed."
+      },
+      {
+        "event_type": "reviewed",
+        "actor_id": "gpt-5.6-source-auditor",
+        "timestamp": "2026-07-30T18:00:46Z",
+        "rationale": "Machine-assisted source audit against the exact rendered PDF and frozen page-text cache; corrections applied without human approval."
       }
     ],
     "quality_flags": [
       "manual_review_required",
-      "complex_compliance",
-      "complex_applicability"
+      "complex_compliance"
     ],
     "uncertainty_flags": [],
     "notes": [
       "Machine-assisted populated extraction from the complete frozen PDF/page-text packet.",
       "Requirements were split from numbered source paragraphs where possible; every field assertion remains unreviewed.",
       "No supersedure relationship was created because the cover explicitly states Supersedure: None.",
-      "Independent human comparison and correction are required before approval or gold promotion."
+      "Independent human comparison and correction are required before approval or gold promotion.",
+      "Machine-assisted source-audit corrections applied against the exact rendered PDF and frozen page-text cache; independent human acceptance is still required before approval or gold promotion."
     ],
     "source_text_sha256": "3866e0325597fc44ba9ab53e3221ac552cfd3be851e5e0f447a197f3094fd063",
     "created_at": "2026-07-30T09:02:01Z",
-    "updated_at": "2026-07-30T09:02:01Z"
+    "updated_at": "2026-07-30T18:00:46Z"
   },
   "benchmark_metadata": {
     "split": "unassigned",

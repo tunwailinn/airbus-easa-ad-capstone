@@ -155,9 +155,15 @@
           ]
         }
       ],
-      "part_numbers": [],
-      "configuration_conditions": [],
-      "exclusions": [],
+      "part_numbers": [
+        "SJ30820"
+      ],
+      "configuration_conditions": [
+        "Group 1 if air intake nose cowl P/N SJ30820, serial number up to 3012 inclusive, without Rolls-Royce SB RB.211-71-K989 (Airbus modification 210578) embodied, is installed"
+      ],
+      "exclusions": [
+        "Air intake nose cowl with Rolls-Royce SB RB.211-71-K989 / Airbus modification 210578 embodied"
+      ],
       "boolean_logic": "all",
       "evidence_ids": [
         "EV-003"
@@ -167,8 +173,24 @@
   "definitions": [
     {
       "definition_id": "DEF-001",
-      "term": "Definitions in this AD",
-      "definition_text": "For the purpose of this AD, the following definitions apply: The SB: Airbus Service Bulletin (SB) A330-71-3044, which includes reference to Rolls -Royce SB RB.211-71-AL162. Affected part: Air intake nose cowl (nacelle inlet cowl) Part Number (P/N) SJ30820, all serial number (s/n) up to 3012 inclusive, not having Rolls-Royce SB RB.211-71-K989 (Airbus modification (mod.) 210578) embodied. Note 1: Aeroplanes having Airbus mod. 204615 installed in production or Airbus SB A330-71-3032 (Rolls-Royce SB RB.211-71-H847) accomplished in service are equipped with affected part. Groups: Group 1 aeroplanes are those that have an affected part installed. TE.CAP.00110-012 © European Union Aviation Safety Agency. All rights reserved. ISO9001 Certified. Page 1 of 4 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet. An agency of the European Union EASA AD No.: 2026-0100 Group 2 aeroplanes are those that do not have an affected part installed. Note 2: An aeroplane having Airbus mod. 210578 installed (Rolls-Royce SB RB.211-71-K989 accomplished) is Group 2, provided no affected part(s) has (have) been installed in service on that aeroplane.",
+      "term": "The SB",
+      "definition_text": "Airbus Service Bulletin A330-71-3044, which references Rolls-Royce SB RB.211-71-AL162.",
+      "evidence_ids": [
+        "EV-004"
+      ]
+    },
+    {
+      "definition_id": "DEF-002",
+      "term": "Affected part",
+      "definition_text": "Air intake nose cowl P/N SJ30820, serial number up to 3012 inclusive, without Rolls-Royce SB RB.211-71-K989 / Airbus modification 210578 embodied.",
+      "evidence_ids": [
+        "EV-004"
+      ]
+    },
+    {
+      "definition_id": "DEF-003",
+      "term": "Groups",
+      "definition_text": "Group 1 aeroplanes have an affected part installed; Group 2 aeroplanes do not. An aeroplane with Airbus modification 210578 installed is Group 2 provided no affected part was later installed.",
       "evidence_ids": [
         "EV-004",
         "EV-005"
@@ -183,16 +205,22 @@
     ],
     "causes": [],
     "unsafe_conditions": [
-      "This condition, if not detected and corrected, in conjunction with a broken piccolo tube, could lead to in-flight detachment of the outer barrel, possibly resulting in damage to the engine or reduced control of the aeroplane.",
-      "To address this potential unsafe condition, Airbus issued the SB, providing instructions for repetitive inspections of affected parts."
+      "Cracks in the lip skin, top-hat stiffener or forward bulkhead, together with a broken piccolo tube, can lead to in-flight detachment of the outer barrel."
     ],
     "potential_consequences": [
-      "This condition, if not detected and corrected, in conjunction with a broken piccolo tube, could lead to in-flight detachment of the outer barrel, possibly resulting in damage to the engine or reduced control of the aeroplane.",
-      "To address this potential unsafe condition, Airbus issued the SB, providing instructions for repetitive inspections of affected parts."
+      "Damage to the engine",
+      "Reduced control of the aeroplane"
     ],
-    "affected_components": [],
+    "affected_components": [
+      "Air intake nose cowl P/N SJ30820",
+      "Lip skin",
+      "Top-hat stiffener",
+      "Forward bulkhead",
+      "Piccolo tube",
+      "Outer barrel"
+    ],
     "intended_risk_mitigation": [
-      "For the reason described above, this AD requires repetitive inspections of affected parts and, depending on findings, corrective action(s)."
+      "Repetitively inspect affected nose cowls, complete SB-directed corrective actions and optionally embody the terminating modification on discrepancy-free parts."
     ],
     "evidence_ids": [
       "EV-006"
@@ -207,61 +235,142 @@
         "APP-001"
       ],
       "action_types": [
-        "inspection",
-        "replacement",
-        "reporting"
+        "inspection"
       ],
       "obligation": "mandatory",
-      "action_text": "(1) For Group 1 aeroplanes: Before an affected part exceeds 8 000 flight cycles (FC) (see Note 3 of this AD) or within 24 months after the effective date of this AD, whichever occurs later, and, thereafter, at intervals not to exceed 8 000 FC, inspect that affected part in accordance with the instructions of the SB. Note 3: The FC referred to in paragraph (1) of this AD for the initial inspection of an affected part are those accumulated by that affected part since new, or since embodiment of Rolls-Royce SB RB.211-71-H847 (Airbus SB A330-71-3032), whichever occurs later, as applicable. Corrective Action(s):",
-      "objects_or_components": [],
-      "conditions": [],
+      "action_text": "(1) For Group 1 aeroplanes, inspect each affected nose cowl before it exceeds 8 000 flight cycles since new or since embodiment of Rolls-Royce SB RB.211-71-H847 / Airbus SB A330-71-3032, whichever reference event occurs later, or within 24 months after the effective date of this AD, whichever inspection deadline occurs later. Thereafter repeat at intervals not exceeding 8 000 flight cycles.",
+      "objects_or_components": [
+        "Affected air intake nose cowl"
+      ],
+      "conditions": [
+        "Group 1 aeroplane"
+      ],
       "method_publication_ids": [
-        "PUB-001",
-        "PUB-002",
-        "PUB-003"
+        "PUB-001"
       ],
       "compliance_rules": [
         {
           "compliance_id": "CMP-001",
           "state": "present",
-          "raw_text": "(1) For Group 1 aeroplanes: Before an affected part exceeds 8 000 flight cycles (FC) (see Note 3 of this AD) or within 24 months after the effective date of this AD, whichever occurs later, and, thereafter, at intervals not to exceed 8 000 FC, inspect that affected part in accordance with the instructions of the SB. Note 3: The FC referred to in paragraph (1) of this AD for the initial inspection of an affected part are those accumulated by that affected part since new, or since embodiment of Rolls-Royce SB RB.211-71-H847 (Airbus SB A330-71-3032), whichever occurs later, as applicable. Corrective Action(s):",
-          "logic": "single",
-          "conditions": [],
+          "raw_text": "(1) For Group 1 aeroplanes, inspect each affected nose cowl before it exceeds 8 000 flight cycles since new or since embodiment of Rolls-Royce SB RB.211-71-H847 / Airbus SB A330-71-3032, whichever reference event occurs later, or within 24 months after the effective date of this AD, whichever inspection deadline occurs later. Thereafter repeat at intervals not exceeding 8 000 flight cycles.",
+          "logic": "whichever_occurs_later",
+          "conditions": [
+            "The 8 000 FC reference begins at the later of new and embodiment of H847/A330-71-3032"
+          ],
           "initial_limits": [
             {
               "limit_id": "LIM-001",
+              "relation": "before",
+              "quantity": 8000,
+              "unit": "flight_cycle",
+              "raw_value": "Before exceeding 8 000 flight cycles",
+              "reference_event": "later of since new and since embodiment of H847/A330-71-3032",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-008"
+              ]
+            },
+            {
+              "limit_id": "LIM-002",
               "relation": "within",
               "quantity": 24,
               "unit": "calendar_month",
-              "raw_value": "within 24 months",
+              "raw_value": "Within 24 months",
               "reference_event": "effective date of this AD",
               "calendar_date": null,
               "evidence_ids": [
-                "EV-008",
-                "EV-009"
+                "EV-008"
               ]
             }
           ],
           "is_repetitive": true,
           "repetitive_intervals": [
             {
-              "limit_id": "LIM-002",
+              "limit_id": "LIM-003",
               "relation": "not_to_exceed",
               "quantity": 8000,
               "unit": "flight_cycle",
-              "raw_value": "at intervals not to exceed 8 000 FC",
-              "reference_event": "effective date of this AD",
+              "raw_value": "At intervals not to exceed 8 000 flight cycles",
+              "reference_event": "previous inspection",
               "calendar_date": null,
               "evidence_ids": [
-                "EV-008",
-                "EV-009"
+                "EV-008"
               ]
             }
           ],
           "grace_periods": [],
           "evidence_ids": [
-            "EV-008",
-            "EV-009"
+            "EV-008"
+          ]
+        }
+      ],
+      "follow_on_requirement_ids": [
+        "REQ-002"
+      ],
+      "terminating_action": {
+        "state": "not_stated",
+        "present": false,
+        "scope": "none",
+        "action_text": null,
+        "terminates_requirement_ids": [],
+        "evidence_ids": []
+      },
+      "evidence_ids": [
+        "EV-008"
+      ]
+    },
+    {
+      "requirement_id": "REQ-002",
+      "paragraph_reference": "(2)",
+      "parent_requirement_id": "REQ-001",
+      "applicability_group_ids": [
+        "APP-001"
+      ],
+      "action_types": [
+        "inspection",
+        "repair",
+        "contact_manufacturer",
+        "other"
+      ],
+      "obligation": "conditional",
+      "action_text": "(2) If a discrepancy defined in the SB is detected during a required inspection, accomplish the applicable corrective actions within the compliance time and in accordance with the SB. Where the SB says 'contact Rolls-Royce', contact Rolls-Royce for repair instructions and accomplish them within the time specified. Corrective actions may include additional inspections and further corrective actions.",
+      "objects_or_components": [
+        "Affected nose cowl discrepancy"
+      ],
+      "conditions": [
+        "Discrepancy detected during REQ-001"
+      ],
+      "method_publication_ids": [
+        "PUB-001"
+      ],
+      "compliance_rules": [
+        {
+          "compliance_id": "CMP-002",
+          "state": "present",
+          "raw_text": "(2) If a discrepancy defined in the SB is detected during a required inspection, accomplish the applicable corrective actions within the compliance time and in accordance with the SB. Where the SB says 'contact Rolls-Royce', contact Rolls-Royce for repair instructions and accomplish them within the time specified. Corrective actions may include additional inspections and further corrective actions.",
+          "logic": "conditional",
+          "conditions": [
+            "Discrepancy detected"
+          ],
+          "initial_limits": [
+            {
+              "limit_id": "LIM-004",
+              "relation": "other",
+              "quantity": null,
+              "unit": "other",
+              "raw_value": "Within the compliance time identified in the SB or repair instructions",
+              "reference_event": "discrepancy detection or receipt of repair instructions",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-008"
+              ]
+            }
+          ],
+          "is_repetitive": false,
+          "repetitive_intervals": [],
+          "grace_periods": [],
+          "evidence_ids": [
+            "EV-008"
           ]
         }
       ],
@@ -275,65 +384,7 @@
         "evidence_ids": []
       },
       "evidence_ids": [
-        "EV-008",
-        "EV-009"
-      ]
-    },
-    {
-      "requirement_id": "REQ-002",
-      "paragraph_reference": "(2)",
-      "parent_requirement_id": null,
-      "applicability_group_ids": [
-        "APP-001"
-      ],
-      "action_types": [
-        "inspection",
-        "replacement",
-        "reporting"
-      ],
-      "obligation": "conditional",
-      "action_text": "(2) If, during any inspection as required by paragraph (1) of this AD, any discrepancy, as defined in the SB, is detected on an affected part, accomplish the applicable corrective actions within the compliance time as identified in, and in accordance with the instructions of the SB (see Note 4 of this AD). For the purpose of this AD, where the SB provides instructions to ‘contact Rolls-Royce’, this must be read as ‘contact Rolls-Royce for repair instructions and, within the compliance time specified therein, accomplish those instructions accordingly’. Note 4: The corrective actions as identified in paragraph (2) of this AD may include additional inspections and relevant applicable corrective actions. TE.CAP.00110-012 © European Union Aviation Safety Agency. All rights reserved. ISO9001 Certified. Page 2 of 4 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet. An agency of the European Union EASA AD No.: 2026-0100 Terminating Action:",
-      "objects_or_components": [],
-      "conditions": [],
-      "method_publication_ids": [
-        "PUB-001",
-        "PUB-002",
-        "PUB-003"
-      ],
-      "compliance_rules": [
-        {
-          "compliance_id": "CMP-002",
-          "state": "present",
-          "raw_text": "(2) If, during any inspection as required by paragraph (1) of this AD, any discrepancy, as defined in the SB, is detected on an affected part, accomplish the applicable corrective actions within the compliance time as identified in, and in accordance with the instructions of the SB (see Note 4 of this AD). For the purpose of this AD, where the SB provides instructions to ‘contact Rolls-Royce’, this must be read as ‘contact Rolls-Royce for repair instructions and, within the compliance time specified therein, accomplish those instructions accordingly’. Note 4: The corrective actions as identified in paragraph (2) of this AD may include additional inspections and relevant applicable corrective actions. TE.CAP.00110-012 © European Union Aviation Safety Agency. All rights reserved. ISO9001 Certified. Page 2 of 4 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet. An agency of the European Union EASA AD No.: 2026-0100 Terminating Action:",
-          "logic": "single",
-          "conditions": [],
-          "initial_limits": [],
-          "is_repetitive": false,
-          "repetitive_intervals": [],
-          "grace_periods": [],
-          "evidence_ids": [
-            "EV-008",
-            "EV-009"
-          ]
-        }
-      ],
-      "follow_on_requirement_ids": [],
-      "terminating_action": {
-        "state": "present",
-        "present": true,
-        "scope": "partial",
-        "action_text": "(2) If, during any inspection as required by paragraph (1) of this AD, any discrepancy, as defined in the SB, is detected on an affected part, accomplish the applicable corrective actions within the compliance time as identified in, and in accordance with the instructions of the SB (see Note 4 of this AD). For the purpose of this AD, where the SB provides instructions to ‘contact Rolls-Royce’, this must be read as ‘contact Rolls-Royce for repair instructions and, within the compliance time specified therein, accomplish those instructions accordingly’. Note 4: The corrective actions as identified in paragraph (2) of this AD may include additional inspections and relevant applicable corrective actions. TE.CAP.00110-012 © European Union Aviation Safety Agency. All rights reserved. ISO9001 Certified. Page 2 of 4 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet. An agency of the European Union EASA AD No.: 2026-0100 Terminating Action:",
-        "terminates_requirement_ids": [
-          "REQ-001"
-        ],
-        "evidence_ids": [
-          "EV-008",
-          "EV-009"
-        ]
-      },
-      "evidence_ids": [
-        "EV-008",
-        "EV-009"
+        "EV-008"
       ]
     },
     {
@@ -344,32 +395,33 @@
         "APP-001"
       ],
       "action_types": [
-        "inspection",
-        "replacement",
-        "reporting"
+        "modification"
       ],
-      "obligation": "mandatory",
-      "action_text": "(3) Modification of an affected part having no discrepancy, in accordance with the instructions of Rolls-Royce SB RB.211-71-K989 (Airbus mod. 210578) constitutes terminating action to the repetitive inspections as required by paragraph (1) of this AD for that affected part.",
-      "objects_or_components": [],
-      "conditions": [],
+      "obligation": "optional_terminating",
+      "action_text": "(3) For an affected part with no discrepancy, modification in accordance with Rolls-Royce SB RB.211-71-K989 / Airbus modification 210578 terminates the repetitive inspections required by paragraph (1) for that part.",
+      "objects_or_components": [
+        "Affected nose cowl with no discrepancy"
+      ],
+      "conditions": [
+        "No discrepancy detected"
+      ],
       "method_publication_ids": [
-        "PUB-001",
-        "PUB-002",
         "PUB-003"
       ],
       "compliance_rules": [
         {
           "compliance_id": "CMP-003",
           "state": "present",
-          "raw_text": "(3) Modification of an affected part having no discrepancy, in accordance with the instructions of Rolls-Royce SB RB.211-71-K989 (Airbus mod. 210578) constitutes terminating action to the repetitive inspections as required by paragraph (1) of this AD for that affected part.",
-          "logic": "single",
-          "conditions": [],
+          "raw_text": "(3) For an affected part with no discrepancy, modification in accordance with Rolls-Royce SB RB.211-71-K989 / Airbus modification 210578 terminates the repetitive inspections required by paragraph (1) for that part.",
+          "logic": "conditional",
+          "conditions": [
+            "No discrepancy detected"
+          ],
           "initial_limits": [],
           "is_repetitive": false,
           "repetitive_intervals": [],
           "grace_periods": [],
           "evidence_ids": [
-            "EV-008",
             "EV-009"
           ]
         }
@@ -378,167 +430,65 @@
       "terminating_action": {
         "state": "present",
         "present": true,
-        "scope": "partial",
-        "action_text": "(3) Modification of an affected part having no discrepancy, in accordance with the instructions of Rolls-Royce SB RB.211-71-K989 (Airbus mod. 210578) constitutes terminating action to the repetitive inspections as required by paragraph (1) of this AD for that affected part.",
+        "scope": "full",
+        "action_text": "(3) For an affected part with no discrepancy, modification in accordance with Rolls-Royce SB RB.211-71-K989 / Airbus modification 210578 terminates the repetitive inspections required by paragraph (1) for that part.",
         "terminates_requirement_ids": [
-          "REQ-001",
-          "REQ-002"
+          "REQ-001"
         ],
         "evidence_ids": [
-          "EV-008",
           "EV-009"
         ]
       },
       "evidence_ids": [
-        "EV-008",
         "EV-009"
       ]
     },
     {
       "requirement_id": "REQ-004",
-      "paragraph_reference": "(4)",
-      "parent_requirement_id": null,
-      "applicability_group_ids": [
-        "APP-001"
-      ],
-      "action_types": [
-        "inspection",
-        "replacement",
-        "reporting"
-      ],
-      "obligation": "mandatory",
-      "action_text": "(4) Accomplishment of corrective actions on an affected part, as required by paragraph (2) of this AD, does not constitute terminating action to the repetitive inspections as required by paragraph (1) of this AD for that affected part, unless otherwise specified in the SB or in the Rolls-Royce repair instructions, as applicable. Acceptable Method of Compliance :",
-      "objects_or_components": [],
-      "conditions": [],
-      "method_publication_ids": [
-        "PUB-001",
-        "PUB-002",
-        "PUB-003"
-      ],
-      "compliance_rules": [
-        {
-          "compliance_id": "CMP-004",
-          "state": "present",
-          "raw_text": "(4) Accomplishment of corrective actions on an affected part, as required by paragraph (2) of this AD, does not constitute terminating action to the repetitive inspections as required by paragraph (1) of this AD for that affected part, unless otherwise specified in the SB or in the Rolls-Royce repair instructions, as applicable. Acceptable Method of Compliance :",
-          "logic": "single",
-          "conditions": [],
-          "initial_limits": [],
-          "is_repetitive": false,
-          "repetitive_intervals": [],
-          "grace_periods": [],
-          "evidence_ids": [
-            "EV-008",
-            "EV-009"
-          ]
-        }
-      ],
-      "follow_on_requirement_ids": [],
-      "terminating_action": {
-        "state": "present",
-        "present": true,
-        "scope": "partial",
-        "action_text": "(4) Accomplishment of corrective actions on an affected part, as required by paragraph (2) of this AD, does not constitute terminating action to the repetitive inspections as required by paragraph (1) of this AD for that affected part, unless otherwise specified in the SB or in the Rolls-Royce repair instructions, as applicable. Acceptable Method of Compliance :",
-        "terminates_requirement_ids": [
-          "REQ-001",
-          "REQ-002",
-          "REQ-003"
-        ],
-        "evidence_ids": [
-          "EV-008",
-          "EV-009"
-        ]
-      },
-      "evidence_ids": [
-        "EV-008",
-        "EV-009"
-      ]
-    },
-    {
-      "requirement_id": "REQ-005",
-      "paragraph_reference": "(5)",
-      "parent_requirement_id": null,
-      "applicability_group_ids": [
-        "APP-001"
-      ],
-      "action_types": [
-        "inspection",
-        "replacement",
-        "reporting"
-      ],
-      "obligation": "mandatory",
-      "action_text": "(5) Inspection of an affected part in-shop, in accordance with the instructions of Rolls -Royce SB RB.211-71-AL162 is an acceptable method to accomplish the inspection as required by paragraph (1) of this AD for that affected part. Part(s) Installation:",
-      "objects_or_components": [],
-      "conditions": [],
-      "method_publication_ids": [
-        "PUB-001",
-        "PUB-002",
-        "PUB-003"
-      ],
-      "compliance_rules": [
-        {
-          "compliance_id": "CMP-005",
-          "state": "present",
-          "raw_text": "(5) Inspection of an affected part in-shop, in accordance with the instructions of Rolls -Royce SB RB.211-71-AL162 is an acceptable method to accomplish the inspection as required by paragraph (1) of this AD for that affected part. Part(s) Installation:",
-          "logic": "single",
-          "conditions": [],
-          "initial_limits": [],
-          "is_repetitive": false,
-          "repetitive_intervals": [],
-          "grace_periods": [],
-          "evidence_ids": [
-            "EV-008",
-            "EV-009"
-          ]
-        }
-      ],
-      "follow_on_requirement_ids": [],
-      "terminating_action": {
-        "state": "not_stated",
-        "present": false,
-        "scope": "none",
-        "action_text": null,
-        "terminates_requirement_ids": [],
-        "evidence_ids": []
-      },
-      "evidence_ids": [
-        "EV-008",
-        "EV-009"
-      ]
-    },
-    {
-      "requirement_id": "REQ-006",
       "paragraph_reference": "(6)",
       "parent_requirement_id": null,
       "applicability_group_ids": [
         "APP-001"
       ],
       "action_types": [
-        "inspection",
-        "replacement",
-        "reporting"
+        "install"
       ],
-      "obligation": "mandatory",
-      "action_text": "(6) For Group 1 and Group 2 aeroplanes: From the effective date of this AD, it is allowed to install an affected part, or any higher assembly having an affected part installed, provided that that affected part is in compliance with the applicable requirements of this AD. After that installation, the aeroplane is considered a Group 1 aeroplane.",
-      "objects_or_components": [],
-      "conditions": [],
-      "method_publication_ids": [
-        "PUB-001",
-        "PUB-002",
-        "PUB-003"
+      "obligation": "conditional",
+      "action_text": "(6) From the effective date of this AD, an affected part or higher assembly containing one may be installed only if the affected part complies with all applicable requirements of this AD. After installation, the aeroplane is Group 1.",
+      "objects_or_components": [
+        "Affected nose cowl or higher assembly containing one"
       ],
+      "conditions": [
+        "Affected part complies with applicable AD requirements"
+      ],
+      "method_publication_ids": [],
       "compliance_rules": [
         {
-          "compliance_id": "CMP-006",
+          "compliance_id": "CMP-004",
           "state": "present",
-          "raw_text": "(6) For Group 1 and Group 2 aeroplanes: From the effective date of this AD, it is allowed to install an affected part, or any higher assembly having an affected part installed, provided that that affected part is in compliance with the applicable requirements of this AD. After that installation, the aeroplane is considered a Group 1 aeroplane.",
-          "logic": "single",
-          "conditions": [],
-          "initial_limits": [],
+          "raw_text": "(6) From the effective date of this AD, an affected part or higher assembly containing one may be installed only if the affected part complies with all applicable requirements of this AD. After installation, the aeroplane is Group 1.",
+          "logic": "conditional",
+          "conditions": [
+            "AD-compliant affected part"
+          ],
+          "initial_limits": [
+            {
+              "limit_id": "LIM-005",
+              "relation": "from",
+              "quantity": null,
+              "unit": "other",
+              "raw_value": "From the effective date of this AD",
+              "reference_event": "effective date of this AD",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-009"
+              ]
+            }
+          ],
           "is_repetitive": false,
           "repetitive_intervals": [],
           "grace_periods": [],
           "evidence_ids": [
-            "EV-008",
             "EV-009"
           ]
         }
@@ -553,12 +503,33 @@
         "evidence_ids": []
       },
       "evidence_ids": [
-        "EV-008",
         "EV-009"
       ]
     }
   ],
-  "exceptions": [],
+  "exceptions": [
+    {
+      "exception_id": "EXC-001",
+      "text": "Corrective actions required by REQ-002 do not terminate REQ-001 unless the SB or Rolls-Royce repair instructions explicitly specify otherwise.",
+      "applies_to_requirement_ids": [
+        "REQ-001",
+        "REQ-002"
+      ],
+      "evidence_ids": [
+        "EV-009"
+      ]
+    },
+    {
+      "exception_id": "EXC-002",
+      "text": "In-shop inspection in accordance with Rolls-Royce SB RB.211-71-AL162 is an acceptable method to accomplish REQ-001.",
+      "applies_to_requirement_ids": [
+        "REQ-001"
+      ],
+      "evidence_ids": [
+        "EV-009"
+      ]
+    }
+  ],
   "previous_action_credit": [],
   "referenced_publications": [
     {
@@ -586,7 +557,7 @@
       "publication_date": "2025-03-19",
       "title": null,
       "roles": [
-        "required_method"
+        "optional_method"
       ],
       "later_approved_revisions_allowed": true,
       "evidence_ids": [
@@ -602,7 +573,7 @@
       "publication_date": "2024-04-03",
       "title": null,
       "roles": [
-        "required_method"
+        "optional_method"
       ],
       "later_approved_revisions_allowed": true,
       "evidence_ids": [
@@ -646,8 +617,11 @@
     ],
     "action_types": [
       "inspection",
-      "replacement",
-      "reporting"
+      "repair",
+      "contact_manufacturer",
+      "other",
+      "modification",
+      "install"
     ],
     "frequency": "mixed",
     "emergency_status": "standard",
@@ -870,14 +844,14 @@
       "value_state": "present",
       "origin": "auto_extracted",
       "verification_status": "unreviewed",
-      "confidence": 0.995,
+      "confidence": 0.99,
       "evidence_ids": [
         "EV-001"
       ],
-      "annotator_id": "codex-extension-extractor",
+      "annotator_id": "gpt-5.6-source-auditor",
       "derivation_rule": null,
       "input_field_paths": [],
-      "notes": "Section completion: AD identity"
+      "notes": "AD identity source-audited; no human acceptance claimed."
     },
     {
       "assertion_id": "AST-002",
@@ -889,10 +863,10 @@
       "evidence_ids": [
         "EV-001"
       ],
-      "annotator_id": "codex-extension-extractor",
+      "annotator_id": "gpt-5.6-source-auditor",
       "derivation_rule": null,
       "input_field_paths": [],
-      "notes": "Section completion: publication"
+      "notes": "Publication metadata source-audited; no human acceptance claimed."
     },
     {
       "assertion_id": "AST-003",
@@ -900,14 +874,14 @@
       "value_state": "present",
       "origin": "auto_extracted",
       "verification_status": "unreviewed",
-      "confidence": 0.95,
+      "confidence": 0.99,
       "evidence_ids": [
         "EV-003"
       ],
-      "annotator_id": "codex-extension-extractor",
+      "annotator_id": "gpt-5.6-source-auditor",
       "derivation_rule": null,
       "input_field_paths": [],
-      "notes": "Section completion: applicability_groups"
+      "notes": "Applicability source-audited; no human acceptance claimed."
     },
     {
       "assertion_id": "AST-004",
@@ -915,405 +889,126 @@
       "value_state": "present",
       "origin": "auto_extracted",
       "verification_status": "unreviewed",
-      "confidence": 0.95,
+      "confidence": 0.99,
       "evidence_ids": [
         "EV-004",
         "EV-005"
       ],
-      "annotator_id": "codex-extension-extractor",
+      "annotator_id": "gpt-5.6-source-auditor",
       "derivation_rule": null,
       "input_field_paths": [],
-      "notes": "Section completion: definitions"
+      "notes": "Definitions source-audited; no human acceptance claimed."
     },
     {
       "assertion_id": "AST-005",
-      "field_path": "/requirements",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.95,
-      "evidence_ids": [
-        "EV-008",
-        "EV-009"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "Section completion: requirements"
-    },
-    {
-      "assertion_id": "AST-006",
-      "field_path": "/exceptions",
-      "value_state": "absent_in_source",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.9,
-      "evidence_ids": [],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "Section completion: exceptions"
-    },
-    {
-      "assertion_id": "AST-007",
-      "field_path": "/previous_action_credit",
-      "value_state": "absent_in_source",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.9,
-      "evidence_ids": [],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "Section completion: previous_action_credit"
-    },
-    {
-      "assertion_id": "AST-008",
-      "field_path": "/referenced_publications",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.95,
-      "evidence_ids": [
-        "EV-007"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "Section completion: referenced_publications"
-    },
-    {
-      "assertion_id": "AST-009",
-      "field_path": "/relationships",
-      "value_state": "absent_in_source",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.9,
-      "evidence_ids": [
-        "EV-001"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "Section completion: relationships"
-    },
-    {
-      "assertion_id": "AST-010",
-      "field_path": "/amoc_and_contacts",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.95,
-      "evidence_ids": [
-        "EV-010",
-        "EV-011"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "Section completion: amoc_and_contacts"
-    },
-    {
-      "assertion_id": "AST-011",
-      "field_path": "/ad_identity/ad_number",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.995,
-      "evidence_ids": [
-        "EV-001"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "Cover identity"
-    },
-    {
-      "assertion_id": "AST-012",
-      "field_path": "/ad_identity/supersedure_statement",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.99,
-      "evidence_ids": [
-        "EV-001"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "Printed status field"
-    },
-    {
-      "assertion_id": "AST-013",
-      "field_path": "/publication/issue_date",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.995,
-      "evidence_ids": [
-        "EV-001"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "Printed issue date"
-    },
-    {
-      "assertion_id": "AST-014",
-      "field_path": "/publication/effective_date",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.995,
-      "evidence_ids": [
-        "EV-001"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "Printed effective date"
-    },
-    {
-      "assertion_id": "AST-015",
-      "field_path": "/publication/subject",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.99,
-      "evidence_ids": [
-        "EV-001"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "Printed ATA subject"
-    },
-    {
-      "assertion_id": "AST-016",
-      "field_path": "/applicability_groups/0",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.96,
-      "evidence_ids": [
-        "EV-003"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "applicability_groups"
-    },
-    {
-      "assertion_id": "AST-017",
-      "field_path": "/definitions/0",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.96,
-      "evidence_ids": [
-        "EV-004",
-        "EV-005"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "definitions"
-    },
-    {
-      "assertion_id": "AST-018",
-      "field_path": "/requirements/0",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.94,
-      "evidence_ids": [
-        "EV-008",
-        "EV-009"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "requirements"
-    },
-    {
-      "assertion_id": "AST-019",
-      "field_path": "/requirements/1",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.94,
-      "evidence_ids": [
-        "EV-008",
-        "EV-009"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "requirements"
-    },
-    {
-      "assertion_id": "AST-020",
-      "field_path": "/requirements/2",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.94,
-      "evidence_ids": [
-        "EV-008",
-        "EV-009"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "requirements"
-    },
-    {
-      "assertion_id": "AST-021",
-      "field_path": "/requirements/3",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.94,
-      "evidence_ids": [
-        "EV-008",
-        "EV-009"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "requirements"
-    },
-    {
-      "assertion_id": "AST-022",
-      "field_path": "/requirements/4",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.94,
-      "evidence_ids": [
-        "EV-008",
-        "EV-009"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "requirements"
-    },
-    {
-      "assertion_id": "AST-023",
-      "field_path": "/requirements/5",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.94,
-      "evidence_ids": [
-        "EV-008",
-        "EV-009"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "requirements"
-    },
-    {
-      "assertion_id": "AST-024",
-      "field_path": "/referenced_publications/0",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.96,
-      "evidence_ids": [
-        "EV-007"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "referenced_publications"
-    },
-    {
-      "assertion_id": "AST-025",
-      "field_path": "/referenced_publications/1",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.96,
-      "evidence_ids": [
-        "EV-007"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "referenced_publications"
-    },
-    {
-      "assertion_id": "AST-026",
-      "field_path": "/referenced_publications/2",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.96,
-      "evidence_ids": [
-        "EV-007"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "referenced_publications"
-    },
-    {
-      "assertion_id": "AST-027",
-      "field_path": "/amoc_and_contacts/0",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.96,
-      "evidence_ids": [
-        "EV-010",
-        "EV-011"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "amoc_and_contacts"
-    },
-    {
-      "assertion_id": "AST-028",
-      "field_path": "/amoc_and_contacts/1",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.96,
-      "evidence_ids": [
-        "EV-010",
-        "EV-011"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "amoc_and_contacts"
-    },
-    {
-      "assertion_id": "AST-029",
       "field_path": "/unsafe_condition",
       "value_state": "present",
       "origin": "auto_extracted",
       "verification_status": "unreviewed",
-      "confidence": 0.96,
+      "confidence": 0.99,
       "evidence_ids": [
         "EV-006"
       ],
-      "annotator_id": "codex-extension-extractor",
+      "annotator_id": "gpt-5.6-source-auditor",
       "derivation_rule": null,
       "input_field_paths": [],
-      "notes": "Reason and unsafe condition"
+      "notes": "Unsafe condition source-audited; no human acceptance claimed."
     },
     {
-      "assertion_id": "AST-030",
+      "assertion_id": "AST-006",
+      "field_path": "/requirements",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.99,
+      "evidence_ids": [
+        "EV-008",
+        "EV-009"
+      ],
+      "annotator_id": "gpt-5.6-source-auditor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Atomic requirements and compliance logic source-audited; no human acceptance claimed."
+    },
+    {
+      "assertion_id": "AST-007",
+      "field_path": "/exceptions",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.99,
+      "evidence_ids": [
+        "EV-009"
+      ],
+      "annotator_id": "gpt-5.6-source-auditor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Requirement exceptions source-audited; no human acceptance claimed."
+    },
+    {
+      "assertion_id": "AST-008",
+      "field_path": "/previous_action_credit",
+      "value_state": "absent_in_source",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.95,
+      "evidence_ids": [],
+      "annotator_id": "gpt-5.6-source-auditor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Previous-action credit source-audited; no human acceptance claimed."
+    },
+    {
+      "assertion_id": "AST-009",
+      "field_path": "/referenced_publications",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.99,
+      "evidence_ids": [
+        "EV-007"
+      ],
+      "annotator_id": "gpt-5.6-source-auditor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Referenced publications source-audited; no human acceptance claimed."
+    },
+    {
+      "assertion_id": "AST-010",
+      "field_path": "/relationships",
+      "value_state": "absent_in_source",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.95,
+      "evidence_ids": [],
+      "annotator_id": "gpt-5.6-source-auditor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Relationships source-audited; no human acceptance claimed."
+    },
+    {
+      "assertion_id": "AST-011",
+      "field_path": "/amoc_and_contacts",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.99,
+      "evidence_ids": [
+        "EV-010",
+        "EV-011"
+      ],
+      "annotator_id": "gpt-5.6-source-auditor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "AMOC and contacts source-audited; no human acceptance claimed."
+    },
+    {
+      "assertion_id": "AST-012",
       "field_path": "/classification",
       "value_state": "present",
       "origin": "auto_extracted",
       "verification_status": "unreviewed",
-      "confidence": 0.9,
+      "confidence": 0.99,
       "evidence_ids": [
         "EV-001",
         "EV-003",
@@ -1321,10 +1016,10 @@
         "EV-008",
         "EV-009"
       ],
-      "annotator_id": "codex-extension-extractor",
+      "annotator_id": "gpt-5.6-source-auditor",
       "derivation_rule": null,
       "input_field_paths": [],
-      "notes": "Schema classification"
+      "notes": "Classification reconciled with corrected requirements; no human acceptance claimed."
     }
   ],
   "annotation_metadata": {
@@ -1343,6 +1038,12 @@
         "role": "annotator",
         "started_at": "2026-07-30T09:02:01Z",
         "submitted_at": "2026-07-30T09:02:01Z"
+      },
+      {
+        "annotator_id": "gpt-5.6-source-auditor",
+        "role": "reviewer",
+        "started_at": "2026-07-30T18:00:46Z",
+        "submitted_at": "2026-07-30T18:00:46Z"
       }
     ],
     "events": [
@@ -1357,23 +1058,29 @@
         "actor_id": "codex-extension-extractor",
         "timestamp": "2026-07-30T09:02:01Z",
         "rationale": "First pass completed; no human review or approval claimed."
+      },
+      {
+        "event_type": "reviewed",
+        "actor_id": "gpt-5.6-source-auditor",
+        "timestamp": "2026-07-30T18:00:46Z",
+        "rationale": "Machine-assisted source audit against the exact rendered PDF and frozen page-text cache; corrections applied without human approval."
       }
     ],
     "quality_flags": [
       "manual_review_required",
-      "complex_compliance",
-      "complex_applicability"
+      "complex_compliance"
     ],
     "uncertainty_flags": [],
     "notes": [
       "Machine-assisted populated extraction from the complete frozen PDF/page-text packet.",
       "Requirements were split from numbered source paragraphs where possible; every field assertion remains unreviewed.",
       "No supersedure relationship was created because the cover explicitly states Supersedure: None.",
-      "Independent human comparison and correction are required before approval or gold promotion."
+      "Independent human comparison and correction are required before approval or gold promotion.",
+      "Machine-assisted source-audit corrections applied against the exact rendered PDF and frozen page-text cache; independent human acceptance is still required before approval or gold promotion."
     ],
     "source_text_sha256": "dc0f9a0f80a4589c8d2b54fd669066afee88715e029619f76342f3e3826e842d",
     "created_at": "2026-07-30T09:02:01Z",
-    "updated_at": "2026-07-30T09:02:01Z"
+    "updated_at": "2026-07-30T18:00:46Z"
   },
   "benchmark_metadata": {
     "split": "unassigned",

@@ -149,12 +149,14 @@
         }
       ],
       "part_numbers": [
-        "C13210D"
+        "C13210DA01"
       ],
       "configuration_conditions": [
-        "Affected CPIOM part C13210D with a serial number listed in Appendix 1."
+        "Group 1 if CPIOM-J P/N C13210DA01 with a serial number listed in Appendix 1 is installed, except a unit re-identified with inspection label PNR F1320326"
       ],
-      "exclusions": [],
+      "exclusions": [
+        "Affected serial-number unit re-identified with inspection label PNR F1320326"
+      ],
       "boolean_logic": "all",
       "evidence_ids": [
         "EV-003",
@@ -165,10 +167,27 @@
   "definitions": [
     {
       "definition_id": "DEF-001",
-      "term": "Definitions in this AD",
-      "definition_text": "For the purpose of this AD, the following definitions apply: The AOT: Airbus Alert Operators Transmission (AOT) A42P003-25, which refers to Airbus Vendor Service Bulletin (VSB) C13210D-42-011. Affected part: Core Processing Input and Output Modules J ( CPIOM-J) having a Part Number (P/N) C13210DA01 and serial number (s/n) as listed in Appendix 1 of this AD, except those that have been re-identified with the inspection label PNR F1320326. Serviceable part: Any CPIOM-J, eligible for installation in accordance with Airbus instructions, that is not an affected part. TE.CAP.00110-012 © European Union Aviation Safety Agency. All rights reserved. ISO9001 Certified. Page 1 of 4 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet. An agency of the European Union EASA AD No.: 2025-0181 Groups: Group 1 aeroplanes are those that have an affected part installed. Group 2 aeroplanes are those that do not have an affected part installed.",
+      "term": "The AOT",
+      "definition_text": "Airbus Alert Operators Transmission A42P003-25, referring to Airbus Vendor Service Bulletin C13210D-42-011.",
       "evidence_ids": [
+        "EV-005"
+      ]
+    },
+    {
+      "definition_id": "DEF-002",
+      "term": "Affected part",
+      "definition_text": "CPIOM-J P/N C13210DA01 with a serial number listed in Appendix 1, except a unit re-identified with inspection label PNR F1320326.",
+      "evidence_ids": [
+        "EV-004",
         "EV-005",
+        "EV-011"
+      ]
+    },
+    {
+      "definition_id": "DEF-003",
+      "term": "Groups",
+      "definition_text": "Group 1 aeroplanes have an affected part installed; Group 2 aeroplanes do not.",
+      "evidence_ids": [
         "EV-006"
       ]
     }
@@ -179,18 +198,23 @@
     "observed_events_or_defects": [
       "Thales (current manufacturer of the affected part) has identified a manufacturing quality issue on the ARINC 600 board of some CPIOM-J."
     ],
-    "causes": [],
+    "causes": [
+      "A manufacturing-quality gap affected a batch of printed circuit boards on the CPIOM-J ARINC 600 board."
+    ],
     "unsafe_conditions": [
-      "This condition, if not corrected, could lead to partial or total loss of some avionics systems or functions, possibly resulting in reduced control of the aeroplane.",
-      "To address this potential unsafe condition, Airbus issued the AOT, as defined in this AD, to provide instructions to replace each affected part with a serviceable part."
+      "The quality gap increases the probability of AFDX communication loss on the CPIOM-J."
     ],
     "potential_consequences": [
-      "This condition, if not corrected, could lead to partial or total loss of some avionics systems or functions, possibly resulting in reduced control of the aeroplane.",
-      "To address this potential unsafe condition, Airbus issued the AOT, as defined in this AD, to provide instructions to replace each affected part with a serviceable part."
+      "Partial or total loss of avionics systems or functions",
+      "Reduced control of the aeroplane"
     ],
-    "affected_components": [],
+    "affected_components": [
+      "CPIOM-J P/N C13210DA01",
+      "CPIOM-J ARINC 600 board and printed circuit board",
+      "AFDX communication"
+    ],
     "intended_risk_mitigation": [
-      "For the reasons described above, this AD requires replacement of each affected part with a serviceable part."
+      "Replace affected CPIOM-J units with serviceable units and prohibit installation of affected units."
     ],
     "evidence_ids": [
       "EV-007"
@@ -205,24 +229,28 @@
         "APP-001"
       ],
       "action_types": [
-        "replacement",
-        "prohibition"
+        "replacement"
       ],
       "obligation": "mandatory",
-      "action_text": "(1) For Group 1 aeroplanes: Within 4 months after the effective date of this AD, replace each affected part with a serviceable part, as defined in this AD, in accordance with the instructions of the AOT. Part(s) Installation:",
-      "objects_or_components": [],
-      "conditions": [],
+      "action_text": "(1) For Group 1 aeroplanes, within 4 months after the effective date of this AD, replace each affected CPIOM-J with a serviceable part in accordance with the AOT.",
+      "objects_or_components": [
+        "Affected CPIOM-J"
+      ],
+      "conditions": [
+        "Group 1 aeroplane"
+      ],
       "method_publication_ids": [
-        "PUB-001",
-        "PUB-002"
+        "PUB-001"
       ],
       "compliance_rules": [
         {
           "compliance_id": "CMP-001",
           "state": "present",
-          "raw_text": "(1) For Group 1 aeroplanes: Within 4 months after the effective date of this AD, replace each affected part with a serviceable part, as defined in this AD, in accordance with the instructions of the AOT. Part(s) Installation:",
+          "raw_text": "(1) For Group 1 aeroplanes, within 4 months after the effective date of this AD, replace each affected CPIOM-J with a serviceable part in accordance with the AOT.",
           "logic": "single",
-          "conditions": [],
+          "conditions": [
+            "Group 1 aeroplane"
+          ],
           "initial_limits": [
             {
               "limit_id": "LIM-001",
@@ -233,9 +261,7 @@
               "reference_event": "effective date of this AD",
               "calendar_date": null,
               "evidence_ids": [
-                "EV-009",
-                "EV-010",
-                "EV-011"
+                "EV-009"
               ]
             }
           ],
@@ -243,9 +269,7 @@
           "repetitive_intervals": [],
           "grace_periods": [],
           "evidence_ids": [
-            "EV-009",
-            "EV-010",
-            "EV-011"
+            "EV-009"
           ]
         }
       ],
@@ -259,9 +283,7 @@
         "evidence_ids": []
       },
       "evidence_ids": [
-        "EV-009",
-        "EV-010",
-        "EV-011"
+        "EV-009"
       ]
     },
     {
@@ -272,32 +294,45 @@
         "APP-001"
       ],
       "action_types": [
-        "replacement",
         "prohibition"
       ],
-      "obligation": "mandatory",
-      "action_text": "(2) For Group 1 and Group 2 aeroplanes: From the effective date of this AD, do not install an affected part on any aeroplane.",
-      "objects_or_components": [],
-      "conditions": [],
-      "method_publication_ids": [
-        "PUB-001",
-        "PUB-002"
+      "obligation": "prohibited",
+      "action_text": "(2) For Group 1 and Group 2 aeroplanes, from the effective date of this AD, do not install an affected CPIOM-J on any aeroplane.",
+      "objects_or_components": [
+        "Affected CPIOM-J"
       ],
+      "conditions": [
+        "Group 1 or Group 2 aeroplane"
+      ],
+      "method_publication_ids": [],
       "compliance_rules": [
         {
           "compliance_id": "CMP-002",
           "state": "present",
-          "raw_text": "(2) For Group 1 and Group 2 aeroplanes: From the effective date of this AD, do not install an affected part on any aeroplane.",
-          "logic": "single",
-          "conditions": [],
-          "initial_limits": [],
+          "raw_text": "(2) For Group 1 and Group 2 aeroplanes, from the effective date of this AD, do not install an affected CPIOM-J on any aeroplane.",
+          "logic": "conditional",
+          "conditions": [
+            "All affected aeroplanes"
+          ],
+          "initial_limits": [
+            {
+              "limit_id": "LIM-002",
+              "relation": "from",
+              "quantity": null,
+              "unit": "other",
+              "raw_value": "From the effective date of this AD",
+              "reference_event": "effective date of this AD",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-009"
+              ]
+            }
+          ],
           "is_repetitive": false,
           "repetitive_intervals": [],
           "grace_periods": [],
           "evidence_ids": [
-            "EV-009",
-            "EV-010",
-            "EV-011"
+            "EV-009"
           ]
         }
       ],
@@ -311,9 +346,7 @@
         "evidence_ids": []
       },
       "evidence_ids": [
-        "EV-009",
-        "EV-010",
-        "EV-011"
+        "EV-009"
       ]
     }
   ],
@@ -345,7 +378,7 @@
       "publication_date": "2025-06-27",
       "title": null,
       "roles": [
-        "required_method"
+        "referenced_information"
       ],
       "later_approved_revisions_allowed": true,
       "evidence_ids": [
@@ -405,7 +438,6 @@
       "EV-004",
       "EV-007",
       "EV-009",
-      "EV-010",
       "EV-011"
     ]
   },
@@ -715,14 +747,14 @@
       "value_state": "present",
       "origin": "auto_extracted",
       "verification_status": "unreviewed",
-      "confidence": 0.995,
+      "confidence": 0.99,
       "evidence_ids": [
         "EV-001"
       ],
-      "annotator_id": "codex-extension-extractor",
+      "annotator_id": "gpt-5.6-source-auditor",
       "derivation_rule": null,
       "input_field_paths": [],
-      "notes": "Section completion: AD identity"
+      "notes": "AD identity source-audited; no human acceptance claimed."
     },
     {
       "assertion_id": "AST-002",
@@ -734,10 +766,10 @@
       "evidence_ids": [
         "EV-001"
       ],
-      "annotator_id": "codex-extension-extractor",
+      "annotator_id": "gpt-5.6-source-auditor",
       "derivation_rule": null,
       "input_field_paths": [],
-      "notes": "Section completion: publication"
+      "notes": "Publication metadata source-audited; no human acceptance claimed."
     },
     {
       "assertion_id": "AST-003",
@@ -745,15 +777,15 @@
       "value_state": "present",
       "origin": "auto_extracted",
       "verification_status": "unreviewed",
-      "confidence": 0.95,
+      "confidence": 0.99,
       "evidence_ids": [
         "EV-003",
         "EV-004"
       ],
-      "annotator_id": "codex-extension-extractor",
+      "annotator_id": "gpt-5.6-source-auditor",
       "derivation_rule": null,
       "input_field_paths": [],
-      "notes": "Section completion: applicability_groups"
+      "notes": "Applicability source-audited; no human acceptance claimed."
     },
     {
       "assertion_id": "AST-004",
@@ -761,346 +793,138 @@
       "value_state": "present",
       "origin": "auto_extracted",
       "verification_status": "unreviewed",
-      "confidence": 0.95,
+      "confidence": 0.99,
       "evidence_ids": [
+        "EV-004",
         "EV-005",
-        "EV-006"
+        "EV-006",
+        "EV-011"
       ],
-      "annotator_id": "codex-extension-extractor",
+      "annotator_id": "gpt-5.6-source-auditor",
       "derivation_rule": null,
       "input_field_paths": [],
-      "notes": "Section completion: definitions"
+      "notes": "Definitions source-audited; no human acceptance claimed."
     },
     {
       "assertion_id": "AST-005",
-      "field_path": "/requirements",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.95,
-      "evidence_ids": [
-        "EV-009",
-        "EV-010",
-        "EV-011"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "Section completion: requirements"
-    },
-    {
-      "assertion_id": "AST-006",
-      "field_path": "/exceptions",
-      "value_state": "absent_in_source",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.9,
-      "evidence_ids": [],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "Section completion: exceptions"
-    },
-    {
-      "assertion_id": "AST-007",
-      "field_path": "/previous_action_credit",
-      "value_state": "absent_in_source",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.9,
-      "evidence_ids": [],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "Section completion: previous_action_credit"
-    },
-    {
-      "assertion_id": "AST-008",
-      "field_path": "/referenced_publications",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.95,
-      "evidence_ids": [
-        "EV-008"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "Section completion: referenced_publications"
-    },
-    {
-      "assertion_id": "AST-009",
-      "field_path": "/relationships",
-      "value_state": "absent_in_source",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.9,
-      "evidence_ids": [
-        "EV-001"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "Section completion: relationships"
-    },
-    {
-      "assertion_id": "AST-010",
-      "field_path": "/amoc_and_contacts",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.95,
-      "evidence_ids": [
-        "EV-012",
-        "EV-013",
-        "EV-014"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "Section completion: amoc_and_contacts"
-    },
-    {
-      "assertion_id": "AST-011",
-      "field_path": "/ad_identity/ad_number",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.995,
-      "evidence_ids": [
-        "EV-001"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "Cover identity"
-    },
-    {
-      "assertion_id": "AST-012",
-      "field_path": "/ad_identity/supersedure_statement",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.99,
-      "evidence_ids": [
-        "EV-001"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "Printed status field"
-    },
-    {
-      "assertion_id": "AST-013",
-      "field_path": "/publication/issue_date",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.995,
-      "evidence_ids": [
-        "EV-001"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "Printed issue date"
-    },
-    {
-      "assertion_id": "AST-014",
-      "field_path": "/publication/effective_date",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.995,
-      "evidence_ids": [
-        "EV-001"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "Printed effective date"
-    },
-    {
-      "assertion_id": "AST-015",
-      "field_path": "/publication/subject",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.99,
-      "evidence_ids": [
-        "EV-001"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "Printed ATA subject"
-    },
-    {
-      "assertion_id": "AST-016",
-      "field_path": "/applicability_groups/0",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.96,
-      "evidence_ids": [
-        "EV-003",
-        "EV-004"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "applicability_groups"
-    },
-    {
-      "assertion_id": "AST-017",
-      "field_path": "/definitions/0",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.96,
-      "evidence_ids": [
-        "EV-005",
-        "EV-006"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "definitions"
-    },
-    {
-      "assertion_id": "AST-018",
-      "field_path": "/requirements/0",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.94,
-      "evidence_ids": [
-        "EV-009",
-        "EV-010",
-        "EV-011"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "requirements"
-    },
-    {
-      "assertion_id": "AST-019",
-      "field_path": "/requirements/1",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.94,
-      "evidence_ids": [
-        "EV-009",
-        "EV-010",
-        "EV-011"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "requirements"
-    },
-    {
-      "assertion_id": "AST-020",
-      "field_path": "/referenced_publications/0",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.96,
-      "evidence_ids": [
-        "EV-008"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "referenced_publications"
-    },
-    {
-      "assertion_id": "AST-021",
-      "field_path": "/referenced_publications/1",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.96,
-      "evidence_ids": [
-        "EV-008"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "referenced_publications"
-    },
-    {
-      "assertion_id": "AST-022",
-      "field_path": "/amoc_and_contacts/0",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.96,
-      "evidence_ids": [
-        "EV-012",
-        "EV-013",
-        "EV-014"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "amoc_and_contacts"
-    },
-    {
-      "assertion_id": "AST-023",
-      "field_path": "/amoc_and_contacts/1",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.96,
-      "evidence_ids": [
-        "EV-012",
-        "EV-013",
-        "EV-014"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "amoc_and_contacts"
-    },
-    {
-      "assertion_id": "AST-024",
       "field_path": "/unsafe_condition",
       "value_state": "present",
       "origin": "auto_extracted",
       "verification_status": "unreviewed",
-      "confidence": 0.96,
+      "confidence": 0.99,
       "evidence_ids": [
         "EV-007"
       ],
-      "annotator_id": "codex-extension-extractor",
+      "annotator_id": "gpt-5.6-source-auditor",
       "derivation_rule": null,
       "input_field_paths": [],
-      "notes": "Reason and unsafe condition"
+      "notes": "Unsafe condition source-audited; no human acceptance claimed."
     },
     {
-      "assertion_id": "AST-025",
+      "assertion_id": "AST-006",
+      "field_path": "/requirements",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.99,
+      "evidence_ids": [
+        "EV-009"
+      ],
+      "annotator_id": "gpt-5.6-source-auditor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Atomic requirements and compliance logic source-audited; no human acceptance claimed."
+    },
+    {
+      "assertion_id": "AST-007",
+      "field_path": "/exceptions",
+      "value_state": "absent_in_source",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.95,
+      "evidence_ids": [],
+      "annotator_id": "gpt-5.6-source-auditor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Requirement exceptions source-audited; no human acceptance claimed."
+    },
+    {
+      "assertion_id": "AST-008",
+      "field_path": "/previous_action_credit",
+      "value_state": "absent_in_source",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.95,
+      "evidence_ids": [],
+      "annotator_id": "gpt-5.6-source-auditor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Previous-action credit source-audited; no human acceptance claimed."
+    },
+    {
+      "assertion_id": "AST-009",
+      "field_path": "/referenced_publications",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.99,
+      "evidence_ids": [
+        "EV-008"
+      ],
+      "annotator_id": "gpt-5.6-source-auditor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Referenced publications source-audited; no human acceptance claimed."
+    },
+    {
+      "assertion_id": "AST-010",
+      "field_path": "/relationships",
+      "value_state": "absent_in_source",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.95,
+      "evidence_ids": [],
+      "annotator_id": "gpt-5.6-source-auditor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Relationships source-audited; no human acceptance claimed."
+    },
+    {
+      "assertion_id": "AST-011",
+      "field_path": "/amoc_and_contacts",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.99,
+      "evidence_ids": [
+        "EV-012",
+        "EV-013",
+        "EV-014"
+      ],
+      "annotator_id": "gpt-5.6-source-auditor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "AMOC and contacts source-audited; no human acceptance claimed."
+    },
+    {
+      "assertion_id": "AST-012",
       "field_path": "/classification",
       "value_state": "present",
       "origin": "auto_extracted",
       "verification_status": "unreviewed",
-      "confidence": 0.9,
+      "confidence": 0.99,
       "evidence_ids": [
         "EV-001",
         "EV-003",
         "EV-004",
         "EV-007",
         "EV-009",
-        "EV-010",
         "EV-011"
       ],
-      "annotator_id": "codex-extension-extractor",
+      "annotator_id": "gpt-5.6-source-auditor",
       "derivation_rule": null,
       "input_field_paths": [],
-      "notes": "Schema classification"
+      "notes": "Classification reconciled with corrected requirements; no human acceptance claimed."
     }
   ],
   "annotation_metadata": {
@@ -1119,6 +943,12 @@
         "role": "annotator",
         "started_at": "2026-07-30T09:02:01Z",
         "submitted_at": "2026-07-30T09:02:01Z"
+      },
+      {
+        "annotator_id": "gpt-5.6-source-auditor",
+        "role": "reviewer",
+        "started_at": "2026-07-30T18:00:46Z",
+        "submitted_at": "2026-07-30T18:00:46Z"
       }
     ],
     "events": [
@@ -1133,23 +963,29 @@
         "actor_id": "codex-extension-extractor",
         "timestamp": "2026-07-30T09:02:01Z",
         "rationale": "First pass completed; no human review or approval claimed."
+      },
+      {
+        "event_type": "reviewed",
+        "actor_id": "gpt-5.6-source-auditor",
+        "timestamp": "2026-07-30T18:00:46Z",
+        "rationale": "Machine-assisted source audit against the exact rendered PDF and frozen page-text cache; corrections applied without human approval."
       }
     ],
     "quality_flags": [
       "manual_review_required",
-      "complex_table",
-      "complex_applicability"
+      "complex_table"
     ],
     "uncertainty_flags": [],
     "notes": [
       "Machine-assisted populated extraction from the complete frozen PDF/page-text packet.",
       "Requirements were split from numbered source paragraphs where possible; every field assertion remains unreviewed.",
       "No supersedure relationship was created because the cover explicitly states Supersedure: None.",
-      "Independent human comparison and correction are required before approval or gold promotion."
+      "Independent human comparison and correction are required before approval or gold promotion.",
+      "Machine-assisted source-audit corrections applied against the exact rendered PDF and frozen page-text cache; independent human acceptance is still required before approval or gold promotion."
     ],
     "source_text_sha256": "ccaad3f21f1c2505454a30341f528293f6f4d160e4c1450583d6385ef4a4af1f",
     "created_at": "2026-07-30T09:02:01Z",
-    "updated_at": "2026-07-30T09:02:01Z"
+    "updated_at": "2026-07-30T18:00:46Z"
   },
   "benchmark_metadata": {
     "split": "unassigned",

@@ -159,10 +159,33 @@
   "definitions": [
     {
       "definition_id": "DEF-001",
-      "term": "Definitions in this AD",
-      "definition_text": "For the purpose of this AD, the following definitions apply: The AOT: Airbus Alert Operator Transmission (AOT) A35P024-24. MP task: Maintenance Procedure (MP) Task A350-A-35-21-36-A0001-720A-A dated earlier than October 2024. Affected part: Chemical oxygen generator fitted in a container having Part Number (P/N) and Amendment designation as listed in Table 1 of the AOT, as defined in this AD, and which has been replaced in service in accordance with the MP task, as defined in this AD , between November 2023 and the effective date of this AD . Note 1: A review of aircraft maintenance records can be used to determine whether a part is an affected part, provided those records can be relied upon for that purpose . Page 1 of 3 TE.CAP.00110-012 © European Union Aviation Safety Agency. All rights reserved. ISO9001 Certified. Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet. An agency of the European Union EASA AD No.: 2025-0138 Serviceable part: Any chemical oxygen generator, eligible for installation in accordance with Airbus approved instructions, that is not an affected part. Groups: Group 1 aeroplanes are those that have an affected part installed. Group 2 aeroplanes are those that do not have an affected part installed.",
+      "term": "The AOT",
+      "definition_text": "Airbus Alert Operator Transmission A35P024-24.",
       "evidence_ids": [
-        "EV-004",
+        "EV-004"
+      ]
+    },
+    {
+      "definition_id": "DEF-002",
+      "term": "MP task",
+      "definition_text": "Maintenance Procedure Task A350-A-35-21-36-A0001-720A-A dated earlier than October 2024.",
+      "evidence_ids": [
+        "EV-004"
+      ]
+    },
+    {
+      "definition_id": "DEF-003",
+      "term": "Affected part",
+      "definition_text": "A chemical oxygen generator/container P/N and amendment designation listed in Table 1 of the AOT that was replaced in service using the outdated MP task between November 2023 and the effective date. Maintenance records may be used to determine this.",
+      "evidence_ids": [
+        "EV-004"
+      ]
+    },
+    {
+      "definition_id": "DEF-004",
+      "term": "Groups",
+      "definition_text": "Group 1 aeroplanes have an affected part installed; Group 2 aeroplanes do not.",
+      "evidence_ids": [
         "EV-005"
       ]
     }
@@ -170,21 +193,23 @@
   "unsafe_condition": {
     "state": "present",
     "raw_reason_text": "Reason: Due to obsolescence of the clamp holding in place the oxygen generator in the container, Collins introduced a new clamp from another manufacturer with different locking torque specification. This new torque value was not properly reflected in Airbus documentation. Installing a part using a not updated torque value could lead to damage of the chemical oxygen generator housing. This condition, if not corrected, could lead to a reduction of the available oxygen capacity of the aeroplane when needed, possibly resulting in injury to the aeroplane occupants. To address this potential unsafe condition, in October 2024 Airbus released an updated MP task (included in the Line Maintenance Manual rev. dated November 2024), and published the AOT to provide instructions for replacement of the affected parts. For the reasons described above, this AD requires replacement of the affected parts with serviceable parts.",
-    "observed_events_or_defects": [
-      "Due to obsolescence of the clamp holding in place the oxygen generator in the container, Collins introduced a new clamp from another manufacturer with different locking torque specification."
+    "observed_events_or_defects": [],
+    "causes": [
+      "A replacement clamp had a different locking-torque specification, but the new torque was not properly reflected in Airbus maintenance documentation."
     ],
-    "causes": [],
     "unsafe_conditions": [
-      "Installing a part using a not updated torque value could lead to damage of the chemical oxygen generator housing.",
-      "This condition, if not corrected, could lead to a reduction of the available oxygen capacity of the aeroplane when needed, possibly resulting in injury to the aeroplane occupants."
+      "Using the outdated torque value can damage the chemical oxygen generator housing."
     ],
     "potential_consequences": [
-      "This condition, if not corrected, could lead to a reduction of the available oxygen capacity of the aeroplane when needed, possibly resulting in injury to the aeroplane occupants.",
-      "To address this potential unsafe condition, in October 2024 Airbus released an updated MP task (included in the Line Maintenance Manual rev."
+      "Reduced available oxygen capacity when needed",
+      "Injury to aeroplane occupants"
     ],
-    "affected_components": [],
+    "affected_components": [
+      "Chemical oxygen generator",
+      "Generator container and retaining clamp"
+    ],
     "intended_risk_mitigation": [
-      "For the reasons described above, this AD requires replacement of the affected parts with serviceable parts."
+      "Replace affected generators with serviceable parts, stop using the outdated MP task and prohibit installation of affected parts."
     ],
     "evidence_ids": [
       "EV-006"
@@ -199,14 +224,16 @@
         "APP-001"
       ],
       "action_types": [
-        "records_review",
-        "replacement",
-        "prohibition"
+        "replacement"
       ],
       "obligation": "mandatory",
-      "action_text": "(1) For Group 1 aeroplanes: Within 6 months after the effective date of this AD replace each affected part with a serviceable part in accordance with the instructions of the AOT. Additional Maintenance Requirements:",
-      "objects_or_components": [],
-      "conditions": [],
+      "action_text": "(1) For Group 1 aeroplanes, within 6 months after the effective date of this AD, replace each affected chemical oxygen generator with a serviceable part in accordance with the AOT.",
+      "objects_or_components": [
+        "Affected chemical oxygen generator"
+      ],
+      "conditions": [
+        "Group 1 aeroplane"
+      ],
       "method_publication_ids": [
         "PUB-001"
       ],
@@ -214,9 +241,11 @@
         {
           "compliance_id": "CMP-001",
           "state": "present",
-          "raw_text": "(1) For Group 1 aeroplanes: Within 6 months after the effective date of this AD replace each affected part with a serviceable part in accordance with the instructions of the AOT. Additional Maintenance Requirements:",
+          "raw_text": "(1) For Group 1 aeroplanes, within 6 months after the effective date of this AD, replace each affected chemical oxygen generator with a serviceable part in accordance with the AOT.",
           "logic": "single",
-          "conditions": [],
+          "conditions": [
+            "Group 1 aeroplane"
+          ],
           "initial_limits": [
             {
               "limit_id": "LIM-001",
@@ -260,25 +289,40 @@
         "APP-001"
       ],
       "action_types": [
-        "records_review",
-        "replacement",
         "prohibition"
       ],
-      "obligation": "mandatory",
-      "action_text": "(2) For Group 1 and Group 2 aeroplanes: From the effective date of this AD, do not accomplish any maintenance action on an aeroplane in accordance with the instructions of the MP task, as defined in this AD. Part(s) Installation:",
-      "objects_or_components": [],
-      "conditions": [],
-      "method_publication_ids": [
-        "PUB-001"
+      "obligation": "prohibited",
+      "action_text": "(2) For Group 1 and Group 2 aeroplanes, from the effective date of this AD, do not accomplish maintenance using MP Task A350-A-35-21-36-A0001-720A-A dated earlier than October 2024.",
+      "objects_or_components": [
+        "Outdated MP task"
       ],
+      "conditions": [
+        "Group 1 or Group 2 aeroplane"
+      ],
+      "method_publication_ids": [],
       "compliance_rules": [
         {
           "compliance_id": "CMP-002",
           "state": "present",
-          "raw_text": "(2) For Group 1 and Group 2 aeroplanes: From the effective date of this AD, do not accomplish any maintenance action on an aeroplane in accordance with the instructions of the MP task, as defined in this AD. Part(s) Installation:",
-          "logic": "single",
-          "conditions": [],
-          "initial_limits": [],
+          "raw_text": "(2) For Group 1 and Group 2 aeroplanes, from the effective date of this AD, do not accomplish maintenance using MP Task A350-A-35-21-36-A0001-720A-A dated earlier than October 2024.",
+          "logic": "conditional",
+          "conditions": [
+            "All affected aeroplanes"
+          ],
+          "initial_limits": [
+            {
+              "limit_id": "LIM-002",
+              "relation": "from",
+              "quantity": null,
+              "unit": "other",
+              "raw_value": "From the effective date of this AD",
+              "reference_event": "effective date of this AD",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-009"
+              ]
+            }
+          ],
           "is_repetitive": false,
           "repetitive_intervals": [],
           "grace_periods": [],
@@ -308,25 +352,40 @@
         "APP-001"
       ],
       "action_types": [
-        "records_review",
-        "replacement",
         "prohibition"
       ],
-      "obligation": "mandatory",
-      "action_text": "(3) For Group 1 and Group 2 aeroplanes: From the effective date of this AD, do not install an affected part on any aeroplane.",
-      "objects_or_components": [],
-      "conditions": [],
-      "method_publication_ids": [
-        "PUB-001"
+      "obligation": "prohibited",
+      "action_text": "(3) For Group 1 and Group 2 aeroplanes, from the effective date of this AD, do not install an affected part on any aeroplane.",
+      "objects_or_components": [
+        "Affected chemical oxygen generator"
       ],
+      "conditions": [
+        "Group 1 or Group 2 aeroplane"
+      ],
+      "method_publication_ids": [],
       "compliance_rules": [
         {
           "compliance_id": "CMP-003",
           "state": "present",
-          "raw_text": "(3) For Group 1 and Group 2 aeroplanes: From the effective date of this AD, do not install an affected part on any aeroplane.",
-          "logic": "single",
-          "conditions": [],
-          "initial_limits": [],
+          "raw_text": "(3) For Group 1 and Group 2 aeroplanes, from the effective date of this AD, do not install an affected part on any aeroplane.",
+          "logic": "conditional",
+          "conditions": [
+            "All affected aeroplanes"
+          ],
+          "initial_limits": [
+            {
+              "limit_id": "LIM-003",
+              "relation": "from",
+              "quantity": null,
+              "unit": "other",
+              "raw_value": "From the effective date of this AD",
+              "reference_event": "effective date of this AD",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-009"
+              ]
+            }
+          ],
           "is_repetitive": false,
           "repetitive_intervals": [],
           "grace_periods": [],
@@ -403,7 +462,6 @@
       "35"
     ],
     "action_types": [
-      "records_review",
       "replacement",
       "prohibition"
     ],
@@ -609,14 +667,14 @@
       "value_state": "present",
       "origin": "auto_extracted",
       "verification_status": "unreviewed",
-      "confidence": 0.995,
+      "confidence": 0.99,
       "evidence_ids": [
         "EV-001"
       ],
-      "annotator_id": "codex-extension-extractor",
+      "annotator_id": "gpt-5.6-source-auditor",
       "derivation_rule": null,
       "input_field_paths": [],
-      "notes": "Section completion: AD identity"
+      "notes": "AD identity source-audited; no human acceptance claimed."
     },
     {
       "assertion_id": "AST-002",
@@ -628,10 +686,10 @@
       "evidence_ids": [
         "EV-001"
       ],
-      "annotator_id": "codex-extension-extractor",
+      "annotator_id": "gpt-5.6-source-auditor",
       "derivation_rule": null,
       "input_field_paths": [],
-      "notes": "Section completion: publication"
+      "notes": "Publication metadata source-audited; no human acceptance claimed."
     },
     {
       "assertion_id": "AST-003",
@@ -639,14 +697,14 @@
       "value_state": "present",
       "origin": "auto_extracted",
       "verification_status": "unreviewed",
-      "confidence": 0.95,
+      "confidence": 0.99,
       "evidence_ids": [
         "EV-003"
       ],
-      "annotator_id": "codex-extension-extractor",
+      "annotator_id": "gpt-5.6-source-auditor",
       "derivation_rule": null,
       "input_field_paths": [],
-      "notes": "Section completion: applicability_groups"
+      "notes": "Applicability source-audited; no human acceptance claimed."
     },
     {
       "assertion_id": "AST-004",
@@ -654,332 +712,133 @@
       "value_state": "present",
       "origin": "auto_extracted",
       "verification_status": "unreviewed",
-      "confidence": 0.95,
+      "confidence": 0.99,
       "evidence_ids": [
         "EV-004",
         "EV-005"
       ],
-      "annotator_id": "codex-extension-extractor",
+      "annotator_id": "gpt-5.6-source-auditor",
       "derivation_rule": null,
       "input_field_paths": [],
-      "notes": "Section completion: definitions"
+      "notes": "Definitions source-audited; no human acceptance claimed."
     },
     {
       "assertion_id": "AST-005",
-      "field_path": "/requirements",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.95,
-      "evidence_ids": [
-        "EV-009"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "Section completion: requirements"
-    },
-    {
-      "assertion_id": "AST-006",
-      "field_path": "/exceptions",
-      "value_state": "absent_in_source",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.9,
-      "evidence_ids": [],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "Section completion: exceptions"
-    },
-    {
-      "assertion_id": "AST-007",
-      "field_path": "/previous_action_credit",
-      "value_state": "absent_in_source",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.9,
-      "evidence_ids": [],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "Section completion: previous_action_credit"
-    },
-    {
-      "assertion_id": "AST-008",
-      "field_path": "/referenced_publications",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.95,
-      "evidence_ids": [
-        "EV-007",
-        "EV-008"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "Section completion: referenced_publications"
-    },
-    {
-      "assertion_id": "AST-009",
-      "field_path": "/relationships",
-      "value_state": "absent_in_source",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.9,
-      "evidence_ids": [
-        "EV-001"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "Section completion: relationships"
-    },
-    {
-      "assertion_id": "AST-010",
-      "field_path": "/amoc_and_contacts",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.95,
-      "evidence_ids": [
-        "EV-010"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "Section completion: amoc_and_contacts"
-    },
-    {
-      "assertion_id": "AST-011",
-      "field_path": "/ad_identity/ad_number",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.995,
-      "evidence_ids": [
-        "EV-001"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "Cover identity"
-    },
-    {
-      "assertion_id": "AST-012",
-      "field_path": "/ad_identity/supersedure_statement",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.99,
-      "evidence_ids": [
-        "EV-001"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "Printed status field"
-    },
-    {
-      "assertion_id": "AST-013",
-      "field_path": "/publication/issue_date",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.995,
-      "evidence_ids": [
-        "EV-001"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "Printed issue date"
-    },
-    {
-      "assertion_id": "AST-014",
-      "field_path": "/publication/effective_date",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.995,
-      "evidence_ids": [
-        "EV-001"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "Printed effective date"
-    },
-    {
-      "assertion_id": "AST-015",
-      "field_path": "/publication/subject",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.99,
-      "evidence_ids": [
-        "EV-001"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "Printed ATA subject"
-    },
-    {
-      "assertion_id": "AST-016",
-      "field_path": "/applicability_groups/0",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.96,
-      "evidence_ids": [
-        "EV-003"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "applicability_groups"
-    },
-    {
-      "assertion_id": "AST-017",
-      "field_path": "/definitions/0",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.96,
-      "evidence_ids": [
-        "EV-004",
-        "EV-005"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "definitions"
-    },
-    {
-      "assertion_id": "AST-018",
-      "field_path": "/requirements/0",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.94,
-      "evidence_ids": [
-        "EV-009"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "requirements"
-    },
-    {
-      "assertion_id": "AST-019",
-      "field_path": "/requirements/1",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.94,
-      "evidence_ids": [
-        "EV-009"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "requirements"
-    },
-    {
-      "assertion_id": "AST-020",
-      "field_path": "/requirements/2",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.94,
-      "evidence_ids": [
-        "EV-009"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "requirements"
-    },
-    {
-      "assertion_id": "AST-021",
-      "field_path": "/referenced_publications/0",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.96,
-      "evidence_ids": [
-        "EV-007",
-        "EV-008"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "referenced_publications"
-    },
-    {
-      "assertion_id": "AST-022",
-      "field_path": "/amoc_and_contacts/0",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.96,
-      "evidence_ids": [
-        "EV-010"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "amoc_and_contacts"
-    },
-    {
-      "assertion_id": "AST-023",
-      "field_path": "/amoc_and_contacts/1",
-      "value_state": "present",
-      "origin": "auto_extracted",
-      "verification_status": "unreviewed",
-      "confidence": 0.96,
-      "evidence_ids": [
-        "EV-010"
-      ],
-      "annotator_id": "codex-extension-extractor",
-      "derivation_rule": null,
-      "input_field_paths": [],
-      "notes": "amoc_and_contacts"
-    },
-    {
-      "assertion_id": "AST-024",
       "field_path": "/unsafe_condition",
       "value_state": "present",
       "origin": "auto_extracted",
       "verification_status": "unreviewed",
-      "confidence": 0.96,
+      "confidence": 0.99,
       "evidence_ids": [
         "EV-006"
       ],
-      "annotator_id": "codex-extension-extractor",
+      "annotator_id": "gpt-5.6-source-auditor",
       "derivation_rule": null,
       "input_field_paths": [],
-      "notes": "Reason and unsafe condition"
+      "notes": "Unsafe condition source-audited; no human acceptance claimed."
     },
     {
-      "assertion_id": "AST-025",
+      "assertion_id": "AST-006",
+      "field_path": "/requirements",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.99,
+      "evidence_ids": [
+        "EV-009"
+      ],
+      "annotator_id": "gpt-5.6-source-auditor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Atomic requirements and compliance logic source-audited; no human acceptance claimed."
+    },
+    {
+      "assertion_id": "AST-007",
+      "field_path": "/exceptions",
+      "value_state": "absent_in_source",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.95,
+      "evidence_ids": [],
+      "annotator_id": "gpt-5.6-source-auditor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Requirement exceptions source-audited; no human acceptance claimed."
+    },
+    {
+      "assertion_id": "AST-008",
+      "field_path": "/previous_action_credit",
+      "value_state": "absent_in_source",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.95,
+      "evidence_ids": [],
+      "annotator_id": "gpt-5.6-source-auditor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Previous-action credit source-audited; no human acceptance claimed."
+    },
+    {
+      "assertion_id": "AST-009",
+      "field_path": "/referenced_publications",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.99,
+      "evidence_ids": [
+        "EV-007",
+        "EV-008"
+      ],
+      "annotator_id": "gpt-5.6-source-auditor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Referenced publications source-audited; no human acceptance claimed."
+    },
+    {
+      "assertion_id": "AST-010",
+      "field_path": "/relationships",
+      "value_state": "absent_in_source",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.95,
+      "evidence_ids": [],
+      "annotator_id": "gpt-5.6-source-auditor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Relationships source-audited; no human acceptance claimed."
+    },
+    {
+      "assertion_id": "AST-011",
+      "field_path": "/amoc_and_contacts",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "unreviewed",
+      "confidence": 0.99,
+      "evidence_ids": [
+        "EV-010"
+      ],
+      "annotator_id": "gpt-5.6-source-auditor",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "AMOC and contacts source-audited; no human acceptance claimed."
+    },
+    {
+      "assertion_id": "AST-012",
       "field_path": "/classification",
       "value_state": "present",
       "origin": "auto_extracted",
       "verification_status": "unreviewed",
-      "confidence": 0.9,
+      "confidence": 0.99,
       "evidence_ids": [
         "EV-001",
         "EV-003",
         "EV-006",
         "EV-009"
       ],
-      "annotator_id": "codex-extension-extractor",
+      "annotator_id": "gpt-5.6-source-auditor",
       "derivation_rule": null,
       "input_field_paths": [],
-      "notes": "Schema classification"
+      "notes": "Classification reconciled with corrected requirements; no human acceptance claimed."
     }
   ],
   "annotation_metadata": {
@@ -998,6 +857,12 @@
         "role": "annotator",
         "started_at": "2026-07-30T09:02:01Z",
         "submitted_at": "2026-07-30T09:02:01Z"
+      },
+      {
+        "annotator_id": "gpt-5.6-source-auditor",
+        "role": "reviewer",
+        "started_at": "2026-07-30T18:00:46Z",
+        "submitted_at": "2026-07-30T18:00:46Z"
       }
     ],
     "events": [
@@ -1012,23 +877,29 @@
         "actor_id": "codex-extension-extractor",
         "timestamp": "2026-07-30T09:02:01Z",
         "rationale": "First pass completed; no human review or approval claimed."
+      },
+      {
+        "event_type": "reviewed",
+        "actor_id": "gpt-5.6-source-auditor",
+        "timestamp": "2026-07-30T18:00:46Z",
+        "rationale": "Machine-assisted source audit against the exact rendered PDF and frozen page-text cache; corrections applied without human approval."
       }
     ],
     "quality_flags": [
       "manual_review_required",
-      "complex_compliance",
-      "complex_applicability"
+      "complex_compliance"
     ],
     "uncertainty_flags": [],
     "notes": [
       "Machine-assisted populated extraction from the complete frozen PDF/page-text packet.",
       "Requirements were split from numbered source paragraphs where possible; every field assertion remains unreviewed.",
       "No supersedure relationship was created because the cover explicitly states Supersedure: None.",
-      "Independent human comparison and correction are required before approval or gold promotion."
+      "Independent human comparison and correction are required before approval or gold promotion.",
+      "Machine-assisted source-audit corrections applied against the exact rendered PDF and frozen page-text cache; independent human acceptance is still required before approval or gold promotion."
     ],
     "source_text_sha256": "d427a7edbb8a222acd01bbcd463e417110633b3e081f3f5b4c0ca738a86e702d",
     "created_at": "2026-07-30T09:02:01Z",
-    "updated_at": "2026-07-30T09:02:01Z"
+    "updated_at": "2026-07-30T18:00:46Z"
   },
   "benchmark_metadata": {
     "split": "unassigned",
