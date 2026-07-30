@@ -22,7 +22,10 @@ def apply(doc,op):
     if op['op'] in ('add','replace'): cur[k]=op['value']
     elif op['op']=='remove': cur.pop(k)
     else: raise ValueError(op['op'])
-text=''.join(Path(f'.github/rest10_annotation_audit_payload.part{i}').read_text().strip() for i in range(2))
+parts=sorted(Path('.github/rest10_chunks').glob('part*'))
+if [p.name for p in parts] != [f'part{i:02d}' for i in range(14)]: raise SystemExit('Payload chunk set mismatch')
+text=''.join(p.read_text().strip() for p in parts)
+if hashlib.sha256(text.encode()).hexdigest()!='4b7fbb4e2c5b10df807a60f09fe3b4d5946f526d5de0c98e91a235bdf07a5932': raise SystemExit('Payload SHA-256 mismatch')
 payload=json.loads(zlib.decompress(base64.b64decode(text)))
 if set(payload)!=set(EXPECTED): raise SystemExit('Payload target set mismatch')
 for name,ops in payload.items():
