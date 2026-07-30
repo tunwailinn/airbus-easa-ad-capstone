@@ -40,6 +40,7 @@ jobs:
           git rm .github/apply_rest10_annotation_audit.py
           git rm .github/rest10_annotation_audit_payload.part0
           git rm .github/rest10_annotation_audit_payload.part1
+          git rm -r .github/rest10_chunks
           git rm .github/workflows/apply-rest10-annotation-audit.yml
           git commit -m 'fix(step3): correct remaining source-audited annotations'
           git push
