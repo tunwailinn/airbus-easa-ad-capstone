@@ -1,0 +1,27 @@
+name: Apply verbatim source fidelity corrections
+on:
+  pull_request:
+    branches: [main]
+permissions:
+  contents: write
+jobs:
+  apply-and-validate:
+    if: github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          fetch-depth: 0
+      - name: Apply guarded corrections
+        run: python .github/apply_verbatim_fidelity.py
+      - name: Validate corrected annotations
+        run: python step2_ad_schema/validate_annotations.py step3_extension_20_v1/human_review_working/*.annotation.json
+      - name: Commit corrected annotations and remove staging files
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git diff --cached --quiet && exit 0
+          git commit -m "fix(step3): restore verbatim source and evidence fidelity"
+          git push origin HEAD:${{ github.event.pull_request.head.ref }}
