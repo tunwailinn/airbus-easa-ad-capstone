@@ -1,0 +1,65 @@
+name: Correct annotation text fidelity
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  correct-and-validate:
+    if: github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out correction branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          fetch-depth: 0
+
+      - name: Install exact PDF extraction dependency
+        run: python -m pip install --disable-pip-version-check pypdf==6.10.0
+
+      - name: Apply fidelity-only corrections
+        run: python .github/fix_annotation_text_fidelity.py --apply
+
+      - name: Validate schema
+        shell: bash
+        run: |
+          set -euo pipefail
+          validator="$(find . -type f -name validate_annotations.py | head -n 1)"
+          test -n "$validator"
+          python "$validator" step3_extension_20_v1/human_review_working/*.annotation.json
+
+      - name: Re-verify exact source and evidence fidelity
+        run: python .github/fix_annotation_text_fidelity.py
+
+      - name: Guard the diff
+        shell: bash
+        run: |
+          set -euo pipefail
+          git diff --check
+          changed="$(git diff --name-only)"
+          printf '%s\n' "$changed"
+          bad="$(printf '%s\n' "$changed" | grep -vE '^step3_extension_20_v1/human_review_working/[^/]+\.annotation\.json$' || true)"
+          test -z "$bad"
+          test "$(printf '%s\n' "$changed" | grep -c '\.annotation\.json$')" -eq 20
+
+      - name: Upload correction audit report
+        uses: actions/upload-artifact@v4
+        with:
+          name: annotation-text-fidelity-correction-report
+          path: annotation_text_fidelity_correction_report.json
+
+      - name: Commit annotation-only corrections and remove temporary tooling
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add step3_extension_20_v1/human_review_working/*.annotation.json
+          git commit -m "fix(step3): restore verbatim annotation text fidelity"
+          git rm .github/fix_annotation_text_fidelity.py .github/workflows/fix-annotation-text-fidelity.yml
+          git commit -m "chore: remove temporary fidelity correction tooling"
+          git push origin HEAD:${{ github.event.pull_request.head.ref }}
