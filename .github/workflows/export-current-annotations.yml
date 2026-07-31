@@ -1,0 +1,13 @@
+name: Export current annotations
+on:
+  push:
+    branches: [fix/verbatim-source-fidelity]
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/upload-artifact@v4
+        with:
+          name: current-step3-annotations
+          path: step3_extension_20_v1/human_review_working/*.annotation.json
