@@ -54,7 +54,7 @@ def main():
     for path in files:
         expected=EXPECTED.get(path.name)
         if expected is None or sha(path)!=expected:raise SystemExit(f'guard failed for {path.name}')
-    payload=''.join((ROOT/f'.github/fidelity_payload.part{i}').read_text().strip() for i in range(4))
+    payload=''.join((ROOT/f'.github/fidelity_payload.part{i:02d}').read_text().strip() for i in range(16))
     zip_path=ROOT/'.fidelity_payload.zip';zip_path.write_bytes(base64.b64decode(payload))
     if TMP.exists():shutil.rmtree(TMP)
     TMP.mkdir()
@@ -72,8 +72,8 @@ def main():
     shutil.rmtree(TMP);zip_path.unlink()
     for p in [ROOT/'.github/apply_verbatim_fidelity.py',ROOT/'.github/workflows/apply-verbatim-fidelity.yml',ROOT/'.github/workflows/export-current-annotations.yml']:
         if p.exists():p.unlink()
-    for i in range(4):
-        p=ROOT/f'.github/fidelity_payload.part{i}'
+    for i in range(16):
+        p=ROOT/f'.github/fidelity_payload.part{i:02d}'
         if p.exists():p.unlink()
     print('applied 20 guarded source-text/evidence corrections')
 if __name__=='__main__':main()
