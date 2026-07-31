@@ -80,7 +80,7 @@ def main():
     shutil.rmtree(TMP,ignore_errors=True);TMP.mkdir()
     encoded=PAYLOAD.read_bytes()
     try:
-        payload=base64.b64decode(encoded,validate=True)
+        payload=base64.b64decode(encoded)
     except Exception as exc:
         raise SystemExit(f'payload base64 decode failed: {exc}')
     expected_zip_sha='512f528a3cd0a0445b3b52d07e84bb23c9ecc4ad83d8be0e391bd59b4de6a6ce'
