@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 from __future__ import annotations
-import base64, hashlib, json, shutil, zipfile
+import hashlib, json, shutil, zipfile
 from pathlib import Path
 
 ROOT = Path.cwd()
@@ -88,9 +88,8 @@ def main():
         if BEFORE.get(path.name) != sha(path):
             raise SystemExit(f'guard failed for {path.name}')
         originals[path.name] = json.loads(path.read_text(encoding='utf-8'))
-    payload = ''.join((ROOT/f'.github/fidelity_patch.part{i}').read_text().strip() for i in range(4))
     archive = ROOT/'.fidelity_patch.zip'
-    archive.write_bytes(base64.b64decode(payload))
+    archive.write_bytes(b''.join((ROOT/f'.github/fidelity_patch.part{i}').read_bytes() for i in range(4)))
     if TMP.exists():
         shutil.rmtree(TMP)
     TMP.mkdir()
@@ -123,7 +122,7 @@ def main():
             raise SystemExit(f'corrected hash mismatch: {name}')
     shutil.rmtree(TMP)
     archive.unlink()
-    for p in [ROOT/'.github/apply_verbatim_fidelity.py', ROOT/'.github/workflows/apply-verbatim-fidelity.yml', ROOT/'.github/workflows/export-current-annotations.yml']:
+    for p in [ROOT/'.github/apply_verbatim_fidelity.py', ROOT/'.github/workflows/apply-verbatim-fidelity.yml', ROOT/'.github/workflows/export-current-annotations.yml', ROOT/'.github/fidelity_patches/2007-0249__7a239ec5c306fa6d.annotation.json.patch.json']:
         if p.exists():
             p.unlink()
     for i in range(4):
