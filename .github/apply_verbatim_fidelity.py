@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 from __future__ import annotations
-import hashlib, json, shutil, zipfile
+import base64, hashlib, io, json, shutil, zipfile
 from pathlib import Path
 ROOT=Path.cwd()
 ANN=ROOT/'step3_extension_20_v1/human_review_working'
@@ -78,7 +78,16 @@ def main():
         if BEFORE.get(p.name)!=sha(p):raise SystemExit(f'before hash mismatch: {p.name}')
         original[p.name]=json.loads(p.read_text(encoding='utf-8'))
     shutil.rmtree(TMP,ignore_errors=True);TMP.mkdir()
-    with zipfile.ZipFile(PAYLOAD) as z:z.extractall(TMP)
+    encoded=PAYLOAD.read_bytes()
+    try:
+        payload=base64.b64decode(encoded,validate=True)
+    except Exception as exc:
+        raise SystemExit(f'payload base64 decode failed: {exc}')
+    expected_zip_sha='512f528a3cd0a0445b3b52d07e84bb23c9ecc4ad83d8be0e391bd59b4de6a6ce'
+    actual_zip_sha=hashlib.sha256(payload).hexdigest()
+    if actual_zip_sha!=expected_zip_sha:
+        raise SystemExit(f'payload zip hash mismatch: {actual_zip_sha}')
+    with zipfile.ZipFile(io.BytesIO(payload)) as z:z.extractall(TMP)
     extracted=sorted(TMP.glob('*.annotation.json'))
     if {p.name for p in extracted}!=set(BEFORE):raise SystemExit('payload file set mismatch')
     changes=0
