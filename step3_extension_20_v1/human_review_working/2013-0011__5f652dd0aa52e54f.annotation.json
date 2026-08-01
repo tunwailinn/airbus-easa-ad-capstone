@@ -43,7 +43,7 @@
     "design_approval_holder": {
       "state": "present",
       "value": "Airbus",
-      "raw_text": "Airbus",
+      "raw_text": "AIRBUS",
       "evidence_ids": [
         "EV-001"
       ]
@@ -191,7 +191,7 @@
         {
           "restriction_id": "MSN-001",
           "kind": "all",
-          "raw_expression": "all serial numbers",
+          "raw_expression": "all manufacturer serial numbers",
           "lower_bound": null,
           "upper_bound": null,
           "explicit_values": [],
@@ -218,20 +218,20 @@
       "Several occurrences have been reported on A320 family aeroplanes of PPG sliding windows that were difficult to operate after landing."
     ],
     "causes": [
-      "With seal P/N 22-17-7640-1 or 22-17-7640-2 installed, closing the sliding window can create a vacuum between the two pressure-seal tubes, causing suction that holds the window against the fuselage-side frame."
+      "The investigation results revealed that when a seal having Part Number (P/N) 22-17-7640-1 or P/N 22-17-7640-2 is installed on a sliding window, closure of the window can create a vacuum between the 2 tubes of the pressure seal, leading to the window remaining stuck to the frame on the fuselage side, due to suction effect."
     ],
     "unsafe_conditions": [
-      "Affected PPG sliding windows can remain stuck to the fuselage-side frame and become difficult or impossible to operate."
+      "leading to the window remaining stuck to the frame on the fuselage side, due to suction effect."
     ],
     "potential_consequences": [
-      "Functional loss of the sliding window as an emergency exit, possibly preventing safe flight-crew evacuation."
+      "This condition, if not detected and corrected, could lead to the functional loss of the sliding window as an exit, possibly preventing the flight crew from safely evacuating the aeroplane during an emergency."
     ],
     "affected_components": [
-      "Left-hand and right-hand PPG cockpit sliding windows",
-      "Sliding-window seals P/N 22-17-7640-1 and 22-17-7640-2"
+      "PPG sliding windows",
+      "seal having Part Number (P/N) 22-17-7640-1 or P/N 22-17-7640-2"
     ],
     "intended_risk_mitigation": [
-      "One-time detailed inspection to identify affected window and seal part numbers, followed by modification or an accepted replacement method when affected combinations are found."
+      "For the reasons described above, this AD requires a one-time detailed inspection (DI) of the sliding windows and its seal to identify the affected sliding window seals and, depending on findings, accomplishment of the applicable corrective actions."
     ],
     "evidence_ids": [
       "EV-004"
@@ -250,10 +250,10 @@
         "records_review"
       ],
       "obligation": "mandatory",
-      "action_text": "(1) Within 750 flight cycles or 750 flight hours or 4 months, whichever occurs first after the effective date of this AD, accomplish a detailed inspection of the left-hand and right-hand sliding windows and sliding-window seals to identify each window and seal P/N in accordance with Airbus SB A320-56-1016. A maintenance-records review is acceptable instead if the installed P/N and manufacturing dates can be conclusively identified.",
+      "action_text": "(1) Within 750 flight cycles or 750 flight hours or 4 months, whichever occurs first after the effective date of this AD, accomplish a DI of the left-hand (LH) and right-hand (RH) sliding windows and sliding window seals in order to identify the P/N of each window and seal in accordance with the instructions of Airbus Service Bulletin (SB) A320-56-1016. A review of aeroplane maintenance records is acceptable to make this determination, in lieu of the instructions of Airbus SB A320-56-1016, if the P/N and manufacturing dates of the installed sliding windows and sliding window seals can be conclusively identified from that review.",
       "objects_or_components": [
-        "LH and RH PPG cockpit sliding windows",
-        "Sliding-window seals"
+        "the left-hand (LH) and right-hand (RH) sliding windows",
+        "Sliding Window Seals"
       ],
       "conditions": [],
       "method_publication_ids": [
@@ -263,7 +263,7 @@
         {
           "compliance_id": "CMP-001",
           "state": "present",
-          "raw_text": "(1) Within 750 flight cycles or 750 flight hours or 4 months, whichever occurs first after the effective date of this AD, accomplish a detailed inspection of the left-hand and right-hand sliding windows and sliding-window seals to identify each window and seal P/N in accordance with Airbus SB A320-56-1016. A maintenance-records review is acceptable instead if the installed P/N and manufacturing dates can be conclusively identified.",
+          "raw_text": "(1) Within 750 flight cycles or 750 flight hours or 4 months, whichever occurs first after the effective date of this AD, accomplish a DI of the left-hand (LH) and right-hand (RH) sliding windows and sliding window seals in order to identify the P/N of each window and seal in accordance with the instructions of Airbus Service Bulletin (SB) A320-56-1016. A review of aeroplane maintenance records is acceptable to make this determination, in lieu of the instructions of Airbus SB A320-56-1016, if the P/N and manufacturing dates of the installed sliding windows and sliding window seals can be conclusively identified from that review.",
           "logic": "whichever_occurs_first",
           "conditions": [],
           "initial_limits": [
@@ -343,13 +343,13 @@
         "modification"
       ],
       "obligation": "conditional",
-      "action_text": "(2) If the inspection identifies a sliding-window P/N listed in Table 1 without modification amendment M, with seal P/N 22-17-7640-1 or 22-17-7640-2 installed, before next flight modify the sliding-window seal in accordance with Airbus SB A320-56-1015.",
+      "action_text": "(2) If, during the DI as required by paragraph (1) of this AD, a sliding window P/N is identified as listed in Table 1 of this AD without modification amendment M, and sliding window seals P/N 22-17-7640-1 or P/N 22-17-7640-2 are installed, before next flight, modify the sliding window seal in accordance with the instructions of Airbus SB A320-56-1015.",
       "objects_or_components": [
-        "Affected PPG sliding-window seal"
+        "sliding window seals P/N 22-17-7640-1 or P/N 22-17-7640-2"
       ],
       "conditions": [
-        "Affected Table 1 window P/N without amendment M is installed",
-        "Seal P/N 22-17-7640-1 or 22-17-7640-2 is installed"
+        "a sliding window P/N is identified as listed in Table 1 of this AD without modification amendment M",
+        "sliding window seals P/N 22-17-7640-1 or P/N 22-17-7640-2 are installed"
       ],
       "method_publication_ids": [
         "PUB-001"
@@ -358,10 +358,10 @@
         {
           "compliance_id": "CMP-002",
           "state": "present",
-          "raw_text": "(2) If the inspection identifies a sliding-window P/N listed in Table 1 without modification amendment M, with seal P/N 22-17-7640-1 or 22-17-7640-2 installed, before next flight modify the sliding-window seal in accordance with Airbus SB A320-56-1015.",
+          "raw_text": "(2) If, during the DI as required by paragraph (1) of this AD, a sliding window P/N is identified as listed in Table 1 of this AD without modification amendment M, and sliding window seals P/N 22-17-7640-1 or P/N 22-17-7640-2 are installed, before next flight, modify the sliding window seal in accordance with the instructions of Airbus SB A320-56-1015.",
           "logic": "conditional",
           "conditions": [
-            "Affected window-and-seal combination is identified during REQ-001"
+            "If, during the DI as required by paragraph (1) of this AD, a sliding window P/N is identified as listed in Table 1 of this AD without modification amendment M, and sliding window seals P/N 22-17-7640-1 or P/N 22-17-7640-2 are installed"
           ],
           "initial_limits": [
             {
@@ -412,13 +412,13 @@
         "prohibition"
       ],
       "obligation": "prohibited",
-      "action_text": "(6) From the effective date of this AD, do not install any PPG sliding window with a P/N listed in Table 1 together with seal P/N 22-17-7640-1 or 22-17-7640-2, unless the seal has been modified in accordance with Airbus SB A320-56-1015 or PPG SB 165312-56-001.",
+      "action_text": "(6) From the effective date of this AD, do not install on an aeroplane any PPG sliding window with a P/N listed in Table 1 of this AD with a seal having P/N 22-17-7640-1 or P/N 22-17-7640-2, unless the seal has been modified in accordance with the instructions of Airbus SB A320-56-1015, or PPG SB 165312-56-001.",
       "objects_or_components": [
-        "PPG sliding windows listed in Table 1",
-        "Seal P/N 22-17-7640-1 or 22-17-7640-2"
+        "any PPG sliding window with a P/N listed in Table 1 of this AD",
+        "P/N 22-17-7640-1 or P/N 22-17-7640-2"
       ],
       "conditions": [
-        "Unless the seal has been modified in accordance with Airbus SB A320-56-1015 or PPG SB 165312-56-001"
+        "unless the seal has been modified in accordance with the instructions of Airbus SB A320-56-1015, or PPG SB 165312-56-001."
       ],
       "method_publication_ids": [
         "PUB-001",
@@ -428,10 +428,10 @@
         {
           "compliance_id": "CMP-003",
           "state": "present",
-          "raw_text": "(6) From the effective date of this AD, do not install any PPG sliding window with a P/N listed in Table 1 together with seal P/N 22-17-7640-1 or 22-17-7640-2, unless the seal has been modified in accordance with Airbus SB A320-56-1015 or PPG SB 165312-56-001.",
+          "raw_text": "(6) From the effective date of this AD, do not install on an aeroplane any PPG sliding window with a P/N listed in Table 1 of this AD with a seal having P/N 22-17-7640-1 or P/N 22-17-7640-2, unless the seal has been modified in accordance with the instructions of Airbus SB A320-56-1015, or PPG SB 165312-56-001.",
           "logic": "conditional",
           "conditions": [
-            "Affected window-and-seal combination"
+            "any PPG sliding window with a P/N listed in Table 1 of this AD with a seal having P/N 22-17-7640-1 or P/N 22-17-7640-2"
           ],
           "initial_limits": [
             {
@@ -475,7 +475,7 @@
   "exceptions": [
     {
       "exception_id": "EXC-001",
-      "text": "For an affected window, replacing seal P/N 22-17-7640-1 (LH) or 22-17-7640-2 (RH) with seal P/N 22-17-7640-3 (LH) or 22-17-7640-4 (RH), respectively, is an acceptable alternative method of complying with REQ-002; the replacement may use AMM 56-12-11, Page Block 401.",
+      "text": "(3) For sliding windows, identified as affected as required by paragraph (2) of this AD, replacement of a sliding windows seal P/N 22-17-7640-1 (LH) or P/N 22-17-7640-2 (RH) with a seal P/N 22-17-7640-3 (LH) or P/N 22-17-7640-4 (RH), respectively, is an acceptable alternative method to comply with the modification requirement of paragraph (2) of this AD.",
       "applies_to_requirement_ids": [
         "REQ-002"
       ],
@@ -486,7 +486,7 @@
     },
     {
       "exception_id": "EXC-002",
-      "text": "Aeroplanes with Airbus modification 153512 or 153534 embodied in production are not affected by REQ-001 and REQ-002, provided no sliding window or sliding-window seal has been replaced since first flight.",
+      "text": "(4) Aeroplanes on which Airbus modification 153512 (installation of sliding window with P/N NP165312-13 and NP165312-14 with improved seal) or modification 153534 (installation of sliding window with P/N NP165312-11 and NP165312-12 with amendment M) has been embodied in production are not affected by the requirements of paragraphs (1) and (2) of this AD, provided that no sliding window or sliding window seal has been replaced since first flight.",
       "applies_to_requirement_ids": [
         "REQ-001",
         "REQ-002"
@@ -498,7 +498,7 @@
     },
     {
       "exception_id": "EXC-003",
-      "text": "Aeroplanes on which Airbus modification 39587 has not been embodied in production are not affected by REQ-001 and REQ-002, provided no sliding window or sliding-window seal has been replaced since first flight.",
+      "text": "(5) Aeroplanes on which Airbus modification 39587 (installation of affected seal on PPG sliding windows) has not been embodied in production are not affected by the requirements of paragraphs (1) and (2) of this AD, provided that no sliding window or sliding window seal has been replaced since first flight.",
       "applies_to_requirement_ids": [
         "REQ-001",
         "REQ-002"
@@ -584,9 +584,9 @@
       "entry_id": "AMC-001",
       "entry_type": "amoc_authority",
       "authority_or_organization": "EASA",
-      "contact_text": "Remarks: 1. If requested and appropriately substantiated, EASA can approve Alternative Methods of Compliance for this AD 2. This AD was posted on 28 November 2012 as PAD 12-154 for consultation until 31 December 2012. The Comment Response Document can be found at http://ad.easa.europa.eu. 3. Enquiries regarding this AD should be referred to the Safety Information Section, Executive Directorate, EASA. E-mail: ADs@easa.europa.eu. 4. For any question concerning the technical content of the requirements in this AD, please contact: AIRBUS – Airworthiness Office – EIAS, Fax +33 5 61 93 44 51, E-mail: account.airworth-eas@airbus.com. TE.CAP.00110-003 © European Aviation Safety Agency. All rights reserved. 3/3 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet.",
+      "contact_text": "1. If requested and appropriately substantiated, EASA can approve Alternative Methods of Compliance for this AD",
       "conditions": [
-        "Requested and appropriately substantiated"
+        "requested and appropriately substantiated"
       ],
       "evidence_ids": [
         "EV-009"
@@ -596,7 +596,7 @@
       "entry_id": "AMC-002",
       "entry_type": "regulatory_contact",
       "authority_or_organization": "EASA and the technical contact stated in the AD",
-      "contact_text": "Remarks: 1. If requested and appropriately substantiated, EASA can approve Alternative Methods of Compliance for this AD 2. This AD was posted on 28 November 2012 as PAD 12-154 for consultation until 31 December 2012. The Comment Response Document can be found at http://ad.easa.europa.eu. 3. Enquiries regarding this AD should be referred to the Safety Information Section, Executive Directorate, EASA. E-mail: ADs@easa.europa.eu. 4. For any question concerning the technical content of the requirements in this AD, please contact: AIRBUS – Airworthiness Office – EIAS, Fax +33 5 61 93 44 51, E-mail: account.airworth-eas@airbus.com. TE.CAP.00110-003 © European Aviation Safety Agency. All rights reserved. 3/3 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet.",
+      "contact_text": "3. Enquiries regarding this AD should be referred to the Safety Information Section, Executive Directorate, EASA. E-mail: ADs@easa.europa.eu. 4. For any question concerning the technical content of the requirements in this AD, please contact: AIRBUS – Airworthiness Office – EIAS, Fax +33 5 61 93 44 51, E-mail: account.airworth-eas@airbus.com.",
       "conditions": [],
       "evidence_ids": [
         "EV-009"
@@ -637,7 +637,7 @@
       "page_number": 1,
       "printed_page_label": "1/3",
       "section": "cover",
-      "section_raw": "Cover identity and publication",
+      "section_raw": "Airworthiness Directive",
       "clause_path": "cover",
       "exact_quote": "EASA AD No.: 2013-0011 EASA AIRWORTHINESS DIRECTIVE AD No.: 2013-0011 Date: 15 January 2013 Note: This Airworthiness Directive (AD) is issued by EASA, acting in accordance with Regulation (EC) No 216/2008 on behalf of the European Community, its Member States and of the European third countries that participate in the activities of EASA under Article 66 of that Regulation. This AD is issued in accordance with EC 748/2012, Part 21.A.3B. In accordance with EC 2042/2003 Annex I, Part M.A.301, the continuing airworthiness of an aircraft shall be ensured by accomplishing any applicable ADs. Consequently, no person may ope rate an aircraft to which an AD applies, except in accordance with the requ irements of that AD, unless otherwise specified by the Agency [EC 2042/2003 Annex I, Part M.A.303] or agreed with the Authority of the State of Registry [EC 216/2008, Article 14(4) exemption] . Design Approval Holder’s Name: Type/Model designation(s): AIRBUS A318, A319, A320 and A321 aeroplanes TCDS Number: EASA.A.064 Foreign AD: Not applicable Supersedure: None ATA 56 Windows – Cockpit Sliding Window Seals – Inspection / Modification Manufacturer(s): Airbus (formerly Airbus Industrie) Applicability: Airbus A318-111, A318-112, A318-121, A318-122, A319-111, A319-112, A319-113, A319-114, A319-115, A319-131, A319-132, A319-133, A320-111, A320-211, A320-212, A320-214, A320-215, A320-216, A320-231, A320-232, A320-233, A321-111, A321-112, A321-131, A321-211, A321-212, A321-213, A321-231 and A321-232 aeroplanes, all manufacturer serial numbers. Reason: Several occurrences have been reported on A320 family aeroplanes of PPG sliding windows that were difficult to operate after landing. The investigation results revealed that when a seal having Part Number (P/N) 22-17-7640-1 or P/N 22-17-7640-2 is installed on a sliding window, closure of the window can create a vacuum between the 2 tubes of the pressure seal, leading to the window remaining stuck to the frame on the fuselage side, due to suction effect. This condition, if not detected and corrected, could lead to the functional loss of the sliding window as an exit, possibly preventing the flight crew from safely evacuating the aeroplane during an emergency. For the reasons described above, this AD requires a one-time detailed inspection (DI) of the sliding windows and its seal to identify the affected sliding window seals and, depending on findings, accomplishment of the applicable corrective actions. Effective Date: 29 January 2013 TE.CAP.00110-003 © European Aviation Safety Agency. All rights reserved. 1/3 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet.",
       "start_char": null,
@@ -655,7 +655,7 @@
       "page_number": 1,
       "printed_page_label": "1/3",
       "section": "cover",
-      "section_raw": "Manufacturer(s)",
+      "section_raw": "Manufacturer(s):",
       "clause_path": "Manufacturer(s)",
       "exact_quote": "Manufacturer(s): Airbus (formerly Airbus Industrie)",
       "start_char": null,
@@ -673,7 +673,7 @@
       "page_number": 1,
       "printed_page_label": "1/3",
       "section": "applicability",
-      "section_raw": "Applicability",
+      "section_raw": "Applicability:",
       "clause_path": "Applicability",
       "exact_quote": "Applicability: Airbus A318-111, A318-112, A318-121, A318-122, A319-111, A319-112, A319-113, A319-114, A319-115, A319-131, A319-132, A319-133, A320-111, A320-211, A320-212, A320-214, A320-215, A320-216, A320-231, A320-232, A320-233, A321-111, A321-112, A321-131, A321-211, A321-212, A321-213, A321-231 and A321-232 aeroplanes, all manufacturer serial numbers.",
       "start_char": null,
@@ -691,7 +691,7 @@
       "page_number": 1,
       "printed_page_label": "1/3",
       "section": "reason",
-      "section_raw": "Reason",
+      "section_raw": "Reason:",
       "clause_path": "Reason",
       "exact_quote": "Reason: Several occurrences have been reported on A320 family aeroplanes of PPG sliding windows that were difficult to operate after landing. The investigation results revealed that when a seal having Part Number (P/N) 22-17-7640-1 or P/N 22-17-7640-2 is installed on a sliding window, closure of the window can create a vacuum between the 2 tubes of the pressure seal, leading to the window remaining stuck to the frame on the fuselage side, due to suction effect. This condition, if not detected and corrected, could lead to the functional loss of the sliding window as an exit, possibly preventing the flight crew from safely evacuating the aeroplane during an emergency. For the reasons described above, this AD requires a one-time detailed inspection (DI) of the sliding windows and its seal to identify the affected sliding window seals and, depending on findings, accomplishment of the applicable corrective actions.",
       "start_char": null,
@@ -709,7 +709,7 @@
       "page_number": 2,
       "printed_page_label": "2/3",
       "section": "reference_publications",
-      "section_raw": "Ref. Publications",
+      "section_raw": "Ref. Publications:",
       "clause_path": "Ref. Publications",
       "exact_quote": "Ref. Publications: Airbus SB A320-56-1015 original issue dated 14 September 2012. TE.CAP.00110-003 © European Aviation Safety Agency. All rights reserved. 2/3 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet.",
       "start_char": null,
@@ -727,7 +727,7 @@
       "page_number": 3,
       "printed_page_label": "3/3",
       "section": "reference_publications",
-      "section_raw": "Ref. Publications",
+      "section_raw": "Ref. Publications:",
       "clause_path": "Ref. Publications",
       "exact_quote": "EASA AD No.: 2013-0011 Airbus SB A320-56-1016 original issue dated 14 September 2012. PPG Aerospace SB 165312-56-001 original issue dated 29 February 2012. The use of later approved revisions of these documents is acceptable for compliance with the requirements of this AD.",
       "start_char": null,
@@ -743,11 +743,11 @@
       "evidence_id": "EV-007",
       "source_file_instance_id": "5f652dd0aa52e54f",
       "page_number": 2,
-      "printed_page_label": "2/3",
+      "printed_page_label": "Page 2 of 3",
       "section": "required_actions_and_compliance_times",
-      "section_raw": "Required Action(s) and Compliance Time(s)",
+      "section_raw": "Required Action(s)",
       "clause_path": "compliance",
-      "exact_quote": "Required Action(s) Required as indicated, unless accomplished previously: and Compliance (1) Within 750 flight cycles or 750 flight hours or 4 months, whichever occurs Time(s): first after the effective date of this AD, accomplish a DI of the left-hand (LH) and right-hand (RH) sliding windows and sliding window seals in order to identify the P/N of each window and seal in accordance with the instructions of Airbus Service Bulletin (SB) A320-56-1016. A review of aeroplane maintenance records is acceptable to make this determination, in lieu of the instructions of Airbus SB A320-56-1016, if the P/N and manufacturing dates of the installed sliding windows and sliding window seals can be conclusively identified from that review. (2) If, during the DI as required by paragraph (1) of this AD, a sliding window P/N is identified as listed in Table 1 of this AD without modification amendment M, and sliding window seals P/N 22-17-7640-1 or P/N 22-17- 7640-2 are installed, before next flight, modify the sliding window seal in accordance with the instructions of Airbus SB A320-56-1015. Table 1 – Affected PPG Sliding Windows P/N LH RH NP165312-1 NP165312-2 NP165312-3 NP165312-4 NP165312-5 NP165312-6 NP165312-7 NP165312-8 NP165312-9 NP165312-10 NP165312-11 NP165312-12 (3) For sliding windows, identified as affected as required by paragraph (2) of this AD, replacement of a sliding windows seal P/N 22-17-7640-1 (LH) or P/N 22-17-7640-2 (RH) with a seal P/N 22-17-7640-3 (LH) or P/N 22-17- 7640-4 (RH), respectively, is an acceptable alternative method to comply with the modification requirement of paragraph (2) of this AD. The replacement of the window seals can be accomplished in accordance with the sliding window installation/removal instructions as provided in the Airbus A318/A319/A320/A321 Aircraft Maintenance Manual, sub section 56-12-11, Page Block 401. (4) Aeroplanes on which Airbus modification 153512 (installation of sliding window with P/N NP165312-13 and NP165312-14 with improved seal) or modification 153534 (installation of sliding window with P/N NP165312-11 and NP165312-12 with amendment M) has been embodied in production are not affected by the requirements of paragraphs (1) and (2) of this AD, provided that no sliding window or sliding window seal has been replaced since first flight. (5) Aeroplanes on which Airbus modification 39587 (installation of affected seal on PPG sliding windows) has not been embodied in production are not affected by the requirements of paragraphs (1) and (2) of this AD, provided that no sliding window or sliding window seal has been replaced since first flight. (6) From the effective date of this AD, do not install on an aeroplane any PPG sliding window with a P/N listed in Table 1 of this AD with a seal having P/N 22-17-7640-1 or P/N 22-17-7640-2, unless the seal has been modified in accordance with the instructions of Airbus SB A320-56-1015, or PPG SB 165312-56-001.",
+      "exact_quote": "Required Action(s) Required as indicated, unless accomplished previously: and Compliance (1) Within 750 flight cycles or 750 flight hours or 4 months, whichever occurs Time(s): first after the effective date of this AD, accomplish a DI of the left-hand (LH) and right-hand (RH) sliding windows and sliding window seals in order to identify the P/N of each window and seal in accordance with the instructions of Airbus Service Bulletin (SB) A320-56-1016. A review of aeroplane maintenance records is acceptable to make this determination, in lieu of the instructions of Airbus SB A320-56-1016, if the P/N and manufacturing dates of the installed sliding windows and sliding window seals can be conclusively identified from that review. (2) If, during the DI as required by paragraph (1) of this AD, a sliding window P/N is identified as listed in Table 1 of this AD without modification amendment M, and sliding window seals P/N 22-17-7640-1 or P/N 22-17- 7640-2 are installed, before next flight, modify the sliding window seal in accordance with the instructions of Airbus SB A320-56-1015. Table 1 – Affected PPG Sliding Windows P/N LH RH NP165312-1 NP165312-2 NP165312-3 NP165312-4 NP165312-5 NP165312-6 NP165312-7 NP165312-8 NP165312-9 NP165312-10 NP165312-11 NP165312-12 (3) For sliding windows, identified as affected as required by paragraph (2) of this AD, replacement of a sliding windows seal P/N 22-17-7640-1 (LH) or P/N 22-17-7640-2 (RH) with a seal P/N 22-17-7640-3 (LH) or P/N 22-17- 7640-4 (RH), respectively, is an acceptable alternative method to comply with the modification requirement of paragraph (2) of this AD. The replacement of the window seals can be accomplished in accordance with the sliding window installation/removal instructions as provided in the Airbus A318/A319/A320/A321 Aircraft Maintenance Manual, sub section 56-12-11, Page Block 401. (4) Aeroplanes on which Airbus modification 153512 (installation of sliding window with P/N NP165312-13 and NP165312-14 with improved seal) or modification 153534 (installation of sliding window with P/N NP165312-11 and NP165312-12 with amendment M) has been embodied in production are not affected by the requirements of paragraphs (1) and (2) of this AD, provided that no sliding window or sliding window seal has been replaced since first flight. (5) Aeroplanes on which Airbus modification 39587 (installation of affected seal on PPG sliding windows) has not been embodied in production are not affected by the requirements of paragraphs (1) and (2) of this AD, provided that no sliding window or sliding window seal has been replaced since first flight. (6) From the effective date of this AD, do not install on an aeroplane any PPG sliding window with a P/N listed in Table 1 of this AD with a seal having P/N 22-17-7640-1 or P/N 22-17-7640-2, unless the seal has been modified in accordance with the instructions of Airbus SB A320-56-1015, or PPG SB 165312-56-001. Ref. Publications:",
       "start_char": null,
       "end_char": null,
       "page_text_sha256": "e74e10fbfb801cf9dfe986bccc4d4839fd99ea2567a151af7b30e9d5b125cf0d",
@@ -761,9 +761,9 @@
       "evidence_id": "EV-008",
       "source_file_instance_id": "5f652dd0aa52e54f",
       "page_number": 2,
-      "printed_page_label": "2/3",
+      "printed_page_label": "Page 2 of 3",
       "section": "table",
-      "section_raw": "Table/appendix-dependent requirement source",
+      "section_raw": "Table 1",
       "clause_path": null,
       "exact_quote": "EASA AD No.: 2013-0011 Required Action(s) Required as indicated, unless accomplished previously: and Compliance (1) Within 750 flight cycles or 750 flight hours or 4 months, whichever occurs Time(s): first after the effective date of this AD, accomplish a DI of the left-hand (LH) and right-hand (RH) sliding windows and sliding window seals in order to identify the P/N of each window and seal in accordance with the instructions of Airbus Service Bulletin (SB) A320-56-1016. A review of aeroplane maintenance records is acceptable to make this determination, in lieu of the instructions of Airbus SB A320-56-1016, if the P/N and manufacturing dates of the installed sliding windows and sliding window seals can be conclusively identified from that review. (2) If, during the DI as required by paragraph (1) of this AD, a sliding window P/N is identified as listed in Table 1 of this AD without modification amendment M, and sliding window seals P/N 22-17-7640-1 or P/N 22-17- 7640-2 are installed, before next flight, modify the sliding window seal in accordance with the instructions of Airbus SB A320-56-1015. Table 1 – Affected PPG Sliding Windows P/N LH RH NP165312-1 NP165312-2 NP165312-3 NP165312-4 NP165312-5 NP165312-6 NP165312-7 NP165312-8 NP165312-9 NP165312-10 NP165312-11 NP165312-12 (3) For sliding windows, identified as affected as required by paragraph (2) of this AD, replacement of a sliding windows seal P/N 22-17-7640-1 (LH) or P/N 22-17-7640-2 (RH) with a seal P/N 22-17-7640-3 (LH) or P/N 22-17- 7640-4 (RH), respectively, is an acceptable alternative method to comply with the modification requirement of paragraph (2) of this AD. The replacement of the window seals can be accomplished in accordance with the sliding window installation/removal instructions as provided in the Airbus A318/A319/A320/A321 Aircraft Maintenance Manual, sub section 56-12-11, Page Block 401. (4) Aeroplanes on which Airbus modification 153512 (installation of sliding window with P/N NP165312-13 and NP165312-14 with improved seal) or modification 153534 (installation of sliding window with P/N NP165312-11 and NP165312-12 with amendment M) has been embodied in production are not affected by the requirements of paragraphs (1) and (2) of this AD, provided that no sliding window or sliding window seal has been replaced since first flight. (5) Aeroplanes on which Airbus modification 39587 (installation of affected seal on PPG sliding windows) has not been embodied in production are not affected by the requirements of paragraphs (1) and (2) of this AD, provided that no sliding window or sliding window seal has been replaced since first flight. (6) From the effective date of this AD, do not install on an aeroplane any PPG sliding window with a P/N listed in Table 1 of this AD with a seal having P/N 22-17-7640-1 or P/N 22-17-7640-2, unless the seal has been modified in accordance with the instructions of Airbus SB A320-56-1015, or PPG SB 165312-56-001. Ref. Publications: Airbus SB A320-56-1015 original issue dated 14 September 2012. TE.CAP.00110-003 © European Aviation Safety Agency. All rights reserved. 2/3 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet.",
       "start_char": null,
@@ -786,7 +786,7 @@
       "page_number": 3,
       "printed_page_label": "3/3",
       "section": "remarks",
-      "section_raw": "Remarks",
+      "section_raw": "Remarks:",
       "clause_path": "Remarks",
       "exact_quote": "Remarks: 1. If requested and appropriately substantiated, EASA can approve Alternative Methods of Compliance for this AD 2. This AD was posted on 28 November 2012 as PAD 12-154 for consultation until 31 December 2012. The Comment Response Document can be found at http://ad.easa.europa.eu. 3. Enquiries regarding this AD should be referred to the Safety Information Section, Executive Directorate, EASA. E-mail: ADs@easa.europa.eu. 4. For any question concerning the technical content of the requirements in this AD, please contact: AIRBUS – Airworthiness Office – EIAS, Fax +33 5 61 93 44 51, E-mail: account.airworth-eas@airbus.com. TE.CAP.00110-003 © European Aviation Safety Agency. All rights reserved. 3/3 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet.",
       "start_char": null,

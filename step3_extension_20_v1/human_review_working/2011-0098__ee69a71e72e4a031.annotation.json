@@ -43,7 +43,7 @@
     "design_approval_holder": {
       "state": "present",
       "value": "Airbus; The Boeing Company; Fokker Services",
-      "raw_text": "Airbus; The Boeing Company; Fokker Services",
+      "raw_text": "Airbus\nThe Boeing Company\nFokker Services",
       "evidence_ids": [
         "EV-001"
       ]
@@ -255,7 +255,7 @@
       "group_id": "APP-001",
       "label": "Listed Airbus, Boeing, McDonnell Douglas and Fokker aeroplanes equipped with Koito passenger seats",
       "state": "present",
-      "raw_text": "Applicability: This AD applies to the listed Airbus, Boeing, McDonnell Douglas and Fokker aeroplane types and models, all serial numbers, if equipped with any passenger seats manufactured by Koito Industries, including seats modified by a third party after initial delivery, unless a complete certification programme successfully shows that the seats and their installation fully comply with the appropriate certification basis.",
+      "raw_text": "Applicability: This AD applies to the following aeroplane types and models, all serial numbers: Airbus A310 and A300-600, all certified models; Airbus A318, models -111, -112, -121 and -122, Airbus A319, models -111, -112, -113, -114, -115, -131, -132 and -133, Airbus A320, models -111, -211, -212, -214, -215, -216, -231, -232 and -233, Airbus A321, models -111, -112, -131, -211, -212, -213, -231 and -232; Airbus A330, models -201, -202, -203, -223, -243, -301, -302, -303, -321, -322, -323, -341, -342 and -343; Airbus A340, models -211, -212, -213, -311, -312, -313, -541, -542, -642 and -643; Boeing 717-200 Series; Boeing 737-100, -200, -200C, -300, -400, -500, -600, -700, -700C, -800, -900 and -900ER Series; Boeing 747-100, -100B, -100B SUD, -200B, -200C, -300, -400, -400D, -400F SR, and SP Series; Boeing 757 200, -200CB, and -300 Series; Boeing 767-200, -300 and -400ER Series; Boeing 777-200; -200LR, -300, -300ER, and 777F Series; McDonnell Douglas MD-11 and MD-11F; McDonnell Douglas DC-9 Series, MD-88 and MD-90-30; Fokker F27 Marks 100, 200, 300, 400, 500, 600, 700, 050, 0502, and 0604, if equipped with any passenger seats manufactured by Koito Industries, including all seats modified by third party after the initial delivery, unless a complete certification programme to show that the seats and their installation fully comply with the appropriate certification basis is successfully conducted.",
       "aircraft_families": [
         "A300/A310",
         "A318-A321",
@@ -394,10 +394,10 @@
       ],
       "part_numbers": [],
       "configuration_conditions": [
-        "Equipped with passenger seats manufactured by Koito Industries, including seats modified by a third party after initial delivery"
+        "if equipped with any passenger seats manufactured by Koito Industries, including all seats modified by third party after the initial delivery,"
       ],
       "exclusions": [
-        "A complete certification programme has successfully shown that the seats and their installation fully comply with the appropriate certification basis"
+        "unless a complete certification programme to show that the seats and their installation fully comply with the appropriate certification basis is successfully conducted."
       ],
       "boolean_logic": "all",
       "evidence_ids": [
@@ -409,26 +409,26 @@
   "definitions": [],
   "unsafe_condition": {
     "state": "present",
-    "raw_reason_text": "Reason: JCAB identified falsification of static, dynamic and flammability testing, uncontrolled production-data changes, and incomplete Koito records. Examples included fictitious dynamic-test pulse plots, non-representative flammability coupons, and fictitious deformation values. JCAB and EASA concluded that Koito design and manufacturing data must be treated as suspect. Supervised tests confirmed that a high proportion of seat models failed structural, flammability and occupant-injury criteria. The scale and duration of falsification and lack of retained records led EASA to determine that all Koito seats exhibit unsafe conditions of varying degrees. Further structural and flammability testing is needed to determine the risk of each seat model. Seats must be certified, tested under the AD routes, or removed within the applicable deadlines.",
+    "raw_reason_text": "Reason: The Japan Civil Aviation Bureau (JCAB) have informed EASA that a review of the safety of passenger seats manufactured by Koito industries has disclosed discrepancies which include falsification of static, dynamic and flammability testing, as well as uncontrolled changes to production data (material and dimensional). In addition, JCAB confirmed that Koito records, showing evidence of falsification, could not be deemed complete. Examples include:  Fictitious dynamic test pulse plots inserted into test reports following failure to meet required certification requirements.  Flammability test coupons not representative of production parts, for instance by use of alternative adhesive not specified on the approved drawing.  Fictitious deformation values entered in test reports when values exceeded the maximum allowed. JCAB and EASA have concluded that all data (both design and manufacturing) generated by Koito must be treated as suspect. Results from tests performed by Koito with the supervision of JCAB confirmed that a high proportion of seat models failed the requirements for structural, flammability and occupant injury criteria. The level of falsification and the length of time over which the falsification occurred, in combination with the lack of retained records, prompted EASA to deem that all Koito Seats exhibit unsafe conditions of varying degrees. The exact level of airworthiness risk for each seat model can only be determined through further dynamic or static testing (as per the applicable certification basis) and flammability testing. This AD requires the affected seats to be replaced no later than 2 years after the effective date of this AD if no test is performed. However, completion of testing in accordance with the requirements of this AD may allow the seats to remain in service for a longer duration. Two of the involved airframe manufacturers, Airbus and Boeing, may be in a position to assist in complying with the requirements of this AD. This is because many of the seat models affected are similar among different operators, and data gathered to support one seat model may also be used to support other models. Airbus and Boeing have information to show which models are similar to each other, and should be able to assist operators.",
     "observed_events_or_defects": [
-      "Falsified static, dynamic and flammability test evidence and uncontrolled changes to production material and dimensional data.",
-      "Incomplete Koito records and examples of fictitious test plots, non-representative flammability coupons and fictitious deformation values.",
-      "A high proportion of tested Koito seat models failed structural, flammability and occupant-injury requirements."
+      "The Japan Civil Aviation Bureau (JCAB) have informed EASA that a review of the safety of passenger seats manufactured by Koito industries has disclosed discrepancies which include falsification of static, dynamic and flammability testing, as well as uncontrolled changes to production data (material and dimensional).",
+      "In addition, JCAB confirmed that Koito records, showing evidence of falsification, could not be deemed complete.",
+      "Results from tests performed by Koito with the supervision of JCAB confirmed that a high proportion of seat models failed the requirements for structural, flammability and occupant injury criteria."
     ],
     "causes": [
-      "Long-running falsification and uncontrolled production-data changes, combined with incomplete retained records."
+      "The level of falsification and the length of time over which the falsification occurred, in combination with the lack of retained records"
     ],
     "unsafe_conditions": [
-      "All Koito design and manufacturing data must be treated as suspect.",
-      "Koito passenger seats exhibit unsafe conditions of varying degrees, with the exact risk requiring further structural and flammability testing."
+      "JCAB and EASA have concluded that all data (both design and manufacturing) generated by Koito must be treated as suspect.",
+      "The level of falsification and the length of time over which the falsification occurred, in combination with the lack of retained records, prompted EASA to deem that all Koito Seats exhibit unsafe conditions of varying degrees."
     ],
     "potential_consequences": [],
     "affected_components": [
       "Koito Industries passenger seats",
-      "Koito seat-bottom and seat-backrest cushions"
+      "seat cushions (here defined as seat bottom and seat backrest, excluding head and leg rest cushions)"
     ],
     "intended_risk_mitigation": [
-      "Complete an agreed certification programme, remove affected seats, or perform the required flammability and structural testing and remove seats or cushions according to the applicable result-based deadline."
+      "This AD requires the affected seats to be replaced no later than 2 years after the effective date of this AD if no test is performed. However, completion of testing in accordance with the requirements of this AD may allow the seats to remain in service for a longer duration."
     ],
     "evidence_ids": [
       "EV-005",
@@ -449,22 +449,22 @@
         "reporting"
       ],
       "obligation": "conditional",
-      "action_text": "(1.1) Within 2 years after the effective date of this AD, successfully complete a full certification programme showing that the affected passenger seat and its installation comply with the appropriate certification basis; present the programme plan and results to EASA for agreement and show each installed seat conforms to the approved seat design.",
+      "action_text": "(1.1) Successfully complete a full certification programme to show that the passenger seat and its installation comply with the appropriate certification basis. The certification programme plan and results must be presented to EASA for agreement. In addition it must be shown, through a process agreed by EASA, that each seat installed on an aeroplane is in conformance to the approved seat design. Following successful completion of the agreed programme, no further action is required, or",
       "objects_or_components": [
-        "Affected Koito passenger seat and installation"
+        "passenger seat and its installation"
       ],
       "conditions": [
-        "One of paragraphs (1.1), (1.2) or (1.3) must be completed for each affected passenger seat"
+        "(1.1) Successfully complete a full certification programme to show that the passenger seat and its installation comply with the appropriate certification basis."
       ],
       "method_publication_ids": [],
       "compliance_rules": [
         {
           "compliance_id": "CMP-001",
           "state": "present",
-          "raw_text": "(1.1) Within 2 years after the effective date of this AD, successfully complete a full certification programme showing that the affected passenger seat and its installation comply with the appropriate certification basis; present the programme plan and results to EASA for agreement and show each installed seat conforms to the approved seat design.",
+          "raw_text": "(1.1) Successfully complete a full certification programme to show that the passenger seat and its installation comply with the appropriate certification basis. The certification programme plan and results must be presented to EASA for agreement. In addition it must be shown, through a process agreed by EASA, that each seat installed on an aeroplane is in conformance to the approved seat design. Following successful completion of the agreed programme, no further action is required, or",
           "logic": "conditional",
           "conditions": [
-            "One of paragraphs (1.1), (1.2) or (1.3) must be completed for each affected passenger seat"
+            "(1.1) Successfully complete a full certification programme to show that the passenger seat and its installation comply with the appropriate certification basis."
           ],
           "initial_limits": [
             {
@@ -493,7 +493,7 @@
         "state": "present",
         "present": true,
         "scope": "full",
-        "action_text": "Following successful completion of the agreed certification programme, no further action is required for that seat.",
+        "action_text": "Following successful completion of the agreed programme, no further action is required, or",
         "terminates_requirement_ids": [
           "REQ-002",
           "REQ-003",
@@ -528,22 +528,22 @@
         "remove"
       ],
       "obligation": "conditional",
-      "action_text": "(1.2) Within 2 years after the effective date of this AD, remove the affected passenger seat.",
+      "action_text": "(1.2) Remove the seat, or",
       "objects_or_components": [
-        "Affected Koito passenger seat"
+        "the seat"
       ],
       "conditions": [
-        "One of paragraphs (1.1), (1.2) or (1.3) must be completed for each affected passenger seat"
+        "(1.2) Remove the seat, or"
       ],
       "method_publication_ids": [],
       "compliance_rules": [
         {
           "compliance_id": "CMP-002",
           "state": "present",
-          "raw_text": "(1.2) Within 2 years after the effective date of this AD, remove the affected passenger seat.",
+          "raw_text": "(1.2) Remove the seat, or",
           "logic": "conditional",
           "conditions": [
-            "One of paragraphs (1.1), (1.2) or (1.3) must be completed for each affected passenger seat"
+            "(1.2) Remove the seat, or"
           ],
           "initial_limits": [
             {
@@ -592,22 +592,22 @@
         "reporting"
       ],
       "obligation": "conditional",
-      "action_text": "(1.3) Within 2 years after the effective date of this AD, determine whether the affected seat is eligible to remain in service for a longer period by complying with paragraphs (2) and (3), or paragraphs (2) and (4), and present the test/analysis plan and results to EASA for agreement.",
+      "action_text": "(1.3) Determine whether the seat is eligible to remain in service for a longer period in accordance with the relevant requirements of paragraphs (2) and (3) or (2) and (4) of this AD. The test/analysis plan and results, must be presented to EASA for agreement. If it has been demonstrated that the seat may remain in service for a longer period, at any time during that period the seat and its installation may be shown to fully comply with the appropriate certification basis, i.e. paragraph (1.1) above may still be followed.",
       "objects_or_components": [
-        "Affected Koito passenger seat and installation"
+        "seat and its installation"
       ],
       "conditions": [
-        "One of paragraphs (1.1), (1.2) or (1.3) must be completed for each affected passenger seat"
+        "(1.3) Determine whether the seat is eligible to remain in service for a longer period in accordance with the relevant requirements of paragraphs (2) and (3) or (2) and (4) of this AD."
       ],
       "method_publication_ids": [],
       "compliance_rules": [
         {
           "compliance_id": "CMP-003",
           "state": "present",
-          "raw_text": "(1.3) Within 2 years after the effective date of this AD, determine whether the affected seat is eligible to remain in service for a longer period by complying with paragraphs (2) and (3), or paragraphs (2) and (4), and present the test/analysis plan and results to EASA for agreement.",
+          "raw_text": "(1.3) Determine whether the seat is eligible to remain in service for a longer period in accordance with the relevant requirements of paragraphs (2) and (3) or (2) and (4) of this AD. The test/analysis plan and results, must be presented to EASA for agreement. If it has been demonstrated that the seat may remain in service for a longer period, at any time during that period the seat and its installation may be shown to fully comply with the appropriate certification basis, i.e. paragraph (1.1) above may still be followed.",
           "logic": "conditional",
           "conditions": [
-            "One of paragraphs (1.1), (1.2) or (1.3) must be completed for each affected passenger seat"
+            "(1.3) Determine whether the seat is eligible to remain in service for a longer period in accordance with the relevant requirements of paragraphs (2) and (3) or (2) and (4) of this AD."
           ],
           "initial_limits": [
             {
@@ -659,9 +659,9 @@
         "test_or_check"
       ],
       "obligation": "mandatory",
-      "action_text": "(2) Within 3 years after the effective date of this AD, test the seat-bottom and seat-backrest cushions, excluding head- and leg-rest cushions, to determine compliance with CS/JAR/FAR 25.853(c), Appendix F Part II.",
+      "action_text": "(2) Within 3 years after the effective date of this AD perform testing to determine whether the seat cushions (here defined as seat bottom and seat backrest, excluding head and leg rest cushions) comply with CS/JAR/FAR 25.853(c) (i.e. Appendix F Part II).",
       "objects_or_components": [
-        "Koito seat-bottom and seat-backrest cushions"
+        "seat cushions"
       ],
       "conditions": [],
       "method_publication_ids": [],
@@ -669,7 +669,7 @@
         {
           "compliance_id": "CMP-004",
           "state": "present",
-          "raw_text": "(2) Within 3 years after the effective date of this AD, test the seat-bottom and seat-backrest cushions, excluding head- and leg-rest cushions, to determine compliance with CS/JAR/FAR 25.853(c), Appendix F Part II.",
+          "raw_text": "(2) Within 3 years after the effective date of this AD perform testing to determine whether the seat cushions (here defined as seat bottom and seat backrest, excluding head and leg rest cushions) comply with CS/JAR/FAR 25.853(c) (i.e. Appendix F Part II).",
           "logic": "single",
           "conditions": [],
           "initial_limits": [
@@ -720,22 +720,22 @@
         "remove"
       ],
       "obligation": "conditional",
-      "action_text": "(2.1) Remove Koito Industries seat cushions that are not shown to comply with the flammability testing required by CS/JAR/FAR 25.853(c), Appendix F Part II.",
+      "action_text": "(2.1) Remove Koito Industries seat cushions that are not shown to be compliant with the flammability testing defined by CS/JAR/FAR 25.853(c) (i.e. Appendix F Part II).",
       "objects_or_components": [
-        "Non-compliant Koito seat cushions"
+        "seat cushions"
       ],
       "conditions": [
-        "Seat cushions are not shown to comply with CS/JAR/FAR 25.853(c)"
+        "Koito Industries seat cushions that are not shown to be compliant with the flammability testing defined by CS/JAR/FAR 25.853(c) (i.e. Appendix F Part II)."
       ],
       "method_publication_ids": [],
       "compliance_rules": [
         {
           "compliance_id": "CMP-005",
           "state": "present",
-          "raw_text": "(2.1) Remove Koito Industries seat cushions that are not shown to comply with the flammability testing required by CS/JAR/FAR 25.853(c), Appendix F Part II.",
+          "raw_text": "(2.1) Remove Koito Industries seat cushions that are not shown to be compliant with the flammability testing defined by CS/JAR/FAR 25.853(c) (i.e. Appendix F Part II).",
           "logic": "conditional",
           "conditions": [
-            "Non-compliant flammability-test result"
+            "Koito Industries seat cushions that are not shown to be compliant with the flammability testing defined by CS/JAR/FAR 25.853(c) (i.e. Appendix F Part II)."
           ],
           "initial_limits": [
             {
@@ -783,23 +783,23 @@
         "test_or_check"
       ],
       "obligation": "conditional",
-      "action_text": "(3) For aeroplanes required to meet CS/JAR/FAR 25.562, perform dynamic and/or static testing on Koito passenger seats to support the paragraph (1.3) determination.",
+      "action_text": "(3) For aeroplanes required to meet CS/JAR/FAR 25.562 requirements (either by their original Certification Bases or Post TC Modifications) perform dynamic and/or static testing on passenger seats.",
       "objects_or_components": [
-        "Koito passenger seats"
+        "passenger seats"
       ],
       "conditions": [
-        "Aeroplane is required to meet CS/JAR/FAR 25.562",
-        "Paragraph (1.3) route is used"
+        "For aeroplanes required to meet CS/JAR/FAR 25.562 requirements (either by their original Certification Bases or Post TC Modifications)",
+        "paragraphs (2) and (3)"
       ],
       "method_publication_ids": [],
       "compliance_rules": [
         {
           "compliance_id": "CMP-006",
           "state": "present",
-          "raw_text": "(3) For aeroplanes required to meet CS/JAR/FAR 25.562, perform dynamic and/or static testing on Koito passenger seats to support the paragraph (1.3) determination.",
+          "raw_text": "(3) For aeroplanes required to meet CS/JAR/FAR 25.562 requirements (either by their original Certification Bases or Post TC Modifications) perform dynamic and/or static testing on passenger seats.",
           "logic": "conditional",
           "conditions": [
-            "Testing supports the paragraph (1.3) determination"
+            "For aeroplanes required to meet CS/JAR/FAR 25.562 requirements (either by their original Certification Bases or Post TC Modifications)"
           ],
           "initial_limits": [
             {
@@ -851,22 +851,22 @@
         "remove"
       ],
       "obligation": "conditional",
-      "action_text": "(3.1) Within 10 years after the effective date of this AD, remove Koito passenger seats shown to comply with CS/JAR/FAR 25.562(b)(2) and (c)(7).",
+      "action_text": "(3.1) Within 10 years after the effective date of this AD remove Koito Industries passenger seats that have been shown to be compliant to CS/JAR/FAR 25.562(b)(2) and (c)(7), or",
       "objects_or_components": [
-        "Koito passenger seats"
+        "passenger seats"
       ],
       "conditions": [
-        "Seat complies with CS/JAR/FAR 25.562(b)(2) and (c)(7)"
+        "passenger seats that have been shown to be compliant to CS/JAR/FAR 25.562(b)(2) and (c)(7)"
       ],
       "method_publication_ids": [],
       "compliance_rules": [
         {
           "compliance_id": "CMP-007",
           "state": "present",
-          "raw_text": "(3.1) Within 10 years after the effective date of this AD, remove Koito passenger seats shown to comply with CS/JAR/FAR 25.562(b)(2) and (c)(7).",
+          "raw_text": "(3.1) Within 10 years after the effective date of this AD remove Koito Industries passenger seats that have been shown to be compliant to CS/JAR/FAR 25.562(b)(2) and (c)(7), or",
           "logic": "conditional",
           "conditions": [
-            "Specified dynamic-test compliance demonstrated"
+            "passenger seats that have been shown to be compliant to CS/JAR/FAR 25.562(b)(2) and (c)(7)"
           ],
           "initial_limits": [
             {
@@ -914,22 +914,22 @@
         "remove"
       ],
       "obligation": "conditional",
-      "action_text": "(3.2) Within 6 years after the effective date of this AD, remove Koito passenger seats shown to comply with CS/JAR/FAR 25.561(b)(3)(ii) and (b)(3)(iii), but not shown to comply with CS/JAR/FAR 25.562(b)(2) and (c)(7).",
+      "action_text": "(3.2) Within 6 years after the effective date of this AD remove Koito Industries passenger seats that have been shown to be compliant to CS/JAR/FAR 25.561(b)(3)(ii) and (b)(3)(iii) but have not been shown to be compliant to CS/JAR/FAR 25.562(b)(2) and (c)(7), or",
       "objects_or_components": [
-        "Koito passenger seats"
+        "passenger seats"
       ],
       "conditions": [
-        "Seat complies with CS/JAR/FAR 25.561(b)(3)(ii) and (b)(3)(iii) but is not shown to comply with CS/JAR/FAR 25.562(b)(2) and (c)(7)"
+        "passenger seats that have been shown to be compliant to CS/JAR/FAR 25.561(b)(3)(ii) and (b)(3)(iii) but have not been shown to be compliant to CS/JAR/FAR 25.562(b)(2) and (c)(7)"
       ],
       "method_publication_ids": [],
       "compliance_rules": [
         {
           "compliance_id": "CMP-008",
           "state": "present",
-          "raw_text": "(3.2) Within 6 years after the effective date of this AD, remove Koito passenger seats shown to comply with CS/JAR/FAR 25.561(b)(3)(ii) and (b)(3)(iii), but not shown to comply with CS/JAR/FAR 25.562(b)(2) and (c)(7).",
+          "raw_text": "(3.2) Within 6 years after the effective date of this AD remove Koito Industries passenger seats that have been shown to be compliant to CS/JAR/FAR 25.561(b)(3)(ii) and (b)(3)(iii) but have not been shown to be compliant to CS/JAR/FAR 25.562(b)(2) and (c)(7), or",
           "logic": "conditional",
           "conditions": [
-            "Static compliance but no demonstrated dynamic compliance"
+            "passenger seats that have been shown to be compliant to CS/JAR/FAR 25.561(b)(3)(ii) and (b)(3)(iii) but have not been shown to be compliant to CS/JAR/FAR 25.562(b)(2) and (c)(7)"
           ],
           "initial_limits": [
             {
@@ -977,22 +977,22 @@
         "remove"
       ],
       "obligation": "conditional",
-      "action_text": "(3.3) Within 2 years after the effective date of this AD, remove Koito passenger seats for which the specified CS/JAR/FAR 25.561 and 25.562 tests were not performed or the applicable performed tests failed.",
+      "action_text": "(3.3) Within 2 years after the effective date of this AD remove Koito Industries passenger seats for which: i) tests have neither been performed in accordance with CS/JAR/FAR 25.561(b)(3)(ii) and (b)(3)(iii), nor CS/JAR/FAR 25.562(b)(2) and (c)(7), or ii) tests in accordance with CS/JAR/FAR 25.561(b)(3)(ii) and (b)(3)(iii) and have been performed but failed, or iii) tests in accordance with CS/JAR/FAR 25.561(b)(3)(ii) and (b)(3)(iii) have not been performed but tests in accordance with CS/JAR/FAR 25.562(b)(2) and (c)(7) have been performed and have failed.",
       "objects_or_components": [
-        "Koito passenger seats"
+        "passenger seats"
       ],
       "conditions": [
-        "Required structural tests were not performed or applicable tests failed"
+        "passenger seats for which: i) tests have neither been performed in accordance with CS/JAR/FAR 25.561(b)(3)(ii) and (b)(3)(iii), nor CS/JAR/FAR 25.562(b)(2) and (c)(7), or ii) tests in accordance with CS/JAR/FAR 25.561(b)(3)(ii) and (b)(3)(iii) and have been performed but failed, or iii) tests in accordance with CS/JAR/FAR 25.561(b)(3)(ii) and (b)(3)(iii) have not been performed but tests in accordance with CS/JAR/FAR 25.562(b)(2) and (c)(7) have been performed and have failed."
       ],
       "method_publication_ids": [],
       "compliance_rules": [
         {
           "compliance_id": "CMP-009",
           "state": "present",
-          "raw_text": "(3.3) Within 2 years after the effective date of this AD, remove Koito passenger seats for which the specified CS/JAR/FAR 25.561 and 25.562 tests were not performed or the applicable performed tests failed.",
+          "raw_text": "(3.3) Within 2 years after the effective date of this AD remove Koito Industries passenger seats for which: i) tests have neither been performed in accordance with CS/JAR/FAR 25.561(b)(3)(ii) and (b)(3)(iii), nor CS/JAR/FAR 25.562(b)(2) and (c)(7), or ii) tests in accordance with CS/JAR/FAR 25.561(b)(3)(ii) and (b)(3)(iii) and have been performed but failed, or iii) tests in accordance with CS/JAR/FAR 25.561(b)(3)(ii) and (b)(3)(iii) have not been performed but tests in accordance with CS/JAR/FAR 25.562(b)(2) and (c)(7) have been performed and have failed.",
           "logic": "conditional",
           "conditions": [
-            "No acceptable structural-test basis"
+            "passenger seats for which: i) tests have neither been performed in accordance with CS/JAR/FAR 25.561(b)(3)(ii) and (b)(3)(iii), nor CS/JAR/FAR 25.562(b)(2) and (c)(7), or ii) tests in accordance with CS/JAR/FAR 25.561(b)(3)(ii) and (b)(3)(iii) and have been performed but failed, or iii) tests in accordance with CS/JAR/FAR 25.561(b)(3)(ii) and (b)(3)(iii) have not been performed but tests in accordance with CS/JAR/FAR 25.562(b)(2) and (c)(7) have been performed and have failed."
           ],
           "initial_limits": [
             {
@@ -1040,23 +1040,23 @@
         "test_or_check"
       ],
       "obligation": "conditional",
-      "action_text": "(4) For aeroplanes not required to meet CS/JAR/FAR 25.562, perform static testing on Koito passenger seats to support the paragraph (1.3) determination.",
+      "action_text": "(4) For aeroplanes NOT required to meet any CS/JAR/FAR 25.562 requirements (either by their original Certification Bases or Post TC Modifications) perform static testing on passenger seats.",
       "objects_or_components": [
-        "Koito passenger seats"
+        "passenger seats"
       ],
       "conditions": [
-        "Aeroplane is not required to meet CS/JAR/FAR 25.562",
-        "Paragraph (1.3) route is used"
+        "For aeroplanes NOT required to meet any CS/JAR/FAR 25.562 requirements (either by their original Certification Bases or Post TC Modifications)",
+        "paragraphs (2) and (4)"
       ],
       "method_publication_ids": [],
       "compliance_rules": [
         {
           "compliance_id": "CMP-010",
           "state": "present",
-          "raw_text": "(4) For aeroplanes not required to meet CS/JAR/FAR 25.562, perform static testing on Koito passenger seats to support the paragraph (1.3) determination.",
+          "raw_text": "(4) For aeroplanes NOT required to meet any CS/JAR/FAR 25.562 requirements (either by their original Certification Bases or Post TC Modifications) perform static testing on passenger seats.",
           "logic": "conditional",
           "conditions": [
-            "Testing supports the paragraph (1.3) determination"
+            "For aeroplanes NOT required to meet any CS/JAR/FAR 25.562 requirements (either by their original Certification Bases or Post TC Modifications)"
           ],
           "initial_limits": [
             {
@@ -1107,22 +1107,22 @@
         "remove"
       ],
       "obligation": "conditional",
-      "action_text": "(4.1) Within 10 years after the effective date of this AD, remove Koito passenger seats shown to comply with CS/JAR/FAR 25.561(b)(3)(ii) and (b)(3)(iii).",
+      "action_text": "(4.1) Within 10 years after the effective date of this AD remove Koito Industries passenger seats that have been shown to be compliant to CS/JAR/FAR 25.561(b)(3)(ii) and (b)(3)(iii), or",
       "objects_or_components": [
-        "Koito passenger seats"
+        "passenger seats"
       ],
       "conditions": [
-        "Seat complies with CS/JAR/FAR 25.561(b)(3)(ii) and (b)(3)(iii)"
+        "passenger seats that have been shown to be compliant to CS/JAR/FAR 25.561(b)(3)(ii) and (b)(3)(iii)"
       ],
       "method_publication_ids": [],
       "compliance_rules": [
         {
           "compliance_id": "CMP-011",
           "state": "present",
-          "raw_text": "(4.1) Within 10 years after the effective date of this AD, remove Koito passenger seats shown to comply with CS/JAR/FAR 25.561(b)(3)(ii) and (b)(3)(iii).",
+          "raw_text": "(4.1) Within 10 years after the effective date of this AD remove Koito Industries passenger seats that have been shown to be compliant to CS/JAR/FAR 25.561(b)(3)(ii) and (b)(3)(iii), or",
           "logic": "conditional",
           "conditions": [
-            "Specified static-test compliance demonstrated"
+            "passenger seats that have been shown to be compliant to CS/JAR/FAR 25.561(b)(3)(ii) and (b)(3)(iii)"
           ],
           "initial_limits": [
             {
@@ -1170,22 +1170,22 @@
         "remove"
       ],
       "obligation": "conditional",
-      "action_text": "(4.2) Within 2 years after the effective date of this AD, remove Koito passenger seats not shown to comply with CS/JAR/FAR 25.561(b)(3)(ii) and (b)(3)(iii).",
+      "action_text": "(4.2) Within 2 years after the effective date of this AD remove Koito Industries passenger seats that are not shown to be compliant to CS/JAR/FAR 25.561(b)(3)(ii) and (b)(3)(iii).",
       "objects_or_components": [
-        "Koito passenger seats"
+        "passenger seats"
       ],
       "conditions": [
-        "Seat is not shown to comply with CS/JAR/FAR 25.561(b)(3)(ii) and (b)(3)(iii)"
+        "passenger seats that are not shown to be compliant to CS/JAR/FAR 25.561(b)(3)(ii) and (b)(3)(iii)."
       ],
       "method_publication_ids": [],
       "compliance_rules": [
         {
           "compliance_id": "CMP-012",
           "state": "present",
-          "raw_text": "(4.2) Within 2 years after the effective date of this AD, remove Koito passenger seats not shown to comply with CS/JAR/FAR 25.561(b)(3)(ii) and (b)(3)(iii).",
+          "raw_text": "(4.2) Within 2 years after the effective date of this AD remove Koito Industries passenger seats that are not shown to be compliant to CS/JAR/FAR 25.561(b)(3)(ii) and (b)(3)(iii).",
           "logic": "conditional",
           "conditions": [
-            "No acceptable static-test compliance demonstrated"
+            "passenger seats that are not shown to be compliant to CS/JAR/FAR 25.561(b)(3)(ii) and (b)(3)(iii)."
           ],
           "initial_limits": [
             {
@@ -1233,22 +1233,22 @@
         "prohibition"
       ],
       "obligation": "prohibited",
-      "action_text": "(5) After the effective date of this AD, do not install any Koito Industries passenger seat or seat component on any aeroplane unless it complies with this AD; any use outside the expressly permitted continued-use, direct-spare or rearrangement cases is a new installation approval and must comply with all regulations.",
+      "action_text": "(5) After the effective date of this AD, do not install any Koito Industries passenger seat or seat component on any aeroplane, unless in compliance with the requirements of this AD. Koito Industries passenger seats that successfully complete the relevant requirements of paragraphs (3) or (4) of this AD are permitted to remain in service for the defined length of time but are limited in how they can be used as follows:",
       "objects_or_components": [
-        "Koito passenger seats and seat components"
+        "passenger seat or seat component"
       ],
       "conditions": [
-        "Unless compliant with this AD"
+        "unless in compliance with the requirements of this AD."
       ],
       "method_publication_ids": [],
       "compliance_rules": [
         {
           "compliance_id": "CMP-013",
           "state": "present",
-          "raw_text": "(5) After the effective date of this AD, do not install any Koito Industries passenger seat or seat component on any aeroplane unless it complies with this AD; any use outside the expressly permitted continued-use, direct-spare or rearrangement cases is a new installation approval and must comply with all regulations.",
+          "raw_text": "(5) After the effective date of this AD, do not install any Koito Industries passenger seat or seat component on any aeroplane, unless in compliance with the requirements of this AD. Koito Industries passenger seats that successfully complete the relevant requirements of paragraphs (3) or (4) of this AD are permitted to remain in service for the defined length of time but are limited in how they can be used as follows:",
           "logic": "conditional",
           "conditions": [
-            "Installation or use of Koito seat/seat component"
+            "unless in compliance with the requirements of this AD."
           ],
           "initial_limits": [
             {
@@ -1256,7 +1256,7 @@
               "relation": "after",
               "quantity": null,
               "unit": "other",
-              "raw_value": "After the effective date of this AD",
+              "raw_value": "after the effective date of this AD",
               "reference_event": "effective date of this AD",
               "calendar_date": null,
               "evidence_ids": [
@@ -1299,22 +1299,22 @@
         "other"
       ],
       "obligation": "conditional",
-      "action_text": "(6) For seats affected by this AD, any design change other than wear-out replacement parts such as food trays, arm-rest covers and other non-structural members must be discussed with EASA.",
+      "action_text": "(6) Design Changes to Seats Wear-out component replacement parts such as food trays, arm rest covers, and other non-structural members may be approved by minor modification and installed on seats affected by this AD, until the compliance time as specified in this AD. Any other category of change (e.g. In-Flight Entertainment upgrade) must be discussed with EASA.",
       "objects_or_components": [
-        "Design changes to affected Koito seats"
+        "Design Changes to Seats"
       ],
       "conditions": [
-        "Design change is not a wear-out non-structural replacement part"
+        "Any other category of change (e.g. In-Flight Entertainment upgrade) must be discussed with EASA."
       ],
       "method_publication_ids": [],
       "compliance_rules": [
         {
           "compliance_id": "CMP-014",
           "state": "present",
-          "raw_text": "(6) For seats affected by this AD, any design change other than wear-out replacement parts such as food trays, arm-rest covers and other non-structural members must be discussed with EASA.",
+          "raw_text": "(6) Design Changes to Seats Wear-out component replacement parts such as food trays, arm rest covers, and other non-structural members may be approved by minor modification and installed on seats affected by this AD, until the compliance time as specified in this AD. Any other category of change (e.g. In-Flight Entertainment upgrade) must be discussed with EASA.",
           "logic": "conditional",
           "conditions": [
-            "Any other category of design change, such as an in-flight-entertainment upgrade"
+            "Any other category of change (e.g. In-Flight Entertainment upgrade) must be discussed with EASA."
           ],
           "initial_limits": [],
           "is_repetitive": false,
@@ -1342,7 +1342,7 @@
   "exceptions": [
     {
       "exception_id": "EXC-001",
-      "text": "Koito seats that successfully complete the applicable paragraph (3) or (4) requirements may remain installed for the defined period.",
+      "text": "Koito Industries passenger seats that successfully complete the relevant requirements of paragraphs (3) or (4) of this AD are permitted to remain in service for the defined length of time but are limited in how they can be used as follows: i) They may remain installed on the aeroplane;",
       "applies_to_requirement_ids": [
         "REQ-013"
       ],
@@ -1353,7 +1353,7 @@
     },
     {
       "exception_id": "EXC-002",
-      "text": "New seats/components and seats/components removed from service may be installed as direct spares for the same part number seats or components.",
+      "text": "New seats/components and seats/components removed from service may be installed as direct spares for the same part number seats or components;",
       "applies_to_requirement_ids": [
         "REQ-013"
       ],
@@ -1363,7 +1363,7 @@
     },
     {
       "exception_id": "EXC-003",
-      "text": "Existing installed seats may be rearranged using the same installation instructions and limitations as the original certification.",
+      "text": "Re-arrangement of the existing installed seats is acceptable following the same installation instructions and limitations as the original certification (e.g., if the original limitations allowed 32” to 34” pitch, the new layout shall be pitched within that range);",
       "applies_to_requirement_ids": [
         "REQ-013"
       ],
@@ -1373,7 +1373,7 @@
     },
     {
       "exception_id": "EXC-004",
-      "text": "Wear-out replacement parts such as food trays, arm-rest covers and other non-structural members may be approved by minor modification and installed until the applicable compliance time.",
+      "text": "Wear-out component replacement parts such as food trays, arm rest covers, and other non-structural members may be approved by minor modification and installed on seats affected by this AD, until the compliance time as specified in this AD.",
       "applies_to_requirement_ids": [
         "REQ-014"
       ],
@@ -1390,9 +1390,9 @@
       "entry_id": "AMC-001",
       "entry_type": "amoc_authority",
       "authority_or_organization": "EASA",
-      "contact_text": "Remarks: 1. If requested and appropriately substantiated, EASA can approve Alternative Methods of Compliance for this AD. 2. This AD was posted on 22 September 2010 as PAD 10-101 for consultation until 17 November 2010. The Comment Response Document can be found at http://ad.easa.europa.eu/. 3. Enquiries regarding this AD should be referred to the Airworthiness Directives, Safety Management & Research Section, Certification Directorate, EASA. E-mail ADs@easa.europa.eu. 4. For any question concerning the technical content of the requirements in this AD, please contact: AIRBUS SAS – Airworthiness Office – Fax +33 5 61 93 44 51, E-mail: account.airworth-eas@airbus.com; airworthiness.A330-A340@airbus.com ; account.airworth-A380@airbus.com. Boeing Commercial Airplanes, Attention: Data & Services Management, P.O. Box 3707, MC 2H-65, Seattle, Washington 98124-2207; telephone 206-544-5000, extension 1; fax 206-766-5680; E-mail: me.boecom@boeing.com ; Internet https://www.myboeingfleet.com. Fokker Services B.V., Technical Services Dept., P.O. Box 231, 2150 AE Nieuw-Vennep, The Netherlands; telephone (31) 252-627-350; facsimile (31) 252-627-211; E-mail: technicalservices.fokkerservices@fokker.com. EASA Form 110 Page 6/6",
+      "contact_text": "1. If requested and appropriately substantiated, EASA can approve Alternative Methods of Compliance for this AD.",
       "conditions": [
-        "Requested and appropriately substantiated"
+        "requested and appropriately substantiated"
       ],
       "evidence_ids": [
         "EV-012"
@@ -1402,7 +1402,7 @@
       "entry_id": "AMC-002",
       "entry_type": "regulatory_contact",
       "authority_or_organization": "EASA and the technical contact stated in the AD",
-      "contact_text": "Remarks: 1. If requested and appropriately substantiated, EASA can approve Alternative Methods of Compliance for this AD. 2. This AD was posted on 22 September 2010 as PAD 10-101 for consultation until 17 November 2010. The Comment Response Document can be found at http://ad.easa.europa.eu/. 3. Enquiries regarding this AD should be referred to the Airworthiness Directives, Safety Management & Research Section, Certification Directorate, EASA. E-mail ADs@easa.europa.eu. 4. For any question concerning the technical content of the requirements in this AD, please contact: AIRBUS SAS – Airworthiness Office – Fax +33 5 61 93 44 51, E-mail: account.airworth-eas@airbus.com; airworthiness.A330-A340@airbus.com ; account.airworth-A380@airbus.com. Boeing Commercial Airplanes, Attention: Data & Services Management, P.O. Box 3707, MC 2H-65, Seattle, Washington 98124-2207; telephone 206-544-5000, extension 1; fax 206-766-5680; E-mail: me.boecom@boeing.com ; Internet https://www.myboeingfleet.com. Fokker Services B.V., Technical Services Dept., P.O. Box 231, 2150 AE Nieuw-Vennep, The Netherlands; telephone (31) 252-627-350; facsimile (31) 252-627-211; E-mail: technicalservices.fokkerservices@fokker.com. EASA Form 110 Page 6/6",
+      "contact_text": "3. Enquiries regarding this AD should be referred to the Airworthiness Directives, Safety Management & Research Section, Certification Directorate, EASA. E-mail ADs@easa.europa.eu. 4. For any question concerning the technical content of the requirements in this AD, please contact: AIRBUS SAS – Airworthiness Office – Fax +33 5 61 93 44 51, E-mail: account.airworth-eas@airbus.com; airworthiness.A330-A340@airbus.com; account.airworth-A380@airbus.com. Boeing Commercial Airplanes, Attention: Data & Services Management, P.O. Box 3707, MC 2H-65, Seattle, Washington 98124-2207; telephone 206-544-5000, extension 1; fax 206-766-5680; E-mail: me.boecom@boeing.com; Internet https://www.myboeingfleet.com. Fokker Services B.V., Technical Services Dept., P.O. Box 231, 2150 AE Nieuw-Vennep, The Netherlands; telephone (31) 252-627-350; facsimile (31) 252-627-211; E-mail: technicalservices.fokkerservices@fokker.com.",
       "conditions": [],
       "evidence_ids": [
         "EV-012"
@@ -1451,7 +1451,7 @@
       "page_number": 1,
       "printed_page_label": "1/6",
       "section": "cover",
-      "section_raw": "Cover identity and publication",
+      "section_raw": "Airworthiness Directive",
       "clause_path": "cover",
       "exact_quote": "EASA AD No : 2011–0098 EASA AIRWORTHINESS DIRECTIVE AD No.: 2011–0098 Date: 02 June 2011 Note: This Airworthiness Directive (AD) is issued by EASA, acting in accordance with Regulation (EC) No 216/2008 on behalf of the European Community, its Member States and of the European third countries that participate in the activities of EASA under Article 66 of that Regulation. This AD is issued in accordance with EC 1702/2003, Part 21A.3B. In accordance with EC 2042/2003 Annex I, Part M.A.301, the continuing airworthiness of an aircraft shall be ensured by accomplishing any applicable ADs. Consequently, no person may operate an aircraft to which an AD applies, except in accordance with the requirements of that AD unless otherwise specified by the Agency [EC 2042/2003 Annex I, Part M.A.303] or agreed with the Authority of the State of Registry [EC 216/2008, Article 14(4) exemption]. Type Approval Holder’s Name : Type/Model designation(s) : Airbus A300, A310, A318, A319, A320, A321, A330 and A340 aeroplanes The Boeing Company 717, 737, 747, 757, 767, 777 , MD-11, DC-9, MD-88 and MD-90 aeroplanes Fokker Services F27 aeroplanes TCDS Numbers : DGAC France 145, EASA.A.004, EASA.A.015, EASA.A.064, EASA.IM.A.003, EASA.IM.A.035, EASA.IM.A.120, EASA.IM.A.196, EASA.IM.A.211, FAA A6WE, FAA A2NM, FAA A22WE and EASA.A.036 Foreign AD : None Supersedure : None ATA 25 Equipment & Furnishings – Passenger Seat – Replacement Manufacturer(s): Airbus (formerly Airbus Industrie), The Boeing Company (for DC-9, MD-11, MD-88 and MD-90 Series, formerly McDonnell Douglas Corporation), Fokker Services. Applicability: This AD applies to the following aeroplane types and models, all serial numbers: Airbus A310 and A300-600, all certified models; Airbus A318, models -111, -112, -121 and -122, Airbus A319, models -111, -112, -113, -114, -115, -131, -132 and -133, Airbus A320, models -111, -211, -212, -214, -215, -216, -231, -232 and -233, Airbus A321, models -111, -112, -131, -211, -212, -213, -231 and -232; Airbus A330, models -201, -202, -203, -223, -243, -301, -302, -303, -321, -322, -323, -341, -342 and -343; Airbus A340, models -211, -212, -213, -311, -312, -313, -541, -542, -642 and -643; EASA Form 110 Page 1/6",
       "start_char": null,
@@ -1469,7 +1469,7 @@
       "page_number": 1,
       "printed_page_label": "1/6",
       "section": "cover",
-      "section_raw": "Manufacturer(s)",
+      "section_raw": "Manufacturer(s):",
       "clause_path": "Manufacturer(s)",
       "exact_quote": "Manufacturer(s): Airbus (formerly Airbus Industrie), The Boeing Company (for DC-9, MD-11, MD-88 and MD-90 Series, formerly McDonnell Douglas Corporation), Fokker Services.",
       "start_char": null,
@@ -1487,7 +1487,7 @@
       "page_number": 1,
       "printed_page_label": "1/6",
       "section": "applicability",
-      "section_raw": "Applicability",
+      "section_raw": "Applicability:",
       "clause_path": "Applicability",
       "exact_quote": "Applicability: This AD applies to the following aeroplane types and models, all serial numbers: Airbus A310 and A300-600, all certified models; Airbus A318, models -111, -112, -121 and -122, Airbus A319, models -111, -112, -113, -114, -115, -131, -132 and -133, Airbus A320, models -111, -211, -212, -214, -215, -216, -231, -232 and -233, Airbus A321, models -111, -112, -131, -211, -212, -213, -231 and -232; Airbus A330, models -201, -202, -203, -223, -243, -301, -302, -303, -321, -322, -323, -341, -342 and -343; Airbus A340, models -211, -212, -213, -311, -312, -313, -541, -542, -642 and -643; EASA Form 110 Page 1/6",
       "start_char": null,
@@ -1505,7 +1505,7 @@
       "page_number": 2,
       "printed_page_label": "2/6",
       "section": "applicability",
-      "section_raw": "Applicability",
+      "section_raw": "Applicability:",
       "clause_path": "Applicability",
       "exact_quote": "EASA AD No : 2011–0098 Boeing 717-200 Series; Boeing 737-100, -200, -200C, -300, -400, -500, -600, -700, -700C, -800, -900 and -900ER Series; Boeing 747-100, -100B, -100B SUD, -200B, -200C, -300, -400, -400D, -400F SR, and SP Series; Boeing 757 200, -200CB, and -300 Series; Boeing 767-200, -300 and -400ER Series; Boeing 777-200; -200LR, -300, -300ER, and 777F Series; McDonnell Douglas MD-11 and MD-11F; McDonnell Douglas DC-9 Series, MD-88 and MD-90-30; Fokker F27 Marks 100, 200, 300, 400, 500, 600, 700, 050, 0502, and 0604, if equipped with any passenger seats manufactured by Koito Industries, including all seats modified by third party after the initial delivery, unless a complete certification programme to show that the seats and their installation fully comply with the appropriate certification basis is successfully conducted.",
       "start_char": null,
@@ -1523,7 +1523,7 @@
       "page_number": 2,
       "printed_page_label": "2/6",
       "section": "reason",
-      "section_raw": "Reason",
+      "section_raw": "Reason:",
       "clause_path": "Reason",
       "exact_quote": "Reason: The Japan Civil Aviation Bureau (JCAB) have informed EASA that a review of the safety of passenger seats manufactured by Koito industries has disclosed discrepancies which include falsification of static, dynamic and flammability testing, as well as uncontrolled changes to production data (material and dimensional). In addition, JCAB confirmed that Koito records, showing evidence of falsification, could not be deemed complete. Examples include:  Fictitious dynamic test pulse plots inserted into test reports following failure to meet required certification requirements.  Flammability test coupons not representative of production parts, for instance by use of alternative adhesive not specified on the approved drawing.  Fictitious deformation values entered in test reports when values exceeded the maximum allowed. JCAB and EASA have concluded that all data (both design and manufacturing) generated by Koito must be treated as suspect. Results from tests performed by Koito with the supervision of JCAB confirmed that a high proportion of seat models failed the requirements for structural, flammability and occupant injury criteria. The level of falsification and the length of time over which the falsification occurred, in combination with the lack of retained records, prompted EASA to deem that all Koito Seats exhibit unsafe conditions of varying degrees. The exact level of airworthiness risk for each seat model can only be determined through further dynamic or static testing (as per the applicable certification basis) and flammability testing. This AD requires the affected seats to be replaced no later than 2 years after the effective date of this AD if no test is performed. However, completion of testing in accordance with the requirements of this AD may allow the seats to remain in service for a longer duration. Two of the involved airframe manufacturers, Airbus and Boeing, may be in a position to assist in complying with the requirements of this AD. This is because many of the seat models affected are similar among different operators, and data gathered to support one seat model may also be used to support other models. Airbus and Boeing have information to show which models are similar to each other, and should be able to assist operators. EASA Form 110 Page 2/6",
       "start_char": null,
@@ -1541,7 +1541,7 @@
       "page_number": 3,
       "printed_page_label": "3/6",
       "section": "reason",
-      "section_raw": "Reason",
+      "section_raw": "Reason:",
       "clause_path": "Reason",
       "exact_quote": "EASA AD No : 2011–0098",
       "start_char": null,
@@ -1559,7 +1559,7 @@
       "page_number": 6,
       "printed_page_label": "6/6",
       "section": "reference_publications",
-      "section_raw": "Ref. Publications",
+      "section_raw": "Ref. Publications:",
       "clause_path": "Ref. Publications",
       "exact_quote": "Ref. Publications: None",
       "start_char": null,
@@ -1577,7 +1577,7 @@
       "page_number": 3,
       "printed_page_label": "3/6",
       "section": "required_actions_and_compliance_times",
-      "section_raw": "Required Action(s) and Compliance Time(s)",
+      "section_raw": "Required Action(s)",
       "clause_path": "compliance",
       "exact_quote": "Required Action(s) Required as indicated, unless already accomplished: and Compliance (1) Within 2 years after the effective date of this AD, for each affected Time(s): passenger seat, perform one of the following three actions; (1.1) Successfully complete a full certification programme to show that the passenger seat and its installation comply with the appropriate certification basis. The certification programme plan and results must be presented to EASA for agreement. In addition it must be shown, through a process agreed by EASA, that each seat installed on an aeroplane is in conformance to the approved seat design. Following successful completion of the agreed programme, no further action is required, or (1.2) Remove the seat, or (1.3) Determine whether the seat is eligible to remain in service for a longer period in accordance with the relevant requirements of paragraphs (2) and (3) or (2) and (4) of this AD. The test/analysis plan and results, must be presented to EASA for agreement. If it has been demonstrated that the seat may remain in service for a longer period, at any time during that period the seat and its installation may be shown to fully comply with the appropriate certification basis, i.e. paragraph (1.1) above may still be followed. (2) Within 3 years after the effective date of this AD perform testing to determine whether the seat cushions (here defined as seat bottom and seat backrest, excluding head and leg rest cushions) comply with CS/JAR/FAR 25.853(c) (i.e. Appendix F Part II). (2.1) Remove Koito Industries seat cushions that are not shown to be compliant with the flammability testing defined by CS/JAR/FAR 25.853(c) (i.e. Appendix F Part II). Note 1: In order to account for unknown production non-conformities, test articles should be constructed from in-service cushions. The guidance in FAA AC 25.853-1 is applicable. It is also acceptable to test brand new test specimens, provided that it is shown that the in-service cushions consist of foams/ covers which were supplied to Koito and marked by a different production organisation approved by EASA and/or FAA. Test reports issued by any qualified design organisation acceptable to EASA, including Koito under JCAB supervision, will be acceptable. Any tests performed in the Koito seat cushion oil burner test facility before 23rd May 2011 are not acceptable. Replacement cushions for seats installed on aeroplanes required to meet CS/JAR/FAR 25.562 requirements (either by their original Certification Bases or Post TC Modifications) must have consistent seat bottom geometry, stiffness and density (measured according to accepted industry standards) as compared with the cushions they replace. However, compliance with CS/JAR/FAR 25.562(c)(2), i.e. lumbar load, does not need to be shown. EASA Form 110 Page 3/6",
       "start_char": null,
@@ -1593,11 +1593,11 @@
       "evidence_id": "EV-009",
       "source_file_instance_id": "ee69a71e72e4a031",
       "page_number": 4,
-      "printed_page_label": "4/6",
+      "printed_page_label": "Page 4 of 6",
       "section": "required_actions_and_compliance_times",
-      "section_raw": "Required Action(s) and Compliance Time(s)",
+      "section_raw": "Required Action(s)",
       "clause_path": "compliance",
-      "exact_quote": "EASA AD No : 2011–0098 (3) For aeroplanes required to meet CS/JAR/FAR 25.562 requirements (either by their original Certification Bases or Post TC Modifications) perform dynamic and/or static testing on passenger seats. (3.1) Within 10 years after the effective date of this AD remove Koito Industries passenger seats that have been shown to be compliant to CS/JAR/FAR 25.562(b)(2) and (c)(7), or (3.2) Within 6 years after the effective date of this AD remove Koito Industries passenger seats that have been shown to be compliant to CS/JAR/FAR 25.561(b)(3)(ii) and (b)(3)(iii) but have not been shown to be compliant to CS/JAR/FAR 25.562(b)(2) and (c)(7), or (3.3) Within 2 years after the effective date of this AD remove Koito Industries passenger seats for which: i) tests have neither been performed in accordance with CS/JAR/FAR 25.561(b)(3)(ii) and (b)(3)(iii), nor CS/JAR/FAR 25.562(b)(2) and (c)(7), or ii) tests in accordance with CS/JAR/FAR 25.561(b)(3)(ii) and (b)(3)(iii) and have been performed but failed, or iii) tests in accordance with CS/JAR/FAR 25.561(b)(3)(ii) and (b)(3)(iii) have not been performed but tests in accordance with CS/JAR/FAR 25.562(b)(2) and (c)(7) have been performed and have failed. Note 2: With regards to the load factors to be applied when testing to the CS/JAR/FAR 25.561 paragraphs specified above, it is acceptable to consider the airworthiness code amendment included in the original certification basis of the aeroplane or that used for the approval of the Koito Industries seat installation, as appropriate. The use of an EASA Part 21 DOA holder to develop and conduct the test programme (in accordance with their procedures, including the control and oversight of the test facility) will facilitate the EASA approval process. The use of a new build test article is acceptable for static testing. However, in order to account for unknown production non- conformities, test articles for dynamic testing must be seats removed from service or spare seats delivered at the same time as the aeroplane shipset. For test articles consisting of a seat from the fleet (or from spares), conformity checks should confirm aspects such as matching the seat part number to that noted in the test plan, of noting the general condition of the seat, of noting revisions/modifications that have been made to the seat (typically noted on modification placards), and of verifying the date of manufacture. It is not required to test all in-service seat part numbers. The use of similarity is acceptable to show that the results obtained from a chosen test article are valid for other seat part numbers. Koito interface loads reports/test plans/drawings may be used as input data for the similarity analysis. The similarity methodology does not necessarily need to follow standard practice, i.e. all guidelines in FAA AC 25.562-1B, however, the methodology must be agreed with the Agency. EASA Form 110 Page 4/6",
+      "exact_quote": "(3) For aeroplanes required to meet CS/JAR/FAR 25.562 requirements (either by their original Certification Bases or Post TC Modifications) perform dynamic and/or static testing on passenger seats. (3.1) Within 10 years after the effective date of this AD remove Koito Industries passenger seats that have been shown to be compliant to CS/JAR/FAR 25.562(b)(2) and (c)(7), or (3.2) Within 6 years after the effective date of this AD remove Koito Industries passenger seats that have been shown to be compliant to CS/JAR/FAR 25.561(b)(3)(ii) and (b)(3)(iii) but have not been shown to be compliant to CS/JAR/FAR 25.562(b)(2) and (c)(7), or (3.3) Within 2 years after the effective date of this AD remove Koito Industries passenger seats for which: i) tests have neither been performed in accordance with CS/JAR/FAR 25.561(b)(3)(ii) and (b)(3)(iii), nor CS/JAR/FAR 25.562(b)(2) and (c)(7), or ii) tests in accordance with CS/JAR/FAR 25.561(b)(3)(ii) and (b)(3)(iii) and have been performed but failed, or iii) tests in accordance with CS/JAR/FAR 25.561(b)(3)(ii) and (b)(3)(iii) have not been performed but tests in accordance with CS/JAR/FAR 25.562(b)(2) and (c)(7) have been performed and have failed. Note 2: With regards to the load factors to be applied when testing to the CS/JAR/FAR 25.561 paragraphs specified above, it is acceptable to consider the airworthiness code amendment included in the original certification basis of the aeroplane or that used for the approval of the Koito Industries seat installation, as appropriate. The use of an EASA Part 21 DOA holder to develop and conduct the test programme (in accordance with their procedures, including the control and oversight of the test facility) will facilitate the EASA approval process. The use of a new build test article is acceptable for static testing. However, in order to account for unknown production non- conformities, test articles for dynamic testing must be seats removed from service or spare seats delivered at the same time as the aeroplane shipset. For test articles consisting of a seat from the fleet (or from spares), conformity checks should confirm aspects such as matching the seat part number to that noted in the test plan, of noting the general condition of the seat, of noting revisions/modifications that have been made to the seat (typically noted on modification placards), and of verifying the date of manufacture. It is not required to test all in-service seat part numbers. The use of similarity is acceptable to show that the results obtained from a chosen test article are valid for other seat part numbers. Koito interface loads reports/test plans/drawings may be used as input data for the similarity analysis. The similarity methodology does not necessarily need to follow standard practice, i.e. all guidelines in FAA AC 25.562-1B, however, the methodology must be agreed with the Agency.",
       "start_char": null,
       "end_char": null,
       "page_text_sha256": "1d73415091a909e721283fc9f3e27da42e00c51a16f35db17c94e603a4816777",
@@ -1613,7 +1613,7 @@
       "page_number": 5,
       "printed_page_label": "5/6",
       "section": "required_actions_and_compliance_times",
-      "section_raw": "Required Action(s) and Compliance Time(s)",
+      "section_raw": "Required Action(s)",
       "clause_path": "compliance",
       "exact_quote": "EASA AD No : 2011–0098 The generation of sharp edges or injurious surfaces during the structural testing performed to comply with this AD may also be considered failure criteria. Therefore test results must include full recording of any post-test sharp edges and injurious surfaces. (4) For aeroplanes NOT required to meet any CS/JAR/FAR 25.562 requirements (either by their original Certification Bases or Post TC Modifications) perform static testing on passenger seats. (4.1) Within 10 years after the effective date of this AD remove Koito Industries passenger seats that have been shown to be compliant to CS/JAR/FAR 25.561(b)(3)(ii) and (b)(3)(iii), or (4.2) Within 2 years after the effective date of this AD remove Koito Industries passenger seats that are not shown to be compliant to CS/JAR/FAR 25.561(b)(3)(ii) and (b)(3)(iii). Note 3: With regards to the load factors to be applied when testing to the CS/JAR/FAR 25.561 paragraphs specified above, it is acceptable to consider the airworthiness code amendment included in the original certification basis of the aeroplane or that used for the approval of the Koito Industries seat installation, as appropriate. The use of an EASA Part 21 DOA holder to develop and conduct the test programme (in accordance with their procedures, including the control and oversight of the test facility) will facilitate the EASA approval process. The use of a new build test article is acceptable for static testing. However, if a test article consisting of a seat from the fleet (or from spares) is used, conformity checks should confirm aspects such as matching the seat part number to that noted in the test plan, of noting the general condition of the seat, of noting revisions/modifications that have been made to the seat (typically noted on modification placards), and of verifying the date of manufacture. It is not required to test all in-service seat part numbers. The use of similarity is acceptable to show that the results obtained from a chosen test article are valid for other seat part numbers. Koito Interface Loads Reports/test plans/drawings may be used as input data for the similarity analysis. The similarity methodology must be agreed with EASA. The generation of sharp edges or injurious surfaces during the structural testing performed to comply with this AD may also be considered failure criteria. Therefore test results must include full recording of any post-test sharp edges and injurious surfaces. (5) After the effective date of this AD, do not install any Koito Industries passenger seat or seat component on any aeroplane, unless in compliance with the requirements of this AD. Koito Industries passenger seats that successfully complete the relevant requirements of paragraphs (3) or (4) of this AD are permitted to remain in service for the defined length of time but are limited in how they can be used as follows: EASA Form 110 Page 5/6",
       "start_char": null,
@@ -1631,7 +1631,7 @@
       "page_number": 6,
       "printed_page_label": "6/6",
       "section": "required_actions_and_compliance_times",
-      "section_raw": "Required Action(s) and Compliance Time(s)",
+      "section_raw": "Required Action(s)",
       "clause_path": "compliance",
       "exact_quote": "EASA AD No : 2011–0098 i)They may remain installed on the aeroplane; ii)New seats/components and seats/components removed from service may be installed as direct spares for the same part number seats or components; iii)Re-arrangement of the existing installed seats is acceptable following the same installation instructions and limitations as the original certification (e.g., if the original limitations allowed 32” to 34” pitch, the new layout shall be pitched within that range); Any other use, including installation on aeroplanes that do not have Koito seats installed on the effective date of this AD, would be considered a new installation approval and must comply with all regulations. (6) Design Changes to Seats Wear-out component replacement parts such as food trays, arm rest covers, and other non-structural members may be approved by minor modification and installed on seats affected by this AD, until the compliance time as specified in this AD. Any other category of change (e.g. In-Flight Entertainment upgrade) must be discussed with EASA.",
       "start_char": null,
@@ -1649,7 +1649,7 @@
       "page_number": 6,
       "printed_page_label": "6/6",
       "section": "remarks",
-      "section_raw": "Remarks",
+      "section_raw": "Remarks:",
       "clause_path": "Remarks",
       "exact_quote": "Remarks: 1. If requested and appropriately substantiated, EASA can approve Alternative Methods of Compliance for this AD. 2. This AD was posted on 22 September 2010 as PAD 10-101 for consultation until 17 November 2010. The Comment Response Document can be found at http://ad.easa.europa.eu/. 3. Enquiries regarding this AD should be referred to the Airworthiness Directives, Safety Management & Research Section, Certification Directorate, EASA. E-mail ADs@easa.europa.eu. 4. For any question concerning the technical content of the requirements in this AD, please contact: AIRBUS SAS – Airworthiness Office – Fax +33 5 61 93 44 51, E-mail: account.airworth-eas@airbus.com; airworthiness.A330-A340@airbus.com ; account.airworth-A380@airbus.com. Boeing Commercial Airplanes, Attention: Data & Services Management, P.O. Box 3707, MC 2H-65, Seattle, Washington 98124-2207; telephone 206-544-5000, extension 1; fax 206-766-5680; E-mail: me.boecom@boeing.com ; Internet https://www.myboeingfleet.com. Fokker Services B.V., Technical Services Dept., P.O. Box 231, 2150 AE Nieuw-Vennep, The Netherlands; telephone (31) 252-627-350; facsimile (31) 252-627-211; E-mail: technicalservices.fokkerservices@fokker.com. EASA Form 110 Page 6/6",
       "start_char": null,

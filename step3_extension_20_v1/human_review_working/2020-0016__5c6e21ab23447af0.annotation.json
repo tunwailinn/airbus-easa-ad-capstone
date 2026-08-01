@@ -43,7 +43,7 @@
     "design_approval_holder": {
       "state": "present",
       "value": "Airbus",
-      "raw_text": "Airbus",
+      "raw_text": "AIRBUS",
       "evidence_ids": [
         "EV-001"
       ]
@@ -114,7 +114,7 @@
     "foreign_ad": {
       "state": "explicit_none",
       "value": null,
-      "raw_text": "Foreign AD: None or Not applicable",
+      "raw_text": "Foreign AD: Not applicable",
       "evidence_ids": [
         "EV-001"
       ]
@@ -137,7 +137,7 @@
         {
           "restriction_id": "MSN-001",
           "kind": "all",
-          "raw_expression": "all serial numbers",
+          "raw_expression": "all manufacturer serial numbers",
           "lower_bound": null,
           "upper_bound": null,
           "explicit_values": [],
@@ -160,7 +160,7 @@
     {
       "definition_id": "DEF-001",
       "term": "The SB",
-      "definition_text": "Airbus Service Bulletin A380-36-8047.",
+      "definition_text": "Airbus Service Bulletin (SB) A380-36-8047.",
       "evidence_ids": [
         "EV-004"
       ]
@@ -168,7 +168,7 @@
     {
       "definition_id": "DEF-002",
       "term": "Affected part",
-      "definition_text": "High pressure bleed valve P/N 6863B020001 or P/N 6863B030001.",
+      "definition_text": "High pressure bleed valves (HPV), having Part Number (P/N) 6863B020001 or P/N 6863B030001.",
       "evidence_ids": [
         "EV-004"
       ]
@@ -176,7 +176,7 @@
     {
       "definition_id": "DEF-003",
       "term": "Serviceable part",
-      "definition_text": "An affected part modified in accordance with the SB, or an HPV P/N 6863B040001.",
+      "definition_text": "An affected part which has been modified in accordance with the instructions of the SB, or an HPV having P/N 6863B040001.",
       "evidence_ids": [
         "EV-004"
       ]
@@ -184,7 +184,7 @@
     {
       "definition_id": "DEF-004",
       "term": "Groups",
-      "definition_text": "Group 1 aeroplanes have an affected part installed. Group 2 aeroplanes do not. An aeroplane with Airbus modification 77028 embodied in production is Group 2 while it remains in that configuration.",
+      "definition_text": "Group 1 aeroplanes are those that have an affected part installed. Group 2 aeroplanes are those that do not have an affected part installed. An aeroplane on which Airbus modification 77028 has been embodied in production is a Group 2 aeroplane, provided the aeroplane remains in that configuration.",
       "evidence_ids": [
         "EV-004",
         "EV-005"
@@ -198,21 +198,21 @@
       "Occurrences of HPV clamping pin rupture were reported on in-service aeroplanes."
     ],
     "causes": [
-      "Dynamic solicitation and airflow disturbance introduced by installation of the upstream duct caused the high-pressure-valve clamping pin failure."
+      "Subsequent investigation determined that the dynamic solicitation and airflow disturbance introduced by the installation of the upstream duct have caused this clamping pin failure."
     ],
     "unsafe_conditions": [
-      "High-pressure-valve clamping pin and clip failure can lead to a non-isolated burst in an engine pylon."
+      "if not corrected, could, in case of HPV clip failures, lead to a non-isolated burst in an engine pylon, possibly resulting in damage to the surrounding structure, with consequent reduced structural integrity."
     ],
     "potential_consequences": [
-      "Damage to surrounding structure and reduced structural integrity."
+      "if not corrected, could, in case of HPV clip failures, lead to a non-isolated burst in an engine pylon, possibly resulting in damage to the surrounding structure, with consequent reduced structural integrity."
     ],
     "affected_components": [
-      "Engine bleed-air high pressure valve clamping pin and clip",
-      "Upstream duct",
-      "Engine pylon and surrounding structure"
+      "HPV clamping pin",
+      "upstream duct",
+      "engine pylon"
     ],
     "intended_risk_mitigation": [
-      "Modify affected high pressure bleed valves or replace them with serviceable valves, and prevent later installation of affected valves."
+      "To address this potential unsafe condition, Airbus issued the SB to provide instructions to modify or replace the affected parts."
     ],
     "evidence_ids": [
       "EV-006"
@@ -230,13 +230,13 @@
         "modification"
       ],
       "obligation": "mandatory",
-      "action_text": "(1) For Group 1 aeroplanes, within 6 months after the effective date of this AD, modify all affected parts installed on all engines in accordance with Airbus SB A380-36-8047.",
+      "action_text": "(1) For Group 1 aeroplanes: Within 6 months after the effective date of this AD, modify all affected parts installed on all engines installed on the aeroplane, in accordance with the instructions of the SB.",
       "objects_or_components": [
-        "High pressure bleed valves P/N 6863B020001 and 6863B030001"
+        "all affected parts installed on all engines installed on the aeroplane"
       ],
       "conditions": [
         "Group 1 aeroplane",
-        "Unless accomplished previously"
+        "unless accomplished previously"
       ],
       "method_publication_ids": [
         "PUB-001"
@@ -245,7 +245,7 @@
         {
           "compliance_id": "CMP-001",
           "state": "present",
-          "raw_text": "(1) For Group 1 aeroplanes, within 6 months after the effective date of this AD, modify all affected parts installed on all engines in accordance with Airbus SB A380-36-8047.",
+          "raw_text": "(1) For Group 1 aeroplanes: Within 6 months after the effective date of this AD, modify all affected parts installed on all engines installed on the aeroplane, in accordance with the instructions of the SB.",
           "logic": "single",
           "conditions": [
             "Group 1 aeroplane"
@@ -298,23 +298,23 @@
         "prohibition"
       ],
       "obligation": "prohibited",
-      "action_text": "(3.1) For Group 1 aeroplanes, after completing the modification required by paragraph (1), or the accepted replacement alternative in paragraph (2), do not install an affected part on any engine.",
+      "action_text": "(3) Do not install an affected part on any engine on an aeroplane, as required by paragraph (3.1) or (3.2) of this AD, as applicable. (3.1) For Group 1 aeroplanes: After modification of the aeroplane as required by paragraph (1) of this AD, or as specified in paragraph (2) of this AD, as applicable. (3.2) For Group 2 aeroplanes: From the effective date of this AD.",
       "objects_or_components": [
-        "Affected high pressure bleed valve"
+        "Affected part"
       ],
       "conditions": [
         "Group 1 aeroplane",
-        "After completion of REQ-001 or the accepted replacement alternative"
+        "After modification of the aeroplane as required by paragraph (1) of this AD, or as specified in paragraph (2) of this AD, as applicable."
       ],
       "method_publication_ids": [],
       "compliance_rules": [
         {
           "compliance_id": "CMP-002",
           "state": "present",
-          "raw_text": "(3.1) For Group 1 aeroplanes, after completing the modification required by paragraph (1), or the accepted replacement alternative in paragraph (2), do not install an affected part on any engine.",
+          "raw_text": "(3) Do not install an affected part on any engine on an aeroplane, as required by paragraph (3.1) or (3.2) of this AD, as applicable. (3.1) For Group 1 aeroplanes: After modification of the aeroplane as required by paragraph (1) of this AD, or as specified in paragraph (2) of this AD, as applicable. (3.2) For Group 2 aeroplanes: From the effective date of this AD.",
           "logic": "conditional",
           "conditions": [
-            "After modification or accepted replacement"
+            "After modification of the aeroplane as required by paragraph (1) of this AD, or as specified in paragraph (2) of this AD, as applicable."
           ],
           "initial_limits": [
             {
@@ -322,7 +322,7 @@
               "relation": "after",
               "quantity": null,
               "unit": "other",
-              "raw_value": "After modification or replacement",
+              "raw_value": "After modification",
               "reference_event": "completion of REQ-001 or accepted alternative",
               "calendar_date": null,
               "evidence_ids": [
@@ -362,9 +362,9 @@
         "prohibition"
       ],
       "obligation": "prohibited",
-      "action_text": "(3.2) For Group 2 aeroplanes, from the effective date of this AD, do not install an affected part on any engine.",
+      "action_text": "(3) Do not install an affected part on any engine on an aeroplane, as required by paragraph (3.1) or (3.2) of this AD, as applicable. (3.1) For Group 1 aeroplanes: After modification of the aeroplane as required by paragraph (1) of this AD, or as specified in paragraph (2) of this AD, as applicable. (3.2) For Group 2 aeroplanes: From the effective date of this AD.",
       "objects_or_components": [
-        "Affected high pressure bleed valve"
+        "Affected part"
       ],
       "conditions": [
         "Group 2 aeroplane"
@@ -374,7 +374,7 @@
         {
           "compliance_id": "CMP-003",
           "state": "present",
-          "raw_text": "(3.2) For Group 2 aeroplanes, from the effective date of this AD, do not install an affected part on any engine.",
+          "raw_text": "(3) Do not install an affected part on any engine on an aeroplane, as required by paragraph (3.1) or (3.2) of this AD, as applicable. (3.1) For Group 1 aeroplanes: After modification of the aeroplane as required by paragraph (1) of this AD, or as specified in paragraph (2) of this AD, as applicable. (3.2) For Group 2 aeroplanes: From the effective date of this AD.",
           "logic": "conditional",
           "conditions": [
             "Group 2 aeroplane"
@@ -418,7 +418,7 @@
   "exceptions": [
     {
       "exception_id": "EXC-001",
-      "text": "Replacing all affected parts with serviceable parts on all engines is an acceptable alternative method to comply with REQ-001 for that aeroplane.",
+      "text": "(2) Replacing all affected parts with serviceable parts, as defined in this AD, on all engines installed on an aeroplane is an acceptable alternative method to comply with the requirements of paragraph (1) of this AD for that aeroplane.",
       "applies_to_requirement_ids": [
         "REQ-001"
       ],
@@ -452,9 +452,9 @@
       "entry_id": "AMC-001",
       "entry_type": "amoc_authority",
       "authority_or_organization": "EASA",
-      "contact_text": "Remarks: 1. If requested and appropriately substantiated, EASA can approve Alternative Methods of Compliance for this AD. TE.CAP.00110-009 © European Union Aviation Safety Agency. All rights reserved. ISO9001 Certified. Page 2 of 3 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet. An agency of the European Union EASA AD No.: 2020-0016 2. This AD was posted on 20 December 2019 as PAD 19-219 for consultation until 17 January 2020. The Comment Response Document can be found in the EASA Safety Publications Tool, in the compressed (zipped) file attached to the record for this AD. 3. Enquiries regarding this AD should be referred to the EASA Programming and Continued Airworthiness Information Section, Certification Directorate. E-mail: ADs@easa.europa.eu. 4. Information about any failures, malfunctions, defects or other occurrences, which may be similar to the unsafe condition addressed by this AD, and which may occur, or have occurred on a product, part or appliance not affected by this AD, can be reported to the EU aviation safety reporting system. 5. For any question concerning the technical content of the requirements in this AD, please contact: Airbus – IIANA (Airworthiness Office), Telephone: +33 562 110 253, Fax: +33 562 110 307, E-mail: account.airworth-A380@airbus.com. TE.CAP.00110-009 © European Union Aviation Safety Agency. All rights reserved. ISO9001 Certified. Page 3 of 3 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet. An agency of the European Union",
+      "contact_text": "1. If requested and appropriately substantiated, EASA can approve Alternative Methods of Compliance for this AD.",
       "conditions": [
-        "Requested and appropriately substantiated"
+        "requested and appropriately substantiated"
       ],
       "evidence_ids": [
         "EV-009",
@@ -465,7 +465,7 @@
       "entry_id": "AMC-002",
       "entry_type": "regulatory_contact",
       "authority_or_organization": "EASA and the technical contact stated in the AD",
-      "contact_text": "Remarks: 1. If requested and appropriately substantiated, EASA can approve Alternative Methods of Compliance for this AD. TE.CAP.00110-009 © European Union Aviation Safety Agency. All rights reserved. ISO9001 Certified. Page 2 of 3 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet. An agency of the European Union EASA AD No.: 2020-0016 2. This AD was posted on 20 December 2019 as PAD 19-219 for consultation until 17 January 2020. The Comment Response Document can be found in the EASA Safety Publications Tool, in the compressed (zipped) file attached to the record for this AD. 3. Enquiries regarding this AD should be referred to the EASA Programming and Continued Airworthiness Information Section, Certification Directorate. E-mail: ADs@easa.europa.eu. 4. Information about any failures, malfunctions, defects or other occurrences, which may be similar to the unsafe condition addressed by this AD, and which may occur, or have occurred on a product, part or appliance not affected by this AD, can be reported to the EU aviation safety reporting system. 5. For any question concerning the technical content of the requirements in this AD, please contact: Airbus – IIANA (Airworthiness Office), Telephone: +33 562 110 253, Fax: +33 562 110 307, E-mail: account.airworth-A380@airbus.com. TE.CAP.00110-009 © European Union Aviation Safety Agency. All rights reserved. ISO9001 Certified. Page 3 of 3 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet. An agency of the European Union",
+      "contact_text": "3. Enquiries regarding this AD should be referred to the EASA Programming and Continued Airworthiness Information Section, Certification Directorate. E-mail: ADs@easa.europa.eu. 4. Information about any failures, malfunctions, defects or other occurrences, which may be similar to the unsafe condition addressed by this AD, and which may occur, or have occurred on a product, part or appliance not affected by this AD, can be reported to the EU aviation safety reporting system. 5. For any question concerning the technical content of the requirements in this AD, please contact: Airbus – IIANA (Airworthiness Office), Telephone: +33 562 110 253, Fax: +33 562 110 307, E-mail: account.airworth-A380@airbus.com.",
       "conditions": [],
       "evidence_ids": [
         "EV-009",
@@ -504,9 +504,9 @@
       "page_number": 1,
       "printed_page_label": "Page 1 of 3",
       "section": "cover",
-      "section_raw": "Cover identity and publication",
+      "section_raw": "Airworthiness Directive",
       "clause_path": "cover",
-      "exact_quote": "EASA AD No.: 2020-0016 Airworthiness Directive AD No.: 2020-0016 Issued: 30 January 2020 Note: This Airworthiness Directive (AD) is issued by EASA, acting in accordance with Regulation (EU) 2018/1139 on behalf of the European Union, its Member States and of the European third countries that participate in the activities of EASA under Article 129 of that Regulation. This AD is issued in accordance with Regulation (EU) 748/2012, Part 21.A.3B. In accordance with Regulation (EU) 1321/2014 Annex I, Part M.A.301, the continuing airworthiness of an aircraft shall be ensured by accomplishing any applicable ADs. Consequently, no person may operate an aircraft to which an AD applies, except in accordance with the requirements of that AD, unless otherwise specified by the Agency [Regulation (EU) 1321/2014 Annex I, Part M.A.303] or agreed with the Authority of the State of Registry [Regulation (EU) 2018/1139, Article 71 exemption]. Design Approval Holder’s Name:: Type/Model designation(s): AIRBUS A380 aeroplanes Effective Date: 13 February 2020 TCDS Number(s): EASA.A.110 Foreign AD: Not applicable Supersedure: None ATA 36 – Pneumatic – Engine Bleed Air Supply System High Pressure Valves – Modification / Replacement Manufacturer(s): Airbus Applicability: Airbus A380-841 and A380-842 aeroplanes, all manufacturer serial numbers. Definitions: For the purpose of this AD, the following definitions apply: The SB: Airbus Service Bulletin (SB) A380-36-8047. Affected part: High pressure bleed valves (HPV), having Part Number (P/N) 6863B020001 or P/N 6863B030001. Serviceable part: An affected part which has been modified in accordance with the instructions of the SB, or an HPV having P/N 6863B040001. Groups: Group 1 aeroplanes are those that have an affected part installed. Group 2 aeroplanes are those that do not have an affected part installed. An aeroplane on which Airbus modification 77028 has been embodied in production is a Group 2 aeroplane, provided the aeroplane remains in that configuration. TE.CAP.00110-009 © European Union Aviation Safety Agency. All rights reserved. ISO9001 Certified. Page 1 of 3 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet. An agency of the European Union",
+      "exact_quote": "Airworthiness Directive AD No.: 2020-0016 Issued: 30 January 2020 Note: This Airworthiness Directive (AD) is issued by EASA, acting in accordance with Regulation (EU) 2018/1139 on behalf of the European Union, its Member States and of the European third countries that participate in the activities of EASA under Article 129 of that Regulation. This AD is issued in accordance with Regulation (EU) 748/2012, Part 21.A.3B. In accordance with Regulation (EU) 1321/2014 Annex I, Part M.A.301, the continuing airworthiness of an aircraft shall be ensured by accomplishing any applicable ADs. Consequently, no person may operate an aircraft to which an AD applies, except in accordance with the requirements of that AD, unless otherwise specified by the Agency [Regulation (EU) 1321/2014 Annex I, Part M.A.303] or agreed with the Authority of the State of Registry [Regulation (EU) 2018/1139, Article 71 exemption]. Design Approval Holder’s Name:: Type/Model designation(s): AIRBUS A380 aeroplanes Effective Date: 13 February 2020 TCDS Number(s): EASA.A.110 Foreign AD: Not applicable Supersedure: None ATA 36 – Pneumatic – Engine Bleed Air Supply System High Pressure Valves – Modification / Replacement",
       "start_char": null,
       "end_char": null,
       "page_text_sha256": "4eb34e22fc3b02f78b430b6bc927167d390aaa46d01288a39787ea88283073d5",
@@ -522,7 +522,7 @@
       "page_number": 1,
       "printed_page_label": "Page 1 of 3",
       "section": "cover",
-      "section_raw": "Manufacturer(s)",
+      "section_raw": "Manufacturer(s):",
       "clause_path": "Manufacturer(s)",
       "exact_quote": "Manufacturer(s): Airbus",
       "start_char": null,
@@ -540,7 +540,7 @@
       "page_number": 1,
       "printed_page_label": "Page 1 of 3",
       "section": "applicability",
-      "section_raw": "Applicability",
+      "section_raw": "Applicability:",
       "clause_path": "Applicability",
       "exact_quote": "Applicability: Airbus A380-841 and A380-842 aeroplanes, all manufacturer serial numbers.",
       "start_char": null,
@@ -558,7 +558,7 @@
       "page_number": 1,
       "printed_page_label": "Page 1 of 3",
       "section": "definitions",
-      "section_raw": "Definitions",
+      "section_raw": "Definitions:",
       "clause_path": "Definitions",
       "exact_quote": "Definitions: For the purpose of this AD, the following definitions apply: The SB: Airbus Service Bulletin (SB) A380-36-8047. Affected part: High pressure bleed valves (HPV), having Part Number (P/N) 6863B020001 or P/N 6863B030001. Serviceable part: An affected part which has been modified in accordance with the instructions of the SB, or an HPV having P/N 6863B040001. Groups: Group 1 aeroplanes are those that have an affected part installed. Group 2 aeroplanes are those that do not have an affected part installed. An aeroplane on which Airbus modification 77028 has been embodied in production is a Group 2 aeroplane, provided the aeroplane remains in that configuration. TE.CAP.00110-009 © European Union Aviation Safety Agency. All rights reserved. ISO9001 Certified. Page 1 of 3 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet. An agency of the European Union",
       "start_char": null,
@@ -576,7 +576,7 @@
       "page_number": 2,
       "printed_page_label": "Page 2 of 3",
       "section": "definitions",
-      "section_raw": "Definitions",
+      "section_raw": "Definitions:",
       "clause_path": "Definitions",
       "exact_quote": "EASA AD No.: 2020-0016",
       "start_char": null,
@@ -594,7 +594,7 @@
       "page_number": 2,
       "printed_page_label": "Page 2 of 3",
       "section": "reason",
-      "section_raw": "Reason",
+      "section_raw": "Reason:",
       "clause_path": "Reason",
       "exact_quote": "Reason: Occurrences of HPV clamping pin rupture were reported on in-service aeroplanes. Subsequent investigation determined that the dynamic solicitation and airflow disturbance introduced by the installation of the upstream duct have caused this clamping pin failure. This condition, if not corrected, could, in case of HPV clip failures, lead to a non-isolated burst in an engine pylon, possibly resulting in damage to the surrounding structure, with consequent reduced structural integrity. To address this potential unsafe condition, Airbus issued the SB to provide instructions to modify or replace the affected parts. For the reasons described above, this AD requires modification or replacement of the affected parts.",
       "start_char": null,
@@ -612,7 +612,7 @@
       "page_number": 2,
       "printed_page_label": "Page 2 of 3",
       "section": "reference_publications",
-      "section_raw": "Ref. Publications",
+      "section_raw": "Ref. Publications:",
       "clause_path": "Ref. Publications",
       "exact_quote": "Ref. Publications: Airbus SB A380-36-8047 original issue dated 25 April 2018. The use of later approved revisions of the above-mentioned document is acceptable for compliance with the requirements of this AD.",
       "start_char": null,
@@ -630,7 +630,7 @@
       "page_number": 2,
       "printed_page_label": "Page 2 of 3",
       "section": "required_actions_and_compliance_times",
-      "section_raw": "Required Action(s) and Compliance Time(s)",
+      "section_raw": "Required Action(s) and Compliance Time(s):",
       "clause_path": "compliance",
       "exact_quote": "Required Action(s) and Compliance Time(s): Required as indicated, unless accomplished previously: Modification: (1) For Group 1 aeroplanes: Within 6 months after the effective date of this AD, modify all affected parts installed on all engines installed on the aeroplane, in accordance with the instructions of the SB. Replacement: (2) Replacing all affected parts with serviceable parts, as defined in this AD, on all engines installed on an aeroplane is an acceptable alternative method to comply with the requirements of paragraph (1) of this AD for that aeroplane. Parts Installation: (3) Do not install an affected part on any engine on an aeroplane, as required by paragraph (3.1) or (3.2) of this AD, as applicable. (3.1) For Group 1 aeroplanes: After modification of the aeroplane as required by paragraph (1) of this AD, or as specified in paragraph (2) of this AD, as applicable. (3.2) For Group 2 aeroplanes: From the effective date of this AD.",
       "start_char": null,
@@ -648,7 +648,7 @@
       "page_number": 2,
       "printed_page_label": "Page 2 of 3",
       "section": "remarks",
-      "section_raw": "Remarks",
+      "section_raw": "Remarks:",
       "clause_path": "Remarks",
       "exact_quote": "Remarks: 1. If requested and appropriately substantiated, EASA can approve Alternative Methods of Compliance for this AD. TE.CAP.00110-009 © European Union Aviation Safety Agency. All rights reserved. ISO9001 Certified. Page 2 of 3 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet. An agency of the European Union",
       "start_char": null,
@@ -666,7 +666,7 @@
       "page_number": 3,
       "printed_page_label": "Page 3 of 3",
       "section": "remarks",
-      "section_raw": "Remarks",
+      "section_raw": "Remarks:",
       "clause_path": "Remarks",
       "exact_quote": "EASA AD No.: 2020-0016 2. This AD was posted on 20 December 2019 as PAD 19-219 for consultation until 17 January 2020. The Comment Response Document can be found in the EASA Safety Publications Tool, in the compressed (zipped) file attached to the record for this AD. 3. Enquiries regarding this AD should be referred to the EASA Programming and Continued Airworthiness Information Section, Certification Directorate. E-mail: ADs@easa.europa.eu. 4. Information about any failures, malfunctions, defects or other occurrences, which may be similar to the unsafe condition addressed by this AD, and which may occur, or have occurred on a product, part or appliance not affected by this AD, can be reported to the EU aviation safety reporting system. 5. For any question concerning the technical content of the requirements in this AD, please contact: Airbus – IIANA (Airworthiness Office), Telephone: +33 562 110 253, Fax: +33 562 110 307, E-mail: account.airworth-A380@airbus.com. TE.CAP.00110-009 © European Union Aviation Safety Agency. All rights reserved. ISO9001 Certified. Page 3 of 3 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet. An agency of the European Union",
       "start_char": null,

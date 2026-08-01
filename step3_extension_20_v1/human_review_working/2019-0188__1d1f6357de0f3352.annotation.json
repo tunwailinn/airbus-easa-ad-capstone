@@ -43,7 +43,7 @@
     "design_approval_holder": {
       "state": "present",
       "value": "Airbus",
-      "raw_text": "Airbus",
+      "raw_text": "AIRBUS",
       "evidence_ids": [
         "EV-001"
       ]
@@ -116,7 +116,7 @@
     "foreign_ad": {
       "state": "explicit_none",
       "value": null,
-      "raw_text": "Foreign AD: None or Not applicable",
+      "raw_text": "Foreign AD: Not applicable",
       "evidence_ids": [
         "EV-001"
       ]
@@ -141,7 +141,7 @@
         {
           "restriction_id": "MSN-001",
           "kind": "all",
-          "raw_expression": "all serial numbers",
+          "raw_expression": "all manufacturer serial numbers (MSN)",
           "lower_bound": null,
           "upper_bound": null,
           "explicit_values": [],
@@ -164,7 +164,7 @@
     {
       "definition_id": "DEF-001",
       "term": "The new CMR task",
-      "definition_text": "Variation 1.1 to A300-600 (including A300-600ST) and A310 ALS Part 3 Revision 1, introducing CMR task 291000-00003-1-C, Main and Auxiliary (Hydraulic Power) - Functional Check of Reservoir Air Pressurization Line for Pipe Rupture. AMM task 29-14-00 PB 501 contains instructions to perform the task.",
+      "definition_text": "Variation 1.1 to A300-600 (including A300-600ST) and A310 Airworthiness Limitations Section (ALS) Part 3, Revision 1, introducing the new Certification Maintenance Requirement (CMR) task 291000-00003-1-C \"Main and Auxiliary (Hydraulic Power) - Functional Check of Reservoir Air Pressurization Line for Pipe Rupture\".",
       "evidence_ids": [
         "EV-004"
       ]
@@ -176,16 +176,16 @@
     "observed_events_or_defects": [],
     "causes": [],
     "unsafe_conditions": [
-      "Failure to accomplish the mandatory new CMR functional test could leave a possible air leak in a reservoir air pressurization line undetected."
+      "Failure to accomplish these instructions could result in an unsafe condition."
     ],
     "potential_consequences": [],
     "affected_components": [
-      "Main and auxiliary hydraulic reservoir air pressurization lines",
-      "Reservoir pressure indicators",
-      "Hydraulic pipes, ducts and pressurization lines"
+      "reservoir air pressurization lines",
+      "reservoir pressure indicators",
+      "air pressurization lines"
     ],
     "intended_risk_mitigation": [
-      "Repetitive functional testing of reservoir air pressurization lines for pipe rupture and repair or replacement when the pressure indicators do not reach 3.5 bar (50 PSI)."
+      "For the reason described above, this AD requires repetitive pressurization tests of the reservoir air pressurization lines and, depending on findings, repair or replacement of parts."
     ],
     "evidence_ids": [
       "EV-006"
@@ -203,12 +203,12 @@
         "test_or_check"
       ],
       "obligation": "mandatory",
-      "action_text": "(1) Within 19 months after the effective date of this AD and thereafter at intervals not exceeding 4 000 flight hours, accomplish the new CMR task.",
+      "action_text": "(1) Within 19 months after the effective date of this AD, and, thereafter, at intervals not exceeding 4 000 flight hours, accomplish the new CMR task, as defined in this AD.",
       "objects_or_components": [
-        "Hydraulic reservoir air pressurization lines"
+        "the reservoir air pressurization lines"
       ],
       "conditions": [
-        "Unless accomplished previously"
+        "unless accomplished previously"
       ],
       "method_publication_ids": [
         "PUB-001",
@@ -218,10 +218,10 @@
         {
           "compliance_id": "CMP-001",
           "state": "present",
-          "raw_text": "(1) Within 19 months after the effective date of this AD and thereafter at intervals not exceeding 4 000 flight hours, accomplish the new CMR task.",
+          "raw_text": "(1) Within 19 months after the effective date of this AD, and, thereafter, at intervals not exceeding 4 000 flight hours, accomplish the new CMR task, as defined in this AD.",
           "logic": "single",
           "conditions": [
-            "Unless accomplished previously"
+            "unless accomplished previously"
           ],
           "initial_limits": [
             {
@@ -244,7 +244,7 @@
               "relation": "not_to_exceed",
               "quantity": 4000,
               "unit": "flight_hour",
-              "raw_value": "At intervals not exceeding 4 000 flight hours",
+              "raw_value": "at intervals not exceeding 4 000 flight hours",
               "reference_event": "previous test",
               "calendar_date": null,
               "evidence_ids": [
@@ -286,12 +286,12 @@
         "replacement"
       ],
       "obligation": "conditional",
-      "action_text": "(2) If, during a test required by paragraph (1), the reservoir pressure indicators do not reach 3.5 bar (50 PSI), before next flight identify the leak and repair or replace the affected hydraulic pipe, duct or pressurization line. AMM task 20-23-11 or task 36-11-00, as applicable, is an acceptable method.",
+      "action_text": "(2) If, during any test as required by paragraph (1) of this AD, the reservoir pressure indicators do not reach 3.5 bars (50 PSI), before next flight, identify the leak and repair or replace the affected hydraulic pipes(s) or duct(s), or the affected pressurization line. This can be accomplished in accordance with AMM task 20-23-11 or task 36-11-00, as applicable.",
       "objects_or_components": [
-        "Hydraulic pipes, ducts and pressurization line"
+        "the affected hydraulic pipes(s) or duct(s), or the affected pressurization line"
       ],
       "conditions": [
-        "Reservoir pressure indicators do not reach 3.5 bar (50 PSI) during a test required by REQ-001"
+        "If, during any test as required by paragraph (1) of this AD, the reservoir pressure indicators do not reach 3.5 bars (50 PSI)"
       ],
       "method_publication_ids": [
         "PUB-003",
@@ -301,10 +301,10 @@
         {
           "compliance_id": "CMP-002",
           "state": "present",
-          "raw_text": "(2) If, during a test required by paragraph (1), the reservoir pressure indicators do not reach 3.5 bar (50 PSI), before next flight identify the leak and repair or replace the affected hydraulic pipe, duct or pressurization line. AMM task 20-23-11 or task 36-11-00, as applicable, is an acceptable method.",
+          "raw_text": "(2) If, during any test as required by paragraph (1) of this AD, the reservoir pressure indicators do not reach 3.5 bars (50 PSI), before next flight, identify the leak and repair or replace the affected hydraulic pipes(s) or duct(s), or the affected pressurization line. This can be accomplished in accordance with AMM task 20-23-11 or task 36-11-00, as applicable.",
           "logic": "conditional",
           "conditions": [
-            "Pressure indicators do not reach 3.5 bar (50 PSI)"
+            "If, during any test as required by paragraph (1) of this AD, the reservoir pressure indicators do not reach 3.5 bars (50 PSI)"
           ],
           "initial_limits": [
             {
@@ -312,7 +312,7 @@
               "relation": "before",
               "quantity": null,
               "unit": "before_next_flight",
-              "raw_value": "Before next flight",
+              "raw_value": "before next flight",
               "reference_event": "next flight after the test",
               "calendar_date": null,
               "evidence_ids": [
@@ -418,9 +418,9 @@
       "entry_id": "AMC-001",
       "entry_type": "amoc_authority",
       "authority_or_organization": "EASA",
-      "contact_text": "Remarks: 1. If requested and appropriately substantiated, EASA can approve Alternative Methods of Compliance for this AD. 2. This AD was posted on 21 May 2019 as PAD 19-084 for consultation until 18 June 2019 and republished on 03 July 2019 as PAD 19-084R1 for additional consultation until 17 July 2019. The Comment Response Documents can be found in the EASA Safety Publications Tool, in the compressed (zipped) file attached to the record for this AD. 3. Enquiries regarding this AD should be referred to the EASA Programming and Continued Airworthiness Information Section, Certification Directorate. E-mail: ADs@easa.europa.eu. 4. Information about any failures, malfunctions, defects or other occurrences, which may be similar to the unsafe condition addressed by this AD, and which may occur, or have occurred on a product, part or appliance not affected by this AD, can be reported to the EU aviation safety reporting system. 5. For any question concerning the technical content of the requirements in this AD, please contact: AIRBUS – EIAW (Airworthiness Office) E-mail: continued.airworthiness-wb.external@airbus.com. TE.CAP.00110-009 © European Union Aviation Safety Agency. All rights reserved. ISO9001 Certified. Page 3 of 3 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet. An agency of the European Union",
+      "contact_text": "1. If requested and appropriately substantiated, EASA can approve Alternative Methods of Compliance for this AD.",
       "conditions": [
-        "Requested and appropriately substantiated"
+        "requested and appropriately substantiated"
       ],
       "evidence_ids": [
         "EV-010"
@@ -430,7 +430,7 @@
       "entry_id": "AMC-002",
       "entry_type": "regulatory_contact",
       "authority_or_organization": "EASA and the technical contact stated in the AD",
-      "contact_text": "Remarks: 1. If requested and appropriately substantiated, EASA can approve Alternative Methods of Compliance for this AD. 2. This AD was posted on 21 May 2019 as PAD 19-084 for consultation until 18 June 2019 and republished on 03 July 2019 as PAD 19-084R1 for additional consultation until 17 July 2019. The Comment Response Documents can be found in the EASA Safety Publications Tool, in the compressed (zipped) file attached to the record for this AD. 3. Enquiries regarding this AD should be referred to the EASA Programming and Continued Airworthiness Information Section, Certification Directorate. E-mail: ADs@easa.europa.eu. 4. Information about any failures, malfunctions, defects or other occurrences, which may be similar to the unsafe condition addressed by this AD, and which may occur, or have occurred on a product, part or appliance not affected by this AD, can be reported to the EU aviation safety reporting system. 5. For any question concerning the technical content of the requirements in this AD, please contact: AIRBUS – EIAW (Airworthiness Office) E-mail: continued.airworthiness-wb.external@airbus.com. TE.CAP.00110-009 © European Union Aviation Safety Agency. All rights reserved. ISO9001 Certified. Page 3 of 3 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet. An agency of the European Union",
+      "contact_text": "3. Enquiries regarding this AD should be referred to the EASA Programming and Continued Airworthiness Information Section, Certification Directorate. E-mail: ADs@easa.europa.eu. 4. Information about any failures, malfunctions, defects or other occurrences, which may be similar to the unsafe condition addressed by this AD, and which may occur, or have occurred on a product, part or appliance not affected by this AD, can be reported to the EU aviation safety reporting system. 5. For any question concerning the technical content of the requirements in this AD, please contact: AIRBUS – EIAW (Airworthiness Office) E-mail: continued.airworthiness-wb.external@airbus.com.",
       "conditions": [],
       "evidence_ids": [
         "EV-010"
@@ -471,9 +471,9 @@
       "page_number": 1,
       "printed_page_label": "Page 1 of 3",
       "section": "cover",
-      "section_raw": "Cover identity and publication",
+      "section_raw": "Airworthiness Directive",
       "clause_path": "cover",
-      "exact_quote": "EASA AD No.: 2019-0188 Airworthiness Directive AD No.: 2019-0188 Issued: 31 July 2019 Note: This Airworthiness Directive (AD) is issued by EASA, acting in accordance with Regulation (EU) 2018/1139 on behalf of the European Union, its Member States and of the European third countries that participate in the activities of EASA under Article 129 of that Regulation. This AD is issued in accordance with Regulation (EU) 748/2012, Part 21.A.3B. In accordance with Regulation (EU) 1321/2014 Annex I, Part M.A.301, the continuing airworthiness of an aircraft shall be ensured by accomplishing any applicable ADs. Consequently, no person may operate an aircraft to which an AD applies, except in accordance with the requirements of that AD, unless otherwise specified by the Agency [Regulation (EU) 1321/2014 Annex I, Part M.A.303] or agreed with the Authority of the State of Registry [Regulation (EU) 2018/1139, Article 71 exemption]. Design Approval Holder’s Name: Type/Model designation(s): AIRBUS A310, A300-600 and A300-600ST aeroplanes Effective Date: 31 August 2019 TCDS Number(s): EASA.A.172 and EASA.A.014 Foreign AD: Not applicable Supersedure: None ATA 29 – Hydraulic Power – Hydraulic Reservoir Air Pressurization System Lines – Functional Tests Manufacturer(s): Airbus, formerly Airbus Industrie Applicability: Airbus A300-600 and A310 aeroplanes, all certified models, all manufacturer serial numbers (MSN); and Airbus A300F4-608ST aeroplanes, all MSN (hereafter referred to as A300-600ST in this AD). Definitions: For the purpose of this AD, the following definitions apply: The new CMR task: Variation 1.1 to A300-600 (including A300-600ST) and A310 Airworthiness Limitations Section (ALS) Part 3, Revision 1, introducing the new Certification Maintenance Requirement (CMR) task 291000-00003-1-C \"Main and Auxiliary (Hydraulic Power) - Functional Check of Reservoir Air Pressurization Line for Pipe Rupture\". Note 1: Aircraft Maintenance Manual (AMM) task 29-14-00 PB 501 contains instructions to perform the new CMR task. TE.CAP.00110-009 © European Union Aviation Safety Agency. All rights reserved. ISO9001 Certified. Page 1 of 3 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet. An agency of the European Union",
+      "exact_quote": "Airworthiness Directive AD No.: 2019-0188 Issued: 31 July 2019 Note: This Airworthiness Directive (AD) is issued by EASA, acting in accordance with Regulation (EU) 2018/1139 on behalf of the European Union, its Member States and of the European third countries that participate in the activities of EASA under Article 129 of that Regulation. This AD is issued in accordance with Regulation (EU) 748/2012, Part 21.A.3B. In accordance with Regulation (EU) 1321/2014 Annex I, Part M.A.301, the continuing airworthiness of an aircraft shall be ensured by accomplishing any applicable ADs. Consequently, no person may operate an aircraft to which an AD applies, except in accordance with the requirements of that AD, unless otherwise specified by the Agency [Regulation (EU) 1321/2014 Annex I, Part M.A.303] or agreed with the Authority of the State of Registry [Regulation (EU) 2018/1139, Article 71 exemption]. Design Approval Holder’s Name: Type/Model designation(s): AIRBUS A310, A300-600 and A300-600ST aeroplanes Effective Date: 31 August 2019 TCDS Number(s): EASA.A.172 and EASA.A.014 Foreign AD: Not applicable Supersedure: None ATA 29 – Hydraulic Power – Hydraulic Reservoir Air Pressurization System Lines – Functional Tests",
       "start_char": null,
       "end_char": null,
       "page_text_sha256": "03c61ee564f40a261118f3aed8a16f0cf654e861d8035cb468b548c978ad2f91",
@@ -489,7 +489,7 @@
       "page_number": 1,
       "printed_page_label": "Page 1 of 3",
       "section": "cover",
-      "section_raw": "Manufacturer(s)",
+      "section_raw": "Manufacturer(s):",
       "clause_path": "Manufacturer(s)",
       "exact_quote": "Manufacturer(s): Airbus, formerly Airbus Industrie",
       "start_char": null,
@@ -507,7 +507,7 @@
       "page_number": 1,
       "printed_page_label": "Page 1 of 3",
       "section": "applicability",
-      "section_raw": "Applicability",
+      "section_raw": "Applicability:",
       "clause_path": "Applicability",
       "exact_quote": "Applicability: Airbus A300-600 and A310 aeroplanes, all certified models, all manufacturer serial numbers (MSN); and Airbus A300F4-608ST aeroplanes, all MSN (hereafter referred to as A300-600ST in this AD).",
       "start_char": null,
@@ -525,7 +525,7 @@
       "page_number": 1,
       "printed_page_label": "Page 1 of 3",
       "section": "definitions",
-      "section_raw": "Definitions",
+      "section_raw": "Definitions:",
       "clause_path": "Definitions",
       "exact_quote": "Definitions: For the purpose of this AD, the following definitions apply: The new CMR task: Variation 1.1 to A300-600 (including A300-600ST) and A310 Airworthiness Limitations Section (ALS) Part 3, Revision 1, introducing the new Certification Maintenance Requirement (CMR) task 291000-00003-1-C \"Main and Auxiliary (Hydraulic Power) - Functional Check of Reservoir Air Pressurization Line for Pipe Rupture\". Note 1: Aircraft Maintenance Manual (AMM) task 29-14-00 PB 501 contains instructions to perform the new CMR task. TE.CAP.00110-009 © European Union Aviation Safety Agency. All rights reserved. ISO9001 Certified. Page 1 of 3 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet. An agency of the European Union",
       "start_char": null,
@@ -543,7 +543,7 @@
       "page_number": 2,
       "printed_page_label": "Page 2 of 3",
       "section": "definitions",
-      "section_raw": "Definitions",
+      "section_raw": "Definitions:",
       "clause_path": "Definitions",
       "exact_quote": "EASA AD No.: 2019-0188",
       "start_char": null,
@@ -561,7 +561,7 @@
       "page_number": 2,
       "printed_page_label": "Page 2 of 3",
       "section": "reason",
-      "section_raw": "Reason",
+      "section_raw": "Reason:",
       "clause_path": "Reason",
       "exact_quote": "Reason: The airworthiness limitations for Airbus A300-600, A300-600ST and A310 aeroplanes, which are approved by EASA, are currently defined and published in the A300-600 and A310 ALS documents. The airworthiness limitations applicable to the CMR are published in the ALS Part 3 documents. Failure to accomplish these instructions could result in an unsafe condition. Previously, EASA issued AD 2017-0203 to require accomplishment of all maintenance tasks as described in A300-600 and A310 ALS Part 3 at Revision 1. Since that AD was issued, Airbus published Variation 1.1 to A300-600 ALS Part 3 Revision 01 and Variation 1.1 to A310 ALS Part 3 Revision 01, which introduce the new CMR task as defined in this AD. This new CMR task comprises a functional test of the reservoir air pressurization lines for pipe rupture, to detect any possible air leak. It is expected that Airbus will issue ALS Part 3 Revision 2 for A300-600 and A310 that would incorporate this task. However, since it is not known when this ALS revision will be published, it was decided that early implementation of the new task is necessary. For the reason described above, this AD requires repetitive pressurization tests of the reservoir air pressurization lines and, depending on findings, repair or replacement of parts. It is expected that, when ALS Part 3 Revision 2 is issued, EASA will issue a new AD for that, in which case both EASA AD 2017-0203 and this AD will be superseded.",
       "start_char": null,
@@ -579,7 +579,7 @@
       "page_number": 2,
       "printed_page_label": "Page 2 of 3",
       "section": "reference_publications",
-      "section_raw": "Ref. Publications",
+      "section_raw": "Ref. Publications:",
       "clause_path": "Ref. Publications",
       "exact_quote": "Ref. Publications: Airbus A300-600 (including A300-600ST) ALS Part 3 Revision 1, Variation 1.1 dated 21 February 2019. Airbus A310 ALS Part 3 Revision 1, Variation 1.1 dated 21 February 2019. TE.CAP.00110-009 © European Union Aviation Safety Agency. All rights reserved. ISO9001 Certified. Page 2 of 3 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet. An agency of the European Union",
       "start_char": null,
@@ -597,7 +597,7 @@
       "page_number": 3,
       "printed_page_label": "Page 3 of 3",
       "section": "reference_publications",
-      "section_raw": "Ref. Publications",
+      "section_raw": "Ref. Publications:",
       "clause_path": "Ref. Publications",
       "exact_quote": "EASA AD No.: 2019-0188 The use of later approved revisions or variations of the above-mentioned documents is acceptable for compliance with the requirements of this AD.",
       "start_char": null,
@@ -615,7 +615,7 @@
       "page_number": 2,
       "printed_page_label": "Page 2 of 3",
       "section": "required_actions_and_compliance_times",
-      "section_raw": "Required Action(s) and Compliance Time(s)",
+      "section_raw": "Required Action(s) and Compliance Time(s):",
       "clause_path": "compliance",
       "exact_quote": "Required Action(s) and Compliance Time(s): Required as indicated, unless accomplished previously: Functional Test(s): (1) Within 19 months after the effective date of this AD, and, thereafter, at intervals not exceeding 4 000 flight hours, accomplish the new CMR task, as defined in this AD. Corrective Action(s): (2) If, during any test as required by paragraph (1) of this AD, the reservoir pressure indicators do not reach 3.5 bars (50 PSI), before next flight, identify the leak and repair or replace the affected hydraulic pipes(s) or duct(s), or the affected pressurization line. This can be accomplished in accordance with AMM task 20-23-11 or task 36-11-00, as applicable. Terminating Action: (3) None.",
       "start_char": null,
@@ -633,7 +633,7 @@
       "page_number": 3,
       "printed_page_label": "Page 3 of 3",
       "section": "remarks",
-      "section_raw": "Remarks",
+      "section_raw": "Remarks:",
       "clause_path": "Remarks",
       "exact_quote": "Remarks: 1. If requested and appropriately substantiated, EASA can approve Alternative Methods of Compliance for this AD. 2. This AD was posted on 21 May 2019 as PAD 19-084 for consultation until 18 June 2019 and republished on 03 July 2019 as PAD 19-084R1 for additional consultation until 17 July 2019. The Comment Response Documents can be found in the EASA Safety Publications Tool, in the compressed (zipped) file attached to the record for this AD. 3. Enquiries regarding this AD should be referred to the EASA Programming and Continued Airworthiness Information Section, Certification Directorate. E-mail: ADs@easa.europa.eu. 4. Information about any failures, malfunctions, defects or other occurrences, which may be similar to the unsafe condition addressed by this AD, and which may occur, or have occurred on a product, part or appliance not affected by this AD, can be reported to the EU aviation safety reporting system. 5. For any question concerning the technical content of the requirements in this AD, please contact: AIRBUS – EIAW (Airworthiness Office) E-mail: continued.airworthiness-wb.external@airbus.com. TE.CAP.00110-009 © European Union Aviation Safety Agency. All rights reserved. ISO9001 Certified. Page 3 of 3 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet. An agency of the European Union",
       "start_char": null,

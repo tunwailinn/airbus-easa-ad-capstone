@@ -43,7 +43,7 @@
     "design_approval_holder": {
       "state": "present",
       "value": "Airbus",
-      "raw_text": "Airbus",
+      "raw_text": "AIRBUS",
       "evidence_ids": [
         "EV-001"
       ]
@@ -139,7 +139,7 @@
         {
           "restriction_id": "MSN-001",
           "kind": "all",
-          "raw_expression": "all serial numbers",
+          "raw_expression": "all manufacturer serial numbers",
           "lower_bound": null,
           "upper_bound": null,
           "explicit_values": [],
@@ -161,7 +161,7 @@
       "group_id": "APP-002",
       "label": "A380 replacement applicability excluding production modification 66360",
       "state": "present",
-      "raw_text": "All aeroplanes, except those modified in accordance with Airbus modification 66360.",
+      "raw_text": "All aeroplanes, except those modified in accordance with Airbus mod 66360:",
       "aircraft_families": [
         "A380"
       ],
@@ -174,7 +174,7 @@
         {
           "restriction_id": "MSN-002",
           "kind": "all",
-          "raw_expression": "all serial numbers",
+          "raw_expression": "all",
           "lower_bound": null,
           "upper_bound": null,
           "explicit_values": [],
@@ -188,7 +188,7 @@
       "part_numbers": [],
       "configuration_conditions": [],
       "exclusions": [
-        "Aeroplanes modified in accordance with Airbus modification 66360"
+        "except those modified in accordance with Airbus mod 66360"
       ],
       "boolean_logic": "all",
       "evidence_ids": [
@@ -200,25 +200,25 @@
   "definitions": [],
   "unsafe_condition": {
     "state": "present",
-    "raw_reason_text": "Reason: During type certification pressure-endurance testing of the pneumatic duct system, two pneumatic ducts failed because of fatigue cracking before completion of the endurance test. If not corrected, this could lead to leakage or exceedance of a temperature limit in the inboard outer fixed leading-edge area of the wing and, combined with inability to isolate the affected section from hot-air supply, possibly reduce wing structural integrity. Airbus developed improved parts introduced by modification 66360 and issued SB A380-36-8016 for in-service modification. This AD requires replacement of affected parts with serviceable parts.",
+    "raw_reason_text": "Reason: During type certification activities, involving pressure endurance test of the pneumatic duct system, failure of two pneumatic ducts was experienced. The failures occurred due to fatigue cracking before the completion of the endurance test. This condition, if not corrected, could lead to a leakage or exceedance of a temperature limit in the area of the inboard outer fixed leading edge of the wing and, combined with an inability to isolate the affected section from hot air supply, could possibly result in reduced structural integrity of the wing. To address this potential unsafe condition, Airbus developed improved parts, introduced by Airbus modification (mod) 66360 on the production line, and published Service Bulletin (SB) A380-36-8016 to provide modification instructions for in-service aeroplanes. For the reasons described above, this AD requires replacement of affected parts with serviceable parts.",
     "observed_events_or_defects": [
       "During type certification activities, involving pressure endurance test of the pneumatic duct system, failure of two pneumatic ducts was experienced."
     ],
     "causes": [
-      "Fatigue cracking of pneumatic ducts before completion of the pressure-endurance test."
+      "The failures occurred due to fatigue cracking before the completion of the endurance test."
     ],
     "unsafe_conditions": [
-      "Leakage or temperature-limit exceedance in the inboard outer fixed leading-edge area, combined with inability to isolate the affected section from hot-air supply."
+      "if not corrected, could lead to a leakage or exceedance of a temperature limit in the area of the inboard outer fixed leading edge of the wing and, combined with an inability to isolate the affected section from hot air supply, could possibly result in reduced structural integrity of the wing."
     ],
     "potential_consequences": [
-      "Reduced structural integrity of the wing."
+      "reduced structural integrity of the wing."
     ],
     "affected_components": [
-      "Pneumatic duct assemblies in the inboard outer fixed leading-edge area",
-      "Affected duct assemblies P/N L3615003000000/100 and L3615003100000/100"
+      "pneumatic duct system",
+      "duct assembly"
     ],
     "intended_risk_mitigation": [
-      "Replace affected duct assemblies with the improved serviceable assemblies introduced by Airbus modification 66360."
+      "To address this potential unsafe condition, Airbus developed improved parts, introduced by Airbus modification (mod) 66360 on the production line, and published Service Bulletin (SB) A380-36-8016 to provide modification instructions for in-service aeroplanes."
     ],
     "evidence_ids": [
       "EV-004",
@@ -237,13 +237,13 @@
         "replacement"
       ],
       "obligation": "mandatory",
-      "action_text": "(1) Within 25 months after the effective date of this AD, replace affected duct assembly P/N L3615003000000/100 with P/N L3615023700000/100, and affected duct assembly P/N L3615003100000/100 with P/N L3615023800000/100, in accordance with Airbus SB A380-36-8016.",
+      "action_text": "(1) Within 25 months after the effective date of this AD, replace the duct assembly identified as ‘Affected Part Number (P/N)’ in Table 1 of this AD with a serviceable part identified as ‘Acceptable Replacement P/N‘ in Table 1 of this AD in accordance with the instructions of Airbus SB A380-36-8016.",
       "objects_or_components": [
-        "Duct assembly P/N L3615003000000/100",
-        "Duct assembly P/N L3615003100000/100"
+        "L3615003000000/100",
+        "L3615003100000/100"
       ],
       "conditions": [
-        "Unless accomplished previously"
+        "unless accomplished previously"
       ],
       "method_publication_ids": [
         "PUB-001"
@@ -252,10 +252,10 @@
         {
           "compliance_id": "CMP-001",
           "state": "present",
-          "raw_text": "(1) Within 25 months after the effective date of this AD, replace affected duct assembly P/N L3615003000000/100 with P/N L3615023700000/100, and affected duct assembly P/N L3615003100000/100 with P/N L3615023800000/100, in accordance with Airbus SB A380-36-8016.",
+          "raw_text": "(1) Within 25 months after the effective date of this AD, replace the duct assembly identified as ‘Affected Part Number (P/N)’ in Table 1 of this AD with a serviceable part identified as ‘Acceptable Replacement P/N‘ in Table 1 of this AD in accordance with the instructions of Airbus SB A380-36-8016.",
           "logic": "single",
           "conditions": [
-            "Aeroplane is not modified in accordance with Airbus modification 66360"
+            "except those modified in accordance with Airbus mod 66360"
           ],
           "initial_limits": [
             {
@@ -308,22 +308,22 @@
         "prohibition"
       ],
       "obligation": "prohibited",
-      "action_text": "(2.1) For an aeroplane that has an affected duct assembly installed on the effective date of this AD, after completing the replacement required by paragraph (1), do not install an affected duct assembly P/N listed in Table 1.",
+      "action_text": "(2) Do not install on any aeroplane a duct assembly, having a P/N identified as “Affected P/N” in Table 1 of this AD, as applicable: (2.1) For an aeroplane that, on the effective date of this AD, has a duct assembly having a P/N identified as ‘Affected P/N’ in Table 1 of this AD installed: After accomplishment of a replacement as required by paragraph (1) of this AD. (2.2) For an aeroplane that, on the effective date of this AD, does not have a duct assembly, having a P/N identified as ‘Affected P/N’ in Table 1 of this AD installed: From the effective date of this AD.",
       "objects_or_components": [
-        "Affected duct assembly P/N L3615003000000/100 or L3615003100000/100"
+        "a duct assembly, having a P/N identified as “Affected P/N” in Table 1 of this AD"
       ],
       "conditions": [
-        "Affected duct assembly was installed on the effective date of this AD"
+        "For an aeroplane that, on the effective date of this AD, has a duct assembly having a P/N identified as ‘Affected P/N’ in Table 1 of this AD installed"
       ],
       "method_publication_ids": [],
       "compliance_rules": [
         {
           "compliance_id": "CMP-002",
           "state": "present",
-          "raw_text": "(2.1) For an aeroplane that has an affected duct assembly installed on the effective date of this AD, after completing the replacement required by paragraph (1), do not install an affected duct assembly P/N listed in Table 1.",
+          "raw_text": "(2) Do not install on any aeroplane a duct assembly, having a P/N identified as “Affected P/N” in Table 1 of this AD, as applicable: (2.1) For an aeroplane that, on the effective date of this AD, has a duct assembly having a P/N identified as ‘Affected P/N’ in Table 1 of this AD installed: After accomplishment of a replacement as required by paragraph (1) of this AD. (2.2) For an aeroplane that, on the effective date of this AD, does not have a duct assembly, having a P/N identified as ‘Affected P/N’ in Table 1 of this AD installed: From the effective date of this AD.",
           "logic": "conditional",
           "conditions": [
-            "Affected duct assembly was installed on the effective date"
+            "For an aeroplane that, on the effective date of this AD, has a duct assembly having a P/N identified as ‘Affected P/N’ in Table 1 of this AD installed"
           ],
           "initial_limits": [
             {
@@ -331,7 +331,7 @@
               "relation": "after",
               "quantity": null,
               "unit": "other",
-              "raw_value": "After accomplishment of the replacement required by paragraph (1)",
+              "raw_value": "After accomplishment of a replacement as required by paragraph (1)",
               "reference_event": "replacement required by paragraph (1)",
               "calendar_date": null,
               "evidence_ids": [
@@ -374,22 +374,22 @@
         "prohibition"
       ],
       "obligation": "prohibited",
-      "action_text": "(2.2) For an aeroplane that does not have an affected duct assembly installed on the effective date of this AD, from the effective date of this AD do not install an affected duct assembly P/N listed in Table 1.",
+      "action_text": "(2) Do not install on any aeroplane a duct assembly, having a P/N identified as “Affected P/N” in Table 1 of this AD, as applicable: (2.1) For an aeroplane that, on the effective date of this AD, has a duct assembly having a P/N identified as ‘Affected P/N’ in Table 1 of this AD installed: After accomplishment of a replacement as required by paragraph (1) of this AD. (2.2) For an aeroplane that, on the effective date of this AD, does not have a duct assembly, having a P/N identified as ‘Affected P/N’ in Table 1 of this AD installed: From the effective date of this AD.",
       "objects_or_components": [
-        "Affected duct assembly P/N L3615003000000/100 or L3615003100000/100"
+        "a duct assembly, having a P/N identified as “Affected P/N” in Table 1 of this AD"
       ],
       "conditions": [
-        "No affected duct assembly was installed on the effective date of this AD"
+        "For an aeroplane that, on the effective date of this AD, does not have a duct assembly, having a P/N identified as ‘Affected P/N’ in Table 1 of this AD installed"
       ],
       "method_publication_ids": [],
       "compliance_rules": [
         {
           "compliance_id": "CMP-003",
           "state": "present",
-          "raw_text": "(2.2) For an aeroplane that does not have an affected duct assembly installed on the effective date of this AD, from the effective date of this AD do not install an affected duct assembly P/N listed in Table 1.",
+          "raw_text": "(2) Do not install on any aeroplane a duct assembly, having a P/N identified as “Affected P/N” in Table 1 of this AD, as applicable: (2.1) For an aeroplane that, on the effective date of this AD, has a duct assembly having a P/N identified as ‘Affected P/N’ in Table 1 of this AD installed: After accomplishment of a replacement as required by paragraph (1) of this AD. (2.2) For an aeroplane that, on the effective date of this AD, does not have a duct assembly, having a P/N identified as ‘Affected P/N’ in Table 1 of this AD installed: From the effective date of this AD.",
           "logic": "conditional",
           "conditions": [
-            "No affected duct assembly was installed on the effective date"
+            "For an aeroplane that, on the effective date of this AD, does not have a duct assembly, having a P/N identified as ‘Affected P/N’ in Table 1 of this AD installed"
           ],
           "initial_limits": [
             {
@@ -456,9 +456,9 @@
       "entry_id": "AMC-001",
       "entry_type": "amoc_authority",
       "authority_or_organization": "EASA",
-      "contact_text": "Remarks: 1. If requested and appropriately substantiated, EASA can approve Alternative Methods of Compliance for this AD. 2. This AD was posted on 08 July 2016 as PAD 16-100 for consultation until 05 August 2016 and republished as PAD 16-100R1 on 10 August 2016 for additional consultation until 24 August 2016. The Comment Response Document can be found at http://ad.easa.europa.eu. TE.CAP.00110-005 © European Aviation Safety Agency. All rights reserved. ISO9001 Certified. Page 2 of 3 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet. An agency of the European Union EASA AD No.: 2016-0175 3. Enquiries regarding this AD should be referred to the EASA Safety Information Section, Certification Directorate. E-mail: ADs@easa.europa.eu. 4. For any question concerning the technical content of the requirements in this AD, please contact: AIRBUS - EIANA (Airworthiness Office), Telephone : +33 562 110 253; Fax: +33 562 110 307, E-mail: account.airworth-A380@airbus.com. TE.CAP.00110-005 © European Aviation Safety Agency. All rights reserved. ISO9001 Certified. Page 3 of 3 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet. An agency of the European Union",
+      "contact_text": "1. If requested and appropriately substantiated, EASA can approve Alternative Methods of Compliance for this AD.",
       "conditions": [
-        "Requested and appropriately substantiated"
+        "requested and appropriately substantiated"
       ],
       "evidence_ids": [
         "EV-009",
@@ -469,7 +469,7 @@
       "entry_id": "AMC-002",
       "entry_type": "regulatory_contact",
       "authority_or_organization": "EASA and the technical contact stated in the AD",
-      "contact_text": "Remarks: 1. If requested and appropriately substantiated, EASA can approve Alternative Methods of Compliance for this AD. 2. This AD was posted on 08 July 2016 as PAD 16-100 for consultation until 05 August 2016 and republished as PAD 16-100R1 on 10 August 2016 for additional consultation until 24 August 2016. The Comment Response Document can be found at http://ad.easa.europa.eu. TE.CAP.00110-005 © European Aviation Safety Agency. All rights reserved. ISO9001 Certified. Page 2 of 3 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet. An agency of the European Union EASA AD No.: 2016-0175 3. Enquiries regarding this AD should be referred to the EASA Safety Information Section, Certification Directorate. E-mail: ADs@easa.europa.eu. 4. For any question concerning the technical content of the requirements in this AD, please contact: AIRBUS - EIANA (Airworthiness Office), Telephone : +33 562 110 253; Fax: +33 562 110 307, E-mail: account.airworth-A380@airbus.com. TE.CAP.00110-005 © European Aviation Safety Agency. All rights reserved. ISO9001 Certified. Page 3 of 3 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet. An agency of the European Union",
+      "contact_text": "3. Enquiries regarding this AD should be referred to the EASA Safety Information Section, Certification Directorate. E-mail: ADs@easa.europa.eu. 4. For any question concerning the technical content of the requirements in this AD, please contact: AIRBUS - EIANA (Airworthiness Office), Telephone: +33 562 110 253; Fax: +33 562 110 307, E-mail: account.airworth-A380@airbus.com.",
       "conditions": [],
       "evidence_ids": [
         "EV-009",
@@ -510,7 +510,7 @@
       "page_number": 1,
       "printed_page_label": "Page 1 of 3",
       "section": "cover",
-      "section_raw": "Cover identity and publication",
+      "section_raw": "Airworthiness Directive",
       "clause_path": "cover",
       "exact_quote": "EASA AD No.: 2016-0175 Airworthiness Directive AD No.: 2016-0175 Issued: 31 August 2016 Note: This Airworthiness Directive (AD) is issued by EASA, acting in accordance with Regulation (EC) 216/2008 on behalf of the European Union, its Member States and of the European third countries that participate in the activities of EASA under Article 66 of that Regulation. This AD is issued in accordance with Regulation (EU) 748/2012, Part 21.A.3B. In accordance with Regulation (EU) 1321/2014 Annex I, Part M.A.301, the continuing airworthiness of an aircraft shall be ensured by accomplishing any applicable ADs. Consequently, no person may operate an aircraft to which an AD applies, except in accordance with the requirements of that AD, unless otherwise specified by the Agency [Regulation (EU) 1321/2014 Annex I, Part M.A.303] or agreed with the Authority of the State of Registry [Regulation (EC) 216/2008, Article 14(4) exemption]. Design Approval Holder’s Name: Type/Model designation(s): AIRBUS A380 aeroplanes Effective Date: 14 September 2016 TCDS Number(s): EASA.A.110 Foreign AD: Not applicable Supersedure: None ATA 36 – Pneumatic – Duct Assembly Material – Replacement Manufacturer(s): Airbus Applicability: Airbus A380-841, A380-842 and A380-861 aeroplanes, all manufacturer serial numbers. Reason: During type certification activities, involving pressure endurance test of the pneumatic duct system, failure of two pneumatic ducts was experienced. The failures occurred due to fatigue cracking before the completion of the endurance test. This condition, if not corrected, could lead to a leakage or exceedance of a temperature limit in the area of the inboard outer fixed leading edge of the wing and, combined with an inability to isolate the affected section from hot air supply, could possibly result in reduced structural integrity of the wing. To address this potential unsafe condition, Airbus developed improved parts, introduced by Airbus modification (mod) 66360 on the production line, and published Service Bulletin (SB) A380-36-8016 to provide modification instructions for in-service aeroplanes. TE.CAP.00110-005 © European Aviation Safety Agency. All rights reserved. ISO9001 Certified. Page 1 of 3 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet. An agency of the European Union",
       "start_char": null,
@@ -528,7 +528,7 @@
       "page_number": 1,
       "printed_page_label": "Page 1 of 3",
       "section": "cover",
-      "section_raw": "Manufacturer(s)",
+      "section_raw": "Manufacturer(s):",
       "clause_path": "Manufacturer(s)",
       "exact_quote": "Manufacturer(s): Airbus",
       "start_char": null,
@@ -546,7 +546,7 @@
       "page_number": 1,
       "printed_page_label": "Page 1 of 3",
       "section": "applicability",
-      "section_raw": "Applicability",
+      "section_raw": "Applicability:",
       "clause_path": "Applicability",
       "exact_quote": "Applicability: Airbus A380-841, A380-842 and A380-861 aeroplanes, all manufacturer serial numbers.",
       "start_char": null,
@@ -564,7 +564,7 @@
       "page_number": 1,
       "printed_page_label": "Page 1 of 3",
       "section": "reason",
-      "section_raw": "Reason",
+      "section_raw": "Reason:",
       "clause_path": "Reason",
       "exact_quote": "Reason: During type certification activities, involving pressure endurance test of the pneumatic duct system, failure of two pneumatic ducts was experienced. The failures occurred due to fatigue cracking before the completion of the endurance test. This condition, if not corrected, could lead to a leakage or exceedance of a temperature limit in the area of the inboard outer fixed leading edge of the wing and, combined with an inability to isolate the affected section from hot air supply, could possibly result in reduced structural integrity of the wing. To address this potential unsafe condition, Airbus developed improved parts, introduced by Airbus modification (mod) 66360 on the production line, and published Service Bulletin (SB) A380-36-8016 to provide modification instructions for in-service aeroplanes. TE.CAP.00110-005 © European Aviation Safety Agency. All rights reserved. ISO9001 Certified. Page 1 of 3 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet. An agency of the European Union",
       "start_char": null,
@@ -582,7 +582,7 @@
       "page_number": 2,
       "printed_page_label": "Page 2 of 3",
       "section": "reason",
-      "section_raw": "Reason",
+      "section_raw": "Reason:",
       "clause_path": "Reason",
       "exact_quote": "EASA AD No.: 2016-0175 For the reasons described above, this AD requires replacement of affected parts with serviceable parts.",
       "start_char": null,
@@ -600,7 +600,7 @@
       "page_number": 2,
       "printed_page_label": "Page 2 of 3",
       "section": "reference_publications",
-      "section_raw": "Ref. Publications",
+      "section_raw": "Ref. Publications:",
       "clause_path": "Ref. Publications",
       "exact_quote": "Ref. Publications: Airbus SB A380-36-8016 original issue, dated 05 February 2013. The use of later approved revisions of this document is acceptable for compliance with the requirements of this AD.",
       "start_char": null,
@@ -618,7 +618,7 @@
       "page_number": 2,
       "printed_page_label": "Page 2 of 3",
       "section": "required_actions_and_compliance_times",
-      "section_raw": "Required Action(s) and Compliance Time(s)",
+      "section_raw": "Required Action(s) and Compliance Time(s):",
       "clause_path": "compliance",
       "exact_quote": "Required Action(s) and Compliance Time(s): Required as indicated, unless accomplished previously: All aeroplanes, except those modified in accordance with Airbus mod 66360: (1) Within 25 months after the effective date of this AD, replace the duct assembly identified as ‘Affected Part Number (P/N)’ in Table 1 of this AD with a serviceable part identified as ‘Acceptable Replacement P/N‘ in Table 1 of this AD in accordance with the instructions of Airbus SB A380-36-8016. Table 1 – Replacement of Duct Assemblies Affected P/N Acceptable Replacement P/N L3615003000000/100 L3615023700000/100 L3615003100000/100 L3615023800000/100 All aeroplanes: (2) Do not install on any aeroplane a duct assembly, having a P/N identified as “Affected P/N” in Table 1 of this AD, as applicable: (2.1) For an aeroplane that, on the effective date of this AD, has a duct assembly having a P/N identified as ‘Affected P/N’ in Table 1 of this AD installed: After accomplishment of a replacement as required by paragraph (1) of this AD. (2.2) For an aeroplane that, on the effective date of this AD, does not have a duct assembly, having a P/N identified as ‘Affected P/N’ in Table 1 of this AD installed: From the effective date of this AD.",
       "start_char": null,
@@ -636,7 +636,7 @@
       "page_number": 2,
       "printed_page_label": "Page 2 of 3",
       "section": "table",
-      "section_raw": "Table/appendix-dependent requirement source",
+      "section_raw": "Table 1",
       "clause_path": null,
       "exact_quote": "EASA AD No.: 2016-0175 For the reasons described above, this AD requires replacement of affected parts with serviceable parts. Required Action(s) and Compliance Time(s): Required as indicated, unless accomplished previously: All aeroplanes, except those modified in accordance with Airbus mod 66360: (1) Within 25 months after the effective date of this AD, replace the duct assembly identified as ‘Affected Part Number (P/N)’ in Table 1 of this AD with a serviceable part identified as ‘Acceptable Replacement P/N‘ in Table 1 of this AD in accordance with the instructions of Airbus SB A380-36-8016. Table 1 – Replacement of Duct Assemblies Affected P/N Acceptable Replacement P/N L3615003000000/100 L3615023700000/100 L3615003100000/100 L3615023800000/100 All aeroplanes: (2) Do not install on any aeroplane a duct assembly, having a P/N identified as “Affected P/N” in Table 1 of this AD, as applicable: (2.1) For an aeroplane that, on the effective date of this AD, has a duct assembly having a P/N identified as ‘Affected P/N’ in Table 1 of this AD installed: After accomplishment of a replacement as required by paragraph (1) of this AD. (2.2) For an aeroplane that, on the effective date of this AD, does not have a duct assembly, having a P/N identified as ‘Affected P/N’ in Table 1 of this AD installed: From the effective date of this AD. Ref. Publications: Airbus SB A380-36-8016 original issue, dated 05 February 2013. The use of later approved revisions of this document is acceptable for compliance with the requirements of this AD. Remarks: 1. If requested and appropriately substantiated, EASA can approve Alternative Methods of Compliance for this AD. 2. This AD was posted on 08 July 2016 as PAD 16-100 for consultation until 05 August 2016 and republished as PAD 16-100R1 on 10 August 2016 for additional consultation until 24 August 2016. The Comment Response Document can be found at http://ad.easa.europa.eu. TE.CAP.00110-005 © European Aviation Safety Agency. All rights reserved. ISO9001 Certified. Page 2 of 3 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet. An agency of the European Union",
       "start_char": null,
@@ -659,7 +659,7 @@
       "page_number": 2,
       "printed_page_label": "Page 2 of 3",
       "section": "remarks",
-      "section_raw": "Remarks",
+      "section_raw": "Remarks:",
       "clause_path": "Remarks",
       "exact_quote": "Remarks: 1. If requested and appropriately substantiated, EASA can approve Alternative Methods of Compliance for this AD. 2. This AD was posted on 08 July 2016 as PAD 16-100 for consultation until 05 August 2016 and republished as PAD 16-100R1 on 10 August 2016 for additional consultation until 24 August 2016. The Comment Response Document can be found at http://ad.easa.europa.eu. TE.CAP.00110-005 © European Aviation Safety Agency. All rights reserved. ISO9001 Certified. Page 2 of 3 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet. An agency of the European Union",
       "start_char": null,
@@ -677,7 +677,7 @@
       "page_number": 3,
       "printed_page_label": "Page 3 of 3",
       "section": "remarks",
-      "section_raw": "Remarks",
+      "section_raw": "Remarks:",
       "clause_path": "Remarks",
       "exact_quote": "EASA AD No.: 2016-0175 3. Enquiries regarding this AD should be referred to the EASA Safety Information Section, Certification Directorate. E-mail: ADs@easa.europa.eu. 4. For any question concerning the technical content of the requirements in this AD, please contact: AIRBUS - EIANA (Airworthiness Office), Telephone : +33 562 110 253; Fax: +33 562 110 307, E-mail: account.airworth-A380@airbus.com. TE.CAP.00110-005 © European Aviation Safety Agency. All rights reserved. ISO9001 Certified. Page 3 of 3 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet. An agency of the European Union",
       "start_char": null,

@@ -43,7 +43,7 @@
     "design_approval_holder": {
       "state": "present",
       "value": "Airbus S.A.S.",
-      "raw_text": "Airbus S.A.S.",
+      "raw_text": "AIRBUS S.A.S.",
       "evidence_ids": [
         "EV-001"
       ]
@@ -114,7 +114,7 @@
     "foreign_ad": {
       "state": "explicit_none",
       "value": null,
-      "raw_text": "Foreign AD: None or Not applicable",
+      "raw_text": "Foreign AD: Not applicable",
       "evidence_ids": [
         "EV-001"
       ]
@@ -137,7 +137,7 @@
         {
           "restriction_id": "MSN-001",
           "kind": "all",
-          "raw_expression": "all serial numbers",
+          "raw_expression": "all manufacturer serial numbers",
           "lower_bound": null,
           "upper_bound": null,
           "explicit_values": [],
@@ -152,10 +152,10 @@
         "C13210DA01"
       ],
       "configuration_conditions": [
-        "Group 1 if CPIOM-J P/N C13210DA01 with a serial number listed in Appendix 1 is installed, except a unit re-identified with inspection label PNR F1320326"
+        "Core Processing Input and Output Modules J (CPIOM-J) having a Part Number (P/N) C13210DA01 and serial number (s/n) as listed in Appendix 1 of this AD"
       ],
       "exclusions": [
-        "Affected serial-number unit re-identified with inspection label PNR F1320326"
+        "except those that have been re-identified with the inspection label PNR F1320326"
       ],
       "boolean_logic": "all",
       "evidence_ids": [
@@ -168,7 +168,7 @@
     {
       "definition_id": "DEF-001",
       "term": "The AOT",
-      "definition_text": "Airbus Alert Operators Transmission A42P003-25, referring to Airbus Vendor Service Bulletin C13210D-42-011.",
+      "definition_text": "Airbus Alert Operators Transmission (AOT) A42P003-25, which refers to Airbus Vendor Service Bulletin (VSB) C13210D-42-011.",
       "evidence_ids": [
         "EV-005"
       ]
@@ -176,7 +176,7 @@
     {
       "definition_id": "DEF-002",
       "term": "Affected part",
-      "definition_text": "CPIOM-J P/N C13210DA01 with a serial number listed in Appendix 1, except a unit re-identified with inspection label PNR F1320326.",
+      "definition_text": "Core Processing Input and Output Modules J (CPIOM-J) having a Part Number (P/N) C13210DA01 and serial number (s/n) as listed in Appendix 1 of this AD, except those that have been re-identified with the inspection label PNR F1320326.",
       "evidence_ids": [
         "EV-004",
         "EV-005",
@@ -186,7 +186,7 @@
     {
       "definition_id": "DEF-003",
       "term": "Groups",
-      "definition_text": "Group 1 aeroplanes have an affected part installed; Group 2 aeroplanes do not.",
+      "definition_text": "Group 1 aeroplanes are those that have an affected part installed. Group 2 aeroplanes are those that do not have an affected part installed.",
       "evidence_ids": [
         "EV-006"
       ]
@@ -194,27 +194,27 @@
   ],
   "unsafe_condition": {
     "state": "present",
-    "raw_reason_text": "Reason: Thales (current manufacturer of the affected part) has identified a manufacturing quality issue on the ARINC 600 board of some CPIOM-J. Subsequent investigation revealed a potential quality gap on a batch of Printed Circuit Board of the CPIOM -J ARINC 600 board. The consequence is an increased probability of AFDX communication loss on the CPIOM-J. This condition, if not corrected, could lead to partial or total loss of some avionics systems or functions, possibly resulting in reduced control of the aeroplane. To address this potential unsafe condition, Airbus issued the AOT, as defined in this AD, to provide instructions to replace each affected part with a serviceable part. For the reasons described above, this AD requires replacement of each affected part with a serviceable part. This AD also prohibits installation of an affected part on any aeroplane.",
+    "raw_reason_text": "Reason: Thales (current manufacturer of the affected part) has identified a manufacturing quality issue on the ARINC 600 board of some CPIOM-J. Subsequent investigation revealed a potential quality gap on a batch of Printed Circuit Board of the CPIOM-J ARINC 600 board. The consequence is an increased probability of AFDX communication loss on the CPIOM-J. This condition, if not corrected, could lead to partial or total loss of some avionics systems or functions, possibly resulting in reduced control of the aeroplane. To address this potential unsafe condition, Airbus issued the AOT, as defined in this AD, to provide instructions to replace each affected part with a serviceable part. For the reasons described above, this AD requires replacement of each affected part with a serviceable part. This AD also prohibits installation of an affected part on any aeroplane.",
     "observed_events_or_defects": [
       "Thales (current manufacturer of the affected part) has identified a manufacturing quality issue on the ARINC 600 board of some CPIOM-J."
     ],
     "causes": [
-      "A manufacturing-quality gap affected a batch of printed circuit boards on the CPIOM-J ARINC 600 board."
+      "Subsequent investigation revealed a potential quality gap on a batch of Printed Circuit Board of the CPIOM-J ARINC 600 board."
     ],
     "unsafe_conditions": [
-      "The quality gap increases the probability of AFDX communication loss on the CPIOM-J."
+      "The consequence is an increased probability of AFDX communication loss on the CPIOM-J."
     ],
     "potential_consequences": [
-      "Partial or total loss of avionics systems or functions",
-      "Reduced control of the aeroplane"
+      "if not corrected, could lead to partial or total loss of some avionics systems or functions, possibly resulting in reduced control of the aeroplane.",
+      "reduced control of the aeroplane"
     ],
     "affected_components": [
-      "CPIOM-J P/N C13210DA01",
-      "CPIOM-J ARINC 600 board and printed circuit board",
+      "Core Processing Input and Output Modules J (CPIOM-J) having a Part Number (P/N) C13210DA01",
+      "Printed Circuit Board of the CPIOM-J ARINC 600",
       "AFDX communication"
     ],
     "intended_risk_mitigation": [
-      "Replace affected CPIOM-J units with serviceable units and prohibit installation of affected units."
+      "For the reasons described above, this AD requires replacement of each affected part with a serviceable part. This AD also prohibits installation of an affected part on any aeroplane."
     ],
     "evidence_ids": [
       "EV-007"
@@ -232,9 +232,9 @@
         "replacement"
       ],
       "obligation": "mandatory",
-      "action_text": "(1) For Group 1 aeroplanes, within 4 months after the effective date of this AD, replace each affected CPIOM-J with a serviceable part in accordance with the AOT.",
+      "action_text": "(1) For Group 1 aeroplanes: Within 4 months after the effective date of this AD, replace each affected part with a serviceable part, as defined in this AD, in accordance with the instructions of the AOT.",
       "objects_or_components": [
-        "Affected CPIOM-J"
+        "each affected part"
       ],
       "conditions": [
         "Group 1 aeroplane"
@@ -246,7 +246,7 @@
         {
           "compliance_id": "CMP-001",
           "state": "present",
-          "raw_text": "(1) For Group 1 aeroplanes, within 4 months after the effective date of this AD, replace each affected CPIOM-J with a serviceable part in accordance with the AOT.",
+          "raw_text": "(1) For Group 1 aeroplanes: Within 4 months after the effective date of this AD, replace each affected part with a serviceable part, as defined in this AD, in accordance with the instructions of the AOT.",
           "logic": "single",
           "conditions": [
             "Group 1 aeroplane"
@@ -297,22 +297,22 @@
         "prohibition"
       ],
       "obligation": "prohibited",
-      "action_text": "(2) For Group 1 and Group 2 aeroplanes, from the effective date of this AD, do not install an affected CPIOM-J on any aeroplane.",
+      "action_text": "(2) For Group 1 and Group 2 aeroplanes: From the effective date of this AD, do not install an affected part on any aeroplane.",
       "objects_or_components": [
-        "Affected CPIOM-J"
+        "an affected part"
       ],
       "conditions": [
-        "Group 1 or Group 2 aeroplane"
+        "For Group 1 and Group 2 aeroplanes"
       ],
       "method_publication_ids": [],
       "compliance_rules": [
         {
           "compliance_id": "CMP-002",
           "state": "present",
-          "raw_text": "(2) For Group 1 and Group 2 aeroplanes, from the effective date of this AD, do not install an affected CPIOM-J on any aeroplane.",
+          "raw_text": "(2) For Group 1 and Group 2 aeroplanes: From the effective date of this AD, do not install an affected part on any aeroplane.",
           "logic": "conditional",
           "conditions": [
-            "All affected aeroplanes"
+            "For Group 1 and Group 2 aeroplanes"
           ],
           "initial_limits": [
             {
@@ -392,9 +392,9 @@
       "entry_id": "AMC-001",
       "entry_type": "amoc_authority",
       "authority_or_organization": "EASA",
-      "contact_text": "Remarks: 1. If requested and appropriately substantiated, EASA can approve Alternative Methods of Compliance for this AD. 2. This AD was posted on 31 July 2025 as PAD 25-119 for consultation until 14 August 2025. No comments were received during the consultation period . TE.CAP.00110-012 © European Union Aviation Safety Agency. All rights reserved. ISO9001 Certified. Page 2 of 4 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet. An agency of the European Union EASA AD No.: 2025-0181 3. Enquiries regarding this AD should be referred to the EASA Safety Information Section, Certification Directorate. E-mail: ADs@easa.europa.eu. 4. Information about any failures, malfunctions, defects or other occurrences, which may be similar to the unsafe condition addressed by this AD, and which may occur, or have occurred on a product, part or appliance not affected by this AD, can be reported to the EU aviation safety reporting system. This may include reporting on the same or similar components, other than those covered by the design to which this AD applies, if the same unsafe condition can exist or may develop on an aircraft with those components installed. Such components may be installed under an FAA Parts Manufacturer Approval (PMA), Supplemental Type Certificate (STC) or other modification. 5. For any question concerning the technical content of the requirements in this AD, please contact: AIRBUS S.A.S. A350 XWB (1IAK), E-mail: continued-airworthiness.a350@airbus.com. TE.CAP.00110-012 © European Union Aviation Safety Agency. All rights reserved. ISO9001 Certified. Page 3 of 4 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet. An agency of the European Union EASA AD No.: 2025-0181 Appendix 1 List of Affected Parts (s/n) s/n C13210016830 C13210016832 C13210016833 C13210016834 C13210016835 C13210016836 C13210016837 C13210016839 C13210016841 C13210016843 C13210016844 C13210016845 C13210016846 C13210016847 C13210016848 C13210016851 C13210016852 C13210016853 C13210016872 C13210016876 C13210016880 C13210016883 C13210016884 C13210016885 C13210016891 C13210016900 C13210016966 TE.CAP.00110-012 © European Union Aviation Safety Agency. All rights reserved. ISO9001 Certified. Page 4 of 4 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet. An agency of the European Union",
+      "contact_text": "1. If requested and appropriately substantiated, EASA can approve Alternative Methods of Compliance for this AD.",
       "conditions": [
-        "Requested and appropriately substantiated"
+        "requested and appropriately substantiated"
       ],
       "evidence_ids": [
         "EV-012",
@@ -406,7 +406,7 @@
       "entry_id": "AMC-002",
       "entry_type": "regulatory_contact",
       "authority_or_organization": "EASA and the technical contact stated in the AD",
-      "contact_text": "Remarks: 1. If requested and appropriately substantiated, EASA can approve Alternative Methods of Compliance for this AD. 2. This AD was posted on 31 July 2025 as PAD 25-119 for consultation until 14 August 2025. No comments were received during the consultation period . TE.CAP.00110-012 © European Union Aviation Safety Agency. All rights reserved. ISO9001 Certified. Page 2 of 4 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet. An agency of the European Union EASA AD No.: 2025-0181 3. Enquiries regarding this AD should be referred to the EASA Safety Information Section, Certification Directorate. E-mail: ADs@easa.europa.eu. 4. Information about any failures, malfunctions, defects or other occurrences, which may be similar to the unsafe condition addressed by this AD, and which may occur, or have occurred on a product, part or appliance not affected by this AD, can be reported to the EU aviation safety reporting system. This may include reporting on the same or similar components, other than those covered by the design to which this AD applies, if the same unsafe condition can exist or may develop on an aircraft with those components installed. Such components may be installed under an FAA Parts Manufacturer Approval (PMA), Supplemental Type Certificate (STC) or other modification. 5. For any question concerning the technical content of the requirements in this AD, please contact: AIRBUS S.A.S. A350 XWB (1IAK), E-mail: continued-airworthiness.a350@airbus.com. TE.CAP.00110-012 © European Union Aviation Safety Agency. All rights reserved. ISO9001 Certified. Page 3 of 4 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet. An agency of the European Union EASA AD No.: 2025-0181 Appendix 1 List of Affected Parts (s/n) s/n C13210016830 C13210016832 C13210016833 C13210016834 C13210016835 C13210016836 C13210016837 C13210016839 C13210016841 C13210016843 C13210016844 C13210016845 C13210016846 C13210016847 C13210016848 C13210016851 C13210016852 C13210016853 C13210016872 C13210016876 C13210016880 C13210016883 C13210016884 C13210016885 C13210016891 C13210016900 C13210016966 TE.CAP.00110-012 © European Union Aviation Safety Agency. All rights reserved. ISO9001 Certified. Page 4 of 4 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet. An agency of the European Union",
+      "contact_text": "3. Enquiries regarding this AD should be referred to the EASA Safety Information Section, Certification Directorate. E-mail: ADs@easa.europa.eu. 4. Information about any failures, malfunctions, defects or other occurrences, which may be similar to the unsafe condition addressed by this AD, and which may occur, or have occurred on a product, part or appliance not affected by this AD, can be reported to the EU aviation safety reporting system. This may include reporting on the same or similar components, other than those covered by the design to which this AD applies, if the same unsafe condition can exist or may develop on an aircraft with those components installed. Such components may be installed under an FAA Parts Manufacturer Approval (PMA), Supplemental Type Certificate (STC) or other modification. 5. For any question concerning the technical content of the requirements in this AD, please contact: AIRBUS S.A.S. A350 XWB (1IAK), E-mail: continued-airworthiness.a350@airbus.com.",
       "conditions": [],
       "evidence_ids": [
         "EV-012",
@@ -448,9 +448,9 @@
       "page_number": 1,
       "printed_page_label": "Page 1 of 4",
       "section": "cover",
-      "section_raw": "Cover identity and publication",
+      "section_raw": "Airworthiness Directive",
       "clause_path": "cover",
-      "exact_quote": "EASA AD No.: 2025-0181 Airworthiness Directive AD No.: 2025-0181 Issued: 20 August 2025 Note: This Airworthiness Directive (AD) is issued by EASA, acting in accordance with Regulation (EU) 2018/1139 on behalf of the European Union, its Member States and of the European third countries that participate in the activities of EASA under Article 129 of that Regulation. This AD is issued in accordance with Regulation (EU) 748/2012, Part 21.A.3B. In accordance with Regulation (EU) 1321/2014 Annex I Part M.A.301, or Annex Vb Part ML.A.301, as applicable, the continuing airworthiness of an aircraft shall be ensured by accomplishing any applicable ADs. Consequently, no person may operate an aircraft to which an AD applies, except in accordance with the requirements of that AD, unless otherwise specified by the Agency [Regulation (EU) 1321/2014 Annex I Part M.A.303, or Annex Vb Part ML.A.303, as applicable] or agreed with the Authority of the State of Registry [Regulation (EU) 2018/1139, Article 71 exemption]. Design Approval Holder’s Name: Type/Model designation(s): AIRBUS S.A.S. A350 aeroplanes Effective Date: 03 September 2025 TCDS Number(s): EASA.A.151 Foreign AD: Not applicable Supersedure: None ATA 42 – Integrated Modular Avionics – Core Processing Input and Output Module – Replacement Manufacturer(s): Airbus Applicability: Airbus A350-941 and A350-1041 aeroplanes, all manufacturer serial numbers. Definitions: For the purpose of this AD, the following definitions apply: The AOT: Airbus Alert Operators Transmission (AOT) A42P003-25, which refers to Airbus Vendor Service Bulletin (VSB) C13210D-42-011. Affected part: Core Processing Input and Output Modules J ( CPIOM-J) having a Part Number (P/N) C13210DA01 and serial number (s/n) as listed in Appendix 1 of this AD, except those that have been re-identified with the inspection label PNR F1320326. Serviceable part: Any CPIOM-J, eligible for installation in accordance with Airbus instructions, that is not an affected part. TE.CAP.00110-012 © European Union Aviation Safety Agency. All rights reserved. ISO9001 Certified. Page 1 of 4 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet. An agency of the European Union",
+      "exact_quote": "Airworthiness Directive AD No.: 2025-0181 Issued: 20 August 2025 Note: This Airworthiness Directive (AD) is issued by EASA, acting in accordance with Regulation (EU) 2018/1139 on behalf of the European Union, its Member States and of the European third countries that participate in the activities of EASA under Article 129 of that Regulation. This AD is issued in accordance with Regulation (EU) 748/2012, Part 21.A.3B. In accordance with Regulation (EU) 1321/2014 Annex I Part M.A.301, or Annex Vb Part ML.A.301, as applicable, the continuing airworthiness of an aircraft shall be ensured by accomplishing any applicable ADs. Consequently, no person may operate an aircraft to which an AD applies, except in accordance with the requirements of that AD, unless otherwise specified by the Agency [Regulation (EU) 1321/2014 Annex I Part M.A.303, or Annex Vb Part ML.A.303, as applicable] or agreed with the Authority of the State of Registry [Regulation (EU) 2018/1139, Article 71 exemption]. Design Approval Holder’s Name: Type/Model designation(s): AIRBUS S.A.S. A350 aeroplanes Effective Date: 03 September 2025 TCDS Number(s): EASA.A.151 Foreign AD: Not applicable Supersedure: None ATA 42 – Integrated Modular Avionics – Core Processing Input and Output Module – Replacement",
       "start_char": null,
       "end_char": null,
       "page_text_sha256": "847272ef0645c6ae142f1e4093f3ee440646d38b9a15156f0b705b3aca625270",
@@ -466,7 +466,7 @@
       "page_number": 1,
       "printed_page_label": "Page 1 of 4",
       "section": "cover",
-      "section_raw": "Manufacturer(s)",
+      "section_raw": "Manufacturer(s):",
       "clause_path": "Manufacturer(s)",
       "exact_quote": "Manufacturer(s): Airbus",
       "start_char": null,
@@ -484,7 +484,7 @@
       "page_number": 1,
       "printed_page_label": "Page 1 of 4",
       "section": "applicability",
-      "section_raw": "Applicability",
+      "section_raw": "Applicability:",
       "clause_path": "Applicability",
       "exact_quote": "Applicability: Airbus A350-941 and A350-1041 aeroplanes, all manufacturer serial numbers.",
       "start_char": null,
@@ -502,7 +502,7 @@
       "page_number": 4,
       "printed_page_label": "Page 4 of 4",
       "section": "table",
-      "section_raw": "Appendix 1 - List of Affected Parts (s/n)",
+      "section_raw": "Appendix 1",
       "clause_path": null,
       "exact_quote": "EASA AD No.: 2025-0181 Appendix 1 List of Affected Parts (s/n) s/n C13210016830 C13210016832 C13210016833 C13210016834 C13210016835 C13210016836 C13210016837 C13210016839 C13210016841 C13210016843 C13210016844 C13210016845 C13210016846 C13210016847 C13210016848 C13210016851 C13210016852 C13210016853 C13210016872 C13210016876 C13210016880 C13210016883 C13210016884 C13210016885 C13210016891 C13210016900 C13210016966 TE.CAP.00110-012 © European Union Aviation Safety Agency. All rights reserved. ISO9001 Certified. Page 4 of 4 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet. An agency of the European Union",
       "start_char": null,
@@ -555,7 +555,7 @@
       "page_number": 1,
       "printed_page_label": "Page 1 of 4",
       "section": "definitions",
-      "section_raw": "Definitions",
+      "section_raw": "Definitions:",
       "clause_path": "Definitions",
       "exact_quote": "Definitions: For the purpose of this AD, the following definitions apply: The AOT: Airbus Alert Operators Transmission (AOT) A42P003-25, which refers to Airbus Vendor Service Bulletin (VSB) C13210D-42-011. Affected part: Core Processing Input and Output Modules J ( CPIOM-J) having a Part Number (P/N) C13210DA01 and serial number (s/n) as listed in Appendix 1 of this AD, except those that have been re-identified with the inspection label PNR F1320326. Serviceable part: Any CPIOM-J, eligible for installation in accordance with Airbus instructions, that is not an affected part. TE.CAP.00110-012 © European Union Aviation Safety Agency. All rights reserved. ISO9001 Certified. Page 1 of 4 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet. An agency of the European Union",
       "start_char": null,
@@ -573,7 +573,7 @@
       "page_number": 2,
       "printed_page_label": "Page 2 of 4",
       "section": "definitions",
-      "section_raw": "Definitions",
+      "section_raw": "Definitions:",
       "clause_path": "Definitions",
       "exact_quote": "EASA AD No.: 2025-0181 Groups: Group 1 aeroplanes are those that have an affected part installed. Group 2 aeroplanes are those that do not have an affected part installed.",
       "start_char": null,
@@ -591,7 +591,7 @@
       "page_number": 2,
       "printed_page_label": "Page 2 of 4",
       "section": "reason",
-      "section_raw": "Reason",
+      "section_raw": "Reason:",
       "clause_path": "Reason",
       "exact_quote": "Reason: Thales (current manufacturer of the affected part) has identified a manufacturing quality issue on the ARINC 600 board of some CPIOM-J. Subsequent investigation revealed a potential quality gap on a batch of Printed Circuit Board of the CPIOM -J ARINC 600 board. The consequence is an increased probability of AFDX communication loss on the CPIOM-J. This condition, if not corrected, could lead to partial or total loss of some avionics systems or functions, possibly resulting in reduced control of the aeroplane. To address this potential unsafe condition, Airbus issued the AOT, as defined in this AD, to provide instructions to replace each affected part with a serviceable part. For the reasons described above, this AD requires replacement of each affected part with a serviceable part. This AD also prohibits installation of an affected part on any aeroplane.",
       "start_char": null,
@@ -609,7 +609,7 @@
       "page_number": 2,
       "printed_page_label": "Page 2 of 4",
       "section": "reference_publications",
-      "section_raw": "Ref. Publications",
+      "section_raw": "Ref. Publications:",
       "clause_path": "Ref. Publications",
       "exact_quote": "Ref. Publications: Airbus AOT A42P003-25 original issue dated 25 June 2025. Airbus VSB C13210D-42-011 original issue dated 27 June 2025. The use of later approved revisions of th e above-mentioned documents is acceptable for compliance with the requirements of this AD.",
       "start_char": null,
@@ -627,7 +627,7 @@
       "page_number": 2,
       "printed_page_label": "Page 2 of 4",
       "section": "required_actions_and_compliance_times",
-      "section_raw": "Required Action(s) and Compliance Time(s)",
+      "section_raw": "Required Action(s) and Compliance Time(s):",
       "clause_path": "compliance",
       "exact_quote": "Required Action(s) and Compliance Time(s): Required as indicated by this AD, unless the action(s) required by this AD have been already accomplished: Replacement: (1) For Group 1 aeroplanes: Within 4 months after the effective date of this AD, replace each affected part with a serviceable part, as defined in this AD, in accordance with the instructions of the AOT. Part(s) Installation: (2) For Group 1 and Group 2 aeroplanes: From the effective date of this AD, do not install an affected part on any aeroplane.",
       "start_char": null,
@@ -642,15 +642,15 @@
     {
       "evidence_id": "EV-010",
       "source_file_instance_id": "b0e89b78cd668c9e",
-      "page_number": 1,
-      "printed_page_label": "Page 1 of 4",
+      "page_number": 4,
+      "printed_page_label": "Page 4 of 4",
       "section": "table",
-      "section_raw": "Table/appendix-dependent requirement source",
+      "section_raw": "Appendix 1",
       "clause_path": null,
-      "exact_quote": "EASA AD No.: 2025-0181 Airworthiness Directive AD No.: 2025-0181 Issued: 20 August 2025 Note: This Airworthiness Directive (AD) is issued by EASA, acting in accordance with Regulation (EU) 2018/1139 on behalf of the European Union, its Member States and of the European third countries that participate in the activities of EASA under Article 129 of that Regulation. This AD is issued in accordance with Regulation (EU) 748/2012, Part 21.A.3B. In accordance with Regulation (EU) 1321/2014 Annex I Part M.A.301, or Annex Vb Part ML.A.301, as applicable, the continuing airworthiness of an aircraft shall be ensured by accomplishing any applicable ADs. Consequently, no person may operate an aircraft to which an AD applies, except in accordance with the requirements of that AD, unless otherwise specified by the Agency [Regulation (EU) 1321/2014 Annex I Part M.A.303, or Annex Vb Part ML.A.303, as applicable] or agreed with the Authority of the State of Registry [Regulation (EU) 2018/1139, Article 71 exemption]. Design Approval Holder’s Name: Type/Model designation(s): AIRBUS S.A.S. A350 aeroplanes Effective Date: 03 September 2025 TCDS Number(s): EASA.A.151 Foreign AD: Not applicable Supersedure: None ATA 42 – Integrated Modular Avionics – Core Processing Input and Output Module – Replacement Manufacturer(s): Airbus Applicability: Airbus A350-941 and A350-1041 aeroplanes, all manufacturer serial numbers. Definitions: For the purpose of this AD, the following definitions apply: The AOT: Airbus Alert Operators Transmission (AOT) A42P003-25, which refers to Airbus Vendor Service Bulletin (VSB) C13210D-42-011. Affected part: Core Processing Input and Output Modules J ( CPIOM-J) having a Part Number (P/N) C13210DA01 and serial number (s/n) as listed in Appendix 1 of this AD, except those that have been re-identified with the inspection label PNR F1320326. Serviceable part: Any CPIOM-J, eligible for installation in accordance with Airbus instructions, that is not an affected part. TE.CAP.00110-012 © European Union Aviation Safety Agency. All rights reserved. ISO9001 Certified. Page 1 of 4 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet. An agency of the European Union",
+      "exact_quote": "Appendix 1 List of Affected Parts (s/n) s/n C13210016830 C13210016832 C13210016833 C13210016834 C13210016835 C13210016836 C13210016837 C13210016839 C13210016841 C13210016843 C13210016844 C13210016845 C13210016846 C13210016847 C13210016848 C13210016851 C13210016852 C13210016853 C13210016872 C13210016876 C13210016880 C13210016883 C13210016884 C13210016885 C13210016891 C13210016900 C13210016966",
       "start_char": null,
       "end_char": null,
-      "page_text_sha256": "847272ef0645c6ae142f1e4093f3ee440646d38b9a15156f0b705b3aca625270",
+      "page_text_sha256": "939693ae58616ca6cce8c7c8e5fbe7bf8e5951098c3877fe8647a8196be9f082",
       "bbox_normalized": null,
       "extraction_method": "native_text",
       "quality": "normalized_whitespace",
@@ -668,7 +668,7 @@
       "page_number": 4,
       "printed_page_label": "Page 4 of 4",
       "section": "table",
-      "section_raw": "Table/appendix-dependent requirement source",
+      "section_raw": "Appendix 1",
       "clause_path": null,
       "exact_quote": "EASA AD No.: 2025-0181 Appendix 1 List of Affected Parts (s/n) s/n C13210016830 C13210016832 C13210016833 C13210016834 C13210016835 C13210016836 C13210016837 C13210016839 C13210016841 C13210016843 C13210016844 C13210016845 C13210016846 C13210016847 C13210016848 C13210016851 C13210016852 C13210016853 C13210016872 C13210016876 C13210016880 C13210016883 C13210016884 C13210016885 C13210016891 C13210016900 C13210016966 TE.CAP.00110-012 © European Union Aviation Safety Agency. All rights reserved. ISO9001 Certified. Page 4 of 4 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet. An agency of the European Union",
       "start_char": null,
@@ -691,7 +691,7 @@
       "page_number": 2,
       "printed_page_label": "Page 2 of 4",
       "section": "remarks",
-      "section_raw": "Remarks",
+      "section_raw": "Remarks:",
       "clause_path": "Remarks",
       "exact_quote": "Remarks: 1. If requested and appropriately substantiated, EASA can approve Alternative Methods of Compliance for this AD. 2. This AD was posted on 31 July 2025 as PAD 25-119 for consultation until 14 August 2025. No comments were received during the consultation period . TE.CAP.00110-012 © European Union Aviation Safety Agency. All rights reserved. ISO9001 Certified. Page 2 of 4 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet. An agency of the European Union",
       "start_char": null,
@@ -709,7 +709,7 @@
       "page_number": 3,
       "printed_page_label": "Page 3 of 4",
       "section": "remarks",
-      "section_raw": "Remarks",
+      "section_raw": "Remarks:",
       "clause_path": "Remarks",
       "exact_quote": "EASA AD No.: 2025-0181 3. Enquiries regarding this AD should be referred to the EASA Safety Information Section, Certification Directorate. E-mail: ADs@easa.europa.eu. 4. Information about any failures, malfunctions, defects or other occurrences, which may be similar to the unsafe condition addressed by this AD, and which may occur, or have occurred on a product, part or appliance not affected by this AD, can be reported to the EU aviation safety reporting system. This may include reporting on the same or similar components, other than those covered by the design to which this AD applies, if the same unsafe condition can exist or may develop on an aircraft with those components installed. Such components may be installed under an FAA Parts Manufacturer Approval (PMA), Supplemental Type Certificate (STC) or other modification. 5. For any question concerning the technical content of the requirements in this AD, please contact: AIRBUS S.A.S. A350 XWB (1IAK), E-mail: continued-airworthiness.a350@airbus.com. TE.CAP.00110-012 © European Union Aviation Safety Agency. All rights reserved. ISO9001 Certified. Page 3 of 4 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet. An agency of the European Union",
       "start_char": null,
@@ -727,7 +727,7 @@
       "page_number": 4,
       "printed_page_label": "Page 4 of 4",
       "section": "remarks",
-      "section_raw": "Remarks",
+      "section_raw": "Remarks:",
       "clause_path": "Remarks",
       "exact_quote": "EASA AD No.: 2025-0181 Appendix 1 List of Affected Parts (s/n) s/n C13210016830 C13210016832 C13210016833 C13210016834 C13210016835 C13210016836 C13210016837 C13210016839 C13210016841 C13210016843 C13210016844 C13210016845 C13210016846 C13210016847 C13210016848 C13210016851 C13210016852 C13210016853 C13210016872 C13210016876 C13210016880 C13210016883 C13210016884 C13210016885 C13210016891 C13210016900 C13210016966 TE.CAP.00110-012 © European Union Aviation Safety Agency. All rights reserved. ISO9001 Certified. Page 4 of 4 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet. An agency of the European Union",
       "start_char": null,

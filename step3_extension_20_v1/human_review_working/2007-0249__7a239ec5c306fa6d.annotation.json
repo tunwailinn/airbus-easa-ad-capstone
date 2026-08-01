@@ -43,7 +43,7 @@
     "design_approval_holder": {
       "state": "present",
       "value": "Airbus",
-      "raw_text": "Airbus",
+      "raw_text": "AIRBUS",
       "evidence_ids": [
         "EV-001"
       ]
@@ -64,7 +64,7 @@
     "subject": {
       "state": "present",
       "value": "Fire Protection – Cargo Compartment Fire Extinguishing – Inspection of Bottle Wiring Connection – Inspection and Continuity Check",
-      "raw_text": "ATA 26 Fire Protection – Cargo Compartment Fire Extinguishing – Inspection of Bottle Wiring Connection – Inspection and Continuity Check",
+      "raw_text": "Fire Protection – Cargo Compartment Fire Extinguishing – Inspection of Bottle Wiring Connection – Inspection and Continuity Check",
       "evidence_ids": [
         "EV-001"
       ]
@@ -116,7 +116,7 @@
     "foreign_ad": {
       "state": "explicit_none",
       "value": null,
-      "raw_text": "Foreign AD: None or Not applicable",
+      "raw_text": "Foreign AD: Not applicable",
       "evidence_ids": [
         "EV-001"
       ]
@@ -153,11 +153,11 @@
       ],
       "part_numbers": [],
       "configuration_conditions": [
-        "Delivered before 28 February 2007",
-        "Fitted with a cargo compartment fire extinguisher bottle installed in production or in service by an Airbus Service Bulletin"
+        "delivered before 28 February 2007",
+        "fitted with a cargo compartment fire extinguisher bottle installed in production, or in service by an Airbus Service Bulletin (SB)"
       ],
       "exclusions": [
-        "Aircraft on which MRBR task 26.23.00/03 or 26.23.00/07 has been performed"
+        "except aircraft on which MRBR task 26.23.00/03 or 26.23.00/07 has been performed."
       ],
       "boolean_logic": "all",
       "evidence_ids": [
@@ -174,14 +174,14 @@
     ],
     "causes": [],
     "unsafe_conditions": [
-      "A cross connection can discharge the wrong forward or aft cargo compartment fire extinguisher bottle in case of fire."
+      "In case of fire, this cross connection will activate (discharge) the wrong forward or aft cargo compartment fire extinguisher bottle."
     ],
     "potential_consequences": [
-      "Failure to activate the correct fire extinguisher bottle when required is classified as potentially catastrophic."
+      "Failure to activate the correct bottle when required is classified as potentially catastrophic."
     ],
     "affected_components": [
-      "Cargo compartment fire extinguishing circuit",
-      "Forward and aft cargo compartment fire extinguisher bottles"
+      "fire extinguishing circuit system",
+      "forward or aft cargo compartment fire extinguisher bottle"
     ],
     "intended_risk_mitigation": [
       "For the reasons described above, this AD requires a one-time inspection and check of the cargo firing circuit continuity to confirm the correct connection of the dedicated wires between the discharge pushbutton switches and the relevant cargo bottle."
@@ -203,10 +203,10 @@
         "test_or_check"
       ],
       "obligation": "mandatory",
-      "action_text": "Within the next 600 Flight Hours after the effective date of this AD, perform the inspection and continuity check of the cargo firing circuit continuity in accordance with AIRBUS SB A320-26A1068.",
+      "action_text": "Within the next 600 Flight Hours after the effective date of this AD, perform the inspection and continuity check of the cargo firing circuit continuity and, before next flight, apply corrective actions, as necessary, in accordance with AIRBUS SB A320-26A1068.",
       "objects_or_components": [
-        "Cargo firing circuit continuity",
-        "Dedicated wiring between discharge pushbutton switches and cargo bottles"
+        "cargo firing circuit continuity",
+        "the dedicated wires between the discharge pushbutton switches and the relevant cargo bottle"
       ],
       "conditions": [],
       "method_publication_ids": [
@@ -216,7 +216,7 @@
         {
           "compliance_id": "CMP-001",
           "state": "present",
-          "raw_text": "Within the next 600 Flight Hours after the effective date of this AD, perform the inspection and continuity check of the cargo firing circuit continuity in accordance with AIRBUS SB A320-26A1068.",
+          "raw_text": "Within the next 600 Flight Hours after the effective date of this AD, perform the inspection and continuity check of the cargo firing circuit continuity and, before next flight, apply corrective actions, as necessary, in accordance with AIRBUS SB A320-26A1068.",
           "logic": "single",
           "conditions": [],
           "initial_limits": [
@@ -270,12 +270,12 @@
         "other"
       ],
       "obligation": "conditional",
-      "action_text": "If corrective action is necessary following the inspection and continuity check, apply the corrective action before next flight in accordance with AIRBUS SB A320-26A1068.",
+      "action_text": "before next flight, apply corrective actions, as necessary, in accordance with AIRBUS SB A320-26A1068.",
       "objects_or_components": [
-        "Cargo fire extinguishing circuit wiring"
+        "the cargo firing circuit continuity"
       ],
       "conditions": [
-        "Corrective action is necessary following the inspection and continuity check"
+        "as necessary"
       ],
       "method_publication_ids": [
         "PUB-001"
@@ -284,10 +284,10 @@
         {
           "compliance_id": "CMP-002",
           "state": "present",
-          "raw_text": "If corrective action is necessary following the inspection and continuity check, apply the corrective action before next flight in accordance with AIRBUS SB A320-26A1068.",
+          "raw_text": "before next flight, apply corrective actions, as necessary, in accordance with AIRBUS SB A320-26A1068.",
           "logic": "conditional",
           "conditions": [
-            "Corrective action is necessary following the inspection and continuity check"
+            "as necessary"
           ],
           "initial_limits": [
             {
@@ -366,9 +366,9 @@
       "entry_id": "AMC-001",
       "entry_type": "amoc_authority",
       "authority_or_organization": "EASA",
-      "contact_text": "Remarks : 1. If requested and appropriately substantiated, EASA can accept Alternative Methods of Compliance for this AD. 2. This AD was posted on 13 June 2007 as PAD 07-095 for consultation until 27 June 2007. The Comment Response Document can be found at http://ad.easa.europa.eu/. 3. Enquiries regarding this AD should be referred to the AD Focal Point - Certification Directorate, EASA. E-mail: ADs@easa.europa.eu . 4. For any question concerning the technical content of the requirements in this AD, please contact: AIRBUS – Airworthiness Office – EAS Fax: +33 5 61 93 44 51, E-mail: airworth-eas@airbus.com . 2/2",
+      "contact_text": "1. If requested and appropriately substantiated, EASA can accept Alternative Methods of Compliance for this AD.",
       "conditions": [
-        "Requested and appropriately substantiated"
+        "requested and appropriately substantiated"
       ],
       "evidence_ids": [
         "EV-008"
@@ -378,7 +378,7 @@
       "entry_id": "AMC-002",
       "entry_type": "regulatory_contact",
       "authority_or_organization": "EASA and the technical contact stated in the AD",
-      "contact_text": "Remarks : 1. If requested and appropriately substantiated, EASA can accept Alternative Methods of Compliance for this AD. 2. This AD was posted on 13 June 2007 as PAD 07-095 for consultation until 27 June 2007. The Comment Response Document can be found at http://ad.easa.europa.eu/. 3. Enquiries regarding this AD should be referred to the AD Focal Point - Certification Directorate, EASA. E-mail: ADs@easa.europa.eu . 4. For any question concerning the technical content of the requirements in this AD, please contact: AIRBUS – Airworthiness Office – EAS Fax: +33 5 61 93 44 51, E-mail: airworth-eas@airbus.com . 2/2",
+      "contact_text": "3. Enquiries regarding this AD should be referred to the AD Focal Point - Certification Directorate, EASA. E-mail: ADs@easa.europa.eu. 4. For any question concerning the technical content of the requirements in this AD, please contact: AIRBUS – Airworthiness Office – EAS Fax: +33 5 61 93 44 51, E-mail: airworth-eas@airbus.com.",
       "conditions": [],
       "evidence_ids": [
         "EV-008"
@@ -416,11 +416,11 @@
       "evidence_id": "EV-001",
       "source_file_instance_id": "7a239ec5c306fa6d",
       "page_number": 1,
-      "printed_page_label": "1/2",
+      "printed_page_label": "Page 1 of 2",
       "section": "cover",
-      "section_raw": "Cover identity and publication",
+      "section_raw": "Airworthiness Directive",
       "clause_path": "cover",
-      "exact_quote": "EASA AIRWORTHINESS DIRECTIVE AD No.: 2007 - 0249 Date: 24 September 2007 No person may operate an aircraft to which an Airworthiness Directive applies, except in accordance with the requirements of that Airworthiness Directive unless otherwise agreed with the Authority of the State of Registry. Type Approval Holder’s Name : Type/Model designation(s) : AIRBUS A318, A319, A320 and A321 aircraft TCDS Number: EASA A.064 Foreign AD: Not applicable Supersedure: None Fire Protection – Cargo Compartment Fire Extinguishing – ATA 26 Inspection of Bottle Wiring Connection – Inspection and Continuity Check Manufacturer(s): AIRBUS (formerly AIRBUS INDUSTRIE) Applicability: AIRBUS A318, A319, A320 and A321 aircraft, all certified models, all serial numbers which have been delivered before 28 February 2007 and fitted with a cargo compartment fire extinguisher bottle installed in production, or in service by an Airbus Service Bulletin (SB), except aircraft on which MRBR task 26.23.00/03 or 26.23.00/07 has been performed. Reason: During planned maintenance visit on one A320 aircraft, a cross connection of the fire extinguishing circuit system was identified. In case of fire, this cross connection will activate (discharge) the wrong forward or aft cargo compartment fire extinguisher bottle. Failure to activate the correct bottle when required is classified as potentially catastrophic. For the reasons described above, this AD requires a one-time inspection and check of the cargo firing circuit continuity to confirm the correct connection of the dedicated wires between the discharge pushbutton switches and the relevant cargo bottle. Effective Date: 08 October 2007 Compliance: Required as indicated, unless accomplished previously: Within the next 600 Flight Hours after the effective date of this AD, perform the inspection and continuity check of the cargo firing circuit continuity and, before next flight, apply corrective actions, as necessary, in accordance with AIRBUS 1/2",
+      "exact_quote": "EASA AIRWORTHINESS DIRECTIVE AD No.: 2007 - 0249 Date: 24 September 2007 No person may operate an aircraft to which an Airworthiness Directive applies, except in accordance with the requirements of that Airworthiness Directive unless otherwise agreed with the Authority of the State of Registry. Type Approval Holder’s Name : Type/Model designation(s) : AIRBUS A318, A319, A320 and A321 aircraft TCDS Number: EASA A.064 Foreign AD: Not applicable Supersedure: None Fire Protection – Cargo Compartment Fire Extinguishing – ATA 26 Inspection of Bottle Wiring Connection – Inspection and Continuity Check Manufacturer(s): AIRBUS (formerly AIRBUS INDUSTRIE) Applicability: AIRBUS A318, A319, A320 and A321 aircraft, all certified models, all serial numbers which have been delivered before 28 February 2007 and fitted with a cargo compartment fire extinguisher bottle installed in production, or in service by an Airbus Service Bulletin (SB), except aircraft on which MRBR task 26.23.00/03 or 26.23.00/07 has been performed. Reason: During planned maintenance visit on one A320 aircraft, a cross connection of the fire extinguishing circuit system was identified. In case of fire, this cross connection will activate (discharge) the wrong forward or aft cargo compartment fire extinguisher bottle. Failure to activate the correct bottle when required is classified as potentially catastrophic. For the reasons described above, this AD requires a one-time inspection and check of the cargo firing circuit continuity to confirm the correct connection of the dedicated wires between the discharge pushbutton switches and the relevant cargo bottle. Effective Date: 08 October 2007",
       "start_char": null,
       "end_char": null,
       "page_text_sha256": "59f2ad8919296dbcf865ec5258bc22ef24bafd4430fabab20a543f5d12adf21f",
@@ -436,7 +436,7 @@
       "page_number": 1,
       "printed_page_label": "1/2",
       "section": "cover",
-      "section_raw": "Manufacturer(s)",
+      "section_raw": "Manufacturer(s):",
       "clause_path": "Manufacturer(s)",
       "exact_quote": "Manufacturer(s): AIRBUS (formerly AIRBUS INDUSTRIE)",
       "start_char": null,
@@ -454,7 +454,7 @@
       "page_number": 1,
       "printed_page_label": "1/2",
       "section": "applicability",
-      "section_raw": "Applicability",
+      "section_raw": "Applicability:",
       "clause_path": "Applicability",
       "exact_quote": "Applicability: AIRBUS A318, A319, A320 and A321 aircraft, all certified models, all serial numbers which have been delivered before 28 February 2007 and fitted with a cargo compartment fire extinguisher bottle installed in production, or in service by an Airbus Service Bulletin (SB), except aircraft on which MRBR task 26.23.00/03 or 26.23.00/07 has been performed.",
       "start_char": null,
@@ -472,7 +472,7 @@
       "page_number": 1,
       "printed_page_label": "1/2",
       "section": "reason",
-      "section_raw": "Reason",
+      "section_raw": "Reason:",
       "clause_path": "Reason",
       "exact_quote": "Reason: During planned maintenance visit on one A320 aircraft, a cross connection of the fire extinguishing circuit system was identified. In case of fire, this cross connection will activate (discharge) the wrong forward or aft cargo compartment fire extinguisher bottle. Failure to activate the correct bottle when required is classified as potentially catastrophic. For the reasons described above, this AD requires a one-time inspection and check of the cargo firing circuit continuity to confirm the correct connection of the dedicated wires between the discharge pushbutton switches and the relevant cargo bottle.",
       "start_char": null,
@@ -490,7 +490,7 @@
       "page_number": 2,
       "printed_page_label": "2/2",
       "section": "reference_publications",
-      "section_raw": "Ref. Publications",
+      "section_raw": "Ref. Publications:",
       "clause_path": "Ref. Publications",
       "exact_quote": "Ref. Publications: AIRBUS Service Bulletin A320-26A1068 original issue, or later approved revisions.",
       "start_char": null,
@@ -508,7 +508,7 @@
       "page_number": 1,
       "printed_page_label": "1/2",
       "section": "required_actions_and_compliance_times",
-      "section_raw": "Required Action(s) and Compliance Time(s)",
+      "section_raw": "Compliance:",
       "clause_path": "compliance",
       "exact_quote": "Compliance: Required as indicated, unless accomplished previously: Within the next 600 Flight Hours after the effective date of this AD, perform the inspection and continuity check of the cargo firing circuit continuity and, before next flight, apply corrective actions, as necessary, in accordance with AIRBUS 1/2",
       "start_char": null,
@@ -526,7 +526,7 @@
       "page_number": 2,
       "printed_page_label": "2/2",
       "section": "required_actions_and_compliance_times",
-      "section_raw": "Required Action(s) and Compliance Time(s)",
+      "section_raw": "Compliance:",
       "clause_path": "compliance",
       "exact_quote": "SB A320-26A1068. Accomplishment of MRBR task 26.23.00/03 or 26.23.00/07 is an acceptable alternative method of compliance with the requirements of this directive.",
       "start_char": null,
@@ -542,11 +542,11 @@
       "evidence_id": "EV-008",
       "source_file_instance_id": "7a239ec5c306fa6d",
       "page_number": 2,
-      "printed_page_label": "2/2",
+      "printed_page_label": "Page 2 of 2",
       "section": "remarks",
-      "section_raw": "Remarks",
+      "section_raw": "Remarks :",
       "clause_path": "Remarks",
-      "exact_quote": "Remarks : 1. If requested and appropriately substantiated, EASA can accept Alternative Methods of Compliance for this AD. 2. This AD was posted on 13 June 2007 as PAD 07-095 for consultation until 27 June 2007. The Comment Response Document can be found at http://ad.easa.europa.eu/. 3. Enquiries regarding this AD should be referred to the AD Focal Point - Certification Directorate, EASA. E-mail: ADs@easa.europa.eu . 4. For any question concerning the technical content of the requirements in this AD, please contact: AIRBUS – Airworthiness Office – EAS Fax: +33 5 61 93 44 51, E-mail: airworth-eas@airbus.com . 2/2",
+      "exact_quote": "Remarks : 1. If requested and appropriately substantiated, EASA can accept Alternative Methods of Compliance for this AD. 2. This AD was posted on 13 June 2007 as PAD 07-095 for consultation until 27 June 2007. The Comment Response Document can be found at http://ad.easa.europa.eu/. 3. Enquiries regarding this AD should be referred to the AD Focal Point - Certification Directorate, EASA. E-mail: ADs@easa.europa.eu . 4. For any question concerning the technical content of the requirements in this AD, please contact: AIRBUS – Airworthiness Office – EAS Fax: +33 5 61 93 44 51, E-mail: airworth-eas@airbus.com .",
       "start_char": null,
       "end_char": null,
       "page_text_sha256": "c311298fbb6356ad12200e31135ead927d594e095b24abb14d21131d1b5a615e",

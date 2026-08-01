@@ -43,7 +43,7 @@
     "design_approval_holder": {
       "state": "present",
       "value": "Airbus SAS",
-      "raw_text": "Airbus SAS",
+      "raw_text": "AIRBUS SAS",
       "evidence_ids": [
         "EV-001"
       ]
@@ -117,7 +117,7 @@
     "foreign_ad": {
       "state": "explicit_none",
       "value": null,
-      "raw_text": "Foreign AD: None or Not applicable",
+      "raw_text": "Foreign AD: Not applicable",
       "evidence_ids": [
         "EV-001"
       ]
@@ -156,8 +156,8 @@
       "part_numbers": [],
       "configuration_conditions": [],
       "exclusions": [
-        "Aircraft that received AIRBUS Modification 11110 during production",
-        "Aircraft modified in service in accordance with AIRBUS SB A310-54-2032 (Modification 11109)"
+        "aircraft that have received AIRBUS Modification 11110 during production",
+        "that have been modified in service in accordance with AIRBUS Service Bulletin (SB) A310-54-2032 (Mod. 11109)"
       ],
       "boolean_logic": "all",
       "evidence_ids": [
@@ -173,18 +173,18 @@
       "Two operators of A300 aircraft fitted with General Electric (GE) CF6-50 engine series have reported cracks on the lower side of Rib 5 in the pylon box."
     ],
     "causes": [
-      "Stresses resulting from pressure applied by the thrust reverser cowl bumpers."
+      "Investigations disclosed that these cracks are due to the stresses resulting from the pressure applied by the thrust reverser cowl bumpers."
     ],
     "unsafe_conditions": [
-      "Cracks on the lower side of Rib 5 in the pylon box."
+      "cracks on the lower side of Rib 5 in the pylon box."
     ],
     "potential_consequences": [],
     "affected_components": [
-      "Lower side of Rib 5 in the pylon box",
-      "Left-hand and right-hand pylons"
+      "lower side of Rib 5 in the pylon box",
+      "LH and RH pylon"
     ],
     "intended_risk_mitigation": [
-      "Inspection programme of the lower side of Rib 5 in the pylon box."
+      "an inspection programme of this area is required by this Airworthiness Directive (AD)."
     ],
     "evidence_ids": [
       "EV-004"
@@ -202,12 +202,12 @@
         "inspection"
       ],
       "obligation": "mandatory",
-      "action_text": "(1) Perform an High Frequency Eddy Current (HFEC) inspection and a detailed visual inspection on the lower side of Rib 5 of LH and RH pylon in accordance with the instructions defined in AIRBUS SB A310-54-2036 Revision 2 at the 1/2 latest of the following thresholds, as applicable to the aircraft model: For A310-203, A310-203C and A310-204 : - Prior to accumulation of 40 000 flight cycles (FC) or 60 000 flight hours (FH), whichever occurs first; or - Within 250 FH after the effective date of this AD. For A310-304 and A310-308 : - Prior to accumulation of 35 000 FC or 60 000 FH, whichever occurs first, or - Within 250 FH after the effective date of this AD.",
+      "action_text": "(1) Perform an High Frequency Eddy Current (HFEC) inspection and a detailed visual inspection on the lower side of Rib 5 of LH and RH pylon in accordance with the instructions defined in AIRBUS SB A310-54-2036 Revision 2 at the latest of the following thresholds, as applicable to the aircraft model: For A310-203, A310-203C and A310-204: - Prior to accumulation of 40 000 flight cycles (FC) or 60 000 flight hours (FH), whichever occurs first; or - Within 250 FH after the effective date of this AD. For A310-304 and A310-308: - Prior to accumulation of 35 000 FC or 60 000 FH, whichever occurs first, or - Within 250 FH after the effective date of this AD.",
       "objects_or_components": [
-        "Lower side of Rib 5 of the LH and RH pylons"
+        "the lower side of Rib 5 of LH and RH pylon"
       ],
       "conditions": [
-        "Threshold depends on aircraft model"
+        "as applicable to the aircraft model"
       ],
       "method_publication_ids": [
         "PUB-001",
@@ -218,10 +218,10 @@
         {
           "compliance_id": "CMP-001",
           "state": "present",
-          "raw_text": "For A310-203, A310-203C and A310-204: at the latest of (a) prior to accumulation of 40 000 FC or 60 000 FH, whichever occurs first, or (b) within 250 FH after the effective date of this AD.",
+          "raw_text": "(1) Perform an High Frequency Eddy Current (HFEC) inspection and a detailed visual inspection on the lower side of Rib 5 of LH and RH pylon in accordance with the instructions defined in AIRBUS SB A310-54-2036 Revision 2 at the latest of the following thresholds, as applicable to the aircraft model: For A310-203, A310-203C and A310-204: - Prior to accumulation of 40 000 flight cycles (FC) or 60 000 flight hours (FH), whichever occurs first; or - Within 250 FH after the effective date of this AD. For A310-304 and A310-308: - Prior to accumulation of 35 000 FC or 60 000 FH, whichever occurs first, or - Within 250 FH after the effective date of this AD.",
           "logic": "conditional",
           "conditions": [
-            "Applicable to A310-203, A310-203C and A310-204"
+            "For A310-203, A310-203C and A310-204"
           ],
           "initial_limits": [
             {
@@ -229,7 +229,7 @@
               "relation": "before",
               "quantity": 40000,
               "unit": "flight_cycle",
-              "raw_value": "Prior to accumulation of 40 000 FC",
+              "raw_value": "Prior to accumulation of 40 000",
               "reference_event": null,
               "calendar_date": null,
               "evidence_ids": [
@@ -275,10 +275,10 @@
         {
           "compliance_id": "CMP-002",
           "state": "present",
-          "raw_text": "For A310-304 and A310-308: at the latest of (a) prior to accumulation of 35 000 FC or 60 000 FH, whichever occurs first, or (b) within 250 FH after the effective date of this AD.",
+          "raw_text": "(1) Perform an High Frequency Eddy Current (HFEC) inspection and a detailed visual inspection on the lower side of Rib 5 of LH and RH pylon in accordance with the instructions defined in AIRBUS SB A310-54-2036 Revision 2 at the latest of the following thresholds, as applicable to the aircraft model: For A310-203, A310-203C and A310-204: - Prior to accumulation of 40 000 flight cycles (FC) or 60 000 flight hours (FH), whichever occurs first; or - Within 250 FH after the effective date of this AD. For A310-304 and A310-308: - Prior to accumulation of 35 000 FC or 60 000 FH, whichever occurs first, or - Within 250 FH after the effective date of this AD.",
           "logic": "conditional",
           "conditions": [
-            "Applicable to A310-304 and A310-308"
+            "For A310-304 and A310-308"
           ],
           "initial_limits": [
             {
@@ -355,12 +355,12 @@
         "inspection"
       ],
       "obligation": "conditional",
-      "action_text": "(2) If no cracks are found, repeat the inspection described above at intervals not to exceed 15 000 FH in accordance with the instructions of AIRBUS SB A310-54- 2036 Revision 2; Note: Inspections (initial or repetitive) accomplished before the effective date of this AD in accordance with SB A310-54-2036 revision 1 are acceptable for compliance with paragraphs (1) and (2) of this AD. Repetitive inspections occurring after the effective date of this AD must be done in accordance with AIRBUS SB A310-54- 2036 revision 2, as required by paragraph (2) of this AD.",
+      "action_text": "(2) If no cracks are found, repeat the inspection described above at intervals not to exceed 15 000 FH in accordance with the instructions of AIRBUS SB A310-54-2036 Revision 2;",
       "objects_or_components": [
-        "Lower side of Rib 5 of the LH and RH pylons"
+        "the lower side of Rib 5 of LH and RH pylon"
       ],
       "conditions": [
-        "No cracks are found"
+        "no cracks are found"
       ],
       "method_publication_ids": [
         "PUB-001",
@@ -371,10 +371,10 @@
         {
           "compliance_id": "CMP-003",
           "state": "present",
-          "raw_text": "(2) If no cracks are found, repeat the inspection described above at intervals not to exceed 15 000 FH in accordance with the instructions of AIRBUS SB A310-54- 2036 Revision 2; Note: Inspections (initial or repetitive) accomplished before the effective date of this AD in accordance with SB A310-54-2036 revision 1 are acceptable for compliance with paragraphs (1) and (2) of this AD. Repetitive inspections occurring after the effective date of this AD must be done in accordance with AIRBUS SB A310-54- 2036 revision 2, as required by paragraph (2) of this AD.",
+          "raw_text": "(2) If no cracks are found, repeat the inspection described above at intervals not to exceed 15 000 FH in accordance with the instructions of AIRBUS SB A310-54-2036 Revision 2;",
           "logic": "conditional",
           "conditions": [
-            "No cracks are found"
+            "no cracks are found"
           ],
           "initial_limits": [],
           "is_repetitive": true,
@@ -425,9 +425,9 @@
         "reporting"
       ],
       "obligation": "mandatory",
-      "action_text": "(3) Within 30 days after each inspection performed in accordance with SB A310- 54-2036 revision 2, report to AIRBUS inspection results, whatever they are;",
+      "action_text": "(3) Within 30 days after each inspection performed in accordance with SB A310-54-2036 revision 2, report to AIRBUS inspection results, whatever they are;",
       "objects_or_components": [
-        "Inspection results"
+        "inspection results"
       ],
       "conditions": [],
       "method_publication_ids": [
@@ -439,7 +439,7 @@
         {
           "compliance_id": "CMP-004",
           "state": "present",
-          "raw_text": "(3) Within 30 days after each inspection performed in accordance with SB A310- 54-2036 revision 2, report to AIRBUS inspection results, whatever they are;",
+          "raw_text": "(3) Within 30 days after each inspection performed in accordance with SB A310-54-2036 revision 2, report to AIRBUS inspection results, whatever they are;",
           "logic": "single",
           "conditions": [],
           "initial_limits": [
@@ -496,7 +496,7 @@
         "Rib 5 in the pylon box"
       ],
       "conditions": [
-        "Cracks are found during an inspection required by paragraph (1) or (2)"
+        "If cracks are found during any inspection as required by paragraph (1) or (2) of this AD"
       ],
       "method_publication_ids": [
         "PUB-001",
@@ -510,7 +510,7 @@
           "raw_text": "(4) If cracks are found during any inspection as required by paragraph (1) or (2) of this AD, within 250 FH, modify the rib 5 in the pylon box using the instructions of AIRBUS SB A310-54-2032; After modification of the rib 5 pylon in accordance with the instructions of AIRBUS SB A310-54-2032, no further actions are required by this AD.",
           "logic": "conditional",
           "conditions": [
-            "Cracks are found during an inspection required by paragraph (1) or (2)"
+            "If cracks are found during any inspection as required by paragraph (1) or (2) of this AD"
           ],
           "initial_limits": [
             {
@@ -518,7 +518,7 @@
               "relation": "within",
               "quantity": 250,
               "unit": "flight_hour",
-              "raw_value": "within 250 FH",
+              "raw_value": "Within 250 FH",
               "reference_event": "finding cracks during an inspection required by paragraph (1) or (2)",
               "calendar_date": null,
               "evidence_ids": [
@@ -541,7 +541,7 @@
         "state": "present",
         "present": true,
         "scope": "full",
-        "action_text": "After modification of the rib 5 pylon in accordance with AIRBUS SB A310-54-2032, no further actions are required by this AD.",
+        "action_text": "After modification of the rib 5 pylon in accordance with the instructions of AIRBUS SB A310-54-2032, no further actions are required by this AD.",
         "terminates_requirement_ids": [
           "REQ-001",
           "REQ-002",
@@ -562,7 +562,7 @@
   "previous_action_credit": [
     {
       "credit_id": "CRD-001",
-      "text": "Inspections (initial or repetitive) accomplished before the effective date of this AD in accordance with SB A310-54-2036 Revision 1 are acceptable for compliance with paragraphs (1) and (2).",
+      "text": "Note: Inspections (initial or repetitive) accomplished before the effective date of this AD in accordance with SB A310-54-2036 revision 1 are acceptable for compliance with paragraphs (1) and (2) of this AD. Repetitive inspections occurring after the effective date of this AD must be done in accordance with AIRBUS SB A310-54-2036 revision 2, as required by paragraph (2) of this AD.",
       "applies_to_requirement_ids": [
         "REQ-001",
         "REQ-002"
@@ -571,7 +571,7 @@
         "PUB-001"
       ],
       "conditions": [
-        "Inspection accomplished before the effective date of this AD"
+        "Note: Inspections (initial or repetitive) accomplished before the effective date of this AD in accordance with SB A310-54-2036 revision 1 are acceptable for compliance with paragraphs"
       ],
       "evidence_ids": [
         "EV-006",
@@ -635,9 +635,9 @@
       "entry_id": "AMC-001",
       "entry_type": "amoc_authority",
       "authority_or_organization": "EASA",
-      "contact_text": "Remarks : 1. If requested and appropriately substantiated, EASA can accept Alternative Methods of Compliance for this AD. 2. This AD was posted on 19 February 2008 as PAD 08-025 for consultation until 18 March 2008. No comments were received during the consultation period. 3. Enquiries regarding this AD should be referred to the AD Focal Point - Certification Directorate, EASA. E-mail: ADs@easa.europa.eu . 4. For any question concerning the technical content of the requirements in this AD, please contact: AIRBUS SAS – EAW (Airworthiness Office, Telephone: + 33 5 61 93 36 96, Fax:+ 33 5 61 93 44 51). 2/2",
+      "contact_text": "1. If requested and appropriately substantiated, EASA can accept Alternative Methods of Compliance for this AD.",
       "conditions": [
-        "Requested and appropriately substantiated"
+        "requested and appropriately substantiated"
       ],
       "evidence_ids": [
         "EV-008"
@@ -647,7 +647,7 @@
       "entry_id": "AMC-002",
       "entry_type": "regulatory_contact",
       "authority_or_organization": "EASA and the technical contact stated in the AD",
-      "contact_text": "Remarks : 1. If requested and appropriately substantiated, EASA can accept Alternative Methods of Compliance for this AD. 2. This AD was posted on 19 February 2008 as PAD 08-025 for consultation until 18 March 2008. No comments were received during the consultation period. 3. Enquiries regarding this AD should be referred to the AD Focal Point - Certification Directorate, EASA. E-mail: ADs@easa.europa.eu . 4. For any question concerning the technical content of the requirements in this AD, please contact: AIRBUS SAS – EAW (Airworthiness Office, Telephone: + 33 5 61 93 36 96, Fax:+ 33 5 61 93 44 51). 2/2",
+      "contact_text": "3. Enquiries regarding this AD should be referred to the AD Focal Point - Certification Directorate, EASA. E-mail: ADs@easa.europa.eu. 4. For any question concerning the technical content of the requirements in this AD, please contact: AIRBUS SAS – EAW (Airworthiness Office, Telephone: + 33 5 61 93 36 96, Fax:+ 33 5 61 93 44 51).",
       "conditions": [],
       "evidence_ids": [
         "EV-008"
@@ -687,7 +687,7 @@
       "page_number": 1,
       "printed_page_label": "1/2",
       "section": "cover",
-      "section_raw": "Cover identity and publication",
+      "section_raw": "Airworthiness Directive",
       "clause_path": "cover",
       "exact_quote": "EASA AIRWORTHINESS DIRECTIVE AD No : 2008-0066 Date: 31 March 2008 No person may operate an aircraft to which an Airworthiness Directive applies, except in accordance with the requirements of that Airworthiness Directive unless otherwise agreed with the Authority of the State of Registry. Type Approval Holder’s Name : Type/Model designation(s) : AIRBUS SAS A310 aircraft TCDS Number: France No 145 Foreign AD: Not applicable Supersedure: None ATA 54 Nacelles / Pylons – Pylon Box Rib 5 Lower Side – Inspection Manufacturer(s): AIRBUS (formerly AIRBUS INDUSTRIE) Applicability: Airbus A310-203, A310-203C, A310-204, A310-304 and A310-308 aircraft models, all serial numbers, except aircraft that have received AIRBUS Modification 11110 during production or that have been modified in service in accordance with AIRBUS Service Bulletin (SB) A310-54-2032 (Mod. 11109). Reason: Two operators of A300 aircraft fitted with General Electric (GE) CF6-50 engine series have reported cracks on the lower side of Rib 5 in the pylon box. The concerned area is similar on A310 aircraft fitted with GE CF6-80A or CF6-80C series engines. Investigations disclosed that these cracks are due to the stresses resulting from the pressure applied by the thrust reverser cowl bumpers. As a result of the A310 Extended Service Goal (ESG) study, an inspection programme of this area is required by this Airworthiness Directive (AD). A similar inspection programme is being contemplated for A300 and A300-600 series aircraft. Effective Date: 14 April 2008 Compliance: The following measures are required from the effective date of this AD: (1) Perform an High Frequency Eddy Current (HFEC) inspection and a detailed visual inspection on the lower side of Rib 5 of LH and RH pylon in accordance with the instructions defined in AIRBUS SB A310-54-2036 Revision 2 at the 1/2",
       "start_char": null,
@@ -705,7 +705,7 @@
       "page_number": 1,
       "printed_page_label": "1/2",
       "section": "cover",
-      "section_raw": "Manufacturer(s)",
+      "section_raw": "Manufacturer(s):",
       "clause_path": "Manufacturer(s)",
       "exact_quote": "Manufacturer(s): AIRBUS (formerly AIRBUS INDUSTRIE)",
       "start_char": null,
@@ -723,7 +723,7 @@
       "page_number": 1,
       "printed_page_label": "1/2",
       "section": "applicability",
-      "section_raw": "Applicability",
+      "section_raw": "Applicability:",
       "clause_path": "Applicability",
       "exact_quote": "Applicability: Airbus A310-203, A310-203C, A310-204, A310-304 and A310-308 aircraft models, all serial numbers, except aircraft that have received AIRBUS Modification 11110 during production or that have been modified in service in accordance with AIRBUS Service Bulletin (SB) A310-54-2032 (Mod. 11109).",
       "start_char": null,
@@ -741,7 +741,7 @@
       "page_number": 1,
       "printed_page_label": "1/2",
       "section": "reason",
-      "section_raw": "Reason",
+      "section_raw": "Reason:",
       "clause_path": "Reason",
       "exact_quote": "Reason: Two operators of A300 aircraft fitted with General Electric (GE) CF6-50 engine series have reported cracks on the lower side of Rib 5 in the pylon box. The concerned area is similar on A310 aircraft fitted with GE CF6-80A or CF6-80C series engines. Investigations disclosed that these cracks are due to the stresses resulting from the pressure applied by the thrust reverser cowl bumpers. As a result of the A310 Extended Service Goal (ESG) study, an inspection programme of this area is required by this Airworthiness Directive (AD). A similar inspection programme is being contemplated for A300 and A300-600 series aircraft.",
       "start_char": null,
@@ -759,7 +759,7 @@
       "page_number": 2,
       "printed_page_label": "2/2",
       "section": "reference_publications",
-      "section_raw": "Ref. Publications",
+      "section_raw": "Ref. Publications:",
       "clause_path": "Ref. Publications",
       "exact_quote": "Ref. Publications: AIRBUS Service Bulletins A310-54-2036 revision 1, revision 2; and A310-54-2032 original issue; The use of later approved revisions of these documents is acceptable for compliance with the requirements of this AD.",
       "start_char": null,
@@ -777,7 +777,7 @@
       "page_number": 1,
       "printed_page_label": "1/2",
       "section": "required_actions_and_compliance_times",
-      "section_raw": "Required Action(s) and Compliance Time(s)",
+      "section_raw": "Compliance:",
       "clause_path": "compliance",
       "exact_quote": "Compliance: The following measures are required from the effective date of this AD: (1) Perform an High Frequency Eddy Current (HFEC) inspection and a detailed visual inspection on the lower side of Rib 5 of LH and RH pylon in accordance with the instructions defined in AIRBUS SB A310-54-2036 Revision 2 at the 1/2",
       "start_char": null,
@@ -793,9 +793,9 @@
       "evidence_id": "EV-007",
       "source_file_instance_id": "843fc74e8a4f44c0",
       "page_number": 2,
-      "printed_page_label": "2/2",
+      "printed_page_label": "Page 2 of 2",
       "section": "required_actions_and_compliance_times",
-      "section_raw": "Required Action(s) and Compliance Time(s)",
+      "section_raw": "Compliance:",
       "clause_path": "compliance",
       "exact_quote": "latest of the following thresholds, as applicable to the aircraft model: For A310-203, A310-203C and A310-204 : - Prior to accumulation of 40 000 flight cycles (FC) or 60 000 flight hours (FH), whichever occurs first; or - Within 250 FH after the effective date of this AD. For A310-304 and A310-308 : - Prior to accumulation of 35 000 FC or 60 000 FH, whichever occurs first, or - Within 250 FH after the effective date of this AD. (2) If no cracks are found, repeat the inspection described above at intervals not to exceed 15 000 FH in accordance with the instructions of AIRBUS SB A310-54- 2036 Revision 2; Note: Inspections (initial or repetitive) accomplished before the effective date of this AD in accordance with SB A310-54-2036 revision 1 are acceptable for compliance with paragraphs (1) and (2) of this AD. Repetitive inspections occurring after the effective date of this AD must be done in accordance with AIRBUS SB A310-54- 2036 revision 2, as required by paragraph (2) of this AD. (3) Within 30 days after each inspection performed in accordance with SB A310- 54-2036 revision 2, report to AIRBUS inspection results, whatever they are; (4) If cracks are found during any inspection as required by paragraph (1) or (2) of this AD, within 250 FH, modify the rib 5 in the pylon box using the instructions of AIRBUS SB A310-54-2032; After modification of the rib 5 pylon in accordance with the instructions of AIRBUS SB A310-54-2032, no further actions are required by this AD.",
       "start_char": null,
@@ -811,11 +811,11 @@
       "evidence_id": "EV-008",
       "source_file_instance_id": "843fc74e8a4f44c0",
       "page_number": 2,
-      "printed_page_label": "2/2",
+      "printed_page_label": "Page 2 of 2",
       "section": "remarks",
-      "section_raw": "Remarks",
+      "section_raw": "Remarks :",
       "clause_path": "Remarks",
-      "exact_quote": "Remarks : 1. If requested and appropriately substantiated, EASA can accept Alternative Methods of Compliance for this AD. 2. This AD was posted on 19 February 2008 as PAD 08-025 for consultation until 18 March 2008. No comments were received during the consultation period. 3. Enquiries regarding this AD should be referred to the AD Focal Point - Certification Directorate, EASA. E-mail: ADs@easa.europa.eu . 4. For any question concerning the technical content of the requirements in this AD, please contact: AIRBUS SAS – EAW (Airworthiness Office, Telephone: + 33 5 61 93 36 96, Fax:+ 33 5 61 93 44 51). 2/2",
+      "exact_quote": "Remarks : 1. If requested and appropriately substantiated, EASA can accept Alternative Methods of Compliance for this AD. 2. This AD was posted on 19 February 2008 as PAD 08-025 for consultation until 18 March 2008. No comments were received during the consultation period. 3. Enquiries regarding this AD should be referred to the AD Focal Point - Certification Directorate, EASA. E-mail: ADs@easa.europa.eu . 4. For any question concerning the technical content of the requirements in this AD, please contact: AIRBUS SAS – EAW (Airworthiness Office, Telephone: + 33 5 61 93 36 96, Fax:+ 33 5 61 93 44 51).",
       "start_char": null,
       "end_char": null,
       "page_text_sha256": "5c43cf29948b745426eaf277e42dae902601832454c41057fa3a6b8d863abcb2",

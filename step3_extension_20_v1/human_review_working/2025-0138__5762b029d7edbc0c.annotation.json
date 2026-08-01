@@ -43,7 +43,7 @@
     "design_approval_holder": {
       "state": "present",
       "value": "Airbus S.A.S.",
-      "raw_text": "Airbus S.A.S.",
+      "raw_text": "AIRBUS S.A.S.",
       "evidence_ids": [
         "EV-001"
       ]
@@ -114,7 +114,7 @@
     "foreign_ad": {
       "state": "explicit_none",
       "value": null,
-      "raw_text": "Foreign AD: None or Not applicable",
+      "raw_text": "Foreign AD: Not applicable",
       "evidence_ids": [
         "EV-001"
       ]
@@ -137,7 +137,7 @@
         {
           "restriction_id": "MSN-001",
           "kind": "all",
-          "raw_expression": "all serial numbers",
+          "raw_expression": "all manufacturer serial numbers",
           "lower_bound": null,
           "upper_bound": null,
           "explicit_values": [],
@@ -160,7 +160,7 @@
     {
       "definition_id": "DEF-001",
       "term": "The AOT",
-      "definition_text": "Airbus Alert Operator Transmission A35P024-24.",
+      "definition_text": "Airbus Alert Operator Transmission (AOT) A35P024-24.",
       "evidence_ids": [
         "EV-004"
       ]
@@ -168,7 +168,7 @@
     {
       "definition_id": "DEF-002",
       "term": "MP task",
-      "definition_text": "Maintenance Procedure Task A350-A-35-21-36-A0001-720A-A dated earlier than October 2024.",
+      "definition_text": "Maintenance Procedure (MP) Task A350-A-35-21-36-A0001-720A-A dated earlier than October 2024.",
       "evidence_ids": [
         "EV-004"
       ]
@@ -176,7 +176,7 @@
     {
       "definition_id": "DEF-003",
       "term": "Affected part",
-      "definition_text": "A chemical oxygen generator/container P/N and amendment designation listed in Table 1 of the AOT that was replaced in service using the outdated MP task between November 2023 and the effective date. Maintenance records may be used to determine this.",
+      "definition_text": "Chemical oxygen generator fitted in a container having Part Number (P/N) and Amendment designation as listed in Table 1 of the AOT, as defined in this AD, and which has been replaced in service in accordance with the MP task, as defined in this AD, between November 2023 and the effective date of this AD.",
       "evidence_ids": [
         "EV-004"
       ]
@@ -184,7 +184,7 @@
     {
       "definition_id": "DEF-004",
       "term": "Groups",
-      "definition_text": "Group 1 aeroplanes have an affected part installed; Group 2 aeroplanes do not.",
+      "definition_text": "Group 1 aeroplanes are those that have an affected part installed. Group 2 aeroplanes are those that do not have an affected part installed.",
       "evidence_ids": [
         "EV-005"
       ]
@@ -195,21 +195,21 @@
     "raw_reason_text": "Reason: Due to obsolescence of the clamp holding in place the oxygen generator in the container, Collins introduced a new clamp from another manufacturer with different locking torque specification. This new torque value was not properly reflected in Airbus documentation. Installing a part using a not updated torque value could lead to damage of the chemical oxygen generator housing. This condition, if not corrected, could lead to a reduction of the available oxygen capacity of the aeroplane when needed, possibly resulting in injury to the aeroplane occupants. To address this potential unsafe condition, in October 2024 Airbus released an updated MP task (included in the Line Maintenance Manual rev. dated November 2024), and published the AOT to provide instructions for replacement of the affected parts. For the reasons described above, this AD requires replacement of the affected parts with serviceable parts.",
     "observed_events_or_defects": [],
     "causes": [
-      "A replacement clamp had a different locking-torque specification, but the new torque was not properly reflected in Airbus maintenance documentation."
+      "Due to obsolescence of the clamp holding in place the oxygen generator in the container, Collins introduced a new clamp from another manufacturer with different locking torque specification."
     ],
     "unsafe_conditions": [
-      "Using the outdated torque value can damage the chemical oxygen generator housing."
+      "Installing a part using a not updated torque value could lead to damage of the chemical oxygen generator housing."
     ],
     "potential_consequences": [
-      "Reduced available oxygen capacity when needed",
-      "Injury to aeroplane occupants"
+      "if not corrected, could lead to a reduction of the available oxygen capacity of the aeroplane when needed, possibly resulting in injury to the aeroplane occupants.",
+      "injury to the aeroplane occupants"
     ],
     "affected_components": [
-      "Chemical oxygen generator",
-      "Generator container and retaining clamp"
+      "Chemical Oxygen Generator",
+      "the clamp holding in place the oxygen generator in the container"
     ],
     "intended_risk_mitigation": [
-      "Replace affected generators with serviceable parts, stop using the outdated MP task and prohibit installation of affected parts."
+      "For the reasons described above, this AD requires replacement of the affected parts with serviceable parts."
     ],
     "evidence_ids": [
       "EV-006"
@@ -227,9 +227,9 @@
         "replacement"
       ],
       "obligation": "mandatory",
-      "action_text": "(1) For Group 1 aeroplanes, within 6 months after the effective date of this AD, replace each affected chemical oxygen generator with a serviceable part in accordance with the AOT.",
+      "action_text": "(1) For Group 1 aeroplanes: Within 6 months after the effective date of this AD replace each affected part with a serviceable part in accordance with the instructions of the AOT.",
       "objects_or_components": [
-        "Affected chemical oxygen generator"
+        "Affected part"
       ],
       "conditions": [
         "Group 1 aeroplane"
@@ -241,7 +241,7 @@
         {
           "compliance_id": "CMP-001",
           "state": "present",
-          "raw_text": "(1) For Group 1 aeroplanes, within 6 months after the effective date of this AD, replace each affected chemical oxygen generator with a serviceable part in accordance with the AOT.",
+          "raw_text": "(1) For Group 1 aeroplanes: Within 6 months after the effective date of this AD replace each affected part with a serviceable part in accordance with the instructions of the AOT.",
           "logic": "single",
           "conditions": [
             "Group 1 aeroplane"
@@ -292,22 +292,22 @@
         "prohibition"
       ],
       "obligation": "prohibited",
-      "action_text": "(2) For Group 1 and Group 2 aeroplanes, from the effective date of this AD, do not accomplish maintenance using MP Task A350-A-35-21-36-A0001-720A-A dated earlier than October 2024.",
+      "action_text": "(2) For Group 1 and Group 2 aeroplanes: From the effective date of this AD, do not accomplish any maintenance action on an aeroplane in accordance with the instructions of the MP task, as defined in this AD.",
       "objects_or_components": [
-        "Outdated MP task"
+        "the MP task"
       ],
       "conditions": [
-        "Group 1 or Group 2 aeroplane"
+        "For Group 1 and Group 2 aeroplanes"
       ],
       "method_publication_ids": [],
       "compliance_rules": [
         {
           "compliance_id": "CMP-002",
           "state": "present",
-          "raw_text": "(2) For Group 1 and Group 2 aeroplanes, from the effective date of this AD, do not accomplish maintenance using MP Task A350-A-35-21-36-A0001-720A-A dated earlier than October 2024.",
+          "raw_text": "(2) For Group 1 and Group 2 aeroplanes: From the effective date of this AD, do not accomplish any maintenance action on an aeroplane in accordance with the instructions of the MP task, as defined in this AD.",
           "logic": "conditional",
           "conditions": [
-            "All affected aeroplanes"
+            "For Group 1 and Group 2 aeroplanes"
           ],
           "initial_limits": [
             {
@@ -355,22 +355,22 @@
         "prohibition"
       ],
       "obligation": "prohibited",
-      "action_text": "(3) For Group 1 and Group 2 aeroplanes, from the effective date of this AD, do not install an affected part on any aeroplane.",
+      "action_text": "(3) For Group 1 and Group 2 aeroplanes: From the effective date of this AD, do not install an affected part on any aeroplane.",
       "objects_or_components": [
-        "Affected chemical oxygen generator"
+        "Affected part"
       ],
       "conditions": [
-        "Group 1 or Group 2 aeroplane"
+        "For Group 1 and Group 2 aeroplanes"
       ],
       "method_publication_ids": [],
       "compliance_rules": [
         {
           "compliance_id": "CMP-003",
           "state": "present",
-          "raw_text": "(3) For Group 1 and Group 2 aeroplanes, from the effective date of this AD, do not install an affected part on any aeroplane.",
+          "raw_text": "(3) For Group 1 and Group 2 aeroplanes: From the effective date of this AD, do not install an affected part on any aeroplane.",
           "logic": "conditional",
           "conditions": [
-            "All affected aeroplanes"
+            "For Group 1 and Group 2 aeroplanes"
           ],
           "initial_limits": [
             {
@@ -435,9 +435,9 @@
       "entry_id": "AMC-001",
       "entry_type": "amoc_authority",
       "authority_or_organization": "EASA",
-      "contact_text": "Remarks: 1. If requested and appropriately substantiated, EASA can approve Alternative Methods of Compliance for this AD. 2. This AD was posted on 21 May 2025 as PAD 25-076 for consultation until 18 June 2025. The Comment Response Document can be found in the EASA Safety Publications Tool, in the compressed (‘zipped’) file, attached to the record for this AD. 3. Enquiries regarding this AD should be referred to the EASA Safety Information Section, Certification Directorate. E-mail: ADs@easa.europa.eu. 4. Information about any failures, malfunctions, defects or other occurrences, which may be similar to the unsafe condition addressed by this AD, and which may occur, or have occurred on a product, part or appliance not affected by this AD, can be reported to the EU aviation safety reporting system. This may include reporting on the same or similar components, other than those covered by the design to which this AD applies, if the same unsafe condition can exist or may develop on an aircraft with those components installed. Such components may be installed under an FAA Parts Manufacturer Approval (PMA), Supplemental Type Certificate (STC) or other modification. 5. For any question concerning the technical content of the requirements in this AD, please contact: AIRBUS S.A.S. A350 XWB (1IAK), E-mail: continued-airworthiness.a350@airbus.com. Page 3 of 3 TE.CAP.00110-012 © European Union Aviation Safety Agency. All rights reserved. ISO9001 Certified. Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet. An agency of the European Union",
+      "contact_text": "1. If requested and appropriately substantiated, EASA can approve Alternative Methods of Compliance for this AD.",
       "conditions": [
-        "Requested and appropriately substantiated"
+        "requested and appropriately substantiated"
       ],
       "evidence_ids": [
         "EV-010"
@@ -447,7 +447,7 @@
       "entry_id": "AMC-002",
       "entry_type": "regulatory_contact",
       "authority_or_organization": "EASA and the technical contact stated in the AD",
-      "contact_text": "Remarks: 1. If requested and appropriately substantiated, EASA can approve Alternative Methods of Compliance for this AD. 2. This AD was posted on 21 May 2025 as PAD 25-076 for consultation until 18 June 2025. The Comment Response Document can be found in the EASA Safety Publications Tool, in the compressed (‘zipped’) file, attached to the record for this AD. 3. Enquiries regarding this AD should be referred to the EASA Safety Information Section, Certification Directorate. E-mail: ADs@easa.europa.eu. 4. Information about any failures, malfunctions, defects or other occurrences, which may be similar to the unsafe condition addressed by this AD, and which may occur, or have occurred on a product, part or appliance not affected by this AD, can be reported to the EU aviation safety reporting system. This may include reporting on the same or similar components, other than those covered by the design to which this AD applies, if the same unsafe condition can exist or may develop on an aircraft with those components installed. Such components may be installed under an FAA Parts Manufacturer Approval (PMA), Supplemental Type Certificate (STC) or other modification. 5. For any question concerning the technical content of the requirements in this AD, please contact: AIRBUS S.A.S. A350 XWB (1IAK), E-mail: continued-airworthiness.a350@airbus.com. Page 3 of 3 TE.CAP.00110-012 © European Union Aviation Safety Agency. All rights reserved. ISO9001 Certified. Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet. An agency of the European Union",
+      "contact_text": "3. Enquiries regarding this AD should be referred to the EASA Safety Information Section, Certification Directorate. E-mail: ADs@easa.europa.eu. 4. Information about any failures, malfunctions, defects or other occurrences, which may be similar to the unsafe condition addressed by this AD, and which may occur, or have occurred on a product, part or appliance not affected by this AD, can be reported to the EU aviation safety reporting system. This may include reporting on the same or similar components, other than those covered by the design to which this AD applies, if the same unsafe condition can exist or may develop on an aircraft with those components installed. Such components may be installed under an FAA Parts Manufacturer Approval (PMA), Supplemental Type Certificate (STC) or other modification. 5. For any question concerning the technical content of the requirements in this AD, please contact: AIRBUS S.A.S. A350 XWB (1IAK), E-mail: continued-airworthiness.a350@airbus.com.",
       "conditions": [],
       "evidence_ids": [
         "EV-010"
@@ -485,7 +485,7 @@
       "page_number": 1,
       "printed_page_label": "Page 1 of 3",
       "section": "cover",
-      "section_raw": "Cover identity and publication",
+      "section_raw": "Airworthiness Directive",
       "clause_path": "cover",
       "exact_quote": "EASA AD No.: 2025-0138 Airworthiness Directive AD No.: 2025-0138 Issued: 01 July 2025 Note: This Airworthiness Directive (AD) is issued by EASA, acting in accordance with Regulation (EU) 2018/1139 on behalf of the European Union, its Member States and of the European third countries that participate in the activities of EASA under Article 129 of that Regulation. This AD is issued in accordance with Regulation (EU) 748/2012, Part 21.A.3B. In accordance with Regulation (EU) 1321/2014 Annex I Part M.A.301, or Annex Vb Part ML.A.301, as applicable, the continuing airworthiness of an aircraft shall be ensured by accomplishing any applicable ADs. Consequently, no person may operate an aircraft to which an AD applies, except in accordance with the requirements of that AD, unless otherwise specified by the Agency [Regulation (EU) 1321/2014 Annex I Part M.A.303, or Annex Vb Part ML.A.303, as applicable] or agreed with the Authority of the State of Registry [Regulation (EU) 2018/1139, Article 71 exemption]. Design Approval Holder’s Name: Type/Model designation(s): AIRBUS S.A.S. A350 aeroplanes Effective Date: 15 July 2025 TCDS Number(s): EASA.A.151 Foreign AD: Not applicable Supersedure: None ATA 35 – Oxygen – Chemical Oxygen Generators – Replacement Manufacturer(s): Airbus Applicability: Airbus A350-941 and A350-1041 aeroplanes, all manufacturer serial numbers. Definitions: For the purpose of this AD, the following definitions apply: The AOT: Airbus Alert Operator Transmission (AOT) A35P024-24. MP task: Maintenance Procedure (MP) Task A350-A-35-21-36-A0001-720A-A dated earlier than October 2024. Affected part: Chemical oxygen generator fitted in a container having Part Number (P/N) and Amendment designation as listed in Table 1 of the AOT, as defined in this AD, and which has been replaced in service in accordance with the MP task, as defined in this AD , between November 2023 and the effective date of this AD . Note 1: A review of aircraft maintenance records can be used to determine whether a part is an affected part, provided those records can be relied upon for that purpose . Page 1 of 3 TE.CAP.00110-012 © European Union Aviation Safety Agency. All rights reserved. ISO9001 Certified. Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet. An agency of the European Union",
       "start_char": null,
@@ -503,7 +503,7 @@
       "page_number": 1,
       "printed_page_label": "Page 1 of 3",
       "section": "cover",
-      "section_raw": "Manufacturer(s)",
+      "section_raw": "Manufacturer(s):",
       "clause_path": "Manufacturer(s)",
       "exact_quote": "Manufacturer(s): Airbus",
       "start_char": null,
@@ -521,7 +521,7 @@
       "page_number": 1,
       "printed_page_label": "Page 1 of 3",
       "section": "applicability",
-      "section_raw": "Applicability",
+      "section_raw": "Applicability:",
       "clause_path": "Applicability",
       "exact_quote": "Applicability: Airbus A350-941 and A350-1041 aeroplanes, all manufacturer serial numbers.",
       "start_char": null,
@@ -539,7 +539,7 @@
       "page_number": 1,
       "printed_page_label": "Page 1 of 3",
       "section": "definitions",
-      "section_raw": "Definitions",
+      "section_raw": "Definitions:",
       "clause_path": "Definitions",
       "exact_quote": "Definitions: For the purpose of this AD, the following definitions apply: The AOT: Airbus Alert Operator Transmission (AOT) A35P024-24. MP task: Maintenance Procedure (MP) Task A350-A-35-21-36-A0001-720A-A dated earlier than October 2024. Affected part: Chemical oxygen generator fitted in a container having Part Number (P/N) and Amendment designation as listed in Table 1 of the AOT, as defined in this AD, and which has been replaced in service in accordance with the MP task, as defined in this AD , between November 2023 and the effective date of this AD . Note 1: A review of aircraft maintenance records can be used to determine whether a part is an affected part, provided those records can be relied upon for that purpose . Page 1 of 3 TE.CAP.00110-012 © European Union Aviation Safety Agency. All rights reserved. ISO9001 Certified. Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet. An agency of the European Union",
       "start_char": null,
@@ -557,7 +557,7 @@
       "page_number": 2,
       "printed_page_label": "Page 2 of 3",
       "section": "definitions",
-      "section_raw": "Definitions",
+      "section_raw": "Definitions:",
       "clause_path": "Definitions",
       "exact_quote": "EASA AD No.: 2025-0138 Serviceable part: Any chemical oxygen generator, eligible for installation in accordance with Airbus approved instructions, that is not an affected part. Groups: Group 1 aeroplanes are those that have an affected part installed. Group 2 aeroplanes are those that do not have an affected part installed.",
       "start_char": null,
@@ -575,7 +575,7 @@
       "page_number": 2,
       "printed_page_label": "Page 2 of 3",
       "section": "reason",
-      "section_raw": "Reason",
+      "section_raw": "Reason:",
       "clause_path": "Reason",
       "exact_quote": "Reason: Due to obsolescence of the clamp holding in place the oxygen generator in the container, Collins introduced a new clamp from another manufacturer with different locking torque specification. This new torque value was not properly reflected in Airbus documentation. Installing a part using a not updated torque value could lead to damage of the chemical oxygen generator housing. This condition, if not corrected, could lead to a reduction of the available oxygen capacity of the aeroplane when needed, possibly resulting in injury to the aeroplane occupants. To address this potential unsafe condition, in October 2024 Airbus released an updated MP task (included in the Line Maintenance Manual rev. dated November 2024), and published the AOT to provide instructions for replacement of the affected parts. For the reasons described above, this AD requires replacement of the affected parts with serviceable parts.",
       "start_char": null,
@@ -593,7 +593,7 @@
       "page_number": 2,
       "printed_page_label": "Page 2 of 3",
       "section": "reference_publications",
-      "section_raw": "Ref. Publications",
+      "section_raw": "Ref. Publications:",
       "clause_path": "Ref. Publications",
       "exact_quote": "Ref. Publications: Airbus AOT A35P024-24 original issue dated 22 April 2025. The use of later approved revisions of the above-mentioned document is acceptable for compliance with the requirements of this AD. Page 2 of 3 TE.CAP.00110-012 © European Union Aviation Safety Agency. All rights reserved. ISO9001 Certified. Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet. An agency of the European Union",
       "start_char": null,
@@ -611,7 +611,7 @@
       "page_number": 3,
       "printed_page_label": "Page 3 of 3",
       "section": "reference_publications",
-      "section_raw": "Ref. Publications",
+      "section_raw": "Ref. Publications:",
       "clause_path": "Ref. Publications",
       "exact_quote": "EASA AD No.: 2025-0138",
       "start_char": null,
@@ -629,7 +629,7 @@
       "page_number": 2,
       "printed_page_label": "Page 2 of 3",
       "section": "required_actions_and_compliance_times",
-      "section_raw": "Required Action(s) and Compliance Time(s)",
+      "section_raw": "Required Action(s) and Compliance Time(s):",
       "clause_path": "compliance",
       "exact_quote": "Required Action(s) and Compliance Time(s): Required as indicated by this AD, unless the action(s) required by this AD have been already accomplished: Part(s) Replacement: (1) For Group 1 aeroplanes: Within 6 months after the effective date of this AD replace each affected part with a serviceable part in accordance with the instructions of the AOT. Additional Maintenance Requirements: (2) For Group 1 and Group 2 aeroplanes: From the effective date of this AD, do not accomplish any maintenance action on an aeroplane in accordance with the instructions of the MP task, as defined in this AD. Part(s) Installation: (3) For Group 1 and Group 2 aeroplanes: From the effective date of this AD, do not install an affected part on any aeroplane.",
       "start_char": null,
@@ -647,7 +647,7 @@
       "page_number": 3,
       "printed_page_label": "Page 3 of 3",
       "section": "remarks",
-      "section_raw": "Remarks",
+      "section_raw": "Remarks:",
       "clause_path": "Remarks",
       "exact_quote": "Remarks: 1. If requested and appropriately substantiated, EASA can approve Alternative Methods of Compliance for this AD. 2. This AD was posted on 21 May 2025 as PAD 25-076 for consultation until 18 June 2025. The Comment Response Document can be found in the EASA Safety Publications Tool, in the compressed (‘zipped’) file, attached to the record for this AD. 3. Enquiries regarding this AD should be referred to the EASA Safety Information Section, Certification Directorate. E-mail: ADs@easa.europa.eu. 4. Information about any failures, malfunctions, defects or other occurrences, which may be similar to the unsafe condition addressed by this AD, and which may occur, or have occurred on a product, part or appliance not affected by this AD, can be reported to the EU aviation safety reporting system. This may include reporting on the same or similar components, other than those covered by the design to which this AD applies, if the same unsafe condition can exist or may develop on an aircraft with those components installed. Such components may be installed under an FAA Parts Manufacturer Approval (PMA), Supplemental Type Certificate (STC) or other modification. 5. For any question concerning the technical content of the requirements in this AD, please contact: AIRBUS S.A.S. A350 XWB (1IAK), E-mail: continued-airworthiness.a350@airbus.com. Page 3 of 3 TE.CAP.00110-012 © European Union Aviation Safety Agency. All rights reserved. ISO9001 Certified. Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet. An agency of the European Union",
       "start_char": null,
