@@ -43,7 +43,7 @@
     "design_approval_holder": {
       "state": "present",
       "value": "Airbus",
-      "raw_text": "Airbus",
+      "raw_text": "AIRBUS",
       "evidence_ids": [
         "EV-001"
       ]
@@ -134,7 +134,7 @@
     "foreign_ad": {
       "state": "explicit_none",
       "value": null,
-      "raw_text": "Foreign AD: None or Not applicable",
+      "raw_text": "Foreign AD: Not applicable",
       "evidence_ids": [
         "EV-001"
       ]
@@ -177,7 +177,7 @@
         {
           "restriction_id": "MSN-001",
           "kind": "all",
-          "raw_expression": "all serial numbers",
+          "raw_expression": "all manufacturer serial numbers",
           "lower_bound": null,
           "upper_bound": null,
           "explicit_values": [],
@@ -199,25 +199,25 @@
   "definitions": [],
   "unsafe_condition": {
     "state": "present",
-    "raw_reason_text": "Reason: When there are significant differences between all airspeed sources, the flight controls of an Airbus A330 or A340 aeroplane will revert to alternate law, the autopilot (AP) and the auto-thrust (A/THR) automatically disconnect, and the Flight Directors (FD) bars are automatically removed. It has been identified that, after such an event, if two airspeed sources become similar while still erroneous, the flight guidance computers will: - Display FD bars again, and - Enable autopilot and auto-thrust re-engagement However, in some cases, the autopilot orders may be inappropriate, such as possible abrupt pitch command. In order to prevent such event which may, under specific circumstances, constitute an unsafe condition, this AD requires an amendment of the Flight Manual to ensure that flight crews apply the appropriate operational procedure. EASA Form 110 Page 1/2 EASA AD No : 2010-0271",
+    "raw_reason_text": "Reason: When there are significant differences between all airspeed sources, the flight controls of an Airbus A330 or A340 aeroplane will revert to alternate law, the autopilot (AP) and the auto-thrust (A/THR) automatically disconnect, and the Flight Directors (FD) bars are automatically removed. It has been identified that, after such an event, if two airspeed sources become similar while still erroneous, the flight guidance computers will: - Display FD bars again, and - Enable autopilot and auto-thrust re-engagement However, in some cases, the autopilot orders may be inappropriate, such as possible abrupt pitch command. In order to prevent such event which may, under specific circumstances, constitute an unsafe condition, this AD requires an amendment of the Flight Manual to ensure that flight crews apply the appropriate operational procedure.",
     "observed_events_or_defects": [
       "When there are significant differences between all airspeed sources, the flight controls of an Airbus A330 or A340 aeroplane will revert to alternate law, the autopilot (AP) and the auto-thrust (A/THR) automatically disconnect, and the Flight Directors (FD) bars are automatically removed."
     ],
     "causes": [],
     "unsafe_conditions": [
-      "After airspeed disagreement, two erroneous airspeed sources can become similar, causing flight-director bars to reappear and enabling autopilot and auto-thrust re-engagement."
+      "if two airspeed sources become similar while still erroneous, the flight guidance computers will: - Display FD bars again, and - Enable autopilot and auto-thrust re-engagement However, in some cases, the autopilot orders may be inappropriate, such as possible abrupt pitch command."
     ],
     "potential_consequences": [
-      "Inappropriate autopilot orders, including a possible abrupt pitch command."
+      "the autopilot orders may be inappropriate, such as possible abrupt pitch command."
     ],
     "affected_components": [
-      "Flight guidance computers",
-      "Autopilot",
-      "Auto-thrust",
+      "flight guidance computers",
+      "autopilot",
+      "Auto-Thrust",
       "Flight Directors"
     ],
     "intended_risk_mitigation": [
-      "Amend the Airplane Flight Manual and require flight crews to apply the specified operational procedure."
+      "In order to prevent such event which may, under specific circumstances, constitute an unsafe condition, this AD requires an amendment of the Flight Manual to ensure that flight crews apply the appropriate operational procedure."
     ],
     "evidence_ids": [
       "EV-004"
@@ -236,13 +236,13 @@
         "operational_procedure"
       ],
       "obligation": "mandatory",
-      "action_text": "(1) Within 15 days after the effective date of this AD, amend the applicable Time(s): Airplane Flight Manual (AFM) to incorporate the following operational procedure, and operate the aeroplane accordingly: PROCEDURE : When autopilot and auto-thrust are automatically disconnected and flight controls have reverted to alternate law: - Do not engage the AP and the A/THR, even if FD bars have reappeared - Do not follow the FD orders - ALL SPEED INDICATIONS............................................X-CHECK  If unreliable speed indication is suspected:  UNRELIABLE SPEED INDIC/ADR CHECK PROC...........APPLY  If at least two ADRs provide reliable speed indication for at least 30 seconds, and the aircraft is stabilised on the intended path: AP/FD and A/THR ........................................................As required Note : This operational procedure is described in the following Temporary Revisions (TR) of the AFM : A330 AFM TR 149 (OEB N°82/1) A340 AFM TR 150 (OEB N°95/1)",
+      "action_text": "(1) Within 15 days after the effective date of this AD, amend the applicable Airplane Flight Manual (AFM) to incorporate the following operational procedure, and operate the aeroplane accordingly: PROCEDURE: When autopilot and auto-thrust are automatically disconnected and flight controls have reverted to alternate law: - Do not engage the AP and the A/THR, even if FD bars have reappeared - Do not follow the FD orders - ALL SPEED INDICATIONS............................................X-CHECK  If unreliable speed indication is suspected:  UNRELIABLE SPEED INDIC/ADR CHECK PROC...........APPLY  If at least two ADRs provide reliable speed indication for at least 30 seconds, and the aircraft is stabilised on the intended path: AP/FD and A/THR........................................................As required",
       "objects_or_components": [
-        "Applicable Airplane Flight Manual",
-        "Autopilot, auto-thrust and Flight Director operational procedure"
+        "applicable Airplane Flight Manual",
+        "the following operational procedure"
       ],
       "conditions": [
-        "Autopilot and auto-thrust automatically disconnect and flight controls revert to alternate law"
+        "When autopilot and auto-thrust are automatically disconnected and flight controls have reverted to alternate law"
       ],
       "method_publication_ids": [
         "PUB-001",
@@ -252,10 +252,10 @@
         {
           "compliance_id": "CMP-001",
           "state": "present",
-          "raw_text": "(1) Within 15 days after the effective date of this AD, amend the applicable Time(s): Airplane Flight Manual (AFM) to incorporate the following operational procedure, and operate the aeroplane accordingly: PROCEDURE : When autopilot and auto-thrust are automatically disconnected and flight controls have reverted to alternate law: - Do not engage the AP and the A/THR, even if FD bars have reappeared - Do not follow the FD orders - ALL SPEED INDICATIONS............................................X-CHECK  If unreliable speed indication is suspected:  UNRELIABLE SPEED INDIC/ADR CHECK PROC...........APPLY  If at least two ADRs provide reliable speed indication for at least 30 seconds, and the aircraft is stabilised on the intended path: AP/FD and A/THR ........................................................As required Note : This operational procedure is described in the following Temporary Revisions (TR) of the AFM : A330 AFM TR 149 (OEB N°82/1) A340 AFM TR 150 (OEB N°95/1)",
+          "raw_text": "(1) Within 15 days after the effective date of this AD, amend the applicable Airplane Flight Manual (AFM) to incorporate the following operational procedure, and operate the aeroplane accordingly: PROCEDURE: When autopilot and auto-thrust are automatically disconnected and flight controls have reverted to alternate law: - Do not engage the AP and the A/THR, even if FD bars have reappeared - Do not follow the FD orders - ALL SPEED INDICATIONS............................................X-CHECK  If unreliable speed indication is suspected:  UNRELIABLE SPEED INDIC/ADR CHECK PROC...........APPLY  If at least two ADRs provide reliable speed indication for at least 30 seconds, and the aircraft is stabilised on the intended path: AP/FD and A/THR........................................................As required",
           "logic": "conditional",
           "conditions": [
-            "Autopilot and auto-thrust automatically disconnect and flight controls revert to alternate law"
+            "When autopilot and auto-thrust are automatically disconnected and flight controls have reverted to alternate law"
           ],
           "initial_limits": [
             {
@@ -305,10 +305,10 @@
       "obligation": "conditional",
       "action_text": "(2) Incorporation of the appropriate AFM TR, or inserting the above operational procedure or a copy of this AD into the AFM, is acceptable to comply with the requirements of paragraph (1) of this AD.",
       "objects_or_components": [
-        "Applicable Airplane Flight Manual"
+        "applicable Airplane Flight Manual"
       ],
       "conditions": [
-        "Used as an acceptable means of complying with paragraph (1)"
+        "is acceptable to comply with the requirements of paragraph (1) of this AD"
       ],
       "method_publication_ids": [
         "PUB-001",
@@ -321,7 +321,7 @@
           "raw_text": "(2) Incorporation of the appropriate AFM TR, or inserting the above operational procedure or a copy of this AD into the AFM, is acceptable to comply with the requirements of paragraph (1) of this AD.",
           "logic": "any",
           "conditions": [
-            "Incorporate the appropriate AFM TR, insert the operational procedure, or insert a copy of this AD into the AFM"
+            "is acceptable to comply with the requirements of paragraph (1) of this AD"
           ],
           "initial_limits": [],
           "is_repetitive": false,
@@ -388,9 +388,9 @@
       "entry_id": "AMC-001",
       "entry_type": "amoc_authority",
       "authority_or_organization": "EASA",
-      "contact_text": "Remarks: 1. If requested and appropriately substantiated, EASA can approve Alternative Methods of Compliance for this AD. 2. The required actions and the risk allowance have granted the issuance of a Final AD with Request for Comments, postponing the public consultation process after publication. 3. Enquiries regarding this AD should be referred to the Airworthiness Directives, Safety Management & Research Section, Certification Directorate, EASA. E-mail ADs@easa.europa.eu 4. For any question concerning the technical content of the requirements in this AD, please contact: AIRBUS – Airworthiness Office – EAL, Fax: +33 5 61 93 45 80 or + 33 5 61 93 44 51. E-mail: airworthiness.A330- A340@airbus.com . EASA Form 110 Page 2/2",
+      "contact_text": "1. If requested and appropriately substantiated, EASA can approve Alternative Methods of Compliance for this AD.",
       "conditions": [
-        "Requested and appropriately substantiated"
+        "requested and appropriately substantiated"
       ],
       "evidence_ids": [
         "EV-008"
@@ -400,7 +400,7 @@
       "entry_id": "AMC-002",
       "entry_type": "regulatory_contact",
       "authority_or_organization": "EASA and the technical contact stated in the AD",
-      "contact_text": "Remarks: 1. If requested and appropriately substantiated, EASA can approve Alternative Methods of Compliance for this AD. 2. The required actions and the risk allowance have granted the issuance of a Final AD with Request for Comments, postponing the public consultation process after publication. 3. Enquiries regarding this AD should be referred to the Airworthiness Directives, Safety Management & Research Section, Certification Directorate, EASA. E-mail ADs@easa.europa.eu 4. For any question concerning the technical content of the requirements in this AD, please contact: AIRBUS – Airworthiness Office – EAL, Fax: +33 5 61 93 45 80 or + 33 5 61 93 44 51. E-mail: airworthiness.A330- A340@airbus.com . EASA Form 110 Page 2/2",
+      "contact_text": "3. Enquiries regarding this AD should be referred to the Airworthiness Directives, Safety Management & Research Section, Certification Directorate, EASA. E-mail ADs@easa.europa.eu 4. For any question concerning the technical content of the requirements in this AD, please contact: AIRBUS – Airworthiness Office – EAL, Fax: +33 5 61 93 45 80 or + 33 5 61 93 44 51. E-mail: airworthiness.A330-A340@airbus.com.",
       "conditions": [],
       "evidence_ids": [
         "EV-008"
@@ -438,7 +438,7 @@
       "page_number": 1,
       "printed_page_label": "1/2",
       "section": "cover",
-      "section_raw": "Cover identity and publication",
+      "section_raw": "Airworthiness Directive",
       "clause_path": "cover",
       "exact_quote": "EASA AD No : 2010-0271 EASA AIRWORTHINESS DIRECTIVE AD No.: 2010-0271 Date: 22 December 2010 Note: This Airworthiness Directive (AD) is issued by EASA, acting in accordance with Regulation (EC) No 216/2008 on behalf of the European Community, its Member States and of the European third countries that participate in the activities of EASA under Article 66 of that Regulation. This AD is issued in accordance with EC 1702/2003, Part 21A.3 B. In accordance with EC 2042/2003 Annex I, Part M.A.301, the continuing airworthiness of an aircraft s hall be ensured by accomplishing any applicable ADs. Consequently, no person may opera te an aircraft to which an AD applies, except in accordance with t he requirements of that AD, unless otherwise specified by the Ag ency [EC 2042/2003 Annex I, Part M.A.303] or agreed with the Authority of the State of Registry [EC 216/2008, Article 14(4) exemptio n]. Type Approval Holder’s Name: Type/Model designation(s): AIRBUS A330 and A340 aeroplanes TCDS Number: EASA.A.004 and EASA.A.015 Foreign AD: Not applicable Supersedure: None ATA 22 Auto Flight – Auto Pilot & Auto-Thrust Disconnect – Operational Procedure Manufacturer(s): Airbus (formerly Airbus Industrie) Applicability: Airbus A330 aeroplanes, models -201, -202, -203, -223,-223F, -243, -243F, - 301, -302, -303, -321, -322, -323, -341, -342 and -343, all manufacturer serial numbers. Airbus A340 aeroplanes, models -211, -212, -213, -311, -312 and -313 all manufacturer serial numbers. Reason: When there are significant differences between all airspeed sources, the flight controls of an Airbus A330 or A340 aeroplane will revert to alternate law, the autopilot (AP) and the auto-thrust (A/THR) automatically disconnect, and the Flight Directors (FD) bars are automatically removed. It has been identified that, after such an event, if two airspeed sources become similar while still erroneous, the flight guidance computers will: - Display FD bars again, and - Enable autopilot and auto-thrust re-engagement However, in some cases, the autopilot orders may be inappropriate, such as possible abrupt pitch command. In order to prevent such event which may, under specific circumstances, constitute an unsafe condition, this AD requires an amendment of the Flight Manual to ensure that flight crews apply the appropriate operational procedure. EASA Form 110 Page 1/2",
       "start_char": null,
@@ -456,7 +456,7 @@
       "page_number": 1,
       "printed_page_label": "1/2",
       "section": "cover",
-      "section_raw": "Manufacturer(s)",
+      "section_raw": "Manufacturer(s):",
       "clause_path": "Manufacturer(s)",
       "exact_quote": "Manufacturer(s): Airbus (formerly Airbus Industrie)",
       "start_char": null,
@@ -474,7 +474,7 @@
       "page_number": 1,
       "printed_page_label": "1/2",
       "section": "applicability",
-      "section_raw": "Applicability",
+      "section_raw": "Applicability:",
       "clause_path": "Applicability",
       "exact_quote": "Applicability: Airbus A330 aeroplanes, models -201, -202, -203, -223,-223F, -243, -243F, - 301, -302, -303, -321, -322, -323, -341, -342 and -343, all manufacturer serial numbers. Airbus A340 aeroplanes, models -211, -212, -213, -311, -312 and -313 all manufacturer serial numbers.",
       "start_char": null,
@@ -492,7 +492,7 @@
       "page_number": 1,
       "printed_page_label": "1/2",
       "section": "reason",
-      "section_raw": "Reason",
+      "section_raw": "Reason:",
       "clause_path": "Reason",
       "exact_quote": "Reason: When there are significant differences between all airspeed sources, the flight controls of an Airbus A330 or A340 aeroplane will revert to alternate law, the autopilot (AP) and the auto-thrust (A/THR) automatically disconnect, and the Flight Directors (FD) bars are automatically removed. It has been identified that, after such an event, if two airspeed sources become similar while still erroneous, the flight guidance computers will: - Display FD bars again, and - Enable autopilot and auto-thrust re-engagement However, in some cases, the autopilot orders may be inappropriate, such as possible abrupt pitch command. In order to prevent such event which may, under specific circumstances, constitute an unsafe condition, this AD requires an amendment of the Flight Manual to ensure that flight crews apply the appropriate operational procedure. EASA Form 110 Page 1/2",
       "start_char": null,
@@ -510,7 +510,7 @@
       "page_number": 2,
       "printed_page_label": "2/2",
       "section": "reason",
-      "section_raw": "Reason",
+      "section_raw": "Reason:",
       "clause_path": "Reason",
       "exact_quote": "EASA AD No : 2010-0271",
       "start_char": null,
@@ -528,7 +528,7 @@
       "page_number": 2,
       "printed_page_label": "2/2",
       "section": "reference_publications",
-      "section_raw": "Ref. Publications",
+      "section_raw": "Ref. Publications:",
       "clause_path": "Ref. Publications",
       "exact_quote": "Ref. Publications: A330 AFM TR 149 A340 AFM TR 150 The use of later approved revisions of these documents is acceptable for compliance with the requirements of this AD.",
       "start_char": null,
@@ -546,7 +546,7 @@
       "page_number": 2,
       "printed_page_label": "2/2",
       "section": "required_actions_and_compliance_times",
-      "section_raw": "Required Action(s) and Compliance Time(s)",
+      "section_raw": "Required Action(s)",
       "clause_path": "compliance",
       "exact_quote": "Required Action(s) Required as indicated : and Compliance (1) Within 15 days after the effective date of this AD, amend the applicable Time(s): Airplane Flight Manual (AFM) to incorporate the following operational procedure, and operate the aeroplane accordingly: PROCEDURE : When autopilot and auto-thrust are automatically disconnected and flight controls have reverted to alternate law: - Do not engage the AP and the A/THR, even if FD bars have reappeared - Do not follow the FD orders - ALL SPEED INDICATIONS............................................X-CHECK  If unreliable speed indication is suspected:  UNRELIABLE SPEED INDIC/ADR CHECK PROC...........APPLY  If at least two ADRs provide reliable speed indication for at least 30 seconds, and the aircraft is stabilised on the intended path: AP/FD and A/THR ........................................................As required Note : This operational procedure is described in the following Temporary Revisions (TR) of the AFM : A330 AFM TR 149 (OEB N°82/1) A340 AFM TR 150 (OEB N°95/1) (2) Incorporation of the appropriate AFM TR, or inserting the above operational procedure or a copy of this AD into the AFM, is acceptable to comply with the requirements of paragraph (1) of this AD.",
       "start_char": null,
@@ -562,11 +562,11 @@
       "evidence_id": "EV-008",
       "source_file_instance_id": "2db3e9f8dfdadc71",
       "page_number": 2,
-      "printed_page_label": "2/2",
+      "printed_page_label": "Page 2 of 2",
       "section": "remarks",
-      "section_raw": "Remarks",
+      "section_raw": "Remarks:",
       "clause_path": "Remarks",
-      "exact_quote": "Remarks: 1. If requested and appropriately substantiated, EASA can approve Alternative Methods of Compliance for this AD. 2. The required actions and the risk allowance have granted the issuance of a Final AD with Request for Comments, postponing the public consultation process after publication. 3. Enquiries regarding this AD should be referred to the Airworthiness Directives, Safety Management & Research Section, Certification Directorate, EASA. E-mail ADs@easa.europa.eu 4. For any question concerning the technical content of the requirements in this AD, please contact: AIRBUS – Airworthiness Office – EAL, Fax: +33 5 61 93 45 80 or + 33 5 61 93 44 51. E-mail: airworthiness.A330- A340@airbus.com . EASA Form 110 Page 2/2",
+      "exact_quote": "Remarks: 1. If requested and appropriately substantiated, EASA can approve Alternative Methods of Compliance for this AD. 2. The required actions and the risk allowance have granted the issuance of a Final AD with Request for Comments, postponing the public consultation process after publication. 3. Enquiries regarding this AD should be referred to the Airworthiness Directives, Safety Management & Research Section, Certification Directorate, EASA. E-mail ADs@easa.europa.eu 4. For any question concerning the technical content of the requirements in this AD, please contact: AIRBUS – Airworthiness Office – EAL, Fax: +33 5 61 93 45 80 or + 33 5 61 93 44 51. E-mail: airworthiness.A330- A340@airbus.com .",
       "start_char": null,
       "end_char": null,
       "page_text_sha256": "8986b9708e09615f34d30d80c68f17d1fc3c237dffc86635a54ab759d033bb28",

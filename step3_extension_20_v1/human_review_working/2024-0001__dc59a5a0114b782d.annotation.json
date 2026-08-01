@@ -43,7 +43,7 @@
     "design_approval_holder": {
       "state": "present",
       "value": "Airbus S.A.S.",
-      "raw_text": "Airbus S.A.S.",
+      "raw_text": "AIRBUS S.A.S.",
       "evidence_ids": [
         "EV-001"
       ]
@@ -122,7 +122,7 @@
     "foreign_ad": {
       "state": "explicit_none",
       "value": null,
-      "raw_text": "Foreign AD: None or Not applicable",
+      "raw_text": "Foreign AD: Not applicable",
       "evidence_ids": [
         "EV-001"
       ]
@@ -153,7 +153,7 @@
         {
           "restriction_id": "MSN-001",
           "kind": "all",
-          "raw_expression": "all serial numbers",
+          "raw_expression": "all manufacturer serial numbers",
           "lower_bound": null,
           "upper_bound": null,
           "explicit_values": [],
@@ -176,7 +176,7 @@
     {
       "definition_id": "DEF-001",
       "term": "The Variation",
-      "definition_text": "Airbus A310 ALS Part 4 SEMR Revision 03 Variation 3.4.",
+      "definition_text": "Airbus A310 Airworthiness Limitations Section (ALS) Part 4 System Equipment Maintenance Requirements (SEMR) Revision 03 Variation 3.4.",
       "evidence_ids": [
         "EV-004"
       ]
@@ -184,7 +184,7 @@
     {
       "definition_id": "DEF-002",
       "term": "The AMP",
-      "definition_text": "The approved Aircraft Maintenance Programme containing the tasks used for scheduled maintenance and continuing airworthiness.",
+      "definition_text": "The Aircraft Maintenance Programme (AMP) contains the tasks on the basis of which the scheduled maintenance is conducted to ensure the continuing airworthiness of each operated aeroplane. For aeroplane operated under EU regulation the operator or the owner ensures compliance with the AMP as stipulated in Commission Regulation (EU) 1321/2014.",
       "evidence_ids": [
         "EV-004"
       ]
@@ -192,7 +192,7 @@
     {
       "definition_id": "DEF-003",
       "term": "New and/or more restrictive tasks and limitations",
-      "definition_text": "New tasks and limitations and existing ones whose threshold or interval was reduced in the Variation compared with the ALS revision currently incorporated in the AMP.",
+      "definition_text": "This includes all tasks and limitations that are new and all tasks and limitations for which a threshold or interval was reduced, which were introduced through the Variation (as defined in this AD) since the previous ALS revision that is currently incorporated in the AMP.",
       "evidence_ids": [
         "EV-005"
       ]
@@ -204,15 +204,15 @@
     "observed_events_or_defects": [],
     "causes": [],
     "unsafe_conditions": [
-      "Failure to accomplish the mandatory SEMR instructions, including new or more restrictive tasks and limitations, could result in an unsafe condition."
+      "Failure to accomplish these instructions could result in an unsafe condition."
     ],
     "potential_consequences": [],
     "affected_components": [
-      "Components and systems governed by A310 ALS Part 4 SEMR Revision 03 Variation 3.4",
-      "Approved Aircraft Maintenance Programme"
+      "Airbus A310 Airworthiness Limitations Section (ALS) Part 4 System Equipment Maintenance Requirements (SEMR) Revision 03 Variation 3.4",
+      "approved AMP"
     ],
     "intended_risk_mitigation": [
-      "Apply the Variation life limits, thresholds and intervals; correct discrepancies; and incorporate the Variation into the approved AMP."
+      "For the reason described above, this AD requires accomplishment of the actions specified in the Variation."
     ],
     "evidence_ids": [
       "EV-006"
@@ -231,12 +231,12 @@
         "limitation"
       ],
       "obligation": "mandatory",
-      "action_text": "(1.1) From the effective date of this AD, replace each applicable component before exceeding the life limit specified in the Variation, according to aeroplane model and configuration.",
+      "action_text": "(1.1) Replace each component before exceeding the applicable life limit (see Note 1 of this AD); and",
       "objects_or_components": [
-        "Life-limited components identified by the Variation"
+        "each component"
       ],
       "conditions": [
-        "Applicable to aeroplane model and configuration"
+        "before exceeding the applicable life limit"
       ],
       "method_publication_ids": [
         "PUB-001"
@@ -245,10 +245,10 @@
         {
           "compliance_id": "CMP-001",
           "state": "present",
-          "raw_text": "(1.1) From the effective date of this AD, replace each applicable component before exceeding the life limit specified in the Variation, according to aeroplane model and configuration.",
+          "raw_text": "(1.1) Replace each component before exceeding the applicable life limit (see Note 1 of this AD); and",
           "logic": "conditional",
           "conditions": [
-            "Applicable life limit"
+            "the applicable life limit"
           ],
           "initial_limits": [
             {
@@ -256,7 +256,7 @@
               "relation": "before",
               "quantity": null,
               "unit": "other",
-              "raw_value": "Before exceeding the applicable life limit",
+              "raw_value": "before exceeding the applicable life limit",
               "reference_event": "applicable life limit in the Variation",
               "calendar_date": null,
               "evidence_ids": [
@@ -297,12 +297,12 @@
         "other"
       ],
       "obligation": "mandatory",
-      "action_text": "(1.2) From the effective date of this AD, accomplish every applicable maintenance task within the thresholds and intervals specified in the Variation, according to aeroplane model and configuration. For overlapping tasks, the Variation instructions invalidate the corresponding Airbus A310 ALS Part 4 Revision 03 instructions required by EASA AD 2017-0202.",
+      "action_text": "(1.2) Within the thresholds and intervals (see Note 1 of this AD), accomplish all applicable maintenance tasks. Where this AD requires a task which is already required per EASA AD 2017-0202, the instructions of the Variation invalidate the instructions of Airbus A310 ALS Part 4 Revision 03.",
       "objects_or_components": [
-        "Maintenance tasks identified by the Variation"
+        "all applicable maintenance tasks"
       ],
       "conditions": [
-        "Applicable to aeroplane model and configuration"
+        "as applicable to aeroplane model and depending on aeroplane configuration"
       ],
       "method_publication_ids": [
         "PUB-001"
@@ -311,10 +311,10 @@
         {
           "compliance_id": "CMP-002",
           "state": "present",
-          "raw_text": "(1.2) From the effective date of this AD, accomplish every applicable maintenance task within the thresholds and intervals specified in the Variation, according to aeroplane model and configuration. For overlapping tasks, the Variation instructions invalidate the corresponding Airbus A310 ALS Part 4 Revision 03 instructions required by EASA AD 2017-0202.",
+          "raw_text": "(1.2) Within the thresholds and intervals (see Note 1 of this AD), accomplish all applicable maintenance tasks. Where this AD requires a task which is already required per EASA AD 2017-0202, the instructions of the Variation invalidate the instructions of Airbus A310 ALS Part 4 Revision 03.",
           "logic": "conditional",
           "conditions": [
-            "Applicable threshold and interval"
+            "as applicable to aeroplane model and depending on aeroplane configuration"
           ],
           "initial_limits": [
             {
@@ -322,7 +322,7 @@
               "relation": "other",
               "quantity": null,
               "unit": "other",
-              "raw_value": "Within the applicable thresholds and intervals",
+              "raw_value": "thresholds and intervals",
               "reference_event": "thresholds and intervals in the Variation",
               "calendar_date": null,
               "evidence_ids": [
@@ -365,12 +365,12 @@
         "contact_manufacturer"
       ],
       "obligation": "conditional",
-      "action_text": "(2) If a discrepancy is found during a task required by paragraph (1), before next flight accomplish the applicable corrective action using Airbus maintenance documentation. If existing Airbus instructions cannot correct it, before next flight contact Airbus for approved instructions and accomplish them accordingly.",
+      "action_text": "(2) In case of finding discrepancies during accomplishment of any task as required by paragraph (1) of this AD, before next flight, accomplish the applicable corrective action(s) in accordance with the applicable Airbus maintenance documentation. If a detected discrepancy cannot be corrected by using existing Airbus instructions, before next flight, contact Airbus for approved instructions and accomplish those instructions accordingly.",
       "objects_or_components": [
-        "Discrepancy found during a required maintenance task"
+        "any task as required by paragraph (1) of this AD"
       ],
       "conditions": [
-        "Discrepancy found during REQ-001 or REQ-002"
+        "In case of finding discrepancies during accomplishment of any task as required by paragraph (1) of this AD"
       ],
       "method_publication_ids": [
         "PUB-002"
@@ -379,10 +379,10 @@
         {
           "compliance_id": "CMP-003",
           "state": "present",
-          "raw_text": "(2) If a discrepancy is found during a task required by paragraph (1), before next flight accomplish the applicable corrective action using Airbus maintenance documentation. If existing Airbus instructions cannot correct it, before next flight contact Airbus for approved instructions and accomplish them accordingly.",
+          "raw_text": "(2) In case of finding discrepancies during accomplishment of any task as required by paragraph (1) of this AD, before next flight, accomplish the applicable corrective action(s) in accordance with the applicable Airbus maintenance documentation. If a detected discrepancy cannot be corrected by using existing Airbus instructions, before next flight, contact Airbus for approved instructions and accomplish those instructions accordingly.",
           "logic": "conditional",
           "conditions": [
-            "Discrepancy found"
+            "In case of finding discrepancies"
           ],
           "initial_limits": [
             {
@@ -390,7 +390,7 @@
               "relation": "before",
               "quantity": null,
               "unit": "before_next_flight",
-              "raw_value": "Before next flight",
+              "raw_value": "before next flight",
               "reference_event": "next flight after discrepancy finding",
               "calendar_date": null,
               "evidence_ids": [
@@ -431,12 +431,12 @@
         "limitation"
       ],
       "obligation": "mandatory",
-      "action_text": "(3) Within 12 months after the effective date of this AD, revise the approved AMP to incorporate the applicable limitations, tasks, thresholds and intervals described in the Variation.",
+      "action_text": "(3) Within 12 months after the effective date of this AD, revise the approved AMP by incorporating the limitations, tasks and associated thresholds and intervals described in the Variation, as applicable to aeroplane model and depending on aeroplane configuration.",
       "objects_or_components": [
-        "Approved Aircraft Maintenance Programme"
+        "the approved AMP"
       ],
       "conditions": [
-        "Applicable to aeroplane model and configuration"
+        "as applicable to aeroplane model and depending on aeroplane configuration"
       ],
       "method_publication_ids": [
         "PUB-001"
@@ -445,7 +445,7 @@
         {
           "compliance_id": "CMP-004",
           "state": "present",
-          "raw_text": "(3) Within 12 months after the effective date of this AD, revise the approved AMP to incorporate the applicable limitations, tasks, thresholds and intervals described in the Variation.",
+          "raw_text": "(3) Within 12 months after the effective date of this AD, revise the approved AMP by incorporating the limitations, tasks and associated thresholds and intervals described in the Variation, as applicable to aeroplane model and depending on aeroplane configuration.",
           "logic": "single",
           "conditions": [],
           "initial_limits": [
@@ -487,7 +487,7 @@
   "exceptions": [
     {
       "exception_id": "EXC-001",
-      "text": "After the AMP has been revised as required by REQ-004, continued accomplishment of REQ-001 through REQ-003 is ensured through the AMP and individual actions need not be recorded separately on a continuing basis to demonstrate AD compliance.",
+      "text": "(4) When the AMP of an aeroplane has been revised as required by paragraph (3) of this AD, that action ensures continued accomplishment of the tasks as required by paragraphs (1) and (2) of this AD for that aeroplane. Consequently, after revising the AMP, as required by paragraph (3) of this AD, it is not necessary that accomplishment of individual action is recorded for demonstration of AD compliance on a continued basis.",
       "applies_to_requirement_ids": [
         "REQ-001",
         "REQ-002",
@@ -597,9 +597,9 @@
       "entry_id": "AMC-001",
       "entry_type": "amoc_authority",
       "authority_or_organization": "EASA",
-      "contact_text": "Remarks: 1. If requested and appropriately substantiated, EASA can approve Alternative Methods of Compliance for this AD. 2. This AD was posted on 28 November 2023 as PAD 23-130 for consultation until 26 December 2023. No comments were received during the consultation period. 3. Enquiries regarding this AD should be referred to the EASA Safety Information Section, Certification Directorate. E-mail: ADs@easa.europa.eu. 4. Information about any failures, malfunctions, defects or other occurrences, which may be similar to the unsafe condition addressed by this AD, and which may occur, or have occurred on a product, part or appliance not affected by this AD, can be reported to the EU aviation safety reporting system. This may include reporting on the same or similar components, other than those covered by the design to which this AD applies, if the same unsafe condition can exist or may develop on an aircraft with those components installed. Such components may be installed under an FAA Parts Manufacturer Approval (PMA), Supplemental Type Certificate (STC) or other modification. TE.CAP.00110-011 © European Union Aviation Safety Agency. All rights reserved. ISO9001 Certified. Page 3 of 4 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet. An agency of the European Union EASA AD No.: 2024-0001 5. For any question concerning the technical content of the requirements in this AD, please contact: AIRBUS – 1IALW (Airworthiness Office) E-mail: continued.airworthiness-wb.external@airbus.com. TE.CAP.00110-011 © European Union Aviation Safety Agency. All rights reserved. ISO9001 Certified. Page 4 of 4 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet. An agency of the European Union",
+      "contact_text": "1. If requested and appropriately substantiated, EASA can approve Alternative Methods of Compliance for this AD.",
       "conditions": [
-        "Requested and appropriately substantiated"
+        "requested and appropriately substantiated"
       ],
       "evidence_ids": [
         "EV-010",
@@ -610,7 +610,7 @@
       "entry_id": "AMC-002",
       "entry_type": "regulatory_contact",
       "authority_or_organization": "EASA and the technical contact stated in the AD",
-      "contact_text": "Remarks: 1. If requested and appropriately substantiated, EASA can approve Alternative Methods of Compliance for this AD. 2. This AD was posted on 28 November 2023 as PAD 23-130 for consultation until 26 December 2023. No comments were received during the consultation period. 3. Enquiries regarding this AD should be referred to the EASA Safety Information Section, Certification Directorate. E-mail: ADs@easa.europa.eu. 4. Information about any failures, malfunctions, defects or other occurrences, which may be similar to the unsafe condition addressed by this AD, and which may occur, or have occurred on a product, part or appliance not affected by this AD, can be reported to the EU aviation safety reporting system. This may include reporting on the same or similar components, other than those covered by the design to which this AD applies, if the same unsafe condition can exist or may develop on an aircraft with those components installed. Such components may be installed under an FAA Parts Manufacturer Approval (PMA), Supplemental Type Certificate (STC) or other modification. TE.CAP.00110-011 © European Union Aviation Safety Agency. All rights reserved. ISO9001 Certified. Page 3 of 4 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet. An agency of the European Union EASA AD No.: 2024-0001 5. For any question concerning the technical content of the requirements in this AD, please contact: AIRBUS – 1IALW (Airworthiness Office) E-mail: continued.airworthiness-wb.external@airbus.com. TE.CAP.00110-011 © European Union Aviation Safety Agency. All rights reserved. ISO9001 Certified. Page 4 of 4 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet. An agency of the European Union",
+      "contact_text": "3. Enquiries regarding this AD should be referred to the EASA Safety Information Section, Certification Directorate. E-mail: ADs@easa.europa.eu. 4. Information about any failures, malfunctions, defects or other occurrences, which may be similar to the unsafe condition addressed by this AD, and which may occur, or have occurred on a product, part or appliance not affected by this AD, can be reported to the EU aviation safety reporting system. This may include reporting on the same or similar components, other than those covered by the design to which this AD applies, if the same unsafe condition can exist or may develop on an aircraft with those components installed. Such components may be installed under an FAA Parts Manufacturer Approval (PMA), Supplemental Type Certificate (STC) or other modification. 5. For any question concerning the technical content of the requirements in this AD, please contact: AIRBUS – 1IALW (Airworthiness Office) E-mail: continued.airworthiness-wb.external@airbus.com.",
       "conditions": [],
       "evidence_ids": [
         "EV-010",
@@ -654,9 +654,9 @@
       "page_number": 1,
       "printed_page_label": "Page 1 of 4",
       "section": "cover",
-      "section_raw": "Cover identity and publication",
+      "section_raw": "Airworthiness Directive",
       "clause_path": "cover",
-      "exact_quote": "EASA AD No.: 2024-0001 Airworthiness Directive AD No.: 2024-0001 Issued: 04 January 2024 Note: This Airworthiness Directive (AD) is issued by EASA, acting in accordance with Regulation (EU) 2018/1139 on behalf of the European Union, its Member States and of the European third countries that participate in the activities of EASA under Article 129 of that Regulation. This AD is issued in accordance with Regulation (EU) 748/2012, Part 21.A.3B. In accordance with Regulation (EU) 1321/2014 Annex I Part M.A.301, or Annex Vb Part ML.A.301, as applicable, the continuing airworthiness of an aircraft shall be ensured by accomplishing any applicable ADs. Consequently, no person may operate an aircraft to which an AD applies, except in accordance with the requirements of that AD, unless otherwise specified by the Agency [Regulation (EU) 1321/2014 Annex I Part M.A.303, or Annex Vb Part ML.A.303, as applicable] or agreed with the Authority of the State of Registry [Regulation (EU) 2018/1139, Article 71 exemption]. Design Approval Holder’s Name: Type/Model designation(s): AIRBUS S.A.S. A310 aeroplanes Effective Date: 18 January 2024 TCDS Number(s): EASA.A.172 Foreign AD: Not applicable Supersedure: None ATA 05 – Time Limits / Maintenance Checks – Airworthiness Limitations Section – Part 4 / System Equipment Maintenance Requirements – Amendment Manufacturer(s): Airbus, formerly Airbus Industrie Applicability: Airbus A310-203, A310-203C, A310-204, A310-221, A310-222, A310-304, A310-308, A310-322, A310-324 and A310-325 aeroplanes, all manufacturer serial numbers. Definitions: For the purpose of this AD, the following definitions apply: The Variation: Airbus A310 Airworthiness Limitations Section (ALS) Part 4 System Equipment Maintenance Requirements (SEMR) Revision 03 Variation 3.4. The AMP: The Aircraft Maintenance Programme (AMP) contains the tasks on the basis of which the scheduled maintenance is conducted to ensure the continuing airworthiness of each operated aeroplane. For aeroplane operated under EU regulation the operator or the owner ensures compliance with the AMP as stipulated in Commission Regulation (EU) 1321/2014. TE.CAP.00110-011 © European Union Aviation Safety Agency. All rights reserved. ISO9001 Certified. Page 1 of 4 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet. An agency of the European Union",
+      "exact_quote": "Airworthiness Directive AD No.: 2024-0001 Issued: 04 January 2024 Note: This Airworthiness Directive (AD) is issued by EASA, acting in accordance with Regulation (EU) 2018/1139 on behalf of the European Union, its Member States and of the European third countries that participate in the activities of EASA under Article 129 of that Regulation. This AD is issued in accordance with Regulation (EU) 748/2012, Part 21.A.3B. In accordance with Regulation (EU) 1321/2014 Annex I Part M.A.301, or Annex Vb Part ML.A.301, as applicable, the continuing airworthiness of an aircraft shall be ensured by accomplishing any applicable ADs. Consequently, no person may operate an aircraft to which an AD applies, except in accordance with the requirements of that AD, unless otherwise specified by the Agency [Regulation (EU) 1321/2014 Annex I Part M.A.303, or Annex Vb Part ML.A.303, as applicable] or agreed with the Authority of the State of Registry [Regulation (EU) 2018/1139, Article 71 exemption]. Design Approval Holder’s Name: Type/Model designation(s): AIRBUS S.A.S. A310 aeroplanes Effective Date: 18 January 2024 TCDS Number(s): EASA.A.172 Foreign AD: Not applicable Supersedure: None ATA 05 – Time Limits / Maintenance Checks – Airworthiness Limitations Section – Part 4 / System Equipment Maintenance Requirements – Amendment",
       "start_char": null,
       "end_char": null,
       "page_text_sha256": "59440bb65f2796fac2c182fbd6a3746e4d1d63a0331289d8199c42ba23496fd7",
@@ -672,7 +672,7 @@
       "page_number": 1,
       "printed_page_label": "Page 1 of 4",
       "section": "cover",
-      "section_raw": "Manufacturer(s)",
+      "section_raw": "Manufacturer(s):",
       "clause_path": "Manufacturer(s)",
       "exact_quote": "Manufacturer(s): Airbus, formerly Airbus Industrie",
       "start_char": null,
@@ -690,7 +690,7 @@
       "page_number": 1,
       "printed_page_label": "Page 1 of 4",
       "section": "applicability",
-      "section_raw": "Applicability",
+      "section_raw": "Applicability:",
       "clause_path": "Applicability",
       "exact_quote": "Applicability: Airbus A310-203, A310-203C, A310-204, A310-221, A310-222, A310-304, A310-308, A310-322, A310-324 and A310-325 aeroplanes, all manufacturer serial numbers.",
       "start_char": null,
@@ -708,7 +708,7 @@
       "page_number": 1,
       "printed_page_label": "Page 1 of 4",
       "section": "definitions",
-      "section_raw": "Definitions",
+      "section_raw": "Definitions:",
       "clause_path": "Definitions",
       "exact_quote": "Definitions: For the purpose of this AD, the following definitions apply: The Variation: Airbus A310 Airworthiness Limitations Section (ALS) Part 4 System Equipment Maintenance Requirements (SEMR) Revision 03 Variation 3.4. The AMP: The Aircraft Maintenance Programme (AMP) contains the tasks on the basis of which the scheduled maintenance is conducted to ensure the continuing airworthiness of each operated aeroplane. For aeroplane operated under EU regulation the operator or the owner ensures compliance with the AMP as stipulated in Commission Regulation (EU) 1321/2014. TE.CAP.00110-011 © European Union Aviation Safety Agency. All rights reserved. ISO9001 Certified. Page 1 of 4 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet. An agency of the European Union",
       "start_char": null,
@@ -726,7 +726,7 @@
       "page_number": 2,
       "printed_page_label": "Page 2 of 4",
       "section": "definitions",
-      "section_raw": "Definitions",
+      "section_raw": "Definitions:",
       "clause_path": "Definitions",
       "exact_quote": "EASA AD No.: 2024-0001 New and/or more restrictive tasks and limitations: This includes all tasks and limitations that are new and all tasks and limitations for which a threshold or interval was reduced, which were introduced through the Variation (as defined in this AD) since the previous ALS revision that is currently incorporated in the AMP.",
       "start_char": null,
@@ -744,7 +744,7 @@
       "page_number": 2,
       "printed_page_label": "Page 2 of 4",
       "section": "reason",
-      "section_raw": "Reason",
+      "section_raw": "Reason:",
       "clause_path": "Reason",
       "exact_quote": "Reason: The SEMR for the Airbus A310 aeroplanes, which are approved by EASA, are currently defined and published in the Airbus A310 ALS Part 4 document. These instructions have been identified as mandatory for continued airworthiness. Failure to accomplish these instructions could result in an unsafe condition. EASA previously issued AD 2017-0202, AD 2020-0267, AD 2022-0195 and AD 2023-0018, to require the actions described in Airbus A310 ALS Part 4 Revision 03, Variation 3.1, Variation 3.2 and Variation 3.3, respectively. Since those ADs were issued, Airbus published the Variation, as defined in this AD, which contains new and/or more restrictive tasks and limitations. These tasks and limitations are expected to be incorporated into Airbus A310 ALS Part 4 at the next revision. For the reason described above, this AD requires accomplishment of the actions specified in the Variation. EASA AD 2017-0202, AD 2020-0267, AD 2022-0195 and AD 2023-0018 are not superseded by this AD.",
       "start_char": null,
@@ -762,7 +762,7 @@
       "page_number": 3,
       "printed_page_label": "Page 3 of 4",
       "section": "reference_publications",
-      "section_raw": "Ref. Publications",
+      "section_raw": "Ref. Publications:",
       "clause_path": "Ref. Publications",
       "exact_quote": "Ref. Publications: Airbus A310 ALS Part 4 Revision 03 Variation 3.4 dated 03 August 2023. The use of later approved revisions of the above-mentioned document, or of an ALS revision which includes the technical content of the Variation(s), is acceptable for compliance with the requirements of this AD.",
       "start_char": null,
@@ -780,7 +780,7 @@
       "page_number": 2,
       "printed_page_label": "Page 2 of 4",
       "section": "required_actions_and_compliance_times",
-      "section_raw": "Required Action(s) and Compliance Time(s)",
+      "section_raw": "Required Action(s) and Compliance Time(s):",
       "clause_path": "compliance",
       "exact_quote": "Required Action(s) and Compliance Time(s): Required as indicated, unless accomplished previously: Maintenance Tasks and Replacement of Life Limited Parts: (1) From the effective date of this AD, accomplish the following actions, as specified in the Variation, as applicable to aeroplane model and depending on aeroplane configuration: (1.1) Replace each component before exceeding the applicable life limit (see Note 1 of this AD); and (1.2) Within the thresholds and intervals (see Note 1 of this AD), accomplish all applicable maintenance tasks. Where this AD requires a task which is already required per EASA AD 2017-0202, the instructions of the Variation invalidate the instructions of Airbus A310 ALS Part 4 Revision 03. Note 1: For the purpose of this AD, the limitations, thresholds and intervals as defined in the ‘Compliance Time’ page(s) of the Variation, include specific compliance times for certain items and tasks. TE.CAP.00110-011 © European Union Aviation Safety Agency. All rights reserved. ISO9001 Certified. Page 2 of 4 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet. An agency of the European Union",
       "start_char": null,
@@ -798,7 +798,7 @@
       "page_number": 3,
       "printed_page_label": "Page 3 of 4",
       "section": "required_actions_and_compliance_times",
-      "section_raw": "Required Action(s) and Compliance Time(s)",
+      "section_raw": "Required Action(s) and Compliance Time(s):",
       "clause_path": "compliance",
       "exact_quote": "EASA AD No.: 2024-0001 Corrective Action(s): (2) In case of finding discrepancies during accomplishment of any task as required by paragraph (1) of this AD, before next flight, accomplish the applicable corrective action(s) in accordance with the applicable Airbus maintenance documentation. If a detected discrepancy cannot be corrected by using existing Airbus instructions, before next flight, contact Airbus for approved instructions and accomplish those instructions accordingly. AMP Revision: (3) Within 12 months after the effective date of this AD, revise the approved AMP by incorporating the limitations, tasks and associated thresholds and intervals described in the Variation, as applicable to aeroplane model and depending on aeroplane configuration . Recording AD Compliance: (4) When the AMP of an aeroplane has been revised as required by paragraph (3) of this AD, that action ensures continued accomplishment of the tasks as required by paragraphs (1) and (2) of this AD for that aeroplane. Consequently, after revising the AMP, as required by paragraph (3) of this AD, it is not necessary that accomplishment of individual action is recorded for demonstration of AD compliance on a continued basis.",
       "start_char": null,
@@ -816,7 +816,7 @@
       "page_number": 3,
       "printed_page_label": "Page 3 of 4",
       "section": "remarks",
-      "section_raw": "Remarks",
+      "section_raw": "Remarks:",
       "clause_path": "Remarks",
       "exact_quote": "Remarks: 1. If requested and appropriately substantiated, EASA can approve Alternative Methods of Compliance for this AD. 2. This AD was posted on 28 November 2023 as PAD 23-130 for consultation until 26 December 2023. No comments were received during the consultation period. 3. Enquiries regarding this AD should be referred to the EASA Safety Information Section, Certification Directorate. E-mail: ADs@easa.europa.eu. 4. Information about any failures, malfunctions, defects or other occurrences, which may be similar to the unsafe condition addressed by this AD, and which may occur, or have occurred on a product, part or appliance not affected by this AD, can be reported to the EU aviation safety reporting system. This may include reporting on the same or similar components, other than those covered by the design to which this AD applies, if the same unsafe condition can exist or may develop on an aircraft with those components installed. Such components may be installed under an FAA Parts Manufacturer Approval (PMA), Supplemental Type Certificate (STC) or other modification. TE.CAP.00110-011 © European Union Aviation Safety Agency. All rights reserved. ISO9001 Certified. Page 3 of 4 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet. An agency of the European Union",
       "start_char": null,
@@ -834,7 +834,7 @@
       "page_number": 4,
       "printed_page_label": "Page 4 of 4",
       "section": "remarks",
-      "section_raw": "Remarks",
+      "section_raw": "Remarks:",
       "clause_path": "Remarks",
       "exact_quote": "EASA AD No.: 2024-0001 5. For any question concerning the technical content of the requirements in this AD, please contact: AIRBUS – 1IALW (Airworthiness Office) E-mail: continued.airworthiness-wb.external@airbus.com. TE.CAP.00110-011 © European Union Aviation Safety Agency. All rights reserved. ISO9001 Certified. Page 4 of 4 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet. An agency of the European Union",
       "start_char": null,

@@ -43,7 +43,7 @@
     "design_approval_holder": {
       "state": "present",
       "value": "Airbus",
-      "raw_text": "Airbus",
+      "raw_text": "AIRBUS",
       "evidence_ids": [
         "EV-001"
       ]
@@ -141,7 +141,7 @@
         {
           "restriction_id": "MSN-001",
           "kind": "all",
-          "raw_expression": "all serial numbers",
+          "raw_expression": "all manufacturer serial numbers",
           "lower_bound": null,
           "upper_bound": null,
           "explicit_values": [],
@@ -168,20 +168,20 @@
       "Investigations showed that the distance between the heating element of the waste water drain line and the fuel line at fuselage frame (FR) 77/78 could be too small, which potentially induces chafing between the fuel line and the waste water heating element."
     ],
     "causes": [
-      "Insufficient distance between the waste water drain-line heating element and the fuel line at fuselage frame 77/78."
+      "the distance between the heating element of the waste water drain line and the fuel line at fuselage frame (FR) 77/78 could be too small"
     ],
     "unsafe_conditions": [
-      "Potential chafing between the fuel line and the waste water heating element, with possible short circuit and arcing on the fuel line."
+      "This condition, if not corrected, could lead to a short circuit and consequent arcing on the fuel line"
     ],
     "potential_consequences": [
-      "Fuel leak and uncontrolled fire."
+      "a fuel leak and an uncontrolled fire"
     ],
     "affected_components": [
-      "Waste water drain-line heating element at fuselage frame 77/78",
-      "Fuel line at fuselage frame 77/78"
+      "heating element of the waste water drain line",
+      "fuel line at fuselage frame (FR) 77/78"
     ],
     "intended_risk_mitigation": [
-      "Modify the waste water drain line to establish the correct distance from the fuel line."
+      "For the reasons described above, this AD requires modification of the waste water drain line, establishing a correct distance between the affected drain line and the fuel line."
     ],
     "evidence_ids": [
       "EV-004"
@@ -199,12 +199,12 @@
         "modification"
       ],
       "obligation": "mandatory",
-      "action_text": "Required Action(s) Required as indicated, unless accomplished previously: and Compliance Within 24 months after the effective date of this AD, modify the waste water drain Time(s): line in accordance with the instructions of Airbus SB A340-38-5017.",
+      "action_text": "Within 24 months after the effective date of this AD, modify the waste water drain line in accordance with the instructions of Airbus SB A340-38-5017.",
       "objects_or_components": [
-        "Waste water drain line at fuselage frame 77/78"
+        "Waste Water Drain Line"
       ],
       "conditions": [
-        "Unless accomplished previously"
+        "unless accomplished previously"
       ],
       "method_publication_ids": [
         "PUB-001"
@@ -213,10 +213,10 @@
         {
           "compliance_id": "CMP-001",
           "state": "present",
-          "raw_text": "Required Action(s) Required as indicated, unless accomplished previously: and Compliance Within 24 months after the effective date of this AD, modify the waste water drain Time(s): line in accordance with the instructions of Airbus SB A340-38-5017.",
+          "raw_text": "Within 24 months after the effective date of this AD, modify the waste water drain line in accordance with the instructions of Airbus SB A340-38-5017.",
           "logic": "single",
           "conditions": [
-            "Unless accomplished previously"
+            "unless accomplished previously"
           ],
           "initial_limits": [
             {
@@ -280,9 +280,9 @@
       "entry_id": "AMC-001",
       "entry_type": "amoc_authority",
       "authority_or_organization": "EASA",
-      "contact_text": "Remarks : 1. If requested and appropriately substantiated, EASA can approve Alternative Methods of Compliance for this AD. 2. This AD was posted on 06 November 2012 as PAD 12-138 for consultation until 04 December 2012. No comments were received during the consultation period. 3. Enquiries regarding this AD should be referred to the Safety Information Section, Executive Directorate, EASA E-mail: ADs@easa.europa.eu. 4. For any question concerning the technical content of the requirements in this AD, please contact: Airbus – Airworthiness Office – EIAL; E-mail: airworthiness.A330-A340@airbus.com. TE.CAP.00110-003 © European Aviation Safety Agency. All rights reserved. 2/2 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet.",
+      "contact_text": "1. If requested and appropriately substantiated, EASA can approve Alternative Methods of Compliance for this AD.",
       "conditions": [
-        "Requested and appropriately substantiated"
+        "requested and appropriately substantiated"
       ],
       "evidence_ids": [
         "EV-007"
@@ -292,7 +292,7 @@
       "entry_id": "AMC-002",
       "entry_type": "regulatory_contact",
       "authority_or_organization": "EASA and the technical contact stated in the AD",
-      "contact_text": "Remarks : 1. If requested and appropriately substantiated, EASA can approve Alternative Methods of Compliance for this AD. 2. This AD was posted on 06 November 2012 as PAD 12-138 for consultation until 04 December 2012. No comments were received during the consultation period. 3. Enquiries regarding this AD should be referred to the Safety Information Section, Executive Directorate, EASA E-mail: ADs@easa.europa.eu. 4. For any question concerning the technical content of the requirements in this AD, please contact: Airbus – Airworthiness Office – EIAL; E-mail: airworthiness.A330-A340@airbus.com. TE.CAP.00110-003 © European Aviation Safety Agency. All rights reserved. 2/2 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet.",
+      "contact_text": "3. Enquiries regarding this AD should be referred to the Safety Information Section, Executive Directorate, EASA E-mail: ADs@easa.europa.eu. 4. For any question concerning the technical content of the requirements in this AD, please contact: Airbus – Airworthiness Office – EIAL; E-mail: airworthiness.A330-A340@airbus.com.",
       "conditions": [],
       "evidence_ids": [
         "EV-007"
@@ -329,7 +329,7 @@
       "page_number": 1,
       "printed_page_label": "1/2",
       "section": "cover",
-      "section_raw": "Cover identity and publication",
+      "section_raw": "Airworthiness Directive",
       "clause_path": "cover",
       "exact_quote": "EASA AD No : 2012-0259 EASA AIRWORTHINESS DIRECTIVE AD No.: 2012-0259 Date: 06 December 2012 Note: This Airworthiness Directive (AD) is issued by EASA, acting in accordance with Regulation (EC) No 216/2008 on behalf of the European Community, its Member States and of the European third countries that participate in the activities of EASA under Article 66 of that Regulation. This AD is issued in accordance with EU 748/2012, Part 21.A.3B. In accordance with EC 2042/2003 Annex I, Part M.A.301, the continuing airworthiness of an aircraft shall be ensured by accomplishing any applicable ADs. Consequently, no person may operate an aircraft to which an AD applies, except in accordance with the requirements of that AD, unless otherwise specified by the Age ncy [EC 2042/2003 Annex I, Part M.A.303] or agreed with the Authority of the State of Registry [EC 216/2008, Article 14(4) exemption] . Design Approval Holder’s Name : Type/Model designation(s) : AIRBUS A340-500/-600 aeroplanes TCDS Number : EASA A.015 Foreign AD : Not applicable Supersedure : None ATA 38 Water / Waste – Waste Water Drain Line – Modification Manufacturer(s): Airbus (formerly Airbus Industrie) Applicability: Airbus A340-541, A340-542, A340-642 and A340-643 aeroplanes, all manufacturer serial numbers. Reason: Investigations showed that the distance between the heating element of the waste water drain line and the fuel line at fuselage frame (FR) 77/78 could be too small, which potentially induces chafing between the fuel line and the waste water heating element. This condition, if not corrected, could lead to a short circuit and consequent arcing on the fuel line, possibly resulting in a fuel leak and an uncontrolled fire. To address this unsafe condition, Airbus developed a modification to prevent chafing, which is to be embodied in service through Airbus Service Bulletin (SB) A340-38-5017. For the reasons described above, this AD requires modification of the waste water drain line, establishing a correct distance between the affected drain line and the fuel line. Effective Date: 20 December 2012 TE.CAP.00110-003 © European Aviation Safety Agency. All rights reserved. 1/2 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet.",
       "start_char": null,
@@ -347,7 +347,7 @@
       "page_number": 1,
       "printed_page_label": "1/2",
       "section": "cover",
-      "section_raw": "Manufacturer(s)",
+      "section_raw": "Manufacturer(s):",
       "clause_path": "Manufacturer(s)",
       "exact_quote": "Manufacturer(s): Airbus (formerly Airbus Industrie)",
       "start_char": null,
@@ -365,7 +365,7 @@
       "page_number": 1,
       "printed_page_label": "1/2",
       "section": "applicability",
-      "section_raw": "Applicability",
+      "section_raw": "Applicability:",
       "clause_path": "Applicability",
       "exact_quote": "Applicability: Airbus A340-541, A340-542, A340-642 and A340-643 aeroplanes, all manufacturer serial numbers.",
       "start_char": null,
@@ -383,7 +383,7 @@
       "page_number": 1,
       "printed_page_label": "1/2",
       "section": "reason",
-      "section_raw": "Reason",
+      "section_raw": "Reason:",
       "clause_path": "Reason",
       "exact_quote": "Reason: Investigations showed that the distance between the heating element of the waste water drain line and the fuel line at fuselage frame (FR) 77/78 could be too small, which potentially induces chafing between the fuel line and the waste water heating element. This condition, if not corrected, could lead to a short circuit and consequent arcing on the fuel line, possibly resulting in a fuel leak and an uncontrolled fire. To address this unsafe condition, Airbus developed a modification to prevent chafing, which is to be embodied in service through Airbus Service Bulletin (SB) A340-38-5017. For the reasons described above, this AD requires modification of the waste water drain line, establishing a correct distance between the affected drain line and the fuel line.",
       "start_char": null,
@@ -401,7 +401,7 @@
       "page_number": 2,
       "printed_page_label": "2/2",
       "section": "reference_publications",
-      "section_raw": "Ref. Publications",
+      "section_raw": "Ref. Publications :",
       "clause_path": "Ref. Publications",
       "exact_quote": "Ref. Publications : Airbus SB A340-38-5017 at original issue, dated 13 February 2012. The use of later approved revisions of this document is acceptable for compliance with the requirements of this AD.",
       "start_char": null,
@@ -419,7 +419,7 @@
       "page_number": 2,
       "printed_page_label": "2/2",
       "section": "required_actions_and_compliance_times",
-      "section_raw": "Required Action(s) and Compliance Time(s)",
+      "section_raw": "Required Action(s)",
       "clause_path": "compliance",
       "exact_quote": "Required Action(s) Required as indicated, unless accomplished previously: and Compliance Within 24 months after the effective date of this AD, modify the waste water drain Time(s): line in accordance with the instructions of Airbus SB A340-38-5017.",
       "start_char": null,
@@ -437,7 +437,7 @@
       "page_number": 2,
       "printed_page_label": "2/2",
       "section": "remarks",
-      "section_raw": "Remarks",
+      "section_raw": "Remarks :",
       "clause_path": "Remarks",
       "exact_quote": "Remarks : 1. If requested and appropriately substantiated, EASA can approve Alternative Methods of Compliance for this AD. 2. This AD was posted on 06 November 2012 as PAD 12-138 for consultation until 04 December 2012. No comments were received during the consultation period. 3. Enquiries regarding this AD should be referred to the Safety Information Section, Executive Directorate, EASA E-mail: ADs@easa.europa.eu. 4. For any question concerning the technical content of the requirements in this AD, please contact: Airbus – Airworthiness Office – EIAL; E-mail: airworthiness.A330-A340@airbus.com. TE.CAP.00110-003 © European Aviation Safety Agency. All rights reserved. 2/2 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet.",
       "start_char": null,

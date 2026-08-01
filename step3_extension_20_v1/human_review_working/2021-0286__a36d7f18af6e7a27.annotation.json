@@ -43,7 +43,7 @@
     "design_approval_holder": {
       "state": "present",
       "value": "Airbus Defence and Space S.A.",
-      "raw_text": "Airbus Defence and Space S.A.",
+      "raw_text": "AIRBUS DEFENCE AND SPACE S.A.",
       "evidence_ids": [
         "EV-001"
       ]
@@ -113,7 +113,7 @@
     "foreign_ad": {
       "state": "explicit_none",
       "value": null,
-      "raw_text": "Foreign AD: None or Not applicable",
+      "raw_text": "Foreign AD: Not applicable",
       "evidence_ids": [
         "EV-001"
       ]
@@ -137,7 +137,7 @@
         {
           "restriction_id": "MSN-001",
           "kind": "all",
-          "raw_expression": "all serial numbers",
+          "raw_expression": "all manufacturer serial numbers (MSN)",
           "lower_bound": null,
           "upper_bound": null,
           "explicit_values": [],
@@ -149,7 +149,7 @@
       ],
       "part_numbers": [],
       "configuration_conditions": [
-        "Modified in accordance with EASA STC 10029272 (previously EASA.A.S.02790), 10063084, 10064192 or 10069256"
+        "if modified in accordance with EASA STC 10029272 (previously STC EASA.A.S.02790), 10063084, 10064192 or 10069256."
       ],
       "exclusions": [],
       "boolean_logic": "all",
@@ -162,7 +162,7 @@
     {
       "definition_id": "DEF-001",
       "term": "The AOT",
-      "definition_text": "Airbus Defence and Space Alert Operators Transmission AOT-A330MRTT-11-0001.",
+      "definition_text": "Airbus Defence and Space (ADS) Alert Operators Transmission (AOT) AOT-A330MRTT-11-0001.",
       "evidence_ids": [
         "EV-004"
       ]
@@ -170,7 +170,7 @@
     {
       "definition_id": "DEF-002",
       "term": "The SB",
-      "definition_text": "Airbus Defence and Space Service Bulletin A330MRTT-11-0022.",
+      "definition_text": "ADS Service Bulletin (SB) A330MRTT-11-0022.",
       "evidence_ids": [
         "EV-004"
       ]
@@ -178,25 +178,25 @@
   ],
   "unsafe_condition": {
     "state": "present",
-    "raw_reason_text": "Reason: It was determined by ADS that, in the design change package for affected A330-MRTT aeroplanes some mandatory safety placards were missing. Those placards are intended to indicate, to TE.CAP.00110-010 © European Union Aviation Safety Agency. All rights reserved. ISO9001 Certified. Page 1 of 3 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet. An agency of the European Union EASA AD No.: 2021-0286 passengers on the first centre row seats, the need to fasten their seat belt during taxi, take-off and landing, and the location of the life vests . In addition, for two affected aeroplane configurations , those placards also indicate the need for stowing tables and leg rests during taxi, take-off and landing. This condition, if not detected and corrected, c ould result in hazard and injury to passengers . To address this potential unsafe condition, ADS issued the AOT, as defined in this AD, to provide instructions for inspection of the af fected aeroplanes, and to ensure, as an interim action, that affected seats are not being occupied any more if discrepancies are detected . Hereafter ADS issued the SB, as defined in this AD, to provide instructions for the installation of missing safety placards. For the reason described above, this AD requires an inspection of the affected aeroplanes and, depending on findings, corrective action(s).",
+    "raw_reason_text": "Reason: It was determined by ADS that, in the design change package for affected A330-MRTT aeroplanes some mandatory safety placards were missing. Those placards are intended to indicate, to passengers on the first centre row seats, the need to fasten their seat belt during taxi, take-off and landing, and the location of the life vests. In addition, for two affected aeroplane configurations, those placards also indicate the need for stowing tables and leg rests during taxi, take-off and landing. This condition, if not detected and corrected, could result in hazard and injury to passengers. To address this potential unsafe condition, ADS issued the AOT, as defined in this AD, to provide instructions for inspection of the affected aeroplanes, and to ensure, as an interim action, that affected seats are not being occupied any more if discrepancies are detected. Hereafter ADS issued the SB, as defined in this AD, to provide instructions for the installation of missing safety placards. For the reason described above, this AD requires an inspection of the affected aeroplanes and, depending on findings, corrective action(s).",
     "observed_events_or_defects": [
       "It was determined by ADS that, in the design change package for affected A330-MRTT aeroplanes some mandatory safety placards were missing."
     ],
     "causes": [
-      "The affected A330-MRTT design-change package omitted mandatory safety placards for the first centre row passenger seats."
+      "in the design change package for affected A330-MRTT aeroplanes some mandatory safety placards were missing."
     ],
     "unsafe_conditions": [
-      "Passengers may not receive required information to fasten seat belts, locate life vests and, for two configurations, stow tables and leg rests during taxi, take-off and landing."
+      "This condition, if not detected and corrected, could result in hazard and injury to passengers."
     ],
     "potential_consequences": [
-      "Hazard and injury to passengers."
+      "hazard and injury to passengers"
     ],
     "affected_components": [
-      "Mandatory safety placards for first centre row passenger seats",
-      "First centre row passenger seats"
+      "first centre row seats",
+      "First Centre Row Passenger Seats"
     ],
     "intended_risk_mitigation": [
-      "Inspect the placards, prevent occupation of discrepant seats as an interim action, and install the missing mandatory placards."
+      "Hereafter ADS issued the SB, as defined in this AD, to provide instructions for the installation of missing safety placards."
     ],
     "evidence_ids": [
       "EV-005",
@@ -215,12 +215,12 @@
         "inspection"
       ],
       "obligation": "mandatory",
-      "action_text": "(1) Before next flight after the effective date of this AD, inspect the first row of centre seats in accordance with the AOT to determine whether the required safety placards are installed.",
+      "action_text": "(1) Before next flight after the effective date of this AD, accomplish a general visual inspection of the first row of centre seats in accordance with the instructions of the AOT, to determine if the required safety placards are installed.",
       "objects_or_components": [
-        "Mandatory placards at first centre row seats"
+        "the first row of centre seats"
       ],
       "conditions": [
-        "Unless accomplished previously"
+        "unless accomplished previously"
       ],
       "method_publication_ids": [
         "PUB-001"
@@ -229,7 +229,7 @@
         {
           "compliance_id": "CMP-001",
           "state": "present",
-          "raw_text": "(1) Before next flight after the effective date of this AD, inspect the first row of centre seats in accordance with the AOT to determine whether the required safety placards are installed.",
+          "raw_text": "(1) Before next flight after the effective date of this AD, accomplish a general visual inspection of the first row of centre seats in accordance with the instructions of the AOT, to determine if the required safety placards are installed.",
           "logic": "single",
           "conditions": [],
           "initial_limits": [
@@ -282,12 +282,12 @@
         "prohibition"
       ],
       "obligation": "conditional",
-      "action_text": "(2) If discrepancies specified in the AOT are detected, before next flight mark the affected seats as 'unserviceable' in accordance with the AOT and ensure that those seats are not occupied during flight operations.",
+      "action_text": "(2) If, during the inspection as required by paragraph (1) of this AD, discrepancies are detected, as specified in the AOT, before next flight, mark the affected seats as ‘unserviceable’ in accordance with the instructions of the AOT and ensure these seats are not occupied during flight operations.",
       "objects_or_components": [
-        "Affected first centre row seats"
+        "the affected seats"
       ],
       "conditions": [
-        "Discrepancies detected during REQ-001"
+        "If, during the inspection as required by paragraph (1) of this AD, discrepancies are detected, as specified in the AOT"
       ],
       "method_publication_ids": [
         "PUB-001"
@@ -296,10 +296,10 @@
         {
           "compliance_id": "CMP-002",
           "state": "present",
-          "raw_text": "(2) If discrepancies specified in the AOT are detected, before next flight mark the affected seats as 'unserviceable' in accordance with the AOT and ensure that those seats are not occupied during flight operations.",
+          "raw_text": "(2) If, during the inspection as required by paragraph (1) of this AD, discrepancies are detected, as specified in the AOT, before next flight, mark the affected seats as ‘unserviceable’ in accordance with the instructions of the AOT and ensure these seats are not occupied during flight operations.",
           "logic": "conditional",
           "conditions": [
-            "Discrepancies detected"
+            "If, during the inspection as required by paragraph (1) of this AD, discrepancies are detected, as specified in the AOT"
           ],
           "initial_limits": [
             {
@@ -349,12 +349,12 @@
         "install"
       ],
       "obligation": "conditional",
-      "action_text": "(3) If discrepancies are detected, within 6 months after the effective date of this AD install the mandatory safety placards in accordance with the SB. After installation, the affected seats are serviceable and the 'unserviceable' marking may be removed.",
+      "action_text": "(3) If, during the inspection as required by paragraph (1) of this AD, discrepancies are detected, within 6 months after the effective date of this AD, install the mandatory safety placards in accordance with the instructions of the SB, as applicable. Following installation of the mandatory safety placards, the affected seats are serviceable and the marking as ‘unserviceable’ can be removed from these seats.",
       "objects_or_components": [
-        "Mandatory safety placards"
+        "mandatory safety placards"
       ],
       "conditions": [
-        "Discrepancies detected during REQ-001"
+        "If, during the inspection as required by paragraph (1) of this AD, discrepancies are detected"
       ],
       "method_publication_ids": [
         "PUB-002"
@@ -363,10 +363,10 @@
         {
           "compliance_id": "CMP-003",
           "state": "present",
-          "raw_text": "(3) If discrepancies are detected, within 6 months after the effective date of this AD install the mandatory safety placards in accordance with the SB. After installation, the affected seats are serviceable and the 'unserviceable' marking may be removed.",
+          "raw_text": "(3) If, during the inspection as required by paragraph (1) of this AD, discrepancies are detected, within 6 months after the effective date of this AD, install the mandatory safety placards in accordance with the instructions of the SB, as applicable. Following installation of the mandatory safety placards, the affected seats are serviceable and the marking as ‘unserviceable’ can be removed from these seats.",
           "logic": "conditional",
           "conditions": [
-            "Discrepancies detected"
+            "If, during the inspection as required by paragraph (1) of this AD, discrepancies are detected"
           ],
           "initial_limits": [
             {
@@ -374,7 +374,7 @@
               "relation": "within",
               "quantity": 6,
               "unit": "calendar_month",
-              "raw_value": "Within 6 months",
+              "raw_value": "within 6 months after the effective date of this AD",
               "reference_event": "effective date of this AD",
               "calendar_date": null,
               "evidence_ids": [
@@ -446,9 +446,9 @@
       "entry_id": "AMC-001",
       "entry_type": "amoc_authority",
       "authority_or_organization": "EASA",
-      "contact_text": "Remarks: 1. If requested and appropriately substantiated, EASA can approve Alternative Methods of Compliance for this AD. TE.CAP.00110-010 © European Union Aviation Safety Agency. All rights reserved. ISO9001 Certified. Page 2 of 3 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet. An agency of the European Union EASA AD No.: 2021-0286 2. Based on the required actions and the compliance time, EASA have decided to issue a Final AD with Request for Comments, postponing the public consultation process until after publication. 3. Enquiries regarding this AD should be referred to the EASA Safety Information Section, Certification Directorate. E-mail: ADs@easa.europa.eu. 4. Information about any failures, malfunctions, defects or other occurrences, which may be similar to the unsafe condition addressed by this AD, and which may occur, or have occurred on a product, part or appliance not affected by this AD, can be reported to the EU aviation safety reporting system. This may include reporting on the same or similar components, other than those covered by the design to which this AD applies, if the same unsafe condition can exist or may develop on an aircraft with those components installed. Such components may be installed under an FAA Parts Manufacturer Approval (PMA), Supplemental Type Certificate (STC) or other modification. 5. For any question concerning the technical content of the requirements in this AD, please contact: AIRBUS Defence and Space – Engineering Support – Service Engineering, Airbus Military Technical Assistance Center (AMTAC); Tel: (+34) 91 600 79 99 and E-mail: mtad.militaryderivatives@airbus.com. TE.CAP.00110-010 © European Union Aviation Safety Agency. All rights reserved. ISO9001 Certified. Page 3 of 3 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet. An agency of the European Union",
+      "contact_text": "1. If requested and appropriately substantiated, EASA can approve Alternative Methods of Compliance for this AD.",
       "conditions": [
-        "Requested and appropriately substantiated"
+        "requested and appropriately substantiated"
       ],
       "evidence_ids": [
         "EV-009",
@@ -459,7 +459,7 @@
       "entry_id": "AMC-002",
       "entry_type": "regulatory_contact",
       "authority_or_organization": "EASA and the technical contact stated in the AD",
-      "contact_text": "Remarks: 1. If requested and appropriately substantiated, EASA can approve Alternative Methods of Compliance for this AD. TE.CAP.00110-010 © European Union Aviation Safety Agency. All rights reserved. ISO9001 Certified. Page 2 of 3 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet. An agency of the European Union EASA AD No.: 2021-0286 2. Based on the required actions and the compliance time, EASA have decided to issue a Final AD with Request for Comments, postponing the public consultation process until after publication. 3. Enquiries regarding this AD should be referred to the EASA Safety Information Section, Certification Directorate. E-mail: ADs@easa.europa.eu. 4. Information about any failures, malfunctions, defects or other occurrences, which may be similar to the unsafe condition addressed by this AD, and which may occur, or have occurred on a product, part or appliance not affected by this AD, can be reported to the EU aviation safety reporting system. This may include reporting on the same or similar components, other than those covered by the design to which this AD applies, if the same unsafe condition can exist or may develop on an aircraft with those components installed. Such components may be installed under an FAA Parts Manufacturer Approval (PMA), Supplemental Type Certificate (STC) or other modification. 5. For any question concerning the technical content of the requirements in this AD, please contact: AIRBUS Defence and Space – Engineering Support – Service Engineering, Airbus Military Technical Assistance Center (AMTAC); Tel: (+34) 91 600 79 99 and E-mail: mtad.militaryderivatives@airbus.com. TE.CAP.00110-010 © European Union Aviation Safety Agency. All rights reserved. ISO9001 Certified. Page 3 of 3 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet. An agency of the European Union",
+      "contact_text": "3. Enquiries regarding this AD should be referred to the EASA Safety Information Section, Certification Directorate. E-mail: ADs@easa.europa.eu. 4. Information about any failures, malfunctions, defects or other occurrences, which may be similar to the unsafe condition addressed by this AD, and which may occur, or have occurred on a product, part or appliance not affected by this AD, can be reported to the EU aviation safety reporting system. This may include reporting on the same or similar components, other than those covered by the design to which this AD applies, if the same unsafe condition can exist or may develop on an aircraft with those components installed. Such components may be installed under an FAA Parts Manufacturer Approval (PMA), Supplemental Type Certificate (STC) or other modification. 5. For any question concerning the technical content of the requirements in this AD, please contact: AIRBUS Defence and Space – Engineering Support – Service Engineering, Airbus Military Technical Assistance Center (AMTAC); Tel: (+34) 91 600 79 99 and E-mail: mtad.militaryderivatives@airbus.com.",
       "conditions": [],
       "evidence_ids": [
         "EV-009",
@@ -501,7 +501,7 @@
       "page_number": 1,
       "printed_page_label": "Page 1 of 3",
       "section": "cover",
-      "section_raw": "Cover identity and publication",
+      "section_raw": "Airworthiness Directive",
       "clause_path": "cover",
       "exact_quote": "EASA AD No.: 2021-0286 Airworthiness Directive AD No.: 2021-0286 Issued: 21 December 2021 Note: This Airworthiness Directive (AD) is issued by EASA, acting in accordance with Regulation (EU) 2018/1139 on behalf of the European Union, its Member States and of the European third countries that participate in the activities of EASA under Article 129 of that Regulation. This AD is issued in accordance with Regulation (EU) 748/2012, Part 21.A.3B. In accordance with Regulation (EU) 1321/2014 Annex I, Part M.A.301, the continuing airworthiness of an aircraft shall be ensured by accomplishing any applicable ADs. Consequently, no person may operate an aircraft to which an AD applies, except in accordance with the requirements of that AD, unless otherwise specified by the Agency [Regulation (EU) 1321/2014 Annex I, Part M.A.303] or agreed with the Authority of the State of Registry [Regulation (EU) 2018/1139, Article 71 exemption]. Design Change Approval Holder’s Name: Modification(s): AIRBUS DEFENCE AND SPACE S.A. Conversion to MRTT configuration Effective Date: 04 January 2022 STC Number(s): EASA Supplemental Type Certificates (STC) 10029272, 10063084, 10064192 and 10069256 Foreign AD: Not applicable Supersedure: None ATA 11 – Placards and Markings – Safety Placards for First Centre Row Passenger Seats – Installation Manufacturer(s): Airbus, formerly Airbus Industrie Applicability: Airbus A330-202, A330-203 and A330-243 aeroplanes, all manufacturer serial numbers (MSN), if modified in accordance with EASA STC 10029272 (previously STC EASA.A.S.02790), 10063084, 10064192 or 10069256. Definitions: For the purpose of this AD, the following definitions apply: The AOT: Airbus Defence and Space (ADS) Alert Operators Transmission (AOT) AOT-A330MRTT-11-0001. The SB: ADS Service Bulletin (SB) A330MRTT-11-0022. Reason: It was determined by ADS that, in the design change package for affected A330-MRTT aeroplanes some mandatory safety placards were missing. Those placards are intended to indicate, to TE.CAP.00110-010 © European Union Aviation Safety Agency. All rights reserved. ISO9001 Certified. Page 1 of 3 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet. An agency of the European Union",
       "start_char": null,
@@ -519,7 +519,7 @@
       "page_number": 1,
       "printed_page_label": "Page 1 of 3",
       "section": "cover",
-      "section_raw": "Manufacturer(s)",
+      "section_raw": "Manufacturer(s):",
       "clause_path": "Manufacturer(s)",
       "exact_quote": "Manufacturer(s): Airbus, formerly Airbus Industrie",
       "start_char": null,
@@ -537,7 +537,7 @@
       "page_number": 1,
       "printed_page_label": "Page 1 of 3",
       "section": "applicability",
-      "section_raw": "Applicability",
+      "section_raw": "Applicability:",
       "clause_path": "Applicability",
       "exact_quote": "Applicability: Airbus A330-202, A330-203 and A330-243 aeroplanes, all manufacturer serial numbers (MSN), if modified in accordance with EASA STC 10029272 (previously STC EASA.A.S.02790), 10063084, 10064192 or 10069256.",
       "start_char": null,
@@ -555,7 +555,7 @@
       "page_number": 1,
       "printed_page_label": "Page 1 of 3",
       "section": "definitions",
-      "section_raw": "Definitions",
+      "section_raw": "Definitions:",
       "clause_path": "Definitions",
       "exact_quote": "Definitions: For the purpose of this AD, the following definitions apply: The AOT: Airbus Defence and Space (ADS) Alert Operators Transmission (AOT) AOT-A330MRTT-11-0001. The SB: ADS Service Bulletin (SB) A330MRTT-11-0022.",
       "start_char": null,
@@ -573,7 +573,7 @@
       "page_number": 1,
       "printed_page_label": "Page 1 of 3",
       "section": "reason",
-      "section_raw": "Reason",
+      "section_raw": "Reason:",
       "clause_path": "Reason",
       "exact_quote": "Reason: It was determined by ADS that, in the design change package for affected A330-MRTT aeroplanes some mandatory safety placards were missing. Those placards are intended to indicate, to TE.CAP.00110-010 © European Union Aviation Safety Agency. All rights reserved. ISO9001 Certified. Page 1 of 3 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet. An agency of the European Union",
       "start_char": null,
@@ -591,7 +591,7 @@
       "page_number": 2,
       "printed_page_label": "Page 2 of 3",
       "section": "reason",
-      "section_raw": "Reason",
+      "section_raw": "Reason:",
       "clause_path": "Reason",
       "exact_quote": "EASA AD No.: 2021-0286 passengers on the first centre row seats, the need to fasten their seat belt during taxi, take-off and landing, and the location of the life vests . In addition, for two affected aeroplane configurations , those placards also indicate the need for stowing tables and leg rests during taxi, take-off and landing. This condition, if not detected and corrected, c ould result in hazard and injury to passengers . To address this potential unsafe condition, ADS issued the AOT, as defined in this AD, to provide instructions for inspection of the af fected aeroplanes, and to ensure, as an interim action, that affected seats are not being occupied any more if discrepancies are detected . Hereafter ADS issued the SB, as defined in this AD, to provide instructions for the installation of missing safety placards. For the reason described above, this AD requires an inspection of the affected aeroplanes and, depending on findings, corrective action(s).",
       "start_char": null,
@@ -609,7 +609,7 @@
       "page_number": 2,
       "printed_page_label": "Page 2 of 3",
       "section": "reference_publications",
-      "section_raw": "Ref. Publications",
+      "section_raw": "Ref. Publications:",
       "clause_path": "Ref. Publications",
       "exact_quote": "Ref. Publications: ADS AOT-A330MRTT-11-0001 dated 08 October 2021. ADS SB A330MRTT-11-0022 dated 03 December 2021. The use of later approved revisions of the above-mentioned documents is acceptable for compliance with the requirements of this AD.",
       "start_char": null,
@@ -627,7 +627,7 @@
       "page_number": 2,
       "printed_page_label": "Page 2 of 3",
       "section": "required_actions_and_compliance_times",
-      "section_raw": "Required Action(s) and Compliance Time(s)",
+      "section_raw": "Required Action(s) and Compliance Time(s):",
       "clause_path": "compliance",
       "exact_quote": "Required Action(s) and Compliance Time(s): Required as indicated, unless accomplished previously: Inspection: (1) Before next flight after the effective date of this AD, accomplish a general visual inspection of the first row of cent re seats in accordance with the instructions of the AOT, to determine if the required safety placards are installed. Corrective Action(s): (2) If, during the inspection as required by paragraph (1) of this AD, discrepancies are detected, as specified in the AOT, before next flight, mark the affected seats as ‘unserviceable’ in accordance with the instructions of the AOT and ensure these seats are not occupied during flight operations. (3) If, during the inspection as required by paragraph (1) of this AD, discrepancies are detected, within 6 months after the effective date of this AD, install the mandatory safety placards in accordance with the instructions of the SB, as applicable. Following installation of the mandatory safety placards, the affected seats are serviceable and the marking as ‘unserviceable’ can be removed from these seats.",
       "start_char": null,
@@ -645,7 +645,7 @@
       "page_number": 2,
       "printed_page_label": "Page 2 of 3",
       "section": "remarks",
-      "section_raw": "Remarks",
+      "section_raw": "Remarks:",
       "clause_path": "Remarks",
       "exact_quote": "Remarks: 1. If requested and appropriately substantiated, EASA can approve Alternative Methods of Compliance for this AD. TE.CAP.00110-010 © European Union Aviation Safety Agency. All rights reserved. ISO9001 Certified. Page 2 of 3 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet. An agency of the European Union",
       "start_char": null,
@@ -663,7 +663,7 @@
       "page_number": 3,
       "printed_page_label": "Page 3 of 3",
       "section": "remarks",
-      "section_raw": "Remarks",
+      "section_raw": "Remarks:",
       "clause_path": "Remarks",
       "exact_quote": "EASA AD No.: 2021-0286 2. Based on the required actions and the compliance time, EASA have decided to issue a Final AD with Request for Comments, postponing the public consultation process until after publication. 3. Enquiries regarding this AD should be referred to the EASA Safety Information Section, Certification Directorate. E-mail: ADs@easa.europa.eu. 4. Information about any failures, malfunctions, defects or other occurrences, which may be similar to the unsafe condition addressed by this AD, and which may occur, or have occurred on a product, part or appliance not affected by this AD, can be reported to the EU aviation safety reporting system. This may include reporting on the same or similar components, other than those covered by the design to which this AD applies, if the same unsafe condition can exist or may develop on an aircraft with those components installed. Such components may be installed under an FAA Parts Manufacturer Approval (PMA), Supplemental Type Certificate (STC) or other modification. 5. For any question concerning the technical content of the requirements in this AD, please contact: AIRBUS Defence and Space – Engineering Support – Service Engineering, Airbus Military Technical Assistance Center (AMTAC); Tel: (+34) 91 600 79 99 and E-mail: mtad.militaryderivatives@airbus.com. TE.CAP.00110-010 © European Union Aviation Safety Agency. All rights reserved. ISO9001 Certified. Page 3 of 3 Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet. An agency of the European Union",
       "start_char": null,

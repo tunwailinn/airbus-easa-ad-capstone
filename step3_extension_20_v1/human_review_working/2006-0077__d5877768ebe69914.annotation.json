@@ -43,7 +43,7 @@
     "design_approval_holder": {
       "state": "present",
       "value": "Airbus SAS",
-      "raw_text": "Airbus SAS",
+      "raw_text": "AIRBUS SAS",
       "evidence_ids": [
         "EV-001"
       ]
@@ -116,7 +116,7 @@
     "foreign_ad": {
       "state": "explicit_none",
       "value": null,
-      "raw_text": "Foreign AD: None or Not applicable",
+      "raw_text": "Foreign AD: None",
       "evidence_ids": [
         "EV-001"
       ]
@@ -153,8 +153,8 @@
       ],
       "part_numbers": [],
       "configuration_conditions": [
-        "AIRBUS modification No. 06810 or 06934 has been embodied in production",
-        "AIRBUS SB A310-33-2045 Revision 1 or A300-33-6047 Revision 1, as applicable (AIRBUS modifications No. 12751 and 13084), has not been embodied in service"
+        "one of the two AIRBUS modifications, No. 06810 or 06934 (Bruce Floor Proximity Emergency Escape Path Marking System - FPEEPMS) has been embodied in production",
+        "AIRBUS Service Bulletin (SB) A310-33-2045 Revision 1 or A300-33-6047 Revision 1 as applicable (AIRBUS modifications n° 12751 and 13084) has not been embodied in service"
       ],
       "exclusions": [],
       "boolean_logic": "all",
@@ -171,18 +171,18 @@
       "A study has shown that the architecture of the BRUCE FPEEPMS is not in compliance with regulatory requirement FAR 25.812 as, in case of vertical segregation of the fuselage forward of door 1, the FPEEPMS and the EXIT signs do not come on."
     ],
     "causes": [
-      "The architecture of the BRUCE FPEEPMS is not in compliance with FAR 25.812."
+      "A study has shown that the architecture of the BRUCE FPEEPMS is not in compliance with regulatory requirement FAR 25.812 as, in case of vertical segregation of the fuselage forward of door 1, the FPEEPMS and the EXIT signs do not come on."
     ],
     "unsafe_conditions": [
       "A study has shown that the architecture of the BRUCE FPEEPMS is not in compliance with regulatory requirement FAR 25.812 as, in case of vertical segregation of the fuselage forward of door 1, the FPEEPMS and the EXIT signs do not come on."
     ],
     "potential_consequences": [],
     "affected_components": [
-      "BRUCE Floor Proximity Emergency Escape Path Marking System (FPEEPMS)",
+      "Bruce Floor Proximity Emergency Escape Path Marking System - FPEEPMS",
       "EXIT signs"
     ],
     "intended_risk_mitigation": [
-      "Embodiment of Revision 1 of AIRBUS SB A310-33-2045 or A300-33-6047, as applicable."
+      "this AD renders mandatory the embodiment of revision 1 of these SBs."
     ],
     "evidence_ids": [
       "EV-004"
@@ -200,12 +200,12 @@
         "modification"
       ],
       "obligation": "mandatory",
-      "action_text": "Compliance: Before July 31st, 2007, unless already accomplished, carry out the electrical modifications to the BRUCE FPEEPMS in accordance with the instructions of SB A310-33-2045 Revision 1 or A300-33-6047 Revision 1.",
+      "action_text": "Before July 31st, 2007, unless already accomplished, carry out the electrical modifications to the BRUCE FPEEPMS in accordance with the instructions of SB A310-33-2045 Revision 1 or A300-33-6047 Revision 1.",
       "objects_or_components": [
-        "BRUCE Floor Proximity Emergency Escape Path Marking System (FPEEPMS)"
+        "BRUCE FPEEPMS"
       ],
       "conditions": [
-        "Unless already accomplished"
+        "unless already accomplished"
       ],
       "method_publication_ids": [
         "PUB-001",
@@ -215,7 +215,7 @@
         {
           "compliance_id": "CMP-001",
           "state": "present",
-          "raw_text": "Compliance: Before July 31st, 2007, unless already accomplished, carry out the electrical modifications to the BRUCE FPEEPMS in accordance with the instructions of SB A310-33-2045 Revision 1 or A300-33-6047 Revision 1.",
+          "raw_text": "Before July 31st, 2007, unless already accomplished, carry out the electrical modifications to the BRUCE FPEEPMS in accordance with the instructions of SB A310-33-2045 Revision 1 or A300-33-6047 Revision 1.",
           "logic": "single",
           "conditions": [],
           "initial_limits": [
@@ -296,9 +296,9 @@
       "entry_id": "AMC-001",
       "entry_type": "amoc_authority",
       "authority_or_organization": "EASA",
-      "contact_text": "Remarks: 1. If requested and appropriately substantiated the responsible EASA manager for the related product has the authority to accept Alternative Methods of Compliance (AMOCs) for this AD. 2. This AD was posted as PAD 06-036 for consultation on 15 February 2006 with a comment period until 14 March 2006. The Comment Response Document can be found at http://www.easa.eu.int/home/aw_dir_en_html. 3. Enquiries regarding this Airworthiness Directive should be referred to Mr. M. Capaccio, Airworthiness Directive Focal Point - Certification Directorate, EASA. E-mail: ADs@easa.eu.int. 4. For any question concerning the technical content of the requirements in this AD, please contact AIRBUS SAS - EAW (Airworthiness Office, Ph.: + 33 5 61 93 36 96; Fax: + 33 5 61 93 44 51). 2/2",
+      "contact_text": "1. If requested and appropriately substantiated the responsible EASA manager for the related product has the authority to accept Alternative Methods of Compliance (AMOCs) for this AD.",
       "conditions": [
-        "Requested and appropriately substantiated"
+        "requested and appropriately substantiated"
       ],
       "evidence_ids": [
         "EV-007"
@@ -308,7 +308,7 @@
       "entry_id": "AMC-002",
       "entry_type": "regulatory_contact",
       "authority_or_organization": "EASA and the technical contact stated in the AD",
-      "contact_text": "Remarks: 1. If requested and appropriately substantiated the responsible EASA manager for the related product has the authority to accept Alternative Methods of Compliance (AMOCs) for this AD. 2. This AD was posted as PAD 06-036 for consultation on 15 February 2006 with a comment period until 14 March 2006. The Comment Response Document can be found at http://www.easa.eu.int/home/aw_dir_en_html. 3. Enquiries regarding this Airworthiness Directive should be referred to Mr. M. Capaccio, Airworthiness Directive Focal Point - Certification Directorate, EASA. E-mail: ADs@easa.eu.int. 4. For any question concerning the technical content of the requirements in this AD, please contact AIRBUS SAS - EAW (Airworthiness Office, Ph.: + 33 5 61 93 36 96; Fax: + 33 5 61 93 44 51). 2/2",
+      "contact_text": "3. Enquiries regarding this Airworthiness Directive should be referred to Mr. M. Capaccio, Airworthiness Directive Focal Point - Certification Directorate, EASA. E-mail: ADs@easa.eu.int. 4. For any question concerning the technical content of the requirements in this AD, please contact AIRBUS SAS - EAW (Airworthiness Office, Ph.: + 33 5 61 93 36 96; Fax: + 33 5 61 93 44 51).",
       "conditions": [],
       "evidence_ids": [
         "EV-007"
@@ -345,7 +345,7 @@
       "page_number": 1,
       "printed_page_label": "1/2",
       "section": "cover",
-      "section_raw": "Cover identity and publication",
+      "section_raw": "Airworthiness Directive",
       "clause_path": "cover",
       "exact_quote": "EASA AIRWORTHINESS DIRECTIVE AD No: 2006 - 0077 Date: 03 April 2006 No person may operate an aircraft to which an Airworthiness Directive applies, except in accordance with the requirements of that Airworthiness Directive unless otherwise agreed with the Authority of the State of Registry. Type Approval Holder’s Name: Type/Model designations: AIRBUS SAS A310 and A300-600 aircraft TCDS Number: France No 145 Foreign AD: None Supersedure: None ATA 33 Lights - BRUCE Floor Proximity Emergency Escape Path Marking System FPEEPMS Manufacturer(s): AIRBUS SAS, AIRBUS INDUSTRIES. Applicability: AIRBUS aircraft, models A310-308, A310-324, A310-325, A300B4-605R, all serial numbers on which one of the two AIRBUS modifications, No. 06810 or 06934 (Bruce Floor Proximity Emergency Escape Path Marking System - FPEEPMS) has been embodied in production and on which AIRBUS Service Bulletin (SB) A310-33-2045 Revision 1 or A300-33-6047 Revision 1 as applicable (AIRBUS modifications n° 12751 and 13084) has not been embodied in service. Reason: A study has shown that the architecture of the BRUCE FPEEPMS is not in compliance with regulatory requirement FAR 25.812 as, in case of vertical segregation of the fuselage forward of door 1, the FPEEPMS and the EXIT signs do not come on. Airworthiness Directive (AD) 2004-102, which dealt with the same subject, rendered mandatory modifications to the FPEEPMS to ensure its operation in compliance with the regulatory requirements. SBs A310-33-2045 and A300-33-6047 at original issue were issued for this purpose. However, it turns out that the instructions given in the original issues of these SBs were not fully satisfactory. This is the reason why AD 2004-102 had been cancelled and this AD renders mandatory the embodiment of revision 1 of these SBs. Effective Date: 12 April 2006. 1/2",
       "start_char": null,
@@ -363,7 +363,7 @@
       "page_number": 1,
       "printed_page_label": "1/2",
       "section": "cover",
-      "section_raw": "Manufacturer(s)",
+      "section_raw": "Manufacturer(s):",
       "clause_path": "Manufacturer(s)",
       "exact_quote": "Manufacturer(s): AIRBUS SAS, AIRBUS INDUSTRIES.",
       "start_char": null,
@@ -381,7 +381,7 @@
       "page_number": 1,
       "printed_page_label": "1/2",
       "section": "applicability",
-      "section_raw": "Applicability",
+      "section_raw": "Applicability:",
       "clause_path": "Applicability",
       "exact_quote": "Applicability: AIRBUS aircraft, models A310-308, A310-324, A310-325, A300B4-605R, all serial numbers on which one of the two AIRBUS modifications, No. 06810 or 06934 (Bruce Floor Proximity Emergency Escape Path Marking System - FPEEPMS) has been embodied in production and on which AIRBUS Service Bulletin (SB) A310-33-2045 Revision 1 or A300-33-6047 Revision 1 as applicable (AIRBUS modifications n° 12751 and 13084) has not been embodied in service.",
       "start_char": null,
@@ -399,7 +399,7 @@
       "page_number": 1,
       "printed_page_label": "1/2",
       "section": "reason",
-      "section_raw": "Reason",
+      "section_raw": "Reason:",
       "clause_path": "Reason",
       "exact_quote": "Reason: A study has shown that the architecture of the BRUCE FPEEPMS is not in compliance with regulatory requirement FAR 25.812 as, in case of vertical segregation of the fuselage forward of door 1, the FPEEPMS and the EXIT signs do not come on. Airworthiness Directive (AD) 2004-102, which dealt with the same subject, rendered mandatory modifications to the FPEEPMS to ensure its operation in compliance with the regulatory requirements. SBs A310-33-2045 and A300-33-6047 at original issue were issued for this purpose. However, it turns out that the instructions given in the original issues of these SBs were not fully satisfactory. This is the reason why AD 2004-102 had been cancelled and this AD renders mandatory the embodiment of revision 1 of these SBs.",
       "start_char": null,
@@ -417,7 +417,7 @@
       "page_number": 2,
       "printed_page_label": "2/2",
       "section": "reference_publications",
-      "section_raw": "Ref. Publications",
+      "section_raw": "Ref. Publications:",
       "clause_path": "Ref. Publications",
       "exact_quote": "Ref. Publications: AIRBUS Service Bulletins: A310-33-2045 Revision 1 A300-33-6047 Revision 1 or later approved revisions.",
       "start_char": null,
@@ -435,7 +435,7 @@
       "page_number": 2,
       "printed_page_label": "2/2",
       "section": "required_actions_and_compliance_times",
-      "section_raw": "Required Action(s) and Compliance Time(s)",
+      "section_raw": "Compliance:",
       "clause_path": "compliance",
       "exact_quote": "Compliance: Before July 31st, 2007, unless already accomplished, carry out the electrical modifications to the BRUCE FPEEPMS in accordance with the instructions of SB A310-33-2045 Revision 1 or A300-33-6047 Revision 1.",
       "start_char": null,
@@ -453,7 +453,7 @@
       "page_number": 2,
       "printed_page_label": "2/2",
       "section": "remarks",
-      "section_raw": "Remarks",
+      "section_raw": "Remarks:",
       "clause_path": "Remarks",
       "exact_quote": "Remarks: 1. If requested and appropriately substantiated the responsible EASA manager for the related product has the authority to accept Alternative Methods of Compliance (AMOCs) for this AD. 2. This AD was posted as PAD 06-036 for consultation on 15 February 2006 with a comment period until 14 March 2006. The Comment Response Document can be found at http://www.easa.eu.int/home/aw_dir_en_html. 3. Enquiries regarding this Airworthiness Directive should be referred to Mr. M. Capaccio, Airworthiness Directive Focal Point - Certification Directorate, EASA. E-mail: ADs@easa.eu.int. 4. For any question concerning the technical content of the requirements in this AD, please contact AIRBUS SAS - EAW (Airworthiness Office, Ph.: + 33 5 61 93 36 96; Fax: + 33 5 61 93 44 51). 2/2",
       "start_char": null,
