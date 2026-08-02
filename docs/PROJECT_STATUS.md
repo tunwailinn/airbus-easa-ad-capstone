@@ -1,6 +1,6 @@
 # Project Status
 
-Last updated: 30 July 2026
+Last updated: 2 August 2026
 
 This file records confirmed progress. Agents must not infer completion from planned work.
 
@@ -149,3 +149,12 @@ Append the following after material work:
 - Verification command and result: Step 2 unit tests passed 18; Step 3 unit tests passed 21; the pilot validator and reusable 30-record release gate passed with 0 errors; evidence validation passed all 30 pilot records and all 20 extension candidates; non-strict schema validation passed all 20 extension candidates; all versioned JSON and notebooks parsed; Python compilation passed.
 - Remaining issues: the 20-record extension remains machine-assisted and non-gold; Phase 6.2 lifecycle review and the repository-local versioned gold-release packages remain incomplete.
 - Next action: publish this reviewed package to the private personal GitHub repository, then continue explicit independent review in `step3_extension_20_v1/human_review_working/`.
+
+### 2026-08-02 - Local, GitHub, and Drive synchronization
+
+- Fast-forwarded local `main` from `bf2c8b7` to GitHub `origin/main` at `da89ef5`; the incoming scope was the 20 editable `step3_extension_20_v1/human_review_working/` annotations.
+- Revalidated the synchronized working set: all 20 records passed non-strict schema/semantic validation and evidence-quote validation. Strict validation correctly remained blocked because all 20 are still `creation_method=hybrid`, `record_status=first_pass_complete`, `human_confirmed=false`, and `gold_record=false` pending explicit independent approval.
+- Updated the existing Drive files in place for the 20 working annotations and `01_build_ad_corpus_manifest.ipynb`; Drive readback file sizes matched the local files for all 21 updates.
+- Moved the existing Drive `step3_extension_20_v1/` folder from inside `step3_pilot_v1/` to its documented sibling position under `metadata/`; no source PDF, page-text, queue, or gold content was changed.
+- Verified the extension Drive counts: 20 source PDFs, 21 page-text files, 41 packet files recursively, 20 annotation files, 22 working-folder items, 22 immutable queue items, 2 validation reports, and 0 gold files.
+- Protected anomaly: the frozen Drive `selection/` folder contains the canonical five selection artifacts plus a later Google Docs conversion also named `selection_report.md`. It was not removed or moved because frozen selections are read-only.
