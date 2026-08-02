@@ -154,7 +154,8 @@ Append the following after material work:
 
 - Fast-forwarded local `main` from `bf2c8b7` to GitHub `origin/main` at `da89ef5`; the incoming scope was the 20 editable `step3_extension_20_v1/human_review_working/` annotations.
 - Revalidated the synchronized working set: all 20 records passed non-strict schema/semantic validation and evidence-quote validation. Strict validation correctly remained blocked because all 20 are still `creation_method=hybrid`, `record_status=first_pass_complete`, `human_confirmed=false`, and `gold_record=false` pending explicit independent approval.
-- Updated the existing Drive files in place for the 20 working annotations and `01_build_ad_corpus_manifest.ipynb`; Drive readback file sizes matched the local files for all 21 updates.
+- Updated the existing Drive files in place for the 20 working annotations, `01_build_ad_corpus_manifest.ipynb`, and `step3_pilot/03_build_review_gold_pilot.ipynb`; Drive readback file sizes matched the local files for all 22 updates.
 - Moved the existing Drive `step3_extension_20_v1/` folder from inside `step3_pilot_v1/` to its documented sibling position under `metadata/`; no source PDF, page-text, queue, or gold content was changed.
 - Verified the extension Drive counts: 20 source PDFs, 21 page-text files, 41 packet files recursively, 20 annotation files, 22 working-folder items, 22 immutable queue items, 2 validation reports, and 0 gold files.
 - Protected anomaly: the frozen Drive `selection/` folder contains the canonical five selection artifacts plus a later Google Docs conversion also named `selection_report.md`. It was not removed or moved because frozen selections are read-only.
+- The Drive pilot `validation/final_validation.json` and local `validation/human_review_working_final_validation.json` have different names but identical 84-byte validation content (`passed=true`, 30 records, 30 selected, no errors); neither release-evidence file was renamed or overwritten.
