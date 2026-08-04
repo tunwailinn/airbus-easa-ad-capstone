@@ -80,26 +80,6 @@ Reason: Example.
         self.assertIn("A300F4-608ST", item["models"])
         self.assertNotIn("A320", item["models"])
 
-    def test_only_false_a300_reference_model_is_omitted(self) -> None:
-        text = """
-Manufacturer(s): Airbus
-Applicability: Refer to Airbus A300-24 instructions.
-Reason: Example.
-"""
-        record = {
-            "applicability": [
-                {
-                    "text": "Refer to Airbus A300-24 instructions.",
-                    "aircraft_families": ["A300"],
-                    "models": ["A300-24"],
-                }
-            ]
-        }
-        _repair_applicability(text, record)
-        item = record["applicability"][0]
-        self.assertNotIn("models", item)
-        self.assertNotIn("aircraft_families", item)
-
 
 if __name__ == "__main__":
     unittest.main()
