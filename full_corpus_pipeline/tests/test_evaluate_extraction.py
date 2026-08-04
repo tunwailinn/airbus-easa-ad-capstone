@@ -15,28 +15,42 @@ class EvaluateExtractionTests(unittest.TestCase):
             "ad_identity": {
                 "ad_number": "2025-0058R1",
                 "authority": "EASA",
+                "document_type": "airworthiness_directive",
                 "revision": "R1",
                 "design_approval_holder": "Airbus S.A.S.",
             },
             "publication": {
+                "subject": "ATA 05 – Time Limits / Maintenance Checks",
                 "issue_date": "2025-03-19",
                 "effective_date": "2025-03-31",
                 "ata_chapters": [{"code": "05"}],
-                "type_model_designations": ["A340-211"],
-                "tcds_numbers": ["EASA.A.015"],
-                "foreign_ad": "Not applicable",
+                "manufacturers": ["Manufacturer(s): Airbus"],
+                "type_model_designations": ["A340-211 aeroplanes"],
+                "tcds_numbers": ["France No. 145 and EASA.A.015"],
+                "foreign_ad": "Foreign AD: Not applicable",
             },
             "definitions": {"text": "AMP: reviewed definition"},
             "required_actions": [{"paragraph": "(1)", "action": "reviewed action"}],
         }
         prediction = {
             "ad_identity": {
-                **gold["ad_identity"],
+                "ad_number": "2025-0058R1",
+                "authority": "EASA",
+                "document_type": "Airworthiness Directive",
+                "revision": "R1",
+                "design_approval_holder": "AIRBUS S.A.S.",
                 "revision_statement": "This AD revises EASA AD 2025-0058.",
             },
             "publication": {
-                **gold["publication"],
+                "subject": "Time Limits / Maintenance Checks",
+                "issue_date": "2025-03-19",
+                "effective_date": "2025-03-31",
+                "ata_chapters": [{"code": "05"}],
+                "manufacturers": ["Airbus"],
+                "type_model_designations": ["A340-211"],
                 "type_model_designation_text": "A340 aeroplanes",
+                "tcds_numbers": ["EASA.A.015"],
+                "foreign_ad": "Not applicable",
             },
             "definitions": {
                 "text": (
@@ -63,29 +77,18 @@ class EvaluateExtractionTests(unittest.TestCase):
 
         self.assertLess(legacy_projection_overlap(prediction, gold)["f1"], 1.0)
 
-    def test_identifier_fields_normalize_layout_only_differences(self) -> None:
+    def test_model_identifier_normalization_handles_gold_phrases(self) -> None:
         gold = {
             "publication": {
-                "tcds_numbers": ["EASA.A.015"],
-                "type_model_designations": ["A340-211"],
-            },
-            "referenced_publications": [{"number": "A340-05-4020"}],
+                "type_model_designations": ["A300 and A300-600 aeroplanes"]
+            }
         }
         prediction = {
-            "publication": {
-                "tcds_numbers": ["EASA.A.015"],
-                "type_model_designations": ["A340 - 211"],
-            },
-            "referenced_publications": [{"number": "A340-05-4020"}],
+            "publication": {"type_model_designations": ["A300", "A300-600"]}
         }
-
         self.assertEqual(
-            COMPARABLE_FIELDS["type_model_designations"](gold),
-            COMPARABLE_FIELDS["type_model_designations"](prediction),
-        )
-        self.assertEqual(
-            COMPARABLE_FIELDS["reference_numbers"](gold),
-            COMPARABLE_FIELDS["reference_numbers"](prediction),
+            COMPARABLE_FIELDS["publication_model_identifiers"](gold),
+            COMPARABLE_FIELDS["publication_model_identifiers"](prediction),
         )
 
     def test_source_containment_removes_page_furniture(self) -> None:
