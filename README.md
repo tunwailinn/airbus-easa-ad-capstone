@@ -2,183 +2,137 @@
 
 Current methodology: **v3.1**.
 
-This project processes a frozen snapshot of **1,809 Airbus-related EASA Airworthiness Directive PDFs**. Five PDFs are held out for unseen-document ingestion testing, leaving a nominal **1,804-PDF development extraction**. The stated research scope is EU-issued EASA ADs whose Design/Type Approval Holder is Airbus S.A.S., accepting legacy Airbus/Airbus Industrie naming; scope membership is audited rather than inferred from aircraft manufacturer alone.
-
-The system has two layers:
+This project processes a frozen snapshot of **1,809 Airbus-related EASA Airworthiness Directive PDFs** using a two-layer architecture:
 
 ```text
-Section-complete deterministic content extraction
+Section-complete deterministic extraction
 → reliable metadata + complete raw difficult AD sections
 
 Original-PDF page-aware RAG
 → compliance timing, conditions, exceptions, branches, citations, QA
 ```
 
-Complex compliance semantics are intentionally interpreted from retrieved PDF passages at question time. Full-corpus extraction uses no hosted LLM.
+Five PDFs are held out for unseen-document ingestion testing, leaving a nominal **1,804-PDF development extraction**. The strict operational research scope is EU-issued EASA ADs whose Design/Type Approval Holder is Airbus S.A.S., accepting legacy Airbus/Airbus Industrie naming. Physical source records outside that holder scope remain preserved for provenance but are excluded from the strict Airbus-only operational view.
 
-## Active versions
+Complex compliance semantics are intentionally interpreted from retrieved original-PDF passages at question time. Full-corpus extraction uses no hosted LLM.
+
+## Frozen extraction versions
 
 - Content schema: `2.1.0`
-- Local parser: **`content-local-v2.1.6`**
+- Frozen local parser: **`content-local-v2.1.6`**
 - Extraction evaluator: **`content-eval-v3.1.5`**
-- Corpus scope audit: **`corpus-scope-audit-v1.2`**
+- Corpus scope audit: **`corpus-scope-audit-v1.3`**
 - Immutable audit source: `gold_releases/easa_airbus_ad_gold_v2/`
-- Active content benchmark: `easa_airbus_ad_content_gold_50_v2`
-- Nominal split: 30 development / 20 test, seed 42
-- QA benchmark: `easa_airbus_ad_qa_50_v2`
+- Nominal extraction benchmark: 30 development / 20 test, seed 42
+- QA benchmark: 50 locked questions
 - Unseen ingestion set: 5 PDFs
 
-The v2.1.5 development run is **successful development evidence but not final/canonical**:
+**Parser v2.1.6 is frozen. Do not tune it from locked-test outcomes.**
 
-```text
-data_processed/runs/local-content-development-1804-v2.1.5/
-```
+## Final development result
 
-Its development evaluation achieved 100% prediction coverage/schema validity and 100% source-contained, contamination-free preservation for all five raw difficult-section types across the scored development records. It nevertheless exposed narrow remaining catalogue/scope defects: doubled-colon DAH headings, legacy plural holder/model labels, consecutive multi-ATA subjects, a revision-chain supersedure false edge, and unresolved holder-scope records.
+A reproduction using the frozen 1,809-row document-text cache and the exact five-document holdout boundary produced all **1,804/1,804** nominal development records with zero extraction failures and 100% schema validity.
 
-The next run/canonical targets are therefore:
+Primary 28-record development evaluation:
 
-```text
-data_processed/runs/local-content-development-1804-v2.1.6/
-data_processed/canonical_content_v2.1.6/
-```
+- stable-metadata macro F1: **0.9948**
+- applicability-model F1: **0.9929**
+- reference-number F1: **0.8065**
+- superseded-AD-number F1: **1.0000**
+- reference/lifecycle macro F1: **0.9032**
+- all five difficult raw-section presence F1 values: **1.0000**
+- raw-section source containment: **130/130 = 1.0000**
+- detected raw-section page-furniture contamination: **0**
 
-## Why v2.1.6 exists
-
-v2.1.6 is a final development-only hardening layer over v2.1.5. It does **not** add semantic compliance normalization. It adds only source-format fixes supported by development evidence gathered before the locked test:
-
-- `Design Approval Holder’s Name::` doubled-colon normalization;
-- legacy `Type Approval Holder’s Name` and plural `Type Approval Holders names` labels;
-- legacy `Type/Model designations:` spelling;
-- preservation/classification of multi-holder records instead of forcing them into Airbus-only scope;
-- recovery of consecutive ATA subject blocks such as ATA 32 followed by ATA 92;
-- safer revision-chain handling so `This AD revises X, which superseded Y` is not converted into a false direct supersedure edge;
-- flexible A300 model tokens printed with extra hyphens such as `A300-B4-601`; and
-- removal of obvious A300 ATA/reference fragments such as `A300-24` from structured applicability models.
-
-The strict operational scope policy now lives in `full_corpus_pipeline/scope_policy.py`:
-
-- accepted Airbus S.A.S./legacy Airbus aliases → `eligible`;
-- confirmed external or mixed approval holders → `excluded` from the strict Airbus-only operational view, while the physical PDF/content record remains preserved;
-- missing, malformed or unfamiliar holder text → `unknown` and must be reviewed before the scope-approved canonical count is frozen.
-
-## Run tests
-
-```bash
-.venv/bin/python -m unittest discover -s full_corpus_pipeline/tests -v
-```
-
-The v2.1.6 regression tests use development-derived/source-format evidence only. Do not add new locked-test content while tuning this parser.
-
-## Regenerate the nominal 1,804 development records
-
-```bash
-.venv/bin/python -m full_corpus_pipeline.extract_corpus \
-  --run-id local-content-development-1804-v2.1.6
-```
-
-Do not overwrite or relabel the v2.1.4/v2.1.5 runs.
-
-## Audit the 30 nominal development references
-
-```bash
-.venv/bin/python -m full_corpus_pipeline.audit_development_reference \
-  --output data_processed/runs/local-content-development-1804-v2.1.6/development_reference_audit.json
-```
-
-The immutable development audit has 30 nominal members and two known holder-scope exclusions:
+The two immutable development holder-scope exclusions remain:
 
 - `2024-0095` — Airbus Defence and Space S.A.
 - `2026-0079` — Lufthansa Technik AG
 
-They remain in the immutable 50-record audit release but are not primary Airbus S.A.S. development scores.
+## Final scope-approved development view
 
-## Audit all 1,804 generated records for holder scope
+Scope audit v1.3 over all 1,804 generated development records gives:
+
+- **1,786 eligible Airbus-only operational records**
+- **18 confirmed external/mixed-holder records**, retained physically but excluded from the strict Airbus-only operational view
+- **0 unresolved unknowns**
+
+A single versioned source-review override resolves `2012-0088`: its native text cache is column-garbled, but original PDF page 1 visibly identifies Airbus as Design Approval Holder. The override changes scope classification only; it never rewrites extracted content or immutable gold.
+
+## Clean locked extraction test
+
+The nominal test split remains 20 records. Parser v2.1.6 was frozen before locked-test scoring.
+
+Primary clean-test exclusions:
+
+- `2011-0098` — mixed approval holders (`Airbus; The Boeing Company; Fokker Services`)
+- `2021-0286` — Airbus Defence and Space S.A.
+- `2024-0038` — previously used during parser diagnosis and therefore disclosed test leakage
+
+Clean primary test count: **17**.
+
+Frozen-parser result:
+
+- prediction coverage: **1.0000**
+- schema validity: **1.0000**
+- stable-metadata macro F1: **0.9831**
+- applicability-model F1: **0.9222**
+- reference-number F1: **0.9000**
+- superseded-AD-number F1: **0.6667**
+- reference/lifecycle macro F1: **0.7833**
+- every difficult raw-section presence F1: **1.0000**
+- raw-section source containment: **74/74 = 1.0000**
+- detected raw-section contamination: **0**
+
+These locked-test differences are final reported outcomes. Do not modify parser v2.1.6 in response to them.
+
+## Local reproduction and promotion
+
+Pull the frozen code and reproduce the run locally so the official `data_processed/` sidecars/manifests are generated by the versioned CLI:
 
 ```bash
+git pull origin main
+
+.venv/bin/python -m unittest discover -s full_corpus_pipeline/tests -v
+
+.venv/bin/python -m full_corpus_pipeline.extract_corpus \
+  --run-id local-content-development-1804-v2.1.6
+
+.venv/bin/python -m full_corpus_pipeline.audit_development_reference \
+  --output data_processed/runs/local-content-development-1804-v2.1.6/development_reference_audit.json
+
 .venv/bin/python -m full_corpus_pipeline.audit_corpus_scope \
   data_processed/runs/local-content-development-1804-v2.1.6/records \
   --output data_processed/runs/local-content-development-1804-v2.1.6/corpus_scope_audit.json
-```
 
-Do not reuse earlier scope counts as final corpus counts. In particular, the v2.1.5 report (`1765 eligible / 17 excluded / 22 unknown`) contains known parser-format misses among the unknowns. Use only the regenerated v2.1.6 scope report for the next governance decision.
-
-A confirmed mixed-holder document is not deleted; it remains in the immutable physical inventory but is excluded from the strict Airbus-only operational subset. Any remaining `unknown` record must be reviewed before freezing the scope-approved operational count.
-
-## Run development extraction evaluation
-
-```bash
 .venv/bin/python -m full_corpus_pipeline.evaluate_extraction \
   data_processed/runs/local-content-development-1804-v2.1.6/records \
   --output data_processed/runs/local-content-development-1804-v2.1.6/evaluation_development_v3.1.5.json \
   --split development
-```
 
-Primary reporting separates:
-
-- stable comparable metadata;
-- secondary publication-model/family normalization;
-- reference/lifecycle identifiers;
-- source-heading-driven raw-section presence;
-- source-text containment;
-- page-furniture/status contamination;
-- holder-scope exclusions; and
-- known test-leakage exclusions.
-
-`legacy_projection_overlap` remains diagnostic only and must not be reported as v3.1 extraction accuracy.
-
-## Development freeze gate
-
-Before touching the locked test split, verify all of the following on v2.1.6:
-
-1. 1,804 requested records, 1,804 successful records, zero extraction failures.
-2. 100% prediction coverage and schema validity on the scored development set.
-3. Definitions, Reason, Required Actions/Compliance, Ref. Publications, and Remarks retain 100% source-heading presence where printed, source containment, and no material page-furniture contamination.
-4. DAH parsing no longer misses the doubled-colon or legacy Type Approval Holder formats used by development evidence.
-5. Consecutive multi-ATA subjects preserve every printed ATA chapter.
-6. Revision wording does not create false direct supersedure edges.
-7. Scope audit has no unresolved parser-garbage exclusions; every remaining `unknown` is individually reviewed before the scope-approved operational count is frozen.
-8. Remaining reference-ID/model-taxonomy differences are documented as secondary limitations or fixed from development evidence only.
-9. Representative source-PDF spot checks pass.
-
-If a new genuine defect remains, do not inspect locked-test compliance labels to tune it.
-
-## Final clean extraction evaluation
-
-Only after development behavior is frozen:
-
-```bash
 .venv/bin/python -m full_corpus_pipeline.evaluate_extraction \
   data_processed/runs/local-content-development-1804-v2.1.6/records \
   --output data_processed/runs/local-content-development-1804-v2.1.6/evaluation_test_clean_v3.1.5.json \
   --split test
-```
 
-The nominal 20-record test split remains immutable. `2024-0038` is automatically excluded from clean test scoring because it was previously used to diagnose parser defects. Holder-scope exclusions are derived separately from reviewed gold metadata. Use the generated report's `record_count` as the actual clean test sample size.
-
-Do not tune parser rules after inspecting clean locked-test results. Report failures as test results.
-
-## Promote only after validation
-
-```bash
 .venv/bin/python -m full_corpus_pipeline.promote_extraction_run \
   data_processed/runs/local-content-development-1804-v2.1.6 \
   data_processed/canonical_content_v2.1.6 \
   --expected-count 1804
 ```
 
-Promotion preserves one generated content record per nominal physical development PDF. The strict Airbus S.A.S.-only operational subset is a separate explicit scope filter/sidecar; never silently delete source records or rewrite the frozen inventory to manufacture a cleaner count.
+Promotion preserves one generated content record per nominal physical development PDF. Apply the scope audit to obtain the 1,786-record strict Airbus-only operational view; do not delete the 18 retained external/mixed-holder records.
 
-## Next RAG stage
+## Next stage: original-PDF RAG
 
-After extraction is frozen and promoted:
+After local canonical promotion:
 
-```bash
-.venv/bin/python -m full_corpus_pipeline.retrieval \
-  --page-text-dir /approved/page_text \
-  --manifest step3_pilot/source_metadata/corpus_manifest.parquet \
-  --exclude-selection evaluation_sets/unseen_incoming_5_v1/selection.csv \
-  --output-dir indexes/corpus_v1
-```
+1. generate page-preserving text from original PDFs;
+2. build E0 flat dense-only retrieval;
+3. build E4 section-aware BM25 + dense + FAISS + RRF + reranking + metadata/lifecycle filtering;
+4. evaluate Recall@1/3/5, MRR, nDCG@5, and correct source/page retrieval;
+5. run the 50-question page-cited QA benchmark;
+6. evaluate temporary uploaded-PDF QA;
+7. permanently ingest the five frozen unseen PDFs without retraining.
 
-Then build/evaluate E0 and E4, run page-cited QA evaluation, test temporary QA on the five unseen PDFs, and permanently ingest them without retraining.
+Original PDF passages remain authoritative for detailed compliance interpretation.
