@@ -1,0 +1,16 @@
+{
+  "version": "scope-review-overrides-v1",
+  "policy": "Apply only when automatic holder classification remains unknown. These decisions affect the strict operational scope view only; they do not modify source PDFs, extracted content records, or immutable gold annotations.",
+  "overrides": [
+    {
+      "file_instance_id": "4e5116faf63073ea",
+      "ad_number": "2012-0088",
+      "scope_status": "eligible",
+      "design_approval_holder": "Airbus",
+      "source_page": 1,
+      "review_method": "visual_source_review",
+      "reviewed_on": "2026-08-04",
+      "reason": "The document-level native text cache is column-garbled, but page 1 of the original PDF visibly prints 'Design Approval Holder’s Name: AIRBUS'."
+    }
+  ]
+}
