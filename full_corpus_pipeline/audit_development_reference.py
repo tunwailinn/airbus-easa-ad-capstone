@@ -3,7 +3,7 @@
 
 Each development reference is checked against its immutable approved annotation,
 frozen hashes, deterministic projection, field assertions, and evidence spans.
-Known scope exclusions remain immutable audit artifacts but are reported as
+Out-of-scope holder cases remain immutable audit artifacts but are reported as
 ineligible for primary development scoring.
 """
 
@@ -19,7 +19,7 @@ from typing import Any
 import pandas as pd
 
 from full_corpus_pipeline.content_projection import project_record, validate_record
-from full_corpus_pipeline.evaluate_extraction import KNOWN_SCOPE_EXCLUSIONS
+from full_corpus_pipeline.evaluate_extraction import benchmark_scope_status
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -94,6 +94,7 @@ def main() -> int:
     evidence_containment_checks = 0
     evidence_containment_passes = 0
     scope_exclusions = []
+    scope_unknown = []
 
     for item in selected:
         ad_number = str(item["ad_number"])
@@ -104,11 +105,6 @@ def main() -> int:
         derived_path = CONTENT_DIR / "records" / derived_name
         critical: list[str] = []
         warnings: list[str] = []
-        scope_eligible = ad_number not in KNOWN_SCOPE_EXCLUSIONS
-        if not scope_eligible:
-            scope_exclusions.append(
-                {"ad_number": ad_number, "reason": KNOWN_SCOPE_EXCLUSIONS[ad_number]}
-            )
 
         if not annotation_path.exists():
             critical.append("missing immutable source annotation")
@@ -116,7 +112,7 @@ def main() -> int:
                 {
                     "ad_number": ad_number,
                     "file_instance_id": file_id,
-                    "scope_eligible": scope_eligible,
+                    "scope_status": "unknown",
                     "critical_issues": critical,
                     "warnings": warnings,
                 }
@@ -129,7 +125,7 @@ def main() -> int:
                 {
                     "ad_number": ad_number,
                     "file_instance_id": file_id,
-                    "scope_eligible": scope_eligible,
+                    "scope_status": "unknown",
                     "critical_issues": critical,
                     "warnings": warnings,
                 }
@@ -139,8 +135,24 @@ def main() -> int:
 
         annotation = json.loads(annotation_path.read_text(encoding="utf-8"))
         derived = json.loads(derived_path.read_text(encoding="utf-8"))
-        manifest_row = manifest_by_file.get(annotation_name)
+        scope_status, normalized_holder = benchmark_scope_status(derived)
+        if scope_status == "excluded":
+            scope_exclusions.append(
+                {
+                    "ad_number": ad_number,
+                    "design_approval_holder": normalized_holder,
+                    "reason": "Design Approval Holder is outside Airbus S.A.S. project scope.",
+                }
+            )
+        elif scope_status == "unknown":
+            scope_unknown.append(
+                {
+                    "ad_number": ad_number,
+                    "reason": "Derived gold record has no Design Approval Holder value.",
+                }
+            )
 
+        manifest_row = manifest_by_file.get(annotation_name)
         if manifest_row is None:
             critical.append("annotation missing from release manifest")
         else:
@@ -199,16 +211,6 @@ def main() -> int:
             and metadata.get("source_text_sha256") != source.get("normalized_text_sha256")
         ):
             critical.append("annotation/source normalized-text hashes disagree")
-
-        holder = (
-            ((annotation.get("ad_identity") or {}).get("design_approval_holder") or {}).get("value")
-            or ((annotation.get("ad_identity") or {}).get("design_approval_holder") or {}).get("raw_text")
-            or ""
-        )
-        if scope_eligible and holder and not normalize_source_text(holder).startswith("airbus"):
-            critical.append(
-                f"unexpected non-Airbus design approval holder in scope-eligible record: {holder}"
-            )
 
         reprojection, _ = project_record(annotation, annotation_path)
         if reprojection != derived:
@@ -275,11 +277,10 @@ def main() -> int:
                 "file_instance_id": file_id,
                 "source_gold_filename": annotation_name,
                 "derived_filename": derived_name,
-                "scope_eligible": scope_eligible,
-                "scope_exclusion_reason": KNOWN_SCOPE_EXCLUSIONS.get(ad_number),
+                "scope_status": scope_status,
+                "design_approval_holder": normalized_holder,
                 "approved": metadata.get("record_status") == "approved",
                 "human_reviewers": sorted(human_reviewers),
-                "design_approval_holder": holder,
                 "page_count": page_count,
                 "evidence_span_count": len(annotation.get("evidence_spans", []) or []),
                 "quality_flags": metadata.get("quality_flags", []),
@@ -290,11 +291,12 @@ def main() -> int:
         )
 
     report = {
-        "audit_version": "development-reference-audit-v1.1",
+        "audit_version": "development-reference-audit-v1.2",
         "scope": "nominal development only; locked test records were not opened",
         "nominal_record_count": len(selected),
         "eligible_record_count": len(selected) - len(scope_exclusions),
         "scope_exclusions": scope_exclusions,
+        "scope_unknown": scope_unknown,
         "critical_issue_count": critical_total,
         "warning_count": warning_total,
         "eligible_records_approved_and_projection_locked": critical_total == 0,
