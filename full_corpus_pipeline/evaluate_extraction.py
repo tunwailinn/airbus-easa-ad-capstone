@@ -29,19 +29,21 @@ SCHEMA = json.loads(
     (Path(__file__).with_name("content_record.schema.json")).read_text(encoding="utf-8")
 )
 
-KNOWN_SCOPE_EXCLUSIONS = {
-    "2026-0079": (
-        "The source AD identifies LUFTHANSA TECHNIK AG as the Design Change "
-        "Approval Holder. It is outside the project's Airbus S.A.S. approval-holder "
-        "scope and is retained only in the immutable audit release."
-    )
-}
-
 KNOWN_CONTAMINATED_TEST_ADS = {
     "2024-0038": (
         "Parser v2.1.4 was explicitly tuned after a source-PDF spot check of this "
         "record, so it is excluded from clean locked-test reporting."
     )
+}
+
+AIRBUS_SCOPE_HOLDER_ALIASES = {
+    "airbus",
+    "airbus sas",
+    "airbus s a s",
+    "airbus industrie",
+    "airbus formerly airbus industrie",
+    "airbus sas formerly airbus industrie",
+    "airbus s a s formerly airbus industrie",
 }
 
 RAW_SECTION_NAMES = (
@@ -91,6 +93,21 @@ def normalize_entity(value: Any) -> str:
     text = normalize_text(value)
     text = re.sub(r"^manufacturer(?:\(s\))?\s*:\s*", "", text)
     return re.sub(r"[.\s]+", " ", text).strip()
+
+
+def normalize_holder_scope(value: Any) -> str:
+    return re.sub(r"[^a-z0-9]+", " ", normalize_text(value)).strip()
+
+
+def benchmark_scope_status(record: dict[str, Any]) -> tuple[str, str]:
+    """Return (eligible|excluded|unknown, normalized holder) for project scope."""
+    raw = get_path(record, "ad_identity", "design_approval_holder")
+    holder = normalize_holder_scope(raw)
+    if not holder:
+        return "unknown", ""
+    if holder in AIRBUS_SCOPE_HOLDER_ALIASES:
+        return "eligible", holder
+    return "excluded", holder
 
 
 def normalize_document_type(value: Any) -> str:
@@ -395,6 +412,12 @@ def legacy_projection_overlap(
     return {name: float(score[name]) for name in ("precision", "recall", "f1")}
 
 
+def load_gold(item: dict[str, Any]) -> dict[str, Any]:
+    return json.loads(
+        (GOLD_DIR / "records" / item["derived_filename"]).read_text(encoding="utf-8")
+    )
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
@@ -405,7 +428,7 @@ def main() -> int:
     parser.add_argument(
         "--include-scope-excluded",
         action="store_true",
-        help="Include known out-of-scope benchmark records for diagnostic-only scoring.",
+        help="Include non-Airbus-S.A.S. holder cases for diagnostic-only scoring.",
     )
     parser.add_argument(
         "--include-contaminated",
@@ -424,25 +447,37 @@ def main() -> int:
         (GOLD_DIR / "split_manifest.json").read_text(encoding="utf-8")
     )
     nominal = [row for row in split if row["split"] == args.split]
-    scope_excluded = []
-    selected = nominal
-    if not args.include_scope_excluded:
-        scope_excluded = [
-            {
-                "ad_number": str(row["ad_number"]),
-                "reason": KNOWN_SCOPE_EXCLUSIONS[str(row["ad_number"])],
-            }
-            for row in nominal
-            if str(row["ad_number"]) in KNOWN_SCOPE_EXCLUSIONS
-        ]
-        selected = [
-            row for row in selected
-            if str(row["ad_number"]) not in KNOWN_SCOPE_EXCLUSIONS
-        ]
 
-    contamination_excluded = []
+    scope_exclusions = []
+    scope_unknown = []
+    selected = []
+    for row in nominal:
+        gold = load_gold(row)
+        status, holder = benchmark_scope_status(gold)
+        if status == "excluded" and not args.include_scope_excluded:
+            scope_exclusions.append(
+                {
+                    "ad_number": str(row["ad_number"]),
+                    "design_approval_holder": holder,
+                    "reason": (
+                        "Design Approval Holder is outside the project's Airbus S.A.S. "
+                        "scope; immutable gold is retained but excluded from primary scoring."
+                    ),
+                }
+            )
+            continue
+        if status == "unknown":
+            scope_unknown.append(
+                {
+                    "ad_number": str(row["ad_number"]),
+                    "reason": "Gold projection has no Design Approval Holder value.",
+                }
+            )
+        selected.append(row)
+
+    contamination_exclusions = []
     if args.split == "test" and not args.include_contaminated:
-        contamination_excluded = [
+        contamination_exclusions = [
             {
                 "ad_number": str(row["ad_number"]),
                 "reason": KNOWN_CONTAMINATED_TEST_ADS[str(row["ad_number"])],
@@ -477,9 +512,7 @@ def main() -> int:
     for item in selected:
         ad = str(item["ad_number"])
         file_id = str(item["file_instance_id"])
-        gold = json.loads(
-            (GOLD_DIR / "records" / item["derived_filename"]).read_text(encoding="utf-8")
-        )
+        gold = load_gold(item)
         path = args.predictions / item["derived_filename"]
 
         for section in RAW_SECTION_NAMES:
@@ -582,12 +615,13 @@ def main() -> int:
     }
 
     report = {
-        "evaluation_version": "content-eval-v3.1.3",
+        "evaluation_version": "content-eval-v3.1.4",
         "split": args.split,
         "nominal_split_count": len(nominal),
         "record_count": count,
-        "scope_exclusions": scope_excluded,
-        "contamination_exclusions": contamination_excluded,
+        "scope_exclusions": scope_exclusions,
+        "scope_unknown": scope_unknown,
+        "contamination_exclusions": contamination_exclusions,
         "prediction_coverage": predicted_count / count if count else 0.0,
         "schema_valid_percentage": schema_valid / count if count else 0.0,
         "stable_metadata_macro_f1": macro_f1(field_metrics, STABLE_METADATA_FIELDS),
