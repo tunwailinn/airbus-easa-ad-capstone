@@ -2,7 +2,7 @@
 
 Last updated: 5 August 2026
 
-This file records the active pre-benchmark E0/E4 index-build state. Locked retrieval scores have **not** been opened.
+This file records the frozen pre-benchmark E0/E4 index-build state. Locked retrieval scores have **not** been opened yet.
 
 ## Source gate
 
@@ -18,68 +18,80 @@ This file records the active pre-benchmark E0/E4 index-build state. Locked retri
 
 ### `rag-index-build-v1.0` — rejected before benchmark
 
-The first infrastructure build completed, but its report used a lexical token counter that differed from the whitespace-based construction heuristic. Reported maxima were therefore inconsistent with the declared chunk policy. No locked retrieval scores were opened.
+The first infrastructure build completed, but its report mixed a lexical counter with whitespace-based construction limits. Reported maxima were therefore inconsistent with the declared chunk policy. No locked retrieval scores were opened.
 
 ### `rag-index-build-v1.1` — partial, not benchmark-eligible
 
-E0 built successfully over all 1,786 documents:
-
-- chunks: **9,394**;
-- dense backend: sentence-transformers;
-- dense index: FAISS IndexFlatIP;
-- declared/verified flat limit: **350 whitespace-delimited units**.
-
-E4 stopped **before embedding/index construction** because the new strict build gate found a real section-chunker mismatch:
-
-```text
-E4-section-hybrid: max chunk size 476 exceeds frozen limit 450
-```
-
-Root cause: the legacy section chunker accounted blocks with `TOKEN_RE.findall(...)` while the frozen v1.1 report/limit used whitespace-delimited units. Punctuation-only or formatting units could therefore be omitted during construction accounting and produce a chunk larger than 450.
+E0 built successfully over all 1,786 documents, but E4 stopped before embedding/index construction because the strict gate found a **476**-unit section chunk against the frozen **450** maximum. Root cause: legacy E4 construction counted blocks with `TOKEN_RE.findall(...)` while the frozen limit/report used whitespace-delimited units.
 
 No E4 v1.1 index was accepted and no locked benchmark scores were opened.
 
-### `rag-index-build-v1.2` — active required build
+### `rag-index-build-v1.2` — ACCEPTED / FROZEN
 
-v1.2 fixes E4 at the construction boundary. Section chunk accounting, oversized-block splitting, and build reporting now all use the same whitespace-delimited size policy.
+The reviewed `build_summary.json` passes all pre-benchmark gates.
 
-Frozen limits:
+Common configuration:
 
-- E0 flat maximum: **350**;
-- E4 section-aware target: **250–450**;
-- maximum E4 chunk size: **450**.
+- retrieval build version: **`rag-index-build-v1.2`**;
+- page source: **`page-text-v1.1`**;
+- document count: **1,786**;
+- dense model: `sentence-transformers/all-MiniLM-L6-v2`;
+- chunk-size policy: `whitespace_split`;
+- sentence-transformers: **5.6.0**;
+- FAISS CPU: **1.14.3**.
 
-v1.2 also supports copying/reusing the already validated v1.1 E0 artifact into a new v1.2 workspace. E0 logic is unchanged; the copied artifact is validated again for document count, model, FAISS backend, chunk policy, maximum size, and required files before reuse.
+E0 accepted build:
 
-## Required local build
+- experiment: `E0-flat-dense`;
+- chunks: **9,394**;
+- documents: **1,786**;
+- max chunk size: **350**;
+- multi-page chunks: **0**;
+- dense backend: `sentence_transformers`;
+- dense index: `faiss_index_flat_ip`.
 
-Keep the earlier workspaces for audit history:
+E4 accepted build:
+
+- experiment: `E4-section-hybrid`;
+- chunks: **12,634**;
+- documents: **1,786**;
+- max chunk size: **450**;
+- multi-page chunks: **2,924**;
+- max page span: **5**;
+- dense backend: `sentence_transformers`;
+- dense index: `faiss_index_flat_ip`;
+- sparse backend: `sqlite_fts5_bm25`;
+- fusion: `reciprocal_rank_fusion`;
+- reranker model: `cross-encoder/ms-marco-MiniLM-L-6-v2`.
+
+The E0 artifact was reused from the valid v1.1 E0 build and revalidated in the v1.2 workspace. E4 was rebuilt with corrected whitespace-based construction accounting.
+
+## Frozen evaluation workspace
+
+Accepted index root:
+
+```text
+data_processed/indexes/rag_v1_2/
+├── e0_flat_dense/
+├── e4_section_hybrid/
+└── build_summary.json
+```
+
+Keep older workspaces for audit history:
 
 ```text
 data_processed/indexes/rag_v1/
 data_processed/indexes/rag_v1_1/
 ```
 
-Build the new workspace with:
-
-```bash
-.venv/bin/python -m full_corpus_pipeline.build_retrieval_experiments \
-  --page-text-root data_processed/page_text_v1_1/operational_airbus \
-  --output-root data_processed/indexes/rag_v1_2 \
-  --reuse-e0-from data_processed/indexes/rag_v1_1/e0_flat_dense \
-  --experiment all
-```
-
-Expected behavior:
-
-1. validate page-text v1.1;
-2. validate the existing E0 v1.1 artifact;
-3. copy/revalidate E0 into `rag_v1_2/e0_flat_dense` without recomputing embeddings;
-4. rebuild E4 with strict whitespace-based section accounting;
-5. reject the build if E4 exceeds 450;
-6. embed/index E4 with visible elapsed-time progress;
-7. write `data_processed/indexes/rag_v1_2/build_summary.json` only after both experiments pass.
+They are not valid inputs to the final retrieval evaluator.
 
 ## Benchmark lock
 
-Do **not** run `evaluate_retrieval_experiments.py` until the v1.2 `build_summary.json` is reviewed and accepted. The E0/E4 retrieval configuration remains frozen before observing locked retrieval performance.
+The E0/E4 retrieval configuration is now frozen. From this point onward:
+
+1. do not change chunking, embedding model, candidate depth, RRF policy, reranker model, corpus membership, or lifecycle rules based on locked retrieval results;
+2. run the locked retrieval evaluation once and report the results as observed;
+3. implementation/runtime defects may be fixed only if they are independent of retrieval performance, and must be documented explicitly.
+
+The evaluator is locked to `rag-index-build-v1.2`, validates the 1,786-document and 350/450 build gates before evaluation, and prints question-by-question progress.
