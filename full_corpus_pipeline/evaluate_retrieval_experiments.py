@@ -12,10 +12,11 @@ from __future__ import annotations
 import argparse
 import json
 import math
+import threading
 import time
 from dataclasses import asdict
 from pathlib import Path
-from typing import Any
+from typing import Any, Callable, TypeVar
 
 from full_corpus_pipeline.retrieval import HybridIndex, TOKEN_RE
 
@@ -25,6 +26,28 @@ DEFAULT_INDEX_ROOT = ROOT / "data_processed/indexes/rag_v1_2"
 DEFAULT_QUESTIONS = ROOT / "evaluation_sets/easa_airbus_ad_qa_50_v2/questions.jsonl"
 DEFAULT_OUTPUT = DEFAULT_INDEX_ROOT / "retrieval_comparison.json"
 EXPECTED_BUILD_VERSION = "rag-index-build-v1.2"
+T = TypeVar("T")
+
+
+def _run_with_progress(label: str, function: Callable[[], T]) -> T:
+    started = time.monotonic()
+    stop = threading.Event()
+
+    def heartbeat() -> None:
+        while not stop.wait(2.0):
+            elapsed = int(time.monotonic() - started)
+            print(f"[progress] {label}: working ({elapsed}s elapsed)", flush=True)
+
+    print(f"[progress] {label}: started", flush=True)
+    worker = threading.Thread(target=heartbeat, daemon=True)
+    worker.start()
+    try:
+        return function()
+    finally:
+        stop.set()
+        worker.join(timeout=1.0)
+        elapsed = int(time.monotonic() - started)
+        print(f"[progress] {label}: finished ({elapsed}s)", flush=True)
 
 
 def load_questions(path: Path) -> list[dict[str, Any]]:
@@ -155,29 +178,14 @@ def summarize(rows: list[dict[str, Any]]) -> dict[str, Any]:
     return {
         "answerable_question_count": count,
         "recall_at_1": sum(row["rank"] == 1 for row in rows) / count,
-        "recall_at_3": sum(
-            row["rank"] is not None and row["rank"] <= 3 for row in rows
-        )
-        / count,
-        "recall_at_5": sum(
-            row["rank"] is not None and row["rank"] <= 5 for row in rows
-        )
-        / count,
+        "recall_at_3": sum(row["rank"] is not None and row["rank"] <= 3 for row in rows) / count,
+        "recall_at_5": sum(row["rank"] is not None and row["rank"] <= 5 for row in rows) / count,
         "mrr": sum(1 / row["rank"] if row["rank"] else 0 for row in rows) / count,
-        "ndcg_at_5": sum(
-            1 / math.log2(row["rank"] + 1) if row["rank"] else 0 for row in rows
-        )
-        / count,
+        "ndcg_at_5": sum(1 / math.log2(row["rank"] + 1) if row["rank"] else 0 for row in rows) / count,
         "correct_source_at_1": sum(row["source_rank"] == 1 for row in rows) / count,
-        "correct_source_at_5": sum(
-            row["source_rank"] is not None and row["source_rank"] <= 5 for row in rows
-        )
-        / count,
+        "correct_source_at_5": sum(row["source_rank"] is not None and row["source_rank"] <= 5 for row in rows) / count,
         "correct_source_and_page_at_1": sum(row["rank"] == 1 for row in rows) / count,
-        "correct_source_and_page_at_5": sum(
-            row["rank"] is not None and row["rank"] <= 5 for row in rows
-        )
-        / count,
+        "correct_source_and_page_at_5": sum(row["rank"] is not None and row["rank"] <= 5 for row in rows) / count,
     }
 
 
@@ -192,8 +200,7 @@ def evaluate_system(
     started = time.monotonic()
     for position, question in enumerate(questions, 1):
         print(
-            f"[progress] {label}: question {position}/{total} "
-            f"({question['question_id']})",
+            f"[progress] {label}: question {position}/{total} ({question['question_id']})",
             flush=True,
         )
         results = search_fn(question["question"])
@@ -261,13 +268,19 @@ def main() -> int:
     e0_config, e4_config = validate_index_pair(e0, e4)
     questions = load_questions(args.questions)
 
-    print("[progress] loading local cross-encoder reranker", flush=True)
-    from sentence_transformers import CrossEncoder
-
     reranker_model = str(e4_config["reranker_model"])
-    reranker = CrossEncoder(reranker_model)
-    reranker.predict([("test query", "test passage")])
-    print("[progress] reranker ready", flush=True)
+
+    def load_and_warm_reranker() -> Any:
+        from sentence_transformers import CrossEncoder
+
+        reranker = CrossEncoder(reranker_model)
+        reranker.predict([("test query", "test passage")])
+        return reranker
+
+    reranker = _run_with_progress(
+        "loading and warming local cross-encoder reranker",
+        load_and_warm_reranker,
+    )
 
     e0_metrics, e0_rows = evaluate_system(
         label="E0 dense-only",
@@ -300,16 +313,7 @@ def main() -> int:
     }
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
-    print(
-        json.dumps(
-            {
-                "e0": e0_metrics,
-                "e4": e4_metrics,
-                "paired": report["paired"],
-            },
-            indent=2,
-        )
-    )
+    print(json.dumps({"e0": e0_metrics, "e4": e4_metrics, "paired": report["paired"]}, indent=2))
     return 0
 
 
