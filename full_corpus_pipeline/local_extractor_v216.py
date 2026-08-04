@@ -46,6 +46,14 @@ def _normalize_header_layout(text: str) -> str:
         "Type/Model designation(s):",
         value,
     )
+
+    # Some legacy forms print `Manufacturers:` rather than the later
+    # `Manufacturer(s):` label. Normalize the label so v2.1.5 boundaries apply.
+    value = re.sub(
+        r"(?im)^\s*Manufacturers\s*:",
+        "Manufacturer(s):",
+        value,
+    )
     return value
 
 
@@ -86,7 +94,7 @@ def _header_subject_and_ata(text: str) -> tuple[str | None, list[dict[str, str]]
     # references later in compliance prose from being mistaken for the subject.
     first = all_matches[0]
     boundary_match = re.search(
-        r"(?m)^\s*(?:Manufacturer(?:\(s\))?|Applic+ability|Definitions?|Reas\w*n|"
+        r"(?m)^\s*(?:Manufacturer(?:\(s\))?|Manufacturers?|Applic+ability|Definitions?|Reas\w*n|"
         r"Required\s+Action(?:s|\(s\))?|Compliance)\s*:",
         header[first.end() :],
         re.IGNORECASE,
