@@ -130,8 +130,10 @@ def _holder_looks_malformed(holder: str) -> bool:
 def benchmark_scope_status(record: dict[str, Any]) -> tuple[str, str]:
     """Return (eligible|excluded|unknown, normalized holder) for project scope.
 
-    Malformed parser outputs are *unknown*, not out-of-scope. This prevents a
-    field-boundary bug from silently shrinking the Airbus S.A.S. corpus.
+    Only reviewed Airbus aliases are automatically eligible. Known external
+    organizations are excluded. Missing, malformed, or unfamiliar holder names
+    remain unknown so parser/governance uncertainty cannot silently shrink the
+    Airbus S.A.S. corpus.
     """
     raw = get_path(record, "ad_identity", "design_approval_holder")
     holder = normalize_holder_scope(raw)
@@ -153,7 +155,7 @@ def benchmark_scope_status(record: dict[str, Any]) -> tuple[str, str]:
         return "excluded", holder
     if _holder_looks_malformed(holder):
         return "unknown", holder
-    return "excluded", holder
+    return "unknown", holder
 
 
 def normalize_document_type(value: Any) -> str:
@@ -226,12 +228,13 @@ def model_tokens(values: list[Any]) -> set[str]:
     result = set()
     for raw in values:
         text = str(raw or "")
-        for match in MODEL_TOKEN_RE.finditer(text):
+        matches = list(MODEL_TOKEN_RE.finditer(text))
+        for match in matches:
             following = text[match.end() : match.end() + 8]
             if re.match(r"\s*-[A-Z0-9]", following, re.IGNORECASE):
                 continue
             result.add(normalize_identifier(match.group(0)))
-        if not MODEL_TOKEN_RE.search(text) and (value := normalize_identifier(text)):
+        if not matches and (value := normalize_identifier(text)):
             result.add(value)
     return result
 
@@ -379,7 +382,7 @@ def main() -> int:
     parser.add_argument("predictions", type=Path, help="Directory of individual content JSON records")
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--split", choices=("development", "test"), default="test")
-    parser.add_argument("--include-scope-excluded", action="store_true")
+    parser.add_argument("--include-scope-excluded", action="store_true", help="Diagnostic only: include excluded/unknown scope cases.")
     parser.add_argument("--include-contaminated", action="store_true")
     parser.add_argument("--source-text-parquet", type=Path, default=DEFAULT_SOURCE_TEXT)
     args = parser.parse_args()
@@ -391,11 +394,14 @@ def main() -> int:
     for row in nominal:
         gold = load_gold(row)
         status, holder = benchmark_scope_status(gold)
-        if status == "excluded" and not args.include_scope_excluded:
+        if status == "excluded":
             scope_exclusions.append({"ad_number": str(row["ad_number"]), "design_approval_holder": holder, "reason": "Design Approval Holder is outside the project's Airbus S.A.S. scope; immutable gold is retained but excluded from primary scoring."})
-            continue
-        if status == "unknown":
-            scope_unknown.append({"ad_number": str(row["ad_number"]), "design_approval_holder": holder or None, "reason": "Gold projection has no usable Airbus S.A.S. holder classification."})
+            if not args.include_scope_excluded:
+                continue
+        elif status == "unknown":
+            scope_unknown.append({"ad_number": str(row["ad_number"]), "design_approval_holder": holder or None, "reason": "Reviewed holder is missing, malformed, or not yet classified as an accepted Airbus S.A.S. alias; excluded from primary scoring pending scope review."})
+            if not args.include_scope_excluded:
+                continue
         selected.append(row)
 
     contamination_exclusions = []
