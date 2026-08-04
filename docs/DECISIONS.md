@@ -36,6 +36,7 @@ This log contains stable methodological decisions. Add a dated entry when a deci
 | D31 | Missing historical revisions will not be acquired for v3; lifecycle claims are limited to the frozen snapshot. | Prevents schedule and scope expansion and avoids overstating historical completeness. |
 | D32 | Original PDF chunks—not machine-normalized JSON—are authoritative for compliance timing, conditions, exceptions, intervals, branches, and terminating effects. | Preserves page context and avoids distortion from premature normalization. |
 | D33 | Applicability, Definitions, Reason, complete Requirements/Compliance, reference wording, and Remarks are retained in every record when printed; only their difficult semantics remain unnormalized. | Corrects the overly narrow five-section lightweight interpretation without reintroducing hosted semantic extraction. |
+| D34 | Section segmentation must remove repeated PDF page furniture but otherwise preserve contiguous printed wording across page breaks; printed header values take precedence over stale manifest fallbacks when directly readable. | Spot checks found that page headers/watermarks, loose heading boundaries, and manifest-date precedence could contaminate or truncate source-faithful content records. |
 
 ## Research questions
 
@@ -75,11 +76,8 @@ This log contains stable methodological decisions. Add a dated entry when a deci
 - Moved compliance timing, conditions, exceptions, repetitive intervals, follow-on logic, and terminating effects to retrieval-time interpretation from original PDF passages.
 - Versioned the active derived reference as `easa_airbus_ad_lightweight_gold_50_v1` and the QA benchmark as `easa_airbus_ad_qa_50_v2`.
 - Preserved the immutable evidence-bearing 50-record audit release and the five-family unseen set unchanged.
-- Replaced hosted full-corpus semantic extraction with deterministic local
-  parsing. Parser v1.3.2 completed all 1,804 development records with zero
-  failures, zero duplicate content records, and no hosted calls.
-- Corrected the narrow lightweight interpretation: schema 2.1.0 and parser
-  v2.1.3 retains all standard AD information sections, structuring reliable
-  values and preserving difficult sections as raw text. The new active derived
-  reference is `easa_airbus_ad_content_gold_50_v2`; the new generated canonical
-  corpus is `data_processed/canonical_content_v2.1.3/`.
+- Replaced hosted full-corpus semantic extraction with deterministic local parsing. Parser v1.3.2 completed all 1,804 development records with zero failures, zero duplicate content records, and no hosted calls.
+- Corrected the narrow lightweight interpretation: schema 2.1.0 and parser v2.1.3 retain all standard AD information sections, structuring reliable values and preserving difficult sections as raw text. The derived reference is `easa_airbus_ad_content_gold_50_v2` and the previous generated corpus is `data_processed/canonical_content_v2.1.3/`.
+- Spot checks of AD 2024-0038, AD 2024-0097R2, and AD 2025-0058R1 found material v2.1.3 boundary defects: wrong issue-date precedence in some records, `Foreign AD` field leakage, repeated EASA page furniture in raw sections, premature section termination on ordinary `compliance` prose, and truncation at Remark `contact:` lines.
+- Parser v2.1.4 was introduced to fix those defects, with regression tests for printed date precedence, page-furniture removal, strict heading boundaries, cross-page section continuity, revision-field separation, Remark contact preservation, and appendix exclusion.
+- The v2.1.3 generated corpus is therefore stale; the 1,804 development records must be regenerated, re-spot-checked, and re-evaluated before `canonical_content_v2.1.4/` is promoted.
