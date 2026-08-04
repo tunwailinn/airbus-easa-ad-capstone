@@ -52,7 +52,9 @@ This log contains stable methodological decisions. Add a dated entry when a deci
 | D47 | A weak native-text page may enter retrieval only through a versioned, source-hash-bound reviewed derivative that preserves native provenance; the current corpus has one such page, AD `2011-0006` page 3. | Avoids silently treating image-only content as reliable native text while allowing audited retrieval of a meaningful graphical appendix. |
 | D48 | Frozen E0 and E4 use the same `sentence-transformers/all-MiniLM-L6-v2` dense model and the same 1,786-document manifest. E0 is flat <=350 deterministic whitespace chunk units and dense-only; E4 is section-aware approximately 250–450 whitespace chunk units with BM25 + dense + FAISS + RRF + cross-encoder reranking and candidate depth 20 per sparse/dense path. | Makes the comparison attributable to retrieval architecture rather than corpus or embedding-model changes. |
 | D49 | Frozen thesis E0/E4 measurements must fail rather than silently fall back to hashing embeddings, numpy-only dense indexing, or lexical reranking. Retrieval configuration is frozen before opening locked retrieval scores. | Preserves reproducibility and prevents benchmark-driven tuning or accidental backend substitution. |
-| D50 | `rag-index-build-v1.0` is retained only as a pre-benchmark implementation artifact because its report mixed chunk-count heuristics; final retrieval evaluation requires `rag-index-build-v1.1`, which uses the same whitespace-split units for chunk construction/reporting, enforces E0 <=350 and E4 <=450, and provides progress output. | Corrects a measurement/reporting defect before locked retrieval scores are opened, without benchmark-driven tuning. |
+| D50 | `rag-index-build-v1.0` and the partial v1.1 workspace are retained only as pre-benchmark implementation artifacts. Final retrieval evaluation requires accepted `rag-index-build-v1.2` under `data_processed/indexes/rag_v1_2/`. | v1.0 exposed mixed chunk counters; v1.1 exposed a real E4 476>450 construction defect; both were corrected before locked retrieval scores were opened. |
+| D51 | `rag-index-build-v1.2` is frozen with E0 9,394 chunks (max 350) and E4 12,634 chunks (max 450), both over the same 1,786 documents with the same dense model and FAISS backend. | The reviewed v1.2 build summary passes corpus, backend, and chunk-size gates and is the benchmark-eligible retrieval artifact. |
+| D52 | After v1.2 acceptance, locked retrieval results are report-only: do not change chunking, model, candidate depth, fusion, reranker, corpus membership, or lifecycle policy based on observed scores. | Prevents retrieval benchmark overfitting and preserves the pre-score experimental freeze. |
 
 ## Research questions
 
@@ -79,7 +81,7 @@ This log contains stable methodological decisions. Add a dated entry when a deci
 - Reserved five non-gold PDF families for unseen testing.
 - Limited lifecycle claims to the current snapshot and declined acquisition of missing historical revisions.
 
-### 2026-08-04
+### 2026-08-04 / 2026-08-05
 
 - Replaced full structured compliance extraction with a two-layer architecture: section-complete deterministic content records plus original-PDF RAG.
 - Final parser v2.1.6 reached 1,804/1,804 development extraction with zero failures and was frozen before clean locked-test scoring.
@@ -87,7 +89,8 @@ This log contains stable methodological decisions. Add a dated entry when a deci
 - Clean extraction scoring retained the frozen nominal split, excluded two out-of-scope test members and the disclosed `2024-0038` leakage, and reported final 17-record results without further parser tuning.
 - Original-PDF page extraction completed over all 1,786 strict-scope development records: 6,002 pages, zero document failures, and one weak native page.
 - Visual review of `2011-0006` page 3 confirmed a graphical hydraulic-accumulator design appendix. A source-hash-bound reviewed derivative resolved the only weak page while preserving native provenance, producing `page-text-v1.1` with `ready_for_indexing=true`.
-- The canonical verified page-text path is `data_processed/page_text_v1_1/operational_airbus/`; the ambiguous former `page_text_v1/` path is deprecated.
 - E0/E4 retrieval configuration was frozen before observing locked retrieval scores, and strict build/evaluation tooling was added to prohibit fallback backends in reported thesis measurements.
-- The first `rag-index-build-v1.0` successfully validated the 1,786-document corpus and real sentence-transformer/FAISS backends but exposed inconsistent chunk-size reporting (383 E0 / 483 E4 under a different lexical counter). No locked retrieval scores were opened.
-- `rag-index-build-v1.1` replaces v1.0 for final evaluation, using one explicit `whitespace_split` construction/reporting heuristic, hard E0/E4 maximum gates, preserved v1.0 traceability, and live progress indicators for long build/evaluation steps.
+- `rag-index-build-v1.0` validated the corpus/model/backend path but was rejected before benchmark because its report mixed chunk counters.
+- `rag-index-build-v1.1` built a valid E0 but stopped before E4 indexing when the strict gate found a 476-unit section chunk against the 450 maximum.
+- `rag-index-build-v1.2` corrected E4 construction accounting and passed the full pre-benchmark gate: E0 9,394 chunks/max 350, E4 12,634 chunks/max 450, both 1,786 documents, real sentence-transformers + FAISS backends.
+- The v1.2 index root is now frozen for the one-time locked retrieval comparison; no locked retrieval scores were opened before acceptance.
