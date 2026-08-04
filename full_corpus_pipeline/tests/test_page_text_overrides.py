@@ -25,6 +25,7 @@ class PageTextOverrideTests(unittest.TestCase):
                     "source_pdf_sha256": "hash123",
                     "page_count": 1,
                     "needs_ocr_page_count": 1,
+                    # Deliberately numeric-looking so pandas infers int64 on read.
                     "needs_ocr_pages": "1",
                     "page_text_file": "pages/2011-0006__abc123.pages.jsonl",
                     "status": "needs_ocr",
@@ -91,6 +92,7 @@ class PageTextOverrideTests(unittest.TestCase):
             self.assertEqual(audit["needs_ocr_page_count"], 0)
             self.assertEqual(audit["native_needs_ocr_page_count"], 1)
             self.assertEqual(audit["visual_override_count"], 1)
+
             page_file = page_dir / "pages/2011-0006__abc123.pages.jsonl"
             page = json.loads(page_file.read_text(encoding="utf-8").strip())
             self.assertFalse(page["needs_ocr"])
@@ -98,6 +100,16 @@ class PageTextOverrideTests(unittest.TestCase):
             self.assertEqual(page["native_text"], "Appendix 1")
             self.assertEqual(page["text_source"], "visual_transcription_override")
             self.assertIn("OLD DESIGN", page["text"])
+
+            manifest = pd.read_csv(
+                page_dir / "page_manifest.csv",
+                keep_default_na=False,
+                dtype={"needs_ocr_pages": str},
+            )
+            self.assertEqual(manifest.loc[0, "needs_ocr_pages"], "")
+            self.assertEqual(manifest.loc[0, "needs_ocr_page_count"], 0)
+            self.assertEqual(manifest.loc[0, "status"], "ok")
+
             self.assertTrue(
                 (page_dir / "page_extraction_audit.json.native-v1.0.bak").exists()
             )
