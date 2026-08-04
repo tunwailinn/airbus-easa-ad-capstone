@@ -106,10 +106,30 @@ class RetrievalExperimentBuildTests(unittest.TestCase):
             minimum_tokens=1,
             maximum_tokens=450,
         )
-        self.assertEqual(chunk_stats(flat)["document_count"], 1)
-        self.assertEqual(chunk_stats(section)["document_count"], 1)
-        self.assertLessEqual(chunk_stats(flat)["max_tokens"], 350)
-        self.assertLessEqual(chunk_stats(section)["max_tokens"], 450)
+        flat_stats = chunk_stats(flat)
+        section_stats = chunk_stats(section)
+        self.assertEqual(flat_stats["document_count"], 1)
+        self.assertEqual(section_stats["document_count"], 1)
+        self.assertEqual(flat_stats["token_count_method"], "whitespace_split")
+        self.assertEqual(section_stats["token_count_method"], "whitespace_split")
+        self.assertLessEqual(flat_stats["max_tokens"], 350)
+        self.assertLessEqual(section_stats["max_tokens"], 450)
+
+    def test_chunk_stats_match_construction_units_for_punctuation_heavy_text(self):
+        # TOKEN_RE can split punctuation-heavy whitespace words into multiple
+        # lexical terms. Build v1.1 deliberately reports the same whitespace
+        # units used by flat chunk construction, preventing the v1.0 mismatch.
+        text = " ".join(["A+B"] * 350)
+        chunks = flat_chunk_pages(
+            [{"page": 1, "text": text}],
+            file_instance_id="a",
+            ad_number="2026-0001",
+            source_pdf="a.pdf",
+            chunk_tokens=350,
+        )
+        stats = chunk_stats(chunks)
+        self.assertEqual(len(chunks), 1)
+        self.assertEqual(stats["max_tokens"], 350)
 
 
 if __name__ == "__main__":
