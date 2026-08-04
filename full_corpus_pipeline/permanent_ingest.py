@@ -15,7 +15,7 @@ import pandas as pd
 from full_corpus_pipeline.document_io import file_sha256, joined_page_text, read_pdf_pages
 from full_corpus_pipeline.extract_corpus import SCHEMA_PATH, record_filename
 from full_corpus_pipeline.lifecycle import decide_lifecycle
-from full_corpus_pipeline.local_extractor import PARSER_VERSION, extract_local_record
+from full_corpus_pipeline.local_extractor_v216 import PARSER_VERSION, extract_local_record
 from full_corpus_pipeline.retrieval import HybridIndex, chunk_pages
 
 
