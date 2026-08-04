@@ -12,14 +12,15 @@ This file records the active v3.1 project state.
 - Extraction evaluator: **`content-eval-v3.1.5`**.
 - Corpus scope audit: **`corpus-scope-audit-v1.3`**.
 - Verified page-text source: **`page-text-v1.1`**.
-- Active retrieval build stage: **`rag-index-build-v1.1`**.
+- Frozen retrieval build: **`rag-index-build-v1.2`**.
+- Retrieval evaluator: **`retrieval-eval-v1.0`**, locked to v1.2.
 - QA benchmark: **50 locked questions**.
 
 Parser v2.1.6 remains frozen. Locked extraction-test outcomes must not be used to change parser rules.
 
 ## Layer A — extraction status
 
-**PASS / FROZEN. Canonical promotion was authorized after the final gates; record it as completed only when the local promotion command/output is explicitly verified.**
+**PASS / FROZEN.**
 
 Development run:
 
@@ -58,31 +59,20 @@ Scope audit v1.3 over the 1,804 generated development records:
 - **18 confirmed external/mixed-holder records** retained in the physical/content inventory;
 - **0 unknown**.
 
-The scope-only `2012-0088` visual review remains versioned and does not rewrite extracted content or immutable gold.
-
 ## Layer B source layer — page-text v1.1
 
 Original-PDF page-preserving extraction was run over the exact 1,786-record strict Airbus development view.
 
-Native extraction result:
-
-- selected documents: **1,786**;
-- successful documents: **1,786**;
-- failures: **0**;
-- total pages: **6,002**;
-- native weak-page documents: **1**;
-- native weak pages: **1**.
-
-The only weak native page was **AD 2011-0006, page 3**, a graphical Appendix comparing the old hydraulic accumulator design (4 parts / 3 welds) and new design (2 parts / 1 weld). It was reviewed visually and resolved through the versioned, source-hash-bound visual transcription override.
-
 Final verified page source:
 
-- page-text version: **`page-text-v1.1`**;
-- visual override count: **1**;
-- unresolved weak/OCR documents: **0**;
-- unresolved weak/OCR pages: **0**;
-- extraction failures: **0**;
-- `ready_for_indexing`: **true**.
+- selected/successful documents: **1,786 / 1,786**;
+- failures: **0**;
+- total pages: **6,002**;
+- one native weak page: **AD 2011-0006, page 3**;
+- reviewed visual override count: **1**;
+- unresolved weak/OCR documents/pages: **0 / 0**;
+- `ready_for_indexing`: **true**;
+- page-text version: **`page-text-v1.1`**.
 
 Canonical local path:
 
@@ -90,80 +80,68 @@ Canonical local path:
 data_processed/page_text_v1_1/operational_airbus/
 ```
 
-The earlier local folder name `page_text_v1/` is deprecated because it does not identify the verified v1.1 derivative precisely.
+## E0 / E4 retrieval stage — ACCEPTED / FROZEN
 
-## E0 / E4 retrieval stage
+The accepted benchmark-eligible build is **`rag-index-build-v1.2`** under:
 
-The two frozen comparison systems use the exact same 1,786-document `retrieval_manifest.csv` and verified page-text v1.1 source.
+```text
+data_processed/indexes/rag_v1_2/
+```
+
+No locked retrieval scores were opened before this build was accepted.
+
+### Common frozen configuration
+
+- corpus: same **1,786** strict-scope documents for E0 and E4;
+- embedding model: `sentence-transformers/all-MiniLM-L6-v2`;
+- dense backend: `sentence_transformers`;
+- dense index: `faiss_index_flat_ip`;
+- chunk-size count method: `whitespace_split`.
 
 ### E0 — baseline
 
 - flat page chunks;
-- maximum **350 deterministic whitespace-delimited chunk units**;
-- local sentence-transformer embeddings;
-- FAISS inner-product index;
-- **dense-only ranking** during evaluation.
+- chunk count: **9,394**;
+- max chunk size: **350**;
+- multi-page chunks: **0**;
+- evaluation ranking: **dense-only**.
 
 ### E4 — proposed system
 
 - section-aware chunks;
-- target approximately **250–450 deterministic whitespace-delimited chunk units**, with shorter chunks allowed at section/document boundaries;
+- target approximately **250–450** chunk units, shorter chunks allowed at boundaries;
+- chunk count: **12,634**;
+- max chunk size: **450**;
+- multi-page chunks: **2,924**;
+- max page span: **5**;
 - SQLite FTS5/BM25;
-- same local sentence-transformer embeddings as E0;
-- FAISS dense index;
+- same dense model + FAISS;
 - reciprocal-rank fusion;
-- local cross-encoder reranking;
-- metadata/lifecycle controls when applicable.
+- reranker: `cross-encoder/ms-marco-MiniLM-L-6-v2`;
+- frozen candidate depth: **20** per sparse/dense path.
 
-The chunk-size unit is a reproducible whitespace-split heuristic for chunk construction/reporting, not the sentence-transformer model's subword tokenizer count.
+### Build history
 
-Frozen dense model for the initial E0/E4 comparison:
+- `rag-index-build-v1.0`: rejected before benchmark because chunk-size reporting mixed incompatible counters.
+- `rag-index-build-v1.1`: valid E0, but E4 stopped before embedding when a 476-unit section chunk violated the 450 maximum.
+- `rag-index-build-v1.2`: E4 construction accounting corrected; full build passed and is frozen for evaluation.
 
-```text
-sentence-transformers/all-MiniLM-L6-v2
-```
-
-The research build must not silently fall back to hashing embeddings, numpy-only dense search, or lexical-only reranking.
-
-### Pre-benchmark build check
-
-`rag-index-build-v1.0` successfully used the correct 1,786-document corpus, sentence-transformers backend, and FAISS backend, but its report mixed two different chunk-count heuristics. This produced reported maxima of **383** for E0 and **483** for E4 despite construction limits of 350/450 whitespace units.
-
-No locked retrieval scores were opened. The v1.0 index is retained only as a traceable pre-benchmark implementation artifact and is **not valid for final retrieval evaluation**.
-
-Active corrected build: **`rag-index-build-v1.1`**. It uses one explicit `whitespace_split` count method for construction/reporting, enforces E0 <=350 and E4 <=450 before indexing, and prints a live elapsed-time progress heartbeat during long embedding/index phases.
-
-Build command:
-
-```bash
-.venv/bin/python -m full_corpus_pipeline.build_retrieval_experiments \
-  --page-text-root data_processed/page_text_v1_1/operational_airbus \
-  --output-root data_processed/indexes/rag_v1_1 \
-  --experiment all
-```
-
-Expected output root:
-
-```text
-data_processed/indexes/rag_v1_1/
-├── e0_flat_dense/
-├── e4_section_hybrid/
-└── build_summary.json
-```
+Older `rag_v1/` and `rag_v1_1/` workspaces are retained for audit history only and must not be used for final retrieval evaluation.
 
 ## Retrieval evaluation next
 
-After the v1.1 indexes build successfully:
+The evaluator now refuses builds other than `rag-index-build-v1.2` and validates the 1,786-document and 350/450 build gates before loading the benchmark.
 
-1. verify `build_summary.json` reports `rag-index-build-v1.1`, `sentence_transformers`, `faiss_index_flat_ip`, E0 max <=350, and E4 max <=450;
-2. freeze those index artifacts before opening locked retrieval scores;
-3. evaluate E0 through dense-only retrieval;
-4. evaluate E4 through hybrid retrieval with local cross-encoder reranking;
-5. report Recall@1/3/5, MRR, nDCG@5, and correct source/page retrieval;
-6. compare E0 vs E4 on the same answerable locked QA questions;
-7. then run the full 50-question page-cited QA benchmark.
+Run the locked comparison once, then report without tuning:
 
-The retrieval evaluator also prints question-by-question progress and refuses to evaluate a build that is not `rag-index-build-v1.1`.
+- Recall@1/3/5;
+- MRR;
+- nDCG@5;
+- correct source@1/@5;
+- correct source+page@1/@5;
+- paired E0-vs-E4 rank counts.
+
+After retrieval evaluation, proceed to the 50-question page-cited QA benchmark, temporary uploaded-PDF QA, and the five frozen unseen-PDF ingestion cases.
 
 ## Remaining boundaries
 
