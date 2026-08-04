@@ -7,9 +7,9 @@ This log contains stable methodological decisions. Add a dated entry when a deci
 | ID | Decision | Reason |
 |---|---|---|
 | D01 | Project period is 13 July-30 September 2026. | Fixed capstone deadline. |
-| D02 | Main corpus is final EU-issued EASA ADs whose approval holder is Airbus S.A.S. | Keeps the study coherent and feasible. |
-| D03 | PADs, SIBs, foreign-issued ADs, Airbus Helicopters, Airbus Canada, engines, and other approval holders are excluded. | Prevents scope drift and mixed regulatory populations. |
-| D04 | Service Bulletins are references, not primary indexed documents. | Full SB content is outside the available corpus and project boundary. |
+| D02 | Main corpus scope is final EU-issued EASA ADs whose approval holder is Airbus S.A.S., accepting legacy Airbus/Airbus Industrie naming. | Keeps the study coherent and feasible. |
+| D03 | PADs, SIBs, foreign-issued ADs, Airbus Helicopters, Airbus Canada, engines, and other approval holders are excluded from the primary research scope. | Prevents scope drift and mixed regulatory populations. |
+| D04 | Service Bulletins and other technical publications are references, not primary indexed documents. | Full referenced-publication content is outside the available corpus and project boundary. |
 | D05 | Raw PDFs are immutable. | Preserves auditability and reproducibility. |
 | D06 | Revisions, corrections, emergency issues, and superseded versions are lifecycle states, not disposable duplicates. | They may contain materially different regulatory requirements. |
 | D07 | Maintain separate historical and operational corpus views. | Supports traceability while defaulting current queries to the latest verified publication. |
@@ -26,7 +26,7 @@ This log contains stable methodological decisions. Add a dated entry when a deci
 | D21 | Automated extraction or validator success never grants human approval or gold status. | Gold requires explicit independent human review and approval provenance. |
 | D22 | Gold-release publication requires exact membership/provenance validation and Drive readback. | Makes the audit source reproducible and publication auditable. |
 | D23 | GitHub versions implementation and audit artifacts; Google Drive/local storage retains raw PDFs, page-text derivatives, and generated large outputs. | Keeps the repository reproducible without duplicating large immutable/generated data. |
-| D24 | Process all 1,809 frozen physical PDF records; hold out five during development, producing a 1,804-record development corpus and 1,809 final corpus after ingestion testing. | Fixes exact record accounting and supports unseen-document evaluation. |
+| D24 | Keep one generated content record per nominal physical PDF; five PDFs are held out for unseen-document ingestion testing. | Preserves source accounting and supports unseen-document evaluation. |
 | D25 | The nominal v3.1 content benchmark remains the family-level 30/20 split with seed 42. | Preserves the originally frozen split for auditability. |
 | D26 | QA v2 contains 50 locked questions, including complex compliance cases; standalone classification and summary benchmarks remain removed. | Tests retrieval-time interpretation while keeping the capstone focused. |
 | D27 | Content records are sparse JSON/JSONL; operational metadata and lifecycle state are stored in Parquet sidecars. | Separates AD content from processing and system state. |
@@ -35,11 +35,15 @@ This log contains stable methodological decisions. Add a dated entry when a deci
 | D30 | Temporary upload creates an isolated session index; permanent ingestion requires explicit confirmation and updates indexes without retraining. | Demonstrates unseen-document handling safely and reproducibly. |
 | D31 | Missing historical revisions will not be acquired for v3; lifecycle claims are limited to the frozen snapshot. | Prevents schedule and scope expansion and avoids overstating historical completeness. |
 | D32 | Original PDF chunks—not machine-normalized JSON—are authoritative for compliance timing, conditions, exceptions, intervals, branches, and terminating effects. | Preserves page context and avoids distortion from premature normalization. |
-| D33 | Applicability, Definitions, Reason, complete Requirements/Compliance, reference wording, and Remarks are retained in every record when printed; only their difficult semantics remain unnormalized. | Corrects the overly narrow five-section interpretation without reintroducing hosted semantic extraction. |
+| D33 | Applicability, Definitions, Reason, complete Requirements/Compliance, reference wording, and Remarks are retained in every record when printed; only their difficult semantics remain unnormalized. | Corrects the overly narrow lightweight interpretation without reintroducing hosted semantic extraction. |
 | D34 | Section segmentation removes repeated PDF page furniture but otherwise preserves contiguous printed wording across page breaks; printed header values take precedence over stale manifest fallbacks when directly readable. | Spot checks found page headers/watermarks, loose heading boundaries, and manifest-date precedence could contaminate or truncate source-faithful records. |
-| D35 | Extraction evaluation separates comparable stable metadata, reference/lifecycle identifiers, secondary taxonomy, and raw-section preservation; exact overlap with the semantic content projection is diagnostic only. | The content projection and live parser intentionally represent difficult source material differently, so the old flatten-and-set score penalized correct v3.1 behavior. |
-| D36 | AD `2024-0038` is excluded from clean extraction-test scoring because its PDF was used to diagnose and tune parser v2.1.4; the nominal 30/20 split remains frozen. | Preserves methodological honesty after confirmed test leakage without silently substituting a development record or rewriting the frozen split. |
-| D37 | Primary extraction scoring derives project-scope eligibility from the reviewed Design Approval Holder; out-of-scope gold members remain immutable audit artifacts but are excluded and reported separately. | The 50-record audit release contains at least one development STC-holder case (`2026-0079`, Lufthansa Technik AG) and one test Airbus Defence and Space case (`2021-0286`) that do not match the Airbus S.A.S. holder scope. |
+| D35 | Extraction evaluation separates comparable stable metadata, reference/lifecycle identifiers, secondary taxonomy, and raw-section preservation; exact overlap with the semantic content projection is diagnostic only. | The content projection and live parser intentionally represent difficult source material differently. |
+| D36 | AD `2024-0038` is excluded from clean extraction-test scoring because its PDF was used to diagnose and tune parser v2.1.4; the nominal 30/20 split remains frozen. | Preserves methodological honesty after confirmed test leakage without silently substituting a development record. |
+| D37 | Primary extraction scoring derives project-scope eligibility from reviewed Design Approval Holder metadata; out-of-scope gold members remain immutable audit artifacts but are excluded and reported separately. | The audit release contains development cases `2024-0095` (Airbus Defence and Space) and `2026-0079` (Lufthansa Technik) that do not match the Airbus S.A.S. holder scope; test scope is handled by the same rule. |
+| D38 | Malformed or missing machine-extracted holder values are classified as `unknown`, never automatically as out-of-scope. | v2.1.4 showed that Type/Model and long section text could leak into the DAH field; treating those as exclusions would silently shrink the corpus because of a parser defect. |
+| D39 | Raw-section presence is evaluated against actual source headings when the document-text cache is available; source containment and page-furniture contamination are the primary raw-section checks. | The semantic gold projection may omit a raw section field or represent it as reviewed units, so it is not a reliable source of raw-section existence. |
+| D40 | Detailed applicability models remain a primary comparable structured field; publication-header model expansion and family labels are secondary diagnostics. | Some AD headers print broad family wording while the reviewed gold expands individual models, making exact detailed expansion an unsafe primary requirement. |
+| D41 | Parser v2.1.5 is the next active extraction version and was developed only from already-disclosed development evidence plus prior disclosed regression PDFs; the v2.1.4 generated run is stale and must be regenerated rather than edited in place. | Ensures reproducibility, version isolation, and protection of the remaining clean test cases. |
 
 ## Research questions
 
@@ -53,32 +57,29 @@ This log contains stable methodological decisions. Add a dated entry when a deci
 
 ### 2026-07-30
 
-- Compressed the original longer plan into the 13 July-30 September window.
-- Established the original evidence-bearing annotation and review framework.
+- Established the project schedule and original evidence-bearing annotation/review framework.
 - Fixed controlled source, review, validation, and Drive-readback rules for gold publication.
 
 ### 2026-08-03
 
-- Replaced planned annotation expansion with full deterministic extraction of the frozen corpus.
-- Preserved the existing validated 50-record release as an immutable audit source and created a separate sparse content-only projection.
+- Replaced planned annotation expansion with full deterministic extraction of the frozen snapshot.
+- Preserved the validated 50-record release as an immutable audit source and created a separate sparse content-only projection.
 - Froze a nominal 30-development/20-test extraction split and a 50-question QA benchmark.
 - Removed standalone classification and reference-summary modules and benchmarks.
 - Retained RAG with section-aware hybrid retrieval, page/source citations, temporary uploaded-PDF QA, and permanent ingestion without retraining.
-- Reserved five non-gold PDF families for unseen testing; development count is 1,804 and final count after ingestion is 1,809.
+- Reserved five non-gold PDF families for unseen testing.
 - Limited lifecycle claims to the current snapshot and declined acquisition of missing historical revisions.
 
 ### 2026-08-04
 
 - Replaced full structured compliance extraction with a two-layer architecture: section-complete deterministic content records plus original-PDF RAG.
 - Moved compliance timing, conditions, exceptions, repetitive intervals, follow-on logic, and terminating effects to retrieval-time interpretation from original PDF passages.
-- Replaced hosted full-corpus semantic extraction with deterministic local parsing.
-- Corrected the narrow lightweight interpretation: schema 2.1.0 and parser v2.1.3 retained all standard AD information sections, structuring reliable values and preserving difficult sections as raw text.
-- Spot checks of AD 2024-0038, AD 2024-0097R2, and AD 2025-0058R1 found material v2.1.3 defects: wrong issue-date precedence in some records, `Foreign AD` field leakage, repeated EASA page furniture in raw sections, premature section termination on ordinary `compliance` prose, and truncation at Remark `contact:` lines.
-- Parser v2.1.4 fixed those defects with regression tests for printed date precedence, page-furniture removal, strict heading boundaries, cross-page section continuity, revision-field separation, Remark contact preservation, and appendix exclusion.
-- The 1,804-record v2.1.4 extraction was regenerated locally.
-- The first development evaluation showed 100% coverage and schema validity, but exposed that the old evaluator mixed semantic-projection representation differences into the primary F1.
-- Evaluator `content-eval-v3.1.4` now reports comparable stable metadata, secondary taxonomy, reference/lifecycle identifiers, raw-section integrity, holder-scope exclusions, and test-contamination exclusions separately; legacy projection overlap is diagnostic only.
-- A development-reference audit was added to verify the nominal 30 development gold references against frozen hashes, human-review provenance, deterministic reprojection, accepted assertions, evidence integrity, and holder-scope eligibility without opening test compliance labels.
-- Development AD `2026-0079` was confirmed as a Lufthansa Technik AG Design Change Approval Holder case and is excluded from primary development scoring while remaining in the immutable audit release.
-- Test AD `2021-0286` was confirmed as Airbus Defence and Space S.A. and is excluded by the same scope rule.
-- AD `2024-0038` is disclosed and excluded from clean primary test scoring because it was used during parser tuning.
+- Parser v2.1.4 fixed the first disclosed boundary defects: printed issue-date precedence, `Foreign AD`/Revision separation, repeated page furniture, ordinary `compliance` prose, cross-page continuity, Remark contact retention, and appendix exclusion.
+- The nominal 1,804-record v2.1.4 extraction was regenerated locally.
+- Evaluator v3.1.4 separated stable metadata, secondary taxonomy, reference/lifecycle identifiers, raw-section integrity, holder-scope exclusions, and test-contamination exclusions; legacy projection overlap became diagnostic only.
+- The development-reference audit found zero critical reference-integrity issues and two out-of-scope development members: `2024-0095` and `2026-0079`.
+- v2.1.4 development evaluation achieved 100% coverage/schema validity and ~0.945 stable metadata macro F1, but exposed remaining legacy-format defects in DAH extraction, Form 110 furniture, wrapped action headings, subject boundaries, legacy TCDS/reference identifiers, and direct original-issue supersedure.
+- The v2.1.4 full-corpus scope audit (`1729 eligible / 59 excluded / 16 unknown`) was declared non-final because many reported exclusions were malformed holder parses rather than genuine external holders.
+- Parser v2.1.5 was introduced using eligible development evidence only. It adds legacy Form 110 cleanup, wrapped action heading support, strict DAH/Type-Model boundaries, conservative legacy Airbus holder fallback, complete ATA-subject extraction, France TCDS support, publication-ID-safe model matching, broader deterministic reference-ID extraction, and direct original-issue supersedure recovery.
+- Evaluator v3.1.5 classifies malformed holder values as unknown, drives raw-section expectation from source headings, treats raw reference wording as source-scorable, distinguishes uppercase status watermarks from normal supersedure prose, and moves publication-header model expansion to secondary diagnostics.
+- The v2.1.4 generated run is stale; the next required run is `local-content-development-1804-v2.1.5` and must pass development/reference/scope gates before clean test evaluation or promotion.
