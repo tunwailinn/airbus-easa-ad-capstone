@@ -13,7 +13,7 @@ This file records the active v3.1 project state.
 - Corpus scope audit: **`corpus-scope-audit-v1.3`**.
 - Verified page-text source: **`page-text-v1.1`**.
 - Frozen retrieval build: **`rag-index-build-v1.2`**.
-- Retrieval evaluator: **`retrieval-eval-v1.0`**, locked to v1.2.
+- Retrieval evaluator: **`retrieval-eval-v1.1`**, locked to v1.2.
 - QA benchmark: **50 locked questions**.
 
 Parser v2.1.6 remains frozen. Locked extraction-test outcomes must not be used to change parser rules.
@@ -41,7 +41,7 @@ Clean locked extraction test:
 - nominal test: **20**;
 - primary clean count: **17** after two holder-scope exclusions plus disclosed `2024-0038` leakage;
 - coverage/schema validity: **1.0000 / 1.0000**;
-- stable metadata macro F1: **0.9831**;
+- stable-metadata macro F1: **0.9831**;
 - applicability-model F1: **0.9222**;
 - reference-number F1: **0.9000**;
 - superseded-AD-number F1: **0.6667**;
@@ -128,11 +128,24 @@ No locked retrieval scores were opened before this build was accepted.
 
 Older `rag_v1/` and `rag_v1_1/` workspaces are retained for audit history only and must not be used for final retrieval evaluation.
 
-## Retrieval evaluation next
+## Retrieval evaluation runtime
 
-The evaluator now refuses builds other than `rag-index-build-v1.2` and validates the 1,786-document and 350/450 build gates before loading the benchmark.
+The first v1.2 evaluation execution processed all 44 E0 questions, then the Python process terminated with a native segmentation fault at E4 question 1 while another dense sentence-transformer instance was being loaded. No final `retrieval_comparison.json` was written and no completed E4 result was produced.
 
-Run the locked comparison once, then report without tuning:
+This is documented as a runtime-aborted attempt, not a performance outcome. The frozen retrieval configuration was not changed.
+
+`retrieval-eval-v1.1` applies only runtime-stability controls:
+
+- one shared dense query encoder for both E0 and E4;
+- the dense encoder keeps Sentence Transformers' normal single-device auto-selection;
+- cross-encoder reranking is pinned to **CPU**;
+- no explicit multiprocessing pool;
+- runtime device/provenance is recorded in the result JSON;
+- progress heartbeats cover model loading and question evaluation.
+
+The evaluator refuses builds other than `rag-index-build-v1.2` and validates the 1,786-document and 350/450 build gates before loading the benchmark.
+
+Run the locked comparison from the beginning, then report without tuning:
 
 - Recall@1/3/5;
 - MRR;
