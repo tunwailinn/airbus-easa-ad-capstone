@@ -41,10 +41,16 @@ Example:
 
 ## Generated extraction data
 
-The completed deterministic development extraction is expected locally at:
+The previous deterministic development extraction is expected locally at:
 
 ```text
 data_processed/canonical_content_v2.1.3/
+```
+
+That directory must remain unchanged for reproducibility, but it is stale after the parser v2.1.4 boundary fix. Regenerate the 1,804 development records into a new run, validate them, and only then promote:
+
+```text
+data_processed/canonical_content_v2.1.4/
 ```
 
 The canonical generated directory is reproducible from the versioned parser and corpus reference Parquets, so it is intentionally not stored in GitHub.
@@ -54,6 +60,7 @@ The canonical generated directory is reproducible from the versioned parser and 
 - Never edit source PDFs in place.
 - Never commit credentials or API keys.
 - Never overwrite a versioned extraction run or evaluation lock.
+- Never relabel v2.1.3 output as v2.1.4; regenerate from the source cache/PDF-derived text.
 - Keep the five unseen PDFs outside development indexes until ingestion evaluation.
 - Permanent ingestion requires explicit confirmation and never retrains the LLM or embedding model.
 - Detailed compliance answers must be grounded in retrieved original-PDF page text.
