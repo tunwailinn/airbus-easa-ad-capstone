@@ -222,6 +222,7 @@ def generate_page_text(
         unseen_selection=unseen,
         expected_count=expected_count,
     )
+    selected.to_csv(output_dir / "retrieval_manifest.csv", index=False)
     by_name = build_pdf_index(pdf_root)
 
     document_rows: list[dict[str, Any]] = []
