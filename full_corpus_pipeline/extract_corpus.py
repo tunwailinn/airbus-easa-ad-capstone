@@ -15,7 +15,7 @@ from typing import Any
 import pandas as pd
 
 from full_corpus_pipeline import CONTENT_SCHEMA_VERSION
-from full_corpus_pipeline.local_extractor import PARSER_VERSION, extract_local_record
+from full_corpus_pipeline.local_extractor_v216 import PARSER_VERSION, extract_local_record
 
 
 ROOT = Path(__file__).resolve().parents[1]
