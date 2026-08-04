@@ -137,8 +137,39 @@ def _flexible_a300_models(text: str | None) -> list[str]:
     return values
 
 
+def _legacy_subject_prefix(header: str, first_ata_start: int) -> str | None:
+    """Return contiguous legacy subject text printed immediately before ATA.
+
+    Early Form 110 layouts often print the first half of the subject before an
+    isolated `ATA xx` line and the rest immediately after it. The prefix begins
+    only after the last recognized metadata field, so holder/model/date/TCDS
+    values cannot be pulled into the subject.
+    """
+    prefix_region = header[:first_ata_start]
+    field_re = re.compile(
+        r"(?im)^\s*(?:Design\s+Approval\s+Holder(?:[’']s)?\s+Name|Type/Model\s+designation(?:\(s\))?|"
+        r"Effective\s+Date|TCDS\s+Number(?:\(s\))?|Foreign\s+AD|Revision|Supersedure|Cancellation)\s*:.*$"
+    )
+    matches = list(field_re.finditer(prefix_region))
+    if not matches:
+        return None
+
+    candidate = prefix_region[matches[-1].end() :]
+    lines = [line.strip() for line in candidate.splitlines() if line.strip()]
+    lines = [
+        line
+        for line in lines
+        if not re.match(
+            r"^(?:Airworthiness\s+Directive|AD\s+No\.?|Issued|Date|Note)\s*:?"," 
+            " line,
+            re.IGNORECASE,
+        )
+    ]
+    return _v215.compact(" ".join(lines)) if lines else None
+
+
 def _header_subject_and_ata(text: str) -> tuple[str | None, list[dict[str, str]]]:
-    """Recover the printed header subject, including consecutive ATA blocks."""
+    """Recover the printed header subject, including legacy split/consecutive ATA blocks."""
     cleaned = _v215._clean_layout_text(text)
     header = cleaned[:20000]
     ata_re = re.compile(
@@ -161,6 +192,7 @@ def _header_subject_and_ata(text: str) -> tuple[str | None, list[dict[str, str]]
     if not matches:
         return None, []
 
+    legacy_prefix = _legacy_subject_prefix(header, first.start())
     parts: list[str] = []
     chapters: list[dict[str, str]] = []
     for index, match in enumerate(matches):
@@ -170,7 +202,9 @@ def _header_subject_and_ata(text: str) -> tuple[str | None, list[dict[str, str]]
             continue
         codes = re.findall(r"\d{2}", match.group(1))
         if not parts:
-            parts.append(body)
+            first_body = _v215.compact(" ".join(part for part in (legacy_prefix, body) if part))
+            if first_body:
+                parts.append(first_body)
         else:
             parts.append(f"ATA {', '.join(codes)} – {body}")
         for code in codes:
