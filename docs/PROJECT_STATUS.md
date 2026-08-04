@@ -19,7 +19,7 @@ Parser v2.1.6 remains frozen. Locked extraction-test outcomes must not be used t
 
 ## Layer A — extraction status
 
-**PASS / FROZEN / PROMOTED LOCALLY.**
+**PASS / FROZEN. Canonical promotion was authorized after the final gates; record it as completed only when the local promotion command/output is explicitly verified.**
 
 Development run:
 
