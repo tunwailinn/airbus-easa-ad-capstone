@@ -29,6 +29,14 @@ SCHEMA = json.loads(
     (Path(__file__).with_name("content_record.schema.json")).read_text(encoding="utf-8")
 )
 
+KNOWN_SCOPE_EXCLUSIONS = {
+    "2026-0079": (
+        "The source AD identifies LUFTHANSA TECHNIK AG as the Design Change "
+        "Approval Holder. It is outside the project's Airbus S.A.S. approval-holder "
+        "scope and is retained only in the immutable audit release."
+    )
+}
+
 KNOWN_CONTAMINATED_TEST_ADS = {
     "2024-0038": (
         "Parser v2.1.4 was explicitly tuned after a source-PDF spot check of this "
@@ -395,6 +403,11 @@ def main() -> int:
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--split", choices=("development", "test"), default="test")
     parser.add_argument(
+        "--include-scope-excluded",
+        action="store_true",
+        help="Include known out-of-scope benchmark records for diagnostic-only scoring.",
+    )
+    parser.add_argument(
         "--include-contaminated",
         action="store_true",
         help="Include known leaked test records for diagnostic-only scoring.",
@@ -411,19 +424,34 @@ def main() -> int:
         (GOLD_DIR / "split_manifest.json").read_text(encoding="utf-8")
     )
     nominal = [row for row in split if row["split"] == args.split]
-    excluded = []
+    scope_excluded = []
     selected = nominal
+    if not args.include_scope_excluded:
+        scope_excluded = [
+            {
+                "ad_number": str(row["ad_number"]),
+                "reason": KNOWN_SCOPE_EXCLUSIONS[str(row["ad_number"])],
+            }
+            for row in nominal
+            if str(row["ad_number"]) in KNOWN_SCOPE_EXCLUSIONS
+        ]
+        selected = [
+            row for row in selected
+            if str(row["ad_number"]) not in KNOWN_SCOPE_EXCLUSIONS
+        ]
+
+    contamination_excluded = []
     if args.split == "test" and not args.include_contaminated:
-        excluded = [
+        contamination_excluded = [
             {
                 "ad_number": str(row["ad_number"]),
                 "reason": KNOWN_CONTAMINATED_TEST_ADS[str(row["ad_number"])],
             }
-            for row in nominal
+            for row in selected
             if str(row["ad_number"]) in KNOWN_CONTAMINATED_TEST_ADS
         ]
         selected = [
-            row for row in nominal
+            row for row in selected
             if str(row["ad_number"]) not in KNOWN_CONTAMINATED_TEST_ADS
         ]
 
@@ -549,19 +577,17 @@ def main() -> int:
         }
 
     legacy_mean = {
-        name: (
-            sum(row[name] for row in legacy_rows) / count
-            if count else 0.0
-        )
+        name: (sum(row[name] for row in legacy_rows) / count if count else 0.0)
         for name in ("precision", "recall", "f1")
     }
 
     report = {
-        "evaluation_version": "content-eval-v3.1.2",
+        "evaluation_version": "content-eval-v3.1.3",
         "split": args.split,
         "nominal_split_count": len(nominal),
         "record_count": count,
-        "contamination_exclusions": excluded,
+        "scope_exclusions": scope_excluded,
+        "contamination_exclusions": contamination_excluded,
         "prediction_coverage": predicted_count / count if count else 0.0,
         "schema_valid_percentage": schema_valid / count if count else 0.0,
         "stable_metadata_macro_f1": macro_f1(field_metrics, STABLE_METADATA_FIELDS),
