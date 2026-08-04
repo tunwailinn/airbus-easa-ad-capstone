@@ -55,6 +55,7 @@ This log contains stable methodological decisions. Add a dated entry when a deci
 | D50 | `rag-index-build-v1.0` and the partial v1.1 workspace are retained only as pre-benchmark implementation artifacts. Final retrieval evaluation requires accepted `rag-index-build-v1.2` under `data_processed/indexes/rag_v1_2/`. | v1.0 exposed mixed chunk counters; v1.1 exposed a real E4 476>450 construction defect; both were corrected before locked retrieval scores were opened. |
 | D51 | `rag-index-build-v1.2` is frozen with E0 9,394 chunks (max 350) and E4 12,634 chunks (max 450), both over the same 1,786 documents with the same dense model and FAISS backend. | The reviewed v1.2 build summary passes corpus, backend, and chunk-size gates and is the benchmark-eligible retrieval artifact. |
 | D52 | After v1.2 acceptance, locked retrieval results are report-only: do not change chunking, model, candidate depth, fusion, reranker, corpus membership, or lifecycle policy based on observed scores. | Prevents retrieval benchmark overfitting and preserves the pre-score experimental freeze. |
+| D53 | `retrieval-eval-v1.1` shares one dense query encoder between E0/E4 and pins the unchanged cross-encoder reranker to CPU; no multiprocessing pool is used. | The first v1.2 execution aborted with a native macOS segmentation fault at E4 question 1 while a duplicate dense model was loading. The runtime-only policy removes duplicate model residency/MPS contention without changing frozen retrieval logic or models. |
 
 ## Research questions
 
@@ -93,4 +94,5 @@ This log contains stable methodological decisions. Add a dated entry when a deci
 - `rag-index-build-v1.0` validated the corpus/model/backend path but was rejected before benchmark because its report mixed chunk counters.
 - `rag-index-build-v1.1` built a valid E0 but stopped before E4 indexing when the strict gate found a 476-unit section chunk against the 450 maximum.
 - `rag-index-build-v1.2` corrected E4 construction accounting and passed the full pre-benchmark gate: E0 9,394 chunks/max 350, E4 12,634 chunks/max 450, both 1,786 documents, real sentence-transformers + FAISS backends.
-- The v1.2 index root is now frozen for the one-time locked retrieval comparison; no locked retrieval scores were opened before acceptance.
+- The first v1.2 evaluation execution completed E0 processing but terminated with a native segmentation fault at E4 question 1 before final report creation. No completed E4 result was produced.
+- `retrieval-eval-v1.1` freezes a runtime-only recovery: one shared dense query encoder, CPU-only cross-encoder reranking, no explicit multiprocessing, and recorded runtime provenance. Retrieval architecture and locked benchmark configuration remain unchanged.
