@@ -38,11 +38,12 @@ This log contains stable methodological decisions. Add a dated entry when a deci
 | D33 | Applicability, Definitions, Reason, complete Requirements/Compliance, reference wording, and Remarks are retained in every record when printed; only their difficult semantics remain unnormalized. | Corrects the overly narrow five-section interpretation without reintroducing hosted semantic extraction. |
 | D34 | Section segmentation removes repeated PDF page furniture but otherwise preserves contiguous printed wording across page breaks; printed header values take precedence over stale manifest fallbacks when directly readable. | Spot checks found page headers/watermarks, loose heading boundaries, and manifest-date precedence could contaminate or truncate source-faithful records. |
 | D35 | Extraction evaluation separates comparable stable metadata, reference/lifecycle identifiers, secondary taxonomy, and raw-section preservation; exact overlap with the semantic content projection is diagnostic only. | The content projection and live parser intentionally represent difficult source material differently, so the old flatten-and-set score penalized correct v3.1 behavior. |
-| D36 | AD `2024-0038` is excluded from clean extraction-test scoring because its PDF was used to diagnose and tune parser v2.1.4; the nominal 30/20 split remains frozen, and the primary clean test is reported as n=19. | Preserves methodological honesty after confirmed test leakage without silently substituting a development record or rewriting the frozen split. |
+| D36 | AD `2024-0038` is excluded from clean extraction-test scoring because its PDF was used to diagnose and tune parser v2.1.4; the nominal 30/20 split remains frozen. | Preserves methodological honesty after confirmed test leakage without silently substituting a development record or rewriting the frozen split. |
+| D37 | Primary extraction scoring derives project-scope eligibility from the reviewed Design Approval Holder; out-of-scope gold members remain immutable audit artifacts but are excluded and reported separately. | The 50-record audit release contains at least one development STC-holder case (`2026-0079`, Lufthansa Technik AG) and one test Airbus Defence and Space case (`2021-0286`) that do not match the Airbus S.A.S. holder scope. |
 
 ## Research questions
 
-- RQ1: How accurately can a deterministic local parser extract comparable reliable AD metadata and preserve raw difficult-section boundaries against the clean 19-record extraction test plus source-PDF spot checks?
+- RQ1: How accurately can a deterministic local parser extract comparable reliable AD metadata and preserve raw difficult-section boundaries on the project-scope-eligible clean extraction test plus source-PDF spot checks?
 - RQ2: Does section-aware hybrid retrieval outperform flat dense-only retrieval for the correct AD and original compliance passage?
 - RQ3: Can retrieval-time LLM interpretation preserve complex compliance logic from original PDF text?
 - RQ4: Can corpus and uploaded-PDF QA provide correct page-cited answers and reliable abstention?
@@ -76,6 +77,8 @@ This log contains stable methodological decisions. Add a dated entry when a deci
 - Parser v2.1.4 fixed those defects with regression tests for printed date precedence, page-furniture removal, strict heading boundaries, cross-page section continuity, revision-field separation, Remark contact preservation, and appendix exclusion.
 - The 1,804-record v2.1.4 extraction was regenerated locally.
 - The first development evaluation showed 100% coverage and schema validity, but exposed that the old evaluator mixed semantic-projection representation differences into the primary F1.
-- Evaluator `content-eval-v3.1.2` now reports comparable stable metadata, secondary taxonomy, reference/lifecycle identifiers, and raw-section integrity separately; legacy projection overlap is diagnostic only.
-- A development-reference audit was added to verify all 30 development gold references against frozen hashes, human-review provenance, deterministic reprojection, accepted assertions, and evidence integrity without opening clean test labels.
-- Confirmed that AD `2024-0038` belongs to the nominal locked test split and had been used during parser tuning. It is therefore disclosed and excluded from the clean primary test result, leaving n=19.
+- Evaluator `content-eval-v3.1.4` now reports comparable stable metadata, secondary taxonomy, reference/lifecycle identifiers, raw-section integrity, holder-scope exclusions, and test-contamination exclusions separately; legacy projection overlap is diagnostic only.
+- A development-reference audit was added to verify the nominal 30 development gold references against frozen hashes, human-review provenance, deterministic reprojection, accepted assertions, evidence integrity, and holder-scope eligibility without opening test compliance labels.
+- Development AD `2026-0079` was confirmed as a Lufthansa Technik AG Design Change Approval Holder case and is excluded from primary development scoring while remaining in the immutable audit release.
+- Test AD `2021-0286` was confirmed as Airbus Defence and Space S.A. and is excluded by the same scope rule.
+- AD `2024-0038` is disclosed and excluded from clean primary test scoring because it was used during parser tuning.
