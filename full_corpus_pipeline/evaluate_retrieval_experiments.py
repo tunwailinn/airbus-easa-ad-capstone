@@ -12,6 +12,7 @@ from __future__ import annotations
 import argparse
 import json
 import math
+import time
 from dataclasses import asdict
 from pathlib import Path
 from typing import Any
@@ -20,9 +21,10 @@ from full_corpus_pipeline.retrieval import HybridIndex, TOKEN_RE
 
 
 ROOT = Path(__file__).resolve().parents[1]
-DEFAULT_INDEX_ROOT = ROOT / "data_processed/indexes/rag_v1"
+DEFAULT_INDEX_ROOT = ROOT / "data_processed/indexes/rag_v1_1"
 DEFAULT_QUESTIONS = ROOT / "evaluation_sets/easa_airbus_ad_qa_50_v2/questions.jsonl"
 DEFAULT_OUTPUT = DEFAULT_INDEX_ROOT / "retrieval_comparison.json"
+EXPECTED_BUILD_VERSION = "rag-index-build-v1.1"
 
 
 def load_questions(path: Path) -> list[dict[str, Any]]:
@@ -32,6 +34,19 @@ def load_questions(path: Path) -> list[dict[str, Any]]:
         if line.strip()
     ]
     return [item for item in questions if bool(item.get("answerable_from_ad"))]
+
+
+def validate_build_summary(index_root: Path) -> dict[str, Any]:
+    summary_path = index_root / "build_summary.json"
+    if not summary_path.exists():
+        raise FileNotFoundError(f"missing retrieval build summary: {summary_path}")
+    summary = json.loads(summary_path.read_text(encoding="utf-8"))
+    if summary.get("retrieval_build_version") != EXPECTED_BUILD_VERSION:
+        raise ValueError(
+            f"expected {EXPECTED_BUILD_VERSION}, got "
+            f"{summary.get('retrieval_build_version')!r}"
+        )
+    return summary
 
 
 def validate_index_pair(e0: HybridIndex, e4: HybridIndex) -> tuple[dict[str, Any], dict[str, Any]]:
@@ -149,11 +164,19 @@ def summarize(rows: list[dict[str, Any]]) -> dict[str, Any]:
 
 def evaluate_system(
     *,
+    label: str,
     questions: list[dict[str, Any]],
     search_fn: Any,
 ) -> tuple[dict[str, Any], list[dict[str, Any]]]:
     rows: list[dict[str, Any]] = []
-    for question in questions:
+    total = len(questions)
+    started = time.monotonic()
+    for position, question in enumerate(questions, 1):
+        print(
+            f"[progress] {label}: question {position}/{total} "
+            f"({question['question_id']})",
+            flush=True,
+        )
         results = search_fn(question["question"])
         rank = relevance_rank(results, question)
         src_rank = source_rank(results, question)
@@ -177,6 +200,8 @@ def evaluate_system(
                 ],
             }
         )
+    elapsed = int(time.monotonic() - started)
+    print(f"[progress] {label}: finished {total} questions ({elapsed}s)", flush=True)
     return summarize(rows), rows
 
 
@@ -210,23 +235,29 @@ def main() -> int:
     parser.add_argument("--candidate-limit", type=int, default=20)
     args = parser.parse_args()
 
+    print("[progress] validating frozen retrieval build", flush=True)
+    validate_build_summary(args.index_root)
     e0 = HybridIndex(args.index_root / "e0_flat_dense")
     e4 = HybridIndex(args.index_root / "e4_section_hybrid")
     e0_config, e4_config = validate_index_pair(e0, e4)
     questions = load_questions(args.questions)
 
+    print("[progress] loading local cross-encoder reranker", flush=True)
     from sentence_transformers import CrossEncoder
 
     reranker_model = str(e4_config["reranker_model"])
     reranker = CrossEncoder(reranker_model)
     # Force a real inference before the benchmark so model/runtime errors fail early.
     reranker.predict([("test query", "test passage")])
+    print("[progress] reranker ready", flush=True)
 
     e0_metrics, e0_rows = evaluate_system(
+        label="E0 dense-only",
         questions=questions,
         search_fn=lambda query: e0.search_dense_only(query, limit=5),
     )
     e4_metrics, e4_rows = evaluate_system(
+        label="E4 hybrid + reranker",
         questions=questions,
         search_fn=lambda query: strict_hybrid_search(
             e4,
@@ -239,6 +270,7 @@ def main() -> int:
 
     report = {
         "evaluation_version": "retrieval-eval-v1.0",
+        "retrieval_build_version": EXPECTED_BUILD_VERSION,
         "benchmark": str(args.questions),
         "policy": "Frozen E0/E4 configuration; report results without tuning on locked questions.",
         "embedding_model": e0_config["embedding_model"],
