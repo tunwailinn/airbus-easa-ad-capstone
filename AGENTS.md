@@ -46,6 +46,7 @@ Detailed compliance interpretation must use original PDF passages retrieved by R
 19. **`rag-index-build-v1.2` is accepted and frozen. Do not retune retrieval configuration from locked benchmark results.**
 20. Chunk-size construction/reporting uses `whitespace_split`: E0 <=350, E4 target 250–450 and hard max 450. These are deterministic chunk units, not transformer subword tokens.
 21. Final retrieval evaluation must use only `data_processed/indexes/rag_v1_2/`; `rag_v1/` and `rag_v1_1/` are retained for audit history only.
+22. On macOS ARM, do not run FAISS-backed retrieval and the cross-encoder reranker in the same Python process. `retrieval-eval-v1.2` must keep FAISS+dense retrieval in the parent process and run the CPU cross-encoder in `rerank_candidates_worker.py`, which intentionally never imports FAISS.
 
 ## Frozen/active versions
 
@@ -57,7 +58,7 @@ Detailed compliance interpretation must use original PDF passages retrieved by R
 - Page visual override file: `full_corpus_pipeline/page_text_visual_overrides.json`.
 - Frozen retrieval build: **`rag-index-build-v1.2`**.
 - Retrieval build state: `docs/RETRIEVAL_BUILD_STATUS.md`.
-- Retrieval evaluator: **`retrieval-eval-v1.0`**, locked to build v1.2.
+- Retrieval evaluator: **`retrieval-eval-v1.2`**, locked to build v1.2 with isolated CPU reranking.
 - QA benchmark: **50 locked questions**.
 - Immutable audit source: `gold_releases/easa_airbus_ad_gold_v2/`.
 
@@ -121,7 +122,7 @@ Build history:
 
 - `rag-index-build-v1.0`: rejected before benchmark due inconsistent chunk-size reporting.
 - `rag-index-build-v1.1`: valid E0, E4 blocked before embedding because a section chunk reached 476 against the 450 limit.
-- **`rag-index-build-v1.2`: accepted/frozen.** No locked retrieval scores were opened before acceptance.
+- **`rag-index-build-v1.2`: accepted/frozen.** No retrieval tuning occurred after acceptance.
 
 Accepted v1.2 E0:
 
@@ -130,7 +131,7 @@ Accepted v1.2 E0:
 - max chunk size 350;
 - `sentence_transformers` dense backend;
 - `faiss_index_flat_ip` dense index;
-- evaluate with `search_dense_only` only.
+- evaluate with dense-only ranking.
 
 Accepted v1.2 E4:
 
@@ -148,10 +149,28 @@ Frozen index root:
 data_processed/indexes/rag_v1_2/
 ```
 
+## Retrieval evaluation runtime
+
+Two native macOS crashes occurred before a complete E0/E4 comparison artifact was produced. The second crash happened in a pre-benchmark smoke test even with the reranker pinned to CPU, confirming that device placement alone did not remove the FAISS/PyTorch native interaction.
+
+`retrieval-eval-v1.2` preserves the same frozen ranking semantics but isolates process boundaries:
+
+```text
+parent process:
+  SentenceTransformer + FAISS + BM25 + RRF
+  → E0 results + E4 candidate sets
+
+isolated child process:
+  CrossEncoder on CPU
+  → reranked E4 top-5
+```
+
+The child worker must not import FAISS. A generic smoke candidate set is reranked in the isolated process before locked questions are loaded.
+
 ## Immediate priority
 
 1. Pull current `main` and run the full unit-test suite.
-2. Run the locked E0/E4 retrieval evaluation exactly as frozen; report results without tuning.
+2. Run `retrieval-eval-v1.2` from the beginning; report the completed E0/E4 results without tuning.
 3. Update context/reporting with observed Recall@1/3/5, MRR, nDCG@5, correct-source and correct-source/page metrics.
 4. Run the 50-question page-cited QA benchmark.
 5. Evaluate temporary uploaded-PDF QA.
