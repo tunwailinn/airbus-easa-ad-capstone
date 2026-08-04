@@ -1,0 +1,4 @@
+# Frozen local retrieval stack for the initial E0/E4 thesis comparison.
+# Install into the existing project virtual environment.
+sentence-transformers==5.6.0
+faiss-cpu==1.14.3
