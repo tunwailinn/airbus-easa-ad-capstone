@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Audit extracted records against the Airbus S.A.S. approval-holder scope."""
+"""Audit extracted records against the strict Airbus S.A.S. holder scope."""
 
 from __future__ import annotations
 
@@ -8,7 +8,7 @@ import json
 from collections import Counter
 from pathlib import Path
 
-from full_corpus_pipeline.evaluate_extraction import benchmark_scope_status
+from full_corpus_pipeline.scope_policy import classify_holder
 
 
 def main() -> int:
@@ -29,13 +29,15 @@ def main() -> int:
     for path in paths:
         record = json.loads(path.read_text(encoding="utf-8"))
         ad_number = str((record.get("ad_identity") or {}).get("ad_number") or path.stem)
-        status, holder = benchmark_scope_status(record)
+        raw_holder = (record.get("ad_identity") or {}).get("design_approval_holder")
+        status, holder, reason = classify_holder(raw_holder)
         counts[status] += 1
         holder_counts[holder or "<missing>"] += 1
         row = {
             "ad_number": ad_number,
             "file": path.name,
             "design_approval_holder": holder or None,
+            "reason": reason,
         }
         if status == "excluded":
             excluded.append(row)
@@ -43,15 +45,16 @@ def main() -> int:
             unknown.append(row)
 
     report = {
-        "audit_version": "corpus-scope-audit-v1.1",
+        "audit_version": "corpus-scope-audit-v1.2",
         "project_scope": (
             "EU-issued EASA ADs with Airbus S.A.S. approval holder; legacy "
             "Airbus/Airbus Industrie aliases accepted"
         ),
         "classification_policy": (
-            "Confident external holders are excluded. Missing or malformed holder "
-            "text is unknown, not excluded, so parser boundary errors cannot silently "
-            "shrink the research corpus."
+            "Accepted Airbus aliases are eligible. Confirmed external or mixed-holder "
+            "records are excluded only from the strict Airbus-only operational view, "
+            "while the physical source record remains preserved. Missing, malformed or "
+            "unclassified holder text remains unknown and requires review."
         ),
         "record_count": len(paths),
         "eligible_count": counts["eligible"],
@@ -63,11 +66,12 @@ def main() -> int:
             {"design_approval_holder": holder, "count": count}
             for holder, count in holder_counts.most_common()
         ],
-        "decision_required": bool(excluded or unknown),
+        "decision_required": bool(unknown),
         "decision_note": (
-            "Review excluded and unknown records before freezing the scope-approved "
-            "operational view. Do not silently delete physical source records, treat "
-            "unknowns as exclusions, or broaden the stated Airbus S.A.S. scope."
+            "Confirmed exclusions can remain in the immutable physical inventory while "
+            "being omitted from the strict Airbus-only operational view. Resolve every "
+            "unknown before freezing the scope-approved canonical count; never silently "
+            "treat unknowns as exclusions or delete their source PDFs."
         ),
     }
 
@@ -86,13 +90,13 @@ def main() -> int:
         )
     )
     if excluded:
-        print(f"Out-of-scope records: {len(excluded)}")
+        print(f"Excluded from strict Airbus-only view: {len(excluded)}")
         for row in excluded[:20]:
             print(f"  {row['ad_number']}: {row['design_approval_holder']}")
     if unknown:
         print(f"Unknown-scope records: {len(unknown)}")
         for row in unknown[:20]:
-            print(f"  {row['ad_number']}: missing/malformed holder")
+            print(f"  {row['ad_number']}: {row['reason']}")
     return 0
 
 
