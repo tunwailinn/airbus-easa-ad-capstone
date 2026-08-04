@@ -12,7 +12,7 @@ This file records the active v3.1 project state.
 - Extraction evaluator: **`content-eval-v3.1.5`**.
 - Corpus scope audit: **`corpus-scope-audit-v1.3`**.
 - Verified page-text source: **`page-text-v1.1`**.
-- Retrieval build stage: **`rag-index-build-v1.0`**.
+- Active retrieval build stage: **`rag-index-build-v1.1`**.
 - QA benchmark: **50 locked questions**.
 
 Parser v2.1.6 remains frozen. Locked extraction-test outcomes must not be used to change parser rules.
@@ -94,12 +94,12 @@ The earlier local folder name `page_text_v1/` is deprecated because it does not 
 
 ## E0 / E4 retrieval stage
 
-The two frozen comparison systems must use the exact same 1,786-document `retrieval_manifest.csv` and verified page-text v1.1 source.
+The two frozen comparison systems use the exact same 1,786-document `retrieval_manifest.csv` and verified page-text v1.1 source.
 
 ### E0 — baseline
 
 - flat page chunks;
-- nominal chunk target: **350 tokens**;
+- maximum **350 deterministic whitespace-delimited chunk units**;
 - local sentence-transformer embeddings;
 - FAISS inner-product index;
 - **dense-only ranking** during evaluation.
@@ -107,13 +107,15 @@ The two frozen comparison systems must use the exact same 1,786-document `retrie
 ### E4 — proposed system
 
 - section-aware chunks;
-- nominal target: **250–450 tokens**;
+- target approximately **250–450 deterministic whitespace-delimited chunk units**, with shorter chunks allowed at section/document boundaries;
 - SQLite FTS5/BM25;
 - same local sentence-transformer embeddings as E0;
 - FAISS dense index;
 - reciprocal-rank fusion;
 - local cross-encoder reranking;
 - metadata/lifecycle controls when applicable.
+
+The chunk-size unit is a reproducible whitespace-split heuristic for chunk construction/reporting, not the sentence-transformer model's subword tokenizer count.
 
 Frozen dense model for the initial E0/E4 comparison:
 
@@ -123,19 +125,27 @@ sentence-transformers/all-MiniLM-L6-v2
 
 The research build must not silently fall back to hashing embeddings, numpy-only dense search, or lexical-only reranking.
 
+### Pre-benchmark build check
+
+`rag-index-build-v1.0` successfully used the correct 1,786-document corpus, sentence-transformers backend, and FAISS backend, but its report mixed two different chunk-count heuristics. This produced reported maxima of **383** for E0 and **483** for E4 despite construction limits of 350/450 whitespace units.
+
+No locked retrieval scores were opened. The v1.0 index is retained only as a traceable pre-benchmark implementation artifact and is **not valid for final retrieval evaluation**.
+
+Active corrected build: **`rag-index-build-v1.1`**. It uses one explicit `whitespace_split` count method for construction/reporting, enforces E0 <=350 and E4 <=450 before indexing, and prints a live elapsed-time progress heartbeat during long embedding/index phases.
+
 Build command:
 
 ```bash
 .venv/bin/python -m full_corpus_pipeline.build_retrieval_experiments \
   --page-text-root data_processed/page_text_v1_1/operational_airbus \
-  --output-root data_processed/indexes/rag_v1 \
+  --output-root data_processed/indexes/rag_v1_1 \
   --experiment all
 ```
 
 Expected output root:
 
 ```text
-data_processed/indexes/rag_v1/
+data_processed/indexes/rag_v1_1/
 ├── e0_flat_dense/
 ├── e4_section_hybrid/
 └── build_summary.json
@@ -143,14 +153,17 @@ data_processed/indexes/rag_v1/
 
 ## Retrieval evaluation next
 
-After both indexes build successfully:
+After the v1.1 indexes build successfully:
 
-1. verify `build_summary.json` reports `sentence_transformers` and `faiss_index_flat_ip` rather than fallbacks;
-2. evaluate E0 through dense-only retrieval;
-3. evaluate E4 through hybrid retrieval with local cross-encoder reranking;
-4. report Recall@1/3/5, MRR, nDCG@5, and correct source/page retrieval;
-5. compare E0 vs E4 on the same answerable locked QA questions;
-6. then run the full 50-question page-cited QA benchmark.
+1. verify `build_summary.json` reports `rag-index-build-v1.1`, `sentence_transformers`, `faiss_index_flat_ip`, E0 max <=350, and E4 max <=450;
+2. freeze those index artifacts before opening locked retrieval scores;
+3. evaluate E0 through dense-only retrieval;
+4. evaluate E4 through hybrid retrieval with local cross-encoder reranking;
+5. report Recall@1/3/5, MRR, nDCG@5, and correct source/page retrieval;
+6. compare E0 vs E4 on the same answerable locked QA questions;
+7. then run the full 50-question page-cited QA benchmark.
+
+The retrieval evaluator also prints question-by-question progress and refuses to evaluate a build that is not `rag-index-build-v1.1`.
 
 ## Remaining boundaries
 
