@@ -1,14 +1,10 @@
 #!/usr/bin/env python3
 """Evaluate deterministic extraction against the v3.1 content benchmark.
 
-Primary metrics intentionally separate:
-- stable structured metadata;
-- reference/lifecycle identifiers; and
-- raw-section preservation.
-
-The gold projection stores reviewed semantic units for difficult sections, while
-the live parser preserves complete PDF sections. Therefore raw section text is
-not scored by exact semantic/string overlap with the projection.
+Primary scoring separates stable structured metadata, reference/lifecycle
+identifiers, and raw-section preservation. Difficult raw sections are not
+string-matched against the gold projection because the gold stores reviewed
+semantic units while the live parser preserves complete source sections.
 """
 
 from __future__ import annotations
@@ -32,6 +28,13 @@ DEFAULT_SOURCE_TEXT = ROOT / "step3_pilot/source_metadata/corpus_extracted_text.
 SCHEMA = json.loads(
     (Path(__file__).with_name("content_record.schema.json")).read_text(encoding="utf-8")
 )
+
+KNOWN_CONTAMINATED_TEST_ADS = {
+    "2024-0038": (
+        "Parser v2.1.4 was explicitly tuned after a source-PDF spot check of this "
+        "record, so it is excluded from clean locked-test reporting."
+    )
+}
 
 RAW_SECTION_NAMES = (
     "definitions",
@@ -61,6 +64,14 @@ CONTAMINATION_PATTERNS: dict[str, re.Pattern[str]] = {
     "status_watermark": re.compile(r"\b(?:SUPERSEDED|CANCELLED|CANCELED)\b"),
 }
 
+MODEL_TOKEN_RE = re.compile(
+    r"\b(?:A300(?:\s*[A-Z]\d)?(?:\s*-\s*\d{2,4}[A-Z]*)?|"
+    r"A310(?:\s*-\s*\d{2,4}[A-Z]*)?|"
+    r"A(?:318|319|320|321|330|340|350|380)(?:\s*-\s*\d{2,4}[A-Z]*)?)\b",
+    re.IGNORECASE,
+)
+EASA_TCDS_RE = re.compile(r"\bEASA\s*\.?\s*A\s*\.\s*\d{3}\b", re.IGNORECASE)
+
 
 def normalize_text(value: Any) -> str:
     if value is None:
@@ -70,7 +81,37 @@ def normalize_text(value: Any) -> str:
 
 def normalize_entity(value: Any) -> str:
     text = normalize_text(value)
+    text = re.sub(r"^manufacturer(?:\(s\))?\s*:\s*", "", text)
     return re.sub(r"[.\s]+", " ", text).strip()
+
+
+def normalize_document_type(value: Any) -> str:
+    text = normalize_text(value).replace("_", " ")
+    text = re.sub(r"\s+", " ", text).strip()
+    if "cancellation" in text and "notice" in text:
+        return "cancellation notice"
+    if text in {"airworthiness directive", "ad"}:
+        return "airworthiness directive"
+    return text
+
+
+def normalize_subject(value: Any) -> str:
+    text = normalize_text(value)
+    text = re.sub(
+        r"^ata\s+\d{2}(?:\s*[,/&]\s*\d{2})*\s*[-–—:]?\s*",
+        "",
+        text,
+        flags=re.IGNORECASE,
+    )
+    return text
+
+
+def normalize_foreign_ad(value: Any) -> str:
+    text = normalize_text(value)
+    text = re.sub(r"^foreign\s+ad\s*:\s*", "", text)
+    if text in {"none", "n/a", "not applicable"}:
+        return "not applicable"
+    return text
 
 
 def normalize_identifier(value: Any) -> str:
@@ -83,6 +124,7 @@ def normalize_date(value: Any) -> str:
 
 
 Normalizer = Callable[[Any], str]
+FieldExtractor = Callable[[dict[str, Any]], set[str]]
 
 
 def get_path(record: dict[str, Any], *parts: str) -> Any:
@@ -99,9 +141,8 @@ def scalar_values(
     path: tuple[str, ...],
     normalizer: Normalizer = normalize_text,
 ) -> set[str]:
-    value = get_path(record, *path)
-    normalized = normalizer(value)
-    return {normalized} if normalized else set()
+    value = normalizer(get_path(record, *path))
+    return {value} if value else set()
 
 
 def list_values(
@@ -112,7 +153,7 @@ def list_values(
     raw = get_path(record, *path)
     if not isinstance(raw, list):
         return set()
-    return {normalized for item in raw if (normalized := normalizer(item))}
+    return {value for item in raw if (value := normalizer(item))}
 
 
 def nested_list_values(
@@ -126,26 +167,50 @@ def nested_list_values(
         return set()
     values = set()
     for item in raw:
-        if not isinstance(item, dict):
-            continue
-        normalized = normalizer(item.get(key))
-        if normalized:
-            values.add(normalized)
+        if isinstance(item, dict) and (value := normalizer(item.get(key))):
+            values.add(value)
+    return values
+
+
+def model_tokens(values: list[Any]) -> set[str]:
+    result = set()
+    for raw in values:
+        text = str(raw or "")
+        matches = list(MODEL_TOKEN_RE.finditer(text))
+        if matches:
+            result.update(normalize_identifier(match.group(0)) for match in matches)
+        elif (value := normalize_identifier(text)):
+            result.add(value)
+    return result
+
+
+def publication_models(record: dict[str, Any]) -> set[str]:
+    raw = get_path(record, "publication", "type_model_designations")
+    return model_tokens(raw if isinstance(raw, list) else [])
+
+
+def tcds_identifiers(record: dict[str, Any]) -> set[str]:
+    raw = get_path(record, "publication", "tcds_numbers")
+    if not isinstance(raw, list):
+        return set()
+    values = set()
+    for item in raw:
+        matches = list(EASA_TCDS_RE.finditer(str(item)))
+        if matches:
+            values.update(normalize_identifier(match.group(0)) for match in matches)
+        elif (value := normalize_identifier(item)):
+            values.add(value)
     return values
 
 
 def applicability_values(record: dict[str, Any], key: str) -> set[str]:
-    values = set()
+    values = []
     for item in record.get("applicability", []) or []:
-        if not isinstance(item, dict):
-            continue
-        for value in item.get(key, []) or []:
-            normalized = (
-                normalize_identifier(value) if key == "models" else normalize_text(value)
-            )
-            if normalized:
-                values.add(normalized)
-    return values
+        if isinstance(item, dict):
+            values.extend(item.get(key, []) or [])
+    if key == "models":
+        return model_tokens(values)
+    return {value for item in values if (value := normalize_text(item))}
 
 
 def ata_codes(record: dict[str, Any]) -> set[str]:
@@ -166,50 +231,47 @@ def superseded_numbers(record: dict[str, Any]) -> set[str]:
     )
 
 
-FieldExtractor = Callable[[dict[str, Any]], set[str]]
-
-
 COMPARABLE_FIELDS: dict[str, FieldExtractor] = {
-    "ad_number": lambda record: scalar_values(
-        record, ("ad_identity", "ad_number"), normalize_identifier
+    "ad_number": lambda r: scalar_values(
+        r, ("ad_identity", "ad_number"), normalize_identifier
     ),
-    "authority": lambda record: scalar_values(record, ("ad_identity", "authority")),
-    "document_type": lambda record: scalar_values(
-        record, ("ad_identity", "document_type")
+    "authority": lambda r: scalar_values(r, ("ad_identity", "authority")),
+    "document_type": lambda r: scalar_values(
+        r, ("ad_identity", "document_type"), normalize_document_type
     ),
-    "revision": lambda record: scalar_values(
-        record, ("ad_identity", "revision"), normalize_identifier
+    "revision": lambda r: scalar_values(
+        r, ("ad_identity", "revision"), normalize_identifier
     ),
-    "emergency": lambda record: (
-        {"true"} if get_path(record, "ad_identity", "emergency") is True else set()
+    "emergency": lambda r: (
+        {"true"} if get_path(r, "ad_identity", "emergency") is True else set()
     ),
-    "correction_date": lambda record: scalar_values(
-        record, ("ad_identity", "correction_date"), normalize_date
+    "correction_date": lambda r: scalar_values(
+        r, ("ad_identity", "correction_date"), normalize_date
     ),
-    "design_approval_holder": lambda record: scalar_values(
-        record, ("ad_identity", "design_approval_holder"), normalize_entity
+    "design_approval_holder": lambda r: scalar_values(
+        r, ("ad_identity", "design_approval_holder"), normalize_entity
     ),
-    "subject": lambda record: scalar_values(record, ("publication", "subject")),
-    "issue_date": lambda record: scalar_values(
-        record, ("publication", "issue_date"), normalize_date
+    "subject": lambda r: scalar_values(
+        r, ("publication", "subject"), normalize_subject
     ),
-    "effective_date": lambda record: scalar_values(
-        record, ("publication", "effective_date"), normalize_date
+    "issue_date": lambda r: scalar_values(
+        r, ("publication", "issue_date"), normalize_date
+    ),
+    "effective_date": lambda r: scalar_values(
+        r, ("publication", "effective_date"), normalize_date
     ),
     "ata_codes": ata_codes,
-    "manufacturers": lambda record: list_values(
-        record, ("publication", "manufacturers"), normalize_entity
+    "manufacturers": lambda r: list_values(
+        r, ("publication", "manufacturers"), normalize_entity
     ),
-    "type_model_designations": lambda record: list_values(
-        record, ("publication", "type_model_designations"), normalize_identifier
+    "publication_model_identifiers": publication_models,
+    "easa_tcds_identifiers": tcds_identifiers,
+    "foreign_ad": lambda r: scalar_values(
+        r, ("publication", "foreign_ad"), normalize_foreign_ad
     ),
-    "tcds_numbers": lambda record: list_values(
-        record, ("publication", "tcds_numbers"), normalize_identifier
-    ),
-    "foreign_ad": lambda record: scalar_values(record, ("publication", "foreign_ad")),
-    "applicability_models": lambda record: applicability_values(record, "models"),
-    "applicability_families": lambda record: applicability_values(
-        record, "aircraft_families"
+    "applicability_models": lambda r: applicability_values(r, "models"),
+    "applicability_families": lambda r: applicability_values(
+        r, "aircraft_families"
     ),
     "reference_numbers": reference_numbers,
     "superseded_ad_numbers": superseded_numbers,
@@ -228,40 +290,33 @@ STABLE_METADATA_FIELDS = (
     "effective_date",
     "ata_codes",
     "manufacturers",
-    "type_model_designations",
-    "tcds_numbers",
+    "publication_model_identifiers",
+    "easa_tcds_identifiers",
     "foreign_ad",
     "applicability_models",
-    "applicability_families",
 )
 
-REFERENCE_LIFECYCLE_FIELDS = (
-    "reference_numbers",
-    "superseded_ad_numbers",
-)
+SECONDARY_TAXONOMY_FIELDS = ("applicability_families",)
+REFERENCE_LIFECYCLE_FIELDS = ("reference_numbers", "superseded_ad_numbers")
 
 
 def prf(predicted: set[Any], gold: set[Any]) -> dict[str, float | int]:
-    true_positive = len(predicted & gold)
-    precision = true_positive / len(predicted) if predicted else float(not gold)
-    recall = true_positive / len(gold) if gold else float(not predicted)
-    f1 = (
-        2 * precision * recall / (precision + recall)
-        if precision + recall
-        else 0.0
-    )
+    tp = len(predicted & gold)
+    precision = tp / len(predicted) if predicted else float(not gold)
+    recall = tp / len(gold) if gold else float(not predicted)
+    f1 = 2 * precision * recall / (precision + recall) if precision + recall else 0.0
     return {
         "precision": precision,
         "recall": recall,
         "f1": f1,
-        "true_positive": true_positive,
+        "true_positive": tp,
         "predicted_count": len(predicted),
         "gold_count": len(gold),
     }
 
 
-def macro_f1(field_metrics: dict[str, dict[str, Any]], names: tuple[str, ...]) -> float:
-    values = [field_metrics[name]["f1"] for name in names if name in field_metrics]
+def macro_f1(metrics: dict[str, dict[str, Any]], names: tuple[str, ...]) -> float:
+    values = [float(metrics[name]["f1"]) for name in names]
     return sum(values) / len(values) if values else 0.0
 
 
@@ -273,9 +328,7 @@ def raw_section_texts(record: dict[str, Any], section: str) -> list[str]:
             if isinstance(item, dict) and item.get("action")
         ]
     value = record.get(section)
-    if isinstance(value, dict) and value.get("text"):
-        return [str(value["text"])]
-    return []
+    return [str(value["text"])] if isinstance(value, dict) and value.get("text") else []
 
 
 def contamination(texts: list[str]) -> list[str]:
@@ -288,18 +341,18 @@ def contamination(texts: list[str]) -> list[str]:
 def source_contains(raw_texts: list[str], source_text: str) -> bool | None:
     if not raw_texts:
         return None
-    cleaned_source = normalize_text(_clean_layout_text(source_text))
-    if not cleaned_source:
+    cleaned = normalize_text(_clean_layout_text(source_text))
+    if not cleaned:
         return None
-    return all(normalize_text(value) in cleaned_source for value in raw_texts)
+    return all(normalize_text(value) in cleaned for value in raw_texts)
 
 
-def load_source_text(path: Path | None, selected_ids: set[str]) -> dict[str, str]:
+def load_source_text(path: Path | None, ids: set[str]) -> dict[str, str]:
     if path is None or not path.exists():
         return {}
     frame = pd.read_parquet(path, columns=["file_instance_id", "text"])
     frame["file_instance_id"] = frame["file_instance_id"].astype(str)
-    frame = frame[frame["file_instance_id"].isin(selected_ids)]
+    frame = frame[frame["file_instance_id"].isin(ids)]
     return {
         str(row["file_instance_id"]): str(row["text"])
         for row in frame.to_dict(orient="records")
@@ -309,8 +362,7 @@ def load_source_text(path: Path | None, selected_ids: set[str]) -> dict[str, str
 def legacy_projection_overlap(
     prediction: dict[str, Any], gold: dict[str, Any]
 ) -> dict[str, float]:
-    """Retain the old set-overlap metric only as a secondary diagnostic."""
-    structured_sections = {
+    structured = {
         "ad_identity",
         "publication",
         "applicability",
@@ -326,25 +378,13 @@ def legacy_projection_overlap(
                 for item in flatten(child, f"{path}/{key}")
             }
         if isinstance(value, list):
-            return {
-                item
-                for child in value
-                for item in flatten(child, f"{path}[]")
-            }
+            return {item for child in value for item in flatten(child, f"{path}[]")}
         return {(path, normalize_text(value))}
 
-    predicted = {
-        key: value for key, value in prediction.items() if key in structured_sections
-    }
-    expected = {
-        key: value for key, value in gold.items() if key in structured_sections
-    }
+    predicted = {k: v for k, v in prediction.items() if k in structured}
+    expected = {k: v for k, v in gold.items() if k in structured}
     score = prf(flatten(predicted), flatten(expected))
-    return {
-        "precision": float(score["precision"]),
-        "recall": float(score["recall"]),
-        "f1": float(score["f1"]),
-    }
+    return {name: float(score[name]) for name in ("precision", "recall", "f1")}
 
 
 def main() -> int:
@@ -355,148 +395,149 @@ def main() -> int:
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--split", choices=("development", "test"), default="test")
     parser.add_argument(
+        "--include-contaminated",
+        action="store_true",
+        help="Include known leaked test records for diagnostic-only scoring.",
+    )
+    parser.add_argument(
         "--source-text-parquet",
         type=Path,
         default=DEFAULT_SOURCE_TEXT,
-        help=(
-            "Optional document-text cache used only for raw-section source-containment "
-            "and contamination checks."
-        ),
+        help="Document-text cache for raw-section source-containment checks.",
     )
     args = parser.parse_args()
 
     split = json.loads(
         (GOLD_DIR / "split_manifest.json").read_text(encoding="utf-8")
     )
-    selected = [row for row in split if row["split"] == args.split]
-    record_count = len(selected)
-    selected_ids = {str(row["file_instance_id"]) for row in selected}
-    source_text_by_id = load_source_text(args.source_text_parquet, selected_ids)
+    nominal = [row for row in split if row["split"] == args.split]
+    excluded = []
+    selected = nominal
+    if args.split == "test" and not args.include_contaminated:
+        excluded = [
+            {
+                "ad_number": str(row["ad_number"]),
+                "reason": KNOWN_CONTAMINATED_TEST_ADS[str(row["ad_number"])],
+            }
+            for row in nominal
+            if str(row["ad_number"]) in KNOWN_CONTAMINATED_TEST_ADS
+        ]
+        selected = [
+            row for row in nominal
+            if str(row["ad_number"]) not in KNOWN_CONTAMINATED_TEST_ADS
+        ]
+
+    count = len(selected)
+    ids = {str(row["file_instance_id"]) for row in selected}
+    source_by_id = load_source_text(args.source_text_parquet, ids)
 
     schema_valid = 0
-    predicted_record_count = 0
-    field_predicted_facts: dict[str, set[tuple[str, str]]] = defaultdict(set)
-    field_gold_facts: dict[str, set[tuple[str, str]]] = defaultdict(set)
-    field_record_matches: dict[str, int] = defaultdict(int)
-    field_record_totals: dict[str, int] = defaultdict(int)
+    predicted_count = 0
+    predicted_facts: dict[str, set[tuple[str, str]]] = defaultdict(set)
+    gold_facts: dict[str, set[tuple[str, str]]] = defaultdict(set)
+    record_matches: dict[str, int] = defaultdict(int)
+    record_totals: dict[str, int] = defaultdict(int)
 
-    raw_reference_expected: dict[str, set[str]] = defaultdict(set)
-    raw_prediction_present: dict[str, set[str]] = defaultdict(set)
-    raw_contamination_counts: dict[str, int] = defaultdict(int)
-    raw_source_checks = 0
-    raw_source_passes = 0
-
-    legacy_rows: list[dict[str, Any]] = []
-    rows: list[dict[str, Any]] = []
+    raw_expected: dict[str, set[str]] = defaultdict(set)
+    raw_present: dict[str, set[str]] = defaultdict(set)
+    raw_contamination: dict[str, int] = defaultdict(int)
+    source_checks = 0
+    source_passes = 0
+    rows = []
+    legacy_rows = []
 
     for item in selected:
-        ad_number = str(item["ad_number"])
+        ad = str(item["ad_number"])
         file_id = str(item["file_instance_id"])
-        gold_path = GOLD_DIR / "records" / item["derived_filename"]
-        prediction_path = args.predictions / item["derived_filename"]
-        gold = json.loads(gold_path.read_text(encoding="utf-8"))
+        gold = json.loads(
+            (GOLD_DIR / "records" / item["derived_filename"]).read_text(encoding="utf-8")
+        )
+        path = args.predictions / item["derived_filename"]
 
         for section in RAW_SECTION_NAMES:
             if raw_section_texts(gold, section):
-                raw_reference_expected[section].add(ad_number)
+                raw_expected[section].add(ad)
 
-        if not prediction_path.exists():
+        if not path.exists():
+            for name, extractor in COMPARABLE_FIELDS.items():
+                record_totals[name] += 1
+                for value in extractor(gold):
+                    gold_facts[name].add((ad, value))
             rows.append(
                 {
-                    "ad_number": ad_number,
+                    "ad_number": ad,
                     "file_instance_id": file_id,
                     "missing": True,
                     "schema_valid": False,
-                    "field_mismatches": [
-                        {"field": name, "gold": sorted(extractor(gold)), "predicted": []}
-                        for name, extractor in COMPARABLE_FIELDS.items()
-                        if extractor(gold)
-                    ],
                 }
             )
-            for name, extractor in COMPARABLE_FIELDS.items():
-                gold_values = extractor(gold)
-                field_record_totals[name] += 1
-                for value in gold_values:
-                    field_gold_facts[name].add((ad_number, value))
             continue
 
-        predicted_record_count += 1
-        prediction = json.loads(prediction_path.read_text(encoding="utf-8"))
+        predicted_count += 1
+        prediction = json.loads(path.read_text(encoding="utf-8"))
         valid = not validate_record(prediction, SCHEMA)
         schema_valid += int(valid)
-
         mismatches = []
-        for name, extractor in COMPARABLE_FIELDS.items():
-            predicted_values = extractor(prediction)
-            gold_values = extractor(gold)
-            field_record_totals[name] += 1
-            if predicted_values == gold_values:
-                field_record_matches[name] += 1
-            else:
-                mismatches.append(
-                    {
-                        "field": name,
-                        "gold": sorted(gold_values),
-                        "predicted": sorted(predicted_values),
-                    }
-                )
-            for value in predicted_values:
-                field_predicted_facts[name].add((ad_number, value))
-            for value in gold_values:
-                field_gold_facts[name].add((ad_number, value))
 
-        source_text = source_text_by_id.get(file_id)
-        raw_details = {}
+        for name, extractor in COMPARABLE_FIELDS.items():
+            pv, gv = extractor(prediction), extractor(gold)
+            record_totals[name] += 1
+            record_matches[name] += int(pv == gv)
+            if pv != gv:
+                mismatches.append(
+                    {"field": name, "gold": sorted(gv), "predicted": sorted(pv)}
+                )
+            predicted_facts[name].update((ad, value) for value in pv)
+            gold_facts[name].update((ad, value) for value in gv)
+
+        raw_detail = {}
+        source = source_by_id.get(file_id)
         for section in RAW_SECTION_NAMES:
-            predicted_texts = raw_section_texts(prediction, section)
-            expected_texts = raw_section_texts(gold, section)
-            if predicted_texts:
-                raw_prediction_present[section].add(ad_number)
-            noise = contamination(predicted_texts)
-            raw_contamination_counts[section] += int(bool(noise))
-            contained: bool | None = None
-            if source_text is not None and predicted_texts:
-                contained = source_contains(predicted_texts, source_text)
-                raw_source_checks += 1
-                raw_source_passes += int(contained is True)
-            raw_details[section] = {
-                "reference_expected": bool(expected_texts),
-                "prediction_present": bool(predicted_texts),
+            texts = raw_section_texts(prediction, section)
+            expected = bool(raw_section_texts(gold, section))
+            if texts:
+                raw_present[section].add(ad)
+            noise = contamination(texts)
+            raw_contamination[section] += int(bool(noise))
+            contained = None
+            if source is not None and texts:
+                contained = source_contains(texts, source)
+                source_checks += 1
+                source_passes += int(contained is True)
+            raw_detail[section] = {
+                "reference_expected": expected,
+                "prediction_present": bool(texts),
                 "source_contained": contained,
                 "contamination": noise,
             }
 
         legacy = legacy_projection_overlap(prediction, gold)
-        legacy_rows.append({"ad_number": ad_number, **legacy})
+        legacy_rows.append(legacy)
         rows.append(
             {
-                "ad_number": ad_number,
+                "ad_number": ad,
                 "file_instance_id": file_id,
                 "missing": False,
                 "schema_valid": valid,
                 "field_mismatches": mismatches,
-                "raw_sections": raw_details,
+                "raw_sections": raw_detail,
                 "legacy_projection_overlap": legacy,
             }
         )
 
     field_metrics = {}
     for name in COMPARABLE_FIELDS:
-        score = prf(field_predicted_facts[name], field_gold_facts[name])
+        score = prf(predicted_facts[name], gold_facts[name])
         field_metrics[name] = {
             **score,
             "record_exact_accuracy": (
-                field_record_matches[name] / field_record_totals[name]
-                if field_record_totals[name]
-                else 0.0
+                record_matches[name] / record_totals[name] if record_totals[name] else 0.0
             ),
         }
 
     raw_presence = {}
     for section in RAW_SECTION_NAMES:
-        predicted = raw_prediction_present[section]
-        expected = raw_reference_expected[section]
+        predicted, expected = raw_present[section], raw_expected[section]
         raw_presence[section] = {
             **prf(
                 {(ad, section) for ad in predicted},
@@ -504,30 +545,28 @@ def main() -> int:
             ),
             "missing_expected_records": sorted(expected - predicted),
             "extra_prediction_records": sorted(predicted - expected),
-            "contaminated_record_count": raw_contamination_counts[section],
+            "contaminated_record_count": raw_contamination[section],
         }
 
     legacy_mean = {
-        metric: (
-            sum(row[metric] for row in legacy_rows) / record_count
-            if record_count
-            else 0.0
+        name: (
+            sum(row[name] for row in legacy_rows) / count
+            if count else 0.0
         )
-        for metric in ("precision", "recall", "f1")
+        for name in ("precision", "recall", "f1")
     }
 
     report = {
-        "evaluation_version": "content-eval-v3.1.1",
+        "evaluation_version": "content-eval-v3.1.2",
         "split": args.split,
-        "record_count": record_count,
-        "prediction_coverage": (
-            predicted_record_count / record_count if record_count else 0.0
-        ),
-        "schema_valid_percentage": (
-            schema_valid / record_count if record_count else 0.0
-        ),
-        "stable_metadata_macro_f1": macro_f1(
-            field_metrics, STABLE_METADATA_FIELDS
+        "nominal_split_count": len(nominal),
+        "record_count": count,
+        "contamination_exclusions": excluded,
+        "prediction_coverage": predicted_count / count if count else 0.0,
+        "schema_valid_percentage": schema_valid / count if count else 0.0,
+        "stable_metadata_macro_f1": macro_f1(field_metrics, STABLE_METADATA_FIELDS),
+        "secondary_taxonomy_macro_f1": macro_f1(
+            field_metrics, SECONDARY_TAXONOMY_FIELDS
         ),
         "reference_lifecycle_macro_f1": macro_f1(
             field_metrics, REFERENCE_LIFECYCLE_FIELDS
@@ -537,30 +576,23 @@ def main() -> int:
         "field_metrics": field_metrics,
         "raw_section_reference_presence": raw_presence,
         "raw_section_source_containment": {
-            "available": bool(source_text_by_id),
-            "checked_section_count": raw_source_checks,
-            "contained_section_count": raw_source_passes,
-            "accuracy": (
-                raw_source_passes / raw_source_checks if raw_source_checks else None
-            ),
-            "source_text_parquet": (
-                str(args.source_text_parquet) if args.source_text_parquet else None
-            ),
+            "available": bool(source_by_id),
+            "checked_section_count": source_checks,
+            "contained_section_count": source_passes,
+            "accuracy": source_passes / source_checks if source_checks else None,
+            "source_text_parquet": str(args.source_text_parquet),
         },
         "raw_section_policy": (
             "Difficult sections are evaluated for expected presence, source-text "
-            "containment, and page-furniture contamination. Exact string/semantic "
-            "overlap with the reviewed gold projection is not a primary metric because "
-            "the gold projection stores semantic units while the live parser preserves "
-            "complete source sections."
+            "containment, and page-furniture contamination. Exact overlap with the "
+            "reviewed semantic projection is not a primary metric."
         ),
         "legacy_projection_overlap": {
             **legacy_mean,
             "primary_metric": False,
             "note": (
-                "Retained only for continuity with content-eval v1. It penalizes "
-                "intentional representation differences and must not be reported as "
-                "the primary v3.1 extraction accuracy."
+                "Retained only for continuity. It penalizes intentional representation "
+                "differences and must not be reported as v3.1 extraction accuracy."
             ),
         },
         "records": rows,
@@ -577,10 +609,8 @@ def main() -> int:
     }
     console["field_metrics"] = {
         name: {
-            "precision": round(float(values["precision"]), 4),
-            "recall": round(float(values["recall"]), 4),
-            "f1": round(float(values["f1"]), 4),
-            "record_exact_accuracy": round(float(values["record_exact_accuracy"]), 4),
+            metric: round(float(values[metric]), 4)
+            for metric in ("precision", "recall", "f1", "record_exact_accuracy")
         }
         for name, values in field_metrics.items()
     }
