@@ -2,7 +2,7 @@
 
 Current methodology: **v3.1**.
 
-This project processes a frozen snapshot of **1,809 Airbus S.A.S. EASA Airworthiness Directive PDFs**. Five PDFs are held out during development, so the development corpus contains **1,804 records**.
+This project processes a frozen snapshot of **1,809 Airbus-related EASA Airworthiness Directive PDFs**. Five PDFs are held out during development, so the full development extraction contains **1,804 records**. Primary evaluation additionally enforces the stated Airbus S.A.S. Design/Type Approval Holder scope from reviewed gold metadata.
 
 The system has two layers:
 
@@ -34,6 +34,8 @@ Reliable fields are structured locally. Difficult sections are preserved as sour
 │   ├── content_record.schema.json
 │   ├── local_extractor.py
 │   ├── extract_corpus.py
+│   ├── evaluate_extraction.py
+│   ├── audit_development_reference.py
 │   ├── retrieval.py
 │   ├── qa.py
 │   ├── permanent_ingest.py
@@ -52,14 +54,16 @@ Reliable fields are structured locally. Difficult sections are preserved as sour
 
 - Content schema: `2.1.0`
 - Local parser: `v2.1.4`
-- Previous generated corpus: `data_processed/canonical_content_v2.1.3/` — **stale after the v2.1.4 boundary fix; regenerate before promotion**
-- Next generated corpus target: `data_processed/canonical_content_v2.1.4/`
+- Extraction evaluator: `content-eval-v3.1.4`
+- Previous generated corpus: `data_processed/canonical_content_v2.1.3/` — stale after the v2.1.4 boundary fix
+- Corrected run: `data_processed/runs/local-content-development-1804-v2.1.4/`
+- Canonical target after validation: `data_processed/canonical_content_v2.1.4/`
 - Content evaluation set: `easa_airbus_ad_content_gold_50_v2`
-- Split: 30 development / 20 locked test
+- Nominal split: 30 development / 20 test, with scope/leakage exclusions reported separately by the evaluator
 - QA benchmark: `easa_airbus_ad_qa_50_v2`, 50 questions
 - Unseen ingestion set: 5 PDFs
 
-Parser v2.1.4 fixes material spot-check defects found in v2.1.3: printed issue dates now take precedence over stale manifest dates, `Foreign AD` stops before revision metadata, repeated EASA page furniture/status watermarks are removed before section segmentation, ordinary prose beginning with words such as `compliance` no longer terminates a section, and Remark contact lines are retained.
+Parser v2.1.4 fixes material spot-check defects found in v2.1.3: printed issue dates take precedence over stale manifest dates, `Foreign AD` stops before revision metadata, repeated EASA page furniture/status watermarks are removed before section segmentation, ordinary prose beginning with words such as `compliance` no longer terminates a section, cross-page sections are preserved, and Remark contact lines are retained.
 
 ## Run tests
 
@@ -74,7 +78,55 @@ Parser v2.1.4 fixes material spot-check defects found in v2.1.3: printed issue d
   --run-id local-content-development-1804-v2.1.4
 ```
 
-Do not overwrite or relabel the v2.1.3 output. Generate a new run, evaluate it, then promote it as `canonical_content_v2.1.4/` only after validation.
+Do not overwrite or relabel the v2.1.3 output.
+
+## Audit the development references
+
+```bash
+.venv/bin/python -m full_corpus_pipeline.audit_development_reference \
+  --output data_processed/runs/local-content-development-1804-v2.1.4/development_reference_audit.json
+```
+
+The nominal development set contains 30 frozen references. The audit checks approval/provenance, deterministic projection, evidence integrity, source-text containment, and holder-scope eligibility. AD `2026-0079` is a known Lufthansa Technik Design Change Approval Holder case and is excluded from primary Airbus S.A.S. development scoring while remaining in the immutable release.
+
+## Run development extraction evaluation
+
+```bash
+.venv/bin/python -m full_corpus_pipeline.evaluate_extraction \
+  data_processed/runs/local-content-development-1804-v2.1.4/records \
+  --output data_processed/runs/local-content-development-1804-v2.1.4/evaluation_development_v3.1.4.json \
+  --split development
+```
+
+Primary metrics now separate stable metadata, secondary family taxonomy, reference/lifecycle identifiers, and raw-section integrity. The old projection-overlap score remains diagnostic only.
+
+Do not use the test split to tune the parser.
+
+## Final clean extraction evaluation
+
+After development rules are frozen:
+
+```bash
+.venv/bin/python -m full_corpus_pipeline.evaluate_extraction \
+  data_processed/runs/local-content-development-1804-v2.1.4/records \
+  --output data_processed/runs/local-content-development-1804-v2.1.4/evaluation_test_clean_v3.1.4.json \
+  --split test
+```
+
+The evaluator derives out-of-scope holder exclusions from reviewed gold metadata and separately excludes known test leakage. Two test exclusions are already known: AD `2021-0286` is Airbus Defence and Space rather than Airbus S.A.S., and AD `2024-0038` was used during parser-v2.1.4 diagnosis. Use the generated report's `record_count` for the final clean sample size.
+
+## Promote the corrected corpus
+
+Only after the revised audit, development evaluation, clean test evaluation, and source-PDF spot checks are satisfactory:
+
+```bash
+.venv/bin/python -m full_corpus_pipeline.promote_extraction_run \
+  data_processed/runs/local-content-development-1804-v2.1.4 \
+  data_processed/canonical_content_v2.1.4 \
+  --expected-count 1804
+```
+
+The canonical corpus still contains all 1,804 successfully extracted development PDFs; benchmark eligibility affects evaluation scoring, not deletion of generated source records.
 
 ## Build RAG index
 
@@ -88,4 +140,4 @@ Do not overwrite or relabel the v2.1.3 output. Generate a new run, evaluate it, 
 
 ## Current next step
 
-Regenerate the 1,804 development content records with parser v2.1.4, re-run representative PDF spot checks and the locked extraction evaluation, then promote the corrected corpus. After that, build page-preserving text for the 1,804 development PDFs, construct E0 and E4 retrieval indexes, and run locked retrieval/QA evaluation before ingesting the five unseen PDFs.
+Run the development-reference audit and evaluator v3.1.4 on the regenerated v2.1.4 run. Inspect genuine per-field mismatches and raw-section integrity, freeze extraction behavior, then run the clean test once and promote the corrected corpus. After that, generate page-preserving text, build E0/E4 retrieval indexes, and run retrieval/QA evaluation before ingesting the five unseen PDFs.
