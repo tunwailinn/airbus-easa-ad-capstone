@@ -4,6 +4,7 @@ import unittest
 
 from full_corpus_pipeline.evaluate_extraction import (
     COMPARABLE_FIELDS,
+    benchmark_scope_status,
     legacy_projection_overlap,
     source_contains,
 )
@@ -90,6 +91,24 @@ class EvaluateExtractionTests(unittest.TestCase):
             COMPARABLE_FIELDS["publication_model_identifiers"](gold),
             COMPARABLE_FIELDS["publication_model_identifiers"](prediction),
         )
+
+    def test_scope_filter_accepts_legacy_airbus_and_rejects_other_holders(self) -> None:
+        for holder in (
+            "Airbus",
+            "Airbus S.A.S.",
+            "AIRBUS INDUSTRIE",
+            "Airbus (formerly Airbus Industrie)",
+        ):
+            status, _ = benchmark_scope_status(
+                {"ad_identity": {"design_approval_holder": holder}}
+            )
+            self.assertEqual("eligible", status, msg=holder)
+
+        for holder in ("LUFTHANSA TECHNIK AG", "Airbus Defence and Space S.A."):
+            status, _ = benchmark_scope_status(
+                {"ad_identity": {"design_approval_holder": holder}}
+            )
+            self.assertEqual("excluded", status, msg=holder)
 
     def test_source_containment_removes_page_furniture(self) -> None:
         source = """
