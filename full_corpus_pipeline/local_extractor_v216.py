@@ -27,39 +27,27 @@ _COMMON_MODEL_LABEL = r"Type/Model\s+designation(?:\(s\))?"
 def _normalize_header_layout(text: str) -> str:
     """Normalize equivalent printed header spellings without rewriting AD prose."""
     value = text.replace("\r\n", "\n").replace("\r", "\n")
-
-    # Several 2019/2020 PDFs extract the DAH label with a doubled colon.
     value = re.sub(
         r"(?i)((?:Design|Design\s+Change|Design\s+Organisation)\s+Approval\s+Holder(?:[’']s)?\s+Name)\s*::+",
         r"\1:",
         value,
     )
-
-    # Legacy Form 110 wording used Type Approval Holder, Modification Approval
-    # Holder, and occasionally a plural multi-holder heading. Normalize only the
-    # field label; the printed holder value is kept unchanged apart from harmless
-    # whitespace compaction later.
     value = re.sub(
         r"(?i)\b(?:Type|Modification)\s+Approval\s+Holder(?:s)?(?:[’']s)?\s+(?:Name|names)\s*:+",
         "Design Approval Holder’s Name:",
         value,
     )
-
-    # Older forms use the plural word rather than the modern designation(s).
     value = re.sub(
         r"(?i)\bType/Model\s+designations?\s*:+",
         "Type/Model designation(s):",
         value,
     )
-
-    # Some legacy forms print `Manufacturers:` rather than the later
-    # `Manufacturer(s):` label. Normalize the label so v2.1.5 boundaries apply.
     value = re.sub(r"(?im)^\s*Manufacturers\s*:", "Manufacturer(s):", value)
     return value
 
 
 def _header_holder(text: str) -> str | None:
-    """Read the normalized approval-holder field across sequential/two-column layouts."""
+    """Read the normalized approval-holder field across legacy/modern layouts."""
     cleaned = _v215._clean_layout_text(text)
     lines = cleaned[:16000].splitlines()
     holder_re = re.compile(rf"{_COMMON_HOLDER_LABEL}\s*:", re.IGNORECASE)
@@ -75,11 +63,10 @@ def _header_holder(text: str) -> str | None:
         if not match:
             continue
 
-        # If both field labels share one line, a value may still appear between
-        # them or on the following extracted line(s).
         same_model = model_re.search(line, match.end())
         inline = line[match.end() : same_model.start() if same_model else len(line)].strip(" :")
         parts: list[str] = [inline] if inline else []
+        model_label_precedes_holder = bool(index > 0 and model_re.search(lines[index - 1]))
 
         for candidate in lines[index + 1 : index + 10]:
             candidate = candidate.strip()
@@ -94,14 +81,35 @@ def _header_holder(text: str) -> str | None:
             if stop_re.match(candidate):
                 break
 
-            # Collapsed two-column data can look like `AIRBUS SAS A300-600 ...`.
-            # Keep only the holder prefix before the first aircraft model token.
+            # Normal two-column extraction preserves a wide whitespace gap:
+            # `AIRBUS S.A.S.        Airbus aeroplanes (see Applicability)`.
+            columns = re.split(r"\s{2,}", candidate, maxsplit=1)
+            if len(columns) == 2 and columns[0].strip():
+                parts.append(columns[0].strip())
+                break
+
             model_token = _v215.MODEL_PATTERN.search(candidate)
             if model_token:
                 prefix = candidate[: model_token.start()].strip(" :")
                 if prefix:
                     parts.append(prefix)
+                    break
+                # A few 2013 two-column PDFs extract the model label/value first,
+                # then the holder value on the next line. Skip the model row and
+                # continue until that holder cell is reached.
+                if model_label_precedes_holder:
+                    continue
                 break
+
+            if model_label_precedes_holder:
+                if candidate.casefold() in {"aeroplane", "aeroplanes", "aircraft"}:
+                    continue
+                parts.append(candidate)
+                break
+
+            # Sequential multi-holder forms intentionally keep all organization
+            # lines until the Type/Model label so scope policy can classify them
+            # as mixed rather than silently choosing Airbus.
             parts.append(candidate)
 
         value = _v215.compact(" ".join(parts))
@@ -118,9 +126,9 @@ def _flexible_a300_models(text: str | None) -> list[str]:
         re.compile(r"\bA300\s*-?\s*([BCF]\d)\s*-?\s*(\d{3}[A-Z]*)\b", re.IGNORECASE),
         re.compile(r"\bA300\s*-\s*(600ST)\b", re.IGNORECASE),
     )
-    for pattern in patterns:
+    for pattern_index, pattern in enumerate(patterns):
         for match in pattern.finditer(text):
-            if pattern is patterns[0]:
+            if pattern_index == 0:
                 value = f"A300{match.group(1).upper()}-{match.group(2).upper()}"
             else:
                 value = f"A300-{match.group(1).upper()}"
@@ -164,8 +172,7 @@ def _header_subject_and_ata(text: str) -> tuple[str | None, list[dict[str, str]]
         if not parts:
             parts.append(body)
         else:
-            printed_codes = ", ".join(codes)
-            parts.append(f"ATA {printed_codes} – {body}")
+            parts.append(f"ATA {', '.join(codes)} – {body}")
         for code in codes:
             chapters.append({"code": code, "title": body})
 
