@@ -2,7 +2,7 @@
 
 Current methodology: **v3.1**.
 
-This project processes a frozen snapshot of **1,809 Airbus-related EASA Airworthiness Directive PDFs**. Five PDFs are held out during development, so the full development extraction contains **1,804 records**. Primary evaluation additionally enforces the stated Airbus S.A.S. Design/Type Approval Holder scope from reviewed gold metadata.
+This project processes a frozen snapshot of **1,809 Airbus-related EASA Airworthiness Directive PDFs**. Five PDFs are held out during development, so the nominal development extraction contains **1,804 records**. Primary evaluation additionally enforces the stated Airbus S.A.S. Design/Type Approval Holder scope from reviewed gold metadata.
 
 The system has two layers:
 
@@ -36,6 +36,7 @@ Reliable fields are structured locally. Difficult sections are preserved as sour
 │   ├── extract_corpus.py
 │   ├── evaluate_extraction.py
 │   ├── audit_development_reference.py
+│   ├── audit_corpus_scope.py
 │   ├── retrieval.py
 │   ├── qa.py
 │   ├── permanent_ingest.py
@@ -71,15 +72,6 @@ Parser v2.1.4 fixes material spot-check defects found in v2.1.3: printed issue d
 .venv/bin/python -m unittest discover -s full_corpus_pipeline/tests -v
 ```
 
-## Run local extraction
-
-```bash
-.venv/bin/python -m full_corpus_pipeline.extract_corpus \
-  --run-id local-content-development-1804-v2.1.4
-```
-
-Do not overwrite or relabel the v2.1.3 output.
-
 ## Audit the development references
 
 ```bash
@@ -88,6 +80,18 @@ Do not overwrite or relabel the v2.1.3 output.
 ```
 
 The nominal development set contains 30 frozen references. The audit checks approval/provenance, deterministic projection, evidence integrity, source-text containment, and holder-scope eligibility. AD `2026-0079` is a known Lufthansa Technik Design Change Approval Holder case and is excluded from primary Airbus S.A.S. development scoring while remaining in the immutable release.
+
+## Audit the full development extraction scope
+
+Before canonical promotion, scan all 1,804 generated records:
+
+```bash
+.venv/bin/python -m full_corpus_pipeline.audit_corpus_scope \
+  data_processed/runs/local-content-development-1804-v2.1.4/records \
+  --output data_processed/runs/local-content-development-1804-v2.1.4/corpus_scope_audit.json
+```
+
+This reports the number of holder-scope-eligible, excluded, and unknown records plus the holder distribution. If any excluded or unknown records exist, resolve the corpus-governance policy before promoting a canonical corpus. Do not silently delete records or broaden the research scope.
 
 ## Run development extraction evaluation
 
@@ -104,7 +108,7 @@ Do not use the test split to tune the parser.
 
 ## Final clean extraction evaluation
 
-After development rules are frozen:
+After development rules and corpus scope are frozen:
 
 ```bash
 .venv/bin/python -m full_corpus_pipeline.evaluate_extraction \
@@ -117,7 +121,7 @@ The evaluator derives out-of-scope holder exclusions from reviewed gold metadata
 
 ## Promote the corrected corpus
 
-Only after the revised audit, development evaluation, clean test evaluation, and source-PDF spot checks are satisfactory:
+Only after the revised audits, development evaluation, clean test evaluation, source-PDF spot checks, and corpus-scope decision are satisfactory:
 
 ```bash
 .venv/bin/python -m full_corpus_pipeline.promote_extraction_run \
@@ -126,7 +130,7 @@ Only after the revised audit, development evaluation, clean test evaluation, and
   --expected-count 1804
 ```
 
-The canonical corpus still contains all 1,804 successfully extracted development PDFs; benchmark eligibility affects evaluation scoring, not deletion of generated source records.
+That command still promotes all 1,804 successfully extracted physical development PDFs. If the strict Airbus S.A.S. research scope requires an operational subset rather than all 1,804 generated records, record that decision explicitly in a sidecar/filter or revise the canonical-corpus policy before promotion; do not silently change the expected count.
 
 ## Build RAG index
 
@@ -140,4 +144,4 @@ The canonical corpus still contains all 1,804 successfully extracted development
 
 ## Current next step
 
-Run the development-reference audit and evaluator v3.1.4 on the regenerated v2.1.4 run. Inspect genuine per-field mismatches and raw-section integrity, freeze extraction behavior, then run the clean test once and promote the corrected corpus. After that, generate page-preserving text, build E0/E4 retrieval indexes, and run retrieval/QA evaluation before ingesting the five unseen PDFs.
+Run the development-reference audit, full-corpus holder-scope audit, and evaluator v3.1.4 on the regenerated v2.1.4 run. Inspect genuine per-field mismatches and raw-section integrity, resolve the corpus-scope policy, freeze extraction behavior, then run the clean test once. After that, promote the corrected corpus, generate page-preserving text, build E0/E4 retrieval indexes, and run retrieval/QA evaluation before ingesting the five unseen PDFs.
