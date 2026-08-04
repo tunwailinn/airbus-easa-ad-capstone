@@ -158,7 +158,21 @@ def _legacy_subject_prefix(header: str, first_ata_start: int) -> str | None:
             re.IGNORECASE,
         )
     ]
-    return _v215.compact(" ".join(lines)) if lines else None
+    if not lines:
+        return None
+
+    joined = " ".join(lines)
+    # Revision/supersedure fields can wrap onto unlabelled continuation lines.
+    # Such text contains lifecycle language/dates and is metadata, not a subject
+    # prefix. Genuine legacy prefixes are short technical titles instead.
+    if re.search(
+        r"\b(?:revis(?:es|ed)|supersed(?:e|ed|es)|correction\s+dated|DGAC\s+France)\b|"
+        r"\b(?:EASA\s+)?AD\s+(?:19|20)\d{2}-\d{4}(?:R\d+)?\b",
+        joined,
+        re.IGNORECASE,
+    ):
+        return None
+    return _v215.compact(joined)
 
 
 def _header_subject_and_ata(text: str) -> tuple[str | None, list[dict[str, str]]]:
