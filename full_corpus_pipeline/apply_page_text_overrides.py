@@ -79,6 +79,30 @@ def _backup_once(path: Path) -> Path:
     return backup
 
 
+def _load_page_manifest(path: Path) -> pd.DataFrame:
+    """Load page manifest with stable dtypes for fields mutated by overrides.
+
+    ``needs_ocr_pages`` can look numeric when every populated value is a single
+    page number. Pandas may therefore infer ``int64`` and then reject the empty
+    string written after the final weak page is resolved. Keep this and other
+    textual manifest fields explicitly object-backed before mutation.
+    """
+    frame = pd.read_csv(
+        path,
+        dtype={"file_instance_id": str, "ad_number": str},
+    )
+    for column in (
+        "needs_ocr_pages",
+        "status",
+        "page_text_file",
+        "source_pdf_sha256",
+        "relative_path",
+    ):
+        if column in frame.columns:
+            frame[column] = frame[column].fillna("").astype(object)
+    return frame
+
+
 def apply_visual_overrides(
     page_text_dir: Path,
     *,
@@ -96,9 +120,7 @@ def apply_visual_overrides(
         raise ValueError(f"refusing overrides while {failure_count} extraction failures remain")
 
     audit = json.loads(audit_path.read_text(encoding="utf-8"))
-    page_manifest = pd.read_csv(
-        manifest_path, dtype={"file_instance_id": str, "ad_number": str}
-    )
+    page_manifest = _load_page_manifest(manifest_path)
     override_version, overrides = _load_override_file(overrides_path)
 
     _backup_once(audit_path)
