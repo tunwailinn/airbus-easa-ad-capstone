@@ -1,78 +1,59 @@
-# Cloud workflow
+# Cloud and Data Workflow
 
-This project uses GitHub for versioned code and audit artifacts and Google
-Drive for the canonical PDF corpus and large reproducible derivatives.
+The active v3.1 project keeps versioned code and compact reference artifacts in GitHub while large/generated data remains local or in Google Drive.
 
-## Versioned in GitHub
+## GitHub contains
 
-- Colab notebooks and Python utilities
-- Step 2 schemas, guidelines, vocabularies, examples, and tests
-- Step 3 frozen selections and source hashes
-- source-verification reports and visual-review records
-- annotation packets, immutable review queues, editable working records,
-  submissions, adjudication artifacts, and validation reports
-- dataset release gates, project decisions, plans, and status documentation
-- versioned review outputs under `outputs/`
+- `full_corpus_pipeline/` implementation and tests;
+- `gold_releases/easa_airbus_ad_gold_v2/` immutable 50-record audit source;
+- the frozen corpus manifest and document-level extracted-text cache under `step3_pilot/source_metadata/`;
+- project methodology, benchmark, decisions, status, and QA gateway documentation; and
+- dependency configuration.
 
-## Retained in Google Drive
+## Local / Google Drive data
 
-- `corpus_raw/`
-- batch `source_pdfs/`
-- batch `page_text/`
-- temporary PDF renders and contact sheets
-- OAuth credentials and tokens
-- generated handoff ZIP archives
+Do not commit:
 
-The Drive project root is:
+- raw source PDFs;
+- page-preserving text derivatives;
+- `data_processed/` extraction runs and promoted corpora;
+- `data_incoming/` permanent-ingestion storage;
+- `indexes/` BM25/FAISS indexes;
+- `evaluation_sets/` generated benchmark projections and locks;
+- OAuth credentials or tokens; or
+- temporary renders and scratch outputs.
 
-```text
-My Drive/
-└── Capstone_AD_Project/
-    ├── corpus_raw/
-    └── metadata/
-        ├── step2_ad_schema_and_guidelines/
-        ├── step3_pilot_v1/
-        └── step3_extension_20_v1/
+These paths are covered by `.gitignore` where applicable.
+
+## Required external data for the next stage
+
+The page-aware RAG build needs page-preserving text for the 1,804 development PDFs. Supply it through a local or mounted directory and pass that directory explicitly to the retrieval builder.
+
+Example:
+
+```bash
+.venv/bin/python -m full_corpus_pipeline.retrieval \
+  --page-text-dir /approved/page_text \
+  --manifest step3_pilot/source_metadata/corpus_manifest.parquet \
+  --exclude-selection evaluation_sets/unseen_incoming_5_v1/selection.csv \
+  --output-dir indexes/corpus_v1
 ```
 
-Do not copy credentials, tokens, or private keys into GitHub, notebooks, or
-Drive-shared folders.
+## Generated extraction data
 
-## Start in Google Colab
-
-1. Open `01_build_ad_corpus_manifest.ipynb` from this repository or the
-   verified Drive copy.
-2. Mount Google Drive when prompted.
-3. Confirm the project root is
-   `/content/drive/MyDrive/Capstone_AD_Project`.
-4. Keep `corpus_raw/` read-only and write generated corpus reports only under
-   `metadata/`.
-5. For Step 3, use the versioned batch directory in Drive for canonical PDFs
-   and page text. Use the matching scripts, selections, annotations, and
-   validators from this repository.
-6. Read generated files back from Drive and verify exact counts, filenames,
-   hashes, and validation reports before claiming completion.
-
-For a private repository clone, authenticate with a GitHub token stored in
-Colab Secrets or use a notebook already copied to Drive. Never place a token
-directly in a notebook cell.
-
-## Step 3 validation boundary
-
-Automated validation does not grant human approval. Follow
-`docs/PDF_TO_GOLD_FRAMEWORK.md` and keep the lifecycle linear:
+The completed deterministic development extraction is expected locally at:
 
 ```text
-selected
-  → source_verified
-  → machine_first_pass
-  → human_review_pending
-  → human_review_in_progress
-  → human_approved
-  → gold_validated
-  → gold_published
+data_processed/canonical_content_v2.1.3/
 ```
 
-Run `step3_pilot/validate_step3_pilot.py` only for the frozen 30-record pilot.
-Use `dataset_framework/validate_gold_release.py` for extension, combined, and
-later versioned releases.
+The canonical generated directory is reproducible from the versioned parser and corpus reference Parquets, so it is intentionally not stored in GitHub.
+
+## Safety boundaries
+
+- Never edit source PDFs in place.
+- Never commit credentials or API keys.
+- Never overwrite a versioned extraction run or evaluation lock.
+- Keep the five unseen PDFs outside development indexes until ingestion evaluation.
+- Permanent ingestion requires explicit confirmation and never retrains the LLM or embedding model.
+- Detailed compliance answers must be grounded in retrieved original-PDF page text.
