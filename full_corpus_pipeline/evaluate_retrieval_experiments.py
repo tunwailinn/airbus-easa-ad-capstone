@@ -21,10 +21,10 @@ from full_corpus_pipeline.retrieval import HybridIndex, TOKEN_RE
 
 
 ROOT = Path(__file__).resolve().parents[1]
-DEFAULT_INDEX_ROOT = ROOT / "data_processed/indexes/rag_v1_1"
+DEFAULT_INDEX_ROOT = ROOT / "data_processed/indexes/rag_v1_2"
 DEFAULT_QUESTIONS = ROOT / "evaluation_sets/easa_airbus_ad_qa_50_v2/questions.jsonl"
 DEFAULT_OUTPUT = DEFAULT_INDEX_ROOT / "retrieval_comparison.json"
-EXPECTED_BUILD_VERSION = "rag-index-build-v1.1"
+EXPECTED_BUILD_VERSION = "rag-index-build-v1.2"
 
 
 def load_questions(path: Path) -> list[dict[str, Any]]:
@@ -46,6 +46,25 @@ def validate_build_summary(index_root: Path) -> dict[str, Any]:
             f"expected {EXPECTED_BUILD_VERSION}, got "
             f"{summary.get('retrieval_build_version')!r}"
         )
+    if int(summary.get("document_count", -1)) != 1786:
+        raise ValueError("retrieval build summary document_count is not 1786")
+    policy = summary.get("chunk_size_policy", {})
+    if policy.get("count_method") != "whitespace_split":
+        raise ValueError("retrieval build does not use frozen whitespace_split chunk policy")
+    if int(policy.get("e0_max_tokens", -1)) != 350:
+        raise ValueError("retrieval build E0 chunk limit is not 350")
+    if int(policy.get("e4_max_tokens", -1)) != 450:
+        raise ValueError("retrieval build E4 chunk limit is not 450")
+    experiments = summary.get("experiments", {})
+    for name, maximum in (("e0", 350), ("e4", 450)):
+        report = experiments.get(name)
+        if not isinstance(report, dict):
+            raise ValueError(f"retrieval build summary missing {name} report")
+        stats = report.get("chunk_stats", {})
+        if int(stats.get("document_count", -1)) != 1786:
+            raise ValueError(f"{name} does not cover 1786 documents")
+        if int(stats.get("max_tokens", maximum + 1)) > maximum:
+            raise ValueError(f"{name} exceeds frozen chunk limit {maximum}")
     return summary
 
 
@@ -247,7 +266,6 @@ def main() -> int:
 
     reranker_model = str(e4_config["reranker_model"])
     reranker = CrossEncoder(reranker_model)
-    # Force a real inference before the benchmark so model/runtime errors fail early.
     reranker.predict([("test query", "test passage")])
     print("[progress] reranker ready", flush=True)
 
