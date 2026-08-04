@@ -152,6 +152,11 @@ def _legacy_subject_prefix(header: str, first_ata_start: int) -> str | None:
             line,
             re.IGNORECASE,
         )
+        and not re.match(
+            r"^(?:EASA\s+)?AD\s+(?:19|20)\d{2}-\d{4}(?:R\d+)?\b",
+            line,
+            re.IGNORECASE,
+        )
     ]
     return _v215.compact(" ".join(lines)) if lines else None
 
@@ -187,20 +192,25 @@ def _header_subject_and_ata(text: str) -> tuple[str | None, list[dict[str, str]]
     chapters: list[dict[str, str]] = []
     for index, match in enumerate(matches):
         end = matches[index + 1].start() if index + 1 < len(matches) else boundary
-        body = re.sub(r"\s+", " ", header[match.end() : end]).strip(" \t\n-–—:;")
+        body = re.sub(r"\s+", " ", header[match.end() : end]).strip(" \t\n:;")
         if not body:
             continue
         codes = re.findall(r"\d{2}", match.group(1))
         if not parts:
-            first_body = _v215.compact(
-                " ".join(part for part in (legacy_prefix, body) if part)
-            )
-            if first_body:
-                parts.append(first_body)
+            if legacy_prefix:
+                prefix = legacy_prefix.rstrip()
+                first_body = body.lstrip()
+                if prefix.endswith(("-", "–", "—")) and first_body.startswith(("-", "–", "—")):
+                    first_body = first_body[1:].lstrip()
+                combined = _v215.compact(f"{prefix} {first_body}")
+            else:
+                combined = _v215.compact(body.lstrip(" -–—"))
+            if combined:
+                parts.append(combined)
         else:
-            parts.append(f"ATA {', '.join(codes)} – {body}")
+            parts.append(f"ATA {', '.join(codes)} – {body.lstrip(' -–—')}")
         for code in codes:
-            chapters.append({"code": code, "title": body})
+            chapters.append({"code": code, "title": body.lstrip(" -–—")})
 
     subject = "; ".join(parts).strip() if parts else None
     return subject, chapters
