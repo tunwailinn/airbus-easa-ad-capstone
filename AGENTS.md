@@ -40,11 +40,12 @@ Detailed compliance interpretation must use original PDF passages retrieved by R
 13. The disclosed `2024-0038` test leak remains excluded from clean extraction scoring.
 14. The five unseen PDFs remain outside development retrieval indexes until unseen-document evaluation.
 15. Retrieval experiments must consume verified **page-text v1.1** only; unresolved weak pages or page-text hash failures block indexing.
-16. E0 and E4 must use the same 1,786-document retrieval manifest and the same dense embedding model.
+16. E0 and E4 use the same 1,786-document retrieval manifest and the same dense embedding model.
 17. E0 ranking is dense-only over flat chunks. E4 is section-aware BM25 + dense + FAISS + RRF + local cross-encoder reranking.
 18. Do not silently use hashing, numpy-only dense indexing, or lexical reranking fallback for the frozen thesis E0/E4 measurements.
-19. **Do not open locked retrieval scores until `rag-index-build-v1.2` is complete and its `build_summary.json` is reviewed.**
-20. Chunk-size construction and reporting use the same deterministic `whitespace_split` units: E0 <=350 and E4 <=450. These are reproducible chunk units, not transformer subword token counts.
+19. **`rag-index-build-v1.2` is accepted and frozen. Do not retune retrieval configuration from locked benchmark results.**
+20. Chunk-size construction/reporting uses `whitespace_split`: E0 <=350, E4 target 250–450 and hard max 450. These are deterministic chunk units, not transformer subword tokens.
+21. Final retrieval evaluation must use only `data_processed/indexes/rag_v1_2/`; `rag_v1/` and `rag_v1_1/` are retained for audit history only.
 
 ## Frozen/active versions
 
@@ -54,8 +55,9 @@ Detailed compliance interpretation must use original PDF passages retrieved by R
 - Corpus scope audit: **`corpus-scope-audit-v1.3`**.
 - Verified page source: **`page-text-v1.1`**.
 - Page visual override file: `full_corpus_pipeline/page_text_visual_overrides.json`.
-- Active retrieval build stage: **`rag-index-build-v1.2`**.
+- Frozen retrieval build: **`rag-index-build-v1.2`**.
 - Retrieval build state: `docs/RETRIEVAL_BUILD_STATUS.md`.
+- Retrieval evaluator: **`retrieval-eval-v1.0`**, locked to build v1.2.
 - QA benchmark: **50 locked questions**.
 - Immutable audit source: `gold_releases/easa_airbus_ad_gold_v2/`.
 
@@ -107,62 +109,53 @@ The local original-PDF page extraction completed over the exact 1,786-record str
 - `ready_for_indexing`: **true**;
 - verified source version: **`page-text-v1.1`**.
 
-The reviewed page is a graphical Appendix comparing the old hydraulic accumulator design (4 parts / 3 welds) and new design (2 parts / 1 weld). Native text is preserved in provenance fields/backups; only the reviewed page derivative is used for retrieval.
-
-Canonical local path for the verified source layer:
+Canonical local path:
 
 ```text
 data_processed/page_text_v1_1/operational_airbus/
 ```
 
-Do not use the former ambiguous `page_text_v1/` path for new experiments.
+## Frozen retrieval experiments
 
-## Current retrieval experiments
+Build history:
 
-`rag-index-build-v1.0` was rejected before benchmark because construction/reporting chunk counters differed.
+- `rag-index-build-v1.0`: rejected before benchmark due inconsistent chunk-size reporting.
+- `rag-index-build-v1.1`: valid E0, E4 blocked before embedding because a section chunk reached 476 against the 450 limit.
+- **`rag-index-build-v1.2`: accepted/frozen.** No locked retrieval scores were opened before acceptance.
 
-`rag-index-build-v1.1` then built a valid E0 over all 1,786 documents, but stopped before E4 embedding/indexing when the strict gate found an E4 chunk of **476** whitespace units against the frozen **450** maximum. The cause was a construction mismatch: the legacy section chunker counted blocks with `TOKEN_RE.findall(...)` while the frozen limit/report used whitespace-delimited units. No locked retrieval scores were opened.
+Accepted v1.2 E0:
 
-Active build: **`rag-index-build-v1.2`**.
+- 9,394 chunks;
+- 1,786 documents;
+- max chunk size 350;
+- `sentence_transformers` dense backend;
+- `faiss_index_flat_ip` dense index;
+- evaluate with `search_dense_only` only.
 
-v1.2 keeps E0 unchanged and fixes E4 section accounting so construction, oversized-block splitting, and reporting all use the same whitespace-delimited units. The already validated v1.1 E0 artifact may be copied/reused and is revalidated before acceptance.
+Accepted v1.2 E4:
 
-Required command:
+- 12,634 chunks;
+- 1,786 documents;
+- max chunk size 450;
+- 2,924 multi-page chunks; max page span 5;
+- SQLite FTS5/BM25 + same dense model + FAISS + RRF;
+- reranker `cross-encoder/ms-marco-MiniLM-L-6-v2`;
+- candidate depth 20 per sparse/dense path.
 
-```bash
-.venv/bin/python -m full_corpus_pipeline.build_retrieval_experiments \
-  --page-text-root data_processed/page_text_v1_1/operational_airbus \
-  --output-root data_processed/indexes/rag_v1_2 \
-  --reuse-e0-from data_processed/indexes/rag_v1_1/e0_flat_dense \
-  --experiment all
-```
-
-Expected outputs:
+Frozen index root:
 
 ```text
 data_processed/indexes/rag_v1_2/
-├── e0_flat_dense/
-├── e4_section_hybrid/
-└── build_summary.json
 ```
-
-Frozen limits:
-
-- E0 flat maximum: **350 whitespace-delimited units**;
-- E4 section-aware target: **250–450 whitespace-delimited units**;
-- E4 maximum: **450**.
-
-E0 must later be evaluated through `search_dense_only`; E4 through strict hybrid retrieval with local reranking.
 
 ## Immediate priority
 
-1. Pull the v1.2 retrieval build fix and run the full unit-test suite.
-2. Build `rag_v1_2`, reusing the validated v1.1 E0 artifact.
-3. Review `data_processed/indexes/rag_v1_2/build_summary.json` and verify E4 max chunk size <=450 and no fallback backend.
-4. Only after the build gate passes, freeze the indexes and run retrieval evaluation once: Recall@1/3/5, MRR, nDCG@5, correct source/page.
-5. Run the 50-question page-cited QA benchmark.
-6. Evaluate temporary uploaded-PDF QA.
-7. Permanently ingest the five frozen unseen PDFs without retraining.
+1. Pull current `main` and run the full unit-test suite.
+2. Run the locked E0/E4 retrieval evaluation exactly as frozen; report results without tuning.
+3. Update context/reporting with observed Recall@1/3/5, MRR, nDCG@5, correct-source and correct-source/page metrics.
+4. Run the 50-question page-cited QA benchmark.
+5. Evaluate temporary uploaded-PDF QA.
+6. Permanently ingest the five frozen unseen PDFs without retraining.
 
 ## Working protocol
 
@@ -177,4 +170,4 @@ Authority order:
 7. `docs/BENCHMARK_DESIGN.md`;
 8. `docs/PAGE_TEXT_PIPELINE.md`.
 
-After material work, preserve unrelated artifacts, run relevant tests, update project status, and record stable methodology changes. Never reopen frozen extraction tuning from locked-test failures.
+After material work, preserve unrelated artifacts, run relevant tests, update project status, and record stable methodology changes. Never reopen frozen extraction or retrieval tuning from locked-test outcomes.
