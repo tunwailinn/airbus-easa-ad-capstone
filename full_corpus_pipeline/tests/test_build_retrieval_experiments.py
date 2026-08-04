@@ -8,9 +8,10 @@ import pandas as pd
 from full_corpus_pipeline.build_retrieval_experiments import (
     _as_bool,
     chunk_stats,
+    strict_section_chunk_pages,
     validate_page_source,
 )
-from full_corpus_pipeline.retrieval import chunk_pages, flat_chunk_pages
+from full_corpus_pipeline.retrieval import flat_chunk_pages
 
 
 class RetrievalExperimentBuildTests(unittest.TestCase):
@@ -86,7 +87,7 @@ class RetrievalExperimentBuildTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, "expected page-text-v1.1"):
                 validate_page_source(page_root, expected_count=2)
 
-    def test_chunk_stats_cover_flat_and_section_chunks(self):
+    def test_chunk_stats_cover_flat_and_strict_section_chunks(self):
         pages = [
             {"page": 1, "text": "Reason\nHydraulic accumulator inspection required."},
             {"page": 2, "text": "Required Actions\nInspect within 500 flight cycles."},
@@ -98,7 +99,7 @@ class RetrievalExperimentBuildTests(unittest.TestCase):
             source_pdf="a.pdf",
             chunk_tokens=350,
         )
-        section = chunk_pages(
+        section = strict_section_chunk_pages(
             pages,
             file_instance_id="a",
             ad_number="2026-0001",
@@ -116,9 +117,6 @@ class RetrievalExperimentBuildTests(unittest.TestCase):
         self.assertLessEqual(section_stats["max_tokens"], 450)
 
     def test_chunk_stats_match_construction_units_for_punctuation_heavy_text(self):
-        # TOKEN_RE can split punctuation-heavy whitespace words into multiple
-        # lexical terms. Build v1.1 deliberately reports the same whitespace
-        # units used by flat chunk construction, preventing the v1.0 mismatch.
         text = " ".join(["A+B"] * 350)
         chunks = flat_chunk_pages(
             [{"page": 1, "text": text}],
@@ -130,6 +128,24 @@ class RetrievalExperimentBuildTests(unittest.TestCase):
         stats = chunk_stats(chunks)
         self.assertEqual(len(chunks), 1)
         self.assertEqual(stats["max_tokens"], 350)
+
+    def test_strict_section_chunker_enforces_whitespace_limit(self):
+        # Reproduces the v1.1 failure mode: punctuation-only whitespace units
+        # are invisible to TOKEN_RE but still count toward the declared chunk
+        # size policy. The strict v1.2 E4 chunker must split them.
+        body = " ".join(["inspection"] * 430 + ["—"] * 46)
+        chunks = strict_section_chunk_pages(
+            [{"page": 1, "text": "Reason\n" + body}],
+            file_instance_id="a",
+            ad_number="2026-0001",
+            source_pdf="a.pdf",
+            minimum_tokens=250,
+            maximum_tokens=450,
+        )
+        stats = chunk_stats(chunks)
+        self.assertGreaterEqual(len(chunks), 2)
+        self.assertLessEqual(stats["max_tokens"], 450)
+        self.assertEqual(sum(len(chunk.text.split()) for chunk in chunks), 476)
 
 
 if __name__ == "__main__":
