@@ -2,8 +2,8 @@
 """Deterministic, content-only extraction for EASA AD records.
 
 This parser structures stable header fields and preserves difficult sections as
-raw wording. It does not interpret or normalize compliance logic; that remains
-a RAG-time task over the original PDF text.
+raw source wording. Layout-only page furniture is removed before section
+segmentation; compliance logic itself is intentionally not normalized.
 """
 
 from __future__ import annotations
@@ -15,7 +15,7 @@ from typing import Any
 from jsonschema import Draft202012Validator, FormatChecker
 
 
-PARSER_VERSION = "content-local-v2.1.3"
+PARSER_VERSION = "content-local-v2.1.4"
 
 DATE_FORMATS = (
     "%d %B %Y",
@@ -25,17 +25,23 @@ DATE_FORMATS = (
     "%Y-%m-%d",
 )
 
+ACTION_HEADING = (
+    r"required\s+action(?:s|\(s\))?"
+    r"(?:\s+and\s+compliance\s+time(?:s|\(s\))?)?"
+)
+
 SECTION_ENDINGS = (
     "definitions?",
     "reason",
     r"effective\s+date",
-    r"required\s+actions?(?:\s*\(s\))?\s+and\s+compliance\s+times?(?:\s*\(s\))?",
-    r"required\s+actions?",
+    ACTION_HEADING,
     "compliance",
     r"ref\.?\s+publications?",
     r"referenced\s+publications?",
     "remarks?",
     "contacts?",
+    "appendix",
+    "annex",
 )
 
 MODEL_PATTERN = re.compile(
@@ -51,6 +57,29 @@ SB_PATTERN = re.compile(
 )
 
 AD_PATTERN = re.compile(r"\b((?:19|20)\d{2}-\d{4}(?:R\d+)?)\b", re.IGNORECASE)
+
+_PAGE_FURNITURE_PATTERNS = (
+    re.compile(r"^\s*\[PAGE\s+\d+\]\s*$", re.IGNORECASE),
+    re.compile(r"^\s*Page\s+\d+\s+of\s+\d+\s*$", re.IGNORECASE),
+    re.compile(r"^\s*TE\.CAP\.\d+(?:-\d+)?\b.*$", re.IGNORECASE),
+    re.compile(
+        r"^\s*©\s*European\s+Union\s+Aviation\s+Safety\s+Agency\b.*$",
+        re.IGNORECASE,
+    ),
+    re.compile(
+        r"^\s*Proprietary\s+document\.\s*Copies\s+are\s+not\s+controlled\..*$",
+        re.IGNORECASE,
+    ),
+    re.compile(r"^\s*An\s+agency\s+of\s+the\s+European\s+Union\s*$", re.IGNORECASE),
+    re.compile(r"^\s*ISO9001\s+Certified\.?\s*$", re.IGNORECASE),
+    re.compile(r"^\s*(?:SUPERSEDED|CANCELLED|CANCELED)\s*$", re.IGNORECASE),
+)
+
+_REPEATED_AD_HEADER = re.compile(
+    r"^\s*(?:(?:SUPERSEDED|CANCELLED|CANCELED)\s*[.]?\s*)?"
+    r"EASA\s+AD\s+No\.?\s*:\s*(?:19|20)\d{2}-\d{4}(?:R\d+)?\s*$",
+    re.IGNORECASE,
+)
 
 
 def compact(value: Any) -> Any:
@@ -73,6 +102,36 @@ def compact(value: Any) -> Any:
     return value
 
 
+def _clean_layout_text(text: str) -> str:
+    """Remove repeated page furniture without rewriting source prose."""
+    text = text.replace("\r\n", "\n").replace("\r", "\n")
+    text = re.sub(
+        r"(?i)(?:SUPERSEDED|CANCELLED|CANCELED)\s*[.]?\s*"
+        r"EASA\s+AD\s+No\.?\s*:\s*(?:19|20)\d{2}-\d{4}(?:R\d+)?",
+        "\n",
+        text,
+    )
+    lines: list[str] = []
+    for raw_line in text.splitlines():
+        line = raw_line.strip()
+        if not line:
+            lines.append("")
+            continue
+        if _REPEATED_AD_HEADER.match(line):
+            continue
+        if any(pattern.match(line) for pattern in _PAGE_FURNITURE_PATTERNS):
+            continue
+        line = re.sub(
+            r"\s*TE\.CAP\.\d+(?:-\d+)?\s+©\s*European\s+Union\s+Aviation\s+Safety\s+Agency.*$",
+            "",
+            line,
+            flags=re.IGNORECASE,
+        ).strip()
+        if line:
+            lines.append(line)
+    return re.sub(r"\n{3,}", "\n\n", "\n".join(lines)).strip()
+
+
 def _parse_date(value: Any) -> str | None:
     if value is None:
         return None
@@ -90,54 +149,85 @@ def _parse_date(value: Any) -> str | None:
 
 
 def _printed_date(text: str, labels: str) -> str | None:
-    pattern = re.compile(
+    match = re.search(
         rf"(?:{labels})\s*:\s*(?:Revision\s+\d+\s*:\s*)?"
         r"([0-3]?\d\s+[A-Za-z]+\s+(?:19|20)\d{2})",
+        text[:16000],
         re.IGNORECASE,
     )
-    match = pattern.search(text[:12000])
     return _parse_date(match.group(1)) if match else None
 
 
-def _section(text: str, heading: str, endings: tuple[str, ...] = SECTION_ENDINGS) -> str | None:
+def _section(
+    text: str, heading: str, endings: tuple[str, ...] = SECTION_ENDINGS
+) -> str | None:
+    """Extract one labelled section without treating ordinary prose as a heading."""
     end_pattern = "|".join(endings)
     match = re.search(
         rf"(?:^|\n)\s*(?:{heading})\s*:\s*(.*?)"
-        rf"(?=\n\s*(?:{end_pattern})(?:\s*:|\s|$)|\Z)",
+        rf"(?=\n\s*(?:{end_pattern})\s*(?::[ \t]*|\n|$)|\Z)",
         text,
-        re.IGNORECASE | re.DOTALL,
+        re.IGNORECASE | re.DOTALL | re.MULTILINE,
     )
     return compact(match.group(1)) if match else None
 
 
+def _header_field(text: str, heading: str, endings: tuple[str, ...]) -> str | None:
+    return _section(text[:18000], heading, endings)
+
+
 def _two_column_values(text: str) -> tuple[str | None, str | None]:
-    """Read holder and type/model values from the recurring two-column header."""
-    lines = text[:10000].splitlines()
+    """Read holder/model values from either two-column or sequential extraction."""
+    lines = text[:12000].splitlines()
     holder_pattern = re.compile(
         r"(?:Type|Design|Design\s+Change)\s+Approval\s+Holder(?:[’']s)?\s+Name\s*:",
         re.IGNORECASE,
     )
-    model_pattern = re.compile(r"Type/Model\s+designation(?:\(s\))?\s*:", re.IGNORECASE)
+    model_pattern = re.compile(
+        r"Type/Model\s+designation(?:\(s\))?\s*:", re.IGNORECASE
+    )
     for index, line in enumerate(lines):
         holder_match = holder_pattern.search(line)
         if not holder_match:
             continue
         model_match = model_pattern.search(line)
-        model_column = model_match.start() if model_match else None
-        inline_end = model_column if model_column is not None else len(line)
-        holder = line[holder_match.end():inline_end].strip()
-        model_value = line[model_match.end():].strip() if model_match else ""
-        for candidate in lines[index + 1:index + 6]:
-            if not candidate.strip():
-                continue
-            columns = re.split(r"\s{2,}", candidate.strip(), maxsplit=1)
-            if not holder:
-                holder = columns[0]
-            if model_column is not None and not model_value and len(columns) == 2:
-                model_value = columns[1]
-            break
-        return compact(holder), compact(model_value)
-    return None, None
+        if model_match:
+            holder = line[holder_match.end() : model_match.start()].strip()
+            model_value = line[model_match.end() :].strip()
+            for candidate in lines[index + 1 : index + 6]:
+                if not candidate.strip():
+                    continue
+                columns = re.split(r"\s{2,}", candidate.strip(), maxsplit=1)
+                if not holder:
+                    holder = columns[0]
+                if not model_value and len(columns) == 2:
+                    model_value = columns[1]
+                break
+            return compact(holder), compact(model_value)
+        break
+
+    holder = _header_field(
+        text,
+        r"(?:Type|Design|Design\s+Change)\s+Approval\s+Holder(?:[’']s)?\s+Name",
+        (
+            r"Type/Model\s+designation(?:\(s\))?",
+            r"Effective\s+Date",
+            r"TCDS\s+Number",
+        ),
+    )
+    model_value = _header_field(
+        text,
+        r"Type/Model\s+designation(?:\(s\))?",
+        (
+            r"Effective\s+Date",
+            r"TCDS\s+Number",
+            r"Foreign\s+AD",
+            "revision",
+            "supersedure",
+            r"ATA\s+\d{2}",
+        ),
+    )
+    return holder, model_value
 
 
 def _models(text: str | None) -> list[str]:
@@ -146,7 +236,7 @@ def _models(text: str | None) -> list[str]:
     values: list[str] = []
     seen: set[str] = set()
     for match in MODEL_PATTERN.finditer(text):
-        following = text[match.end():match.end() + 8]
+        following = text[match.end() : match.end() + 8]
         if re.match(r"(?:\d|-\s*\d)", following):
             continue
         value = match.group(0).upper()
@@ -166,67 +256,77 @@ def _families(models: list[str]) -> list[str]:
         elif model.startswith(("A318", "A319", "A320", "A321")):
             family = "A320 family"
         else:
-            family = re.match(r"A\d{3}", model).group(0)  # type: ignore[union-attr]
+            match = re.match(r"A\d{3}", model)
+            if not match:
+                continue
+            family = match.group(0)
         if family not in values:
             values.append(family)
     return values
 
 
 def _ata(text: str) -> list[dict[str, str]]:
-    first = text[:16000]
-    lines = first.splitlines()
-    line_index = -1
-    match = None
+    lines = text[:18000].splitlines()
     for index, line in enumerate(lines):
-        candidate = re.search(
+        match = re.search(
             r"\bATA\s+(\d{2}(?:\s*(?:,|&|and)\s*\d{2})*)\s*[-–—:]?\s*(.*)",
             line,
             re.IGNORECASE,
         )
-        if candidate:
-            line_index, match = index, candidate
-            break
-    if match is None:
-        return []
-    codes = re.findall(r"\d{2}", match.group(1))
-    parts: list[str] = []
-    if line_index > 0 and lines[line_index - 1].strip():
-        parts.append(lines[line_index - 1].strip())
-    if match.group(2).strip():
-        parts.append(match.group(2).strip())
-    if line_index + 1 < len(lines) and lines[line_index + 1].strip():
-        parts.append(lines[line_index + 1].strip())
-    title = compact(" ".join(parts))
-    if title and re.search(
-        r"(?:Manufacturer|Applicability|Supersedure|TCDS|Foreign\s+AD)\s*:",
-        title,
-        re.IGNORECASE,
-    ):
-        title = compact(match.group(2))
-    return [compact({"code": code, "title": title}) for code in codes]
+        if not match:
+            continue
+        codes = re.findall(r"\d{2}", match.group(1))
+        title_parts = [match.group(2).strip()] if match.group(2).strip() else []
+        for continuation in lines[index + 1 : index + 4]:
+            candidate = continuation.strip()
+            if not candidate:
+                continue
+            if re.match(
+                r"(?:Manufacturer(?:\(s\))?|Applicability|Definitions?|Reason|Effective\s+Date)\s*:",
+                candidate,
+                re.IGNORECASE,
+            ):
+                break
+            title_parts.append(candidate)
+        title = compact(" ".join(title_parts))
+        return [compact({"code": code, "title": title}) for code in codes]
+    return []
 
 
 def _manufacturer(text: str) -> list[str]:
     value = _section(
         text,
         r"Manufacturer(?:\(s\))?",
-        ("applicability", "definitions?", "reason", r"effective\s+date"),
+        (
+            "applicability",
+            "definitions?",
+            "reason",
+            r"effective\s+date",
+            ACTION_HEADING,
+        ),
     )
-    if not value:
-        return []
-    value = re.sub(r"^Manufacturer(?:\(s\))?\s*:\s*", "", value, flags=re.IGNORECASE)
-    return [value]
+    return [value] if value else []
 
 
 def _tcds_numbers(text: str) -> list[str]:
     section = _section(
-        text[:12000],
+        text[:16000],
         r"TCDS\s+Number(?:\(s\))?",
-        (r"foreign\s+ad", "supersedure", r"ata\s+\d{2}", "manufacturer", "applicability"),
+        (
+            r"foreign\s+ad",
+            "revision",
+            "correction",
+            "supersedure",
+            r"ata\s+\d{2}",
+            "manufacturer",
+            "applicability",
+        ),
     )
-    source = section or text[:12000]
+    source = section or text[:16000]
     values: list[str] = []
-    for match in re.finditer(r"\bEASA\s*\.?\s*A\s*\.\s*\d{3}\b", source, re.IGNORECASE):
+    for match in re.finditer(
+        r"\bEASA\s*\.?\s*A\s*\.\s*\d{3}\b", source, re.IGNORECASE
+    ):
         value = re.sub(r"\s+", " ", match.group(0)).strip()
         value = re.sub(r"EASA\s*\.\s*A", "EASA.A", value, flags=re.IGNORECASE)
         if value not in values:
@@ -236,9 +336,17 @@ def _tcds_numbers(text: str) -> list[str]:
 
 def _foreign_ad(text: str) -> str | None:
     return _section(
-        text[:14000],
+        text[:16000],
         r"Foreign\s+AD",
-        ("supersedure", r"ata\s+\d{2}", "manufacturer", "applicability"),
+        (
+            "revision",
+            "correction",
+            "cancellation",
+            "supersedure",
+            r"ata\s+\d{2}",
+            "manufacturer",
+            "applicability",
+        ),
     )
 
 
@@ -246,7 +354,13 @@ def _revision_statement(text: str) -> str | None:
     return _section(
         text[:18000],
         r"Revision",
-        ("supersedure", r"ata\s+\d{2}", "manufacturer", "applicability"),
+        (
+            "correction",
+            "supersedure",
+            r"ata\s+\d{2}",
+            "manufacturer",
+            "applicability",
+        ),
     )
 
 
@@ -303,22 +417,14 @@ def _effective_date_statement(text: str) -> str | None:
 
 
 def _supersedure(text: str, current_ad: str) -> dict[str, Any] | None:
-    paragraph = re.search(
-        r"(?:^|\n)\s*(?:Revision\s*/\s*)?Supersedure\s*:\s*"
-        r"([^\n]*(?:\n(?!\s*\n)[^\n]*)*)",
+    statement = _section(
         text[:18000],
-        re.IGNORECASE,
+        r"(?:Revision\s*/\s*)?Supersedure",
+        (r"ata\s+\d{2}", "manufacturer", "applicability", "definitions?", "reason"),
     )
-    statement = compact(paragraph.group(1)) if paragraph else None
-    if not statement:
-        statement = _section(
-            text[:18000],
-            r"Supersedure",
-            (r"ata\s+\d{2}", "manufacturer", "applicability", "definitions?", "reason"),
-        )
     if not statement:
         return None
-    numbers = []
+    numbers: list[str] = []
     for match in AD_PATTERN.finditer(statement):
         value = match.group(1).upper()
         if value != current_ad and value not in numbers:
@@ -327,71 +433,38 @@ def _supersedure(text: str, current_ad: str) -> dict[str, Any] | None:
 
 
 def _action_section(text: str) -> str | None:
-    indicated = re.search(
-        r"(?:Required\s+)?Required\s+as\s+indicated\b",
+    start = re.search(
+        r"(?:^|\n)\s*Required\s+Action(?:\(s\))?\s+and\s+Compliance\s+Time(?:\(s\))?\s*:\s*",
         text,
         re.IGNORECASE,
     )
-    start = indicated or re.search(
-        r"(?:^|\n)\s*Required\s+Action(?:\(s\))?(?=\s|:)",
-        text,
-        re.IGNORECASE,
-    )
-    if not start:
-        matches = list(
-            re.finditer(r"Required\s+Action(?:\(s\))?(?=\s|:)", text, re.IGNORECASE)
-        )
-        start = matches[-1] if matches else None
     if not start:
         start = re.search(
-            r"(?:^|\n)\s*Compliance\s*:?[ \t]+(?=Not\s+applicable)",
+            r"(?:^|\n)\s*Required\s+Action(?:\(s\))?\s*:\s*",
             text,
             re.IGNORECASE,
         )
     if not start:
-        start = re.search(r"(?:^|\n)\s*Compliance\s*:\s*", text, re.IGNORECASE)
+        start = re.search(
+            r"(?:^|\n)\s*Compliance\s*:\s*", text, re.IGNORECASE
+        )
     if not start:
         return None
-    remainder = text[indicated.start() if indicated else start.end():]
+    remainder = text[start.end() :]
     end = re.search(
-        r"(?:Ref\.?\s+Publications?\s*:|Referenced\s+Publications?\s*:|"
-        r"(?:^|\n)\s*Ref\.|(?:^|\n)\s*(?:Remarks?|Contacts?)\s*:)",
+        r"(?:^|\n)\s*(?:Ref\.?\s+Publications?|Referenced\s+Publications?|Remarks?|Contacts?)\s*:",
         remainder,
-        re.IGNORECASE | re.MULTILINE,
+        re.IGNORECASE,
     )
-    value = remainder[:end.start()] if end else remainder
-    value = re.sub(r"\band\s+Compliance\b", " ", value, count=1, flags=re.IGNORECASE)
-    value = re.sub(r"\bTime\(s\)\s*:", " ", value, count=1, flags=re.IGNORECASE)
-    return compact(value)
+    return compact(remainder[: end.start()] if end else remainder)
 
 
 def _reference_section(text: str) -> str | None:
-    section = _section(
+    return _section(
         text,
         r"(?:Ref\.?\s+Publications?|Referenced\s+Publications?)",
-        ("remarks?", "contacts?"),
+        ("remarks?", "contacts?", "appendix", "annex"),
     )
-    if not section:
-        heading = re.search(r"Ref\.?\s+Publications?\s*:?", text, re.IGNORECASE)
-        if heading:
-            remainder = text[heading.end():]
-            end = re.search(
-                r"(?:^|\n)\s*(?:Remarks?|Contacts?)\s*:",
-                remainder,
-                re.IGNORECASE,
-            )
-            section = compact(remainder[:end.start()] if end else remainder)
-    if not section:
-        headings = list(re.finditer(r"(?:^|\n)\s*Ref\.", text, re.IGNORECASE))
-        if headings:
-            remainder = text[headings[-1].end():]
-            end = re.search(
-                r"(?:^|\n)\s*(?:Remarks?|Contacts?)\s*:",
-                remainder,
-                re.IGNORECASE,
-            )
-            section = compact(remainder[:end.start()] if end else remainder)
-    return section
 
 
 def _references(text: str, section: str | None = None) -> list[dict[str, str]]:
@@ -404,57 +477,48 @@ def _references(text: str, section: str | None = None) -> list[dict[str, str]]:
         if number in seen:
             continue
         seen.add(number)
-        prefix = source[max(0, match.start() - 80):match.start()].casefold()
-        publication_type = "alert_service_bulletin" if "alert" in prefix else "service_bulletin"
-        values.append({"type": publication_type, "issuer": "Airbus", "number": number})
+        prefix = source[max(0, match.start() - 80) : match.start()].casefold()
+        publication_type = (
+            "alert_service_bulletin" if "alert" in prefix else "service_bulletin"
+        )
+        values.append(
+            {"type": publication_type, "issuer": "Airbus", "number": number}
+        )
     if section and not values:
         values.append({"title": section})
     return values
 
 
 def _reason_section(text: str) -> str | None:
-    value = _section(
+    return _section(
         text,
         r"Reas\w*n",
-        (
-            r"effective\s+date",
-            r"required\s+action(?:s|\(s\))?",
-            "compliance",
-        ),
+        (r"effective\s+date", ACTION_HEADING, "compliance"),
     )
-    if value:
-        return value
-    matches = list(re.finditer(r"Reas\w*n\s*:", text, re.IGNORECASE))
-    if not matches:
-        matches = list(
-            re.finditer(r"(?:^|\n)\s*Reas\w*n[ \t]+", text, re.IGNORECASE)
-        )
-    if not matches:
-        return None
-    remainder = text[matches[-1].end():]
-    end = re.search(
-        r"Required\s+Action(?:\(s\))?|(?:^|\n)\s*Compliance\s*:",
-        remainder,
-        re.IGNORECASE,
-    )
-    return compact(remainder[:end.start()] if end else remainder)
 
 
 def _remarks_section(text: str) -> str | None:
-    value = _section(text, r"Remarks?", ("contacts?",))
-    if value:
-        return value
-    matches = list(re.finditer(r"Remarks?\s*:", text, re.IGNORECASE))
-    return compact(text[matches[-1].end():]) if matches else None
+    return _section(
+        text,
+        r"Remarks?",
+        (
+            "contacts",
+            r"appendix(?:\s+[A-Z0-9]+)?",
+            r"annex(?:\s+[A-Z0-9]+)?",
+            r"attachment(?:\s+[A-Z0-9]+)?",
+        ),
+    )
 
 
-def extract_local_record(row: dict[str, Any], schema: dict[str, Any]) -> tuple[dict[str, Any], dict[str, Any]]:
+def extract_local_record(
+    row: dict[str, Any], schema: dict[str, Any]
+) -> tuple[dict[str, Any], dict[str, Any]]:
     """Extract and validate one section-complete record without a model call."""
-    text = str(row["text"])
+    raw_text = str(row["text"])
     header_match = re.search(
         r"(?:EASA\s+)?AD\s+N(?:o|r)\.?\s*:?\s*((?:19|20)\d{2}\s*[-–—]\s*\d{4}"
         r"(?:\s*-?\s*R\d+)?)",
-        text[:8000],
+        raw_text[:8000],
         re.IGNORECASE,
     )
     if not header_match:
@@ -464,8 +528,11 @@ def extract_local_record(row: dict[str, Any], schema: dict[str, Any]) -> tuple[d
     ad_number = ad_number.replace("–", "-").replace("—", "-")
     manifest_ad = str(row.get("ad_number") or "").strip().upper()
     if manifest_ad and manifest_ad != ad_number:
-        raise ValueError(f"PDF AD number {ad_number} disagrees with manifest {manifest_ad}")
+        raise ValueError(
+            f"PDF AD number {ad_number} disagrees with manifest {manifest_ad}"
+        )
 
+    text = _clean_layout_text(raw_text)
     holder, type_designation_text = _two_column_values(text)
     revision = re.search(r"R\d+$", ad_number)
     notice_number = _cancellation_notice_number(text)
@@ -479,12 +546,14 @@ def extract_local_record(row: dict[str, Any], schema: dict[str, Any]) -> tuple[d
     )
     identity = {
         "ad_number": ad_number,
-        "authority": "EASA" if re.search(r"\bEASA\b", text[:4000]) else None,
+        "authority": "EASA" if re.search(r"\bEASA\b", raw_text[:4000]) else None,
         "document_type": (
             "Airworthiness Directive Cancellation Notice"
             if cancellation_notice
             else "Airworthiness Directive"
-            if re.search(r"\bAirworthiness\s+Directive\b", text[:4000], re.IGNORECASE)
+            if re.search(
+                r"\bAirworthiness\s+Directive\b", text[:4000], re.IGNORECASE
+            )
             else None
         ),
         "notice_number": notice_number,
@@ -497,7 +566,10 @@ def extract_local_record(row: dict[str, Any], schema: dict[str, Any]) -> tuple[d
         "revision_statement": _revision_statement(text),
     }
 
-    issue_date = _parse_date(row.get("issue_date")) or _printed_date(text, r"Issue\s+Date|Issued|Date")
+    # Printed source wording is authoritative; manifest metadata is fallback only.
+    issue_date = _printed_date(text, r"Issued|Issue\s+Date") or _parse_date(
+        row.get("issue_date")
+    )
     effective_date = _printed_date(text, r"Effective\s+Date")
     ata_chapters = _ata(text)
     publication = {
@@ -516,7 +588,13 @@ def extract_local_record(row: dict[str, Any], schema: dict[str, Any]) -> tuple[d
     applicability_text = _section(
         text,
         r"Applic+ability",
-        ("definitions?", r"reas\w*n", r"effective\s+date", r"required\s+actions?", "compliance"),
+        (
+            "definitions?",
+            r"reas\w*n",
+            r"effective\s+date",
+            ACTION_HEADING,
+            "compliance",
+        ),
     )
     applicability_models = _models(applicability_text)
     applicability = []
@@ -535,12 +613,7 @@ def extract_local_record(row: dict[str, Any], schema: dict[str, Any]) -> tuple[d
     definitions_text = _section(
         text,
         r"Definitions?",
-        (
-            r"reas\w*n",
-            r"effective\s+date",
-            r"required\s+action(?:s|\(s\))?",
-            "compliance",
-        ),
+        (r"reas\w*n", r"effective\s+date", ACTION_HEADING, "compliance"),
     )
     reason_text = _reason_section(text)
     remarks_text = _remarks_section(text)
