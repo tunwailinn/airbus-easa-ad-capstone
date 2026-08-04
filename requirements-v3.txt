@@ -1,0 +1,12 @@
+# Core lightweight extraction, data, and validation
+pandas>=2.2
+pyarrow>=17
+jsonschema>=4.23
+PyMuPDF>=1.24
+numpy>=1.26
+scikit-learn>=1.5
+
+# Production original-PDF hybrid retrieval and prototype UI
+sentence-transformers>=3.0
+faiss-cpu>=1.8
+streamlit>=1.37

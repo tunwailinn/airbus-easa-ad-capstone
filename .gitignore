@@ -32,3 +32,10 @@ rendered/
 corpus_raw/
 source_pdfs/
 page_text/
+
+# Large/full-corpus derivatives and append-only incoming sources are generated
+# from versioned manifests and scripts, then stored in the approved data store.
+data_processed/
+data_incoming/
+indexes/
+evaluation_sets/

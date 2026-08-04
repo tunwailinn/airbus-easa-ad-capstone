@@ -1,0 +1,29 @@
+{
+  "passed": true,
+  "record_count": 50,
+  "selection_count": 50,
+  "expected_count": 50,
+  "gates": {
+    "selection_membership": {
+      "passed": true,
+      "error_count": 0
+    },
+    "source_integrity": {
+      "passed": true,
+      "error_count": 0
+    },
+    "schema_and_strict_semantics": {
+      "passed": true,
+      "error_count": 0
+    },
+    "human_review_and_approval": {
+      "passed": true,
+      "error_count": 0
+    },
+    "evidence_quotes": {
+      "passed": true,
+      "error_count": 0
+    }
+  },
+  "errors": []
+}

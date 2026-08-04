@@ -1,0 +1,138 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/easa-airbus-ad-content-record-2.1.0.schema.json",
+  "title": "Section-complete Airbus EASA AD content record",
+  "description": "Structured reliable fields plus raw text for sections whose semantics are not normalized. Complex compliance logic is interpreted from retrieved PDF passages at question time.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["ad_identity"],
+  "properties": {
+    "ad_identity": {"$ref": "#/$defs/ad_identity"},
+    "publication": {"$ref": "#/$defs/publication"},
+    "applicability": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/applicability"}
+    },
+    "definitions": {"$ref": "#/$defs/raw_section"},
+    "reason": {"$ref": "#/$defs/raw_section"},
+    "required_actions": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/required_action"}
+    },
+    "referenced_publications": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/publication_reference"}
+    },
+    "referenced_publications_text": {"$ref": "#/$defs/raw_section"},
+    "supersedure": {"$ref": "#/$defs/supersedure"},
+    "remarks": {"$ref": "#/$defs/raw_section"}
+  },
+  "$defs": {
+    "non_empty_string": {"type": "string", "minLength": 1},
+    "string_array": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/non_empty_string"}
+    },
+    "ad_identity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["ad_number"],
+      "properties": {
+        "ad_number": {"$ref": "#/$defs/non_empty_string"},
+        "authority": {"$ref": "#/$defs/non_empty_string"},
+        "document_type": {"$ref": "#/$defs/non_empty_string"},
+        "notice_number": {"$ref": "#/$defs/non_empty_string"},
+        "revision": {"$ref": "#/$defs/non_empty_string"},
+        "emergency": {"const": true},
+        "correction_date": {"type": "string", "format": "date"},
+        "correction_statement": {"$ref": "#/$defs/non_empty_string"},
+        "cancellation_statement": {"$ref": "#/$defs/non_empty_string"},
+        "design_approval_holder": {"$ref": "#/$defs/non_empty_string"},
+        "revision_statement": {"$ref": "#/$defs/non_empty_string"}
+      }
+    },
+    "ata_chapter": {
+      "type": "object",
+      "additionalProperties": false,
+      "minProperties": 1,
+      "properties": {
+        "code": {"$ref": "#/$defs/non_empty_string"},
+        "title": {"$ref": "#/$defs/non_empty_string"}
+      }
+    },
+    "publication": {
+      "type": "object",
+      "additionalProperties": false,
+      "minProperties": 1,
+      "properties": {
+        "subject": {"$ref": "#/$defs/non_empty_string"},
+        "issue_date": {"type": "string", "format": "date"},
+        "effective_date": {"type": "string", "format": "date"},
+        "effective_date_statement": {"$ref": "#/$defs/non_empty_string"},
+        "ata_chapters": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"$ref": "#/$defs/ata_chapter"}
+        },
+        "manufacturers": {"$ref": "#/$defs/string_array"},
+        "type_model_designations": {"$ref": "#/$defs/string_array"},
+        "type_model_designation_text": {"$ref": "#/$defs/non_empty_string"},
+        "tcds_numbers": {"$ref": "#/$defs/string_array"},
+        "foreign_ad": {"$ref": "#/$defs/non_empty_string"}
+      }
+    },
+    "applicability": {
+      "type": "object",
+      "additionalProperties": false,
+      "minProperties": 1,
+      "properties": {
+        "text": {"$ref": "#/$defs/non_empty_string"},
+        "aircraft_families": {"$ref": "#/$defs/string_array"},
+        "models": {"$ref": "#/$defs/string_array"}
+      }
+    },
+    "raw_section": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["text"],
+      "properties": {
+        "text": {"$ref": "#/$defs/non_empty_string"}
+      }
+    },
+    "required_action": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["action"],
+      "properties": {
+        "paragraph": {"$ref": "#/$defs/non_empty_string"},
+        "action": {"$ref": "#/$defs/non_empty_string"}
+      }
+    },
+    "publication_reference": {
+      "type": "object",
+      "additionalProperties": false,
+      "minProperties": 1,
+      "properties": {
+        "type": {"$ref": "#/$defs/non_empty_string"},
+        "issuer": {"$ref": "#/$defs/non_empty_string"},
+        "number": {"$ref": "#/$defs/non_empty_string"},
+        "revision": {"$ref": "#/$defs/non_empty_string"},
+        "date": {"type": "string", "format": "date"},
+        "title": {"$ref": "#/$defs/non_empty_string"}
+      }
+    },
+    "supersedure": {
+      "type": "object",
+      "additionalProperties": false,
+      "minProperties": 1,
+      "properties": {
+        "statement": {"$ref": "#/$defs/non_empty_string"},
+        "superseded_ad_numbers": {"$ref": "#/$defs/string_array"}
+      }
+    }
+  }
+}

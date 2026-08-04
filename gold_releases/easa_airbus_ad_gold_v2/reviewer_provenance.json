@@ -1,0 +1,38 @@
+{
+  "release_id": "easa_airbus_ad_gold_v2",
+  "release_state": "gold_published",
+  "frozen_at": "2026-08-02T10:30:00Z",
+  "record_count": 50,
+  "components": [
+    {
+      "name": "step3_pilot_30",
+      "record_count": 30,
+      "annotation_source": "step3_pilot/human_review_working",
+      "approval_provenance": "Retained from the previously approved pilot annotations."
+    },
+    {
+      "name": "step3_extension_20_v1",
+      "record_count": 20,
+      "annotation_source": "step3_extension_20_v1/human_review_working",
+      "source_audit_batches": [
+        "codex-batch1-source-auditor",
+        "codex-batch2-source-auditor",
+        "codex-batch3-source-auditor",
+        "codex-batch4-source-auditor"
+      ],
+      "human_reviewer_id": "human-reviewer-2",
+      "approved_at": "2026-08-02T10:30:00Z",
+      "approval_basis": "The user explicitly instructed that all 20 source-audited annotations be marked human reviewed gold standard and added to the combined gold folder."
+    }
+  ],
+  "drive_readback": {
+    "status": "verified",
+    "verified_at": "2026-08-02T14:00:19Z",
+    "release_folder_id": "13QlVQUagprpAKnLl7nJ-T9yo7iJdzR6z",
+    "annotations_folder_id": "1YpHxbysx0zxbFCkv-fJrXI2uSQ_fHwj8",
+    "annotation_count": 50,
+    "missing_file_count": 0,
+    "unexpected_file_count": 0,
+    "size_mismatch_count": 0
+  }
+}

@@ -1,0 +1,2736 @@
+{
+  "schema_version": "1.0.0",
+  "record_id": "adann-cb57166de0385f86",
+  "source_document": {
+    "file_instance_id": "cb57166de0385f86",
+    "content_id": "a0b5849caffa23be",
+    "canonical_file_instance_id": "cb57166de0385f86",
+    "file_aliases": [],
+    "file_name": "2009-0141__AD_2009-0141_1__easa_ad_2009_0141_superseded.pdf",
+    "relative_path": "2009-0141__AD_2009-0141_1__easa_ad_2009_0141_superseded.pdf",
+    "file_sha256": "a0b5849caffa23be317d10930c11e14e88264bcba262f96c986571b71b07c775",
+    "normalized_text_sha256": "e25ca9e1c7ac34ee65ec489a979e53b8ba3cb6f08684456f0f45829d6c0c40ab",
+    "page_count": 8,
+    "extraction_status": "hybrid",
+    "needs_ocr": false,
+    "manifest_review_flags": [],
+    "source_url": "https://ad.easa.europa.eu/blob/easa_ad_2009_0141_superseded.pdf/AD_2009-0141_1",
+    "text_extraction_method": "hybrid",
+    "exact_duplicate_group": null,
+    "near_duplicate_cluster": null
+  },
+  "ad_identity": {
+    "authority": "EASA",
+    "document_type": "airworthiness_directive",
+    "ad_number": "2009-0141",
+    "base_ad_number": "2009-0141",
+    "revision_number": 0,
+    "publication_kind": "standard_ad",
+    "is_emergency": false,
+    "is_correction": false,
+    "correction_date": {
+      "state": "not_stated",
+      "value": null,
+      "raw_text": null,
+      "evidence_ids": [
+        "EV-001"
+      ]
+    },
+    "version_label": "Original",
+    "logical_version_key": "2009-0141|UNCORRECTED",
+    "is_latest_version": null,
+    "lifecycle_status": "superseded",
+    "design_approval_holder": {
+      "state": "present",
+      "value": "Airbus",
+      "raw_text": "Type Approval Holder’s Name: AIRBUS",
+      "evidence_ids": [
+        "EV-001"
+      ]
+    },
+    "supersedure_statement": {
+      "state": "explicit_none",
+      "value": null,
+      "raw_text": "Supersedure: None",
+      "evidence_ids": [
+        "EV-001"
+      ]
+    },
+    "evidence_ids": [
+      "EV-001",
+      "EV-002"
+    ]
+  },
+  "publication": {
+    "subject": {
+      "state": "present",
+      "value": "Stabilizers – Rudder Side Shell Skin – Inspection",
+      "raw_text": "ATA 55 Stabilizers – Rudder Side Shell Skin – Inspection",
+      "evidence_ids": [
+        "EV-003"
+      ]
+    },
+    "issue_date": {
+      "state": "present",
+      "value": "2009-07-02",
+      "raw_text": "Date: 02 July 2009",
+      "evidence_ids": [
+        "EV-001"
+      ]
+    },
+    "effective_date": {
+      "state": "present",
+      "value": "2009-07-16",
+      "raw_text": "Effective Date: 16 July 2009",
+      "evidence_ids": [
+        "EV-006"
+      ]
+    },
+    "ata_chapters": [
+      {
+        "code": "55",
+        "title": "Stabilizers",
+        "evidence_ids": [
+          "EV-003"
+        ]
+      }
+    ],
+    "manufacturers": [
+      {
+        "raw_name": "AIRBUS (formerly AIRBUS INDUSTRIE)",
+        "normalized_name": "Airbus",
+        "role": "manufacturer",
+        "evidence_ids": [
+          "EV-003"
+        ]
+      }
+    ],
+    "type_model_designations": [
+      "A318",
+      "A319",
+      "A320",
+      "A321"
+    ],
+    "tcds_numbers": [
+      "EASA.A.064"
+    ],
+    "foreign_ad": {
+      "state": "explicit_none",
+      "value": null,
+      "raw_text": "Foreign AD: Not applicable",
+      "evidence_ids": [
+        "EV-001"
+      ]
+    }
+  },
+  "applicability_groups": [
+    {
+      "group_id": "APP-001",
+      "label": "Appendix A rudders with 24 kg/m3 honeycomb core",
+      "state": "present",
+      "raw_text": "AIRBUS A318-111, A318-112, A318-121, A318-122, A319-111, A319-112, A319-113, A319-114, A319-115, A319-131, A319-132, A319-133, A320-111, A320-211, A320-212, A320-214, A320-215, A320-216, A320-231, A320-232, A320-233, A321-111, A321-112, A321-131, A321-211, A321-212, A321-213, A321-231 and A321-232 aeroplane models, all manufacturer serial numbers, if equipped with CFRP rudders having P/N and S/N listed in Appendix A. This group is limited to Appendix A rows marked as core density 24 kg/m3.",
+      "aircraft_families": [
+        "A320 family"
+      ],
+      "models": [
+        "A318-111",
+        "A318-112",
+        "A318-121",
+        "A318-122",
+        "A319-111",
+        "A319-112",
+        "A319-113",
+        "A319-114",
+        "A319-115",
+        "A319-131",
+        "A319-132",
+        "A319-133",
+        "A320-111",
+        "A320-211",
+        "A320-212",
+        "A320-214",
+        "A320-215",
+        "A320-216",
+        "A320-231",
+        "A320-232",
+        "A320-233",
+        "A321-111",
+        "A321-112",
+        "A321-131",
+        "A321-211",
+        "A321-212",
+        "A321-213",
+        "A321-231",
+        "A321-232"
+      ],
+      "serial_restrictions": [
+        {
+          "restriction_id": "MSN-001",
+          "kind": "all",
+          "raw_expression": "all manufacturer serial numbers",
+          "lower_bound": null,
+          "upper_bound": null,
+          "explicit_values": [],
+          "condition": null,
+          "evidence_ids": [
+            "EV-004"
+          ]
+        },
+        {
+          "restriction_id": "MSN-002",
+          "kind": "include_list",
+          "raw_expression": "affected rudder S/N marked 24 kg/m3 in Appendix A",
+          "lower_bound": null,
+          "upper_bound": null,
+          "explicit_values": [
+            "TS-1069",
+            "TS-1090",
+            "TS-1227"
+          ],
+          "condition": "Installed rudder serial number",
+          "evidence_ids": [
+            "EV-015",
+            "EV-016",
+            "EV-017",
+            "EV-018"
+          ]
+        }
+      ],
+      "part_numbers": [
+        "D5547100001000",
+        "D5547100001200"
+      ],
+      "configuration_conditions": [
+        "CFRP rudder P/N and S/N appears in Appendix A",
+        "Appendix A row is marked core density 24 kg/m3"
+      ],
+      "exclusions": [],
+      "boolean_logic": "all",
+      "evidence_ids": [
+        "EV-004",
+        "EV-015",
+        "EV-016",
+        "EV-017",
+        "EV-018"
+      ]
+    },
+    {
+      "group_id": "APP-002",
+      "label": "Appendix A rudders not having 24 kg/m3 honeycomb core",
+      "state": "present",
+      "raw_text": "AIRBUS A318-111, A318-112, A318-121, A318-122, A319-111, A319-112, A319-113, A319-114, A319-115, A319-131, A319-132, A319-133, A320-111, A320-211, A320-212, A320-214, A320-215, A320-216, A320-231, A320-232, A320-233, A321-111, A321-112, A321-131, A321-211, A321-212, A321-213, A321-231 and A321-232 aeroplane models, all manufacturer serial numbers, if equipped with CFRP rudders having P/N and S/N listed in Appendix A. This group is limited to Appendix A rows not marked as core density 24 kg/m3.",
+      "aircraft_families": [
+        "A320 family"
+      ],
+      "models": [
+        "A318-111",
+        "A318-112",
+        "A318-121",
+        "A318-122",
+        "A319-111",
+        "A319-112",
+        "A319-113",
+        "A319-114",
+        "A319-115",
+        "A319-131",
+        "A319-132",
+        "A319-133",
+        "A320-111",
+        "A320-211",
+        "A320-212",
+        "A320-214",
+        "A320-215",
+        "A320-216",
+        "A320-231",
+        "A320-232",
+        "A320-233",
+        "A321-111",
+        "A321-112",
+        "A321-131",
+        "A321-211",
+        "A321-212",
+        "A321-213",
+        "A321-231",
+        "A321-232"
+      ],
+      "serial_restrictions": [
+        {
+          "restriction_id": "MSN-003",
+          "kind": "all",
+          "raw_expression": "all manufacturer serial numbers",
+          "lower_bound": null,
+          "upper_bound": null,
+          "explicit_values": [],
+          "condition": null,
+          "evidence_ids": [
+            "EV-004"
+          ]
+        },
+        {
+          "restriction_id": "MSN-004",
+          "kind": "include_list",
+          "raw_expression": "affected rudder S/N not marked 24 kg/m3 in Appendix A",
+          "lower_bound": null,
+          "upper_bound": null,
+          "explicit_values": [
+            "TS-1350",
+            "TS-1366",
+            "TS-1371",
+            "TS-1383",
+            "TS-1387",
+            "TS-1412",
+            "TS-1443",
+            "TS-1444",
+            "TS-1468",
+            "TS-1480",
+            "TS-1491",
+            "TS-1495",
+            "TS-1498",
+            "TS-1499",
+            "TS-1500",
+            "TS-1505",
+            "TS-1506",
+            "TS-1507",
+            "TS-1509",
+            "TS-1515",
+            "TS-1528",
+            "TS-1530",
+            "TS-1532",
+            "TS-1535",
+            "TS-1536",
+            "TS-1537",
+            "TS-1538",
+            "TS-1540",
+            "TS-1541",
+            "TS-1543",
+            "TS-1548",
+            "TS-1549",
+            "TS-1551",
+            "TS-1554",
+            "TS-1555",
+            "TS-1556",
+            "TS-1557",
+            "TS-1559",
+            "TS-1562",
+            "TS-1563",
+            "TS-1564",
+            "TS-1565",
+            "TS-1566",
+            "TS-1567",
+            "TS-1568",
+            "TS-1569",
+            "TS-1570",
+            "TS-1573",
+            "TS-1575",
+            "TS-1578",
+            "TS-1579",
+            "TS-1580",
+            "TS-1581",
+            "TS-1582",
+            "TS-1584",
+            "TS-1593",
+            "TS-1594",
+            "TS-1596",
+            "TS-1599",
+            "TS-1603",
+            "TS-1609",
+            "TS-1621",
+            "TS-1626",
+            "TS-1627",
+            "TS-1635",
+            "TS-1637",
+            "TS-2003",
+            "TS-2005",
+            "TS-2013",
+            "TS-2016",
+            "TS-2019",
+            "TS-2020",
+            "TS-2022",
+            "TS-2024",
+            "TS-2026",
+            "TS-2031",
+            "TS-2033",
+            "TS-2043",
+            "TS-2047",
+            "TS-2048",
+            "TS-2054",
+            "TS-2058",
+            "TS-2059",
+            "TS-2064",
+            "TS-2072",
+            "TS-2075",
+            "TS-2076",
+            "TS-2079",
+            "TS-2083",
+            "TS-2089",
+            "TS-2090",
+            "TS-2095",
+            "TS-2103",
+            "TS-2116",
+            "TS-2122",
+            "TS-2133",
+            "TS-2142",
+            "TS-2147",
+            "TS-2157",
+            "TS-2158",
+            "TS-2162",
+            "TS-2167",
+            "TS-2174",
+            "TS-2176",
+            "TS-2181",
+            "TS-2189",
+            "TS-2191",
+            "TS-2203",
+            "TS-2205",
+            "TS-2207",
+            "TS-2224",
+            "TS-2229",
+            "TS-2233",
+            "TS-2241",
+            "TS-2246",
+            "TS-2249",
+            "TS-2270",
+            "TS-2275",
+            "TS-2289",
+            "TS-2290",
+            "TS-2294",
+            "TS-2306",
+            "TS-2309",
+            "TS-2347",
+            "TS-2348",
+            "TS-2349",
+            "TS-2357",
+            "TS-2361",
+            "TS-2380",
+            "TS-2383",
+            "TS-2390",
+            "TS-2394",
+            "TS-2396",
+            "TS-2401",
+            "TS-2406",
+            "TS-2461",
+            "TS-2468",
+            "TS-2516",
+            "TS-2537",
+            "TS-2543",
+            "TS-2546",
+            "TS-2619",
+            "TS-2684",
+            "TS-2752",
+            "TS-2869",
+            "TS-2876",
+            "TS-2970",
+            "TS-2971",
+            "TS-2987",
+            "TS-3083",
+            "TS-3197"
+          ],
+          "condition": "Installed rudder serial number",
+          "evidence_ids": [
+            "EV-015",
+            "EV-016",
+            "EV-017",
+            "EV-018"
+          ]
+        }
+      ],
+      "part_numbers": [
+        "D5547100001400",
+        "D5547100001600",
+        "D5547100001800",
+        "D5547100002000",
+        "D5547100100000",
+        "D5547100200000",
+        "D55471002000000001",
+        "D55471002000000002",
+        "D55471002000000003",
+        "D55471004000000000"
+      ],
+      "configuration_conditions": [
+        "CFRP rudder P/N and S/N appears in Appendix A",
+        "Appendix A row is not marked core density 24 kg/m3"
+      ],
+      "exclusions": [],
+      "boolean_logic": "all",
+      "evidence_ids": [
+        "EV-004",
+        "EV-015",
+        "EV-016",
+        "EV-017",
+        "EV-018"
+      ]
+    }
+  ],
+  "definitions": [
+    {
+      "definition_id": "DEF-001",
+      "term": "Reference Date",
+      "definition_text": "The effective date of this AD or the date when the rudder will accumulate 20 000 FC from its first installation on an aeroplane, whichever occurs later.",
+      "evidence_ids": [
+        "EV-009"
+      ]
+    }
+  ],
+  "unsafe_condition": {
+    "state": "present",
+    "raw_reason_text": "Surface defects were visually detected on rudders of one A319 and one A321. Investigation found production-rework areas with de-bonding between skin and honeycomb core. Extended de-bonding may degrade rudder structural integrity; loss of the rudder degrades handling qualities and reduces aeroplane controllability. Inspections and finding-dependent corrective actions are required.",
+    "observed_events_or_defects": [
+      "Surface defects on two in-service rudders",
+      "Skin-to-honeycomb-core de-bonding in production-rework areas"
+    ],
+    "causes": [
+      "Production rework associated with de-bonding"
+    ],
+    "unsafe_conditions": [
+      "Extended rudder de-bonding and degraded rudder structural integrity"
+    ],
+    "potential_consequences": [
+      "Loss of the rudder",
+      "Degraded handling qualities",
+      "Reduced aeroplane controllability"
+    ],
+    "affected_components": [
+      "CFRP rudder side-shell skin and honeycomb core"
+    ],
+    "intended_risk_mitigation": [
+      "Vacuum Loss and Elasticity Laminate Checker inspections",
+      "Corrective actions for findings",
+      "Reporting and installation control"
+    ],
+    "evidence_ids": [
+      "EV-005"
+    ]
+  },
+  "requirements": [
+    {
+      "requirement_id": "REQ-001",
+      "paragraph_reference": "(1.1)",
+      "parent_requirement_id": null,
+      "applicability_group_ids": [
+        "APP-001"
+      ],
+      "action_types": [
+        "inspection"
+      ],
+      "obligation": "mandatory",
+      "action_text": "Perform a Vacuum Loss inspection of the rudder reinforced area.",
+      "objects_or_components": [
+        "Rudder reinforced area"
+      ],
+      "conditions": [
+        "24 kg/m3 Appendix A rudder",
+        "Unless already accomplished"
+      ],
+      "method_publication_ids": [
+        "PUB-001"
+      ],
+      "compliance_rules": [
+        {
+          "compliance_id": "CMP-001",
+          "state": "present",
+          "raw_text": "within 200 days from the effective date of this AD",
+          "logic": "single",
+          "conditions": [],
+          "initial_limits": [
+            {
+              "limit_id": "LIM-001",
+              "relation": "within",
+              "quantity": 200,
+              "unit": "calendar_day",
+              "raw_value": "within 200 days from the effective date of this AD",
+              "reference_event": "effective date of this AD",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-007"
+              ]
+            }
+          ],
+          "is_repetitive": false,
+          "repetitive_intervals": [],
+          "grace_periods": [],
+          "evidence_ids": [
+            "EV-007"
+          ]
+        }
+      ],
+      "follow_on_requirement_ids": [],
+      "terminating_action": {
+        "state": "not_stated",
+        "present": false,
+        "scope": "none",
+        "action_text": null,
+        "terminates_requirement_ids": [],
+        "evidence_ids": []
+      },
+      "evidence_ids": [
+        "EV-007"
+      ]
+    },
+    {
+      "requirement_id": "REQ-002",
+      "paragraph_reference": "(1.2.1)-(1.2.2)",
+      "parent_requirement_id": null,
+      "applicability_group_ids": [
+        "APP-001"
+      ],
+      "action_types": [
+        "inspection"
+      ],
+      "obligation": "mandatory",
+      "action_text": "Perform and repeat the Elasticity Laminate Checker inspection of the rudder trailing-edge area.",
+      "objects_or_components": [
+        "Rudder trailing-edge area"
+      ],
+      "conditions": [
+        "24 kg/m3 Appendix A rudder",
+        "Repeat exactly two further times"
+      ],
+      "method_publication_ids": [
+        "PUB-001"
+      ],
+      "compliance_rules": [
+        {
+          "compliance_id": "CMP-002",
+          "state": "present",
+          "raw_text": "within 20 months from the effective date, then repeat two further times at intervals not exceeding 4 500 FC but not less than 4 000 FC",
+          "logic": "single",
+          "conditions": [],
+          "initial_limits": [
+            {
+              "limit_id": "LIM-002",
+              "relation": "within",
+              "quantity": 20,
+              "unit": "calendar_month",
+              "raw_value": "within 20 months",
+              "reference_event": "effective date of this AD",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-007"
+              ]
+            }
+          ],
+          "is_repetitive": true,
+          "repetitive_intervals": [
+            {
+              "limit_id": "LIM-003",
+              "relation": "not_to_exceed",
+              "quantity": 4500,
+              "unit": "flight_cycle",
+              "raw_value": "intervals not to exceed 4 500 FC",
+              "reference_event": "last inspection",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-007"
+              ]
+            },
+            {
+              "limit_id": "LIM-004",
+              "relation": "other",
+              "quantity": 4000,
+              "unit": "flight_cycle",
+              "raw_value": "not less than 4 000 FC",
+              "reference_event": "last inspection",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-007"
+              ]
+            }
+          ],
+          "grace_periods": [],
+          "evidence_ids": [
+            "EV-007"
+          ]
+        }
+      ],
+      "follow_on_requirement_ids": [],
+      "terminating_action": {
+        "state": "not_stated",
+        "present": false,
+        "scope": "none",
+        "action_text": null,
+        "terminates_requirement_ids": [],
+        "evidence_ids": []
+      },
+      "evidence_ids": [
+        "EV-007"
+      ]
+    },
+    {
+      "requirement_id": "REQ-003",
+      "paragraph_reference": "(1.3.1)-(1.3.2)",
+      "parent_requirement_id": null,
+      "applicability_group_ids": [
+        "APP-001"
+      ],
+      "action_types": [
+        "inspection"
+      ],
+      "obligation": "mandatory",
+      "action_text": "Perform and repeat the Elasticity Laminate Checker inspection of the splice, lower rib, upper edge, leading edge and other specified areas.",
+      "objects_or_components": [
+        "Rudder splice, lower rib, upper edge, leading edge and other locations"
+      ],
+      "conditions": [
+        "24 kg/m3 Appendix A rudder"
+      ],
+      "method_publication_ids": [
+        "PUB-001"
+      ],
+      "compliance_rules": [
+        {
+          "compliance_id": "CMP-003",
+          "state": "present",
+          "raw_text": "within 200 days from the effective date, then repeat at intervals not exceeding 1 500 FC or 200 days, whichever occurs first",
+          "logic": "conditional",
+          "conditions": [],
+          "initial_limits": [
+            {
+              "limit_id": "LIM-005",
+              "relation": "within",
+              "quantity": 200,
+              "unit": "calendar_day",
+              "raw_value": "within 200 days",
+              "reference_event": "effective date of this AD",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-007"
+              ]
+            }
+          ],
+          "is_repetitive": true,
+          "repetitive_intervals": [
+            {
+              "limit_id": "LIM-006",
+              "relation": "not_to_exceed",
+              "quantity": 1500,
+              "unit": "flight_cycle",
+              "raw_value": "intervals not exceeding 1 500 FC",
+              "reference_event": "last inspection",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-007"
+              ]
+            },
+            {
+              "limit_id": "LIM-007",
+              "relation": "not_to_exceed",
+              "quantity": 200,
+              "unit": "calendar_day",
+              "raw_value": "200 days",
+              "reference_event": "last inspection",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-007"
+              ]
+            }
+          ],
+          "grace_periods": [],
+          "evidence_ids": [
+            "EV-007"
+          ]
+        }
+      ],
+      "follow_on_requirement_ids": [
+        "REQ-004"
+      ],
+      "terminating_action": {
+        "state": "not_stated",
+        "present": false,
+        "scope": "none",
+        "action_text": null,
+        "terminates_requirement_ids": [],
+        "evidence_ids": []
+      },
+      "evidence_ids": [
+        "EV-007"
+      ]
+    },
+    {
+      "requirement_id": "REQ-004",
+      "paragraph_reference": "(1.3.3)-(1.3.4)",
+      "parent_requirement_id": null,
+      "applicability_group_ids": [
+        "APP-001"
+      ],
+      "action_types": [
+        "inspection"
+      ],
+      "obligation": "mandatory",
+      "action_text": "Perform a Vacuum Loss inspection of the specified other rudder areas.",
+      "objects_or_components": [
+        "Rudder lower rib, upper edge, leading edge and other locations"
+      ],
+      "conditions": [
+        "24 kg/m3 Appendix A rudder"
+      ],
+      "method_publication_ids": [
+        "PUB-001"
+      ],
+      "compliance_rules": [
+        {
+          "compliance_id": "CMP-004",
+          "state": "present",
+          "raw_text": "within 20 months from the effective date of this AD",
+          "logic": "single",
+          "conditions": [],
+          "initial_limits": [
+            {
+              "limit_id": "LIM-008",
+              "relation": "within",
+              "quantity": 20,
+              "unit": "calendar_month",
+              "raw_value": "within 20 months from the effective date of this AD",
+              "reference_event": "effective date of this AD",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-007"
+              ]
+            }
+          ],
+          "is_repetitive": false,
+          "repetitive_intervals": [],
+          "grace_periods": [],
+          "evidence_ids": [
+            "EV-007"
+          ]
+        }
+      ],
+      "follow_on_requirement_ids": [],
+      "terminating_action": {
+        "state": "present",
+        "present": true,
+        "scope": "full",
+        "action_text": "Paragraph (1.3.3) Vacuum Loss inspection cancels the initial and repetitive paragraph (1.3.1)-(1.3.2) inspections.",
+        "terminates_requirement_ids": [
+          "REQ-003"
+        ],
+        "evidence_ids": [
+          "EV-007"
+        ]
+      },
+      "evidence_ids": [
+        "EV-007"
+      ]
+    },
+    {
+      "requirement_id": "REQ-005",
+      "paragraph_reference": "(1.4)",
+      "parent_requirement_id": null,
+      "applicability_group_ids": [
+        "APP-001"
+      ],
+      "action_types": [
+        "contact_manufacturer",
+        "repair"
+      ],
+      "obligation": "conditional",
+      "action_text": "If an inspection finds a defect, contact Airbus and apply its approved instructions and corrective actions before next flight.",
+      "objects_or_components": [
+        "Rudder inspection finding"
+      ],
+      "conditions": [
+        "Finding during paragraph (1.1), (1.2) or (1.3) inspection"
+      ],
+      "method_publication_ids": [],
+      "compliance_rules": [
+        {
+          "compliance_id": "CMP-005",
+          "state": "present",
+          "raw_text": "before next flight after findings",
+          "logic": "single",
+          "conditions": [],
+          "initial_limits": [
+            {
+              "limit_id": "LIM-009",
+              "relation": "before",
+              "quantity": null,
+              "unit": "before_next_flight",
+              "raw_value": "before next flight after findings",
+              "reference_event": "inspection finding",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-007"
+              ]
+            }
+          ],
+          "is_repetitive": false,
+          "repetitive_intervals": [],
+          "grace_periods": [],
+          "evidence_ids": [
+            "EV-007"
+          ]
+        }
+      ],
+      "follow_on_requirement_ids": [],
+      "terminating_action": {
+        "state": "not_stated",
+        "present": false,
+        "scope": "none",
+        "action_text": null,
+        "terminates_requirement_ids": [],
+        "evidence_ids": []
+      },
+      "evidence_ids": [
+        "EV-007"
+      ]
+    },
+    {
+      "requirement_id": "REQ-006",
+      "paragraph_reference": "(1.5)",
+      "parent_requirement_id": null,
+      "applicability_group_ids": [
+        "APP-001"
+      ],
+      "action_types": [
+        "reporting"
+      ],
+      "obligation": "mandatory",
+      "action_text": "Report every paragraph (1) inspection result, including no findings, to Airbus.",
+      "objects_or_components": [
+        "Inspection results"
+      ],
+      "conditions": [],
+      "method_publication_ids": [],
+      "compliance_rules": [
+        {
+          "compliance_id": "CMP-006",
+          "state": "present",
+          "raw_text": "within 10 days after each inspection",
+          "logic": "single",
+          "conditions": [],
+          "initial_limits": [
+            {
+              "limit_id": "LIM-010",
+              "relation": "within",
+              "quantity": 10,
+              "unit": "calendar_day",
+              "raw_value": "within 10 days after each inspection",
+              "reference_event": "each paragraph (1.1), (1.2) or (1.3) inspection",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-007",
+                "EV-008"
+              ]
+            }
+          ],
+          "is_repetitive": false,
+          "repetitive_intervals": [],
+          "grace_periods": [],
+          "evidence_ids": [
+            "EV-007",
+            "EV-008"
+          ]
+        }
+      ],
+      "follow_on_requirement_ids": [],
+      "terminating_action": {
+        "state": "not_stated",
+        "present": false,
+        "scope": "none",
+        "action_text": null,
+        "terminates_requirement_ids": [],
+        "evidence_ids": []
+      },
+      "evidence_ids": [
+        "EV-007",
+        "EV-008"
+      ]
+    },
+    {
+      "requirement_id": "REQ-007",
+      "paragraph_reference": "(2.1)",
+      "parent_requirement_id": null,
+      "applicability_group_ids": [
+        "APP-002"
+      ],
+      "action_types": [
+        "inspection"
+      ],
+      "obligation": "mandatory",
+      "action_text": "Perform a Vacuum Loss inspection of the rudder reinforced area.",
+      "objects_or_components": [
+        "Rudder reinforced area"
+      ],
+      "conditions": [
+        "Appendix A rudder not having 24 kg/m3 core density"
+      ],
+      "method_publication_ids": [
+        "PUB-001"
+      ],
+      "compliance_rules": [
+        {
+          "compliance_id": "CMP-007",
+          "state": "present",
+          "raw_text": "within 200 days from the Reference Date",
+          "logic": "single",
+          "conditions": [],
+          "initial_limits": [
+            {
+              "limit_id": "LIM-011",
+              "relation": "within",
+              "quantity": 200,
+              "unit": "calendar_day",
+              "raw_value": "within 200 days from the Reference Date",
+              "reference_event": "Reference Date",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-009"
+              ]
+            }
+          ],
+          "is_repetitive": false,
+          "repetitive_intervals": [],
+          "grace_periods": [],
+          "evidence_ids": [
+            "EV-009"
+          ]
+        }
+      ],
+      "follow_on_requirement_ids": [],
+      "terminating_action": {
+        "state": "not_stated",
+        "present": false,
+        "scope": "none",
+        "action_text": null,
+        "terminates_requirement_ids": [],
+        "evidence_ids": []
+      },
+      "evidence_ids": [
+        "EV-009"
+      ]
+    },
+    {
+      "requirement_id": "REQ-008",
+      "paragraph_reference": "(2.2.1)-(2.2.2)",
+      "parent_requirement_id": null,
+      "applicability_group_ids": [
+        "APP-002"
+      ],
+      "action_types": [
+        "inspection"
+      ],
+      "obligation": "mandatory",
+      "action_text": "Perform and repeat the Elasticity Laminate Checker inspection of the rudder trailing-edge area.",
+      "objects_or_components": [
+        "Rudder trailing-edge area"
+      ],
+      "conditions": [
+        "Appendix A rudder not having 24 kg/m3 core density",
+        "Repeat exactly two further times"
+      ],
+      "method_publication_ids": [
+        "PUB-001"
+      ],
+      "compliance_rules": [
+        {
+          "compliance_id": "CMP-008",
+          "state": "present",
+          "raw_text": "within 20 months from the Reference Date, then repeat two further times at intervals not exceeding 4 500 FC but not less than 4 000 FC",
+          "logic": "single",
+          "conditions": [],
+          "initial_limits": [
+            {
+              "limit_id": "LIM-012",
+              "relation": "within",
+              "quantity": 20,
+              "unit": "calendar_month",
+              "raw_value": "within 20 months",
+              "reference_event": "Reference Date",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-009"
+              ]
+            }
+          ],
+          "is_repetitive": true,
+          "repetitive_intervals": [
+            {
+              "limit_id": "LIM-013",
+              "relation": "not_to_exceed",
+              "quantity": 4500,
+              "unit": "flight_cycle",
+              "raw_value": "intervals not to exceed 4 500 FC",
+              "reference_event": "last inspection",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-009"
+              ]
+            },
+            {
+              "limit_id": "LIM-014",
+              "relation": "other",
+              "quantity": 4000,
+              "unit": "flight_cycle",
+              "raw_value": "not less than 4 000 FC",
+              "reference_event": "last inspection",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-009"
+              ]
+            }
+          ],
+          "grace_periods": [],
+          "evidence_ids": [
+            "EV-009"
+          ]
+        }
+      ],
+      "follow_on_requirement_ids": [],
+      "terminating_action": {
+        "state": "not_stated",
+        "present": false,
+        "scope": "none",
+        "action_text": null,
+        "terminates_requirement_ids": [],
+        "evidence_ids": []
+      },
+      "evidence_ids": [
+        "EV-009"
+      ]
+    },
+    {
+      "requirement_id": "REQ-009",
+      "paragraph_reference": "(2.3.1)-(2.3.2)",
+      "parent_requirement_id": null,
+      "applicability_group_ids": [
+        "APP-002"
+      ],
+      "action_types": [
+        "inspection"
+      ],
+      "obligation": "mandatory",
+      "action_text": "Perform and repeat the Elasticity Laminate Checker inspection of the splice, lower rib, upper edge, leading edge and other specified areas.",
+      "objects_or_components": [
+        "Rudder splice, lower rib, upper edge, leading edge and other locations"
+      ],
+      "conditions": [
+        "Appendix A rudder not having 24 kg/m3 core density"
+      ],
+      "method_publication_ids": [
+        "PUB-001"
+      ],
+      "compliance_rules": [
+        {
+          "compliance_id": "CMP-009",
+          "state": "present",
+          "raw_text": "within 200 days from the Reference Date, then repeat at intervals not exceeding 1 500 FC or 200 days, whichever occurs first",
+          "logic": "conditional",
+          "conditions": [],
+          "initial_limits": [
+            {
+              "limit_id": "LIM-015",
+              "relation": "within",
+              "quantity": 200,
+              "unit": "calendar_day",
+              "raw_value": "within 200 days",
+              "reference_event": "Reference Date",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-009"
+              ]
+            }
+          ],
+          "is_repetitive": true,
+          "repetitive_intervals": [
+            {
+              "limit_id": "LIM-016",
+              "relation": "not_to_exceed",
+              "quantity": 1500,
+              "unit": "flight_cycle",
+              "raw_value": "intervals not exceeding 1 500 FC",
+              "reference_event": "last inspection",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-009"
+              ]
+            },
+            {
+              "limit_id": "LIM-017",
+              "relation": "not_to_exceed",
+              "quantity": 200,
+              "unit": "calendar_day",
+              "raw_value": "200 days",
+              "reference_event": "last inspection",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-009"
+              ]
+            }
+          ],
+          "grace_periods": [],
+          "evidence_ids": [
+            "EV-009"
+          ]
+        }
+      ],
+      "follow_on_requirement_ids": [
+        "REQ-010"
+      ],
+      "terminating_action": {
+        "state": "not_stated",
+        "present": false,
+        "scope": "none",
+        "action_text": null,
+        "terminates_requirement_ids": [],
+        "evidence_ids": []
+      },
+      "evidence_ids": [
+        "EV-009"
+      ]
+    },
+    {
+      "requirement_id": "REQ-010",
+      "paragraph_reference": "(2.3.3)-(2.3.4)",
+      "parent_requirement_id": null,
+      "applicability_group_ids": [
+        "APP-002"
+      ],
+      "action_types": [
+        "inspection"
+      ],
+      "obligation": "mandatory",
+      "action_text": "Perform a Vacuum Loss inspection of the specified other rudder areas.",
+      "objects_or_components": [
+        "Rudder lower rib, upper edge, leading edge and other locations"
+      ],
+      "conditions": [
+        "Appendix A rudder not having 24 kg/m3 core density"
+      ],
+      "method_publication_ids": [
+        "PUB-001"
+      ],
+      "compliance_rules": [
+        {
+          "compliance_id": "CMP-010",
+          "state": "present",
+          "raw_text": "within 20 months from the Reference Date",
+          "logic": "single",
+          "conditions": [],
+          "initial_limits": [
+            {
+              "limit_id": "LIM-018",
+              "relation": "within",
+              "quantity": 20,
+              "unit": "calendar_month",
+              "raw_value": "within 20 months from the Reference Date",
+              "reference_event": "Reference Date",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-009",
+                "EV-010"
+              ]
+            }
+          ],
+          "is_repetitive": false,
+          "repetitive_intervals": [],
+          "grace_periods": [],
+          "evidence_ids": [
+            "EV-009",
+            "EV-010"
+          ]
+        }
+      ],
+      "follow_on_requirement_ids": [],
+      "terminating_action": {
+        "state": "present",
+        "present": true,
+        "scope": "full",
+        "action_text": "Paragraph (2.3.3) Vacuum Loss inspection cancels the initial and repetitive paragraph (2.3.1)-(2.3.2) inspections.",
+        "terminates_requirement_ids": [
+          "REQ-009"
+        ],
+        "evidence_ids": [
+          "EV-009",
+          "EV-010"
+        ]
+      },
+      "evidence_ids": [
+        "EV-009",
+        "EV-010"
+      ]
+    },
+    {
+      "requirement_id": "REQ-011",
+      "paragraph_reference": "(2.4)",
+      "parent_requirement_id": null,
+      "applicability_group_ids": [
+        "APP-002"
+      ],
+      "action_types": [
+        "contact_manufacturer",
+        "repair"
+      ],
+      "obligation": "conditional",
+      "action_text": "If an inspection finds a defect, contact Airbus and apply its approved instructions and corrective actions before next flight.",
+      "objects_or_components": [
+        "Rudder inspection finding"
+      ],
+      "conditions": [
+        "Finding during paragraph (2.1), (2.2) or (2.3) inspection"
+      ],
+      "method_publication_ids": [],
+      "compliance_rules": [
+        {
+          "compliance_id": "CMP-011",
+          "state": "present",
+          "raw_text": "before next flight after findings",
+          "logic": "single",
+          "conditions": [],
+          "initial_limits": [
+            {
+              "limit_id": "LIM-019",
+              "relation": "before",
+              "quantity": null,
+              "unit": "before_next_flight",
+              "raw_value": "before next flight after findings",
+              "reference_event": "inspection finding",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-009",
+                "EV-010"
+              ]
+            }
+          ],
+          "is_repetitive": false,
+          "repetitive_intervals": [],
+          "grace_periods": [],
+          "evidence_ids": [
+            "EV-009",
+            "EV-010"
+          ]
+        }
+      ],
+      "follow_on_requirement_ids": [],
+      "terminating_action": {
+        "state": "not_stated",
+        "present": false,
+        "scope": "none",
+        "action_text": null,
+        "terminates_requirement_ids": [],
+        "evidence_ids": []
+      },
+      "evidence_ids": [
+        "EV-009",
+        "EV-010"
+      ]
+    },
+    {
+      "requirement_id": "REQ-012",
+      "paragraph_reference": "(2.5)",
+      "parent_requirement_id": null,
+      "applicability_group_ids": [
+        "APP-002"
+      ],
+      "action_types": [
+        "reporting"
+      ],
+      "obligation": "mandatory",
+      "action_text": "Report every paragraph (2) inspection result, including no findings, to Airbus.",
+      "objects_or_components": [
+        "Inspection results"
+      ],
+      "conditions": [],
+      "method_publication_ids": [],
+      "compliance_rules": [
+        {
+          "compliance_id": "CMP-012",
+          "state": "present",
+          "raw_text": "within 10 days after each inspection",
+          "logic": "single",
+          "conditions": [],
+          "initial_limits": [
+            {
+              "limit_id": "LIM-020",
+              "relation": "within",
+              "quantity": 10,
+              "unit": "calendar_day",
+              "raw_value": "within 10 days after each inspection",
+              "reference_event": "each paragraph (2.1), (2.2) or (2.3) inspection",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-009",
+                "EV-010"
+              ]
+            }
+          ],
+          "is_repetitive": false,
+          "repetitive_intervals": [],
+          "grace_periods": [],
+          "evidence_ids": [
+            "EV-009",
+            "EV-010"
+          ]
+        }
+      ],
+      "follow_on_requirement_ids": [],
+      "terminating_action": {
+        "state": "not_stated",
+        "present": false,
+        "scope": "none",
+        "action_text": null,
+        "terminates_requirement_ids": [],
+        "evidence_ids": []
+      },
+      "evidence_ids": [
+        "EV-009",
+        "EV-010"
+      ]
+    },
+    {
+      "requirement_id": "REQ-013",
+      "paragraph_reference": "(4)",
+      "parent_requirement_id": null,
+      "applicability_group_ids": [
+        "APP-001",
+        "APP-002"
+      ],
+      "action_types": [
+        "prohibition",
+        "install"
+      ],
+      "obligation": "prohibited",
+      "action_text": "Do not install an Appendix A rudder unless it complies with this AD.",
+      "objects_or_components": [
+        "Appendix A rudder"
+      ],
+      "conditions": [
+        "Installation after the effective date"
+      ],
+      "method_publication_ids": [],
+      "compliance_rules": [
+        {
+          "compliance_id": "CMP-013",
+          "state": "present",
+          "raw_text": "After the effective date, do not install an Appendix A rudder unless it complies with this AD",
+          "logic": "conditional",
+          "conditions": [
+            "Rudder is listed in Appendix A",
+            "Installation permitted only when AD requirements are met"
+          ],
+          "initial_limits": [
+            {
+              "limit_id": "LIM-021",
+              "relation": "from",
+              "quantity": null,
+              "unit": "calendar_date",
+              "raw_value": "After the effective date of this AD",
+              "reference_event": "effective date of this AD",
+              "calendar_date": "2009-07-16",
+              "evidence_ids": [
+                "EV-012"
+              ]
+            }
+          ],
+          "is_repetitive": false,
+          "repetitive_intervals": [],
+          "grace_periods": [],
+          "evidence_ids": [
+            "EV-012"
+          ]
+        }
+      ],
+      "follow_on_requirement_ids": [],
+      "terminating_action": {
+        "state": "not_stated",
+        "present": false,
+        "scope": "none",
+        "action_text": null,
+        "terminates_requirement_ids": [],
+        "evidence_ids": []
+      },
+      "evidence_ids": [
+        "EV-012",
+        "EV-015",
+        "EV-016",
+        "EV-017",
+        "EV-018"
+      ]
+    }
+  ],
+  "exceptions": [],
+  "previous_action_credit": [
+    {
+      "credit_id": "CRD-001",
+      "text": "A rudder that passed a pre-effective-date inspection under AOT A320-55A1038 original issue or TD/K4/S2/27051/2009 issue B receives credit for the inspected areas; additional areas and all repetitive inspections remain required.",
+      "applies_to_requirement_ids": [
+        "REQ-001",
+        "REQ-002",
+        "REQ-003",
+        "REQ-004",
+        "REQ-007",
+        "REQ-008",
+        "REQ-009",
+        "REQ-010"
+      ],
+      "credited_publication_ids": [
+        "PUB-002",
+        "PUB-003"
+      ],
+      "conditions": [
+        "Inspection passed before the effective date",
+        "Credit limited to areas inspected",
+        "Additional areas and repetitive inspections remain applicable"
+      ],
+      "evidence_ids": [
+        "EV-011"
+      ]
+    }
+  ],
+  "referenced_publications": [
+    {
+      "publication_id": "PUB-001",
+      "publication_type": "all_operators_telex",
+      "issuer": "Airbus",
+      "number": "A320-55A1038",
+      "revision": "Revision 01",
+      "publication_date": null,
+      "title": null,
+      "roles": [
+        "required_method"
+      ],
+      "later_approved_revisions_allowed": true,
+      "evidence_ids": [
+        "EV-007",
+        "EV-009",
+        "EV-013"
+      ]
+    },
+    {
+      "publication_id": "PUB-002",
+      "publication_type": "all_operators_telex",
+      "issuer": "Airbus",
+      "number": "A320-55A1038",
+      "revision": "Original issue",
+      "publication_date": null,
+      "title": null,
+      "roles": [
+        "previous_action_credit"
+      ],
+      "later_approved_revisions_allowed": true,
+      "evidence_ids": [
+        "EV-011",
+        "EV-013"
+      ]
+    },
+    {
+      "publication_id": "PUB-003",
+      "publication_type": "other",
+      "issuer": "Airbus",
+      "number": "TD/K4/S2/27051/2009",
+      "revision": "Issue B",
+      "publication_date": null,
+      "title": "Sampling instruction Technical Disposition",
+      "roles": [
+        "previous_action_credit"
+      ],
+      "later_approved_revisions_allowed": true,
+      "evidence_ids": [
+        "EV-011",
+        "EV-013"
+      ]
+    }
+  ],
+  "relationships": [],
+  "amoc_and_contacts": [
+    {
+      "entry_id": "AMC-001",
+      "entry_type": "amoc_authority",
+      "authority_or_organization": "EASA",
+      "contact_text": "If requested and appropriately substantiated, EASA can approve Alternative Methods of Compliance for this AD.",
+      "conditions": [
+        "Requested and appropriately substantiated"
+      ],
+      "evidence_ids": [
+        "EV-014"
+      ]
+    },
+    {
+      "entry_id": "AMC-002",
+      "entry_type": "regulatory_contact",
+      "authority_or_organization": "EASA",
+      "contact_text": "Enquiries regarding this AD should be referred to EASA at ADs@easa.europa.eu.",
+      "conditions": [],
+      "evidence_ids": [
+        "EV-014"
+      ]
+    },
+    {
+      "entry_id": "AMC-003",
+      "entry_type": "technical_contact",
+      "authority_or_organization": "Airbus",
+      "contact_text": "For technical questions, contact AIRBUS – Airworthiness Office – EAS, fax +33 5 61 93 44 51, account.airworth-eas@airbus.com.",
+      "conditions": [],
+      "evidence_ids": [
+        "EV-014"
+      ]
+    }
+  ],
+  "classification": {
+    "airbus_families": [
+      "A320 family"
+    ],
+    "ata_chapters": [
+      "55"
+    ],
+    "action_types": [
+      "inspection",
+      "contact_manufacturer",
+      "repair",
+      "reporting",
+      "prohibition",
+      "install"
+    ],
+    "frequency": "mixed",
+    "emergency_status": "standard",
+    "terminating_action_present": true,
+    "table_or_appendix_present": true,
+    "compliance_complexity": "mixed",
+    "human_confirmed": true,
+    "evidence_ids": [
+      "EV-003",
+      "EV-004",
+      "EV-007",
+      "EV-008",
+      "EV-009",
+      "EV-010",
+      "EV-011",
+      "EV-012",
+      "EV-015",
+      "EV-016",
+      "EV-017",
+      "EV-018"
+    ]
+  },
+  "evidence_spans": [
+    {
+      "evidence_id": "EV-001",
+      "source_file_instance_id": "cb57166de0385f86",
+      "page_number": 1,
+      "printed_page_label": "Page 1/8",
+      "section": "cover",
+      "section_raw": "Cover identity",
+      "clause_path": null,
+      "exact_quote": "AD No.: 2009-0141. Date: 02 July 2009. Type Approval Holder’s Name: AIRBUS. Type/Model designation(s): A318, A319, A320 and A321 aeroplanes. TCDS Number: EASA.A.064. Foreign AD: Not applicable. Supersedure: None.",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "97de336c82298c9b1bb8096a330db615e4e4e4372b61331b8d59f7e19c5bb17d",
+      "bbox_normalized": null,
+      "extraction_method": "visual_transcription",
+      "quality": "visual_transcription",
+      "table_context": null,
+      "annotation_note": "Visually transcribed from the rendered legacy two-column cover because native extraction interleaves labels and values beneath a diagonal status stamp."
+    },
+    {
+      "evidence_id": "EV-002",
+      "source_file_instance_id": "cb57166de0385f86",
+      "page_number": 1,
+      "printed_page_label": "Page 1/8",
+      "section": "other",
+      "section_raw": "Document status stamp",
+      "clause_path": null,
+      "exact_quote": "SUPERSEDED",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "97de336c82298c9b1bb8096a330db615e4e4e4372b61331b8d59f7e19c5bb17d",
+      "bbox_normalized": null,
+      "extraction_method": "visual_transcription",
+      "quality": "visual_transcription",
+      "table_context": null,
+      "annotation_note": "Visible diagonal red status stamp on the rendered PDF; it does not identify the superseding AD."
+    },
+    {
+      "evidence_id": "EV-003",
+      "source_file_instance_id": "cb57166de0385f86",
+      "page_number": 1,
+      "printed_page_label": "Page 1/8",
+      "section": "cover",
+      "section_raw": "ATA / Manufacturer(s)",
+      "clause_path": null,
+      "exact_quote": "ATA 55 Stabilizers – Rudder Side Shell Skin – Inspection. Manufacturer(s): AIRBUS (formerly AIRBUS INDUSTRIE).",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "97de336c82298c9b1bb8096a330db615e4e4e4372b61331b8d59f7e19c5bb17d",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-004",
+      "source_file_instance_id": "cb57166de0385f86",
+      "page_number": 1,
+      "printed_page_label": "Page 1/8",
+      "section": "applicability",
+      "section_raw": "Applicability",
+      "clause_path": null,
+      "exact_quote": "Applicability: AIRBUS A318-111, A318-112, A318-121, A318-122, A319-111, A319-112, A319-113, A319-114, A319-115, A319-131, A319-132, A319-133, A320- 111, A320-211, A320-212, A320-214, A320-215, A320-216, A320-231, A320-232, A320-233, A321-111, A321-112, A321-131, A321-211, A321- 212, A321-213, A321-231 and A321-232 aeroplane models, all manufacturer serial numbers, if equipped with Carbon Fiber Reinforced Plastic (CFRP) rudders having part numbers (P/N) and serial numbers (S/N) as listed in Appendix A to this AD.",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "97de336c82298c9b1bb8096a330db615e4e4e4372b61331b8d59f7e19c5bb17d",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-005",
+      "source_file_instance_id": "cb57166de0385f86",
+      "page_number": 1,
+      "printed_page_label": "Page 1/8",
+      "section": "reason",
+      "section_raw": "Reason",
+      "clause_path": null,
+      "exact_quote": "Reason: Surface defects were visually detected on the rudder of one A319 and one A321 in-service aeroplane. Investigation has determined that the defects reported on both rudders corresponded to areas that had been reworked in production. The investigation confirmed that the defects were a result of de-bonding between the skin and honeycomb core. An extended de-bonding, if not detected and corrected, may degrade the structural integrity of the rudder. The loss of the rudder leads to degradation of the handling qualities and reduces the controllability of the aeroplane. This AD requires inspections of spec ific areas and, when necessary, the application of corrective actions for those rudders where production reworks have been identified. EASA Form 110 Page 1/8",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "97de336c82298c9b1bb8096a330db615e4e4e4372b61331b8d59f7e19c5bb17d",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-006",
+      "source_file_instance_id": "cb57166de0385f86",
+      "page_number": 2,
+      "printed_page_label": "Page 2/8",
+      "section": "cover",
+      "section_raw": "Effective Date",
+      "clause_path": null,
+      "exact_quote": "Effective Date: 16 July 2009",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "c16b51015b8a4411f364193683931310cc0f214508189fb2ecc5b97f92564d30",
+      "bbox_normalized": null,
+      "extraction_method": "visual_transcription",
+      "quality": "visual_transcription",
+      "table_context": null,
+      "annotation_note": "Visually read from the rendered legacy compliance header; native two-column extraction places the label and value far apart."
+    },
+    {
+      "evidence_id": "EV-007",
+      "source_file_instance_id": "cb57166de0385f86",
+      "page_number": 2,
+      "printed_page_label": "Page 2/8",
+      "section": "required_actions_and_compliance_times",
+      "section_raw": "Required action(s) and Compliance Time(s)",
+      "clause_path": "(1), page 1 of 2",
+      "exact_quote": "(1) For rudders with a honeycomb core density of 24 kg/m3 as identified Time(s): in Appendix A to this AD, apply the following actions for the locations defined in Airbus All Operators Telex (AOT) A320-55A1038 Revision 01: (1.1) Reinforced area location: Unless already accomplished, within 200 days from the effective date of this AD, perform Vacuum Loss inspection on the rudder reinforced area in accordance with instructions defined in Airbus AOT A320-55A1038 Revision 01. (1.2) Trailing edge area location: (1.2.1) Unless already accomplished, within 20 months from the effective date of this AD, perform Elasticity Laminate Checker inspection on the rudder trailing edge area in accordance with instructions defined in Airbus AOT A320-55A1038 Revision 01. (1.2.2) Repeat two further times the inspection defined in paragraph (1.2.1) of this AD at intervals not to exceed 4 500 flight cycles (FC) but not less than 4 000 FC from the last inspection. (1.3) Other areas locations (splice/lower rib/upper edge/leading edge/other locations): (1.3.1) Unless already accomplished, within 200 days from the effective date of this AD, perform Elasticity Laminate Checker inspection on the other areas (splice/lower rib/upper edge/leading edge/other locations) in accordance with instructions defined in Airbus AOT A320-55A1038 Revision 01. (1.3.2) Repeat the inspection defined in paragraph (1.3.1) of this AD at intervals not exceeding 1 500 FC or 200 days from the last inspection, whichever occurs first. (1.3.3) Unless already accomplished, within 20 months from the effective date of this AD, perform Vacuum Loss inspection on these areas (lower rib/upper edge/leading edge/other locations) in accordance with instructions defined in Airbus AOT A320-55A1038 Revision 01. (1.3.4) Accomplishment of the inspection required by paragraph (1.3.3) cancels the initial and repetitive inspections required by paragraph (1.3.1) and (1.3.2) of this AD. (1.4) In case of findings during the inspections defined in paragraphs (1.1), (1.2) or (1.3) of this AD, before next flight, contact Airbus to get further instructions and apply the associated instructions and corrective actions in accordance with the approved data provided. (1.5) Within 10 days after accomplishment of each inspection in accordance with paragraphs (1.1), (1.2) or (1.3) of this AD, report EASA Form 110 Page 2/8",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "c16b51015b8a4411f364193683931310cc0f214508189fb2ecc5b97f92564d30",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": "Exact native text through the page boundary; paragraph (1.5) continues on page 3."
+    },
+    {
+      "evidence_id": "EV-008",
+      "source_file_instance_id": "cb57166de0385f86",
+      "page_number": 3,
+      "printed_page_label": "Page 3/8",
+      "section": "required_actions_and_compliance_times",
+      "section_raw": "Required action(s) and Compliance Time(s)",
+      "clause_path": "(1.5), continuation",
+      "exact_quote": "the inspection results, including no findings, to Airbus.",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "9390bdb3b892cd4a42e935f1e235036aa95ddfc25335725a68e01adc38d37894",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-009",
+      "source_file_instance_id": "cb57166de0385f86",
+      "page_number": 3,
+      "printed_page_label": "Page 3/8",
+      "section": "required_actions_and_compliance_times",
+      "section_raw": "Required action(s) and Compliance Time(s)",
+      "clause_path": "(2), page 1 of 2",
+      "exact_quote": "(2) For rudders not having a honeycomb core density of 24 kg/m3 as identified in Appendix A to this AD, apply the following actions for the locations defined in Airbus AOT A320-55A1038 Revision 01: For the purpose of this AD a Reference Date is defined as the effective date of this AD or the date when the rudder will accumulate 20 000 FC from its first installation on an aeroplane, whichever occurs later. (2.1) Reinforced area location: Unless already accomplished, within 200 days from the Reference Date, perform Vacuum Loss inspection on the rudder reinforced area in accordance with instructions defined in Airbus AOT A320-55A1038 Revision 01. (2.2) Trailing edge area location: (2.2.1) Unless already accomplished, within 20 months from the Reference Date, perform Elasticity Laminate Checker inspection on the rudder trailing edge area in accordance with instructions defined in Airbus AOT A320-55A1038 Revision 01. (2.2.2) Repeat two further times the inspection defined in paragraph (2.2.1) of this AD at intervals not to exceed 4 500 FC but not less than 4 000 FC from the last inspection. (2.3) Other areas locations (splice/lower rib/upper edge/leading edge/other locations): (2.3.1) Unless already accomplished, within 200 days from the Reference Date, perform Elasticity Laminate Checker inspection on the other areas (splice/lower rib/upper edge/leading edge/other locations) in accordance with instructions defined in Airbus AOT A320-55A1038 Revision 01. (2.3.2) Repeat the inspection defined in paragraph (2.3.1) of this AD at intervals not exceeding 1 500 FC or 200 days from the last inspection, whichever occurs first. (2.3.3) Unless already accomplished, within 20 months from the Reference Date, perform Vacuum Loss inspection on these areas (lower rib/upper edge/leading edge/other locations) in accordance with instructions defined in Airbus AOT A320-55A1038 Revision 01. (2.3.4) Accomplishment of the inspection required by paragraph (2.3.3) of this AD cancels the initial and repetitive inspections required by paragraph (2.3.1) and (2.3.2) of this AD. (2.4) In case of findings during the inspections defined in paragraphs (2.1), (2.2) or (2.3) of this AD, before next flight, contact Airbus to get further instructions and apply the associated instructions and corrective actions in accordance with the approved data provided. (2.5) Within 10 days after accomplishment of each inspection in accordance with paragraphs (2.1), (2.2) or (2.3) of this AD, report EASA Form 110 Page 3/8",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "9390bdb3b892cd4a42e935f1e235036aa95ddfc25335725a68e01adc38d37894",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": "Exact native text through the page boundary; paragraph (2.3.3) continues on page 4."
+    },
+    {
+      "evidence_id": "EV-010",
+      "source_file_instance_id": "cb57166de0385f86",
+      "page_number": 4,
+      "printed_page_label": "Page 4/8",
+      "section": "required_actions_and_compliance_times",
+      "section_raw": "Required action(s) and Compliance Time(s)",
+      "clause_path": "(2), page 2 of 2",
+      "exact_quote": "EASA AD No.: 2009-0141 the results, including no findings, to Airbus. (3) All rudders that have passed the inspection, before the effective date of this AD, in accordance with the instructions of Airbus AOT A320- 55A1038 at original issue or Sampling instruction Technical Disposition (TD) ref. TD/K4/S2/27051/2009 issue B, are compliant with the associated requirements of this AD for the areas inspected. Additional areas requiring inspection are defined in AOT A320- 55A1038 at Revision 01. For these additional areas the requirements of paragraphs (1) or (2) of this AD are applicable. For all areas, the repetitive inspections required by paragraphs (1) or (2) of this AD remain applicable. (4) After the effective date of this AD, no person shall install any rudder listed in Appendix A to this AD on an aeroplane, unless in compliance with the requirements of this AD. Ref. Publications: AIRBUS All Operators Telex A320-55A1038 Revision 01. AIRBUS Technical Disposition ref. TD/K4/S2/27051/2009 issue B. The use of later approved revisions of these documents is acceptable for compliance with the requirements of this AD. Remarks: 1. If requested and appropriately substantiated, EASA can approve Alternative Methods of Compliance for this AD. 2. The required actions and the risk allowance have granted the issuance of a Final AD with Request for Comments, postponing the public consultation process after publication. 3. Enquiries regarding this AD should be referred to the Airworthiness Directives, Safety Management & Research Section, Certification Directorate, EASA. E-mail: ADs@easa.europa.eu . 4. For any question concerning the technical content of the requirements in this AD, please contact: AIRBUS – Airworthiness Office – EAS; Fax +33 5 61 93 44 51; E-mail: account.airworth-eas@airbus.com . EASA Form 110 Page 4/8",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "07284aa87487a6177a086fd9aa4fc70e0adfad8b8191ab4221a200c39802af99",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": "Full page retained because the legacy extraction begins mid-clause and continues into paragraphs (3) and (4)."
+    },
+    {
+      "evidence_id": "EV-011",
+      "source_file_instance_id": "cb57166de0385f86",
+      "page_number": 4,
+      "printed_page_label": "Page 4/8",
+      "section": "credit",
+      "section_raw": "Required action(s) and Compliance Time(s)",
+      "clause_path": "(3)",
+      "exact_quote": "(3) All rudders that have passed the inspection, before the effective date of this AD, in accordance with the instructions of Airbus AOT A320- 55A1038 at original issue or Sampling instruction Technical Disposition (TD) ref. TD/K4/S2/27051/2009 issue B, are compliant with the associated requirements of this AD for the areas inspected. Additional areas requiring inspection are defined in AOT A320- 55A1038 at Revision 01. For these additional areas the requirements of paragraphs (1) or (2) of this AD are applicable. For all areas, the repetitive inspections required by paragraphs (1) or (2) of this AD remain applicable.",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "07284aa87487a6177a086fd9aa4fc70e0adfad8b8191ab4221a200c39802af99",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-012",
+      "source_file_instance_id": "cb57166de0385f86",
+      "page_number": 4,
+      "printed_page_label": "Page 4/8",
+      "section": "required_actions_and_compliance_times",
+      "section_raw": "Required action(s) and Compliance Time(s)",
+      "clause_path": "(4)",
+      "exact_quote": "(4) After the effective date of this AD, no person shall install any rudder listed in Appendix A to this AD on an aeroplane, unless in compliance with the requirements of this AD. Ref. Publications: AIRBUS All Operators Telex A320-55A1038 Revision 01. AIRBUS Technical Disposition ref. TD/K4/S2/27051/2009 issue B. The use of later approved revisions of these documents is acceptable for compliance with the requirements of this AD. Remarks: 1. If requested and appropriately substantiated, EASA can approve Alternative Methods of Compliance for this AD. 2. The required actions and the risk allowance have granted the issuance of a Final AD with Request for Comments, postponing the public consultation process after publication. 3. Enquiries regarding this AD should be referred to the Airworthiness Directives, Safety Management & Research Section, Certification Directorate, EASA. E-mail: ADs@easa.europa.eu . 4. For any question concerning the technical content of the requirements in this AD, please contact: AIRBUS – Airworthiness Office – EAS; Fax +33 5 61 93 44 51; E-mail: account.airworth-eas@airbus.com . EASA Form 110 Page 4/8",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "07284aa87487a6177a086fd9aa4fc70e0adfad8b8191ab4221a200c39802af99",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-013",
+      "source_file_instance_id": "cb57166de0385f86",
+      "page_number": 4,
+      "printed_page_label": "Page 4/8",
+      "section": "reference_publications",
+      "section_raw": "Ref. Publications",
+      "clause_path": null,
+      "exact_quote": "Ref. Publications: AIRBUS All Operators Telex A320-55A1038 Revision 01. AIRBUS Technical Disposition ref. TD/K4/S2/27051/2009 issue B. The use of later approved revisions of these documents is acceptable for compliance with the requirements of this AD.",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "07284aa87487a6177a086fd9aa4fc70e0adfad8b8191ab4221a200c39802af99",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-014",
+      "source_file_instance_id": "cb57166de0385f86",
+      "page_number": 4,
+      "printed_page_label": "Page 4/8",
+      "section": "remarks",
+      "section_raw": "Remarks",
+      "clause_path": null,
+      "exact_quote": "Remarks: 1. If requested and appropriately substantiated, EASA can approve Alternative Methods of Compliance for this AD. 2. The required actions and the risk allowance have granted the issuance of a Final AD with Request for Comments, postponing the public consultation process after publication. 3. Enquiries regarding this AD should be referred to the Airworthiness Directives, Safety Management & Research Section, Certification Directorate, EASA. E-mail: ADs@easa.europa.eu . 4. For any question concerning the technical content of the requirements in this AD, please contact: AIRBUS – Airworthiness Office – EAS; Fax +33 5 61 93 44 51; E-mail: account.airworth-eas@airbus.com . EASA Form 110 Page 4/8",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "07284aa87487a6177a086fd9aa4fc70e0adfad8b8191ab4221a200c39802af99",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-015",
+      "source_file_instance_id": "cb57166de0385f86",
+      "page_number": 5,
+      "printed_page_label": "Page 5/8",
+      "section": "table",
+      "section_raw": "Appendix A – Affected rudders (page 1 of 4)",
+      "clause_path": null,
+      "exact_quote": "EASA AD No.: 2009-0141 Appendix A EASA AD No. 2009-0141 Appendix A 1/4 Core density of Rudder P/N Affected rudder S/N 24 kg/m3 D554 71000 010 00 TS-1069 X D554 71000 010 00 TS-1090 X D554 71000 012 00 TS-1227 X D554 71000 014 00 TS-1350 D554 71000 014 00 TS-1366 D554 71000 014 00 TS-1371 D554 71000 014 00 TS-1383 D554 71000 014 00 TS-1387 D554 71000 016 00 TS-1412 D554 71000 018 00 TS-1443 D554 71000 018 00 TS-1444 D554 71000 018 00 TS-1468 D554 71000 020 00 TS-1480 D554 71000 020 00 TS-1491 D554 71000 020 00 TS-1495 D554 71000 020 00 TS-1498 D554 71000 020 00 TS-1499 D554 71000 020 00 TS-1500 D554 71000 020 00 TS-1505 D554 71000 020 00 TS-1506 D554 71000 020 00 TS-1507 D554 71000 020 00 TS-1509 D554 71000 020 00 TS-1515 D554 71000 020 00 TS-1528 D554 71000 020 00 TS-1530 D554 71000 020 00 TS-1532 D554 71000 020 00 TS-1535 D554 71000 020 00 TS-1536 D554 71000 020 00 TS-1538 D554 71001 000 00 TS-1537 D554 71001 000 00 TS-1540 D554 71001 000 00 TS-1541 D554 71001 000 00 TS-1543 D554 71001 000 00 TS-1548 D554 71001 000 00 TS-1549 D554 71001 000 00 TS-1551 D554 71001 000 00 TS-1554 D554 71001 000 00 TS-1555 D554 71001 000 00 TS-1556 D554 71001 000 00 TS-1557 D554 71001 000 00 TS-1559 D554 71001 000 00 TS-1562 D554 71001 000 00 TS-1563 D554 71001 000 00 TS-1564 D554 71001 000 00 TS-1565 D554 71001 000 00 TS-1566 EASA Form 110 Page 5/8",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "3813f415f3b5b7d039d45904133ae337d1ba06db642f04a581865a9d2af0a886",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": {
+        "table_label": "Appendix A – Affected rudders (page 1 of 4)",
+        "row_headers": [],
+        "column_headers": [
+          "Rudder P/N",
+          "Affected rudder S/N",
+          "Core density of 24 kg/m3"
+        ],
+        "footnotes": []
+      },
+      "annotation_note": "Full appendix page retained for row-level P/N, S/N and core-density review."
+    },
+    {
+      "evidence_id": "EV-016",
+      "source_file_instance_id": "cb57166de0385f86",
+      "page_number": 6,
+      "printed_page_label": "Page 6/8",
+      "section": "table",
+      "section_raw": "Appendix A – Affected rudders (page 2 of 4)",
+      "clause_path": null,
+      "exact_quote": "EASA AD No.: 2009-0141 Appendix A EASA AD No. 2009-0141 Appendix A 2/4 Core density of Rudder P/N Affected rudder S/N 24 kg/m3 D554 71001 000 00 TS-1567 D554 71001 000 00 TS-1568 D554 71001 000 00 TS-1569 D554 71001 000 00 TS-1570 D554 71001 000 00 TS-1573 D554 71001 000 00 TS-1575 D554 71001 000 00 TS-1578 D554 71001 000 00 TS-1579 D554 71001 000 00 TS-1580 D554 71001 000 00 TS-1581 D554 71001 000 00 TS-1582 D554 71001 000 00 TS-1584 D554 71001 000 00 TS-1593 D554 71001 000 00 TS-1594 D554 71001 000 00 TS-1596 D554 71001 000 00 TS-1599 D554 71001 000 00 TS-1603 D554 71001 000 00 TS-1609 D554 71001 000 00 TS-1621 D554 71001 000 00 TS-1626 D554 71001 000 00 TS-1627 D554 71001 000 00 TS-1635 D554 71001 000 00 TS-1637 D554 71002 000 00 TS-2306 D554 71002 000 00 0001 TS-2003 D554 71002 000 00 0001 TS-2005 D554 71002 000 00 0001 TS-2013 D554 71002 000 00 0001 TS-2016 D554 71002 000 00 0001 TS-2019 D554 71002 000 00 0001 TS-2020 D554 71002 000 00 0001 TS-2022 D554 71002 000 00 0001 TS-2024 D554 71002 000 00 0001 TS-2026 D554 71002 000 00 0001 TS-2031 D554 71002 000 00 0001 TS-2033 D554 71002 000 00 0001 TS-2043 D554 71002 000 00 0001 TS-2047 D554 71002 000 00 0001 TS-2048 D554 71002 000 00 0001 TS-2054 D554 71002 000 00 0001 TS-2058 D554 71002 000 00 0001 TS-2059 D554 71002 000 00 0001 TS-2064 D554 71002 000 00 0001 TS-2072 D554 71002 000 00 0001 TS-2075 D554 71002 000 00 0001 TS-2076 D554 71002 000 00 0001 TS-2079 D554 71002 000 00 0001 TS-2083 EASA Form 110 Page 6/8",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "9ded39055da8cb091995dcda7d445bf40fd72f35aa63fa9903d3dad5157d7814",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": {
+        "table_label": "Appendix A – Affected rudders (page 2 of 4)",
+        "row_headers": [],
+        "column_headers": [
+          "Rudder P/N",
+          "Affected rudder S/N",
+          "Core density of 24 kg/m3"
+        ],
+        "footnotes": []
+      },
+      "annotation_note": "Full appendix page retained for row-level review."
+    },
+    {
+      "evidence_id": "EV-017",
+      "source_file_instance_id": "cb57166de0385f86",
+      "page_number": 7,
+      "printed_page_label": "Page 7/8",
+      "section": "table",
+      "section_raw": "Appendix A – Affected rudders (page 3 of 4)",
+      "clause_path": null,
+      "exact_quote": "EASA AD No.: 2009-0141 Appendix A EASA AD No. 2009-0141 Appendix A 3/4 Core density of Rudder P/N Affected rudder S/N 24 kg/m3 D554 71002 000 00 0001 TS-2089 D554 71002 000 00 0002 TS-2090 D554 71002 000 00 0002 TS-2095 D554 71002 000 00 0002 TS-2103 D554 71002 000 00 0002 TS-2116 D554 71002 000 00 0002 TS-2122 D554 71002 000 00 0002 TS-2133 D554 71002 000 00 0002 TS-2142 D554 71002 000 00 0002 TS-2147 D554 71002 000 00 0002 TS-2157 D554 71002 000 00 0002 TS-2158 D554 71002 000 00 0002 TS-2162 D554 71002 000 00 0002 TS-2167 D554 71002 000 00 0002 TS-2174 D554 71002 000 00 0002 TS-2176 D554 71002 000 00 0002 TS-2181 D554 71002 000 00 0002 TS-2189 D554 71002 000 00 0002 TS-2191 D554 71002 000 00 0002 TS-2203 D554 71002 000 00 0002 TS-2205 D554 71002 000 00 0002 TS-2207 D554 71002 000 00 0002 TS-2224 D554 71002 000 00 0002 TS-2229 D554 71002 000 00 0002 TS-2233 D554 71002 000 00 0002 TS-2241 D554 71002 000 00 0002 TS-2246 D554 71002 000 00 0002 TS-2249 D554 71002 000 00 0002 TS-2270 D554 71002 000 00 0002 TS-2275 D554 71002 000 00 0002 TS-2289 D554 71002 000 00 0002 TS-2290 D554 71002 000 00 0002 TS-2294 D554 71002 000 00 0002 TS-2309 D554 71002 000 00 0002 TS-2347 D554 71002 000 00 0002 TS-2348 D554 71002 000 00 0002 TS-2349 D554 71002 000 00 0002 TS-2357 D554 71002 000 00 0002 TS-2361 D554 71002 000 00 0002 TS-2380 D554 71002 000 00 0002 TS-2383 D554 71002 000 00 0002 TS-2390 D554 71002 000 00 0002 TS-2394 D554 71002 000 00 0002 TS-2396 D554 71002 000 00 0002 TS-2401 D554 71002 000 00 0002 TS-2406 D554 71002 000 00 0002 TS-2461 D554 71002 000 00 0002 TS-2468 EASA Form 110 Page 7/8",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "1af6cdb386a5c0cb45a952e8d986176d205c17bf91233f8c67a879784a33dc67",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": {
+        "table_label": "Appendix A – Affected rudders (page 3 of 4)",
+        "row_headers": [],
+        "column_headers": [
+          "Rudder P/N",
+          "Affected rudder S/N",
+          "Core density of 24 kg/m3"
+        ],
+        "footnotes": []
+      },
+      "annotation_note": "Full appendix page retained for row-level review."
+    },
+    {
+      "evidence_id": "EV-018",
+      "source_file_instance_id": "cb57166de0385f86",
+      "page_number": 8,
+      "printed_page_label": "Page 8/8",
+      "section": "table",
+      "section_raw": "Appendix A – Affected rudders (page 4 of 4)",
+      "clause_path": null,
+      "exact_quote": "EASA AD No.: 2009-0141 Appendix A EASA AD No. 2009-0141 Appendix A 4/4 Core density of Rudder P/N Affected rudder S/N 24 kg/m3 D554 71002 000 00 0002 TS-2516 D554 71002 000 00 0002 TS-2537 D554 71002 000 00 0002 TS-2543 D554 71002 000 00 0002 TS-2546 D554 71002 000 00 0002 TS-2619 D554 71002 000 00 0002 TS-2684 D554 71002 000 00 0003 TS-2752 D554 71002 000 00 0003 TS-2869 D554 71002 000 00 0003 TS-2876 D554 71002 000 00 0003 TS-2970 D554 71002 000 00 0003 TS-2971 D554 71002 000 00 0003 TS-2987 D554 71004 000 00 0000 TS-3083 D554 71004 000 00 0000 TS-3197 EASA Form 110 Page 8/8",
+      "start_char": null,
+      "end_char": null,
+      "page_text_sha256": "360826ddaa1628bb5f7ef05f4bf2e1f464bee330716cf41c606ec4e5fd67b144",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "normalized_whitespace",
+      "table_context": {
+        "table_label": "Appendix A – Affected rudders (page 4 of 4)",
+        "row_headers": [],
+        "column_headers": [
+          "Rudder P/N",
+          "Affected rudder S/N",
+          "Core density of 24 kg/m3"
+        ],
+        "footnotes": []
+      },
+      "annotation_note": "Full appendix page retained for row-level review."
+    }
+  ],
+  "field_assertions": [
+    {
+      "assertion_id": "AST-001",
+      "field_path": "/ad_identity",
+      "value_state": "present",
+      "origin": "human_annotated",
+      "verification_status": "accepted",
+      "confidence": null,
+      "evidence_ids": [
+        "EV-001",
+        "EV-002"
+      ],
+      "annotator_id": "human-reviewer-1",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Human reviewer accepted this substantive section against the canonical PDF."
+    },
+    {
+      "assertion_id": "AST-002",
+      "field_path": "/publication",
+      "value_state": "present",
+      "origin": "human_annotated",
+      "verification_status": "accepted",
+      "confidence": null,
+      "evidence_ids": [
+        "EV-003",
+        "EV-001",
+        "EV-006"
+      ],
+      "annotator_id": "human-reviewer-1",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Human reviewer accepted this substantive section against the canonical PDF."
+    },
+    {
+      "assertion_id": "AST-003",
+      "field_path": "/applicability_groups",
+      "value_state": "present",
+      "origin": "human_annotated",
+      "verification_status": "accepted",
+      "confidence": null,
+      "evidence_ids": [
+        "EV-004",
+        "EV-015",
+        "EV-016",
+        "EV-017",
+        "EV-018"
+      ],
+      "annotator_id": "human-reviewer-1",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Human reviewer accepted this substantive section against the canonical PDF."
+    },
+    {
+      "assertion_id": "AST-004",
+      "field_path": "/definitions",
+      "value_state": "present",
+      "origin": "human_annotated",
+      "verification_status": "accepted",
+      "confidence": null,
+      "evidence_ids": [
+        "EV-009"
+      ],
+      "annotator_id": "human-reviewer-1",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Human reviewer accepted this substantive section against the canonical PDF."
+    },
+    {
+      "assertion_id": "AST-005",
+      "field_path": "/requirements",
+      "value_state": "present",
+      "origin": "human_annotated",
+      "verification_status": "accepted",
+      "confidence": null,
+      "evidence_ids": [
+        "EV-007",
+        "EV-008",
+        "EV-009",
+        "EV-010",
+        "EV-012",
+        "EV-015",
+        "EV-016",
+        "EV-017",
+        "EV-018"
+      ],
+      "annotator_id": "human-reviewer-1",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Human reviewer accepted this substantive section against the canonical PDF."
+    },
+    {
+      "assertion_id": "AST-006",
+      "field_path": "/exceptions",
+      "value_state": "absent_in_source",
+      "origin": "human_annotated",
+      "verification_status": "accepted",
+      "confidence": null,
+      "evidence_ids": [],
+      "annotator_id": "human-reviewer-1",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Human reviewer accepted this substantive section against the canonical PDF."
+    },
+    {
+      "assertion_id": "AST-007",
+      "field_path": "/previous_action_credit",
+      "value_state": "present",
+      "origin": "human_annotated",
+      "verification_status": "accepted",
+      "confidence": null,
+      "evidence_ids": [
+        "EV-011"
+      ],
+      "annotator_id": "human-reviewer-1",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Human reviewer accepted this substantive section against the canonical PDF."
+    },
+    {
+      "assertion_id": "AST-008",
+      "field_path": "/referenced_publications",
+      "value_state": "present",
+      "origin": "human_annotated",
+      "verification_status": "accepted",
+      "confidence": null,
+      "evidence_ids": [
+        "EV-007",
+        "EV-009",
+        "EV-013",
+        "EV-011"
+      ],
+      "annotator_id": "human-reviewer-1",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Human reviewer accepted this substantive section against the canonical PDF."
+    },
+    {
+      "assertion_id": "AST-009",
+      "field_path": "/relationships",
+      "value_state": "absent_in_source",
+      "origin": "human_annotated",
+      "verification_status": "accepted",
+      "confidence": null,
+      "evidence_ids": [
+        "EV-001"
+      ],
+      "annotator_id": "human-reviewer-1",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Human reviewer accepted this substantive section against the canonical PDF."
+    },
+    {
+      "assertion_id": "AST-010",
+      "field_path": "/amoc_and_contacts",
+      "value_state": "present",
+      "origin": "human_annotated",
+      "verification_status": "accepted",
+      "confidence": null,
+      "evidence_ids": [
+        "EV-014"
+      ],
+      "annotator_id": "human-reviewer-1",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Human reviewer accepted this substantive section against the canonical PDF."
+    },
+    {
+      "assertion_id": "AST-011",
+      "field_path": "/ad_identity/ad_number",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.995,
+      "evidence_ids": [
+        "EV-001",
+        "EV-002"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Cover identity"
+    },
+    {
+      "assertion_id": "AST-012",
+      "field_path": "/ad_identity/supersedure_statement",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.99,
+      "evidence_ids": [
+        "EV-001"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Printed status field"
+    },
+    {
+      "assertion_id": "AST-013",
+      "field_path": "/publication/issue_date",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.995,
+      "evidence_ids": [
+        "EV-001"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Printed issue date"
+    },
+    {
+      "assertion_id": "AST-014",
+      "field_path": "/publication/effective_date",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.995,
+      "evidence_ids": [
+        "EV-006"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Printed effective date"
+    },
+    {
+      "assertion_id": "AST-015",
+      "field_path": "/publication/subject",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.99,
+      "evidence_ids": [
+        "EV-003"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Printed ATA subject"
+    },
+    {
+      "assertion_id": "AST-016",
+      "field_path": "/applicability_groups/0",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-004",
+        "EV-015",
+        "EV-016",
+        "EV-017",
+        "EV-018"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "applicability_groups"
+    },
+    {
+      "assertion_id": "AST-017",
+      "field_path": "/applicability_groups/1",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-004",
+        "EV-015",
+        "EV-016",
+        "EV-017",
+        "EV-018"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "applicability_groups"
+    },
+    {
+      "assertion_id": "AST-018",
+      "field_path": "/definitions/0",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-009"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "definitions"
+    },
+    {
+      "assertion_id": "AST-019",
+      "field_path": "/requirements/0",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.94,
+      "evidence_ids": [
+        "EV-007"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "requirements"
+    },
+    {
+      "assertion_id": "AST-020",
+      "field_path": "/requirements/1",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.94,
+      "evidence_ids": [
+        "EV-007"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "requirements"
+    },
+    {
+      "assertion_id": "AST-021",
+      "field_path": "/requirements/2",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.94,
+      "evidence_ids": [
+        "EV-007"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "requirements"
+    },
+    {
+      "assertion_id": "AST-022",
+      "field_path": "/requirements/3",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.94,
+      "evidence_ids": [
+        "EV-007"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "requirements"
+    },
+    {
+      "assertion_id": "AST-023",
+      "field_path": "/requirements/4",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.94,
+      "evidence_ids": [
+        "EV-007"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "requirements"
+    },
+    {
+      "assertion_id": "AST-024",
+      "field_path": "/requirements/5",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.94,
+      "evidence_ids": [
+        "EV-007",
+        "EV-008"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "requirements"
+    },
+    {
+      "assertion_id": "AST-025",
+      "field_path": "/requirements/6",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.94,
+      "evidence_ids": [
+        "EV-009"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "requirements"
+    },
+    {
+      "assertion_id": "AST-026",
+      "field_path": "/requirements/7",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.94,
+      "evidence_ids": [
+        "EV-009"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "requirements"
+    },
+    {
+      "assertion_id": "AST-027",
+      "field_path": "/requirements/8",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.94,
+      "evidence_ids": [
+        "EV-009"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "requirements"
+    },
+    {
+      "assertion_id": "AST-028",
+      "field_path": "/requirements/9",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.94,
+      "evidence_ids": [
+        "EV-009",
+        "EV-010"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "requirements"
+    },
+    {
+      "assertion_id": "AST-029",
+      "field_path": "/requirements/10",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.94,
+      "evidence_ids": [
+        "EV-009",
+        "EV-010"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "requirements"
+    },
+    {
+      "assertion_id": "AST-030",
+      "field_path": "/requirements/11",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.94,
+      "evidence_ids": [
+        "EV-009",
+        "EV-010"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "requirements"
+    },
+    {
+      "assertion_id": "AST-031",
+      "field_path": "/requirements/12",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.94,
+      "evidence_ids": [
+        "EV-012",
+        "EV-015",
+        "EV-016",
+        "EV-017",
+        "EV-018"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "requirements"
+    },
+    {
+      "assertion_id": "AST-032",
+      "field_path": "/previous_action_credit/0",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-011"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "previous_action_credit"
+    },
+    {
+      "assertion_id": "AST-033",
+      "field_path": "/referenced_publications/0",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-007",
+        "EV-009",
+        "EV-013"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "referenced_publications"
+    },
+    {
+      "assertion_id": "AST-034",
+      "field_path": "/referenced_publications/1",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-011",
+        "EV-013"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "referenced_publications"
+    },
+    {
+      "assertion_id": "AST-035",
+      "field_path": "/referenced_publications/2",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-011",
+        "EV-013"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "referenced_publications"
+    },
+    {
+      "assertion_id": "AST-036",
+      "field_path": "/amoc_and_contacts/0",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-014"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "amoc_and_contacts"
+    },
+    {
+      "assertion_id": "AST-037",
+      "field_path": "/amoc_and_contacts/1",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-014"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "amoc_and_contacts"
+    },
+    {
+      "assertion_id": "AST-038",
+      "field_path": "/amoc_and_contacts/2",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-014"
+      ],
+      "annotator_id": "codex-a3",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "amoc_and_contacts"
+    },
+    {
+      "assertion_id": "AST-039",
+      "field_path": "/unsafe_condition",
+      "value_state": "present",
+      "origin": "human_annotated",
+      "verification_status": "accepted",
+      "confidence": null,
+      "evidence_ids": [
+        "EV-005"
+      ],
+      "annotator_id": "human-reviewer-1",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Human reviewer accepted this substantive section against the canonical PDF."
+    },
+    {
+      "assertion_id": "AST-040",
+      "field_path": "/classification",
+      "value_state": "present",
+      "origin": "human_annotated",
+      "verification_status": "accepted",
+      "confidence": null,
+      "evidence_ids": [
+        "EV-003",
+        "EV-004",
+        "EV-007",
+        "EV-008",
+        "EV-009",
+        "EV-010",
+        "EV-011",
+        "EV-012",
+        "EV-015",
+        "EV-016",
+        "EV-017",
+        "EV-018"
+      ],
+      "annotator_id": "human-reviewer-1",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Human reviewer accepted this substantive section against the canonical PDF."
+    },
+    {
+      "assertion_id": "AST-041",
+      "field_path": "/publication/type_model_designations",
+      "value_state": "present",
+      "origin": "human_annotated",
+      "verification_status": "accepted",
+      "confidence": null,
+      "evidence_ids": [
+        "EV-001",
+        "EV-003",
+        "EV-006"
+      ],
+      "annotator_id": "human-reviewer-1",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Human reviewer accepted this normalized publication value against the canonical PDF."
+    },
+    {
+      "assertion_id": "AST-042",
+      "field_path": "/publication/tcds_numbers",
+      "value_state": "present",
+      "origin": "human_annotated",
+      "verification_status": "accepted",
+      "confidence": null,
+      "evidence_ids": [
+        "EV-001",
+        "EV-003",
+        "EV-006"
+      ],
+      "annotator_id": "human-reviewer-1",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Human reviewer accepted this normalized publication value against the canonical PDF."
+    }
+  ],
+  "annotation_metadata": {
+    "guideline_version": "1.0.0",
+    "record_status": "approved",
+    "creation_method": "manual",
+    "machine_provenance": {
+      "system": "OpenAI Codex",
+      "model": "GPT-5",
+      "prompt_or_rules_version": "step2-guidelines-1.0.0-manual-pass-a3",
+      "generated_at": "2026-07-22T11:53:23Z"
+    },
+    "annotators": [
+      {
+        "annotator_id": "codex-a3",
+        "role": "annotator",
+        "started_at": "2026-07-22T11:45:00Z",
+        "submitted_at": "2026-07-22T12:45:00Z"
+      },
+      {
+        "annotator_id": "codex-source-audit",
+        "role": "reviewer",
+        "started_at": "2026-07-28T12:27:04Z",
+        "submitted_at": "2026-07-28T12:27:04Z"
+      },
+      {
+        "annotator_id": "human-reviewer-1",
+        "role": "reviewer",
+        "started_at": "2026-07-29T10:52:34Z",
+        "submitted_at": "2026-07-29T10:52:34Z"
+      }
+    ],
+    "events": [
+      {
+        "event_type": "created",
+        "actor_id": "codex-a3",
+        "timestamp": "2026-07-22T11:45:00Z",
+        "rationale": "Blind first-pass annotation from the source PDF and blind packet."
+      },
+      {
+        "event_type": "submitted",
+        "actor_id": "codex-a3",
+        "timestamp": "2026-07-22T12:45:00Z",
+        "rationale": "First pass completed; no human review or approval claimed."
+      },
+      {
+        "event_type": "reviewed",
+        "actor_id": "codex-source-audit",
+        "timestamp": "2026-07-28T12:27:04Z",
+        "rationale": "Machine-only comparison against every rendered PDF page and frozen page text; source corrections were applied where required and human acceptance remains pending."
+      },
+      {
+        "event_type": "reviewed",
+        "actor_id": "human-reviewer-1",
+        "timestamp": "2026-07-29T10:52:34Z",
+        "rationale": "Independent human reviewer confirmed that the complete annotation was reviewed against the canonical PDF."
+      },
+      {
+        "event_type": "approved",
+        "actor_id": "human-reviewer-1",
+        "timestamp": "2026-07-29T10:52:34Z",
+        "rationale": "The user explicitly approved the finalized human-reviewed annotation for inclusion in the gold pilot."
+      }
+    ],
+    "quality_flags": [
+      "complex_table",
+      "complex_applicability",
+      "complex_compliance",
+      "cross_page_clause",
+      "visual_transcription_used"
+    ],
+    "uncertainty_flags": [],
+    "notes": [
+      "All source pages were visually rendered and checked; populated assertions were accepted by the independent human reviewer.",
+      "Machine source audit corrected printed page labels and rechecked the visible superseded lifecycle, Appendix A applicability, compliance branches, reporting, previous-action credit, and contacts; all assertions were accepted by the independent human reviewer.",
+      "Independent human review and approval were recorded after comparison with the canonical PDF."
+    ],
+    "source_text_sha256": "e25ca9e1c7ac34ee65ec489a979e53b8ba3cb6f08684456f0f45829d6c0c40ab",
+    "created_at": "2026-07-22T11:45:00Z",
+    "updated_at": "2026-07-29T10:52:34Z"
+  },
+  "benchmark_metadata": {
+    "split": "unassigned",
+    "split_group": "2009-0141",
+    "selection_strata": [],
+    "duplicate_cluster_ids": [],
+    "gold_record": true
+  }
+}

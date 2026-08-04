@@ -1,6 +1,6 @@
-# Airbus AD Corpus Manifest
+# Airbus EASA AD Extraction and RAG Capstone
 
-This project converts a folder of EASA Airbus S.A.S. Airworthiness Directive PDFs into a controlled corpus inventory. It detects exact duplicates, text-identical files, corrections, revisions, possible supersedure links, near-duplicate documents, and PDFs that need OCR or manual review.
+This project governs and processes a frozen snapshot of 1,809 EASA Airbus S.A.S. Airworthiness Directive PDF records. It produces section-complete content JSON/JSONL: reliable fields are structured, while difficult sections are retained as raw text without semantic normalization. Local hybrid RAG retrieves original PDF passages for complex compliance interpretation and page-cited QA. It also supports temporary uploaded-PDF QA and confirmed permanent ingestion without retraining.
 
 The source corpus is never changed. All reports are written to a separate output directory.
 
@@ -9,17 +9,18 @@ The source corpus is never changed. All reports are written to a separate output
 Agents should read these files before continuing the capstone:
 
 - `AGENTS.md`: authoritative scope, safety rules, research contribution, and working protocol.
-- `docs/PDF_TO_GOLD_FRAMEWORK.md`: authoritative Step 3 PDF-to-gold lifecycle, batch contract, validation gates, and release rules.
+- `airbus_easa_ad_project_exact_plan.md`: authoritative v3 methodology and exact execution plan.
+- `docs/PDF_TO_GOLD_FRAMEWORK.md`: legacy evidence-bearing gold-release lifecycle and audit rules.
 - `docs/PROJECT_STATUS.md`: confirmed progress, missing evidence, blockers, and next actions.
 - `docs/CLOUD_WORKFLOW.md`: GitHub/Google Drive boundaries and the Colab handoff procedure.
-- `docs/PROJECT_PLAN.md`: exact 13 July-30 September execution plan and completion gates.
-- `docs/BENCHMARK_DESIGN.md`: fixed 100-AD/150-question/30-summary core and optional extension rules.
+- `docs/PROJECT_PLAN.md`: compact v3 schedule and completion gates.
+- `docs/BENCHMARK_DESIGN.md`: content 30/20 extraction split, QA v2, and unseen-PDF design.
 - `docs/DECISIONS.md`: stable methodological decisions and change record.
 - `dataset_framework/BATCH_CHECKLIST.md`: operational checklist for each versioned Step 3 batch.
 
 ## Why this exists
 
-The manifest is the control layer between the raw PDFs and later extraction, classification, summarization, and RAG work. It prevents duplicated or outdated AD versions from silently entering experiments and gives every physical file a stable identifier.
+The manifest is the control layer between the raw PDFs and extraction/RAG work. It prevents duplicated or ambiguous AD versions from silently entering experiments and gives every physical file a stable identifier.
 
 EASA AD conventions handled by the parser include:
 
@@ -39,6 +40,9 @@ Capstone/
 │   └── validate_annotations.py
 ├── step3_pilot/
 ├── step3_extension_20_v1/
+├── gold_releases/                     # immutable evidence-bearing audit source
+├── evaluation_sets/                   # cleaned gold, QA lock, unseen set
+├── full_corpus_pipeline/              # extraction, retrieval, QA, ingestion, UI
 ├── dataset_framework/
 │   ├── BATCH_CHECKLIST.md
 │   ├── script_registry.json
@@ -75,7 +79,7 @@ Key boundaries:
 - automated extraction and validation cannot grant human approval;
 - approved working files must pass the strict schema, evidence, and reusable release validators;
 - gold is published as a new versioned release with hashes, manifests, release notes, and Drive readback; and
-- the 30-record pilot and combined 50-record release are intermediate releases toward the fixed 100-AD research core, not the optional 200-record stretch.
+- the combined 50-record release is preserved as the immutable audit source; its separate content-only projection is used for v3.1 evaluation.
 
 Use `step3_pilot/validate_step3_pilot.py` only for the frozen 30-record pilot. Use `dataset_framework/validate_gold_release.py` for the 20-record batch, combined 50-record release, and later release sizes.
 
@@ -144,9 +148,28 @@ Do not delete, rename, or overwrite files in `corpus_raw` during manifest constr
 
 ## Development
 
-Run the current schema and Step 3 tests:
+Validate v3 artifacts and run tests:
 
 ```bash
-python3 -m unittest discover -s step2_ad_schema/tests -v
-python3 -m unittest discover -s step3_pilot/tests -v
+.venv/bin/python -m full_corpus_pipeline.validate_content_dataset \
+  evaluation_sets/easa_airbus_ad_content_gold_50_v2 --expected-count 50
+.venv/bin/python -m full_corpus_pipeline.validate_qa_benchmark
+.venv/bin/python -m unittest discover -s full_corpus_pipeline/tests -v
 ```
+
+Run full-corpus extraction locally with no hosted LLM call:
+
+```bash
+.venv/bin/python -m full_corpus_pipeline.extract_corpus \
+  --run-id local-content-development-1804-v2.1.3
+
+.venv/bin/python -m full_corpus_pipeline.validate_content_dataset \
+  data_processed/runs/local-content-development-1804-v2.1.3 \
+  --expected-count 1804
+```
+
+The parser records its version and latency in sidecar manifests. Applicability,
+Definitions, Reason, complete Requirements/Compliance, reference wording, and
+Remarks are retained. Complex semantics remain an original-PDF RAG/QA
+operation; a hosted LLM may be configured for answer generation, but not for
+corpus extraction.

@@ -1,112 +1,78 @@
-# Project Plan
+# Project Plan v3.1
+
+The authoritative detailed plan is
+[`../airbus_easa_ad_project_exact_plan.md`](../airbus_easa_ad_project_exact_plan.md).
 
 ## Target outcome
 
-By 30 September 2026, deliver a reproducible research prototype and evaluation showing whether lifecycle-aware processing improves structured extraction and evidence-grounded retrieval over a generic flat-chunk, dense-only RAG baseline.
+By 30 September 2026, deliver a two-layer assistant over all 1,809 frozen Airbus
+EASA AD PDF records:
+
+1. a section-complete content catalogue for filtering and browsing; and
+2. page-aware RAG over original PDFs for complex compliance interpretation.
+
+The project does not claim fully normalized compliance logic across 1,809 ADs.
+
+## Fixed design
+
+- Immutable audit source: `gold_releases/easa_airbus_ad_gold_v2/`.
+- Active content gold: 50 records, split 30 development / 20 locked test.
+- Development corpus: 1,804 PDFs after five unseen PDFs are excluded.
+- Final corpus: 1,809 records after permanent-ingestion testing.
+- Extraction formats: individual content JSON and combined JSONL.
+- Extraction method: deterministic local parser; zero hosted extraction calls.
+- Retrieval source: original PDF page text, never generated JSON alone.
+- QA benchmark: 50 locked questions, including complex compliance cases.
+- No standalone classification or reference-summary benchmark.
 
 ## Work packages
 
-| Phase | Dates | Work | Required output |
-|---|---|---|---|
-| 6.1 | 13-26 Jul | Build manifest; detect duplicates, revisions, corrections, supersedure candidates, and OCR issues | Manifest, extracted-text cache, audit reports |
-| 6.2 | 27 Jul-2 Aug | Review candidates, apply overrides, OCR flagged files, create canonical views | Verified historical and operational corpora |
-| 6.3 | 27 Jul-2 Aug | Finalize the schema and PDF-to-gold framework; preserve the validated 30-record pilot; prepare and independently review the separate 20-record batch | Versioned schema, framework, 30-record release evidence, and reviewed 20-record batch |
-| 6.4 | 3-16 Aug | Publish a new combined 50-record release; continue to the 100-AD core; freeze family-level splits; expand toward 200 only after core validation | Versioned 50-record checkpoint, core gold dataset, and train/dev/test split |
-| 6.5 | 3-9 Aug | Reconstruct headings and sections; create semantic chunks with provenance | Section and chunk datasets |
-| 6.6 | 10-23 Aug | Compare rules, zero-shot, and few-shot structured extraction; add validators | Selected extraction pipeline |
-| 6.7 | 17-23 Aug | Classify action and compliance characteristics | Classification predictions and metrics |
-| 6.8 | 17-30 Aug | Create schema-driven, evidence-grounded summaries | Summary pipeline and 30 references; optional expansion to 50 |
-| 6.9 | 24 Aug-6 Sep | Build BM25, dense, hybrid, fusion, reranking, metadata, and lifecycle retrieval | Version-aware retriever |
-| 6.10 | 7-13 Sep | Add grounded answers, citations, warnings, confidence, and abstention | End-to-end assistant |
-| 6.11 | 14-27 Sep | Evaluate baselines and full system; run ablations and error analysis | Metrics, predictions, statistical and error reports |
-| 6.12 | 21-30 Sep | Complete UI, tests, documentation, thesis, presentation, and demo | Final reproducibility and submission package |
-
-## Weekly milestones
-
-| Week | Dates | Milestone |
-|---:|---|---|
-| 1 | 13-19 Jul | Scope, research questions, methodology, and manifest pilot |
-| 2 | 20-26 Jul | Full initial manifest and automatic audit |
-| 3 | 27 Jul-2 Aug | Canonical-corpus review, versioned schema/framework, preserved 30-record pilot, and validated 20-record review batch |
-| 4 | 3-9 Aug | Independently review the 20-record batch; publish a new combined 50-record release; draft the first 50 questions and section-aware chunks |
-| 5 | 10-16 Aug | All 100 core annotations, first 100 questions, adjudication, frozen family splits, extraction baseline |
-| 6 | 17-23 Aug | Questions 101-150, 30 summary references, and selected extraction/classification pipeline |
-| 7 | 24-30 Aug | Evidence-check and lock 150 QA items and 30 summaries; report retrieval baselines |
-| 8 | 31 Aug-6 Sep | Version-aware hybrid retriever v1 |
-| 9 | 7-13 Sep | End-to-end grounded assistant v1 |
-| 10 | 14-20 Sep | Complete evaluation and archived predictions |
-| 11 | 21-27 Sep | Ablations, errors, release candidate, thesis draft |
-| Final | 28-30 Sep | Freeze code/data; final thesis, presentation, and demonstration |
+| Dates | Work | Gate |
+|---|---|---|
+| 4–9 Aug | Approve v3.1; validate content projection and QA v2 | Frozen active evaluation artifacts |
+| 4 Aug | Run local pilot and extract 1,804 development records | Completed schema-valid JSON/JSONL |
+| 10–16 Aug | Review parser field/section quality | Frozen parser and error analysis |
+| 17–23 Aug | Prepare original-PDF page-aware inputs | Retrieval-ready page text |
+| 24–30 Aug | Chunk original PDFs and build E0/E4 indexes | Page-aware BM25/FAISS indexes |
+| 31 Aug–6 Sep | Evaluate retrieval | Recall/MRR/nDCG results |
+| 7–13 Sep | Evaluate retrieval-time compliance QA | Correctness/citation/abstention results |
+| 14–20 Sep | Test permanent ingestion | Five ingestions; final count 1,809 |
+| 21–27 Sep | UI, errors, thesis, reproducibility | Reviewable final system |
+| 28–30 Sep | Final checks and demonstration | Final package |
 
 ## Completion gates
 
-### G1-A: automatic audit
+### Content extraction
 
-- One unique manifest row and SHA-256 per physical PDF.
-- At least 95% of AD numbers parsed automatically, or every failure queued for review.
-- Exact duplicate groups and lifecycle candidates generated.
-- No source PDF modified.
+- Structure reliable identity/publication, model, identifier, and lifecycle
+  wording fields.
+- Preserve raw Applicability, Definitions, Reason, complete
+  Requirements/Compliance, publication-reference, and Remarks sections.
+- Do not machine-normalize compliance conditions, exceptions, repeats,
+  follow-on/terminating actions, unsafe-condition decomposition, or credit logic.
+- Schema validity target ≥0.98; deterministic metadata macro F1 target ≥0.80.
+- Raw action wording is graded for section boundaries/source containment rather
+  than equivalence to manually structured action units.
 
-### G1-B: canonical corpus
+### Original-PDF RAG
 
-- 100% of included files have confirmed AD identity.
-- 100% of operational documents have verified lifecycle state.
-- No unresolved same-version conflict enters the operational index.
-- OCR results preserve readable identifiers, headings, and compliance text.
+- Chunks come from original page text and never mix PDFs.
+- E0 uses flat dense-only retrieval.
+- E4 uses section-aware BM25+dense retrieval, RRF, reranking, and lifecycle
+  filtering.
+- The answer generator preserves all material source conditions and cites the
+  relevant page or abstains.
 
-### G2-G4: schema, gold data, and chunks
+### Ingestion
 
-- Schema and annotation rules cover repeatable compliance units and evidence.
-- Every Step 3 batch follows `docs/PDF_TO_GOLD_FRAMEWORK.md` without skipping lifecycle gates.
-- Frozen selections and review queues remain read-only; only working copies are edited.
-- Automated validation is never treated as human approval.
-- Every gold record passes schema validation and human review.
-- Every release passes strict schema, evidence, and `dataset_framework/validate_gold_release.py` gates.
-- Every release is published under a new version and passes exact Drive readback.
-- The 30-record release remains unchanged when the separate 20-record batch is combined into a new 50-record release.
-- The 100-AD core is complete before optional expansion starts.
-- All versions of an AD family stay in one split.
-- Every chunk retains file ID, AD/version, section, page range, and lifecycle metadata.
+- Temporary upload is isolated and removable.
+- Permanent ingestion requires explicit confirmation.
+- Exact duplicates are rejected.
+- Ambiguous lifecycle state cannot replace operational selection.
+- No training occurs during upload or ingestion.
 
-### G5-G10: system and evaluation
+## Immediate next action
 
-- Extraction outputs are schema-constrained and evidence-linked.
-- Version selection occurs before answer generation.
-- Answers cite evidence and abstain on insufficient or conflicting support.
-- Baselines, full system, and selected ablations run on the locked test set.
-- Predictions, configurations, prompts, and metrics are archived.
-
-### G11: final package
-
-- Fresh-environment reproduction succeeds.
-- Thesis reports actual outcomes and limitations.
-- Demo shows current and historical queries, citations, lifecycle warnings, and abstention.
-
-## Planned success thresholds
-
-| Area | Target |
-|---|---:|
-| Confirmed AD identity in included corpus | 100% |
-| Verified lifecycle state in operational corpus | 100% |
-| Gold records passing schema validation | 100% |
-| Extraction schema-valid output | >= 98% |
-| Core-field extraction macro F1 | >= 0.85 |
-| Compliance-unit tuple F1 | >= 0.80 |
-| Classification macro F1 | >= 0.85 |
-| Retrieval Recall@5 | >= 0.90 |
-| Retrieval MRR | >= 0.80 |
-| Latest-version selection accuracy | >= 0.98 |
-| Citation correctness | >= 0.95 |
-| Evidence faithfulness | >= 0.95 |
-| Unsupported-claim rate | <= 0.05 |
-
-These are goals, not results. Report the measured values without hiding missed targets.
-
-## Control routine
-
-- Monday: define one measurable weekly deliverable.
-- Wednesday: review a small sample and record blockers.
-- Friday: test, commit or archive outputs, update `docs/PROJECT_STATUS.md`, and update the technical diary.
-- Supervisor review: demonstrate artifacts and error cases, not only progress descriptions.
-- Never tune against the locked test benchmark after Week 7.
-- For every Step 3 release, archive the selection, source/page/annotation hashes, reviewer provenance, validation commands and reports, release notes, Drive location, and readback date.
+Obtain supervisor approval of v3.1, human spot-check the content 50 and QA v2
+references, review the completed local extraction, then build page-aware E0/E4
+indexes.

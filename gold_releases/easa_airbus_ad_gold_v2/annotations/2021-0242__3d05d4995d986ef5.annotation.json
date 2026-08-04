@@ -1,0 +1,2206 @@
+{
+  "schema_version": "1.0.0",
+  "record_id": "adann-3d05d4995d986ef5",
+  "source_document": {
+    "file_instance_id": "3d05d4995d986ef5",
+    "content_id": "eb4fb67e4ae6f636",
+    "canonical_file_instance_id": "3d05d4995d986ef5",
+    "file_aliases": [],
+    "file_name": "2021-0242__AD_2021-0242_2__EASA_AD_2021_0242.pdf",
+    "relative_path": "2021-0242__AD_2021-0242_2__EASA_AD_2021_0242.pdf",
+    "file_sha256": "eb4fb67e4ae6f63629ff147dd10cca7d29fc5bf6e85db03f3b34c2bed9284a29",
+    "normalized_text_sha256": "31c475538fcf0c315d2b8fb58620d099f12607603bd8e9368d80ddd4930a5073",
+    "page_count": 6,
+    "extraction_status": "ok",
+    "needs_ocr": false,
+    "manifest_review_flags": [],
+    "source_url": "https://ad.easa.europa.eu/blob/EASA_AD_2021_0242.pdf/AD_2021-0242_2",
+    "text_extraction_method": "native_text",
+    "exact_duplicate_group": null,
+    "near_duplicate_cluster": null
+  },
+  "ad_identity": {
+    "authority": "EASA",
+    "document_type": "airworthiness_directive",
+    "ad_number": "2021-0242",
+    "base_ad_number": "2021-0242",
+    "revision_number": 0,
+    "publication_kind": "standard_ad",
+    "is_emergency": false,
+    "is_correction": false,
+    "correction_date": {
+      "state": "not_stated",
+      "value": null,
+      "raw_text": null,
+      "evidence_ids": []
+    },
+    "version_label": "2021-0242",
+    "logical_version_key": "2021-0242|UNCORRECTED",
+    "is_latest_version": null,
+    "lifecycle_status": "unknown",
+    "design_approval_holder": {
+      "state": "present",
+      "value": "AIRBUS",
+      "raw_text": "AIRBUS",
+      "evidence_ids": [
+        "EV-001"
+      ]
+    },
+    "supersedure_statement": {
+      "state": "present",
+      "value": "This AD supersedes EASA AD 2016-0238 dated 02 December 2016, including its Correction dated 04 January 2017.",
+      "raw_text": "This AD supersedes EASA AD 2016-0238 dated 02 December 2016, including its Correction dated 04 January 2017.",
+      "evidence_ids": [
+        "EV-001"
+      ]
+    },
+    "evidence_ids": [
+      "EV-001"
+    ]
+  },
+  "publication": {
+    "subject": {
+      "state": "present",
+      "value": "ATA 53 – Fuselage – Door Stop Fitting Holes at Frame 66/68 – Inspection / Repair",
+      "raw_text": "ATA 53 – Fuselage – Door Stop Fitting Holes at Frame 66/68 – Inspection / Repair",
+      "evidence_ids": [
+        "EV-001"
+      ]
+    },
+    "issue_date": {
+      "state": "present",
+      "value": "2021-11-08",
+      "raw_text": "08 November 2021",
+      "evidence_ids": [
+        "EV-001"
+      ]
+    },
+    "effective_date": {
+      "state": "present",
+      "value": "2021-11-22",
+      "raw_text": "22 November 2021",
+      "evidence_ids": [
+        "EV-001"
+      ]
+    },
+    "ata_chapters": [
+      {
+        "code": "53",
+        "title": "Fuselage",
+        "evidence_ids": [
+          "EV-001"
+        ]
+      }
+    ],
+    "manufacturers": [
+      {
+        "raw_name": "Airbus, formerly Airbus Industrie",
+        "normalized_name": "Airbus",
+        "role": "manufacturer",
+        "evidence_ids": [
+          "EV-002"
+        ]
+      }
+    ],
+    "type_model_designations": [
+      "A318, A319, A320 and A321 aeroplanes"
+    ],
+    "tcds_numbers": [
+      "EASA.A.064"
+    ],
+    "foreign_ad": {
+      "state": "explicit_none",
+      "value": null,
+      "raw_text": "Not applicable",
+      "evidence_ids": [
+        "EV-001"
+      ]
+    }
+  },
+  "applicability_groups": [
+    {
+      "group_id": "APP-001",
+      "label": "A318/A319/A320/A321 excluding specified production/service configurations",
+      "state": "present",
+      "raw_text": "All listed A318, A319, A320 and A321 models, all manufacturer serial numbers, except the three specified modification/SB configurations.",
+      "aircraft_families": [
+        "A318",
+        "A319",
+        "A320",
+        "A321"
+      ],
+      "models": [
+        "A318-111",
+        "A318-112",
+        "A318-121",
+        "A318-122",
+        "A319-111",
+        "A319-112",
+        "A319-113",
+        "A319-114",
+        "A319-115",
+        "A319-131",
+        "A319-132",
+        "A319-133",
+        "A320-211",
+        "A320-212",
+        "A320-214",
+        "A320-215",
+        "A320-216",
+        "A320-231",
+        "A320-232",
+        "A320-233",
+        "A321-111",
+        "A321-112",
+        "A321-131",
+        "A321-211",
+        "A321-212",
+        "A321-213",
+        "A321-231",
+        "A321-232"
+      ],
+      "serial_restrictions": [
+        {
+          "restriction_id": "MSN-001",
+          "kind": "all",
+          "raw_expression": "all manufacturer serial numbers",
+          "lower_bound": null,
+          "upper_bound": null,
+          "explicit_values": [],
+          "condition": null,
+          "evidence_ids": [
+            "EV-002"
+          ]
+        }
+      ],
+      "part_numbers": [],
+      "configuration_conditions": [],
+      "exclusions": [
+        "Aeroplanes with Airbus modification 157039 embodied in production",
+        "A319 aeroplanes with modifications 28238, 28162 and 28342 embodied in production",
+        "A318 aeroplanes with modification 39195 embodied in production or Airbus SB A320-00-1219 embodied in service"
+      ],
+      "boolean_logic": "mixed",
+      "evidence_ids": [
+        "EV-002"
+      ]
+    }
+  ],
+  "definitions": [
+    {
+      "definition_id": "DEF-001",
+      "term": "Affected area",
+      "definition_text": "Door stop fitting holes of fuselage frame 66 and frame 68 on left-hand and right-hand sides.",
+      "evidence_ids": [
+        "EV-003"
+      ]
+    },
+    {
+      "definition_id": "DEF-002",
+      "term": "The inspection SB",
+      "definition_text": "Airbus SB A320-53-1288 Revision 02.",
+      "evidence_ids": [
+        "EV-004"
+      ]
+    },
+    {
+      "definition_id": "DEF-003",
+      "term": "The modification SB",
+      "definition_text": "Airbus SB A320-53-1290.",
+      "evidence_ids": [
+        "EV-004"
+      ]
+    }
+  ],
+  "unsafe_condition": {
+    "state": "present",
+    "raw_reason_text": "Fatigue damage and early cracking can occur at door-stop fitting holes; if not detected and corrected, it could affect airframe structural integrity.",
+    "observed_events_or_defects": [
+      "Fatigue testing showed damage could appear in the affected areas",
+      "Reports of non-critical damage and early crack findings"
+    ],
+    "causes": [
+      "Fatigue loading at door-stop fitting holes"
+    ],
+    "unsafe_conditions": [
+      "Cracking or damage at frame 66/68 door-stop fitting holes"
+    ],
+    "potential_consequences": [
+      "Affected structural integrity of the airframe"
+    ],
+    "affected_components": [
+      "Door-stop fitting holes at frame 66 and frame 68"
+    ],
+    "intended_risk_mitigation": [
+      "Repetitive rototest inspections",
+      "Repair or Airbus-approved corrective action",
+      "Optional terminating modification"
+    ],
+    "evidence_ids": [
+      "EV-005"
+    ]
+  },
+  "requirements": [
+    {
+      "requirement_id": "REQ-001",
+      "paragraph_reference": "(1)",
+      "parent_requirement_id": null,
+      "applicability_group_ids": [
+        "APP-001"
+      ],
+      "action_types": [
+        "inspection"
+      ],
+      "obligation": "mandatory",
+      "action_text": "Perform a rototest inspection of each affected area in accordance with the inspection SB.",
+      "objects_or_components": [
+        "frame 66 and frame 68 door-stop fitting holes"
+      ],
+      "conditions": [],
+      "method_publication_ids": [
+        "PUB-001",
+        "PUB-004"
+      ],
+      "compliance_rules": [
+        {
+          "compliance_id": "CMP-001",
+          "state": "present",
+          "raw_text": "FR66, 25 300 FC or less: before 25 300 FC or within 4 000 FC after the effective date, whichever occurs later; thereafter 19 700 FC.",
+          "logic": "whichever_occurs_later",
+          "conditions": [
+            "FR66 web LH/RH",
+            "25 300 FC accumulated or less on the effective date"
+          ],
+          "initial_limits": [
+            {
+              "limit_id": "LIM-001",
+              "relation": "before",
+              "quantity": 25300,
+              "unit": "flight_cycle",
+              "raw_value": "25 300 FC",
+              "reference_event": "first flight",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-007"
+              ]
+            },
+            {
+              "limit_id": "LIM-002",
+              "relation": "within",
+              "quantity": 4000,
+              "unit": "flight_cycle",
+              "raw_value": "4 000 FC",
+              "reference_event": "effective date of this AD",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-007"
+              ]
+            }
+          ],
+          "is_repetitive": true,
+          "repetitive_intervals": [
+            {
+              "limit_id": "LIM-003",
+              "relation": "not_to_exceed",
+              "quantity": 19700,
+              "unit": "flight_cycle",
+              "raw_value": "19 700 FC",
+              "reference_event": "last inspection",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-006"
+              ]
+            }
+          ],
+          "grace_periods": [],
+          "evidence_ids": [
+            "EV-006",
+            "EV-007"
+          ]
+        },
+        {
+          "compliance_id": "CMP-002",
+          "state": "present",
+          "raw_text": "FR66, more than 25 300 and not exceeding 39 000 FC: within 4 000 FC after effective date without exceeding Appendix 1 Table 2 threshold; thereafter 19 700 FC.",
+          "logic": "all",
+          "conditions": [
+            "FR66 web LH/RH",
+            "More than 25 300 but not exceeding 39 000 FC on effective date"
+          ],
+          "initial_limits": [
+            {
+              "limit_id": "LIM-004",
+              "relation": "within",
+              "quantity": 4000,
+              "unit": "flight_cycle",
+              "raw_value": "4 000 FC",
+              "reference_event": "effective date of this AD",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-007"
+              ]
+            },
+            {
+              "limit_id": "LIM-005",
+              "relation": "before",
+              "quantity": null,
+              "unit": "other",
+              "raw_value": "threshold in Appendix 1 Table 2, as applicable",
+              "reference_event": "first flight or corrected post-mod 160080 threshold",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-007",
+                "EV-015"
+              ]
+            }
+          ],
+          "is_repetitive": true,
+          "repetitive_intervals": [
+            {
+              "limit_id": "LIM-006",
+              "relation": "not_to_exceed",
+              "quantity": 19700,
+              "unit": "flight_cycle",
+              "raw_value": "19 700 FC",
+              "reference_event": "last inspection",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-006"
+              ]
+            }
+          ],
+          "grace_periods": [],
+          "evidence_ids": [
+            "EV-006",
+            "EV-007",
+            "EV-015"
+          ]
+        },
+        {
+          "compliance_id": "CMP-003",
+          "state": "present",
+          "raw_text": "FR66, more than 39 000 FC: within 2 000 FC after effective date without exceeding Appendix 1 Table 2 threshold; thereafter 19 700 FC.",
+          "logic": "all",
+          "conditions": [
+            "FR66 web LH/RH",
+            "More than 39 000 FC on effective date"
+          ],
+          "initial_limits": [
+            {
+              "limit_id": "LIM-007",
+              "relation": "within",
+              "quantity": 2000,
+              "unit": "flight_cycle",
+              "raw_value": "2 000 FC",
+              "reference_event": "effective date of this AD",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-007"
+              ]
+            },
+            {
+              "limit_id": "LIM-008",
+              "relation": "before",
+              "quantity": null,
+              "unit": "other",
+              "raw_value": "threshold in Appendix 1 Table 2, as applicable",
+              "reference_event": "first flight or corrected post-mod 160080 threshold",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-007",
+                "EV-015"
+              ]
+            }
+          ],
+          "is_repetitive": true,
+          "repetitive_intervals": [
+            {
+              "limit_id": "LIM-009",
+              "relation": "not_to_exceed",
+              "quantity": 19700,
+              "unit": "flight_cycle",
+              "raw_value": "19 700 FC",
+              "reference_event": "last inspection",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-006"
+              ]
+            }
+          ],
+          "grace_periods": [],
+          "evidence_ids": [
+            "EV-006",
+            "EV-007",
+            "EV-015"
+          ]
+        },
+        {
+          "compliance_id": "CMP-004",
+          "state": "present",
+          "raw_text": "FR68, 20 000 FC or less: before 20 000 FC or within 4 000 FC after the effective date, whichever occurs later; thereafter 19 700 FC.",
+          "logic": "whichever_occurs_later",
+          "conditions": [
+            "FR68 web LH/RH",
+            "20 000 FC accumulated or less on the effective date"
+          ],
+          "initial_limits": [
+            {
+              "limit_id": "LIM-010",
+              "relation": "before",
+              "quantity": 20000,
+              "unit": "flight_cycle",
+              "raw_value": "20 000 FC",
+              "reference_event": "first flight",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-007"
+              ]
+            },
+            {
+              "limit_id": "LIM-011",
+              "relation": "within",
+              "quantity": 4000,
+              "unit": "flight_cycle",
+              "raw_value": "4 000 FC",
+              "reference_event": "effective date of this AD",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-007"
+              ]
+            }
+          ],
+          "is_repetitive": true,
+          "repetitive_intervals": [
+            {
+              "limit_id": "LIM-012",
+              "relation": "not_to_exceed",
+              "quantity": 19700,
+              "unit": "flight_cycle",
+              "raw_value": "19 700 FC",
+              "reference_event": "last inspection",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-006"
+              ]
+            }
+          ],
+          "grace_periods": [],
+          "evidence_ids": [
+            "EV-006",
+            "EV-007"
+          ]
+        },
+        {
+          "compliance_id": "CMP-005",
+          "state": "present",
+          "raw_text": "FR68, more than 20 000 and not exceeding 33 700 FC: within 4 000 FC after effective date without exceeding Appendix 1 Table 3 threshold; thereafter 19 700 FC.",
+          "logic": "all",
+          "conditions": [
+            "FR68 web LH/RH",
+            "More than 20 000 but not exceeding 33 700 FC on effective date"
+          ],
+          "initial_limits": [
+            {
+              "limit_id": "LIM-013",
+              "relation": "within",
+              "quantity": 4000,
+              "unit": "flight_cycle",
+              "raw_value": "4 000 FC",
+              "reference_event": "effective date of this AD",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-007"
+              ]
+            },
+            {
+              "limit_id": "LIM-014",
+              "relation": "before",
+              "quantity": null,
+              "unit": "other",
+              "raw_value": "threshold in Appendix 1 Table 3, as applicable",
+              "reference_event": "first flight or corrected post-mod 160080 threshold",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-007",
+                "EV-015"
+              ]
+            }
+          ],
+          "is_repetitive": true,
+          "repetitive_intervals": [
+            {
+              "limit_id": "LIM-015",
+              "relation": "not_to_exceed",
+              "quantity": 19700,
+              "unit": "flight_cycle",
+              "raw_value": "19 700 FC",
+              "reference_event": "last inspection",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-006"
+              ]
+            }
+          ],
+          "grace_periods": [],
+          "evidence_ids": [
+            "EV-006",
+            "EV-007",
+            "EV-015"
+          ]
+        },
+        {
+          "compliance_id": "CMP-006",
+          "state": "present",
+          "raw_text": "FR68, more than 33 700 FC: within 2 000 FC after effective date without exceeding Appendix 1 Table 3 threshold; thereafter 19 700 FC.",
+          "logic": "all",
+          "conditions": [
+            "FR68 web LH/RH",
+            "More than 33 700 FC on effective date"
+          ],
+          "initial_limits": [
+            {
+              "limit_id": "LIM-016",
+              "relation": "within",
+              "quantity": 2000,
+              "unit": "flight_cycle",
+              "raw_value": "2 000 FC",
+              "reference_event": "effective date of this AD",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-007"
+              ]
+            },
+            {
+              "limit_id": "LIM-017",
+              "relation": "before",
+              "quantity": null,
+              "unit": "other",
+              "raw_value": "threshold in Appendix 1 Table 3, as applicable",
+              "reference_event": "first flight or corrected post-mod 160080 threshold",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-007",
+                "EV-015"
+              ]
+            }
+          ],
+          "is_repetitive": true,
+          "repetitive_intervals": [
+            {
+              "limit_id": "LIM-018",
+              "relation": "not_to_exceed",
+              "quantity": 19700,
+              "unit": "flight_cycle",
+              "raw_value": "19 700 FC",
+              "reference_event": "last inspection",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-006"
+              ]
+            }
+          ],
+          "grace_periods": [],
+          "evidence_ids": [
+            "EV-006",
+            "EV-007",
+            "EV-015"
+          ]
+        }
+      ],
+      "follow_on_requirement_ids": [
+        "REQ-002",
+        "REQ-003"
+      ],
+      "terminating_action": {
+        "state": "not_stated",
+        "present": null,
+        "scope": "unknown",
+        "action_text": null,
+        "terminates_requirement_ids": [],
+        "evidence_ids": []
+      },
+      "evidence_ids": [
+        "EV-006",
+        "EV-007",
+        "EV-015"
+      ]
+    },
+    {
+      "requirement_id": "REQ-002",
+      "paragraph_reference": "(2)",
+      "parent_requirement_id": "REQ-001",
+      "applicability_group_ids": [
+        "APP-001"
+      ],
+      "action_types": [
+        "repair"
+      ],
+      "obligation": "conditional",
+      "action_text": "For a crack within the applicable SRM limit, accomplish the applicable SRM repair instructions and corrective actions.",
+      "objects_or_components": [
+        "cracked fastener hole"
+      ],
+      "conditions": [
+        "Crack detected within applicable SRM limit"
+      ],
+      "method_publication_ids": [
+        "PUB-005"
+      ],
+      "compliance_rules": [
+        {
+          "compliance_id": "CMP-007",
+          "state": "present",
+          "raw_text": "before next flight",
+          "logic": "single",
+          "conditions": [],
+          "initial_limits": [
+            {
+              "limit_id": "LIM-019",
+              "relation": "before",
+              "quantity": null,
+              "unit": "before_next_flight",
+              "raw_value": "before next flight",
+              "reference_event": "crack detection or inspection",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-008"
+              ]
+            }
+          ],
+          "is_repetitive": false,
+          "repetitive_intervals": [],
+          "grace_periods": [],
+          "evidence_ids": [
+            "EV-008"
+          ]
+        }
+      ],
+      "follow_on_requirement_ids": [],
+      "terminating_action": {
+        "state": "present",
+        "present": true,
+        "scope": "partial",
+        "action_text": "Repair and applicable post-repair instructions terminate paragraph (1) repetitive inspections for that fastener hole.",
+        "terminates_requirement_ids": [
+          "REQ-001"
+        ],
+        "evidence_ids": [
+          "EV-011"
+        ]
+      },
+      "evidence_ids": [
+        "EV-008",
+        "EV-011"
+      ]
+    },
+    {
+      "requirement_id": "REQ-003",
+      "paragraph_reference": "(3)",
+      "parent_requirement_id": "REQ-001",
+      "applicability_group_ids": [
+        "APP-001"
+      ],
+      "action_types": [
+        "contact_manufacturer",
+        "repair"
+      ],
+      "obligation": "conditional",
+      "action_text": "For a crack exceeding the applicable SRM limit, contact Airbus for approved corrective instructions and accomplish them.",
+      "objects_or_components": [
+        "cracked fastener hole"
+      ],
+      "conditions": [
+        "Crack exceeds applicable SRM limit"
+      ],
+      "method_publication_ids": [],
+      "compliance_rules": [
+        {
+          "compliance_id": "CMP-008",
+          "state": "present",
+          "raw_text": "before next flight",
+          "logic": "single",
+          "conditions": [],
+          "initial_limits": [
+            {
+              "limit_id": "LIM-020",
+              "relation": "before",
+              "quantity": null,
+              "unit": "before_next_flight",
+              "raw_value": "before next flight",
+              "reference_event": "crack detection or inspection",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-008"
+              ]
+            }
+          ],
+          "is_repetitive": false,
+          "repetitive_intervals": [],
+          "grace_periods": [],
+          "evidence_ids": [
+            "EV-008"
+          ]
+        }
+      ],
+      "follow_on_requirement_ids": [],
+      "terminating_action": {
+        "state": "present",
+        "present": false,
+        "scope": "none",
+        "action_text": null,
+        "terminates_requirement_ids": [],
+        "evidence_ids": [
+          "EV-011"
+        ]
+      },
+      "evidence_ids": [
+        "EV-008",
+        "EV-011"
+      ]
+    },
+    {
+      "requirement_id": "REQ-004",
+      "paragraph_reference": "(5.1)",
+      "parent_requirement_id": null,
+      "applicability_group_ids": [
+        "APP-001"
+      ],
+      "action_types": [
+        "inspection"
+      ],
+      "obligation": "conditional",
+      "action_text": "For a hole repaired before the effective date under the specified prior tasks/instructions, perform the next inspections in accordance with the SRM or Airbus-DOA-approved post-repair instructions.",
+      "objects_or_components": [
+        "repaired fastener hole"
+      ],
+      "conditions": [
+        "Inspected and repaired before the effective date under ALI 534129/534130 or inspection SB original/Revision 01"
+      ],
+      "method_publication_ids": [
+        "PUB-005",
+        "PUB-006",
+        "PUB-007"
+      ],
+      "compliance_rules": [
+        {
+          "compliance_id": "CMP-009",
+          "state": "present",
+          "raw_text": "within the time period after repair specified by the SRM or Airbus DOA instructions",
+          "logic": "single",
+          "conditions": [],
+          "initial_limits": [
+            {
+              "limit_id": "LIM-021",
+              "relation": "within",
+              "quantity": null,
+              "unit": "other",
+              "raw_value": "time period after repair specified by the SRM or Airbus DOA instructions",
+              "reference_event": "repair",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-010"
+              ]
+            }
+          ],
+          "is_repetitive": false,
+          "repetitive_intervals": [],
+          "grace_periods": [],
+          "evidence_ids": [
+            "EV-010"
+          ]
+        }
+      ],
+      "follow_on_requirement_ids": [],
+      "terminating_action": {
+        "state": "present",
+        "present": true,
+        "scope": "partial",
+        "action_text": "Paragraph (5.1) inspections and corrective actions terminate paragraph (1) repetitive inspections for the repaired hole.",
+        "terminates_requirement_ids": [
+          "REQ-001"
+        ],
+        "evidence_ids": [
+          "EV-012"
+        ]
+      },
+      "evidence_ids": [
+        "EV-009",
+        "EV-010",
+        "EV-012"
+      ]
+    },
+    {
+      "requirement_id": "REQ-005",
+      "paragraph_reference": "(5.2)",
+      "parent_requirement_id": null,
+      "applicability_group_ids": [
+        "APP-001"
+      ],
+      "action_types": [
+        "contact_manufacturer",
+        "other"
+      ],
+      "obligation": "conditional",
+      "action_text": "As the paragraph (5.2) branch, contact Airbus and accomplish approved instructions within the paragraph (1) compliance time.",
+      "objects_or_components": [
+        "previously repaired fastener hole"
+      ],
+      "conditions": [
+        "Paragraph (5.2) selected for a pre-effective-date repair"
+      ],
+      "method_publication_ids": [],
+      "compliance_rules": [
+        {
+          "compliance_id": "CMP-010",
+          "state": "present",
+          "raw_text": "within the compliance time specified in paragraph (1)",
+          "logic": "single",
+          "conditions": [],
+          "initial_limits": [
+            {
+              "limit_id": "LIM-022",
+              "relation": "within",
+              "quantity": null,
+              "unit": "other",
+              "raw_value": "paragraph (1) compliance time",
+              "reference_event": "paragraph (1) applicable branch",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-010"
+              ]
+            }
+          ],
+          "is_repetitive": false,
+          "repetitive_intervals": [],
+          "grace_periods": [],
+          "evidence_ids": [
+            "EV-010"
+          ]
+        }
+      ],
+      "follow_on_requirement_ids": [],
+      "terminating_action": {
+        "state": "present",
+        "present": false,
+        "scope": "none",
+        "action_text": null,
+        "terminates_requirement_ids": [],
+        "evidence_ids": [
+          "EV-011"
+        ]
+      },
+      "evidence_ids": [
+        "EV-010",
+        "EV-011"
+      ]
+    },
+    {
+      "requirement_id": "REQ-006",
+      "paragraph_reference": "(6)",
+      "parent_requirement_id": null,
+      "applicability_group_ids": [
+        "APP-001"
+      ],
+      "action_types": [
+        "contact_manufacturer",
+        "other"
+      ],
+      "obligation": "conditional",
+      "action_text": "For an affected-area repair unrelated to the prior ALI tasks or inspection SB, contact Airbus and accomplish approved instructions within paragraph (1) time.",
+      "objects_or_components": [
+        "previously repaired affected area"
+      ],
+      "conditions": [
+        "Repair before effective date was unrelated to ALI 534129/534130 or the inspection SB"
+      ],
+      "method_publication_ids": [],
+      "compliance_rules": [
+        {
+          "compliance_id": "CMP-011",
+          "state": "present",
+          "raw_text": "within the compliance time specified in paragraph (1)",
+          "logic": "single",
+          "conditions": [],
+          "initial_limits": [
+            {
+              "limit_id": "LIM-023",
+              "relation": "within",
+              "quantity": null,
+              "unit": "other",
+              "raw_value": "paragraph (1) compliance time",
+              "reference_event": "paragraph (1) applicable branch",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-010"
+              ]
+            }
+          ],
+          "is_repetitive": false,
+          "repetitive_intervals": [],
+          "grace_periods": [],
+          "evidence_ids": [
+            "EV-010"
+          ]
+        }
+      ],
+      "follow_on_requirement_ids": [],
+      "terminating_action": {
+        "state": "present",
+        "present": false,
+        "scope": "none",
+        "action_text": null,
+        "terminates_requirement_ids": [],
+        "evidence_ids": [
+          "EV-011"
+        ]
+      },
+      "evidence_ids": [
+        "EV-010",
+        "EV-011"
+      ]
+    },
+    {
+      "requirement_id": "REQ-007",
+      "paragraph_reference": "(9)",
+      "parent_requirement_id": null,
+      "applicability_group_ids": [
+        "APP-001"
+      ],
+      "action_types": [
+        "modification"
+      ],
+      "obligation": "optional_terminating",
+      "action_text": "If no damage or crack is found, modify a fastener hole at a door-stop location in accordance with the modification SB.",
+      "objects_or_components": [
+        "fastener hole at a door-stop location"
+      ],
+      "conditions": [
+        "No damage or crack detected during paragraph (1) inspection"
+      ],
+      "method_publication_ids": [
+        "PUB-003"
+      ],
+      "compliance_rules": [
+        {
+          "compliance_id": "CMP-012",
+          "state": "present",
+          "raw_text": "before next flight",
+          "logic": "single",
+          "conditions": [],
+          "initial_limits": [
+            {
+              "limit_id": "LIM-024",
+              "relation": "before",
+              "quantity": null,
+              "unit": "before_next_flight",
+              "raw_value": "before next flight",
+              "reference_event": "crack detection or inspection",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-011"
+              ]
+            }
+          ],
+          "is_repetitive": false,
+          "repetitive_intervals": [],
+          "grace_periods": [],
+          "evidence_ids": [
+            "EV-011"
+          ]
+        }
+      ],
+      "follow_on_requirement_ids": [],
+      "terminating_action": {
+        "state": "present",
+        "present": true,
+        "scope": "partial",
+        "action_text": "Modification terminates paragraph (1) repetitive inspections for that fastener hole.",
+        "terminates_requirement_ids": [
+          "REQ-001"
+        ],
+        "evidence_ids": [
+          "EV-011"
+        ]
+      },
+      "evidence_ids": [
+        "EV-011"
+      ]
+    },
+    {
+      "requirement_id": "REQ-008",
+      "paragraph_reference": "(10)",
+      "parent_requirement_id": null,
+      "applicability_group_ids": [
+        "APP-001"
+      ],
+      "action_types": [
+        "modification"
+      ],
+      "obligation": "optional_terminating",
+      "action_text": "If no damage or crack is found, modify an affected area in accordance with the modification SB.",
+      "objects_or_components": [
+        "affected area"
+      ],
+      "conditions": [
+        "No damage or crack detected during paragraph (1) inspection"
+      ],
+      "method_publication_ids": [
+        "PUB-003"
+      ],
+      "compliance_rules": [
+        {
+          "compliance_id": "CMP-013",
+          "state": "present",
+          "raw_text": "before next flight",
+          "logic": "single",
+          "conditions": [],
+          "initial_limits": [
+            {
+              "limit_id": "LIM-025",
+              "relation": "before",
+              "quantity": null,
+              "unit": "before_next_flight",
+              "raw_value": "before next flight",
+              "reference_event": "crack detection or inspection",
+              "calendar_date": null,
+              "evidence_ids": [
+                "EV-011"
+              ]
+            }
+          ],
+          "is_repetitive": false,
+          "repetitive_intervals": [],
+          "grace_periods": [],
+          "evidence_ids": [
+            "EV-011"
+          ]
+        }
+      ],
+      "follow_on_requirement_ids": [],
+      "terminating_action": {
+        "state": "present",
+        "present": true,
+        "scope": "partial",
+        "action_text": "Modification terminates paragraph (1) repetitive inspections for that affected area.",
+        "terminates_requirement_ids": [
+          "REQ-001"
+        ],
+        "evidence_ids": [
+          "EV-011"
+        ]
+      },
+      "evidence_ids": [
+        "EV-011"
+      ]
+    }
+  ],
+  "exceptions": [
+    {
+      "exception_id": "EXC-001",
+      "text": "Required as indicated, unless accomplished previously.",
+      "applies_to_requirement_ids": [
+        "REQ-001",
+        "REQ-002",
+        "REQ-003",
+        "REQ-004",
+        "REQ-005",
+        "REQ-006",
+        "REQ-007",
+        "REQ-008"
+      ],
+      "evidence_ids": [
+        "EV-006"
+      ]
+    }
+  ],
+  "previous_action_credit": [
+    {
+      "credit_id": "CRD-001",
+      "text": "Inspections before the effective date under inspection SB original issue/Revision 01 or ALI 534129/534130 credit paragraph (1).",
+      "applies_to_requirement_ids": [
+        "REQ-001"
+      ],
+      "credited_publication_ids": [
+        "PUB-002",
+        "PUB-006",
+        "PUB-007"
+      ],
+      "conditions": [
+        "Accomplished before this AD effective date"
+      ],
+      "evidence_ids": [
+        "EV-009"
+      ]
+    }
+  ],
+  "referenced_publications": [
+    {
+      "publication_id": "PUB-001",
+      "publication_type": "service_bulletin",
+      "issuer": "Airbus",
+      "number": "A320-53-1288",
+      "revision": "Revision 02",
+      "publication_date": "2019-09-23",
+      "title": null,
+      "roles": [
+        "required_method"
+      ],
+      "later_approved_revisions_allowed": true,
+      "evidence_ids": [
+        "EV-004",
+        "EV-013"
+      ]
+    },
+    {
+      "publication_id": "PUB-002",
+      "publication_type": "service_bulletin",
+      "issuer": "Airbus",
+      "number": "A320-53-1288",
+      "revision": "original issue or Revision 01",
+      "publication_date": null,
+      "title": null,
+      "roles": [
+        "previous_action_credit"
+      ],
+      "later_approved_revisions_allowed": true,
+      "evidence_ids": [
+        "EV-009",
+        "EV-013"
+      ]
+    },
+    {
+      "publication_id": "PUB-003",
+      "publication_type": "service_bulletin",
+      "issuer": "Airbus",
+      "number": "A320-53-1290",
+      "revision": "original issue through Revision 02",
+      "publication_date": null,
+      "title": null,
+      "roles": [
+        "optional_method"
+      ],
+      "later_approved_revisions_allowed": true,
+      "evidence_ids": [
+        "EV-004",
+        "EV-011",
+        "EV-013"
+      ]
+    },
+    {
+      "publication_id": "PUB-004",
+      "publication_type": "service_bulletin",
+      "issuer": "Airbus",
+      "number": "A320-57-1193",
+      "revision": "original issue through Revision 08",
+      "publication_date": null,
+      "title": null,
+      "roles": [
+        "referenced_information"
+      ],
+      "later_approved_revisions_allowed": true,
+      "evidence_ids": [
+        "EV-015",
+        "EV-013"
+      ]
+    },
+    {
+      "publication_id": "PUB-005",
+      "publication_type": "maintenance_manual",
+      "issuer": "Airbus",
+      "number": "Applicable Structural Repair Manual",
+      "revision": null,
+      "publication_date": null,
+      "title": null,
+      "roles": [
+        "required_method"
+      ],
+      "later_approved_revisions_allowed": null,
+      "evidence_ids": [
+        "EV-008",
+        "EV-010"
+      ]
+    },
+    {
+      "publication_id": "PUB-006",
+      "publication_type": "airworthiness_limitations_section",
+      "issuer": "Airbus",
+      "number": "ALI Task 534129",
+      "revision": null,
+      "publication_date": null,
+      "title": null,
+      "roles": [
+        "previous_action_credit",
+        "referenced_information"
+      ],
+      "later_approved_revisions_allowed": null,
+      "evidence_ids": [
+        "EV-009"
+      ]
+    },
+    {
+      "publication_id": "PUB-007",
+      "publication_type": "airworthiness_limitations_section",
+      "issuer": "Airbus",
+      "number": "ALI Task 534130",
+      "revision": null,
+      "publication_date": null,
+      "title": null,
+      "roles": [
+        "previous_action_credit",
+        "referenced_information"
+      ],
+      "later_approved_revisions_allowed": null,
+      "evidence_ids": [
+        "EV-009"
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "relationship_id": "REL-001",
+      "relationship_type": "supersedes",
+      "target_ad_number": "2016-0238",
+      "target_record_id": null,
+      "target_logical_version_key": null,
+      "source": "structured_supersedure_field",
+      "verification_status": "adjudicated",
+      "manually_verified": true,
+      "raw_text": "This AD supersedes EASA AD 2016-0238 dated 02 December 2016, including its Correction dated 04 January 2017.",
+      "evidence_ids": [
+        "EV-001"
+      ]
+    }
+  ],
+  "amoc_and_contacts": [
+    {
+      "entry_id": "AMC-001",
+      "entry_type": "amoc_authority",
+      "authority_or_organization": "EASA",
+      "contact_text": "If requested and appropriately substantiated, EASA can approve Alternative Methods of Compliance for this AD.",
+      "conditions": [
+        "Requested",
+        "Appropriately substantiated"
+      ],
+      "evidence_ids": [
+        "EV-014"
+      ]
+    },
+    {
+      "entry_id": "AMC-002",
+      "entry_type": "regulatory_contact",
+      "authority_or_organization": "EASA",
+      "contact_text": "E-mail: ADs@easa.europa.eu.",
+      "conditions": [],
+      "evidence_ids": [
+        "EV-014"
+      ]
+    },
+    {
+      "entry_id": "AMC-003",
+      "entry_type": "technical_contact",
+      "authority_or_organization": "Airbus",
+      "contact_text": "account.airworth-eas@airbus.com",
+      "conditions": [
+        "Questions concerning the technical content of the AD requirements"
+      ],
+      "evidence_ids": [
+        "EV-014"
+      ]
+    }
+  ],
+  "classification": {
+    "airbus_families": [
+      "A318",
+      "A319",
+      "A320",
+      "A321"
+    ],
+    "ata_chapters": [
+      "53"
+    ],
+    "action_types": [
+      "contact_manufacturer",
+      "inspection",
+      "modification",
+      "other",
+      "repair"
+    ],
+    "frequency": "mixed",
+    "emergency_status": "standard",
+    "terminating_action_present": true,
+    "table_or_appendix_present": true,
+    "compliance_complexity": "table_driven",
+    "human_confirmed": true,
+    "evidence_ids": [
+      "EV-001",
+      "EV-002",
+      "EV-006",
+      "EV-007",
+      "EV-008",
+      "EV-010",
+      "EV-011",
+      "EV-012",
+      "EV-015"
+    ]
+  },
+  "evidence_spans": [
+    {
+      "evidence_id": "EV-001",
+      "source_file_instance_id": "3d05d4995d986ef5",
+      "page_number": 1,
+      "printed_page_label": "Page 1 of 6",
+      "section": "cover",
+      "section_raw": "Airworthiness Directive",
+      "clause_path": null,
+      "exact_quote": "Airworthiness Directive\n                                                          AD No.:            2021-0242\n                                                          Issued:            08 November 2021\n\n                                                          Note: This Airworthiness Directive (AD) is issued by EASA, acting in accordance with Regulation\n                                                          (EU) 2018/1139 on behalf of the European Union, its Member States and of the European third\n                                                          countries that participate in the activities of EASA under Article 129 of that Regulation.\n\n      This AD is issued in accordance with Regulation (EU) 748/2012, Part 21.A.3B. In accordance with Regulation (EU) 1321/2014 Annex I, Part M.A.301, the\n      continuing airworthiness of an aircraft shall be ensured by accomplishing any applicable ADs. Consequently, no person may operate an aircraft to which\n      an AD applies, except in accordance with the requirements of that AD, unless otherwise specified by the Agency [Regulation (EU) 1321/2014 Annex I,\n      Part M.A.303] or agreed with the Authority of the State of Registry [Regulation (EU) 2018/1139, Article 71 exemption].\n      Design Approval Holder’s Name:                                             Type/Model designation(s):\n      AIRBUS                                                                     A318, A319, A320 and A321 aeroplanes\n\n      Effective Date:           22 November 2021\n      TCDS Number(s):           EASA.A.064\n      Foreign AD:               Not applicable\n      Supersedure:              This AD supersedes EASA AD 2016-0238 dated 02 December 2016, including its\n                                Correction dated 04 January 2017.\n\n      ATA 53 – Fuselage – Door Stop Fitting Holes at Frame 66/68 – Inspection / Repair",
+      "start_char": 195,
+      "end_char": 2071,
+      "page_text_sha256": "d294e6776431fcc62f591ee747aa928d84ca6be177e5e7d769c2c8436b02d7db",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "exact",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-002",
+      "source_file_instance_id": "3d05d4995d986ef5",
+      "page_number": 1,
+      "printed_page_label": "Page 1 of 6",
+      "section": "applicability",
+      "section_raw": "Manufacturer(s) / Applicability",
+      "clause_path": null,
+      "exact_quote": "Manufacturer(s):\n      Airbus, formerly Airbus Industrie\n\n      Applicability:\n      Airbus A318-111, A318-112, A318-121, A318-122, A319-111, A319-112, A319-113, A319-114,\n      A319-115, A319-131, A319-132, A319-133, A320-211, A320-212, A320-214, A320-215, A320-216,\n      A320-231, A320-232, A320-233, A321-111, A321-112, A321-131, A321-211, A321-212, A321-213,\n      A321-231 and A321-232 aeroplanes, all manufacturer serial numbers, except:\n\n      -     aeroplanes on which Airbus modification (mod) 157039 has been embodied in production;\n      -     A319 aeroplanes on which mod 28238, mod 28162 and mod 28342 have been embodied in\n            production; and\n      -     A318 aeroplanes on which mod 39195 has been embodied in production                                  , or Airbus Service\n            Bulletin (SB) A320-00-1219 has been embodied in service.",
+      "start_char": 2080,
+      "end_char": 2946,
+      "page_text_sha256": "d294e6776431fcc62f591ee747aa928d84ca6be177e5e7d769c2c8436b02d7db",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "exact",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-003",
+      "source_file_instance_id": "3d05d4995d986ef5",
+      "page_number": 1,
+      "printed_page_label": "Page 1 of 6",
+      "section": "definitions",
+      "section_raw": "Definitions",
+      "clause_path": null,
+      "exact_quote": "Definitions:\n      For the purpose of this AD, the following definitions apply:\n\n      Affected area: Door stop fitting holes of fuselage frame (FR) 66 and FR68 on left-hand (LH) and\n      right-hand (RH) sides.",
+      "start_char": 2954,
+      "end_char": 3165,
+      "page_text_sha256": "d294e6776431fcc62f591ee747aa928d84ca6be177e5e7d769c2c8436b02d7db",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "exact",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-004",
+      "source_file_instance_id": "3d05d4995d986ef5",
+      "page_number": 2,
+      "printed_page_label": "Page 2 of 6",
+      "section": "definitions",
+      "section_raw": "Definitions",
+      "clause_path": null,
+      "exact_quote": "The inspection SB: Airbus SB A320-53-1288 Revision 02.\n\n     The modification SB: Airbus SB A320-53-1290.",
+      "start_char": 134,
+      "end_char": 239,
+      "page_text_sha256": "a6facf329def4f932031d282c483b893252e5fdbb6e88662fcfdd49e94368733",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "exact",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-005",
+      "source_file_instance_id": "3d05d4995d986ef5",
+      "page_number": 2,
+      "printed_page_label": "Page 2 of 6",
+      "section": "reason",
+      "section_raw": "Reason",
+      "clause_path": null,
+      "exact_quote": "Reason:\n     During an A320 fatigue test campaign, it was determined that fatigue damage could appear in the\n     affected areas.\n\n     This condition, if not detected and corrected, could affect the structural integrity of the airframe.\n\n     Two inspections were introduced through the Airworthiness Limitations Item (ALI) tasks 534129 and\n     534130.\n\n     Since these ALI tasks were implemented, a significant number of reports was received concerning\n     non-critical damage and early crack findings. Prompted by these reports, Airbus published SB\n     A320-53-1288 (later revised) and the modification SB, providing instructions for inspection to\n     improve damage management, and instructions for modification.\n\n     Consequently, EASA issued AD 2016-0015, requiring repetitive rototest inspections of the affected\n     areas and, depending on findings, repair of any cracked area(s).\n\n     After that AD was issued, Airworthiness Limitation Section (ALS) Part 2 Revision 04 and later on\n     Revision 05 were published, introducing updated thresholds and/or intervals for some tasks as\n     specified in the inspection SB, introducing a new aeroplane configuration with RETRO WING, having\n     embodied SB A320-57-1193 (mod 160080), and keeping the thr                       eshold or interval only in flight\n     cycles (FC). ALI Task 534129 and ALI Task 534             130 were removed from ALS Part 2 at Revision 05.\n     Consequently, EASA issued AD 2016-0238, retaining the requirement of EASA AD 2016                              -0015, which\n     was superseded, and requiring those actions within updated thresholds and intervals.\n\n     Since that AD was issued, f       ollowing operators’ occurrence reporting and new analysis, Airbus issued\n     the inspection SB, as defined in this AD, to optimise thresholds and intervals accordingly.\n\n     For the reasons described above, this AD retains the requirements of EASA AD 2016-0238, which is\n     superseded, but requires the inspections at different thresholds and intervals.",
+      "start_char": 246,
+      "end_char": 2295,
+      "page_text_sha256": "a6facf329def4f932031d282c483b893252e5fdbb6e88662fcfdd49e94368733",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "exact",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-006",
+      "source_file_instance_id": "3d05d4995d986ef5",
+      "page_number": 2,
+      "printed_page_label": "Page 2 of 6",
+      "section": "required_actions_and_compliance_times",
+      "section_raw": "Required Action(s) and Compliance Time(s)",
+      "clause_path": "(1)",
+      "exact_quote": "Required Action(s) and Compliance Time(s):\n     Required as indicated, unless accomplished previously:\n\n     Inspection(s):\n     (1)   Within the threshold as defined in Table 1 of this AD, depending on FC accumulated on the\n           effective date of this AD and, thereafter, at intervals not to exceed 19 700 FC, accomplish a\n           rototest inspection of each affected area in accordance with the instructions of                      the inspection\n           SB.",
+      "start_char": 2302,
+      "end_char": 2774,
+      "page_text_sha256": "a6facf329def4f932031d282c483b893252e5fdbb6e88662fcfdd49e94368733",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "exact",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-007",
+      "source_file_instance_id": "3d05d4995d986ef5",
+      "page_number": 3,
+      "printed_page_label": "Page 3 of 6",
+      "section": "table",
+      "section_raw": "Table 1 – Inspection Threshold Door Stop Fitting Holes",
+      "clause_path": null,
+      "exact_quote": "Table 1 – Inspection Threshold Door Stop Fitting Holes (see Note 1 of this AD)\n\n                 Affected         FC Accumulated on\n                   Area          the effective date of                                    Threshold(s)\n                                          this AD\n                                      25 300 or less            Before exceeding 25 300 FC, or within 4000 FC after\n                                                                the effective date of this AD, whichever occurs later\n                                more than 25 300, not           Within 4000 FC after the effective date of this AD,\n                FR66 web           exceeding 39 000             without exceeding the threshold as defined in\n                  LH/RH                                         Appendix 1 - Table 2 of this AD, as applicable\n                                                                Within 2000 FC after the effective date of this AD,\n                                   more than 39 000             without exceeding the threshold as defined in\n                                                                Appendix 1 - Table 2 of this AD, as applicable\n                                      20 000 or less            Before exceeding 20 000 FC, or within 4000 FC after\n                                                                the effective date of this AD, whichever occurs later\n                                more than 20 000, not           Within 4000 FC after the effective date of this AD,\n                FR68 web           exceeding 33 700             without exceeding the threshold as defined in\n                  LH/RH                                         Appendix 1 - Table 3 of this AD, as applicable\n                                                                Within 2000 FC after the effective date of this AD,\n                                   more than 33 700             without exceeding the threshold as defined in\n                                                                Appendix 1 - Table 3 of this AD, as applicable\n\n     Note 1: The FC specified in Table 1 of this AD are those accumulated by the aeroplane since first\n     flight.",
+      "start_char": 153,
+      "end_char": 2370,
+      "page_text_sha256": "63ac54ea1740d5c9167b4665670c042a5dcb7b8665c9d3166c25f16f8040767c",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "exact",
+      "table_context": {
+        "table_label": "Table 1 – Inspection Threshold Door Stop Fitting Holes",
+        "row_headers": [
+          "FR66 web LH/RH",
+          "FR68 web LH/RH"
+        ],
+        "column_headers": [
+          "FC accumulated on effective date",
+          "Threshold(s)"
+        ],
+        "footnotes": [
+          "FC are accumulated since first flight."
+        ]
+      },
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-008",
+      "source_file_instance_id": "3d05d4995d986ef5",
+      "page_number": 3,
+      "printed_page_label": "Page 3 of 6",
+      "section": "required_actions_and_compliance_times",
+      "section_raw": "Corrective Action(s)",
+      "clause_path": "(2) and (3)",
+      "exact_quote": "Corrective Action(s):\n     (2)   If, during any inspection as required by paragraph (1) of this AD, a crack is detected and\n           identified within the limit defined in the applicable Structural Repair Manual (SRM), before next\n           flight, accomplish the applicable repair instructions and corrective action(s) in accordance with\n           the applicable SRM.\n\n     (3)   If, during any inspection as required by paragraph (1) of this AD, a crack is detected and\n           identified exceeding the limit defined in the applicable SRM, before next flight, contact Airbus\n           for approved instructions for corrective action and accomplish those instructions accordingly.",
+      "start_char": 2377,
+      "end_char": 3066,
+      "page_text_sha256": "63ac54ea1740d5c9167b4665670c042a5dcb7b8665c9d3166c25f16f8040767c",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "exact",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-009",
+      "source_file_instance_id": "3d05d4995d986ef5",
+      "page_number": 3,
+      "printed_page_label": "Page 3 of 6",
+      "section": "credit",
+      "section_raw": "Credit",
+      "clause_path": "(4) and start of (5)",
+      "exact_quote": "Credit:\n     (4)   Inspections on an aeroplane, accomplished before the effective date of this AD in accordance\n           with the instructions of the inspection SB at original issue or Revision 01 or as per ALI 534129 or\n           534130 are acceptable to comply with the requirements of paragraph (1) of this AD for that\n           aeroplane.\n\n     (5)   For an aeroplane that has been inspected per ALI task 534129 or ALI task 534130 or inspection\n           SB at original issue or Revision 01, and repaired, before the effective date of this AD, in\n           accordance with the instructions of the applicable SRM, or in accordance with instructions",
+      "start_char": 3073,
+      "end_char": 3730,
+      "page_text_sha256": "63ac54ea1740d5c9167b4665670c042a5dcb7b8665c9d3166c25f16f8040767c",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "exact",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-010",
+      "source_file_instance_id": "3d05d4995d986ef5",
+      "page_number": 4,
+      "printed_page_label": "Page 4 of 6",
+      "section": "required_actions_and_compliance_times",
+      "section_raw": "Credit – follow-on actions",
+      "clause_path": "(5.1), (5.2), and (6)",
+      "exact_quote": "approved by Airbus DOA, accomplish the actions as required by paragraph (5.1) or (5.2) of this\n           AD (see note 2 of this AD):\n\n           (5.1)  Accomplish the next inspections for each repaired fastener hole in accordance with, and\n                  within the time period after repair, as specified in the SRM or in the Airbus DOA approved\n                  instructions, as applicable.\n\n           (5.2)  Within the compliance time as specified in paragraph (1) of this AD, as applicable, contact\n                  Airbus for approved instructions and accomplish those instructions accordingly.\n\n     Note 2: For all fastener holes where no damage or cracks was detected (i.e. those not repaired), see\n     paragraph (4) of this AD.\n\n     (6)   For an aeroplane that, before the effective date of this AD, has been repaired in an affected\n           area, as defined in this AD, in accordance with instructions approved by Airbus DOA unrelated\n           to ALI task 534129 or ALI task 534130 or the inspection SB, within the compliance time as\n           specified in paragraph (1) of this AD, as applicable, contact Airbus for approved instructions and\n           accomplish those instructions accordingly.",
+      "start_char": 141,
+      "end_char": 1360,
+      "page_text_sha256": "fc53689939e593b48a2a4ce19dd495aa754c41bfa5ea62185666e132a8d5593c",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "exact",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-011",
+      "source_file_instance_id": "3d05d4995d986ef5",
+      "page_number": 4,
+      "printed_page_label": "Page 4 of 6",
+      "section": "required_actions_and_compliance_times",
+      "section_raw": "Terminating Action",
+      "clause_path": "(7) through (11)",
+      "exact_quote": "Terminating Action:\n     (7)   Repair of a fastener hole at a door stop location of an aeroplane, and accomplishment of post\n           repair instructions, as applicable, as required by paragraph (2) of this AD constitute terminating\n           action for the repetitive inspections as required by paragraph (1) of this AD for that fastener\n           hole.\n\n     (8)   Repair of a fastener hole at        a door stop location of an aeroplane as required by paragraph (3) of\n           this AD does not constitute terminating action for the repetitive inspections as required by\n           paragraph (1) of this AD for that fastener hole, unless specified otherwise in the instructions\n           provided by Airbus.\n\n     (9)   Modification in accordance with the instructions of the modification SB of a fastener hole at a\n           door stop location, accomplished before next flight after an inspection as required by\n           paragraph (1) of this AD where no damage or cracks was detected on that fastener hole,\n           constitutes terminating action for the repetitive inspections of that fastener hole as required by\n           paragraph (1) of this AD.\n\n     (10) Modification of an affected area of an aeroplane in accordance with the instructions of the\n           modification SB, accomplished before next flight after an inspection as required by paragraph\n           (1) of this AD where no damage or cracks was detected on that affected area, constitutes\n           terminating action for the repetitive inspections as required by paragraph (1) of this AD for that\n           affected area of that aeroplane.\n\n     (11) Accomplishment of inspection(s) and corrective actions on an aeroplane, as specified by\n           paragraph (5.2) or (6) of this AD, as applicable, does not constitute terminating action for the\n           repetitive inspections as required by paragraph (1) on the repaired hole for that aeroplane,\n           unless specified otherwise in the instructions provided by Airbus.",
+      "start_char": 1367,
+      "end_char": 3386,
+      "page_text_sha256": "fc53689939e593b48a2a4ce19dd495aa754c41bfa5ea62185666e132a8d5593c",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "exact",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-012",
+      "source_file_instance_id": "3d05d4995d986ef5",
+      "page_number": 5,
+      "printed_page_label": "Page 5 of 6",
+      "section": "required_actions_and_compliance_times",
+      "section_raw": "Terminating Action",
+      "clause_path": "(12)",
+      "exact_quote": "(12) Accomplishment of inspection(s) and corrective actions on an aeroplane, as specified by\n           paragraph (5.1) of this AD, as applicable, constitutes terminating action for the repetitive\n           inspections as required by paragraph (1) on the repaired hole for that aeroplane.",
+      "start_char": 133,
+      "end_char": 422,
+      "page_text_sha256": "4d3255f650e45cdb98e921c6517a248e14f64e9123a769aaa0283cd114a7ad87",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "exact",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-013",
+      "source_file_instance_id": "3d05d4995d986ef5",
+      "page_number": 5,
+      "printed_page_label": "Page 5 of 6",
+      "section": "reference_publications",
+      "section_raw": "Ref. Publications",
+      "clause_path": null,
+      "exact_quote": "Ref. Publications:\n     Airbus SB A320-57-1193 original issue dated 16 October 2015, or Revision 01 dated 05 February\n     2016, or Revision 02 dated 18 May 2016, or Revision 03 dated 03                    August 2016, or Revision 04 dated\n     30 September 2016, or Revision 05 dated 28 November 2016, or Revision 06 dated 04 July 2017, or\n     Revision 07 dated 01 December 2017              , or Revision 08 dated 27 February 2018.\n\n     Airbus SB A320-53-1288 original issue dated 10 Oct               ober 2014, or Revision 01 dated 03 October\n     2016, or Revision 02 dated 23 September 2019.\n\n     Airbus SB A320-53-1290 original issue dated 10 October 2014, or Revision 01 dated 03 October\n     2016, or Revision 02 dated 10 July 2019.\n\n     The use of later approved revisions of the above-mentioned documents is acceptable for\n     compliance with the requirements of this AD.",
+      "start_char": 429,
+      "end_char": 1316,
+      "page_text_sha256": "4d3255f650e45cdb98e921c6517a248e14f64e9123a769aaa0283cd114a7ad87",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "exact",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-014",
+      "source_file_instance_id": "3d05d4995d986ef5",
+      "page_number": 5,
+      "printed_page_label": "Page 5 of 6",
+      "section": "remarks",
+      "section_raw": "Remarks",
+      "clause_path": null,
+      "exact_quote": "Remarks:\n     1.    If requested and appropriately substantiated, EASA can approve Alternative Methods of\n           Compliance for this AD.\n\n     2.    This AD was posted on 09 November 2020 as PAD 20-179 for consultation until                          07 December\n           2020. The Comment Response Documents can be found in the EASA Safety Publications Tool, in\n           the compressed (zipped) file attached to the record for this AD.\n\n     3.    Enquiries regarding this AD should be referred to the EASA Safety Information Section,\n           Certification Directorate. E-mail: ADs@easa.europa.eu.\n\n     4.    Information about any failures, malfunctions, defects or other occurrences, which may be\n           similar to the unsafe condition addressed by this AD, and which may occur, or have occurred on\n           a product, part or appliance not affected by this AD, can be reported to the EU aviation safety\n           reporting system. This may include reporting on the same or similar components, other than\n           those covered by the design to which this AD applies, if the same unsafe condition can exist or\n           may develop on an aircraft with those components installed. Such components may be\n           installed under an FAA Parts Manufacturer Approval (PMA), Supplemental Type Certificate\n           (STC) or other modification.\n\n     5.    For any question concerning the technical content of the requirements in this AD, please\n           contact: AIRBUS – Airworthiness Office – IIASA; E-mail: account.airworth-eas@airbus.com.",
+      "start_char": 1323,
+      "end_char": 2888,
+      "page_text_sha256": "4d3255f650e45cdb98e921c6517a248e14f64e9123a769aaa0283cd114a7ad87",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "exact",
+      "table_context": null,
+      "annotation_note": null
+    },
+    {
+      "evidence_id": "EV-015",
+      "source_file_instance_id": "3d05d4995d986ef5",
+      "page_number": 6,
+      "printed_page_label": "Page 6 of 6",
+      "section": "appendix",
+      "section_raw": "Appendix 1 – Original Inspection / Repair Threshold",
+      "clause_path": null,
+      "exact_quote": "Appendix 1: Door Stop Fitting Holes – Original Inspection / Repair Threshold\n\n     The threshold for initial inspection as specified in Table 2 and 3 of this Appendix must be calculated\n     since first flight of the aeroplane, except for post-mod 160080 aeroplanes, for which a “corrected”\n     threshold can be defined in accordance with the instructions of Airbus SB A320-57-1193.\n\n                                          Table 2 - Aft passenger/crew door cut           -out\n                                        Door stop fittings holes at FR 66 WEB LH/RH\n                                             Aeroplanes affected                                         Threshold\n                                                   A318-PAX                                              33 800 FC\n                           A319-PAX pre mod 160001 and pre mod 160080                                    42 700 FC\n                   A319-PAX post mod 160001             OR A319-PAX post mod 160080                      40 300 FC\n                              A320 pre mod 160001 and pre mod 160080                                     48 000 FC\n                         A320 post mod 160001 OR A320 post mod 160080                                    45 500 FC\n                                           A321 pre mod 160021                                           34 500 FC\n                                           A321 post mod 160021                                          39 400 FC\n\n                                          Table 3 - Aft passenger/crew door cut           -out\n                                        Door stop fittings holes at FR 68 WEB LH/RH\n                                            Aeroplanes affected                                       Threshold\n                                                   A318-PAX                                           30 800 FC\n                           A319-PAX pre mod 160001 and pre mod 160080                                 34 400 FC\n                   A319-PAX post mod 160001 OR A319-PAX post mod 160080                               33 500 FC\n                                                      A320                                            40 900 FC\n                                           A321 pre mod 160021                                        24 400 FC\n                                           A321 post mod 160021                                       39 300 FC",
+      "start_char": 146,
+      "end_char": 2593,
+      "page_text_sha256": "564ab391a45e99afe9689c937b7b29b7b9ea0ee73d4ff7210b16eedef4ae7600",
+      "bbox_normalized": null,
+      "extraction_method": "native_text",
+      "quality": "exact",
+      "table_context": {
+        "table_label": "Appendix 1 Tables 2 and 3",
+        "row_headers": [
+          "A318-PAX",
+          "A319-PAX configurations",
+          "A320 configurations",
+          "A321 configurations"
+        ],
+        "column_headers": [
+          "Aeroplanes affected",
+          "Threshold"
+        ],
+        "footnotes": [
+          "Threshold since first flight; post-mod 160080 may use a corrected threshold per A320-57-1193."
+        ]
+      },
+      "annotation_note": null
+    }
+  ],
+  "field_assertions": [
+    {
+      "assertion_id": "AST-001",
+      "field_path": "/ad_identity",
+      "value_state": "present",
+      "origin": "human_annotated",
+      "verification_status": "accepted",
+      "confidence": null,
+      "evidence_ids": [
+        "EV-001"
+      ],
+      "annotator_id": "human-reviewer-1",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Human reviewer accepted this substantive section against the canonical PDF."
+    },
+    {
+      "assertion_id": "AST-002",
+      "field_path": "/publication",
+      "value_state": "present",
+      "origin": "human_annotated",
+      "verification_status": "accepted",
+      "confidence": null,
+      "evidence_ids": [
+        "EV-001",
+        "EV-002"
+      ],
+      "annotator_id": "human-reviewer-1",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Human reviewer accepted this substantive section against the canonical PDF."
+    },
+    {
+      "assertion_id": "AST-003",
+      "field_path": "/ad_identity/ad_number",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.99,
+      "evidence_ids": [
+        "EV-001"
+      ],
+      "annotator_id": "codex-a1",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Blind AI-assisted first-pass assertion; accepted by the independent human reviewer."
+    },
+    {
+      "assertion_id": "AST-004",
+      "field_path": "/ad_identity/base_ad_number",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-001"
+      ],
+      "annotator_id": "codex-a1",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Blind AI-assisted first-pass assertion; accepted by the independent human reviewer."
+    },
+    {
+      "assertion_id": "AST-005",
+      "field_path": "/ad_identity/revision_number",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-001"
+      ],
+      "annotator_id": "codex-a1",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Blind AI-assisted first-pass assertion; accepted by the independent human reviewer."
+    },
+    {
+      "assertion_id": "AST-006",
+      "field_path": "/ad_identity/publication_kind",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-001"
+      ],
+      "annotator_id": "codex-a1",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Blind AI-assisted first-pass assertion; accepted by the independent human reviewer."
+    },
+    {
+      "assertion_id": "AST-007",
+      "field_path": "/ad_identity/is_emergency",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-001"
+      ],
+      "annotator_id": "codex-a1",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Blind AI-assisted first-pass assertion; accepted by the independent human reviewer."
+    },
+    {
+      "assertion_id": "AST-008",
+      "field_path": "/ad_identity/is_correction",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.9,
+      "evidence_ids": [
+        "EV-001"
+      ],
+      "annotator_id": "codex-a1",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Source header reviewed: the publication identity/revision is printed in EV-001 and no correction notice or correction date is printed; is_correction=false remains a machine assertion pending human review."
+    },
+    {
+      "assertion_id": "AST-009",
+      "field_path": "/ad_identity/correction_date",
+      "value_state": "absent_in_source",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.9,
+      "evidence_ids": [],
+      "annotator_id": "codex-a1",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Blind AI-assisted first-pass assertion; accepted by the independent human reviewer."
+    },
+    {
+      "assertion_id": "AST-010",
+      "field_path": "/ad_identity/lifecycle_status",
+      "value_state": "absent_in_source",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.96,
+      "evidence_ids": [],
+      "annotator_id": "codex-a1",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Rendered cover and frozen page text were reviewed. The source contains no lifecycle disposition and no visible SUPERSEDED watermark. absent_in_source records that source absence; the neutral lifecycle_status=unknown is not a claim that the AD is current or superseded. Independent human review is complete."
+    },
+    {
+      "assertion_id": "AST-011",
+      "field_path": "/ad_identity/design_approval_holder",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-001"
+      ],
+      "annotator_id": "codex-a1",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Blind AI-assisted first-pass assertion; accepted by the independent human reviewer."
+    },
+    {
+      "assertion_id": "AST-012",
+      "field_path": "/ad_identity/supersedure_statement",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-001"
+      ],
+      "annotator_id": "codex-a1",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Blind AI-assisted first-pass assertion; accepted by the independent human reviewer."
+    },
+    {
+      "assertion_id": "AST-013",
+      "field_path": "/publication/subject",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-001"
+      ],
+      "annotator_id": "codex-a1",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Blind AI-assisted first-pass assertion; accepted by the independent human reviewer."
+    },
+    {
+      "assertion_id": "AST-014",
+      "field_path": "/publication/issue_date",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-001"
+      ],
+      "annotator_id": "codex-a1",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Blind AI-assisted first-pass assertion; accepted by the independent human reviewer."
+    },
+    {
+      "assertion_id": "AST-015",
+      "field_path": "/publication/effective_date",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-001"
+      ],
+      "annotator_id": "codex-a1",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Blind AI-assisted first-pass assertion; accepted by the independent human reviewer."
+    },
+    {
+      "assertion_id": "AST-016",
+      "field_path": "/publication/ata_chapters",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-001"
+      ],
+      "annotator_id": "codex-a1",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Blind AI-assisted first-pass assertion; accepted by the independent human reviewer."
+    },
+    {
+      "assertion_id": "AST-017",
+      "field_path": "/publication/manufacturers",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-002"
+      ],
+      "annotator_id": "codex-a1",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Blind AI-assisted first-pass assertion; accepted by the independent human reviewer."
+    },
+    {
+      "assertion_id": "AST-018",
+      "field_path": "/publication/type_model_designations",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-001"
+      ],
+      "annotator_id": "codex-a1",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Blind AI-assisted first-pass assertion; accepted by the independent human reviewer."
+    },
+    {
+      "assertion_id": "AST-019",
+      "field_path": "/publication/tcds_numbers",
+      "value_state": "present",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-001"
+      ],
+      "annotator_id": "codex-a1",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Blind AI-assisted first-pass assertion; accepted by the independent human reviewer."
+    },
+    {
+      "assertion_id": "AST-020",
+      "field_path": "/publication/foreign_ad",
+      "value_state": "not_applicable",
+      "origin": "auto_extracted",
+      "verification_status": "accepted",
+      "confidence": 0.96,
+      "evidence_ids": [
+        "EV-001"
+      ],
+      "annotator_id": "codex-a1",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Blind AI-assisted first-pass assertion; accepted by the independent human reviewer."
+    },
+    {
+      "assertion_id": "AST-021",
+      "field_path": "/applicability_groups",
+      "value_state": "present",
+      "origin": "human_annotated",
+      "verification_status": "accepted",
+      "confidence": null,
+      "evidence_ids": [
+        "EV-002"
+      ],
+      "annotator_id": "human-reviewer-1",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Human reviewer accepted this substantive section against the canonical PDF."
+    },
+    {
+      "assertion_id": "AST-022",
+      "field_path": "/definitions",
+      "value_state": "present",
+      "origin": "human_annotated",
+      "verification_status": "accepted",
+      "confidence": null,
+      "evidence_ids": [
+        "EV-003",
+        "EV-004"
+      ],
+      "annotator_id": "human-reviewer-1",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Human reviewer accepted this substantive section against the canonical PDF."
+    },
+    {
+      "assertion_id": "AST-023",
+      "field_path": "/unsafe_condition",
+      "value_state": "present",
+      "origin": "human_annotated",
+      "verification_status": "accepted",
+      "confidence": null,
+      "evidence_ids": [
+        "EV-005"
+      ],
+      "annotator_id": "human-reviewer-1",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Human reviewer accepted this substantive section against the canonical PDF."
+    },
+    {
+      "assertion_id": "AST-024",
+      "field_path": "/requirements",
+      "value_state": "present",
+      "origin": "human_annotated",
+      "verification_status": "accepted",
+      "confidence": null,
+      "evidence_ids": [
+        "EV-006",
+        "EV-007",
+        "EV-008",
+        "EV-010",
+        "EV-011",
+        "EV-012",
+        "EV-015"
+      ],
+      "annotator_id": "human-reviewer-1",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Human reviewer accepted this substantive section against the canonical PDF."
+    },
+    {
+      "assertion_id": "AST-025",
+      "field_path": "/exceptions",
+      "value_state": "present",
+      "origin": "human_annotated",
+      "verification_status": "accepted",
+      "confidence": null,
+      "evidence_ids": [
+        "EV-006"
+      ],
+      "annotator_id": "human-reviewer-1",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Human reviewer accepted this substantive section against the canonical PDF."
+    },
+    {
+      "assertion_id": "AST-026",
+      "field_path": "/previous_action_credit",
+      "value_state": "present",
+      "origin": "human_annotated",
+      "verification_status": "accepted",
+      "confidence": null,
+      "evidence_ids": [
+        "EV-009"
+      ],
+      "annotator_id": "human-reviewer-1",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Human reviewer accepted this substantive section against the canonical PDF."
+    },
+    {
+      "assertion_id": "AST-027",
+      "field_path": "/referenced_publications",
+      "value_state": "present",
+      "origin": "human_annotated",
+      "verification_status": "accepted",
+      "confidence": null,
+      "evidence_ids": [
+        "EV-013"
+      ],
+      "annotator_id": "human-reviewer-1",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Human reviewer accepted this substantive section against the canonical PDF."
+    },
+    {
+      "assertion_id": "AST-028",
+      "field_path": "/relationships",
+      "value_state": "present",
+      "origin": "human_annotated",
+      "verification_status": "accepted",
+      "confidence": null,
+      "evidence_ids": [
+        "EV-001"
+      ],
+      "annotator_id": "human-reviewer-1",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Human reviewer accepted this substantive section against the canonical PDF."
+    },
+    {
+      "assertion_id": "AST-029",
+      "field_path": "/amoc_and_contacts",
+      "value_state": "present",
+      "origin": "human_annotated",
+      "verification_status": "accepted",
+      "confidence": null,
+      "evidence_ids": [
+        "EV-014"
+      ],
+      "annotator_id": "human-reviewer-1",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Human reviewer accepted this substantive section against the canonical PDF."
+    },
+    {
+      "assertion_id": "AST-030",
+      "field_path": "/classification",
+      "value_state": "present",
+      "origin": "human_annotated",
+      "verification_status": "accepted",
+      "confidence": null,
+      "evidence_ids": [
+        "EV-001",
+        "EV-002",
+        "EV-006",
+        "EV-007",
+        "EV-008",
+        "EV-010",
+        "EV-011",
+        "EV-012",
+        "EV-015"
+      ],
+      "annotator_id": "human-reviewer-1",
+      "derivation_rule": null,
+      "input_field_paths": [],
+      "notes": "Human reviewer accepted this substantive section against the canonical PDF."
+    }
+  ],
+  "annotation_metadata": {
+    "guideline_version": "1.0.0",
+    "record_status": "approved",
+    "creation_method": "manual",
+    "machine_provenance": {
+      "system": "OpenAI Codex",
+      "model": "GPT-5",
+      "prompt_or_rules_version": "step3-single-review-correction-1.0.0",
+      "generated_at": "2026-07-22T13:35:50Z"
+    },
+    "annotators": [
+      {
+        "annotator_id": "codex-a1",
+        "role": "annotator",
+        "started_at": "2026-07-22T12:23:55Z",
+        "submitted_at": "2026-07-22T12:23:55Z"
+      },
+      {
+        "annotator_id": "codex-source-audit",
+        "role": "reviewer",
+        "started_at": "2026-07-29T09:16:56Z",
+        "submitted_at": "2026-07-29T09:16:56Z"
+      },
+      {
+        "annotator_id": "human-reviewer-1",
+        "role": "reviewer",
+        "started_at": "2026-07-29T10:52:34Z",
+        "submitted_at": "2026-07-29T10:52:34Z"
+      }
+    ],
+    "events": [
+      {
+        "event_type": "created",
+        "actor_id": "codex-a1",
+        "timestamp": "2026-07-22T12:23:55Z",
+        "rationale": "Blind AI-assisted first pass from the assigned PDF and frozen page text."
+      },
+      {
+        "event_type": "submitted",
+        "actor_id": "codex-a1",
+        "timestamp": "2026-07-22T12:23:55Z",
+        "rationale": "Submitted for independent human review; no acceptance or approval claimed."
+      },
+      {
+        "event_type": "reviewed",
+        "actor_id": "codex-a1",
+        "timestamp": "2026-07-22T13:35:50Z",
+        "rationale": "Machine preapproval-blocker review corrected evidence/state or compliance-rule completeness; no human acceptance or approval claimed."
+      },
+      {
+        "event_type": "reviewed",
+        "actor_id": "codex-source-audit",
+        "timestamp": "2026-07-29T09:16:56Z",
+        "rationale": "Machine-only comparison against every rendered PDF page and frozen page text; source corrections were applied where required and human acceptance remains pending."
+      },
+      {
+        "event_type": "reviewed",
+        "actor_id": "human-reviewer-1",
+        "timestamp": "2026-07-29T10:52:34Z",
+        "rationale": "Independent human reviewer confirmed that the complete annotation was reviewed against the canonical PDF."
+      },
+      {
+        "event_type": "approved",
+        "actor_id": "human-reviewer-1",
+        "timestamp": "2026-07-29T10:52:34Z",
+        "rationale": "The user explicitly approved the finalized human-reviewed annotation for inclusion in the gold pilot."
+      }
+    ],
+    "quality_flags": [
+      "complex_applicability",
+      "complex_table",
+      "complex_compliance"
+    ],
+    "uncertainty_flags": [],
+    "notes": [
+      "Immutable source and identity provenance was prefilled from the frozen Step 1 selection.",
+      "Blind AI-assisted Annotator A first pass; all assertions were accepted by the independent human reviewer and independent human approval is recorded.",
+      "Relationship candidates were retained only where the current PDF contains explicit wording.",
+      "Corrected single-review candidate; frozen Annotator-A submission remains unchanged and independent human review is still required.",
+      "Machine source audit rechecked every rendered page against the original PDF; no source-semantic correction was required and all assertions were accepted by the independent human reviewer.",
+      "Independent human review and approval were recorded after comparison with the canonical PDF."
+    ],
+    "source_text_sha256": "31c475538fcf0c315d2b8fb58620d099f12607603bd8e9368d80ddd4930a5073",
+    "created_at": "2026-07-22T12:23:55Z",
+    "updated_at": "2026-07-29T10:52:34Z"
+  },
+  "benchmark_metadata": {
+    "split": "unassigned",
+    "split_group": "2021-0242",
+    "selection_strata": [
+      "complex_applicability",
+      "table_heavy"
+    ],
+    "duplicate_cluster_ids": [],
+    "gold_record": true
+  }
+}
