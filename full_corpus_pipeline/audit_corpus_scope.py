@@ -43,8 +43,16 @@ def main() -> int:
             unknown.append(row)
 
     report = {
-        "audit_version": "corpus-scope-audit-v1",
-        "project_scope": "EU-issued EASA ADs with Airbus S.A.S. approval holder; legacy Airbus/Airbus Industrie aliases accepted",
+        "audit_version": "corpus-scope-audit-v1.1",
+        "project_scope": (
+            "EU-issued EASA ADs with Airbus S.A.S. approval holder; legacy "
+            "Airbus/Airbus Industrie aliases accepted"
+        ),
+        "classification_policy": (
+            "Confident external holders are excluded. Missing or malformed holder "
+            "text is unknown, not excluded, so parser boundary errors cannot silently "
+            "shrink the research corpus."
+        ),
         "record_count": len(paths),
         "eligible_count": counts["eligible"],
         "excluded_count": counts["excluded"],
@@ -57,8 +65,9 @@ def main() -> int:
         ],
         "decision_required": bool(excluded or unknown),
         "decision_note": (
-            "If excluded/unknown records exist, resolve the corpus-scope policy before canonical promotion. "
-            "Do not silently delete records or change the stated Airbus S.A.S. scope."
+            "Review excluded and unknown records before freezing the scope-approved "
+            "operational view. Do not silently delete physical source records, treat "
+            "unknowns as exclusions, or broaden the stated Airbus S.A.S. scope."
         ),
     }
 
@@ -66,7 +75,16 @@ def main() -> int:
     args.output.write_text(
         json.dumps(report, indent=2, ensure_ascii=False) + "\n", encoding="utf-8"
     )
-    print(json.dumps({key: value for key, value in report.items() if key not in {"excluded_records", "unknown_records", "holder_counts"}}, indent=2))
+    print(
+        json.dumps(
+            {
+                key: value
+                for key, value in report.items()
+                if key not in {"excluded_records", "unknown_records", "holder_counts"}
+            },
+            indent=2,
+        )
+    )
     if excluded:
         print(f"Out-of-scope records: {len(excluded)}")
         for row in excluded[:20]:
@@ -74,7 +92,7 @@ def main() -> int:
     if unknown:
         print(f"Unknown-scope records: {len(unknown)}")
         for row in unknown[:20]:
-            print(f"  {row['ad_number']}: missing/unknown holder")
+            print(f"  {row['ad_number']}: missing/malformed holder")
     return 0
 
 
