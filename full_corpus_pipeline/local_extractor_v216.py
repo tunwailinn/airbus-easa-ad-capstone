@@ -109,6 +109,32 @@ def _header_holder(text: str) -> str | None:
     return None
 
 
+def _header_manufacturer(text: str) -> str | None:
+    """Read the printed Manufacturer(s) cell without absorbing Applicability."""
+    cleaned = _v215._clean_layout_text(text)
+    lines = cleaned[:20000].splitlines()
+    pattern = re.compile(r"Manufacturer(?:\(s\))?\s*:", re.IGNORECASE)
+    stop = re.compile(
+        r"^(?:Applic+ability|Definitions?|Reas\w*n|Required\s+Action|Compliance)\s*:",
+        re.IGNORECASE,
+    )
+    for index, raw_line in enumerate(lines):
+        match = pattern.search(raw_line)
+        if not match:
+            continue
+        inline = raw_line[match.end() :].strip()
+        if inline:
+            return _v215.compact(re.split(r"\s{2,}", inline, maxsplit=1)[0])
+        for candidate in lines[index + 1 : index + 4]:
+            candidate = candidate.strip()
+            if not candidate:
+                continue
+            if stop.match(candidate):
+                return None
+            return _v215.compact(re.split(r"\s{2,}", candidate, maxsplit=1)[0])
+    return None
+
+
 def _flexible_a300_models(text: str | None) -> list[str]:
     """Recover canonical A300 variants printed with optional extra hyphens."""
     if not text:
@@ -126,6 +152,22 @@ def _flexible_a300_models(text: str | None) -> list[str]:
                 value = f"A300-{match.group(1).upper()}"
             if value not in values:
                 values.append(value)
+    return values
+
+
+def _spaced_model_variants(text: str | None) -> list[str]:
+    """Recover variants whose hyphen is separated by PDF-extraction whitespace."""
+    if not text:
+        return []
+    values: list[str] = []
+    pattern = re.compile(
+        r"\b(A(?:310|318|319|320|321|330|340|350|380))\s*-\s*(\d{3,4}[A-Z]*)\b",
+        re.IGNORECASE,
+    )
+    for match in pattern.finditer(text):
+        value = f"{match.group(1).upper()}-{match.group(2).upper()}"
+        if value not in values:
+            values.append(value)
     return values
 
 
@@ -244,25 +286,63 @@ def _postprocess_supersedure(record: dict[str, Any]) -> None:
         supersedure.pop("superseded_ad_numbers", None)
 
 
-def _augment_applicability_models(record: dict[str, Any]) -> None:
-    for item in record.get("applicability", []) or []:
-        if not isinstance(item, dict):
+def _repair_applicability(text: str, record: dict[str, Any]) -> None:
+    """Repair legacy two-column Applicability order and model-token spacing."""
+    cleaned = _v215._clean_layout_text(text)
+    applicability = record.get("applicability") or []
+    if not applicability:
+        return
+
+    label = re.search(r"(?im)^\s*Applic+ability\s*:", cleaned)
+    if label:
+        preceding = [line.strip() for line in cleaned[: label.start()].splitlines() if line.strip()]
+        if preceding:
+            prefix = preceding[-1]
+            if _v215.MODEL_PATTERN.search(prefix) and not re.match(
+                r"^(?:Manufacturer|TCDS|Foreign|Supersedure|ATA)\b", prefix, re.IGNORECASE
+            ):
+                current = str(applicability[0].get("text") or "")
+                if not current.startswith(prefix):
+                    applicability[0]["text"] = _v215.compact(f"{prefix} {current}")
+
+    item = applicability[0]
+    app_text = str(item.get("text") or "")
+    models = _v215._models(app_text)
+    for model in _flexible_a300_models(app_text) + _spaced_model_variants(app_text):
+        if model not in models:
+            models.append(model)
+
+    models = [
+        model
+        for model in models
+        if not (
+            re.fullmatch(r"A300-\d{2}", str(model), re.IGNORECASE)
+            and str(model).upper() != "A300-600"
+        )
+    ]
+
+    # If a bare family token exists only because every occurrence belongs to a
+    # printed detailed variant (e.g. `A320- 111` or `A300 B4-601`), remove the
+    # artificial broad token while keeping genuinely printed broad families.
+    for family in ("A300", "A310", "A318", "A319", "A320", "A321", "A330", "A340", "A350", "A380"):
+        if family not in models:
             continue
-        text = str(item.get("text") or "")
-        models = list(item.get("models") or [])
-        for model in _flexible_a300_models(text):
-            if model not in models:
-                models.append(model)
-        models = [
-            model
-            for model in models
-            if not (
-                re.fullmatch(r"A300-\d{2}", str(model), re.IGNORECASE)
-                and str(model).upper() != "A300-600"
-            )
-        ]
-        if models:
-            item["models"] = models
+        occurrences = list(re.finditer(rf"\b{re.escape(family)}\b", app_text, re.IGNORECASE))
+        if not occurrences:
+            continue
+
+        def variant_occurrence(match: re.Match[str]) -> bool:
+            tail = app_text[match.end() : match.end() + 12]
+            if family == "A300":
+                return bool(re.match(r"\s*(?:-\s*\d|[BCF]\d)", tail, re.IGNORECASE))
+            return bool(re.match(r"\s*-\s*\d", tail, re.IGNORECASE))
+
+        if all(variant_occurrence(match) for match in occurrences):
+            models = [model for model in models if model != family]
+
+    if models:
+        item["models"] = models
+        item["aircraft_families"] = _v215._families(models)
 
 
 def extract_local_record(
@@ -277,6 +357,10 @@ def extract_local_record(
     if holder:
         record.setdefault("ad_identity", {})["design_approval_holder"] = holder
 
+    manufacturer = _header_manufacturer(str(patched_row["text"]))
+    if manufacturer:
+        record.setdefault("publication", {})["manufacturers"] = [manufacturer]
+
     subject, chapters = _header_subject_and_ata(str(patched_row["text"]))
     publication = record.setdefault("publication", {})
     if subject:
@@ -284,7 +368,7 @@ def extract_local_record(
     if chapters:
         publication["ata_chapters"] = chapters
 
-    _augment_applicability_models(record)
+    _repair_applicability(str(patched_row["text"]), record)
     _postprocess_supersedure(record)
 
     errors = list(
