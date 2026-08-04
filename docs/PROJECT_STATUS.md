@@ -12,12 +12,15 @@ This file records only the active v3.1 project state. Superseded annotation-work
 - Methodology: **section-complete deterministic local extraction + original-PDF page-aware RAG**.
 - Content schema: **2.1.0**.
 - Local parser: **v2.1.4**.
+- Extraction evaluator: **content-eval-v3.1.2**.
 - Hosted semantic extraction: **not used**.
 - Immutable audit source: `gold_releases/easa_airbus_ad_gold_v2/` with 50 validated records.
-- Content evaluation set: `evaluation_sets/easa_airbus_ad_content_gold_50_v2/`, split 30 development / 20 locked test.
-- QA benchmark: `evaluation_sets/easa_airbus_ad_qa_50_v2/`, 50 locked questions.
-- Previous generated corpus: `data_processed/canonical_content_v2.1.3/` with 1,804 development records; this output is now **stale and must not be promoted as final** after the v2.1.4 parser fix.
-- Next corrected corpus target: `data_processed/canonical_content_v2.1.4/`.
+- Nominal content split: 30 development / 20 test, seed 42.
+- Clean final extraction test: **19 records**, because AD `2024-0038` was used during parser-v2.1.4 diagnosis and is excluded from unbiased test scoring.
+- QA benchmark: `evaluation_sets/easa_airbus_ad_qa_50_v2/`, 50 questions.
+- Previous generated corpus: `data_processed/canonical_content_v2.1.3/` is stale.
+- Corrected v2.1.4 extraction run has been generated locally at `data_processed/runs/local-content-development-1804-v2.1.4/` and awaits v3.1.2 development audit/evaluation before canonical promotion.
+- Corrected canonical target: `data_processed/canonical_content_v2.1.4/`.
 
 ## Completed
 
@@ -32,31 +35,42 @@ This file records only the active v3.1 project state. Superseded annotation-work
 ### Human-validated audit source
 
 - `gold_releases/easa_airbus_ad_gold_v2/` contains the preserved 50-record validated audit release.
-- The audit release is immutable and is used only to derive/evaluate the active content benchmark and QA references.
+- All 30 nominal development records map to approved immutable release records with independent human-review provenance in the release manifest.
+- The previous low development F1 was traced partly to an evaluator-design mismatch: semantic gold projections were being exact/string-scored against complete raw PDF sections.
+- Direct inspection of the weakest old-score development references found no obvious reason to replace them; the new development-reference audit verifies all 30 systematically without opening clean test labels.
 
 ### Local extraction
 
-- Deterministic parser v2.1.3 completed a 1,804-record development run with zero schema failures and no hosted LLM/API calls.
-- Representative PDF spot checks then found material extraction-boundary defects in v2.1.3.
-- Parser v2.1.4 fixes those defects and has regression coverage for:
-  - printed `Issued:` date taking precedence over stale manifest metadata;
-  - `Foreign AD:` stopping before `Revision:` metadata;
-  - repeated `EASA AD No.`, `TE.CAP`, page counters, copyright/footer text, and `SUPERSEDED`/cancellation watermarks being removed before section segmentation;
-  - ordinary prose beginning with words such as `compliance` not being mistaken for a new section heading;
-  - cross-page Definitions and Required Actions remaining continuous; and
-  - Remark contact lines being retained while later appendices are excluded.
-- The v2.1.4 logic was checked against source PDFs for AD 2024-0038, AD 2024-0097R2, and AD 2025-0058R1.
+- Deterministic parser v2.1.3 completed the earlier 1,804-record development run without hosted LLM/API calls.
+- Representative PDF spot checks found material v2.1.3 extraction-boundary defects.
+- Parser v2.1.4 fixes:
+  - printed `Issued:` date precedence;
+  - `Foreign AD:` / `Revision:` field separation;
+  - repeated EASA page furniture and status-watermark removal;
+  - strict section-heading boundaries;
+  - cross-page Definitions and Required Actions continuity;
+  - Remark contact retention; and
+  - appendix exclusion from Remarks.
+- The v2.1.4 parser was checked against source PDFs for AD 2024-0038, AD 2024-0097R2, and AD 2025-0058R1.
+- The user has regenerated the 1,804-record v2.1.4 run locally.
 
-The active content contract retains, when printed:
+### Extraction evaluation
 
-- AD identity and publication metadata;
-- applicability and model/family information;
-- Definitions;
-- Reason / unsafe-condition narrative;
-- complete Required Action(s) and Compliance Time(s) wording;
-- referenced-publication identifiers and reference wording;
-- supersedure/correction/cancellation wording; and
-- Remarks, including AMOC/contact text.
+- The first 30-record development run had 100% prediction coverage and 100% schema validity, but its old aggregate projection-overlap F1 is not a valid primary v3.1 accuracy metric.
+- Evaluator v3.1.2 now separates:
+  - stable comparable metadata;
+  - secondary family-taxonomy labels;
+  - publication/lifecycle identifiers; and
+  - raw-section presence, source containment, and contamination.
+- The old projection-overlap calculation remains diagnostic only.
+- `audit_development_reference.py` checks all 30 development references against frozen hashes, approval provenance, deterministic reprojection, accepted field assertions, evidence spans, and document-text containment without opening locked test labels.
+
+### Test-set leakage disclosure
+
+- AD `2024-0038` is in the nominal 20-record test split.
+- Its source PDF was used to diagnose and tune parser v2.1.4.
+- It is therefore excluded automatically from clean test scoring.
+- The nominal 30/20 frozen split is preserved unchanged for auditability; final extraction accuracy is reported on the remaining clean **n = 19** test cases.
 
 ### RAG and application implementation
 
@@ -77,33 +91,32 @@ Implemented in `full_corpus_pipeline/`:
 
 ## Not yet complete
 
-- Regeneration of all 1,804 development content records with parser v2.1.4.
-- Representative PDF spot checks of the regenerated v2.1.4 corpus.
-- Final locked 20-record extraction evaluation on v2.1.4.
-- Promotion of `data_processed/canonical_content_v2.1.4/` after validation.
-- Page-preserving text generation/mounting for all 1,804 development PDFs.
-- Production E0 and E4 indexes.
-- Locked retrieval metrics: Recall@1/3/5, MRR, nDCG@5, correct-source/page retrieval.
-- Locked QA metrics: answer correctness, citation correctness, condition preservation, abstention, unsupported-claim rate.
-- Temporary-document testing on all five unseen PDFs.
-- Permanent ingestion of the five unseen PDFs.
-- Final 1,809-record corpus after ingestion testing.
+- Run the 30-record development-reference audit locally and inspect its report.
+- Rerun the 30-record development evaluation with evaluator v3.1.2.
+- Perform fresh representative source-PDF spot checks on regenerated v2.1.4 records.
+- Freeze extraction rules after development review.
+- Run the clean final extraction evaluation once on the remaining 19 unbiased test records.
+- Promote `data_processed/canonical_content_v2.1.4/` after validation.
+- Generate/mount page-preserving text for all 1,804 development PDFs.
+- Build production E0 and E4 indexes.
+- Run locked retrieval and QA metrics.
+- Test temporary QA and permanent ingestion on the five unseen PDFs.
+- Reach the final 1,809-record corpus after ingestion testing.
 
 ## Immediate next actions
 
-1. Run the complete 1,804-record extraction with parser v2.1.4 into a new versioned run; do not overwrite v2.1.3.
-2. Spot-check representative regenerated records against source PDFs, including normal, revision, multi-page, appendix-bearing, and older-format ADs.
-3. Run the locked extraction evaluation and promote only if it passes.
-4. Produce or mount page-preserving text for the 1,804 development PDFs.
-5. Build **E0**: flat chunks + dense-only retrieval.
-6. Build **E4**: section-aware BM25 + dense/FAISS + RRF + reranking + metadata/lifecycle filtering.
-7. Run the locked retrieval and QA evaluation.
-8. Test temporary QA on the five held-out PDFs.
-9. Permanently ingest those five PDFs and verify the final corpus count is 1,809.
+1. Run `full_corpus_pipeline.audit_development_reference` on the 30 development references.
+2. Run `full_corpus_pipeline.evaluate_extraction --split development` using evaluator v3.1.2.
+3. Review per-field mismatches and raw-section containment/contamination; tune only from development evidence if a genuine defect remains.
+4. Freeze parser/evaluator behavior.
+5. Run the clean test evaluation once; AD `2024-0038` is excluded automatically, leaving n=19.
+6. Promote `canonical_content_v2.1.4/` only after the clean evaluation and source spot checks.
+7. Produce page-preserving text, then build E0/E4 and run retrieval/QA evaluation.
+8. Test and permanently ingest the five unseen PDFs.
 
 ## Current blockers
 
-- The corrected v2.1.4 development corpus must be regenerated and validated before the extraction layer is treated as frozen.
+- The v2.1.4 run must pass the revised development audit/evaluation and final clean extraction test before canonical promotion.
 - Page-preserving text for the complete 1,804-document retrieval index must be available locally or mounted from the approved data store.
 - Supervisor approval of the v3.1 research boundary should be documented before final thesis claims are frozen.
 
@@ -112,7 +125,8 @@ Implemented in `full_corpus_pipeline/`:
 Do not claim:
 
 - that all 1,809 records contain normalized compliance logic;
-- that successful schema validation proves semantic correctness;
+- that schema validation alone proves semantic correctness;
+- that the nominal 20-record test remained fully unseen after the 2024-0038 diagnostic leak;
 - that the frozen snapshot is guaranteed to represent the legally current EASA state; or
 - that the prototype determines aircraft-specific compliance.
 
