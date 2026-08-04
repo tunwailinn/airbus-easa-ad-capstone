@@ -88,31 +88,50 @@ They are not valid inputs to the final retrieval evaluator.
 
 ## Retrieval evaluation runtime history
 
-### First execution attempt — runtime aborted, no completed E4 measurement
+### First execution attempt — runtime aborted
 
-The accepted v1.2 indexes were used. E0 processed all 44 answerable locked retrieval questions, but before aggregate results were written the process terminated with a native macOS segmentation fault at E4 question 1 while another copy of the dense sentence-transformer was being loaded. The final `retrieval_comparison.json` was not produced and no completed E4 score was observed.
+The accepted v1.2 indexes were used. E0 processed all 44 answerable locked retrieval questions, but before aggregate results were written the process terminated with a native macOS segmentation fault at E4 question 1. No completed E4 measurement and no `retrieval_comparison.json` were produced.
 
-This was treated as a runtime defect, not a retrieval-performance signal. No chunking, model, candidate-depth, fusion, reranker, corpus-membership, lifecycle, or question changes were made.
+No retrieval configuration was changed from this attempt.
 
-### Frozen runtime policy — `retrieval-eval-v1.1`
+### Second execution attempt — pre-benchmark smoke test aborted
 
-The rerun uses the same accepted v1.2 indexes and frozen ranking logic with only these runtime-stability controls:
+A runtime-only v1.1 evaluator reused one dense encoder and pinned the cross-encoder to CPU. Dense and cross-encoder model loading/warm-up both completed, but the process still segfaulted when the smoke test combined FAISS-backed dense retrieval and the CPU cross-encoder in the same Python process. Locked questions had not yet been loaded in this second attempt.
 
-- one shared `DenseEncoder` instance is attached to both E0 and E4, preventing a duplicate `all-MiniLM-L6-v2` model load between systems;
-- the shared dense query encoder retains Sentence Transformers' normal single-device auto-selection so dense retrieval remains on the same model/runtime family used by the build;
-- the cross-encoder reranker is explicitly pinned to **CPU** to avoid simultaneous dense-model and reranker residency on Apple MPS;
-- no multiprocessing pool is requested;
-- the output report records the actual dense query device, CPU reranker device, and shared-encoder policy;
-- progress heartbeats cover dense-model and reranker loading as well as question-by-question evaluation.
+This behavior matches a known upstream macOS ARM failure mode where FAISS and PyTorch wheels can load incompatible OpenMP runtimes in one process and crash with `EXC_BAD_ACCESS`/segmentation faults. This is treated as a platform/runtime defect, not a retrieval-performance signal.
 
-These controls are runtime/reproducibility choices only. They do not change retrieval architecture or frozen benchmark configuration.
+### Frozen runtime policy — `retrieval-eval-v1.2`
+
+The retrieval architecture and ranking configuration remain unchanged. Only process boundaries are changed:
+
+1. the parent evaluator loads the frozen dense `all-MiniLM-L6-v2` query encoder and performs E0 dense retrieval plus E4 BM25+dense+RRF candidate generation with FAISS;
+2. E4 candidate sets are serialized to a temporary file;
+3. `cross-encoder/ms-marco-MiniLM-L-6-v2` reranking runs in a clean child Python process using CPU;
+4. the child reranker module intentionally never imports FAISS or the retrieval module;
+5. reranked top-5 results return to the parent for the same source/page metrics and paired E0/E4 comparison.
+
+This process isolation does **not** change:
+
+- corpus membership;
+- E0/E4 chunking;
+- embedding model;
+- FAISS index;
+- BM25 retrieval;
+- candidate depth (**20** per sparse/dense path);
+- RRF constant/policy;
+- cross-encoder model;
+- top-5 evaluation depth;
+- locked questions; or
+- metric definitions.
+
+A non-benchmark smoke query must pass both parent-side candidate generation and the isolated child reranker before locked questions are loaded. Progress output is visible in both parent and child processes.
 
 ## Benchmark lock
 
 The E0/E4 retrieval configuration remains frozen. From this point onward:
 
 1. do not change chunking, embedding model, candidate depth, RRF policy, reranker model, corpus membership, lifecycle rules, or locked questions based on retrieval results;
-2. rerun the locked retrieval evaluation from the beginning using `retrieval-eval-v1.1` and report the completed results as observed;
+2. rerun the locked retrieval evaluation from the beginning using `retrieval-eval-v1.2` and report the completed results as observed;
 3. implementation/runtime defects may be fixed only when independent of retrieval performance and must be documented explicitly.
 
-The evaluator is locked to `rag-index-build-v1.2`, validates the 1,786-document and 350/450 build gates before evaluation, shares one dense query encoder across E0/E4, pins the reranker to CPU, and prints visible progress throughout long stages.
+The evaluator remains locked to `rag-index-build-v1.2` and validates the 1,786-document and 350/450 build gates before evaluation.
