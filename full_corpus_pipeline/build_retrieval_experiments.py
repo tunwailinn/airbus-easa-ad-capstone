@@ -4,8 +4,8 @@
 E0 is the flat-chunk dense-only baseline. E4 is the section-aware hybrid system.
 Both consume the exact same strict Airbus-only retrieval manifest and verified
 page-preserving source text. This builder is intentionally strict: unresolved
-page-text review, manifest drift, dense fallback, or missing FAISS aborts the
-research build rather than silently changing the experiment.
+page-text review, manifest drift, dense fallback, missing FAISS, or chunk-size
+drift aborts the research build rather than silently changing the experiment.
 """
 
 from __future__ import annotations
@@ -14,26 +14,28 @@ import argparse
 import importlib.metadata
 import json
 import statistics
+import sys
+import threading
+import time
 from dataclasses import asdict
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Any
+from typing import Any, Callable, TypeVar
 
 import pandas as pd
 
-from full_corpus_pipeline.retrieval import (
-    HybridIndex,
-    build_chunks_from_directory,
-    token_count,
-)
+from full_corpus_pipeline.retrieval import HybridIndex, build_chunks_from_directory
 
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_PAGE_TEXT_ROOT = ROOT / "data_processed/page_text_v1_1/operational_airbus"
-DEFAULT_OUTPUT_ROOT = ROOT / "data_processed/indexes/rag_v1"
+DEFAULT_OUTPUT_ROOT = ROOT / "data_processed/indexes/rag_v1_1"
 DEFAULT_EMBEDDING_MODEL = "sentence-transformers/all-MiniLM-L6-v2"
 EXPECTED_DOCUMENT_COUNT = 1786
 EXPECTED_PAGE_TEXT_VERSION = "page-text-v1.1"
+E0_MAX_CHUNK_TOKENS = 350
+E4_MAX_CHUNK_TOKENS = 450
+T = TypeVar("T")
 
 
 def _package_version(name: str) -> str | None:
@@ -62,6 +64,28 @@ def _as_bool(value: Any) -> bool:
     if normalized in {"false", "0", "no", "n", ""}:
         return False
     raise ValueError(f"unrecognized boolean value in retrieval manifest: {value!r}")
+
+
+def _run_with_progress(label: str, function: Callable[[], T]) -> T:
+    """Run a long local phase with a lightweight elapsed-time heartbeat."""
+    started = time.monotonic()
+    stop = threading.Event()
+
+    def heartbeat() -> None:
+        while not stop.wait(2.0):
+            elapsed = int(time.monotonic() - started)
+            print(f"[progress] {label}: working ({elapsed}s elapsed)", flush=True)
+
+    print(f"[progress] {label}: started", flush=True)
+    worker = threading.Thread(target=heartbeat, daemon=True)
+    worker.start()
+    try:
+        return function()
+    finally:
+        stop.set()
+        worker.join(timeout=1.0)
+        elapsed = int(time.monotonic() - started)
+        print(f"[progress] {label}: finished ({elapsed}s)", flush=True)
 
 
 def validate_page_source(
@@ -130,9 +154,16 @@ def validate_page_source(
 
 
 def chunk_stats(chunks: list[Any]) -> dict[str, Any]:
+    """Summarize the same whitespace-delimited chunk units used by split limits.
+
+    These are deterministic chunk-size units, not transformer subword tokens.
+    The terminology is retained as ``*_tokens`` for compatibility with the
+    existing build report, while ``token_count_method`` makes the heuristic
+    explicit for thesis reporting.
+    """
     if not chunks:
         raise ValueError("chunk build produced zero chunks")
-    token_counts = [token_count(chunk.text) for chunk in chunks]
+    token_counts = [len(chunk.text.split()) for chunk in chunks]
     page_spans = [chunk.page_end - chunk.page_start + 1 for chunk in chunks]
     ids = [chunk.chunk_id for chunk in chunks]
     if len(ids) != len(set(ids)):
@@ -140,6 +171,7 @@ def chunk_stats(chunks: list[Any]) -> dict[str, Any]:
     return {
         "chunk_count": len(chunks),
         "document_count": len({chunk.file_instance_id for chunk in chunks}),
+        "token_count_method": "whitespace_split",
         "min_tokens": min(token_counts),
         "median_tokens": statistics.median(token_counts),
         "mean_tokens": statistics.fmean(token_counts),
@@ -156,6 +188,7 @@ def build_one(
     output_dir: Path,
     embedding_model: str,
     expected_count: int,
+    maximum_chunk_tokens: int,
 ) -> dict[str, Any]:
     stats = chunk_stats(chunks)
     if stats["document_count"] != expected_count:
@@ -163,10 +196,19 @@ def build_one(
             f"{experiment}: chunks cover {stats['document_count']} documents; "
             f"expected {expected_count}"
         )
-    config = HybridIndex(output_dir).build(
-        chunks,
-        embedding_model=embedding_model,
-        allow_dense_fallback=False,
+    if int(stats["max_tokens"]) > maximum_chunk_tokens:
+        raise ValueError(
+            f"{experiment}: max chunk size {stats['max_tokens']} exceeds "
+            f"frozen limit {maximum_chunk_tokens}"
+        )
+
+    config = _run_with_progress(
+        f"{experiment} embedding + FAISS/FTS index ({len(chunks)} chunks)",
+        lambda: HybridIndex(output_dir).build(
+            chunks,
+            embedding_model=embedding_model,
+            allow_dense_fallback=False,
+        ),
     )
     if config.get("dense_backend") != "sentence_transformers":
         raise RuntimeError(f"{experiment}: dense fallback is not permitted")
@@ -179,6 +221,7 @@ def build_one(
         "experiment": experiment,
         "built_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
         "embedding_model": embedding_model,
+        "maximum_chunk_tokens": maximum_chunk_tokens,
         "index_config": config,
         "chunk_stats": stats,
     }
@@ -196,6 +239,7 @@ def build_experiments(
     expected_count: int = EXPECTED_DOCUMENT_COUNT,
     experiment: str = "all",
 ) -> dict[str, Any]:
+    print("[progress] validating verified page-text source", flush=True)
     manifest, audit = validate_page_source(page_text_root, expected_count=expected_count)
     pages_dir = page_text_root / "pages"
     manifest_rows = manifest.to_dict(orient="records")
@@ -214,6 +258,7 @@ def build_experiments(
     output_root.mkdir(parents=True, exist_ok=True)
     reports: dict[str, Any] = {}
     if experiment in {"e0", "all"}:
+        print(f"[progress] E0 chunking {expected_count} documents", flush=True)
         e0_chunks = build_chunks_from_directory(
             pages_dir, manifest_rows, chunking="flat"
         )
@@ -223,8 +268,10 @@ def build_experiments(
             output_dir=output_root / "e0_flat_dense",
             embedding_model=embedding_model,
             expected_count=expected_count,
+            maximum_chunk_tokens=E0_MAX_CHUNK_TOKENS,
         )
     if experiment in {"e4", "all"}:
+        print(f"[progress] E4 section chunking {expected_count} documents", flush=True)
         e4_chunks = build_chunks_from_directory(
             pages_dir, manifest_rows, chunking="section"
         )
@@ -234,15 +281,21 @@ def build_experiments(
             output_dir=output_root / "e4_section_hybrid",
             embedding_model=embedding_model,
             expected_count=expected_count,
+            maximum_chunk_tokens=E4_MAX_CHUNK_TOKENS,
         )
 
     summary = {
-        "retrieval_build_version": "rag-index-build-v1.0",
+        "retrieval_build_version": "rag-index-build-v1.1",
         "page_text_version": audit["page_text_version"],
         "page_text_root": str(page_text_root),
         "retrieval_manifest": str(page_text_root / "retrieval_manifest.csv"),
         "document_count": expected_count,
         "embedding_model": embedding_model,
+        "chunk_size_policy": {
+            "count_method": "whitespace_split",
+            "e0_max_tokens": E0_MAX_CHUNK_TOKENS,
+            "e4_max_tokens": E4_MAX_CHUNK_TOKENS,
+        },
         "package_versions": {
             "sentence-transformers": _package_version("sentence-transformers"),
             "faiss-cpu": _package_version("faiss-cpu"),
@@ -254,6 +307,7 @@ def build_experiments(
     (output_root / "build_summary.json").write_text(
         json.dumps(summary, indent=2) + "\n", encoding="utf-8"
     )
+    print(f"[progress] build complete: {output_root}", flush=True)
     return summary
 
 
