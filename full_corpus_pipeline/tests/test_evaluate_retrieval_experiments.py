@@ -5,8 +5,10 @@ from pathlib import Path
 
 from full_corpus_pipeline.evaluate_retrieval_experiments import (
     EXPECTED_BUILD_VERSION,
+    RERANKER_DEVICE,
     paired_comparison,
     relevance_rank,
+    share_dense_query_encoder,
     source_rank,
     summarize,
     validate_build_summary,
@@ -91,6 +93,18 @@ class RetrievalExperimentEvaluationTests(unittest.TestCase):
             )
             with self.assertRaisesRegex(ValueError, "rag-index-build-v1.2"):
                 validate_build_summary(root)
+
+    def test_runtime_policy_shares_dense_encoder_and_pins_reranker_cpu(self):
+        class FakeIndex:
+            _encoder = None
+
+        e0 = FakeIndex()
+        e4 = FakeIndex()
+        encoder = object()
+        share_dense_query_encoder(e0, e4, encoder)
+        self.assertIs(e0._encoder, encoder)
+        self.assertIs(e4._encoder, encoder)
+        self.assertEqual(RERANKER_DEVICE, "cpu")
 
 
 if __name__ == "__main__":
