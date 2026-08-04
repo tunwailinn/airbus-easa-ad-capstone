@@ -11,15 +11,16 @@ This file records only the active v3.1 project state.
 - Stated research scope: EU-issued EASA ADs whose Design/Type Approval Holder is Airbus S.A.S., accepting legacy Airbus/Airbus Industrie naming.
 - Methodology: **section-complete deterministic local extraction + original-PDF page-aware RAG**.
 - Content schema: **2.1.0**.
-- Local parser: **v2.1.5**.
+- Active local parser: **v2.1.6**.
 - Extraction evaluator: **content-eval-v3.1.5**.
+- Corpus scope audit: **corpus-scope-audit-v1.2**.
 - Hosted semantic extraction: **not used**.
 - Immutable audit source: `gold_releases/easa_airbus_ad_gold_v2/` with 50 validated records.
 - Nominal extraction split: 30 development / 20 test, seed 42.
 - QA benchmark: `evaluation_sets/easa_airbus_ad_qa_50_v2/`, 50 questions.
-- Previous v2.1.4 development run exists locally but is now **stale** and must not be promoted.
-- Next run target: `data_processed/runs/local-content-development-1804-v2.1.5/`.
-- Next canonical target: `data_processed/canonical_content_v2.1.5/` after validation.
+- v2.1.5 development run exists locally and is retained as development evidence but is **not final/canonical**.
+- Next run target: `data_processed/runs/local-content-development-1804-v2.1.6/`.
+- Next canonical target: `data_processed/canonical_content_v2.1.6/` after development freeze and clean test evaluation.
 
 ## Development-reference audit result
 
@@ -27,83 +28,80 @@ The nominal 30 development references were audited against the immutable release
 
 - critical issues: **0**;
 - approved/projection-locked eligible references: yes;
-- current holder-scope exclusions: **2**;
+- holder-scope exclusions: **2**;
   - `2024-0095` — Airbus Defence and Space S.A.;
-  - `2026-0079` — Lufthansa Technik AG.
+  - `2026-0079` — Lufthansa Technik AG;
+- scored primary development records: **28**.
 
-These two records remain immutable audit artifacts but are excluded from primary Airbus S.A.S. development scoring.
+These exclusions remain immutable audit artifacts but are not primary Airbus S.A.S. development scores. The document-level evidence-quote containment check remains auxiliary; page hashes and approved evidence provenance are the stronger anchors.
 
-The document-level evidence-quote containment check is auxiliary only; page hashes and approved evidence provenance remain the stronger anchors.
+## v2.1.5 development evaluation result
 
-## v2.1.4 development evaluation result
-
-Evaluator v3.1.4 on the regenerated v2.1.4 run showed:
+Evaluator v3.1.5 on the regenerated v2.1.5 run showed:
 
 - prediction coverage: **1.000**;
 - schema validity: **1.000**;
-- stable metadata macro F1: **0.9449**;
-- applicability-model F1: **0.9579**;
-- reference-number F1: **0.5517**;
-- superseded-AD-number F1: **0.8421**;
-- raw-section source containment: **125/125 = 1.000** for sections that were extracted.
+- stable metadata macro F1: **0.9671**;
+- applicability-model F1: **0.9565**;
+- reference-number F1: **0.8065**;
+- superseded-AD-number F1: **0.9000**;
+- raw difficult-section presence: **1.000** for Definitions, Reason, Required Actions/Compliance, Ref. Publications, and Remarks;
+- raw-section source containment: **130/130 = 1.000**;
+- detected raw-section page-furniture contamination: **0** across all five difficult-section types.
 
-The same report exposed remaining development-only defects:
+This means the section-complete raw-text layer is now behaving as intended on the scored development set.
 
-- legacy `EASA Form 110 Page x/y` / `Page x/y` furniture remained in preserved sections;
-- multi-line `Required Action(s) / and Compliance / Time(s):` headings were missed in some old ADs;
-- DAH extraction sometimes fell through into Type/Model text;
-- older subject lines were truncated around ATA headings;
-- France legacy TCDS identifiers were missed;
-- deterministic reference-ID recall was low;
-- some revision ADs did not recover direct original-issue supersedure.
+## Why v2.1.5 is not the final freeze
 
-## Why the v2.1.4 scope audit is not final
+The same development report/source review exposed narrow remaining deterministic catalogue/scope defects:
 
-The v2.1.4 full-corpus scope audit reported `1729 eligible / 59 excluded / 16 unknown`, but many of the 59 `excluded` strings were obvious parser boundary failures such as:
+- `2019-0183`, `2020-0016`, and `2020-0092` use `Design Approval Holder’s Name::` with a doubled colon and were missed by v2.1.5;
+- legacy records such as `2006-0122`, `2006-0174`, and `2007-0162` use `Type Approval Holder’s Name` plus `Type/Model designations:`;
+- `2023-0093R1` prints consecutive ATA 32 and ATA 92 subject blocks, while v2.1.5 retained only ATA 92;
+- the same `2023-0093R1` wording says the current AD revises an earlier issue which itself superseded another AD, and v2.1.5 converted that chain into false direct supersedure numbers;
+- some A300 applicability variants are printed with extra hyphens such as `A300-B4-601`;
+- the full-corpus scope audit still contained unresolved parser-derived holder strings.
 
-- `type model designations airbus sas a310 ...`;
-- long applicability/reason text captured as the holder;
-- broad Airbus aircraft wording captured instead of an approval-holder value.
+No clean locked-test content was opened to derive these fixes.
 
-Therefore those counts must **not** be reported as the final in-scope corpus size.
+## v2.1.5 corpus-scope audit result
 
-Parser v2.1.5 fixes the underlying DAH behavior, and evaluator/scope classification now treats malformed holder text as `unknown` rather than silently declaring it out of scope. The v2.1.5 scope audit is the next authoritative diagnostic.
+The v2.1.5 full-corpus scope audit reported:
 
-## Parser v2.1.5 changes
+- total records: **1,804**;
+- eligible: **1,765**;
+- excluded: **17**;
+- unknown: **22**.
 
-v2.1.5 is based only on disclosed development evidence and preserves the earlier v2.1.4 regressions. It adds:
+These counts are diagnostic, not final. Review showed that several unknowns are merely unrecognized Airbus aliases, several contain adjacent model/applicability leakage, and multiple missing-holder cases have an explicit Airbus approval-holder line in the source PDF. Therefore `1765` is **not** the final Airbus-only corpus count.
 
-- cleanup for legacy `EASA Form N Page x/y` and slash-style page counters;
-- cleanup for page furniture embedded in semantic lines;
-- wrapped legacy action/compliance heading recognition;
-- strict DAH/Type-Model separation and conservative legacy Airbus manufacturer fallback;
-- complete subject extraction before/after ATA labels and multi-ATA support;
-- France TCDS recognition;
-- avoidance of model false positives inside publication identifiers;
-- broader deterministic reference-identifier extraction from the printed reference section; and
-- recovery of direct `original issue of this AD superseded ...` lifecycle wording.
+The 17 confirmed external/mixed-holder records remain preserved as physical/source content records but are excluded from the strict Airbus-only operational view. Any remaining `unknown` after v2.1.6 must be individually resolved before the scope-approved operational count is frozen.
 
-## Evaluator v3.1.5 changes
+## Parser v2.1.6 changes
 
-- Stable primary metadata no longer depends on expanded publication-header model lists when the PDF prints only broad family wording.
-- Publication-model expansion and family labels remain secondary diagnostics.
-- Raw-section expected presence is source-heading-driven whenever the document-text cache is available.
-- `referenced_publications_text` is therefore source-scorable instead of being assigned a meaningless zero because the semantic gold projection has no equivalent raw field.
-- Uppercase status watermarks are distinguished from legitimate lowercase supersedure prose.
-- Malformed holder parser output is classified as `unknown`, not genuine scope exclusion.
-- Known test leakage remains separately disclosed.
+v2.1.6 is a development-only hardening layer over v2.1.5. It adds:
 
-## Regression coverage
+- doubled-colon DAH heading normalization;
+- legacy `Type Approval Holder` and plural multi-holder heading normalization;
+- legacy `Type/Model designations:` normalization;
+- consecutive multi-ATA subject recovery;
+- safe handling of revision chains so `This AD revises X, which superseded Y` does not create false direct supersedure edges;
+- flexible A300 variant extraction with optional extra hyphens; and
+- removal of obvious A300 ATA/reference fragments from structured applicability models.
 
-The current local regression suite covers:
+The active extraction and permanent-ingestion paths now import `local_extractor_v216.py`, while v2.1.5 remains preserved as the underlying frozen parser implementation for reproducibility.
 
-- the original v2.1.4 printed-date, Foreign-AD, cross-page, page-furniture, and Remark-contact fixes;
-- legacy development formats represented by ADs such as `2009-0141`, `2009-0171`, `2010-0164`, and `2011-0112`;
-- DAH/Type-Model boundary behavior represented by `2008-0012`;
-- richer reference/supersedure behavior represented by `2015-0135R3`; and
-- evaluator source-heading/scope/contamination rules.
+## Scope-policy v1.2
 
-No new locked-test compliance content was used to tune v2.1.5.
+`full_corpus_pipeline/scope_policy.py` defines the strict operational scope:
+
+- accepted Airbus S.A.S./legacy Airbus aliases → eligible;
+- confirmed external or mixed approval holders → excluded from the strict Airbus-only operational view only;
+- missing, malformed, or unfamiliar holder text → unknown pending review.
+
+Physical source records are never deleted to manufacture a cleaner corpus count.
+
+A multi-holder record such as `2011-0043` is not forced into Airbus-only scope simply because Airbus appears among several approval holders.
 
 ## Test leakage disclosure
 
@@ -114,29 +112,30 @@ No new locked-test compliance content was used to tune v2.1.5.
 
 ## Immediate next actions
 
-1. Pull the v2.1.5 code and run the full unit-test suite.
-2. Regenerate all nominal 1,804 development records into `local-content-development-1804-v2.1.5`.
-3. Rerun the development-reference audit.
-4. Rerun the 1,804-record corpus-scope audit.
-5. Run evaluator v3.1.5 on the development split.
-6. Review only eligible development evidence for any remaining genuine parser defect.
+1. Pull v2.1.6 and run the full unit-test suite.
+2. Regenerate all nominal 1,804 development records into `local-content-development-1804-v2.1.6`.
+3. Rerun the 30-record development-reference audit.
+4. Rerun the 1,804-record scope audit using audit v1.2.
+5. Run evaluator v3.1.5 on the v2.1.6 development records.
+6. Review every remaining scope `unknown`; do not reinterpret confirmed exclusions as parser failures.
 7. Perform fresh representative PDF spot checks.
-8. Freeze parser/evaluator behavior.
-9. Run the clean test split once.
-10. Promote `canonical_content_v2.1.5/` only if the extraction and scope gates pass.
+8. Freeze parser/evaluator behavior if the development gate passes.
+9. Run the clean locked test split once and do not tune after viewing its results.
+10. Promote `canonical_content_v2.1.6/` only if the clean extraction and scope gates pass.
 11. Generate page-preserving PDF text, build E0/E4, and run retrieval/QA evaluation.
 12. Test and permanently ingest the five unseen PDFs without retraining.
 
 ## Promotion gate
 
-Do not promote v2.1.5 until all of these hold:
+Do not promote v2.1.6 until all of these hold:
 
-- 1,804 requested / 1,804 successful / zero failures;
+- 1,804 requested / 1,804 successful / zero extraction failures;
 - development prediction coverage and schema validity are 100%;
-- no unexpected printed Required Actions/Compliance sections are missing;
-- repeated page furniture is no longer materially present in raw sections;
-- DAH scope audit no longer mistakes Type/Model prose for genuine non-Airbus holders;
-- remaining reference/lifecycle misses are understood and acceptable or fixed from development evidence;
+- raw difficult sections remain source-complete, source-contained, and free of material page furniture;
+- doubled-colon/legacy holder formats are recovered;
+- multi-ATA subject coverage is complete on development evidence;
+- no false direct supersedure edges remain from revision chains;
+- every scope `unknown` is resolved or explicitly documented before freezing the operational subset count;
 - representative PDF spot checks pass; and
 - clean test evaluation is run only after development freeze.
 
@@ -144,8 +143,8 @@ Do not promote v2.1.5 until all of these hold:
 
 Do not claim:
 
-- that the old v2.1.4 `1729/59/16` scope counts are final;
-- that all 1,809 frozen records are confirmed Airbus S.A.S. approval-holder records before the corrected scope audit is resolved;
+- that v2.1.4 or v2.1.5 scope counts are final;
+- that all 1,809 frozen records are confirmed Airbus S.A.S. approval-holder records before scope review is complete;
 - that schema validation alone proves semantic correctness;
 - that all records contain normalized compliance logic;
 - that the nominal test split remained fully unseen after the disclosed `2024-0038` leak; or
