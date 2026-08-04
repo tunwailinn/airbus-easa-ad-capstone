@@ -81,8 +81,6 @@ def _header_holder(text: str) -> str | None:
             if stop_re.match(candidate):
                 break
 
-            # Normal two-column extraction preserves a wide whitespace gap:
-            # `AIRBUS S.A.S.        Airbus aeroplanes (see Applicability)`.
             columns = re.split(r"\s{2,}", candidate, maxsplit=1)
             if len(columns) == 2 and columns[0].strip():
                 parts.append(columns[0].strip())
@@ -94,9 +92,6 @@ def _header_holder(text: str) -> str | None:
                 if prefix:
                     parts.append(prefix)
                     break
-                # A few 2013 two-column PDFs extract the model label/value first,
-                # then the holder value on the next line. Skip the model row and
-                # continue until that holder cell is reached.
                 if model_label_precedes_holder:
                     continue
                 break
@@ -107,9 +102,6 @@ def _header_holder(text: str) -> str | None:
                 parts.append(candidate)
                 break
 
-            # Sequential multi-holder forms intentionally keep all organization
-            # lines until the Type/Model label so scope policy can classify them
-            # as mixed rather than silently choosing Airbus.
             parts.append(candidate)
 
         value = _v215.compact(" ".join(parts))
@@ -138,17 +130,13 @@ def _flexible_a300_models(text: str | None) -> list[str]:
 
 
 def _legacy_subject_prefix(header: str, first_ata_start: int) -> str | None:
-    """Return contiguous legacy subject text printed immediately before ATA.
-
-    Early Form 110 layouts often print the first half of the subject before an
-    isolated `ATA xx` line and the rest immediately after it. The prefix begins
-    only after the last recognized metadata field, so holder/model/date/TCDS
-    values cannot be pulled into the subject.
-    """
+    """Return contiguous legacy subject text printed immediately before ATA."""
     prefix_region = header[:first_ata_start]
     field_re = re.compile(
-        r"(?im)^\s*(?:Design\s+Approval\s+Holder(?:[’']s)?\s+Name|Type/Model\s+designation(?:\(s\))?|"
-        r"Effective\s+Date|TCDS\s+Number(?:\(s\))?|Foreign\s+AD|Revision|Supersedure|Cancellation)\s*:.*$"
+        r"(?im)^\s*(?:Design\s+Approval\s+Holder(?:[’']s)?\s+Name|"
+        r"Type/Model\s+designation(?:\(s\))?|Effective\s+Date|"
+        r"TCDS\s+Number(?:\(s\))?|Foreign\s+AD|Revision|Supersedure|"
+        r"Cancellation)\s*:.*$"
     )
     matches = list(field_re.finditer(prefix_region))
     if not matches:
@@ -160,8 +148,8 @@ def _legacy_subject_prefix(header: str, first_ata_start: int) -> str | None:
         line
         for line in lines
         if not re.match(
-            r"^(?:Airworthiness\s+Directive|AD\s+No\.?|Issued|Date|Note)\s*:?"," 
-            " line,
+            r"^(?:Airworthiness\s+Directive|AD\s+No\.?|Issued|Date|Note)\s*: ?",
+            line,
             re.IGNORECASE,
         )
     ]
@@ -182,12 +170,14 @@ def _header_subject_and_ata(text: str) -> tuple[str | None, list[dict[str, str]]
 
     first = all_matches[0]
     boundary_match = re.search(
-        r"(?m)^\s*(?:Manufacturer(?:\(s\))?|Manufacturers?|Applic+ability|Definitions?|Reas\w*n|"
-        r"Required\s+Action(?:s|\(s\))?|Compliance)\s*:",
+        r"(?m)^\s*(?:Manufacturer(?:\(s\))?|Manufacturers?|Applic+ability|"
+        r"Definitions?|Reas\w*n|Required\s+Action(?:s|\(s\))?|Compliance)\s*:",
         header[first.end() :],
         re.IGNORECASE,
     )
-    boundary = first.end() + boundary_match.start() if boundary_match else min(len(header), first.start() + 2500)
+    boundary = first.end() + boundary_match.start() if boundary_match else min(
+        len(header), first.start() + 2500
+    )
     matches = [match for match in all_matches if match.start() < boundary]
     if not matches:
         return None, []
@@ -202,7 +192,9 @@ def _header_subject_and_ata(text: str) -> tuple[str | None, list[dict[str, str]]
             continue
         codes = re.findall(r"\d{2}", match.group(1))
         if not parts:
-            first_body = _v215.compact(" ".join(part for part in (legacy_prefix, body) if part))
+            first_body = _v215.compact(
+                " ".join(part for part in (legacy_prefix, body) if part)
+            )
             if first_body:
                 parts.append(first_body)
         else:
@@ -237,13 +229,18 @@ def _augment_applicability_models(record: dict[str, Any]) -> None:
         models = [
             model
             for model in models
-            if not (re.fullmatch(r"A300-\d{2}", str(model), re.IGNORECASE) and str(model).upper() != "A300-600")
+            if not (
+                re.fullmatch(r"A300-\d{2}", str(model), re.IGNORECASE)
+                and str(model).upper() != "A300-600"
+            )
         ]
         if models:
             item["models"] = models
 
 
-def extract_local_record(row: dict[str, Any], schema: dict[str, Any]) -> tuple[dict[str, Any], dict[str, Any]]:
+def extract_local_record(
+    row: dict[str, Any], schema: dict[str, Any]
+) -> tuple[dict[str, Any], dict[str, Any]]:
     """Extract one v2.1.6 content record using only deterministic local rules."""
     patched_row = copy.copy(row)
     patched_row["text"] = _normalize_header_layout(str(row["text"]))
@@ -263,7 +260,9 @@ def extract_local_record(row: dict[str, Any], schema: dict[str, Any]) -> tuple[d
     _augment_applicability_models(record)
     _postprocess_supersedure(record)
 
-    errors = list(Draft202012Validator(schema, format_checker=FormatChecker()).iter_errors(record))
+    errors = list(
+        Draft202012Validator(schema, format_checker=FormatChecker()).iter_errors(record)
+    )
     if errors:
         raise ValueError("; ".join(error.message for error in errors[:5]))
 
