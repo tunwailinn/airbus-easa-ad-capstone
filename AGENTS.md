@@ -35,12 +35,15 @@ Do not claim that the extracted corpus contains fully normalized compliance logi
 9. RAG answers must cite AD number, source PDF, page, and section when available.
 10. Abstain when retrieved support is incomplete or conflicting.
 11. Temporary upload and permanent ingestion do not retrain models.
+12. Printed PDF metadata is authoritative over stale manifest metadata when the parser can read it directly.
+13. Do not promote a generated corpus after a parser-version change until the corpus has been regenerated and re-evaluated.
 
 ## Active versions and artifacts
 
 - Content schema: `2.1.0`.
-- Local deterministic parser: `v2.1.3`.
-- Active generated corpus: `data_processed/canonical_content_v2.1.3/`.
+- Local deterministic parser: `v2.1.4`.
+- Previous generated corpus: `data_processed/canonical_content_v2.1.3/` — stale after the v2.1.4 boundary fix.
+- Next corrected corpus target: `data_processed/canonical_content_v2.1.4/`.
 - Immutable audit source: `gold_releases/easa_airbus_ad_gold_v2/`.
 - Active content evaluation set: `evaluation_sets/easa_airbus_ad_content_gold_50_v2/`.
 - QA benchmark: `evaluation_sets/easa_airbus_ad_qa_50_v2/`.
@@ -48,6 +51,15 @@ Do not claim that the extracted corpus contains fully normalized compliance logi
 - Corpus reference files used by active code:
   - `step3_pilot/source_metadata/corpus_manifest.parquet`
   - `step3_pilot/source_metadata/corpus_extracted_text.parquet`
+
+## Parser v2.1.4 boundary rules
+
+- Strip repeated EASA page furniture/status watermarks before section segmentation.
+- Do not treat ordinary prose beginning with `compliance`, `contact`, or similar words as a new section unless it is an actual labelled heading.
+- Preserve sections across page boundaries.
+- Keep `Foreign AD`, revision, supersedure, and other header fields separate.
+- Use printed `Issued:` date before manifest fallback.
+- Keep Remark contact lines and stop Remarks before later appendices/annexes.
 
 ## Primary experiment
 
@@ -73,7 +85,7 @@ Before work, inspect the current inputs/outputs and preserve unrelated changes. 
 .venv/bin/python -m unittest discover -s full_corpus_pipeline/tests -v
 
 .venv/bin/python -m full_corpus_pipeline.extract_corpus \
-  --run-id local-content-development-1804-v2.1.3
+  --run-id local-content-development-1804-v2.1.4
 
 .venv/bin/python -m full_corpus_pipeline.retrieval \
   --page-text-dir /approved/page_text \
@@ -84,8 +96,10 @@ Before work, inspect the current inputs/outputs and preserve unrelated changes. 
 
 ## Immediate priority
 
-1. Human spot-check content/raw-section boundaries and QA references.
-2. Build page-aware E0 and E4 indexes for the 1,804 development PDFs.
-3. Run locked retrieval/QA evaluation.
-4. Test temporary QA and permanent ingestion on the five held-out PDFs.
-5. Confirm final 1,809-record corpus.
+1. Regenerate all 1,804 development records with parser v2.1.4 into a new run.
+2. Spot-check regenerated records against source PDFs and run the locked extraction evaluation.
+3. Promote `canonical_content_v2.1.4/` only after validation.
+4. Build page-aware E0 and E4 indexes for the 1,804 development PDFs.
+5. Run locked retrieval/QA evaluation.
+6. Test temporary QA and permanent ingestion on the five held-out PDFs.
+7. Confirm final 1,809-record corpus.
