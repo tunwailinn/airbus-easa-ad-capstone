@@ -6,11 +6,11 @@ BM25 + dense + RRF followed by the configured local cross-encoder. Reranker
 failure aborts evaluation; there is no lexical fallback in the frozen thesis
 measurement.
 
-Runtime note: E0 and E4 share one dense query encoder because they use the same
-frozen embedding model. The cross-encoder is pinned to CPU so Apple MPS does not
-hold both the dense encoder and reranker simultaneously. This is a runtime
-stability policy only; retrieval architecture, models, candidate depth, and
-ranking logic remain frozen.
+Runtime policy: dense retrieval (SentenceTransformer + FAISS) stays in this
+parent process. Cross-encoder reranking runs in a clean child Python process
+that never imports FAISS. This isolates the known macOS/ARM OpenMP conflict
+between FAISS and PyTorch while preserving the exact frozen candidate sets,
+model names, candidate depth, fusion policy, and ranking semantics.
 """
 
 from __future__ import annotations
@@ -18,6 +18,9 @@ from __future__ import annotations
 import argparse
 import json
 import math
+import subprocess
+import sys
+import tempfile
 import threading
 import time
 from dataclasses import asdict
@@ -32,8 +35,9 @@ DEFAULT_INDEX_ROOT = ROOT / "data_processed/indexes/rag_v1_2"
 DEFAULT_QUESTIONS = ROOT / "evaluation_sets/easa_airbus_ad_qa_50_v2/questions.jsonl"
 DEFAULT_OUTPUT = DEFAULT_INDEX_ROOT / "retrieval_comparison.json"
 EXPECTED_BUILD_VERSION = "rag-index-build-v1.2"
-EVALUATION_VERSION = "retrieval-eval-v1.1"
+EVALUATION_VERSION = "retrieval-eval-v1.2"
 RERANKER_DEVICE = "cpu"
+RERANKER_EXECUTION = "isolated_subprocess_without_faiss"
 T = TypeVar("T")
 
 
@@ -125,14 +129,13 @@ def share_dense_query_encoder(e0: HybridIndex, e4: HybridIndex, encoder: Any) ->
     e4._encoder = encoder
 
 
-def strict_hybrid_search(
+def hybrid_candidates(
     index: HybridIndex,
-    reranker: Any,
     query: str,
     *,
-    limit: int = 5,
     candidate_limit: int = 20,
 ) -> list[dict[str, Any]]:
+    """Return the frozen E4 BM25+dense+RRF candidate set without reranking."""
     sparse = index.sparse_search(query, candidate_limit)
     dense = index.dense_search(query, candidate_limit)
     rrf: dict[str, float] = {}
@@ -154,20 +157,7 @@ def strict_hybrid_search(
                 "lexical_overlap": lexical_overlap,
             }
         )
-    if not candidates:
-        return []
-
-    scores = reranker.predict(
-        [(query, item["text"]) for item in candidates],
-        show_progress_bar=False,
-        device=RERANKER_DEVICE,
-    )
-    for item, score in zip(candidates, scores):
-        item["rerank_score"] = float(score)
-    return sorted(
-        candidates,
-        key=lambda item: (-item["rerank_score"], item["chunk_id"]),
-    )[:limit]
+    return candidates
 
 
 def relevance_rank(
@@ -227,6 +217,31 @@ def summarize(rows: list[dict[str, Any]]) -> dict[str, Any]:
     }
 
 
+def _row_for_results(
+    question: dict[str, Any], results: list[dict[str, Any]]
+) -> dict[str, Any]:
+    rank = relevance_rank(results, question)
+    src_rank = source_rank(results, question)
+    return {
+        "question_id": question["question_id"],
+        "category": question["category"],
+        "rank": rank,
+        "source_rank": src_rank,
+        "target_ad_number": question["target_ad_number"],
+        "reference_pages": question["reference_pages"],
+        "retrieved": [
+            {
+                "chunk_id": item["chunk_id"],
+                "ad_number": item["ad_number"],
+                "page_start": item["page_start"],
+                "page_end": item["page_end"],
+                "section": item["section"],
+            }
+            for item in results
+        ],
+    }
+
+
 def evaluate_system(
     *,
     label: str,
@@ -242,31 +257,100 @@ def evaluate_system(
             f"({question['question_id']})",
             flush=True,
         )
-        results = search_fn(question["question"])
-        rank = relevance_rank(results, question)
-        src_rank = source_rank(results, question)
-        rows.append(
+        rows.append(_row_for_results(question, search_fn(question["question"])))
+    elapsed = int(time.monotonic() - started)
+    print(f"[progress] {label}: finished {total} questions ({elapsed}s)", flush=True)
+    return summarize(rows), rows
+
+
+def collect_hybrid_candidate_items(
+    *,
+    index: HybridIndex,
+    questions: list[dict[str, Any]],
+    candidate_limit: int,
+) -> list[dict[str, Any]]:
+    items: list[dict[str, Any]] = []
+    total = len(questions)
+    started = time.monotonic()
+    for position, question in enumerate(questions, 1):
+        print(
+            f"[progress] E4 BM25+dense+RRF candidates: question {position}/{total} "
+            f"({question['question_id']})",
+            flush=True,
+        )
+        items.append(
             {
-                "question_id": question["question_id"],
-                "category": question["category"],
-                "rank": rank,
-                "source_rank": src_rank,
-                "target_ad_number": question["target_ad_number"],
-                "reference_pages": question["reference_pages"],
-                "retrieved": [
-                    {
-                        "chunk_id": item["chunk_id"],
-                        "ad_number": item["ad_number"],
-                        "page_start": item["page_start"],
-                        "page_end": item["page_end"],
-                        "section": item["section"],
-                    }
-                    for item in results
-                ],
+                "item_id": question["question_id"],
+                "query": question["question"],
+                "candidates": hybrid_candidates(
+                    index,
+                    question["question"],
+                    candidate_limit=candidate_limit,
+                ),
             }
         )
     elapsed = int(time.monotonic() - started)
-    print(f"[progress] {label}: finished {total} questions ({elapsed}s)", flush=True)
+    print(
+        f"[progress] E4 BM25+dense+RRF candidates: finished {total} questions "
+        f"({elapsed}s)",
+        flush=True,
+    )
+    return items
+
+
+def run_isolated_reranker(
+    *,
+    items: list[dict[str, Any]],
+    model: str,
+    limit: int,
+) -> list[dict[str, Any]]:
+    """Rerank candidate sets in a clean process that never imports FAISS."""
+    with tempfile.TemporaryDirectory(prefix="e4-rerank-") as temporary:
+        temporary_root = Path(temporary)
+        input_path = temporary_root / "input.json"
+        output_path = temporary_root / "output.json"
+        input_path.write_text(
+            json.dumps({"items": items}, ensure_ascii=False),
+            encoding="utf-8",
+        )
+        command = [
+            sys.executable,
+            "-m",
+            "full_corpus_pipeline.rerank_candidates_worker",
+            "--input",
+            str(input_path),
+            "--output",
+            str(output_path),
+            "--model",
+            model,
+            "--device",
+            RERANKER_DEVICE,
+            "--limit",
+            str(limit),
+        ]
+        print(
+            "[progress] launching isolated CPU cross-encoder process "
+            "(FAISS is not imported there)",
+            flush=True,
+        )
+        subprocess.run(command, check=True)
+        payload = json.loads(output_path.read_text(encoding="utf-8"))
+        output_items = payload.get("items", [])
+        if not isinstance(output_items, list):
+            raise ValueError("isolated reranker output 'items' must be a list")
+        return output_items
+
+
+def rows_from_reranked_items(
+    questions: list[dict[str, Any]], reranked_items: list[dict[str, Any]]
+) -> tuple[dict[str, Any], list[dict[str, Any]]]:
+    by_id = {str(item["item_id"]): item for item in reranked_items}
+    rows: list[dict[str, Any]] = []
+    for question in questions:
+        item = by_id.get(str(question["question_id"]))
+        if item is None:
+            raise ValueError(f"missing reranked output for {question['question_id']}")
+        rows.append(_row_for_results(question, list(item.get("results", []))))
     return summarize(rows), rows
 
 
@@ -317,40 +401,37 @@ def main() -> int:
     dense_device = str(getattr(shared_dense_encoder.model, "device", "auto"))
     print(f"[progress] shared dense query encoder ready on {dense_device}", flush=True)
 
-    from sentence_transformers import CrossEncoder
-
     reranker_model = str(e4_config["reranker_model"])
 
-    def load_reranker() -> Any:
-        model = CrossEncoder(reranker_model, device=RERANKER_DEVICE)
-        model.predict(
-            [("test query", "test passage")],
-            show_progress_bar=False,
-            device=RERANKER_DEVICE,
-        )
-        return model
-
-    reranker = _run_with_progress(
-        f"loading and warming {RERANKER_DEVICE} cross-encoder reranker",
-        load_reranker,
-    )
-    print(f"[progress] reranker ready on {RERANKER_DEVICE}", flush=True)
-
-    smoke_results = _run_with_progress(
-        "pre-benchmark E4 runtime smoke test",
-        lambda: strict_hybrid_search(
+    # Non-benchmark end-to-end smoke test. Candidate retrieval runs in this
+    # process; cross-encoder inference runs in a clean child process.
+    smoke_candidates = _run_with_progress(
+        "pre-benchmark E4 candidate smoke test",
+        lambda: hybrid_candidates(
             e4,
-            reranker,
             "airworthiness directive compliance inspection",
-            limit=1,
             candidate_limit=args.candidate_limit,
         ),
     )
-    if not smoke_results:
-        raise RuntimeError("pre-benchmark E4 runtime smoke test returned no results")
-    print("[progress] pre-benchmark E4 runtime smoke test passed", flush=True)
+    if not smoke_candidates:
+        raise RuntimeError("pre-benchmark E4 candidate smoke test returned no results")
+    smoke_output = run_isolated_reranker(
+        items=[
+            {
+                "item_id": "smoke",
+                "query": "airworthiness directive compliance inspection",
+                "candidates": smoke_candidates,
+            }
+        ],
+        model=reranker_model,
+        limit=1,
+    )
+    if not smoke_output or not smoke_output[0].get("results"):
+        raise RuntimeError("pre-benchmark isolated E4 reranker smoke test returned no results")
+    print("[progress] pre-benchmark isolated E4 runtime smoke test passed", flush=True)
 
-    # Locked questions are loaded only after the full E4 runtime path succeeds.
+    # Locked questions are loaded only after the full isolated runtime path is
+    # proven to work. Retrieval configuration remains frozen.
     questions = load_questions(args.questions)
 
     e0_metrics, e0_rows = evaluate_system(
@@ -358,17 +439,18 @@ def main() -> int:
         questions=questions,
         search_fn=lambda query: e0.search_dense_only(query, limit=5),
     )
-    e4_metrics, e4_rows = evaluate_system(
-        label="E4 hybrid + reranker",
+
+    e4_candidate_items = collect_hybrid_candidate_items(
+        index=e4,
         questions=questions,
-        search_fn=lambda query: strict_hybrid_search(
-            e4,
-            reranker,
-            query,
-            limit=5,
-            candidate_limit=args.candidate_limit,
-        ),
+        candidate_limit=args.candidate_limit,
     )
+    e4_reranked_items = run_isolated_reranker(
+        items=e4_candidate_items,
+        model=reranker_model,
+        limit=5,
+    )
+    e4_metrics, e4_rows = rows_from_reranked_items(questions, e4_reranked_items)
 
     report = {
         "evaluation_version": EVALUATION_VERSION,
@@ -379,11 +461,11 @@ def main() -> int:
         "reranker_model": reranker_model,
         "candidate_limit": args.candidate_limit,
         "runtime": {
-            "dense_query_encoder": "shared_between_e0_e4",
+            "dense_query_encoder": "shared_between_e0_e4_parent_process",
             "dense_query_device": dense_device,
             "reranker_device": RERANKER_DEVICE,
+            "reranker_execution": RERANKER_EXECUTION,
             "multiprocessing": False,
-            "pre_benchmark_e4_smoke_test": True,
         },
         "e0": {"metrics": e0_metrics, "questions": e0_rows},
         "e4": {"metrics": e4_metrics, "questions": e4_rows},
