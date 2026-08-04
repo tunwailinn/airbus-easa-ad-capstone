@@ -20,6 +20,9 @@ from full_corpus_pipeline import local_extractor as _v215
 
 PARSER_VERSION = "content-local-v2.1.6"
 
+_COMMON_HOLDER_LABEL = r"Design\s+Approval\s+Holder(?:[’']s)?\s+Name"
+_COMMON_MODEL_LABEL = r"Type/Model\s+designation(?:\(s\))?"
+
 
 def _normalize_header_layout(text: str) -> str:
     """Normalize equivalent printed header spellings without rewriting AD prose."""
@@ -32,10 +35,12 @@ def _normalize_header_layout(text: str) -> str:
         value,
     )
 
-    # Legacy Form 110 wording used Type Approval Holder and occasionally a
-    # plural multi-holder heading. Normalize only the label, never its value.
+    # Legacy Form 110 wording used Type Approval Holder, Modification Approval
+    # Holder, and occasionally a plural multi-holder heading. Normalize only the
+    # field label; the printed holder value is kept unchanged apart from harmless
+    # whitespace compaction later.
     value = re.sub(
-        r"(?i)\bType\s+Approval\s+Holder(?:s)?(?:[’']s)?\s+(?:Name|names)\s*:+",
+        r"(?i)\b(?:Type|Modification)\s+Approval\s+Holder(?:s)?(?:[’']s)?\s+(?:Name|names)\s*:+",
         "Design Approval Holder’s Name:",
         value,
     )
@@ -49,12 +54,59 @@ def _normalize_header_layout(text: str) -> str:
 
     # Some legacy forms print `Manufacturers:` rather than the later
     # `Manufacturer(s):` label. Normalize the label so v2.1.5 boundaries apply.
-    value = re.sub(
-        r"(?im)^\s*Manufacturers\s*:",
-        "Manufacturer(s):",
-        value,
-    )
+    value = re.sub(r"(?im)^\s*Manufacturers\s*:", "Manufacturer(s):", value)
     return value
+
+
+def _header_holder(text: str) -> str | None:
+    """Read the normalized approval-holder field across sequential/two-column layouts."""
+    cleaned = _v215._clean_layout_text(text)
+    lines = cleaned[:16000].splitlines()
+    holder_re = re.compile(rf"{_COMMON_HOLDER_LABEL}\s*:", re.IGNORECASE)
+    model_re = re.compile(rf"{_COMMON_MODEL_LABEL}\s*:", re.IGNORECASE)
+    stop_re = re.compile(
+        r"^(?:Effective\s+Date|TCDS\s+Number|Foreign\s+AD|Revision|Supersedure|ATA\s+\d{2})\s*:",
+        re.IGNORECASE,
+    )
+
+    for index, raw_line in enumerate(lines):
+        line = raw_line.strip()
+        match = holder_re.search(line)
+        if not match:
+            continue
+
+        # If both field labels share one line, a value may still appear between
+        # them or on the following extracted line(s).
+        same_model = model_re.search(line, match.end())
+        inline = line[match.end() : same_model.start() if same_model else len(line)].strip(" :")
+        parts: list[str] = [inline] if inline else []
+
+        for candidate in lines[index + 1 : index + 10]:
+            candidate = candidate.strip()
+            if not candidate:
+                continue
+            model_label = model_re.search(candidate)
+            if model_label:
+                prefix = candidate[: model_label.start()].strip(" :")
+                if prefix:
+                    parts.append(prefix)
+                break
+            if stop_re.match(candidate):
+                break
+
+            # Collapsed two-column data can look like `AIRBUS SAS A300-600 ...`.
+            # Keep only the holder prefix before the first aircraft model token.
+            model_token = _v215.MODEL_PATTERN.search(candidate)
+            if model_token:
+                prefix = candidate[: model_token.start()].strip(" :")
+                if prefix:
+                    parts.append(prefix)
+                break
+            parts.append(candidate)
+
+        value = _v215.compact(" ".join(parts))
+        return value if _v215._looks_like_holder(value) else None
+    return None
 
 
 def _flexible_a300_models(text: str | None) -> list[str]:
@@ -89,9 +141,6 @@ def _header_subject_and_ata(text: str) -> tuple[str | None, list[dict[str, str]]
     if not all_matches:
         return None, []
 
-    # The subject heading precedes Manufacturer/Applicability/Definitions/Reason
-    # or the compliance section. Restricting to that header window prevents ATA
-    # references later in compliance prose from being mistaken for the subject.
     first = all_matches[0]
     boundary_match = re.search(
         r"(?m)^\s*(?:Manufacturer(?:\(s\))?|Manufacturers?|Applic+ability|Definitions?|Reas\w*n|"
@@ -131,8 +180,6 @@ def _postprocess_supersedure(record: dict[str, Any]) -> None:
         return
     statement = str(supersedure.get("statement") or "")
     normalized = re.sub(r"\s+", " ", statement).casefold()
-    # Example: "This AD revises ... which superseded ...". The full statement is
-    # retained, but neither earlier AD is directly superseded by this revision.
     if "this ad revises" in normalized and "which superseded" in normalized:
         supersedure.pop("superseded_ad_numbers", None)
 
@@ -146,7 +193,6 @@ def _augment_applicability_models(record: dict[str, Any]) -> None:
         for model in _flexible_a300_models(text):
             if model not in models:
                 models.append(model)
-        # A300-24/A300-28 style ATA/reference fragments are not aircraft models.
         models = [
             model
             for model in models
@@ -161,6 +207,10 @@ def extract_local_record(row: dict[str, Any], schema: dict[str, Any]) -> tuple[d
     patched_row = copy.copy(row)
     patched_row["text"] = _normalize_header_layout(str(row["text"]))
     record, detail = _v215.extract_local_record(patched_row, schema)
+
+    holder = _header_holder(str(patched_row["text"]))
+    if holder:
+        record.setdefault("ad_identity", {})["design_approval_holder"] = holder
 
     subject, chapters = _header_subject_and_ata(str(patched_row["text"]))
     publication = record.setdefault("publication", {})
