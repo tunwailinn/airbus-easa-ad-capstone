@@ -115,8 +115,8 @@ def _clean_layout_text(text: str) -> str:
     for pattern in inline_patterns:
         text = re.sub(pattern, "\n", text)
 
-    # Watermarks are uppercase in the extracted text. Keep ordinary regulatory
-    # prose such as "which is superseded" intact.
+    # Watermarks are uppercase in extracted text. Keep ordinary regulatory prose
+    # such as "which is superseded" intact.
     text = re.sub(r"\b(?:SUPERSEDED|CANCELLED|CANCELED)\b", "\n", text)
 
     lines: list[str] = []
@@ -289,7 +289,7 @@ def _families(models: list[str]) -> list[str]:
 
 
 def _subject_and_ata(text: str) -> tuple[str | None, list[dict[str, str]]]:
-    """Extract the complete subject around ATA, including legacy pre-ATA wording."""
+    """Extract the complete subject around ATA, including continuation lines."""
     header = text[:20000]
     manufacturer_match = re.search(r"(?:^|\n)\s*Manufacturer(?:\(s\))?\s*:", header, re.IGNORECASE)
     end = manufacturer_match.start() if manufacturer_match else len(header)
@@ -308,6 +308,12 @@ def _subject_and_ata(text: str) -> tuple[str | None, list[dict[str, str]]]:
     ata_line = before_manufacturer[line_start:line_end].strip()
     after = ata_line[ata_match.end() - line_start :].strip(" -–—:")
     before = ata_line[: ata_match.start() - line_start].strip(" -–—:")
+
+    trailing = [
+        candidate.strip()
+        for candidate in before_manufacturer[line_end + 1 :].splitlines()
+        if candidate.strip()
+    ]
 
     # Legacy forms place the complete subject in one or two lines immediately before ATA.
     preceding: list[str] = []
@@ -329,11 +335,12 @@ def _subject_and_ata(text: str) -> tuple[str | None, list[dict[str, str]]]:
         preceding.reverse()
 
     if before:
-        subject = compact(" ".join(part for part in (before, after) if part))
+        subject_parts = [before, after, *trailing]
     elif after and len(after.split()) >= 2:
-        subject = compact(after)
+        subject_parts = [after, *trailing]
     else:
-        subject = compact(" ".join(preceding + ([after] if after else [])))
+        subject_parts = [*preceding, after, *trailing]
+    subject = compact(" ".join(part for part in subject_parts if part))
 
     chapters = [compact({"code": code, "title": subject}) for code in codes]
     return subject, chapters
@@ -511,6 +518,10 @@ def _reference_candidates(section: str) -> list[tuple[str, str]]:
             if not re.search(r"\d", compact_token):
                 continue
             if re.fullmatch(r"(?:19|20)\d{2}", compact_token):
+                continue
+            if AD_PATTERN.fullmatch(compact_token):
+                # EASA AD lifecycle numbers are handled by revision/supersedure,
+                # not counted as referenced technical publications.
                 continue
             if re.fullmatch(r"\d{1,2}[/-]\d{1,2}[/-](?:19|20)?\d{2}", compact_token):
                 continue
