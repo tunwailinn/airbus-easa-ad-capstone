@@ -1,121 +1,176 @@
 # Page-Preserving PDF Text Pipeline
 
-Status: **RAG source-layer implementation, page-text v1.0**
+Status: **VERIFIED / INDEX-READY — page-text v1.1**
 
-This stage begins only after canonical content parser v2.1.6 is frozen. It does not change or reinterpret the canonical JSON extraction. Its job is to create the page-addressable source layer used by retrieval and citation evaluation.
+This stage is separate from deterministic content extraction. It creates the page-addressable original-PDF source layer used by retrieval and citation evaluation.
 
-## Research corpus for this stage
+## Retrieval corpus
 
-The frozen physical snapshot contains 1,809 PDFs. For development RAG indexing:
+Frozen physical snapshot: **1,809 PDFs**.
 
-- 5 frozen unseen incoming PDFs remain excluded;
-- 18 confirmed external/mixed-holder records remain preserved physically but are excluded from the strict Airbus S.A.S. operational view;
-- 0 scope-unknown records remain;
-- target page-text/retrieval corpus: **1,786 PDFs**.
+For development RAG indexing:
 
-The operational selection is reconstructed from the frozen corpus manifest, scope audit v1.3, and unseen selection. Do not manually delete source PDFs to obtain this count.
+- 5 frozen unseen PDFs remain excluded;
+- 18 confirmed external/mixed-holder PDFs remain physically preserved but are excluded from the strict Airbus S.A.S. operational view;
+- scope unknown: 0;
+- verified retrieval corpus: **1,786 PDFs**.
 
-## Inputs
+The selection is reconstructed from the corpus manifest, scope audit v1.3, and unseen selection. Never delete PDFs to manufacture this count.
 
-- original frozen PDF directory supplied with `--pdf-root`;
-- `step3_pilot/source_metadata/corpus_manifest.parquet`;
-- `data_processed/runs/local-content-development-1804-v2.1.6/corpus_scope_audit.json`;
-- `evaluation_sets/unseen_incoming_5_v1/selection.csv`.
+## Native page extraction result
 
-## Run page extraction
+The local page-preserving run completed with:
 
-Set `PDF_ROOT` to the local directory that contains the original frozen EASA PDF snapshot. The script searches recursively, so the PDFs may be inside subdirectories.
+- selected documents: **1,786**;
+- successful documents: **1,786**;
+- failures: **0**;
+- total pages: **6,002**;
+- native weak-page documents: **1**;
+- native weak pages: **1**.
 
-```bash
-PDF_ROOT="/absolute/path/to/frozen/pdfs"
+The single weak page was **AD 2011-0006, page 3**. Visual review confirmed that it is a graphical Appendix comparing:
 
-.venv/bin/python -m full_corpus_pipeline.extract_page_text \
-  --pdf-root "$PDF_ROOT" \
-  --output-dir data_processed/page_text_v1/operational_airbus \
-  --expected-count 1786
+- old hydraulic accumulator design: **4 parts / 3 welds**;
+- new hydraulic accumulator design: **2 parts / 1 weld**.
+
+The native layer captured only minimal page text, so a narrow source-hash-bound visual-transcription override was applied. Original native text remains preserved in provenance/backups.
+
+Final page-source gate:
+
+- page-text version: **`page-text-v1.1`**;
+- visual override count: **1**;
+- unresolved weak/OCR documents: **0**;
+- unresolved weak/OCR pages: **0**;
+- failures: **0**;
+- `ready_for_indexing`: **true**.
+
+## Canonical local path
+
+Use:
+
+```text
+data_processed/page_text_v1_1/operational_airbus/
 ```
 
-The command validates each resolved PDF against the manifest SHA-256 when available and verifies page counts before accepting its page text.
+The former ambiguous folder name:
 
-OCR is never performed silently. By default, any page with fewer than 80 non-whitespace native-text characters is marked `needs_ocr` and the run is not approved for indexing. `--allow-needs-ocr` is diagnostic only and must not be used to bypass the thesis indexing gate.
+```text
+data_processed/page_text_v1/operational_airbus/
+```
 
-## Outputs
+is deprecated.
 
-`data_processed/page_text_v1/operational_airbus/` contains:
+For an existing verified local run, migrate it without re-extracting PDFs:
+
+```bash
+mv data_processed/page_text_v1 data_processed/page_text_v1_1
+```
+
+Then confirm:
+
+```bash
+cat data_processed/page_text_v1_1/operational_airbus/page_extraction_audit.json
+```
+
+The audit must say:
+
+```text
+page_text_version = page-text-v1.1
+ready_for_indexing = true
+needs_ocr_document_count = 0
+needs_ocr_page_count = 0
+failure_count = 0
+```
+
+## Files
+
+`data_processed/page_text_v1_1/operational_airbus/` contains:
 
 - `pages/*.pages.jsonl` — one file per scope-approved PDF;
-- `retrieval_manifest.csv` — the exact 1,786-row manifest to feed E0/E4;
-- `page_manifest.csv` — one row per source PDF with page/OCR status;
-- `failures.csv` — source resolution/hash/page-count/extraction failures;
-- `page_extraction_audit.json` — run-level gate summary.
+- `retrieval_manifest.csv` — exact 1,786-row E0/E4 manifest;
+- `page_manifest.csv` — page/review status by document;
+- `failures.csv` — extraction failures;
+- `page_extraction_audit.json` — source-layer gate;
+- `.native-v1.0.bak` files for reviewed/modified provenance where applicable.
 
-Each page JSONL row includes:
+Each retrieval page record preserves source identity, page number, page-text hash, text source/provenance, and review state.
 
-- `schema_version` (`page-text-v1.0`);
-- `file_instance_id`;
-- `ad_number`;
-- original source filename/path;
-- source PDF SHA-256;
-- 1-based PDF page number;
-- page-text SHA-256;
-- character counts;
-- `needs_ocr`;
-- native page text.
+## Retrieval input gate
 
-## Approval gate
-
-Do not build retrieval indexes until all of the following are true:
+Do not build an index unless all are true:
 
 - `selected_document_count == 1786`;
 - `successful_document_count == 1786`;
 - `failure_count == 0`;
 - `needs_ocr_document_count == 0`;
 - `needs_ocr_page_count == 0`;
+- `page_text_version == "page-text-v1.1"`;
 - `ready_for_indexing == true`.
 
-Useful checks:
+The retrieval reader also rechecks page sequence and any stored page-text SHA-256 before accepting pages.
+
+## E0 / E4 build
+
+Use the strict experiment builder:
 
 ```bash
-cat data_processed/page_text_v1/operational_airbus/page_extraction_audit.json
-
-find data_processed/page_text_v1/operational_airbus/pages \
-  -name '*.pages.jsonl' | wc -l
-
-wc -l data_processed/page_text_v1/operational_airbus/retrieval_manifest.csv
-
-cat data_processed/page_text_v1/operational_airbus/failures.csv
+.venv/bin/python -m full_corpus_pipeline.build_retrieval_experiments \
+  --page-text-root data_processed/page_text_v1_1/operational_airbus \
+  --output-root data_processed/indexes/rag_v1 \
+  --experiment all
 ```
 
-Expected document-file count is 1,786. `retrieval_manifest.csv` should have 1,787 lines including the CSV header.
+The builder requires the real local retrieval dependencies. It does not permit the fallback backends for thesis measurements.
 
-If the run reports OCR-required pages or failures, stop and review those pages/files. Do not silently substitute document-level extracted text, canonical JSON, or hosted OCR output.
+### E0 — flat dense baseline
 
-## After the page-text gate passes
+- flat page chunks;
+- 350-token nominal chunk size;
+- `sentence-transformers/all-MiniLM-L6-v2`;
+- FAISS inner-product index;
+- evaluation through dense-only ranking.
 
-Build the two retrieval variants from the same page source and the generated `retrieval_manifest.csv`.
+### E4 — section-aware hybrid
 
-### E0 — flat dense-only baseline
+- section-aware 250–450-token chunks;
+- SQLite FTS5/BM25;
+- same dense embedding model as E0;
+- FAISS;
+- reciprocal-rank fusion;
+- local cross-encoder reranking;
+- metadata/lifecycle filtering when applicable.
+
+Expected outputs:
+
+```text
+data_processed/indexes/rag_v1/
+├── e0_flat_dense/
+│   ├── chunks.jsonl
+│   ├── chunk_manifest.parquet
+│   ├── dense_embeddings.npy
+│   ├── dense.faiss
+│   ├── sparse.sqlite
+│   ├── index_config.json
+│   └── build_report.json
+├── e4_section_hybrid/
+│   └── ...
+└── build_summary.json
+```
+
+## After index build
+
+Evaluate both systems on the same locked QA retrieval benchmark:
 
 ```bash
-.venv/bin/python -m full_corpus_pipeline.retrieval \
-  --page-text-dir data_processed/page_text_v1/operational_airbus/pages \
-  --manifest data_processed/page_text_v1/operational_airbus/retrieval_manifest.csv \
-  --output-dir data_processed/indexes/e0_flat_dense \
-  --chunking flat
+.venv/bin/python -m full_corpus_pipeline.evaluate_retrieval \
+  data_processed/indexes/rag_v1/e0_flat_dense \
+  --mode dense \
+  --output data_processed/indexes/rag_v1/e0_retrieval_evaluation.json
+
+.venv/bin/python -m full_corpus_pipeline.evaluate_retrieval \
+  data_processed/indexes/rag_v1/e4_section_hybrid \
+  --mode hybrid \
+  --output data_processed/indexes/rag_v1/e4_retrieval_evaluation.json
 ```
 
-E0 evaluation must query this index through the dense-only retrieval path. The index implementation may still contain auxiliary sparse files, but they are not used for E0 ranking.
-
-### E4 — proposed section-aware hybrid system
-
-```bash
-.venv/bin/python -m full_corpus_pipeline.retrieval \
-  --page-text-dir data_processed/page_text_v1/operational_airbus/pages \
-  --manifest data_processed/page_text_v1/operational_airbus/retrieval_manifest.csv \
-  --output-dir data_processed/indexes/e4_section_hybrid \
-  --chunking section
-```
-
-E4 uses section-aware chunks, BM25/FTS5 plus local dense retrieval, reciprocal-rank fusion, and reranking as implemented in `full_corpus_pipeline/retrieval.py`.
-
-Do not build E0/E4 until `page_extraction_audit.json` passes the gate above.
+Report Recall@1/3/5, MRR, nDCG@5, correct source retrieval, and correct source/page retrieval before moving to answer-generation evaluation.
