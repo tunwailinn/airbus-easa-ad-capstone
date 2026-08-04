@@ -1,6 +1,8 @@
+import sys
 import tempfile
 import unittest
 from pathlib import Path
+from unittest.mock import patch
 
 from full_corpus_pipeline.qa import answer_question
 from full_corpus_pipeline.retrieval import HybridIndex, chunk_pages
@@ -15,7 +17,8 @@ class QATests(unittest.TestCase):
         )
         with tempfile.TemporaryDirectory() as temporary:
             index = HybridIndex(Path(temporary) / "index")
-            index.build(chunks, embedding_model="fallback", allow_dense_fallback=True)
+            with patch.dict(sys.modules, {"sentence_transformers": None}):
+                index.build(chunks, embedding_model="fallback", allow_dense_fallback=True)
             answer = answer_question(index, "When must the bracket be inspected?")
             self.assertFalse(answer["insufficient_information"])
             self.assertEqual(answer["citations"][0]["page"], 3)
@@ -28,7 +31,8 @@ class QATests(unittest.TestCase):
         )
         with tempfile.TemporaryDirectory() as temporary:
             index = HybridIndex(Path(temporary) / "index")
-            index.build(chunks, embedding_model="fallback", allow_dense_fallback=True)
+            with patch.dict(sys.modules, {"sentence_transformers": None}):
+                index.build(chunks, embedding_model="fallback", allow_dense_fallback=True)
             answer = answer_question(index, "What torque is used on the banana connector?")
             self.assertTrue(answer["insufficient_information"])
 
