@@ -1,10 +1,15 @@
+import json
+import tempfile
 import unittest
+from pathlib import Path
 
 from full_corpus_pipeline.evaluate_retrieval_experiments import (
+    EXPECTED_BUILD_VERSION,
     paired_comparison,
     relevance_rank,
     source_rank,
     summarize,
+    validate_build_summary,
 )
 
 
@@ -57,6 +62,35 @@ class RetrievalExperimentEvaluationTests(unittest.TestCase):
         self.assertEqual(result["e4_better_rank_count"], 1)
         self.assertEqual(result["e0_better_rank_count"], 1)
         self.assertEqual(result["tie_count"], 1)
+
+    def test_build_summary_gate_accepts_only_frozen_v12(self):
+        summary = {
+            "retrieval_build_version": "rag-index-build-v1.2",
+            "document_count": 1786,
+            "chunk_size_policy": {
+                "count_method": "whitespace_split",
+                "e0_max_tokens": 350,
+                "e4_max_tokens": 450,
+            },
+            "experiments": {
+                "e0": {"chunk_stats": {"document_count": 1786, "max_tokens": 350}},
+                "e4": {"chunk_stats": {"document_count": 1786, "max_tokens": 450}},
+            },
+        }
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            (root / "build_summary.json").write_text(
+                json.dumps(summary), encoding="utf-8"
+            )
+            loaded = validate_build_summary(root)
+            self.assertEqual(loaded["retrieval_build_version"], EXPECTED_BUILD_VERSION)
+
+            summary["retrieval_build_version"] = "rag-index-build-v1.1"
+            (root / "build_summary.json").write_text(
+                json.dumps(summary), encoding="utf-8"
+            )
+            with self.assertRaisesRegex(ValueError, "rag-index-build-v1.2"):
+                validate_build_summary(root)
 
 
 if __name__ == "__main__":
