@@ -2,7 +2,7 @@
 
 Current methodology: **v3.1**.
 
-This project processes a frozen snapshot of **1,809 Airbus S.A.S. EASA Airworthiness Directive PDFs**. Five PDFs are held out during development, so the active development corpus contains **1,804 records**.
+This project processes a frozen snapshot of **1,809 Airbus S.A.S. EASA Airworthiness Directive PDFs**. Five PDFs are held out during development, so the development corpus contains **1,804 records**.
 
 The system has two layers:
 
@@ -51,12 +51,15 @@ Reliable fields are structured locally. Difficult sections are preserved as sour
 ## Active versions
 
 - Content schema: `2.1.0`
-- Local parser: `v2.1.3`
-- Active generated corpus: `data_processed/canonical_content_v2.1.3/`
+- Local parser: `v2.1.4`
+- Previous generated corpus: `data_processed/canonical_content_v2.1.3/` — **stale after the v2.1.4 boundary fix; regenerate before promotion**
+- Next generated corpus target: `data_processed/canonical_content_v2.1.4/`
 - Content evaluation set: `easa_airbus_ad_content_gold_50_v2`
 - Split: 30 development / 20 locked test
 - QA benchmark: `easa_airbus_ad_qa_50_v2`, 50 questions
 - Unseen ingestion set: 5 PDFs
+
+Parser v2.1.4 fixes material spot-check defects found in v2.1.3: printed issue dates now take precedence over stale manifest dates, `Foreign AD` stops before revision metadata, repeated EASA page furniture/status watermarks are removed before section segmentation, ordinary prose beginning with words such as `compliance` no longer terminates a section, and Remark contact lines are retained.
 
 ## Run tests
 
@@ -68,8 +71,10 @@ Reliable fields are structured locally. Difficult sections are preserved as sour
 
 ```bash
 .venv/bin/python -m full_corpus_pipeline.extract_corpus \
-  --run-id local-content-development-1804-v2.1.3
+  --run-id local-content-development-1804-v2.1.4
 ```
+
+Do not overwrite or relabel the v2.1.3 output. Generate a new run, evaluate it, then promote it as `canonical_content_v2.1.4/` only after validation.
 
 ## Build RAG index
 
@@ -83,4 +88,4 @@ Reliable fields are structured locally. Difficult sections are preserved as sour
 
 ## Current next step
 
-Build page-preserving text for the 1,804 development PDFs, construct the E0 and E4 retrieval indexes, then run locked retrieval/QA evaluation before ingesting the five unseen PDFs.
+Regenerate the 1,804 development content records with parser v2.1.4, re-run representative PDF spot checks and the locked extraction evaluation, then promote the corrected corpus. After that, build page-preserving text for the 1,804 development PDFs, construct E0 and E4 retrieval indexes, and run locked retrieval/QA evaluation before ingesting the five unseen PDFs.
