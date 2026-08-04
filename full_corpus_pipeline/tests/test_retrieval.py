@@ -1,6 +1,8 @@
+import sys
 import tempfile
 import unittest
 from pathlib import Path
+from unittest.mock import patch
 
 from full_corpus_pipeline.retrieval import HybridIndex, chunk_pages
 
@@ -17,7 +19,12 @@ class RetrievalTests(unittest.TestCase):
         )
         with tempfile.TemporaryDirectory() as temporary:
             index = HybridIndex(Path(temporary) / "index")
-            index.build(chunks, embedding_model="unused-in-fallback", allow_dense_fallback=True)
+            with patch.dict(sys.modules, {"sentence_transformers": None}):
+                index.build(
+                    chunks,
+                    embedding_model="unused-in-fallback",
+                    allow_dense_fallback=True,
+                )
             results = index.search("When must the elevator be inspected?", limit=1)
             self.assertEqual(results[0]["source_pdf"], "sample.pdf")
             self.assertEqual(results[0]["page_start"], 2)
