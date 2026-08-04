@@ -307,7 +307,6 @@ def main() -> int:
     e0 = HybridIndex(args.index_root / "e0_flat_dense")
     e4 = HybridIndex(args.index_root / "e4_section_hybrid")
     e0_config, e4_config = validate_index_pair(e0, e4)
-    questions = load_questions(args.questions)
 
     embedding_model = str(e0_config["embedding_model"])
     shared_dense_encoder = _run_with_progress(
@@ -336,6 +335,23 @@ def main() -> int:
         load_reranker,
     )
     print(f"[progress] reranker ready on {RERANKER_DEVICE}", flush=True)
+
+    smoke_results = _run_with_progress(
+        "pre-benchmark E4 runtime smoke test",
+        lambda: strict_hybrid_search(
+            e4,
+            reranker,
+            "airworthiness directive compliance inspection",
+            limit=1,
+            candidate_limit=args.candidate_limit,
+        ),
+    )
+    if not smoke_results:
+        raise RuntimeError("pre-benchmark E4 runtime smoke test returned no results")
+    print("[progress] pre-benchmark E4 runtime smoke test passed", flush=True)
+
+    # Locked questions are loaded only after the full E4 runtime path succeeds.
+    questions = load_questions(args.questions)
 
     e0_metrics, e0_rows = evaluate_system(
         label="E0 dense-only",
@@ -367,6 +383,7 @@ def main() -> int:
             "dense_query_device": dense_device,
             "reranker_device": RERANKER_DEVICE,
             "multiprocessing": False,
+            "pre_benchmark_e4_smoke_test": True,
         },
         "e0": {"metrics": e0_metrics, "questions": e0_rows},
         "e4": {"metrics": e4_metrics, "questions": e4_rows},
