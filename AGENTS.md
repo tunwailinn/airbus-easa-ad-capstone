@@ -43,6 +43,8 @@ Detailed compliance interpretation must use original PDF passages retrieved by R
 16. E0 and E4 must use the same 1,786-document retrieval manifest and the same dense embedding model.
 17. E0 ranking is dense-only over flat chunks. E4 is section-aware BM25 + dense + FAISS + RRF + local cross-encoder reranking.
 18. Do not silently use hashing, numpy-only dense indexing, or lexical reranking fallback for the frozen thesis E0/E4 measurements.
+19. Final retrieval evaluation must use **`rag-index-build-v1.1`** from `data_processed/indexes/rag_v1_1/`; the earlier `rag_v1/` build is a rejected pre-benchmark implementation artifact only.
+20. Chunk-size reporting uses the same deterministic `whitespace_split` units as the construction limits: E0 <=350 and E4 <=450. These are reproducible chunk units, not transformer subword token counts.
 
 ## Frozen/active versions
 
@@ -52,7 +54,7 @@ Detailed compliance interpretation must use original PDF passages retrieved by R
 - Corpus scope audit: **`corpus-scope-audit-v1.3`**.
 - Verified page source: **`page-text-v1.1`**.
 - Page visual override file: `full_corpus_pipeline/page_text_visual_overrides.json`.
-- Retrieval build stage: **`rag-index-build-v1.0`**.
+- Active retrieval build stage: **`rag-index-build-v1.1`**.
 - QA benchmark: **50 locked questions**.
 - Immutable audit source: `gold_releases/easa_airbus_ad_gold_v2/`.
 
@@ -116,33 +118,37 @@ Do not use the former ambiguous `page_text_v1/` path for new experiments.
 
 ## Current retrieval experiments
 
-Build both from the same verified page source:
+`rag-index-build-v1.0` proved the corpus/model/backend gates but mixed chunk-count heuristics in its report. Because reported maxima appeared as 383 for E0 and 483 for E4, it was rejected before any locked retrieval scores were opened. Preserve it only for traceability.
+
+Build the corrected v1.1 indexes from the same verified page source:
 
 ```bash
 .venv/bin/python -m full_corpus_pipeline.build_retrieval_experiments \
   --page-text-root data_processed/page_text_v1_1/operational_airbus \
-  --output-root data_processed/indexes/rag_v1 \
+  --output-root data_processed/indexes/rag_v1_1 \
   --experiment all
 ```
+
+The builder prints live elapsed-time progress during long embedding/index phases and fails if E0 exceeds 350 or E4 exceeds 450 `whitespace_split` chunk units.
 
 Expected outputs:
 
 ```text
-data_processed/indexes/rag_v1/
+data_processed/indexes/rag_v1_1/
 ├── e0_flat_dense/
 ├── e4_section_hybrid/
 └── build_summary.json
 ```
 
-E0 must be evaluated through `search_dense_only`; E4 through strict hybrid retrieval with local reranking.
+E0 must be evaluated through `search_dense_only`; E4 through strict hybrid retrieval with local reranking. The evaluator refuses non-v1.1 builds and prints question-by-question progress.
 
 ## Immediate priority
 
-1. Rename/migrate the verified local page folder from `page_text_v1` to `page_text_v1_1` if needed.
-2. Run the full unit-test suite.
-3. Build E0 and E4 with `build_retrieval_experiments.py`.
-4. Record chunk/index build reports and verify no fallback backend was used.
-5. Run retrieval evaluation: Recall@1/3/5, MRR, nDCG@5, correct source/page.
+1. Pull the current `main` branch and run the full unit-test suite.
+2. Build corrected E0 and E4 under `data_processed/indexes/rag_v1_1/`.
+3. Verify the v1.1 build summary: 1,786 documents, real sentence-transformers + FAISS backends, E0 max <=350, E4 max <=450.
+4. Freeze the v1.1 indexes before opening locked retrieval scores.
+5. Run retrieval evaluation once: Recall@1/3/5, MRR, nDCG@5, correct source/page.
 6. Run the 50-question page-cited QA benchmark.
 7. Evaluate temporary uploaded-PDF QA.
 8. Permanently ingest the five frozen unseen PDFs without retraining.
