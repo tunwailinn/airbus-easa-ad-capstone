@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-"""Audit the 30-record development reference without opening the locked test set.
+"""Audit the nominal 30-record development reference without opening test labels.
 
-This verifies that each development reference record is still exactly tied to
-its immutable, human-approved source annotation and frozen split hashes. It
-also checks evidence-span integrity and, when the document-text cache is
-available, source-text containment of the exact evidence quotations.
+Each development reference is checked against its immutable approved annotation,
+frozen hashes, deterministic projection, field assertions, and evidence spans.
+Known scope exclusions remain immutable audit artifacts but are reported as
+ineligible for primary development scoring.
 """
 
 from __future__ import annotations
@@ -19,6 +19,7 @@ from typing import Any
 import pandas as pd
 
 from full_corpus_pipeline.content_projection import project_record, validate_record
+from full_corpus_pipeline.evaluate_extraction import KNOWN_SCOPE_EXCLUSIONS
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -77,7 +78,7 @@ def main() -> int:
     split = json.loads((CONTENT_DIR / "split_manifest.json").read_text(encoding="utf-8"))
     selected = [row for row in split if row["split"] == "development"]
     if len(selected) != 30:
-        raise ValueError(f"expected 30 development records, found {len(selected)}")
+        raise ValueError(f"expected 30 nominal development records, found {len(selected)}")
 
     selected_ids = {str(row["file_instance_id"]) for row in selected}
     source_text_by_id = load_source_text(args.source_text_parquet, selected_ids)
@@ -92,6 +93,7 @@ def main() -> int:
     evidence_count = 0
     evidence_containment_checks = 0
     evidence_containment_passes = 0
+    scope_exclusions = []
 
     for item in selected:
         ad_number = str(item["ad_number"])
@@ -102,6 +104,11 @@ def main() -> int:
         derived_path = CONTENT_DIR / "records" / derived_name
         critical: list[str] = []
         warnings: list[str] = []
+        scope_eligible = ad_number not in KNOWN_SCOPE_EXCLUSIONS
+        if not scope_eligible:
+            scope_exclusions.append(
+                {"ad_number": ad_number, "reason": KNOWN_SCOPE_EXCLUSIONS[ad_number]}
+            )
 
         if not annotation_path.exists():
             critical.append("missing immutable source annotation")
@@ -109,6 +116,7 @@ def main() -> int:
                 {
                     "ad_number": ad_number,
                     "file_instance_id": file_id,
+                    "scope_eligible": scope_eligible,
                     "critical_issues": critical,
                     "warnings": warnings,
                 }
@@ -121,6 +129,7 @@ def main() -> int:
                 {
                     "ad_number": ad_number,
                     "file_instance_id": file_id,
+                    "scope_eligible": scope_eligible,
                     "critical_issues": critical,
                     "warnings": warnings,
                 }
@@ -191,12 +200,24 @@ def main() -> int:
         ):
             critical.append("annotation/source normalized-text hashes disagree")
 
+        holder = (
+            ((annotation.get("ad_identity") or {}).get("design_approval_holder") or {}).get("value")
+            or ((annotation.get("ad_identity") or {}).get("design_approval_holder") or {}).get("raw_text")
+            or ""
+        )
+        if scope_eligible and holder and not normalize_source_text(holder).startswith("airbus"):
+            critical.append(
+                f"unexpected non-Airbus design approval holder in scope-eligible record: {holder}"
+            )
+
         reprojection, _ = project_record(annotation, annotation_path)
         if reprojection != derived:
             critical.append("derived reference no longer matches deterministic projection")
         schema_errors = validate_record(derived, SCHEMA)
         if schema_errors:
-            critical.append("derived reference fails content schema: " + "; ".join(schema_errors[:3]))
+            critical.append(
+                "derived reference fails content schema: " + "; ".join(schema_errors[:3])
+            )
 
         assertions = annotation.get("field_assertions", []) or []
         assertion_by_path = {
@@ -204,7 +225,9 @@ def main() -> int:
         }
         missing_assertions = sorted(SUBSTANTIVE_ASSERTION_PATHS - set(assertion_by_path))
         if missing_assertions:
-            critical.append("missing substantive field assertions: " + ", ".join(missing_assertions))
+            critical.append(
+                "missing substantive field assertions: " + ", ".join(missing_assertions)
+            )
         rejected = [
             str(assertion.get("assertion_id"))
             for assertion in assertions
@@ -227,7 +250,9 @@ def main() -> int:
             if not quote.strip():
                 critical.append(f"{evidence_id}: empty exact_quote")
             if evidence.get("quality") != "exact":
-                warnings.append(f"{evidence_id}: evidence quality={evidence.get('quality')!r}")
+                warnings.append(
+                    f"{evidence_id}: evidence quality={evidence.get('quality')!r}"
+                )
             if not evidence.get("page_text_sha256"):
                 critical.append(f"{evidence_id}: missing page_text_sha256")
             if source_text is not None and quote.strip():
@@ -250,8 +275,11 @@ def main() -> int:
                 "file_instance_id": file_id,
                 "source_gold_filename": annotation_name,
                 "derived_filename": derived_name,
+                "scope_eligible": scope_eligible,
+                "scope_exclusion_reason": KNOWN_SCOPE_EXCLUSIONS.get(ad_number),
                 "approved": metadata.get("record_status") == "approved",
                 "human_reviewers": sorted(human_reviewers),
+                "design_approval_holder": holder,
                 "page_count": page_count,
                 "evidence_span_count": len(annotation.get("evidence_spans", []) or []),
                 "quality_flags": metadata.get("quality_flags", []),
@@ -262,12 +290,14 @@ def main() -> int:
         )
 
     report = {
-        "audit_version": "development-reference-audit-v1",
-        "scope": "development only; locked test records were not opened",
-        "record_count": len(selected),
+        "audit_version": "development-reference-audit-v1.1",
+        "scope": "nominal development only; locked test records were not opened",
+        "nominal_record_count": len(selected),
+        "eligible_record_count": len(selected) - len(scope_exclusions),
+        "scope_exclusions": scope_exclusions,
         "critical_issue_count": critical_total,
         "warning_count": warning_total,
-        "all_records_approved_and_projection_locked": critical_total == 0,
+        "eligible_records_approved_and_projection_locked": critical_total == 0,
         "source_text_cache_available": bool(source_text_by_id),
         "evidence_span_count": evidence_count,
         "evidence_quote_containment": {
