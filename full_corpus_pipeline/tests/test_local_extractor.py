@@ -117,6 +117,52 @@ Ref. Publications: Airbus SB A330-55-3016 and A340-55-4017.
 Remarks: None.
 """
 
+CROSS_PAGE = """
+EASA AD No.: 2025-0058R1
+Airworthiness Directive
+AD No.: 2025-0058R1
+Issued: 19 March 2025
+Design Approval Holder’s Name:
+AIRBUS S.A.S.
+Type/Model designation(s):
+A340 aeroplanes
+Effective Date: 31 March 2025 (same as original issue)
+TCDS Number(s): EASA.A.015
+Foreign AD: Not applicable
+Revision: This AD revises EASA AD 2025-0058 dated 17 March 2025.
+ATA 05 – Time Limits / Maintenance Checks – Airworthiness Limitation Section
+Part 4, System Equipment Maintenance Requirements – Amendment
+Manufacturer(s): Airbus, formerly Airbus Industrie
+Applicability: Airbus A340-211 and A340-212 aeroplanes, all manufacturer serial numbers.
+Definitions:
+The AMP: The Aircraft Maintenance Programme contains the tasks on the basis of which scheduled maintenance is conducted.
+For aeroplanes operated under EU regulation the operator or owner ensures
+compliance with the AMP as stipulated in Commission Regulation (EU) 1321/2014.
+EASA AD No.: 2025-0058R1
+TE.CAP.00110-012 © European Union Aviation Safety Agency. All rights reserved. ISO9001 Certified.
+Proprietary document. Copies are not controlled. Confirm revision status through the EASA-Internet/Intranet.
+An agency of the European Union
+Page 2 of 3
+New and/or more restrictive tasks: This includes all tasks that are new and all tasks for which a threshold or interval was reduced.
+Reason:
+Failure to accomplish these instructions could result in an unsafe condition.
+Required Action(s) and Compliance Time(s):
+Required as indicated by this AD, unless already accomplished:
+(1) Within the thresholds and intervals, accomplish all applicable maintenance tasks.
+SUPERSEDEDEASA AD No.: 2025-0058R1
+TE.CAP.00110-012 © European Union Aviation Safety Agency. All rights reserved. ISO9001 Certified.
+Page 3 of 3
+(2) If a discrepancy is found, before next flight, accomplish corrective action.
+Ref. Publications:
+Airbus A340 ALS Part 4, SEMR Variation 8.1 dated 21 December 2023.
+Remarks:
+1. If requested, EASA can approve Alternative Methods of Compliance for this AD.
+5. For any question concerning the technical content of the requirements in this AD, please
+contact: AIRBUS – 1IAL (Airworthiness Office), E-mail: airworthiness.A330-A340@airbus.com.
+Appendix 1: Data not part of remarks
+SHOULD NOT BE IN REMARKS
+"""
+
 REFERENCE_RICH = """
 EASA AD No.: 2015-0135R3
 Airworthiness Directive
@@ -144,6 +190,23 @@ Remarks: None.
 class LocalExtractorTests(unittest.TestCase):
     def row(self, text: str, ad: str, issue: str = "") -> dict:
         return {"text": text, "ad_number": ad, "issue_date": issue, "correction_date": "", "is_emergency": False}
+
+    def test_rejects_manifest_identity_disagreement(self) -> None:
+        with self.assertRaisesRegex(ValueError, "disagrees with manifest"):
+            extract_local_record(self.row(SAMPLE, "2026-9999"), SCHEMA)
+
+    def test_cross_page_v214_regression_remains_fixed(self) -> None:
+        record, _ = extract_local_record(self.row(CROSS_PAGE, "2025-0058R1", "2025-03-31"), SCHEMA)
+        self.assertEqual("2025-03-19", record["publication"]["issue_date"])
+        self.assertEqual("AIRBUS S.A.S.", record["ad_identity"]["design_approval_holder"])
+        self.assertIn("New and/or more restrictive tasks", record["definitions"]["text"])
+        action = record["required_actions"][0]["action"]
+        self.assertIn("(2) If a discrepancy is found", action)
+        for noise in ("Page 2 of 3", "TE.CAP", "SUPERSEDED", "EASA AD No."):
+            self.assertNotIn(noise, action)
+        remarks = record["remarks"]["text"]
+        self.assertIn("airworthiness.A330-A340@airbus.com", remarks)
+        self.assertNotIn("SHOULD NOT BE IN REMARKS", remarks)
 
     def test_current_format_still_extracts(self) -> None:
         record, detail = extract_local_record(self.row(SAMPLE, "2026-0123R1"), SCHEMA)
