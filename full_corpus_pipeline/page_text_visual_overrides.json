@@ -1,0 +1,17 @@
+{
+  "override_version": "page-text-visual-overrides-v1",
+  "overrides": [
+    {
+      "override_id": "2011-0006-p3-visual-v1",
+      "file_instance_id": "f3c0e3c1e1cab9b4",
+      "ad_number": "2011-0006",
+      "page": 3,
+      "source_pdf_sha256": "00a09cbc2d759cca7db23126a4f2ded1345d85c4b7e240a1ec73c454d6acc0ec",
+      "method": "visual_transcription",
+      "native_text_expected_contains": [
+        "Appendix 1"
+      ],
+      "text": "Appendix 1\nHYDRAULIC ACCUMULATOR: designed with 4 parts and 3 welds\nWELDS\nWELD\nOLD DESIGN\nHYDRAULIC ACCUMULATOR: designed with 2 parts and 1 weld\nWELD\nNEW DESIGN"
+    }
+  ]
+}
