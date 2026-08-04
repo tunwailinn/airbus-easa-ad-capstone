@@ -12,52 +12,42 @@ The active v3.1 project keeps versioned code and compact reference artifacts in 
 
 ## Local / Google Drive data
 
-Do not commit:
-
-- raw source PDFs;
-- page-preserving text derivatives;
-- `data_processed/` extraction runs and promoted corpora;
-- `data_incoming/` permanent-ingestion storage;
-- `indexes/` BM25/FAISS indexes;
-- `evaluation_sets/` generated benchmark projections and locks;
-- OAuth credentials or tokens; or
-- temporary renders and scratch outputs.
-
-These paths are covered by `.gitignore` where applicable.
+Do not commit raw source PDFs, page-preserving text derivatives, `data_processed/`, `data_incoming/`, `indexes/`, generated evaluation projections/locks, credentials, tokens, or temporary renders/scratch outputs.
 
 ## Active extraction generations
 
 Preserve every material parser generation separately.
 
-Stale/reference outputs:
+Historical/development outputs:
 
 ```text
 data_processed/canonical_content_v2.1.3/
 data_processed/runs/local-content-development-1804-v2.1.4/
+data_processed/runs/local-content-development-1804-v2.1.5/
 ```
 
-Do not overwrite, relabel, or promote those as v2.1.5.
+The v2.1.5 run is valuable development evidence because it demonstrated complete raw difficult-section preservation, but it is not the final promotion target.
 
 Active regeneration target:
 
 ```text
-data_processed/runs/local-content-development-1804-v2.1.5/
+data_processed/runs/local-content-development-1804-v2.1.6/
 ```
 
-After the development/reference/scope audits, clean test evaluation, and source spot checks pass, promote to:
+After development/reference/scope audits, clean test evaluation, and source spot checks pass, promote to:
 
 ```text
-data_processed/canonical_content_v2.1.5/
+data_processed/canonical_content_v2.1.6/
 ```
 
-The generated corpus is reproducible from the versioned parser plus corpus reference Parquets and is intentionally not stored in GitHub.
+Never overwrite, relabel, or copy an older generation into the v2.1.6 path.
 
-## v2.1.5 validation outputs
+## v2.1.6 validation outputs
 
 Keep these with the local run:
 
 ```text
-data_processed/runs/local-content-development-1804-v2.1.5/
+data_processed/runs/local-content-development-1804-v2.1.6/
 ├── records/
 ├── run_config.json
 ├── extraction_failures.csv
@@ -67,19 +57,28 @@ data_processed/runs/local-content-development-1804-v2.1.5/
 └── evaluation_test_clean_v3.1.5.json   # only after development freeze
 ```
 
-The v2.1.4 scope report (`1729 eligible / 59 excluded / 16 unknown`) is a diagnostic artifact only. It is not a final scope count because many apparent exclusions were malformed DAH parses. Do not move those counts into thesis tables or Drive folder names as if they were final membership.
+Earlier scope reports are diagnostics only. In particular:
+
+- v2.1.4: `1729 eligible / 59 excluded / 16 unknown`;
+- v2.1.5: `1765 eligible / 17 excluded / 22 unknown`.
+
+Neither is the final Airbus-only operational count because later source review showed parser-format misses among the apparent scope discrepancies.
 
 ## Scope-approved operational view
 
-Extraction keeps one generated content record per nominal physical development PDF for provenance. After the corrected v2.1.5 scope audit, a strict Airbus S.A.S.-only application view may be implemented with an explicit sidecar/filter containing eligible/excluded/unknown status.
+Extraction preserves one generated content record per nominal physical PDF for provenance.
 
-Do not silently delete PDFs or generated records to make the nominal corpus count match the research scope. Keep source inventory accounting separate from the scope-approved operational view.
+`scope_policy.py` / corpus-scope audit v1.2 classify each generated holder as:
+
+- eligible Airbus S.A.S./legacy Airbus;
+- confirmed external or mixed holder, excluded from the strict Airbus-only operational view; or
+- unknown pending review.
+
+Confirmed exclusions remain in the physical inventory/content store. Do not delete PDFs or generated records to make the nominal physical count match the strict operational scope count. Resolve/document unknowns before freezing the operational subset.
 
 ## Required external data for RAG
 
 The page-aware RAG build needs page-preserving text for the scope-approved development PDFs. Supply it through a local or mounted directory and pass that directory explicitly to the retrieval builder.
-
-Example:
 
 ```bash
 .venv/bin/python -m full_corpus_pipeline.retrieval \
