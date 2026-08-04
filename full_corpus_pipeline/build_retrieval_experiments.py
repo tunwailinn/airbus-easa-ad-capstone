@@ -43,7 +43,30 @@ def _package_version(name: str) -> str | None:
         return None
 
 
-def validate_page_source(page_text_root: Path, *, expected_count: int) -> tuple[pd.DataFrame, dict[str, Any]]:
+def _as_bool(value: Any) -> bool:
+    """Parse manifest boolean values without treating the string 'False' as true."""
+    if isinstance(value, bool):
+        return value
+    if value is None:
+        return False
+    try:
+        if pd.isna(value):
+            return False
+    except (TypeError, ValueError):
+        pass
+    if isinstance(value, (int, float)):
+        return bool(value)
+    normalized = str(value).strip().casefold()
+    if normalized in {"true", "1", "yes", "y"}:
+        return True
+    if normalized in {"false", "0", "no", "n", ""}:
+        return False
+    raise ValueError(f"unrecognized boolean value in retrieval manifest: {value!r}")
+
+
+def validate_page_source(
+    page_text_root: Path, *, expected_count: int
+) -> tuple[pd.DataFrame, dict[str, Any]]:
     audit_path = page_text_root / "page_extraction_audit.json"
     manifest_path = page_text_root / "retrieval_manifest.csv"
     pages_dir = page_text_root / "pages"
@@ -76,17 +99,33 @@ def validate_page_source(page_text_root: Path, *, expected_count: int) -> tuple[
         manifest_path,
         dtype={"file_instance_id": str, "ad_number": str},
     )
+    required_columns = {"file_instance_id", "ad_number", "relative_path"}
+    missing_columns = required_columns - set(manifest.columns)
+    if missing_columns:
+        raise ValueError(
+            f"retrieval manifest missing required columns: {sorted(missing_columns)}"
+        )
     if len(manifest) != expected_count:
         raise ValueError(f"expected {expected_count} retrieval rows, found {len(manifest)}")
     if manifest["file_instance_id"].duplicated().any():
         duplicates = manifest.loc[
             manifest["file_instance_id"].duplicated(keep=False), "file_instance_id"
         ].tolist()
-        raise ValueError(f"duplicate file_instance_id values in retrieval manifest: {duplicates[:5]}")
+        raise ValueError(
+            f"duplicate file_instance_id values in retrieval manifest: {duplicates[:5]}"
+        )
+    if "is_latest_version" in manifest.columns:
+        manifest["is_latest_version"] = manifest["is_latest_version"].map(_as_bool)
+    else:
+        # Missing lifecycle state is conservative: chunks remain historical rather
+        # than being silently promoted to the operational view.
+        manifest["is_latest_version"] = False
 
     page_files = list(pages_dir.glob("*.pages.jsonl"))
     if len(page_files) != expected_count:
-        raise ValueError(f"expected {expected_count} page JSONL files, found {len(page_files)}")
+        raise ValueError(
+            f"expected {expected_count} page JSONL files, found {len(page_files)}"
+        )
     return manifest, audit
 
 
@@ -121,7 +160,8 @@ def build_one(
     stats = chunk_stats(chunks)
     if stats["document_count"] != expected_count:
         raise ValueError(
-            f"{experiment}: chunks cover {stats['document_count']} documents; expected {expected_count}"
+            f"{experiment}: chunks cover {stats['document_count']} documents; "
+            f"expected {expected_count}"
         )
     config = HybridIndex(output_dir).build(
         chunks,
@@ -167,12 +207,16 @@ def build_experiments(
     try:
         import sentence_transformers  # noqa: F401
     except ImportError as exc:
-        raise RuntimeError("install sentence-transformers before building frozen E0/E4") from exc
+        raise RuntimeError(
+            "install sentence-transformers before building frozen E0/E4"
+        ) from exc
 
     output_root.mkdir(parents=True, exist_ok=True)
     reports: dict[str, Any] = {}
     if experiment in {"e0", "all"}:
-        e0_chunks = build_chunks_from_directory(pages_dir, manifest_rows, chunking="flat")
+        e0_chunks = build_chunks_from_directory(
+            pages_dir, manifest_rows, chunking="flat"
+        )
         reports["e0"] = build_one(
             experiment="E0-flat-dense",
             chunks=e0_chunks,
@@ -181,7 +225,9 @@ def build_experiments(
             expected_count=expected_count,
         )
     if experiment in {"e4", "all"}:
-        e4_chunks = build_chunks_from_directory(pages_dir, manifest_rows, chunking="section")
+        e4_chunks = build_chunks_from_directory(
+            pages_dir, manifest_rows, chunking="section"
+        )
         reports["e4"] = build_one(
             experiment="E4-section-hybrid",
             chunks=e4_chunks,
@@ -213,7 +259,9 @@ def build_experiments(
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--page-text-root", type=Path, default=DEFAULT_PAGE_TEXT_ROOT)
+    parser.add_argument(
+        "--page-text-root", type=Path, default=DEFAULT_PAGE_TEXT_ROOT
+    )
     parser.add_argument("--output-root", type=Path, default=DEFAULT_OUTPUT_ROOT)
     parser.add_argument("--embedding-model", default=DEFAULT_EMBEDDING_MODEL)
     parser.add_argument("--expected-count", type=int, default=EXPECTED_DOCUMENT_COUNT)
