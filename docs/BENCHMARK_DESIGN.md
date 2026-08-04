@@ -2,10 +2,10 @@
 
 ## Evaluation principle
 
-The two application layers are evaluated separately:
+The application layers are evaluated separately:
 
 - deterministic content extraction measures reliable structured metadata plus faithful preservation of raw AD sections; and
-- QA measures retrieval and interpretation from original PDF passages.
+- retrieval/QA measures evidence selection and interpretation from original PDF passages.
 
 Complex compliance questions are not expected to be answerable from structured fields alone.
 
@@ -23,7 +23,7 @@ Active derived dataset:
 evaluation_sets/easa_airbus_ad_content_gold_50_v2/
 ```
 
-The immutable annotations contain independently reviewed structured values and exact source evidence. The derived content projection intentionally compresses difficult content into reviewed semantic units, while the live deterministic parser preserves complete printed PDF sections. These two representations must not be scored as if their raw strings were expected to be identical.
+The immutable annotations contain independently reviewed structured values and source evidence. The derived content projection intentionally compresses difficult content into reviewed semantic units, while the live deterministic parser preserves complete printed PDF sections. These representations must not be scored as though their raw strings should be identical.
 
 ### Frozen nominal split
 
@@ -32,7 +32,7 @@ The immutable annotations contain independently reviewed structured values and e
 - Grouping key: `base_ad_number`.
 - Seed: 42.
 
-The frozen split artifact remains unchanged for traceability. Primary evaluation operates on the subset that is both project-scope eligible and, for the test split, still genuinely unseen.
+The split artifact remains unchanged for traceability. Primary evaluation operates on the subset that is project-scope eligible and, for the test split, still genuinely unseen.
 
 ## Benchmark eligibility
 
@@ -40,47 +40,50 @@ The frozen split artifact remains unchanged for traceability. Primary evaluation
 
 The project scope is EU-issued EASA ADs whose Design/Type Approval Holder is Airbus S.A.S., accepting legacy holder naming such as `Airbus` and `Airbus Industrie` where applicable.
 
-`evaluate_extraction.py` derives scope eligibility from the reviewed gold `design_approval_holder` value. Clearly different organizations or Airbus divisions outside Airbus S.A.S. are retained in the immutable audit release but excluded from primary extraction scoring.
+`evaluate_extraction.py` derives benchmark eligibility from the reviewed gold `design_approval_holder`, never from the prediction being scored.
 
-Confirmed examples:
+Confirmed development exclusions:
 
-- development AD `2026-0079`: `LUFTHANSA TECHNIK AG` — excluded from primary development scoring;
-- test AD `2021-0286`: `Airbus Defence and Space S.A.` — excluded from primary test scoring.
+- `2024-0095`: Airbus Defence and Space S.A.;
+- `2026-0079`: Lufthansa Technik AG.
 
-Unknown/missing holder values are surfaced separately as `scope_unknown`; they are never silently treated as confirmed scope matches.
+Therefore the current primary development benchmark count is **28**, while the nominal split remains 30.
+
+Clearly different organizations or Airbus divisions outside Airbus S.A.S. remain in the immutable audit release but are excluded from primary scoring and disclosed. Unknown/missing reviewed holder values are surfaced separately as `scope_unknown`; they are never silently treated as confirmed scope matches.
+
+For the generated 1,804-record corpus-scope audit, malformed machine-extracted holder values are classified as `unknown`, not `excluded`. A parser boundary error must not silently reduce the operational corpus.
 
 ### Confirmed test leakage
 
-AD `2024-0038` belongs to the nominal locked test split, but its source PDF was explicitly inspected while diagnosing and fixing parser v2.1.4. It is no longer an unbiased test case.
+AD `2024-0038` belongs to the nominal locked test split, but its source PDF was explicitly inspected while diagnosing parser defects. It is no longer an unbiased extraction-test case.
 
 Final clean extraction reporting must:
 
-- retain the original nominal 30/20 split artifact unchanged;
-- exclude out-of-scope holder cases from primary scoring;
+- retain the nominal 30/20 split artifact unchanged;
+- exclude reviewed out-of-scope holder cases from primary scoring;
 - exclude `2024-0038` from primary locked-test scoring;
 - disclose every exclusion and reason; and
 - never substitute a development case into the test set.
 
-`--include-scope-excluded` and `--include-contaminated` exist only for diagnostics and must not be used for the primary thesis result.
+`--include-scope-excluded` and `--include-contaminated` are diagnostic-only switches and must not be used for the primary thesis result.
 
-## Extraction evaluation v3.1.4
+## Extraction evaluation v3.1.5
 
 The primary evaluator is `full_corpus_pipeline/evaluate_extraction.py`.
 
 ### Primary stable-metadata metrics
 
-Report per-field precision, recall, F1, and record-level exact accuracy for comparable reliable values such as:
+Report per-field precision, recall, F1, and record-level exact accuracy for representation-comparable reliable values:
 
 - AD number, authority, document type, revision/emergency/correction state;
-- design approval holder;
+- Design/Type Approval Holder;
 - subject, issue date, effective date, and ATA codes;
 - manufacturer;
-- publication model identifiers;
-- EASA TCDS identifiers;
+- EASA/legacy TCDS identifiers;
 - Foreign AD status; and
-- applicability model identifiers.
+- detailed applicability model identifiers.
 
-Also report `stable_metadata_macro_f1` across these comparable stable fields.
+Also report `stable_metadata_macro_f1` across these primary stable fields.
 
 The evaluator applies only representation-safe normalization, for example:
 
@@ -88,40 +91,57 @@ The evaluator applies only representation-safe normalization, for example:
 - `Manufacturer(s): Airbus` versus `Airbus`;
 - an `ATA 53 –` prefix versus the same subject without that prefix;
 - `Foreign AD: Not applicable` versus `Not applicable`;
-- model identifiers embedded in a broader gold phrase; and
-- an EASA TCDS identifier embedded in a combined historical-TCDS string.
+- model identifiers embedded in a broader applicability phrase; and
+- an EASA or France TCDS identifier embedded in a combined historical-TCDS string.
 
 It does not forgive arbitrary semantic differences.
 
-### Secondary taxonomy metric
+### Secondary catalogue normalization
 
-Aircraft-family labels are reported separately as `secondary_taxonomy_macro_f1` because the reviewed gold taxonomy and the parser's broad family grouping can use different abstraction levels. This metric remains visible but is not mixed into the primary stable-metadata macro F1.
+Report publication-header model identifiers and aircraft-family labels separately under `secondary_taxonomy_macro_f1`.
+
+This is secondary because:
+
+- an AD header may print only `A350 aeroplanes` while the reviewed annotation expands individual certified models; and
+- the parser may group A318/A319/A320/A321 into `A320 family` while reviewed labels enumerate families separately.
+
+Detailed `applicability.models` remains a primary field because the applicability section is the correct location for model-specific scope.
 
 ### Reference and lifecycle identifiers
 
-Report publication-reference number F1 and superseded-AD-number F1 separately, together with `reference_lifecycle_macro_f1`.
+Report:
 
-This prevents optional title/revision/date representation differences from obscuring whether the parser found the identifiers needed for retrieval and lifecycle support.
+- `reference_number_f1`;
+- `superseded_ad_number_f1`; and
+- `reference_lifecycle_macro_f1`.
+
+Reference identifiers are extracted deterministically from the printed reference-publication section. The metric focuses on identifiers rather than optional title/revision/date representation.
 
 ### Raw difficult sections
 
-For Definitions, Reason, Required Actions/Compliance, reference wording, and Remarks, evaluate:
+For Definitions, Reason, Required Actions/Compliance, printed reference wording, and Remarks, evaluate:
 
-- expected-section presence;
-- source-text containment where the frozen document-text cache is available; and
-- contamination by repeated page furniture/status watermarks.
+- whether the **source document actually contains the section heading**;
+- whether the parser preserves a corresponding section when printed;
+- whether the extracted section is contained in the cleaned source text; and
+- whether repeated page furniture/status watermarks contaminate the preserved section.
 
-Do **not** use exact string overlap between the live raw section and the semantic gold projection as the primary score. The gold may contain reviewed definition pairs or individual action units while the parser intentionally preserves the complete printed section.
+When `corpus_extracted_text.parquet` is available, source-heading presence is authoritative for raw-section expectation. This avoids two old errors:
 
-The previous flatten-and-set projection-overlap metric is retained only as `legacy_projection_overlap` for continuity and is explicitly marked non-primary.
+1. treating a semantic gold projection as proof that an identically represented raw section exists; and
+2. assigning `referenced_publications_text` a meaningless zero merely because the projection has no raw-equivalent field.
+
+If source text is unavailable, raw reference wording is reported as unscorable rather than as F1=0.
+
+Do **not** use exact string overlap between the live raw section and semantic gold units as the primary score. `legacy_projection_overlap` remains diagnostic only.
 
 ## Development-reference audit
 
-Before using development scores to modify the parser, run:
+Run before using development scores to modify the parser:
 
 ```bash
 .venv/bin/python -m full_corpus_pipeline.audit_development_reference \
-  --output data_processed/runs/local-content-development-1804-v2.1.4/development_reference_audit.json
+  --output data_processed/runs/local-content-development-1804-v2.1.5/development_reference_audit.json
 ```
 
 The audit opens only the nominal 30 development references. It checks:
@@ -132,46 +152,73 @@ The audit opens only the nominal 30 development references. It checks:
 - substantive field-assertion acceptance;
 - source-document identifiers and hashes;
 - evidence-span page/quote integrity;
-- auxiliary evidence-quote containment in the frozen document-text cache when available; and
-- project-scope eligibility from the reviewed Design Approval Holder.
+- auxiliary evidence-quote containment in the document-text cache when available; and
+- project-scope eligibility from the reviewed holder.
 
-The report retains the nominal count and separately reports the eligible count and exclusions. It deliberately does not open test compliance labels.
+Current expected nominal/eligible counts are 30/28 unless the immutable audit source itself changes through a formally versioned release. The existing immutable release is not edited to remove the two scope exclusions.
+
+## Full generated-corpus scope audit
+
+After every material parser change, scan the complete generated development run:
+
+```bash
+.venv/bin/python -m full_corpus_pipeline.audit_corpus_scope \
+  data_processed/runs/local-content-development-1804-v2.1.5/records \
+  --output data_processed/runs/local-content-development-1804-v2.1.5/corpus_scope_audit.json
+```
+
+The v2.1.4 result `1729 eligible / 59 excluded / 16 unknown` is explicitly **not a final corpus count** because many `excluded` holder strings were parser boundary failures such as Type/Model text. Use the v2.1.5 regenerated scope report for the next corpus-governance decision.
+
+A scope report may contain:
+
+- `eligible`: holder confidently maps to Airbus S.A.S./legacy Airbus;
+- `excluded`: holder confidently names another organization/division; and
+- `unknown`: holder missing or malformed and requiring parser/governance review.
+
+Do not silently delete excluded/unknown records from the immutable source inventory.
 
 ## Development evaluation
 
-After the audit passes, run:
+After regenerating parser v2.1.5:
 
 ```bash
 .venv/bin/python -m full_corpus_pipeline.evaluate_extraction \
-  data_processed/runs/local-content-development-1804-v2.1.4/records \
-  --output data_processed/runs/local-content-development-1804-v2.1.4/evaluation_development_v3.1.4.json \
+  data_processed/runs/local-content-development-1804-v2.1.5/records \
+  --output data_processed/runs/local-content-development-1804-v2.1.5/evaluation_development_v3.1.5.json \
   --split development
 ```
 
-For the current nominal development split, AD `2026-0079` is expected to appear under `scope_exclusions`; the primary `record_count` is therefore expected to be 29 unless another holder is classified as out of scope or unknown.
+Development results may be used to diagnose extraction rules only on project-scope-eligible development records.
 
-Development results may be used to diagnose extraction rules.
+Before freezing extraction behavior, require at minimum:
+
+- full prediction coverage and schema validity;
+- no unexpected missing printed Required Actions/Compliance sections;
+- no material repeated page furniture in preserved raw sections;
+- stable DAH boundaries across old/new layouts;
+- acceptable/documented reference and lifecycle identifier performance; and
+- representative source-PDF spot checks.
 
 ## Final clean extraction evaluation
 
-After development is frozen, run the test split once:
+After parser/evaluator behavior is frozen, run the test split once:
 
 ```bash
 .venv/bin/python -m full_corpus_pipeline.evaluate_extraction \
-  data_processed/runs/local-content-development-1804-v2.1.4/records \
-  --output data_processed/runs/local-content-development-1804-v2.1.4/evaluation_test_clean_v3.1.4.json \
+  data_processed/runs/local-content-development-1804-v2.1.5/records \
+  --output data_processed/runs/local-content-development-1804-v2.1.5/evaluation_test_clean_v3.1.5.json \
   --split test
 ```
 
-The evaluator will report:
+The evaluator reports:
 
 - `nominal_split_count`;
-- `record_count` after exclusions;
+- actual `record_count` after scope/leakage exclusions;
 - `scope_exclusions`;
 - `scope_unknown`; and
 - `contamination_exclusions`.
 
-Two test exclusions are already known: `2021-0286` for holder scope and `2024-0038` for parser-tuning leakage. The actual clean test count must be taken from the generated report rather than assumed in advance.
+The final clean test count must be taken from the generated report, not assumed in advance. Do not use clean test labels to tune parser v2.1.5 or later versions.
 
 ## QA benchmark v2
 
@@ -189,7 +236,7 @@ evaluation_sets/easa_airbus_ad_qa_50_v2/
 | Insufficient/conflict/abstention | 6 | Answer safeguards |
 | **Total** | **50** | |
 
-The immutable audit annotations may be used privately to construct reference answers and source pages. The live QA system must retrieve original PDF chunks; it may not use hidden gold annotations or treat structured JSON fields as final compliance evidence.
+The live QA system must retrieve original PDF chunks; it may not use hidden gold annotations or treat structured JSON fields as final compliance evidence.
 
 ### QA grading
 
@@ -217,13 +264,14 @@ Five non-gold PDFs from five distinct families remain frozen at:
 evaluation_sets/unseen_incoming_5_v1/
 ```
 
-They are excluded from development, tested temporarily, then permanently ingested to reach 1,809 records. Test isolation, clearing, citations, duplicate rejection, index updates, lifecycle safeguards, and absence of retraining.
+They are excluded from development, tested temporarily, then permanently ingested without retraining. Evaluate session isolation, clearing, citations, duplicate rejection, index updates, lifecycle safeguards, and ingestion correctness.
 
 ## Locking rules
 
 - Use only scope-eligible development references for extraction-rule tuning.
+- Do not add new locked-test content to parser regression fixtures.
 - Exclude known leaked test cases from clean final scoring and disclose them.
-- Do not use the remaining clean test labels for tuning.
 - Do not use the five unseen PDFs during development.
 - Keep immutable gold and nominal split artifacts unchanged; implement eligibility/exclusion in versioned evaluation logic.
+- Version every material parser/evaluator change and regenerate rather than editing generated records in place.
 - Report actual results, including failed, excluded, unknown-scope, and abstained cases.
