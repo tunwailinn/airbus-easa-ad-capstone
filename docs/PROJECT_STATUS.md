@@ -11,12 +11,13 @@ This file records only the active v3.1 project state. Superseded annotation-work
 - Held-out unseen set: **5 PDFs from 5 distinct families**.
 - Methodology: **section-complete deterministic local extraction + original-PDF page-aware RAG**.
 - Content schema: **2.1.0**.
-- Local parser: **v2.1.3**.
+- Local parser: **v2.1.4**.
 - Hosted semantic extraction: **not used**.
 - Immutable audit source: `gold_releases/easa_airbus_ad_gold_v2/` with 50 validated records.
 - Content evaluation set: `evaluation_sets/easa_airbus_ad_content_gold_50_v2/`, split 30 development / 20 locked test.
 - QA benchmark: `evaluation_sets/easa_airbus_ad_qa_50_v2/`, 50 locked questions.
-- Active promoted generated corpus: `data_processed/canonical_content_v2.1.3/` with 1,804 development records.
+- Previous generated corpus: `data_processed/canonical_content_v2.1.3/` with 1,804 development records; this output is now **stale and must not be promoted as final** after the v2.1.4 parser fix.
+- Next corrected corpus target: `data_processed/canonical_content_v2.1.4/`.
 
 ## Completed
 
@@ -35,12 +36,16 @@ This file records only the active v3.1 project state. Superseded annotation-work
 
 ### Local extraction
 
-- Deterministic parser v2.1.3 implemented.
-- 1,804 development PDFs processed locally.
-- 1,804 content records produced.
-- 0 extraction failures in the completed development run.
-- No hosted LLM/API calls used for corpus extraction.
-- Difficult AD content is retained as source text rather than semantically normalized.
+- Deterministic parser v2.1.3 completed a 1,804-record development run with zero schema failures and no hosted LLM/API calls.
+- Representative PDF spot checks then found material extraction-boundary defects in v2.1.3.
+- Parser v2.1.4 fixes those defects and has regression coverage for:
+  - printed `Issued:` date taking precedence over stale manifest metadata;
+  - `Foreign AD:` stopping before `Revision:` metadata;
+  - repeated `EASA AD No.`, `TE.CAP`, page counters, copyright/footer text, and `SUPERSEDED`/cancellation watermarks being removed before section segmentation;
+  - ordinary prose beginning with words such as `compliance` not being mistaken for a new section heading;
+  - cross-page Definitions and Required Actions remaining continuous; and
+  - Remark contact lines being retained while later appendices are excluded.
+- The v2.1.4 logic was checked against source PDFs for AD 2024-0038, AD 2024-0097R2, and AD 2025-0058R1.
 
 The active content contract retains, when printed:
 
@@ -72,8 +77,10 @@ Implemented in `full_corpus_pipeline/`:
 
 ## Not yet complete
 
-- Human spot-check of representative v2.1.3 raw-section boundaries.
-- Final locked 20-record extraction evaluation.
+- Regeneration of all 1,804 development content records with parser v2.1.4.
+- Representative PDF spot checks of the regenerated v2.1.4 corpus.
+- Final locked 20-record extraction evaluation on v2.1.4.
+- Promotion of `data_processed/canonical_content_v2.1.4/` after validation.
 - Page-preserving text generation/mounting for all 1,804 development PDFs.
 - Production E0 and E4 indexes.
 - Locked retrieval metrics: Recall@1/3/5, MRR, nDCG@5, correct-source/page retrieval.
@@ -84,17 +91,19 @@ Implemented in `full_corpus_pipeline/`:
 
 ## Immediate next actions
 
-1. Spot-check representative content records against source PDFs, focusing on section boundaries rather than semantic normalization.
-2. Freeze parser v2.1.3 unless a material extraction-boundary defect is found.
-3. Produce or mount page-preserving text for the 1,804 development PDFs.
-4. Build **E0**: flat chunks + dense-only retrieval.
-5. Build **E4**: section-aware BM25 + dense/FAISS + RRF + reranking + metadata/lifecycle filtering.
-6. Run the locked retrieval and QA evaluation.
-7. Test temporary QA on the five held-out PDFs.
-8. Permanently ingest those five PDFs and verify the final corpus count is 1,809.
+1. Run the complete 1,804-record extraction with parser v2.1.4 into a new versioned run; do not overwrite v2.1.3.
+2. Spot-check representative regenerated records against source PDFs, including normal, revision, multi-page, appendix-bearing, and older-format ADs.
+3. Run the locked extraction evaluation and promote only if it passes.
+4. Produce or mount page-preserving text for the 1,804 development PDFs.
+5. Build **E0**: flat chunks + dense-only retrieval.
+6. Build **E4**: section-aware BM25 + dense/FAISS + RRF + reranking + metadata/lifecycle filtering.
+7. Run the locked retrieval and QA evaluation.
+8. Test temporary QA on the five held-out PDFs.
+9. Permanently ingest those five PDFs and verify the final corpus count is 1,809.
 
 ## Current blockers
 
+- The corrected v2.1.4 development corpus must be regenerated and validated before the extraction layer is treated as frozen.
 - Page-preserving text for the complete 1,804-document retrieval index must be available locally or mounted from the approved data store.
 - Supervisor approval of the v3.1 research boundary should be documented before final thesis claims are frozen.
 
