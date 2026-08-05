@@ -130,6 +130,7 @@ def validate_split(root: Path, split: str, path: Path) -> list[str]:
             errors.append(f"{prefix}: family {family} leaks across split boundary")
 
         question = str(record["question"])
+        question_cf = question.casefold()
         target = record.get("target_ad_number")
         mode = str(record["query_mode"])
         answerable = bool(record["answerable_from_ad"])
@@ -137,17 +138,25 @@ def validate_split(root: Path, split: str, path: Path) -> list[str]:
         if mode == "known_document":
             if not target:
                 errors.append(f"{prefix}: known_document requires target_ad_number")
-            elif str(target).casefold() not in question.casefold():
+            elif str(target).casefold() not in question_cf:
                 errors.append(
                     f"{prefix}: known_document question must visibly name target AD {target}"
                 )
         elif mode == "discovery":
             if not target:
                 errors.append(f"{prefix}: discovery requires private target_ad_number")
-            elif str(target).casefold() in question.casefold():
-                errors.append(
-                    f"{prefix}: discovery question leaks target AD identifier {target}"
+            else:
+                exact_target = str(target).casefold()
+                base_target = base_ad_number(str(target)).casefold()
+                leaked = sorted(
+                    identifier
+                    for identifier in {exact_target, base_target}
+                    if identifier and identifier in question_cf
                 )
+                if leaked:
+                    errors.append(
+                        f"{prefix}: discovery question leaks target AD identifier(s) {leaked}"
+                    )
         elif mode == "abstention_conflict":
             if answerable:
                 errors.append(f"{prefix}: abstention_conflict must not be answerable_from_ad")
