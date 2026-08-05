@@ -24,6 +24,7 @@ ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_INDEX = ROOT / "data_processed/indexes/rag_v1_2/e4_section_hybrid"
 DEFAULT_OUTPUT = ROOT / "data_processed/indexes/e5c_qwen3_embedding_0_6b"
 MODEL_NAME = "Qwen/Qwen3-Embedding-0.6B"
+MODEL_REVISION = "97b0c61"
 BUILD_VERSION = "e5c-dense-build-v1.0"
 EXPECTED_CHUNK_COUNT = 12634
 MIN_TRANSFORMERS_VERSION = Version("4.51.0")
@@ -97,12 +98,12 @@ def main() -> int:
 
     device = choose_device(args.device)
     print(
-        f"[progress] E5-C dense build: loading {MODEL_NAME} on {device}",
+        f"[progress] E5-C dense build: loading {MODEL_NAME}@{MODEL_REVISION} on {device}",
         flush=True,
     )
     from sentence_transformers import SentenceTransformer
 
-    model = SentenceTransformer(MODEL_NAME, device=device)
+    model = SentenceTransformer(MODEL_NAME, revision=MODEL_REVISION, device=device)
     texts = [str(record["text"]) for record in records]
     vectors: list[np.ndarray] = []
     total = len(texts)
@@ -141,6 +142,7 @@ def main() -> int:
     metadata = {
         "build_version": BUILD_VERSION,
         "model": MODEL_NAME,
+        "model_revision": MODEL_REVISION,
         "document_prompt": None,
         "query_prompt_name": "query",
         "normalized": True,
