@@ -42,6 +42,15 @@ class E5QueryRouterTests(unittest.TestCase):
         self.assertEqual(route.ad_numbers, ())
         self.assertEqual(route.intent, "identity_lifecycle")
 
+    def test_passive_supersedure_question_routes_explicit_new_ad(self):
+        route = route_query(
+            "What earlier directive is superseded by EASA AD 2006-0074, and what "
+            "happened to Actions 1 and 2 from that earlier directive?"
+        )
+        self.assertEqual(route.mode, "known_document")
+        self.assertEqual(route.ad_numbers, ("2006-0074",))
+        self.assertEqual(route.intent, "identity_lifecycle")
+
     def test_primary_relation_question_routes_to_first_target_ad(self):
         route = route_query(
             "How does EASA AD 2024-0147R1 relate to the original 2024-0147 issue "
