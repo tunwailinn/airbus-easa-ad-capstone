@@ -23,10 +23,12 @@ SB_RE = re.compile(r"\b([A-Z]\d{3,4}-\d{2}-\d{4})\b", re.IGNORECASE)
 
 # In target-discovery wording, an explicitly named AD can be contextual evidence
 # rather than the document being requested. Example: "Which directive superseded
-# EASA AD 2013-0250R1?". Such queries must remain corpus-wide discovery.
+# EASA AD 2013-0250R1?". Such queries must remain corpus-wide discovery. The
+# identifier must follow the superseding verb directly; passive wording such as
+# "What directive is superseded by EASA AD 2006-0074?" still targets 2006-0074.
 SUPERSEDER_DISCOVERY_RE = re.compile(
-    rf"\b(?:which|what)\b.*\b(?:directive|ad)\b.*\bsupersed(?:e|ed|es|ing)\b"
-    rf".*\b(?:EASA\s+AD\s+|AD\s+)?{AD_ID_PATTERN}\b",
+    rf"\b(?:which|what)\b.*\b(?:directive|ad)\b.*\bsupersed(?:e|ed|es|ing)\b\s+"
+    rf"(?:EASA\s+AD\s+|AD\s+)?{AD_ID_PATTERN}\b",
     re.IGNORECASE,
 )
 
