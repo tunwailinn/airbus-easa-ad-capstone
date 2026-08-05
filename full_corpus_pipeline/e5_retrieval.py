@@ -22,7 +22,7 @@ from dataclasses import asdict, dataclass
 from pathlib import Path
 from typing import Any
 
-from full_corpus_pipeline.e5_query_router import QueryRoute, route_query
+from full_corpus_pipeline.e5_query_router import AD_RE, QueryRoute, route_query
 from full_corpus_pipeline.retrieval import HybridIndex, TOKEN_RE
 
 
@@ -62,6 +62,20 @@ class EngineeringAwareRetriever:
         if not terms:
             return ""
         return " OR ".join(f'"{term.replace(chr(34), "")}"' for term in terms[:20])
+
+    @staticmethod
+    def _ranking_query(question: str, route: QueryRoute) -> str:
+        """Remove routed AD identifiers before lexical passage ranking.
+
+        When the user explicitly supplies an AD number, E5 treats it only as a
+        deterministic document-routing key. Leaving the identifier in BM25 would
+        bias passage ranking toward header chunks that repeat the AD number, which
+        contradicts the predeclared E5 architecture.
+        """
+        if route.mode not in {"known_document", "multi_document"}:
+            return question
+        stripped = AD_RE.sub(" ", question)
+        return " ".join(stripped.split())
 
     def has_exact_ad(self, ad_number: str) -> bool:
         return ad_number.casefold() in self._ad_numbers
@@ -137,6 +151,7 @@ class EngineeringAwareRetriever:
         per_route_limit: int = 20,
     ) -> dict[str, Any]:
         route = route_query(question)
+        ranking_query = self._ranking_query(question, route)
         route_errors: list[str] = []
         candidates: list[E5Candidate] = []
 
@@ -146,7 +161,7 @@ class EngineeringAwareRetriever:
                 route_errors.append(f"exact AD not found in index: {ad_number}")
             else:
                 rows = self.sparse_within_ad(
-                    question,
+                    ranking_query,
                     ad_number,
                     limit=per_route_limit,
                 )
@@ -158,18 +173,19 @@ class EngineeringAwareRetriever:
                     route_errors.append(f"exact AD not found in index: {ad_number}")
                     continue
                 rows = self.sparse_within_ad(
-                    question,
+                    ranking_query,
                     ad_number,
                     limit=per_route_limit,
                 )
                 candidates.extend(self._materialize(rows, route=route))
 
         else:
-            rows = self.index.sparse_search(question, per_route_limit)
+            rows = self.index.sparse_search(ranking_query, per_route_limit)
             candidates.extend(self._materialize(rows, route=route))
 
         return {
             "route": route.to_dict(),
+            "ranking_query": ranking_query,
             "route_errors": route_errors,
             "candidate_count": len(candidates),
             "candidates": [candidate.to_dict() for candidate in candidates],
