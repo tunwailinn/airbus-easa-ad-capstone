@@ -33,6 +33,23 @@ class E5QueryRouterTests(unittest.TestCase):
         self.assertEqual(route.ad_numbers, ())
         self.assertEqual(route.intent, "required_action_compliance")
 
+    def test_superseder_question_keeps_predecessor_identifier_as_context(self):
+        route = route_query(
+            "Which Airbus A330 fire-protection directive superseded EASA AD "
+            "2013-0250R1 and expanded the affected flexible hose assemblies?"
+        )
+        self.assertEqual(route.mode, "discovery")
+        self.assertEqual(route.ad_numbers, ())
+        self.assertEqual(route.intent, "identity_lifecycle")
+
+    def test_primary_relation_question_routes_to_first_target_ad(self):
+        route = route_query(
+            "How does EASA AD 2024-0147R1 relate to the original 2024-0147 issue "
+            "and EASA AD 2014-0209?"
+        )
+        self.assertEqual(route.mode, "known_document")
+        self.assertEqual(route.ad_numbers, ("2024-0147R1",))
+
     def test_conditional_intent_precedes_generic_compliance(self):
         self.assertEqual(
             classify_intent(
