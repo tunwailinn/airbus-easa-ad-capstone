@@ -13,8 +13,8 @@ This file records the active v3.1 project state.
 - Corpus scope audit: **`corpus-scope-audit-v1.3`**.
 - Verified page-text source: **`page-text-v1.1`**.
 - Frozen retrieval build: **`rag-index-build-v1.2`**.
-- Retrieval evaluator: **`retrieval-eval-v1.1`**, locked to v1.2.
-- QA benchmark: **50 locked questions**.
+- Retrieval evaluator: **`retrieval-eval-v1.3`**, locked to v1.2 with PyTorch/FAISS/cross-encoder process isolation on macOS ARM.
+- QA benchmark: **50 locked questions**, of which **44** are answerable-from-AD retrieval questions and 6 are reserved for abstention/full-QA evaluation.
 
 Parser v2.1.6 remains frozen. Locked extraction-test outcomes must not be used to change parser rules.
 
@@ -41,7 +41,7 @@ Clean locked extraction test:
 - nominal test: **20**;
 - primary clean count: **17** after two holder-scope exclusions plus disclosed `2024-0038` leakage;
 - coverage/schema validity: **1.0000 / 1.0000**;
-- stable-metadata macro F1: **0.9831**;
+- stable metadata macro F1: **0.9831**;
 - applicability-model F1: **0.9222**;
 - reference-number F1: **0.9000**;
 - superseded-AD-number F1: **0.6667**;
@@ -80,7 +80,7 @@ Canonical local path:
 data_processed/page_text_v1_1/operational_airbus/
 ```
 
-## E0 / E4 retrieval stage — ACCEPTED / FROZEN
+## E0 / E4 retrieval stage — BUILD ACCEPTED / FROZEN
 
 The accepted benchmark-eligible build is **`rag-index-build-v1.2`** under:
 
@@ -128,33 +128,52 @@ No locked retrieval scores were opened before this build was accepted.
 
 Older `rag_v1/` and `rag_v1_1/` workspaces are retained for audit history only and must not be used for final retrieval evaluation.
 
-## Retrieval evaluation runtime
+## Retrieval evaluation — COMPLETED, PLUMBING REVIEW IN PROGRESS
 
-The first v1.2 evaluation execution processed all 44 E0 questions, then the Python process terminated with a native segmentation fault at E4 question 1 while another dense sentence-transformer instance was being loaded. No final `retrieval_comparison.json` was written and no completed E4 result was produced.
+A complete `retrieval-eval-v1.3` comparison artifact has now been produced using the frozen v1.2 indexes and the macOS ARM process-isolated runtime.
 
-This is documented as a runtime-aborted attempt, not a performance outcome. The frozen retrieval configuration was not changed.
+Observed aggregate results over the 44 answerable retrieval questions:
 
-`retrieval-eval-v1.1` applies only runtime-stability controls:
+### E0 observed
 
-- one shared dense query encoder for both E0 and E4;
-- the dense encoder keeps Sentence Transformers' normal single-device auto-selection;
-- cross-encoder reranking is pinned to **CPU**;
-- no explicit multiprocessing pool;
-- runtime device/provenance is recorded in the result JSON;
-- progress heartbeats cover model loading and question evaluation.
+- Recall@1/3/5: **0.0000 / 0.0000 / 0.0000**;
+- MRR: **0.0000**;
+- nDCG@5: **0.0000**;
+- correct-source@1/@5: **0.0000 / 0.0000**;
+- correct-source+page@1/@5: **0.0000 / 0.0000**.
 
-The evaluator refuses builds other than `rag-index-build-v1.2` and validates the 1,786-document and 350/450 build gates before loading the benchmark.
+### E4 observed
 
-Run the locked comparison from the beginning, then report without tuning:
+- Recall@1: **0.2500**;
+- Recall@3: **0.3636**;
+- Recall@5: **0.4091**;
+- MRR: **0.3106**;
+- nDCG@5: **0.3353**;
+- correct-source@1: **0.2727**;
+- correct-source@5: **0.5000**;
+- correct-source+page@1: **0.2500**;
+- correct-source+page@5: **0.4091**;
+- paired comparison: **E4 better 18 / E0 better 0 / ties 26**.
 
-- Recall@1/3/5;
-- MRR;
-- nDCG@5;
-- correct source@1/@5;
-- correct source+page@1/@5;
-- paired E0-vs-E4 rank counts.
+These values are **observed but not yet promoted to final thesis results** because E0's all-zero outcome warrants a post-evaluation plumbing audit. This audit is allowed because it checks implementation correctness after the frozen comparison; it must not tune chunking, models, candidate depth, fusion, reranker, corpus membership, lifecycle rules, questions, or metric definitions.
 
-After retrieval evaluation, proceed to the 50-question page-cited QA benchmark, temporary uploaded-PDF QA, and the five frozen unseen-PDF ingestion cases.
+Current diagnostic tool:
+
+```text
+full_corpus_pipeline/diagnose_retrieval_evaluation.py
+```
+
+It verifies:
+
+1. FAISS row positions align with `chunks.jsonl` and `dense_embeddings.npy`;
+2. stored embeddings agree with fresh encodings from the frozen MiniLM model;
+3. every benchmark target AD is actually present in E0/E4 indexes;
+4. whether target AD identifiers occur literally in the locked questions; and
+5. target source/page candidate recall at depth 20 for E0 dense, E4 dense, and E4 BM25 branches.
+
+The current benchmark composition is also noted for interpretation: the 44 answerable questions reference **8 distinct target ADs**, with **25/44 targeting AD 2006-0047**. This is a reporting limitation/characteristic, not a reason to alter the locked benchmark after results are observed.
+
+Do not start hosted-LLM QA scoring until the plumbing diagnostic is reviewed. If plumbing passes, report the frozen E0/E4 retrieval results as observed, including the zero E0 baseline and the benchmark-composition limitation. If plumbing fails, correct only the implementation defect, document it, and rerun the same frozen benchmark without changing retrieval configuration.
 
 ## Remaining boundaries
 
