@@ -24,6 +24,7 @@ import numpy as np
 from full_corpus_pipeline.build_e5c_dense_embeddings import (
     DEFAULT_OUTPUT as DEFAULT_DENSE_DIR,
     MODEL_NAME,
+    MODEL_REVISION,
 )
 from full_corpus_pipeline.e5_retrieval import DEFAULT_INDEX
 from full_corpus_pipeline.e5b_retrieval import (
@@ -207,6 +208,8 @@ def main() -> int:
     )
     if query_meta.get("model") != MODEL_NAME:
         raise ValueError("E5-C query worker used unexpected embedding model")
+    if query_meta.get("model_revision") != MODEL_REVISION:
+        raise ValueError("E5-C query worker used unexpected embedding revision")
     if int(query_meta.get("embedding_dimension", -1)) != retriever.dense.embeddings.shape[1]:
         raise ValueError("E5-C query/document embedding dimension mismatch")
 
@@ -291,7 +294,7 @@ def main() -> int:
         "benchmark_sha256": questions_sha,
         "policy": (
             "Development-only E5 tuning benchmark. Final-test families/questions remain sealed. "
-            "E5-C preserves E5-B known-document retrieval and adds Qwen3-Embedding-0.6B "
+            "E5-C preserves E5-B known-document retrieval and adds the pinned Qwen3-Embedding-0.6B "
             "document/passage dense RRF fusion for discovery queries."
         ),
         "configuration": {
@@ -304,6 +307,7 @@ def main() -> int:
             "primary_final_k": FINAL_K,
             "dense_retrieval": True,
             "embedding_model": MODEL_NAME,
+            "embedding_revision": MODEL_REVISION,
             "query_prompt_name": "query",
             "dense_similarity": "normalized_inner_product_cosine",
             "fusion": "reciprocal_rank_fusion",
