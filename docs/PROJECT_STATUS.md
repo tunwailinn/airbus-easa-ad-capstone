@@ -80,9 +80,9 @@ Canonical local path:
 data_processed/page_text_v1_1/operational_airbus/
 ```
 
-## E0 / E4 retrieval stage — BUILD ACCEPTED / FROZEN
+## E0 / E4 retrieval stage — FINAL / FROZEN
 
-The accepted benchmark-eligible build is **`rag-index-build-v1.2`** under:
+The accepted benchmark build is **`rag-index-build-v1.2`** under:
 
 ```text
 data_processed/indexes/rag_v1_2/
@@ -128,13 +128,11 @@ No locked retrieval scores were opened before this build was accepted.
 
 Older `rag_v1/` and `rag_v1_1/` workspaces are retained for audit history only and must not be used for final retrieval evaluation.
 
-## Retrieval evaluation — COMPLETED, PLUMBING REVIEW IN PROGRESS
+## Final retrieval evaluation
 
-A complete `retrieval-eval-v1.3` comparison artifact has now been produced using the frozen v1.2 indexes and the macOS ARM process-isolated runtime.
+`retrieval-eval-v1.3` completed over the 44 answerable retrieval questions using the frozen v1.2 indexes.
 
-Observed aggregate results over the 44 answerable retrieval questions:
-
-### E0 observed
+### E0 final
 
 - Recall@1/3/5: **0.0000 / 0.0000 / 0.0000**;
 - MRR: **0.0000**;
@@ -142,7 +140,7 @@ Observed aggregate results over the 44 answerable retrieval questions:
 - correct-source@1/@5: **0.0000 / 0.0000**;
 - correct-source+page@1/@5: **0.0000 / 0.0000**.
 
-### E4 observed
+### E4 final
 
 - Recall@1: **0.2500**;
 - Recall@3: **0.3636**;
@@ -155,25 +153,43 @@ Observed aggregate results over the 44 answerable retrieval questions:
 - correct-source+page@5: **0.4091**;
 - paired comparison: **E4 better 18 / E0 better 0 / ties 26**.
 
-These values are **observed but not yet promoted to final thesis results** because E0's all-zero outcome warrants a post-evaluation plumbing audit. This audit is allowed because it checks implementation correctness after the frozen comparison; it must not tune chunking, models, candidate depth, fusion, reranker, corpus membership, lifecycle rules, questions, or metric definitions.
+### Post-evaluation plumbing validation
 
-Current diagnostic tool:
+`retrieval-plumbing-diagnostic-v1.0` confirms that the E0 all-zero result is not an index mapping or embedding-corruption artifact:
 
-```text
-full_corpus_pipeline/diagnose_retrieval_evaluation.py
-```
+- E0 FAISS/chunk alignment: **20/20 exact**;
+- E4 FAISS/chunk alignment: **20/20 exact**;
+- fresh-vs-stored embedding cosine: approximately **1.0** for both indexes;
+- all **8** target ADs are present in both indexes.
 
-It verifies:
+Branch-level candidate recall at depth 20:
 
-1. FAISS row positions align with `chunks.jsonl` and `dense_embeddings.npy`;
-2. stored embeddings agree with fresh encodings from the frozen MiniLM model;
-3. every benchmark target AD is actually present in E0/E4 indexes;
-4. whether target AD identifiers occur literally in the locked questions; and
-5. target source/page candidate recall at depth 20 for E0 dense, E4 dense, and E4 BM25 branches.
+- E0 dense correct source: **0/44**;
+- E4 dense correct source: **0/44**;
+- E4 BM25 correct source: **40/44 (90.9%)**;
+- E4 BM25 correct source+page: **40/44 (90.9%)**.
 
-The current benchmark composition is also noted for interpretation: the 44 answerable questions reference **8 distinct target ADs**, with **25/44 targeting AD 2006-0047**. This is a reporting limitation/characteristic, not a reason to alter the locked benchmark after results are observed.
+All 44 answerable questions contain their target AD number literally. The final interpretation is therefore that E4's improvement is driven primarily by the **hybrid lexical/section-aware architecture**, especially BM25 exact-term retrieval, while the frozen MiniLM dense branch contributes no correct-target candidates within top-20 on this benchmark. The four BM25 source misses are QA-039 to QA-042, all conditional/multi-passage cases.
 
-Do not start hosted-LLM QA scoring until the plumbing diagnostic is reviewed. If plumbing passes, report the frozen E0/E4 retrieval results as observed, including the zero E0 baseline and the benchmark-composition limitation. If plumbing fails, correct only the implementation defect, document it, and rerun the same frozen benchmark without changing retrieval configuration.
+A second limitation is the ranking bottleneck: BM25 has 90.9% correct-page candidate recall at depth 20, but final E4 correct-source+page@5 is only 40.9% after fusion/reranking. This must be reported as a limitation; it must not be tuned after the locked result.
+
+Benchmark composition must also be reported: the 44 answerable questions reference **8 distinct target ADs**, with **25/44** targeting AD `2006-0047`.
+
+The retrieval experiment is now closed. Do not retune E0/E4 based on these results.
+
+## Next stage — hosted-LLM/full-QA evaluation
+
+Proceed to retrieval-time answer generation using the frozen E4 evidence. Hosted LLM generation is allowed only at QA time; extraction and indexing remain deterministic/local.
+
+The QA layer must:
+
+- answer only from supplied retrieved evidence;
+- cite AD number, source PDF, page, and section from retrieval metadata;
+- preserve compliance conditions, exceptions, thresholds, intervals, and terminating actions;
+- abstain when evidence is absent, incomplete, or conflicting;
+- report retrieval-induced failures separately from generation/reasoning failures.
+
+A hosted LLM cannot recover a correct answer when the correct evidence is absent from the supplied retrieval context, so retrieval coverage must remain part of final QA error attribution.
 
 ## Remaining boundaries
 
