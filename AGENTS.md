@@ -46,7 +46,7 @@ Detailed compliance interpretation must use original PDF passages retrieved by R
 19. **`rag-index-build-v1.2` is accepted and frozen. Do not retune retrieval configuration from locked benchmark results.**
 20. Chunk-size construction/reporting uses `whitespace_split`: E0 <=350, E4 target 250–450 and hard max 450. These are deterministic chunk units, not transformer subword tokens.
 21. Final retrieval evaluation must use only `data_processed/indexes/rag_v1_2/`; `rag_v1/` and `rag_v1_1/` are retained for audit history only.
-22. On macOS ARM, do not run FAISS-backed retrieval and the cross-encoder reranker in the same Python process. `retrieval-eval-v1.2` must keep FAISS+dense retrieval in the parent process and run the CPU cross-encoder in `rerank_candidates_worker.py`, which intentionally never imports FAISS.
+22. On macOS ARM, **never import/use PyTorch/SentenceTransformers and FAISS in the same Python process** for the frozen evaluator. `retrieval-eval-v1.3` uses separate workers for query encoding, FAISS `IndexFlatIP` search, and CPU cross-encoder reranking.
 
 ## Frozen/active versions
 
@@ -58,7 +58,7 @@ Detailed compliance interpretation must use original PDF passages retrieved by R
 - Page visual override file: `full_corpus_pipeline/page_text_visual_overrides.json`.
 - Frozen retrieval build: **`rag-index-build-v1.2`**.
 - Retrieval build state: `docs/RETRIEVAL_BUILD_STATUS.md`.
-- Retrieval evaluator: **`retrieval-eval-v1.2`**, locked to build v1.2 with isolated CPU reranking.
+- Retrieval evaluator: **`retrieval-eval-v1.3`**, locked to build v1.2 with full PyTorch/FAISS process isolation.
 - QA benchmark: **50 locked questions**.
 - Immutable audit source: `gold_releases/easa_airbus_ad_gold_v2/`.
 
@@ -151,30 +151,40 @@ data_processed/indexes/rag_v1_2/
 
 ## Retrieval evaluation runtime
 
-Two native macOS crashes occurred before a complete E0/E4 comparison artifact was produced. The second crash happened in a pre-benchmark smoke test even with the reranker pinned to CPU, confirming that device placement alone did not remove the FAISS/PyTorch native interaction.
+Three native macOS ARM crashes occurred before a complete E0/E4 comparison artifact was produced. The latest crash occurred in the pre-benchmark E4 candidate smoke test immediately after the SentenceTransformer loaded on MPS and before the cross-encoder worker was invoked. This confirms the remaining unstable boundary is PyTorch/SentenceTransformers + FAISS in one process.
 
-`retrieval-eval-v1.2` preserves the same frozen ranking semantics but isolates process boundaries:
+`retrieval-eval-v1.3` preserves the same frozen ranking semantics but fully isolates native libraries:
 
 ```text
 parent process:
-  SentenceTransformer + FAISS + BM25 + RRF
-  → E0 results + E4 candidate sets
+  SQLite/BM25 + chunk metadata + RRF + metrics only
 
-isolated child process:
-  CrossEncoder on CPU
-  → reranked E4 top-5
+child A:
+  SentenceTransformer all-MiniLM-L6-v2 only
+  → normalized query vectors
+
+child B:
+  FAISS only
+  → IndexFlatIP dense rankings from those vectors
+
+child C:
+  CPU CrossEncoder only
+  → E4 reranked top-5
 ```
 
-The child worker must not import FAISS. A generic smoke candidate set is reranked in the isolated process before locked questions are loaded.
+The parent does not instantiate SentenceTransformer, CrossEncoder, or FAISS. The query encoder worker never imports FAISS; the FAISS worker never imports PyTorch/SentenceTransformers; the reranker worker never imports FAISS.
+
+A generic fully isolated smoke query must pass query encoding → FAISS search → BM25/RRF assembly → CPU reranking before locked questions are loaded.
 
 ## Immediate priority
 
 1. Pull current `main` and run the full unit-test suite.
-2. Run `retrieval-eval-v1.2` from the beginning; report the completed E0/E4 results without tuning.
-3. Update context/reporting with observed Recall@1/3/5, MRR, nDCG@5, correct-source and correct-source/page metrics.
-4. Run the 50-question page-cited QA benchmark.
-5. Evaluate temporary uploaded-PDF QA.
-6. Permanently ingest the five frozen unseen PDFs without retraining.
+2. Run `retrieval-eval-v1.3` from the beginning; the fully isolated smoke test must pass before the 44 locked questions open.
+3. Report completed E0/E4 results without tuning.
+4. Update context/reporting with observed Recall@1/3/5, MRR, nDCG@5, correct-source and correct-source/page metrics.
+5. Run the 50-question page-cited QA benchmark.
+6. Evaluate temporary uploaded-PDF QA.
+7. Permanently ingest the five frozen unseen PDFs without retraining.
 
 ## Working protocol
 
