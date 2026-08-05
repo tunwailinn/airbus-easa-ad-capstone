@@ -28,6 +28,7 @@ from full_corpus_pipeline.build_e5c_dense_embeddings import (
     BUILD_VERSION,
     DEFAULT_OUTPUT as DEFAULT_DENSE_DIR,
     MODEL_NAME,
+    MODEL_REVISION,
 )
 from full_corpus_pipeline.e5_query_router import QueryRoute, route_query
 from full_corpus_pipeline.e5_retrieval import DEFAULT_INDEX
@@ -91,6 +92,8 @@ class QwenDenseStore:
             )
         if self.metadata.get("model") != MODEL_NAME:
             raise ValueError("unexpected E5-C dense embedding model")
+        if self.metadata.get("model_revision") != MODEL_REVISION:
+            raise ValueError("unexpected E5-C dense embedding model revision")
         if self.metadata.get("chunk_source_sha256") != sha256_file(chunk_path):
             raise ValueError("E5-C dense artifact does not match frozen E4 chunks.jsonl")
         chunk_id_sha = hashlib.sha256(
@@ -354,8 +357,6 @@ class DenseEvidenceAssemblyRetriever:
             }
             primaries.append(primary)
 
-            # Reuse E5-B adjacency/section-diversity ordering for the remaining
-            # fused passages inside the document.
             extras = self.base._secondary_order(primary, passages[1:])
             for item in extras:
                 secondaries.append(
@@ -402,6 +403,7 @@ class DenseEvidenceAssemblyRetriever:
                 "final_candidate_limit": final_candidate_limit,
                 "rrf_k": RRF_K,
                 "embedding_model": MODEL_NAME,
+                "embedding_revision": MODEL_REVISION,
             },
             "document_candidates": selected_documents,
             "candidate_count": len(unique),
