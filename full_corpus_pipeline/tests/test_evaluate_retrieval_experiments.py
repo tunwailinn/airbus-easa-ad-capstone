@@ -5,12 +5,12 @@ from pathlib import Path
 
 from full_corpus_pipeline.evaluate_retrieval_experiments import (
     EXPECTED_BUILD_VERSION,
+    FROZEN_CANDIDATE_LIMIT,
     RERANKER_DEVICE,
-    RERANKER_EXECUTION,
-    hybrid_candidates,
+    dense_results_from_positions,
+    hybrid_candidates_from_dense,
     paired_comparison,
     relevance_rank,
-    share_dense_query_encoder,
     source_rank,
     summarize,
     validate_build_summary,
@@ -21,21 +21,10 @@ from full_corpus_pipeline.retrieval import Chunk
 
 class RetrievalExperimentEvaluationTests(unittest.TestCase):
     def test_source_and_page_rank(self):
-        question = {
-            "target_ad_number": "2026-0001",
-            "reference_pages": [2],
-        }
+        question = {"target_ad_number": "2026-0001", "reference_pages": [2]}
         results = [
-            {
-                "ad_number": "2026-0001",
-                "page_start": 1,
-                "page_end": 1,
-            },
-            {
-                "ad_number": "2026-0001",
-                "page_start": 2,
-                "page_end": 2,
-            },
+            {"ad_number": "2026-0001", "page_start": 1, "page_end": 1},
+            {"ad_number": "2026-0001", "page_start": 2, "page_end": 2},
         ]
         self.assertEqual(source_rank(results, question), 1)
         self.assertEqual(relevance_rank(results, question), 2)
@@ -85,31 +74,17 @@ class RetrievalExperimentEvaluationTests(unittest.TestCase):
         }
         with tempfile.TemporaryDirectory() as temporary:
             root = Path(temporary)
-            (root / "build_summary.json").write_text(
-                json.dumps(summary), encoding="utf-8"
-            )
+            (root / "build_summary.json").write_text(json.dumps(summary), encoding="utf-8")
             loaded = validate_build_summary(root)
             self.assertEqual(loaded["retrieval_build_version"], EXPECTED_BUILD_VERSION)
-
             summary["retrieval_build_version"] = "rag-index-build-v1.1"
-            (root / "build_summary.json").write_text(
-                json.dumps(summary), encoding="utf-8"
-            )
+            (root / "build_summary.json").write_text(json.dumps(summary), encoding="utf-8")
             with self.assertRaisesRegex(ValueError, "rag-index-build-v1.2"):
                 validate_build_summary(root)
 
-    def test_runtime_policy_shares_dense_encoder_and_isolates_reranker(self):
-        class FakeIndex:
-            _encoder = None
-
-        e0 = FakeIndex()
-        e4 = FakeIndex()
-        encoder = object()
-        share_dense_query_encoder(e0, e4, encoder)
-        self.assertIs(e0._encoder, encoder)
-        self.assertIs(e4._encoder, encoder)
+    def test_runtime_policy_keeps_frozen_candidate_limit_and_cpu_reranker(self):
+        self.assertEqual(FROZEN_CANDIDATE_LIMIT, 20)
         self.assertEqual(RERANKER_DEVICE, "cpu")
-        self.assertEqual(RERANKER_EXECUTION, "isolated_subprocess_without_faiss")
 
     def test_hybrid_candidates_preserve_frozen_rrf_candidate_union(self):
         first = Chunk(
@@ -139,19 +114,40 @@ class RetrievalExperimentEvaluationTests(unittest.TestCase):
             def sparse_search(self, query, limit):
                 return [{"chunk_id": "a", "score": 2.0}]
 
-            def dense_search(self, query, limit):
-                return [
-                    {"chunk_id": "b", "score": 0.9},
-                    {"chunk_id": "a", "score": 0.8},
-                ]
-
-        candidates = hybrid_candidates(
-            FakeIndex(), "hydraulic inspection", candidate_limit=20
+        dense_row = [
+            {"index": 1, "score": 0.9},
+            {"index": 0, "score": 0.8},
+        ]
+        candidates = hybrid_candidates_from_dense(
+            FakeIndex(),
+            "hydraulic inspection",
+            dense_row,
+            candidate_limit=20,
         )
         by_id = {candidate["chunk_id"]: candidate for candidate in candidates}
         self.assertEqual(set(by_id), {"a", "b"})
         self.assertAlmostEqual(by_id["a"]["retrieval_score"], 1 / 61 + 1 / 62)
         self.assertAlmostEqual(by_id["b"]["retrieval_score"], 1 / 61)
+
+    def test_dense_results_map_faiss_positions_without_changing_rank(self):
+        first = Chunk(
+            chunk_id="a", file_instance_id="f1", ad_number="A", source_pdf="a.pdf",
+            page_start=1, page_end=1, section="Flat", text="first"
+        )
+        second = Chunk(
+            chunk_id="b", file_instance_id="f2", ad_number="B", source_pdf="b.pdf",
+            page_start=2, page_end=2, section="Flat", text="second"
+        )
+
+        class FakeIndex:
+            chunks = [first, second]
+
+        results = dense_results_from_positions(
+            FakeIndex(),
+            [{"index": 1, "score": 0.9}, {"index": 0, "score": 0.8}],
+        )
+        self.assertEqual([item["chunk_id"] for item in results], ["b", "a"])
+        self.assertEqual([item["score"] for item in results], [0.9, 0.8])
 
     def test_isolated_worker_reranks_without_retrieval_dependencies(self):
         class FakeModel:
