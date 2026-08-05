@@ -14,11 +14,29 @@ from dataclasses import asdict, dataclass
 from typing import Iterable
 
 
+AD_ID_PATTERN = r"(?:19|20)\d{2}-\d{4}(?:R\d+)?"
 AD_RE = re.compile(
-    r"\b(?:EASA\s+AD\s+|AD\s+)?((?:19|20)\d{2}-\d{4}(?:R\d+)?)\b",
+    rf"\b(?:EASA\s+AD\s+|AD\s+)?({AD_ID_PATTERN})\b",
     re.IGNORECASE,
 )
 SB_RE = re.compile(r"\b([A-Z]\d{3,4}-\d{2}-\d{4})\b", re.IGNORECASE)
+
+# In target-discovery wording, an explicitly named AD can be contextual evidence
+# rather than the document being requested. Example: "Which directive superseded
+# EASA AD 2013-0250R1?". Such queries must remain corpus-wide discovery.
+SUPERSEDER_DISCOVERY_RE = re.compile(
+    rf"\b(?:which|what)\b.*\b(?:directive|ad)\b.*\bsupersed(?:e|ed|es|ing)\b"
+    rf".*\b(?:EASA\s+AD\s+|AD\s+)?{AD_ID_PATTERN}\b",
+    re.IGNORECASE,
+)
+
+# Some questions name one primary target first and then mention related ADs for
+# context. In these forms the first AD remains the routed document rather than
+# forcing a multi-document search.
+PRIMARY_RELATION_RE = re.compile(
+    rf"^\s*how\s+does\s+(?:EASA\s+AD\s+|AD\s+)?({AD_ID_PATTERN})\b.*\brelate\b",
+    re.IGNORECASE,
+)
 
 
 SECTION_HINTS: dict[str, tuple[str, ...]] = {
@@ -180,16 +198,26 @@ def classify_intent(question: str) -> str:
 
 
 def route_query(question: str) -> QueryRoute:
-    ad_numbers = extract_ad_numbers(question)
+    all_ad_numbers = extract_ad_numbers(question)
     publication_ids = extract_publication_ids(question)
     intent = classify_intent(question)
 
-    if len(ad_numbers) == 1:
-        mode = "known_document"
-    elif len(ad_numbers) > 1:
-        mode = "multi_document"
-    else:
+    if SUPERSEDER_DISCOVERY_RE.search(question):
         mode = "discovery"
+        ad_numbers: tuple[str, ...] = ()
+    else:
+        primary_match = PRIMARY_RELATION_RE.search(question)
+        if primary_match:
+            mode = "known_document"
+            ad_numbers = (primary_match.group(1).upper(),)
+        else:
+            ad_numbers = all_ad_numbers
+            if len(ad_numbers) == 1:
+                mode = "known_document"
+            elif len(ad_numbers) > 1:
+                mode = "multi_document"
+            else:
+                mode = "discovery"
 
     return QueryRoute(
         mode=mode,
