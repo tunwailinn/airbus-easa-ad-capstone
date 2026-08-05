@@ -14,124 +14,88 @@ This file records the frozen E0/E4 index-build state and retrieval-evaluation ru
 - Dense model: `sentence-transformers/all-MiniLM-L6-v2`.
 - Frozen research backends require sentence-transformers + FAISS; no hashing/numpy fallback is permitted.
 
-## Build history
+## Frozen build
 
-### `rag-index-build-v1.0` — rejected before benchmark
-
-The first infrastructure build completed, but its report mixed a lexical counter with whitespace-based construction limits. Reported maxima were therefore inconsistent with the declared chunk policy. No locked retrieval scores were opened.
-
-### `rag-index-build-v1.1` — partial, not benchmark-eligible
-
-E0 built successfully over all 1,786 documents, but E4 stopped before embedding/index construction because the strict gate found a **476**-unit section chunk against the frozen **450** maximum. Root cause: legacy E4 construction counted blocks with `TOKEN_RE.findall(...)` while the frozen limit/report used whitespace-delimited units.
-
-No E4 v1.1 index was accepted and no locked benchmark scores were opened.
-
-### `rag-index-build-v1.2` — ACCEPTED / FROZEN
-
-The reviewed `build_summary.json` passes all pre-benchmark gates.
+`rag-index-build-v1.2` is **ACCEPTED / FROZEN**.
 
 Common configuration:
 
-- retrieval build version: **`rag-index-build-v1.2`**;
-- page source: **`page-text-v1.1`**;
 - document count: **1,786**;
+- page source: `page-text-v1.1`;
 - dense model: `sentence-transformers/all-MiniLM-L6-v2`;
-- chunk-size policy: `whitespace_split`;
+- chunk count method: `whitespace_split`;
 - sentence-transformers: **5.6.0**;
 - FAISS CPU: **1.14.3**.
 
-E0 accepted build:
+E0:
 
-- experiment: `E0-flat-dense`;
-- chunks: **9,394**;
-- documents: **1,786**;
-- max chunk size: **350**;
-- multi-page chunks: **0**;
-- dense backend: `sentence_transformers`;
-- dense index: `faiss_index_flat_ip`.
+- **9,394** chunks;
+- max chunk size **350**;
+- FAISS `IndexFlatIP`;
+- dense-only evaluation ranking.
 
-E4 accepted build:
+E4:
 
-- experiment: `E4-section-hybrid`;
-- chunks: **12,634**;
-- documents: **1,786**;
-- max chunk size: **450**;
-- multi-page chunks: **2,924**;
-- max page span: **5**;
-- dense backend: `sentence_transformers`;
-- dense index: `faiss_index_flat_ip`;
-- sparse backend: `sqlite_fts5_bm25`;
-- fusion: `reciprocal_rank_fusion`;
-- reranker model: `cross-encoder/ms-marco-MiniLM-L-6-v2`.
-
-The E0 artifact was reused from the valid v1.1 E0 build and revalidated in the v1.2 workspace. E4 was rebuilt with corrected whitespace-based construction accounting.
-
-## Frozen evaluation workspace
+- **12,634** chunks;
+- max chunk size **450**;
+- **2,924** multi-page chunks; max page span **5**;
+- SQLite FTS5/BM25 + same dense model + FAISS + RRF;
+- reranker `cross-encoder/ms-marco-MiniLM-L-6-v2`;
+- candidate depth **20** per sparse/dense path.
 
 Accepted index root:
 
 ```text
 data_processed/indexes/rag_v1_2/
-├── e0_flat_dense/
-├── e4_section_hybrid/
-└── build_summary.json
 ```
 
-Keep older workspaces for audit history:
-
-```text
-data_processed/indexes/rag_v1/
-data_processed/indexes/rag_v1_1/
-```
-
-They are not valid inputs to the final retrieval evaluator.
+Older `rag_v1/` and `rag_v1_1/` workspaces remain audit history only.
 
 ## Retrieval evaluation runtime history
 
-### First execution attempt — runtime aborted
+### Attempt 1 — runtime aborted
 
-The accepted v1.2 indexes were used. E0 processed all 44 answerable locked retrieval questions, but before aggregate results were written the process terminated with a native macOS segmentation fault at E4 question 1. No completed E4 measurement and no `retrieval_comparison.json` were produced.
+E0 processed all 44 answerable locked questions, then the process segfaulted at E4 question 1. No completed E4 measurement and no final comparison file were produced.
 
-No retrieval configuration was changed from this attempt.
+### Attempt 2 — runtime smoke aborted
 
-### Second execution attempt — pre-benchmark smoke test aborted
+The cross-encoder was pinned to CPU and a shared dense encoder was used. Model loading and reranker warm-up succeeded, but the process still segfaulted when the full E4 path executed in one process.
 
-A runtime-only v1.1 evaluator reused one dense encoder and pinned the cross-encoder to CPU. Dense and cross-encoder model loading/warm-up both completed, but the process still segfaulted when the smoke test combined FAISS-backed dense retrieval and the CPU cross-encoder in the same Python process. Locked questions had not yet been loaded in this second attempt.
+### Attempt 3 — candidate smoke aborted before reranking
 
-This behavior matches a known upstream macOS ARM failure mode where FAISS and PyTorch wheels can load incompatible OpenMP runtimes in one process and crash with `EXC_BAD_ACCESS`/segmentation faults. This is treated as a platform/runtime defect, not a retrieval-performance signal.
+The cross-encoder was moved to an isolated child process, but the parent still contained both SentenceTransformer/PyTorch and FAISS. The process segfaulted during the **E4 candidate smoke test immediately after the dense encoder loaded on MPS**, before the child reranker was invoked.
 
-### Frozen runtime policy — `retrieval-eval-v1.2`
+This isolates the remaining platform defect to the SentenceTransformer/PyTorch + FAISS process boundary. Upstream PyTorch macOS ARM reports document native OpenMP crashes when FAISS and PyTorch coexist in one process; Sentence Transformers has a corresponding FAISS compatibility report. This remains a runtime/platform defect, not a retrieval-performance signal.
 
-The retrieval architecture and ranking configuration remain unchanged. Only process boundaries are changed:
+## Frozen runtime policy — `retrieval-eval-v1.3`
 
-1. the parent evaluator loads the frozen dense `all-MiniLM-L6-v2` query encoder and performs E0 dense retrieval plus E4 BM25+dense+RRF candidate generation with FAISS;
-2. E4 candidate sets are serialized to a temporary file;
-3. `cross-encoder/ms-marco-MiniLM-L-6-v2` reranking runs in a clean child Python process using CPU;
-4. the child reranker module intentionally never imports FAISS or the retrieval module;
-5. reranked top-5 results return to the parent for the same source/page metrics and paired E0/E4 comparison.
+The retrieval algorithm is unchanged. Only native-library process boundaries are changed.
 
-This process isolation does **not** change:
+The evaluator now uses three isolated child processes:
+
+1. **Query encoder worker** — imports Sentence Transformers/PyTorch, never FAISS; produces normalized query vectors with the frozen `all-MiniLM-L6-v2` model.
+2. **FAISS worker** — imports FAISS, never PyTorch/Sentence Transformers; searches the frozen `IndexFlatIP` indexes using those query vectors.
+3. **Reranker worker** — imports the frozen cross-encoder on CPU, never FAISS; reranks the exact E4 BM25+dense+RRF candidate sets.
+
+The parent process handles only SQLite/BM25, chunk metadata, RRF assembly, metrics, and subprocess orchestration. It does not instantiate SentenceTransformer, CrossEncoder, or FAISS.
+
+This does **not** change:
 
 - corpus membership;
-- E0/E4 chunking;
+- E0/E4 chunks;
 - embedding model;
-- FAISS index;
+- normalized query-vector semantics;
+- FAISS `IndexFlatIP` search;
 - BM25 retrieval;
-- candidate depth (**20** per sparse/dense path);
-- RRF constant/policy;
-- cross-encoder model;
-- top-5 evaluation depth;
+- candidate depth (**20**);
+- RRF policy/constant;
+- reranker model;
+- top-5 depth;
 - locked questions; or
 - metric definitions.
 
-A non-benchmark smoke query must pass both parent-side candidate generation and the isolated child reranker before locked questions are loaded. Progress output is visible in both parent and child processes.
+A fully isolated non-benchmark E4 smoke query must pass query encoding → FAISS search → BM25/RRF assembly → isolated CPU reranking before the 44 locked questions are loaded.
 
 ## Benchmark lock
 
-The E0/E4 retrieval configuration remains frozen. From this point onward:
-
-1. do not change chunking, embedding model, candidate depth, RRF policy, reranker model, corpus membership, lifecycle rules, or locked questions based on retrieval results;
-2. rerun the locked retrieval evaluation from the beginning using `retrieval-eval-v1.2` and report the completed results as observed;
-3. implementation/runtime defects may be fixed only when independent of retrieval performance and must be documented explicitly.
-
-The evaluator remains locked to `rag-index-build-v1.2` and validates the 1,786-document and 350/450 build gates before evaluation.
+The E0/E4 configuration remains frozen. Do not change chunking, model names, candidate depth, fusion, corpus membership, lifecycle policy, questions, or metrics based on any locked result. Runtime-only fixes are allowed only when independent of retrieval performance and must remain documented.
