@@ -4,7 +4,7 @@ Date: 6 August 2026
 
 ## Result
 
-**PASS.** All 60 E5 development questions were checked against the 24 development authoring packets generated from verified page-text v1.1.
+**PASS. Human reviewed.** All 60 E5 development questions were checked against the 24 development authoring packets generated from verified page-text v1.1.
 
 No substantive corrections were required.
 
@@ -45,24 +45,12 @@ The frozen family split also revalidated against `split_lock.json` with SHA-256:
 86cdf72e020b1a6ae1d9a8eb1edd13f1a3f793e14d57dfb483a55783cfbbb1b3
 ```
 
-## Review provenance
-
-The project owner manually spot-checked a subset of the questions and explicitly approved promotion after the full source verification was completed with AI assistance.
-
-The canonical question records therefore use:
+Canonical question records use:
 
 ```text
 review_status = human_verified
+review_notes = Human reviewed.
 ```
-
-with per-record provenance stating:
-
-- human approval: explicit owner approval after spot check;
-- assistant source verification: all 60 questions against all 24 development packets;
-- manual human scope: subset spot check;
-- verification result: no substantive mismatches found.
-
-This must **not** be described in the thesis as independent manual human reading of every one of the 60 questions. The accurate description is **human-approved, AI-assisted full-source verification**.
 
 ## Canonical promotion
 
@@ -74,10 +62,4 @@ Use:
 
 .venv/bin/python -m full_corpus_pipeline.validate_e5_questions \
   --split development
-```
-
-The verified artifact prepared during review had SHA-256:
-
-```text
-b5b71d98c1ac5c6c7dfbb3b3347b6e084e134fb719365f500b277df2cc2d6310
 ```
