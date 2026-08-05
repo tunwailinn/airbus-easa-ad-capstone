@@ -1,4 +1,4 @@
-# Agent Guide: Airbus EASA AD Capstone v3.1
+# Agent Guide: Airbus EASA AD Capstone v3.2
 
 Read this before changing code, data rules, experiments, or documentation.
 
@@ -19,6 +19,9 @@ Layer A: deterministic section-complete content records
 
 Layer B: original-PDF page text + RAG
 → applicability/compliance retrieval, interpretation, page-cited QA
+
+Layer C: hosted evidence-grounded QA
+→ final answer generation only after retrieval is frozen
 ```
 
 Detailed compliance interpretation must use original PDF passages retrieved by RAG. Do not claim the structured content JSON fully normalizes compliance logic.
@@ -43,12 +46,20 @@ Detailed compliance interpretation must use original PDF passages retrieved by R
 16. E0 and E4 use the same 1,786-document retrieval manifest and the same dense embedding model.
 17. E0 ranking is dense-only over flat chunks. E4 is section-aware BM25 + dense + FAISS + RRF + local cross-encoder reranking.
 18. Do not silently use hashing, numpy-only dense indexing, or lexical reranking fallback for the frozen thesis E0/E4 measurements.
-19. **`rag-index-build-v1.2` and `retrieval-eval-v1.3` are final/frozen. Do not retune retrieval from locked results.**
+19. **`rag-index-build-v1.2` and `retrieval-eval-v1.3` are final/frozen. Do not retune retrieval from locked QA-v2 results.**
 20. Chunk-size construction/reporting uses `whitespace_split`: E0 <=350, E4 target 250–450 and hard max 450. These are deterministic chunk units, not transformer subword tokens.
-21. Final retrieval artifacts live under `data_processed/indexes/rag_v1_2/`; `rag_v1/` and `rag_v1_1/` are audit history only.
-22. On macOS ARM, **never import/use PyTorch/SentenceTransformers and FAISS in the same Python process** for the frozen evaluator. `retrieval-eval-v1.3` uses separate workers for query encoding, FAISS `IndexFlatIP` search, and CPU cross-encoder reranking.
+21. Final E0/E4 retrieval artifacts live under `data_processed/indexes/rag_v1_2/`; `rag_v1/` and `rag_v1_1/` are audit history only.
+22. On macOS ARM, **never import/use PyTorch/SentenceTransformers and FAISS in the same Python process** for the frozen evaluator. Process isolation is mandatory where those runtimes could coexist.
 23. Hosted LLMs are allowed only at QA time. They must receive retrieved original-PDF evidence, preserve page/source citations, and abstain when evidence is insufficient.
 24. Distinguish retrieval failures from LLM reasoning/generation failures. Do not credit or blame the LLM when the authoritative passage was absent from its supplied context.
+25. E5 is a separate post-E0/E4 experiment using a fresh benchmark. The **60-question E5 development set** may be used for E5-A/B/C/D model/configuration selection; the **40-question E5 final set remains sealed** until retrieval and hosted-QA settings are frozen.
+26. Do not reopen or retune E0/E4 from E5 outcomes.
+27. E5 known-document routing is deterministic. A supplied AD identifier is a routing key, not a learned ranking feature.
+28. E5 discovery questions must remain identifier-free and use corpus-wide retrieval before candidate-AD passage retrieval.
+29. E5-A and E5-B development results are already exposed. Do not rewrite those ablations; add later stages as separate experiments.
+30. E5-B is retained as the lexical/evidence-assembly base because it improved Recall@5 with zero top-5 losses versus E5-A.
+31. E5-C uses `Qwen/Qwen3-Embedding-0.6B` as the predeclared supplemental dense model. It must not replace exact identifier routing or BM25.
+32. The initial E5-C configuration recorded in `docs/E5_STATUS.md` must be evaluated before any additional development tuning.
 
 ## Frozen/active versions
 
@@ -58,12 +69,15 @@ Detailed compliance interpretation must use original PDF passages retrieved by R
 - Corpus scope audit: **`corpus-scope-audit-v1.3`**.
 - Verified page source: **`page-text-v1.1`**.
 - Page visual override file: `full_corpus_pipeline/page_text_visual_overrides.json`.
-- Frozen retrieval build: **`rag-index-build-v1.2`**.
-- Frozen retrieval evaluator: **`retrieval-eval-v1.3`**.
+- Frozen E0/E4 retrieval build: **`rag-index-build-v1.2`**.
+- Frozen E0/E4 retrieval evaluator: **`retrieval-eval-v1.3`**.
 - Retrieval plumbing diagnostic: **`retrieval-plumbing-diagnostic-v1.0`**.
-- Retrieval build/result state: `docs/RETRIEVAL_BUILD_STATUS.md`.
-- QA benchmark: **50 locked questions**.
-- Immutable audit source: `gold_releases/easa_airbus_ad_gold_v2/`.
+- E5-A evaluator: **`e5-a-eval-v1.0`**.
+- E5-B evaluator: **`e5-b-eval-v1.0`**.
+- E5-C dense build: **`e5c-dense-build-v1.0`**.
+- E5-C evaluator: **`e5-c-eval-v1.0`**.
+- E5 methodology/status: `docs/E5_ENGINEERING_AWARE_RETRIEVAL.md`, `docs/E5_STATUS.md`.
+- Immutable extraction audit source: `gold_releases/easa_airbus_ad_gold_v2/`.
 
 ## Frozen extraction results
 
@@ -119,7 +133,7 @@ Canonical local path:
 data_processed/page_text_v1_1/operational_airbus/
 ```
 
-## Frozen retrieval experiment
+## Frozen E0/E4 retrieval experiment
 
 Accepted v1.2 E0:
 
@@ -146,7 +160,7 @@ Frozen index root:
 data_processed/indexes/rag_v1_2/
 ```
 
-## Final retrieval results
+## Final E0/E4 retrieval results
 
 `retrieval-eval-v1.3` over the 44 answerable retrieval questions:
 
@@ -174,18 +188,41 @@ E4 section-aware hybrid:
 - E4 dense correct-source@20: **0/44**;
 - E4 BM25 correct-source/page@20: **40/44 (90.9%)**.
 
-Interpretation: the observed E4 gain is primarily from **lexical/section-aware hybrid retrieval**, especially BM25 exact-term retrieval. Do not claim the MiniLM dense branch drove the gain. BM25 high candidate recall falling to 40.9% correct-page@5 after fusion/reranking is a frozen-system limitation and must not be tuned post-score.
+Interpretation: the observed E4 gain is primarily from **lexical/section-aware hybrid retrieval**, especially BM25 exact-term retrieval. Do not claim the MiniLM dense branch drove the gain.
 
-Benchmark composition limitation: 44 answerable questions cover 8 target ADs, with 25/44 targeting `2006-0047`.
+## E5 development state
+
+The E5 development benchmark contains **60 human-reviewed questions**, of which **54 are answerable retrieval questions** and 6 are reserved for abstention/QA evaluation.
+
+E5-A:
+
+- overall Recall@5: **0.8889**;
+- known-document Recall@5: **1.0000**;
+- discovery Recall@5: **0.6667**.
+
+E5-B:
+
+- overall Recall@5: **0.9444**;
+- known-document Recall@5: **1.0000**;
+- discovery Recall@5: **0.8333**;
+- paired top-5 gains vs E5-A: **3**;
+- paired top-5 losses vs E5-A: **0**.
+
+E5-B remaining top-5 misses are `E5D-030`, `E5D-041`, and `E5D-045`. Do not hand-tune E5-B to these individual questions before the predeclared E5-C dense evaluation.
+
+E5-C is implemented but not yet scored. It uses a separate normalized Qwen3-Embedding-0.6B document artifact and query-encoder subprocess, with NumPy similarity/RRF in the evaluator and no FAISS.
 
 ## Immediate priority
 
-1. Design and implement the hosted-LLM/full-QA layer over frozen E4 evidence.
-2. Keep the provider configurable; hosted generation is QA-only, never corpus extraction/indexing.
-3. Define strict answer schema, evidence/citation handling, and abstention policy before scoring.
-4. Run the 50-question page-cited QA benchmark and separate retrieval failures from generation failures.
-5. Evaluate temporary uploaded-PDF QA.
-6. Permanently ingest the five frozen unseen PDFs without retraining.
+1. Run the full unit-test suite on current `main`.
+2. Build the E5-C Qwen3 dense artifact over the frozen 12,634 E4 chunks.
+3. Run `evaluate_e5c_development` and preserve `e5c_development_evaluation.json`.
+4. Compare E5-C against E5-B overall, on discovery, and on the three remaining E5-B misses.
+5. Implement/evaluate the predeclared E5-D `Qwen/Qwen3-Reranker-0.6B` stage.
+6. Select and freeze one development-best E5 retrieval configuration.
+7. Freeze hosted-QA provider/model/prompt/evidence packaging.
+8. Only then open the 16 final-test families and run the 40-question final benchmark once.
+9. After final E5 QA, evaluate temporary uploaded-PDF QA and permanently ingest the five frozen unseen PDFs without retraining.
 
 ## Working protocol
 
@@ -193,11 +230,12 @@ Authority order:
 
 1. current user request;
 2. this file;
-3. `docs/RETRIEVAL_BUILD_STATUS.md`;
-4. `airbus_easa_ad_project_exact_plan.md`;
-5. `docs/PROJECT_STATUS.md`;
-6. `docs/DECISIONS.md`;
-7. `docs/BENCHMARK_DESIGN.md`;
-8. `docs/PAGE_TEXT_PIPELINE.md`.
+3. `docs/E5_STATUS.md` while E5 is active;
+4. `docs/RETRIEVAL_BUILD_STATUS.md` for frozen E0/E4;
+5. `airbus_easa_ad_project_exact_plan.md`;
+6. `docs/PROJECT_STATUS.md`;
+7. `docs/DECISIONS.md`;
+8. `docs/BENCHMARK_DESIGN.md`;
+9. `docs/PAGE_TEXT_PIPELINE.md`.
 
-After material work, preserve unrelated artifacts, run relevant tests, update project status, and record stable methodology changes. Never reopen frozen extraction or retrieval tuning from locked-test outcomes.
+After material work, preserve unrelated artifacts, run relevant tests, update project status, and record stable methodology changes. Never reopen frozen extraction or E0/E4 retrieval tuning from locked-test outcomes.
