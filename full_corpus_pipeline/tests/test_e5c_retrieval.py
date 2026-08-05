@@ -7,7 +7,11 @@ from types import SimpleNamespace
 
 import numpy as np
 
-from full_corpus_pipeline.build_e5c_dense_embeddings import BUILD_VERSION, MODEL_NAME
+from full_corpus_pipeline.build_e5c_dense_embeddings import (
+    BUILD_VERSION,
+    MODEL_NAME,
+    MODEL_REVISION,
+)
 from full_corpus_pipeline.e5c_retrieval import (
     DenseDocumentCandidate,
     DenseEvidenceAssemblyRetriever,
@@ -56,6 +60,7 @@ class E5CDenseRetrievalTests(unittest.TestCase):
             metadata = {
                 "build_version": BUILD_VERSION,
                 "model": MODEL_NAME,
+                "model_revision": MODEL_REVISION,
                 "normalized": True,
                 "chunk_source_sha256": sha256_file(chunk_path),
                 "chunk_id_order_sha256": chunk_id_sha,
