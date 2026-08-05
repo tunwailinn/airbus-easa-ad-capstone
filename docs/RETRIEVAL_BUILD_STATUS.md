@@ -65,37 +65,80 @@ The cross-encoder was pinned to CPU and a shared dense encoder was used. Model l
 
 The cross-encoder was moved to an isolated child process, but the parent still contained both SentenceTransformer/PyTorch and FAISS. The process segfaulted during the **E4 candidate smoke test immediately after the dense encoder loaded on MPS**, before the child reranker was invoked.
 
-This isolates the remaining platform defect to the SentenceTransformer/PyTorch + FAISS process boundary. Upstream PyTorch macOS ARM reports document native OpenMP crashes when FAISS and PyTorch coexist in one process; Sentence Transformers has a corresponding FAISS compatibility report. This remains a runtime/platform defect, not a retrieval-performance signal.
+This isolates the platform defect to the SentenceTransformer/PyTorch + FAISS process boundary. It is a runtime/platform defect, not a retrieval-performance signal.
 
 ## Frozen runtime policy — `retrieval-eval-v1.3`
 
 The retrieval algorithm is unchanged. Only native-library process boundaries are changed.
 
-The evaluator now uses three isolated child processes:
+The evaluator uses three isolated child processes:
 
 1. **Query encoder worker** — imports Sentence Transformers/PyTorch, never FAISS; produces normalized query vectors with the frozen `all-MiniLM-L6-v2` model.
 2. **FAISS worker** — imports FAISS, never PyTorch/Sentence Transformers; searches the frozen `IndexFlatIP` indexes using those query vectors.
 3. **Reranker worker** — imports the frozen cross-encoder on CPU, never FAISS; reranks the exact E4 BM25+dense+RRF candidate sets.
 
-The parent process handles only SQLite/BM25, chunk metadata, RRF assembly, metrics, and subprocess orchestration. It does not instantiate SentenceTransformer, CrossEncoder, or FAISS.
+The parent process handles only SQLite/BM25, chunk metadata, RRF assembly, metrics, and subprocess orchestration.
 
-This does **not** change:
+This does **not** change corpus membership, chunks, embedding model, normalized query vectors, FAISS search, BM25, candidate depth, RRF, reranker model, top-5 depth, locked questions, or metrics.
 
-- corpus membership;
-- E0/E4 chunks;
-- embedding model;
-- normalized query-vector semantics;
-- FAISS `IndexFlatIP` search;
-- BM25 retrieval;
-- candidate depth (**20**);
-- RRF policy/constant;
-- reranker model;
-- top-5 depth;
-- locked questions; or
-- metric definitions.
+## Final frozen retrieval result
 
-A fully isolated non-benchmark E4 smoke query must pass query encoding → FAISS search → BM25/RRF assembly → isolated CPU reranking before the 44 locked questions are loaded.
+The complete `retrieval-eval-v1.3` artifact is accepted after post-evaluation plumbing validation.
+
+### E0 — flat dense-only
+
+- Recall@1/3/5: **0.0000 / 0.0000 / 0.0000**;
+- MRR: **0.0000**;
+- nDCG@5: **0.0000**;
+- correct-source@1/@5: **0.0000 / 0.0000**;
+- correct-source+page@1/@5: **0.0000 / 0.0000**.
+
+### E4 — section-aware hybrid + reranker
+
+- Recall@1: **0.2500**;
+- Recall@3: **0.3636**;
+- Recall@5: **0.4091**;
+- MRR: **0.3106**;
+- nDCG@5: **0.3353**;
+- correct-source@1: **0.2727**;
+- correct-source@5: **0.5000**;
+- correct-source+page@1: **0.2500**;
+- correct-source+page@5: **0.4091**;
+- paired rank comparison: **E4 better 18 / E0 better 0 / ties 26**.
+
+## Plumbing validation and branch attribution
+
+`retrieval-plumbing-diagnostic-v1.0` was run after the frozen comparison solely to verify implementation correctness; it did not alter or rerun retrieval configuration.
+
+Validation passed:
+
+- E0 FAISS-row/chunk alignment: **20/20 exact top-1 self matches**;
+- E4 FAISS-row/chunk alignment: **20/20 exact top-1 self matches**;
+- fresh-vs-stored E0 embedding cosine: minimum **0.99999988**, mean **1.0**;
+- fresh-vs-stored E4 embedding cosine: minimum **1.0**, mean **1.0**;
+- all **8** benchmark target ADs are present in both E0 and E4 indexes.
+
+Branch diagnostic at candidate depth 20:
+
+- E0 dense correct source: **0/44 (0%)**;
+- E0 dense correct source+page: **0/44 (0%)**;
+- E4 dense correct source: **0/44 (0%)**;
+- E4 dense correct source+page: **0/44 (0%)**;
+- E4 BM25 correct source: **40/44 (90.9%)**, mean hit rank **2.625**;
+- E4 BM25 correct source+page: **40/44 (90.9%)**, mean hit rank **3.1**.
+
+All 44 answerable benchmark questions contain the target AD number literally. Therefore the accepted interpretation is:
+
+1. the all-zero E0 result is **not** caused by FAISS/chunk misalignment or corrupted embeddings;
+2. the frozen MiniLM dense branch does not retrieve the exact AD identifier successfully within top-20 on this benchmark, in either E0 or E4;
+3. E4's gain is attributable primarily to the **hybrid lexical/section-aware architecture**, especially BM25 exact-term retrieval, not to superior dense retrieval;
+4. the four BM25 source misses are **QA-039 to QA-042**, all in the conditional/multi-passage category;
+5. BM25 has high candidate recall at depth 20, while the final E4 top-5 after fusion/reranking retains the correct page for only **18/44 (40.9%)**, so reranking/precision remains a limitation of the frozen system.
+
+Benchmark composition must be reported as a limitation: the 44 answerable questions cover **8 distinct target ADs**, with **25/44** targeting AD `2006-0047`.
 
 ## Benchmark lock
 
-The E0/E4 configuration remains frozen. Do not change chunking, model names, candidate depth, fusion, corpus membership, lifecycle policy, questions, or metrics based on any locked result. Runtime-only fixes are allowed only when independent of retrieval performance and must remain documented.
+The E0/E4 result is now final for the frozen retrieval experiment. Do not change chunking, model names, candidate depth, fusion, reranker, corpus membership, lifecycle policy, questions, or metrics based on these results.
+
+Proceed to the hosted-LLM/full-QA stage using the frozen retrieval evidence and report retrieval-induced failures transparently; an LLM cannot recover evidence that retrieval failed to supply.
