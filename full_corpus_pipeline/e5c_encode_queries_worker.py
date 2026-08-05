@@ -13,7 +13,11 @@ from pathlib import Path
 
 import numpy as np
 
-from full_corpus_pipeline.build_e5c_dense_embeddings import MODEL_NAME, choose_device
+from full_corpus_pipeline.build_e5c_dense_embeddings import (
+    MODEL_NAME,
+    MODEL_REVISION,
+    choose_device,
+)
 
 
 def main() -> int:
@@ -38,12 +42,12 @@ def main() -> int:
 
     device = choose_device(args.device)
     print(
-        f"[progress] E5-C query encoder: loading {MODEL_NAME} on {device}",
+        f"[progress] E5-C query encoder: loading {MODEL_NAME}@{MODEL_REVISION} on {device}",
         flush=True,
     )
     from sentence_transformers import SentenceTransformer
 
-    model = SentenceTransformer(MODEL_NAME, device=device)
+    model = SentenceTransformer(MODEL_NAME, revision=MODEL_REVISION, device=device)
     questions = [str(row["question"]) for row in rows]
     vectors = model.encode(
         questions,
@@ -63,6 +67,7 @@ def main() -> int:
     np.save(args.output, vectors)
     metadata = {
         "model": MODEL_NAME,
+        "model_revision": MODEL_REVISION,
         "prompt_name": "query",
         "normalized": True,
         "device": device,
