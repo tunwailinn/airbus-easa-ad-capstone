@@ -43,10 +43,12 @@ Detailed compliance interpretation must use original PDF passages retrieved by R
 16. E0 and E4 use the same 1,786-document retrieval manifest and the same dense embedding model.
 17. E0 ranking is dense-only over flat chunks. E4 is section-aware BM25 + dense + FAISS + RRF + local cross-encoder reranking.
 18. Do not silently use hashing, numpy-only dense indexing, or lexical reranking fallback for the frozen thesis E0/E4 measurements.
-19. **`rag-index-build-v1.2` is accepted and frozen. Do not retune retrieval configuration from locked benchmark results.**
+19. **`rag-index-build-v1.2` and `retrieval-eval-v1.3` are final/frozen. Do not retune retrieval from locked results.**
 20. Chunk-size construction/reporting uses `whitespace_split`: E0 <=350, E4 target 250–450 and hard max 450. These are deterministic chunk units, not transformer subword tokens.
-21. Final retrieval evaluation must use only `data_processed/indexes/rag_v1_2/`; `rag_v1/` and `rag_v1_1/` are retained for audit history only.
+21. Final retrieval artifacts live under `data_processed/indexes/rag_v1_2/`; `rag_v1/` and `rag_v1_1/` are audit history only.
 22. On macOS ARM, **never import/use PyTorch/SentenceTransformers and FAISS in the same Python process** for the frozen evaluator. `retrieval-eval-v1.3` uses separate workers for query encoding, FAISS `IndexFlatIP` search, and CPU cross-encoder reranking.
+23. Hosted LLMs are allowed only at QA time. They must receive retrieved original-PDF evidence, preserve page/source citations, and abstain when evidence is insufficient.
+24. Distinguish retrieval failures from LLM reasoning/generation failures. Do not credit or blame the LLM when the authoritative passage was absent from its supplied context.
 
 ## Frozen/active versions
 
@@ -57,8 +59,9 @@ Detailed compliance interpretation must use original PDF passages retrieved by R
 - Verified page source: **`page-text-v1.1`**.
 - Page visual override file: `full_corpus_pipeline/page_text_visual_overrides.json`.
 - Frozen retrieval build: **`rag-index-build-v1.2`**.
-- Retrieval build state: `docs/RETRIEVAL_BUILD_STATUS.md`.
-- Retrieval evaluator: **`retrieval-eval-v1.3`**, locked to build v1.2 with full PyTorch/FAISS process isolation.
+- Frozen retrieval evaluator: **`retrieval-eval-v1.3`**.
+- Retrieval plumbing diagnostic: **`retrieval-plumbing-diagnostic-v1.0`**.
+- Retrieval build/result state: `docs/RETRIEVAL_BUILD_STATUS.md`.
 - QA benchmark: **50 locked questions**.
 - Immutable audit source: `gold_releases/easa_airbus_ad_gold_v2/`.
 
@@ -116,13 +119,7 @@ Canonical local path:
 data_processed/page_text_v1_1/operational_airbus/
 ```
 
-## Frozen retrieval experiments
-
-Build history:
-
-- `rag-index-build-v1.0`: rejected before benchmark due inconsistent chunk-size reporting.
-- `rag-index-build-v1.1`: valid E0, E4 blocked before embedding because a section chunk reached 476 against the 450 limit.
-- **`rag-index-build-v1.2`: accepted/frozen.** No retrieval tuning occurred after acceptance.
+## Frozen retrieval experiment
 
 Accepted v1.2 E0:
 
@@ -131,7 +128,7 @@ Accepted v1.2 E0:
 - max chunk size 350;
 - `sentence_transformers` dense backend;
 - `faiss_index_flat_ip` dense index;
-- evaluate with dense-only ranking.
+- dense-only ranking.
 
 Accepted v1.2 E4:
 
@@ -149,42 +146,46 @@ Frozen index root:
 data_processed/indexes/rag_v1_2/
 ```
 
-## Retrieval evaluation runtime
+## Final retrieval results
 
-Three native macOS ARM crashes occurred before a complete E0/E4 comparison artifact was produced. The latest crash occurred in the pre-benchmark E4 candidate smoke test immediately after the SentenceTransformer loaded on MPS and before the cross-encoder worker was invoked. This confirms the remaining unstable boundary is PyTorch/SentenceTransformers + FAISS in one process.
+`retrieval-eval-v1.3` over the 44 answerable retrieval questions:
 
-`retrieval-eval-v1.3` preserves the same frozen ranking semantics but fully isolates native libraries:
+E0 flat dense-only:
 
-```text
-parent process:
-  SQLite/BM25 + chunk metadata + RRF + metrics only
+- Recall@1/3/5: **0.0000 / 0.0000 / 0.0000**;
+- MRR/nDCG@5: **0.0000 / 0.0000**;
+- correct-source@1/@5: **0.0000 / 0.0000**.
 
-child A:
-  SentenceTransformer all-MiniLM-L6-v2 only
-  → normalized query vectors
+E4 section-aware hybrid:
 
-child B:
-  FAISS only
-  → IndexFlatIP dense rankings from those vectors
+- Recall@1/3/5: **0.2500 / 0.3636 / 0.4091**;
+- MRR: **0.3106**;
+- nDCG@5: **0.3353**;
+- correct-source@1/@5: **0.2727 / 0.5000**;
+- correct-source+page@1/@5: **0.2500 / 0.4091**;
+- paired: **E4 better 18 / E0 better 0 / ties 26**.
 
-child C:
-  CPU CrossEncoder only
-  → E4 reranked top-5
-```
+`retrieval-plumbing-diagnostic-v1.0` validated the result:
 
-The parent does not instantiate SentenceTransformer, CrossEncoder, or FAISS. The query encoder worker never imports FAISS; the FAISS worker never imports PyTorch/SentenceTransformers; the reranker worker never imports FAISS.
+- E0 and E4 FAISS/chunk alignment passed 20/20 sampled self matches;
+- fresh-vs-stored embedding cosine is approximately 1.0 for both indexes;
+- all 8 target ADs are present in both indexes;
+- E0 dense correct-source@20: **0/44**;
+- E4 dense correct-source@20: **0/44**;
+- E4 BM25 correct-source/page@20: **40/44 (90.9%)**.
 
-A generic fully isolated smoke query must pass query encoding → FAISS search → BM25/RRF assembly → CPU reranking before locked questions are loaded.
+Interpretation: the observed E4 gain is primarily from **lexical/section-aware hybrid retrieval**, especially BM25 exact-term retrieval. Do not claim the MiniLM dense branch drove the gain. BM25 high candidate recall falling to 40.9% correct-page@5 after fusion/reranking is a frozen-system limitation and must not be tuned post-score.
+
+Benchmark composition limitation: 44 answerable questions cover 8 target ADs, with 25/44 targeting `2006-0047`.
 
 ## Immediate priority
 
-1. Pull current `main` and run the full unit-test suite.
-2. Run `retrieval-eval-v1.3` from the beginning; the fully isolated smoke test must pass before the 44 locked questions open.
-3. Report completed E0/E4 results without tuning.
-4. Update context/reporting with observed Recall@1/3/5, MRR, nDCG@5, correct-source and correct-source/page metrics.
-5. Run the 50-question page-cited QA benchmark.
-6. Evaluate temporary uploaded-PDF QA.
-7. Permanently ingest the five frozen unseen PDFs without retraining.
+1. Design and implement the hosted-LLM/full-QA layer over frozen E4 evidence.
+2. Keep the provider configurable; hosted generation is QA-only, never corpus extraction/indexing.
+3. Define strict answer schema, evidence/citation handling, and abstention policy before scoring.
+4. Run the 50-question page-cited QA benchmark and separate retrieval failures from generation failures.
+5. Evaluate temporary uploaded-PDF QA.
+6. Permanently ingest the five frozen unseen PDFs without retraining.
 
 ## Working protocol
 
