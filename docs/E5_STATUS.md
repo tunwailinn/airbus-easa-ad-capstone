@@ -16,8 +16,9 @@ Implemented in repository:
 - `full_corpus_pipeline/promote_e5_development_questions.py` — human-review promotion step;
 - `full_corpus_pipeline/e5_query_router.py` — deterministic AD/SB/intent router;
 - `full_corpus_pipeline/e5_retrieval.py` — runnable E5-A exact-document/discovery lexical retriever;
+- `full_corpus_pipeline/evaluate_e5a_development.py` — strict E5-A development evaluator;
 - `full_corpus_pipeline/hosted_qa.py` — provider-configurable evidence-grounded hosted QA with deterministic citation resolution;
-- unit tests for query routing, exact-document retrieval, and hosted-QA citation validation.
+- unit tests for query routing, exact-document retrieval, E5-A evaluation metrics, and hosted-QA citation validation.
 
 ## Frozen E5 family split — COMPLETE
 
@@ -96,7 +97,46 @@ Canonical local promotion/validation commands:
   --split development
 ```
 
-After canonical validation passes, E5-A/B/C/D development scoring may begin.
+## E5-A — READY FOR DEVELOPMENT EVALUATION
+
+E5-A remains the predeclared lexical/routing stage:
+
+- deterministic AD-aware query routing;
+- exact-document filtering for known-document questions;
+- corpus-wide SQLite FTS5/BM25 for discovery questions;
+- transparent preferred-section ordering;
+- no dense retrieval;
+- no learned reranker.
+
+Two implementation-contract corrections were made before opening any E5-A development retrieval scores:
+
+1. an explicit target AD identifier is removed from the BM25 passage-ranking query after it has been used for deterministic document routing, so header repetition cannot act as a ranking signal;
+2. relational query routing distinguishes target-discovery wording such as `Which directive superseded AD X?` from known-target wording such as `What directive is superseded by AD Y?`, and preserves the primary target for questions that mention related ADs.
+
+The E5-A evaluator uses the frozen `rag-index-build-v1.2` E4 section chunks and SQLite FTS5/BM25 index without rebuilding or changing the corpus. It evaluates the **54 answerable** development questions for retrieval and retains the 6 abstention questions for route diagnostics only.
+
+Primary metrics:
+
+- Recall@1/3/5;
+- MRR@5;
+- nDCG@5;
+- correct source@1/@5;
+- correct source+page@1/@5;
+- candidate source recall@20;
+- candidate source+page recall@20;
+- per-category and per-query-mode breakdowns;
+- deterministic route accuracy.
+
+Run:
+
+```bash
+.venv/bin/python -m full_corpus_pipeline.evaluate_e5a_development \
+  --questions evaluation_sets/easa_airbus_ad_e5_benchmark_v1/development_questions.jsonl \
+  --index data_processed/indexes/rag_v1_2/e4_section_hybrid \
+  --output data_processed/evaluations/e5/e5a_development_evaluation.json
+```
+
+The evaluator prints one progress line per question and writes the complete per-question retrieval trace to the output JSON.
 
 ## Predeclared development progression
 
@@ -125,10 +165,9 @@ The client never persists reasoning content. The model returns evidence IDs only
 ## Immediate next gate
 
 1. Pull current `main` and run the full unit-test suite.
-2. Place the reviewed draft at `evaluation_sets/easa_airbus_ad_e5_benchmark_v1/development_questions.draft.jsonl` if not already present.
-3. Run the promotion command with `--confirm-human-approval`.
-4. Run the canonical `validate_e5_questions --split development` gate.
-5. Evaluate **E5-A** on all 60 development questions and record per-mode/per-category metrics.
-6. Add/evaluate E5-B, then E5-C/D according to the predeclared development progression.
-7. Freeze one retrieval configuration and hosted-QA settings.
-8. Only then generate/open the 16 final-test family packets and 40-question final benchmark.
+2. Run the canonical `validate_e5_questions --split development` gate.
+3. Run **E5-A development evaluation** and preserve `e5a_development_evaluation.json`.
+4. Review overall, known-document, discovery, and category-level failure patterns.
+5. Add/evaluate E5-B, then E5-C/D according to the predeclared development progression.
+6. Freeze one retrieval configuration and hosted-QA settings.
+7. Only then generate/open the 16 final-test family packets and 40-question final benchmark.
