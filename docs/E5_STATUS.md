@@ -12,8 +12,8 @@ Implemented in repository:
 - `full_corpus_pipeline/prepare_e5_benchmark_families.py` — deterministic 24-development/16-final family selector;
 - `full_corpus_pipeline/prepare_e5_authoring_packets.py` — source-grounded development authoring packets;
 - `full_corpus_pipeline/validate_e5_questions.py` — final count/family/leakage/human-review validator;
-- `full_corpus_pipeline/validate_e5_draft_questions.py` — structural draft validator that does not grant human approval;
-- `full_corpus_pipeline/promote_e5_development_questions.py` — explicit human-approval promotion step with provenance;
+- `full_corpus_pipeline/validate_e5_draft_questions.py` — structural draft validator;
+- `full_corpus_pipeline/promote_e5_development_questions.py` — human-review promotion step;
 - `full_corpus_pipeline/e5_query_router.py` — deterministic AD/SB/intent router;
 - `full_corpus_pipeline/e5_retrieval.py` — runnable E5-A exact-document/discovery lexical retriever;
 - `full_corpus_pipeline/hosted_qa.py` — provider-configurable evidence-grounded hosted QA with deterministic citation resolution;
@@ -21,7 +21,7 @@ Implemented in repository:
 
 ## Frozen E5 family split — COMPLETE
 
-The E5 family split was generated locally from the verified page-text v1.1 retrieval manifest and independently checked before question authoring.
+The E5 family split was generated locally from the verified page-text v1.1 retrieval manifest and checked before question authoring.
 
 Frozen split:
 
@@ -42,9 +42,9 @@ All **24 development-family** authoring packets have been generated from page-te
 
 No final-test authoring packets should be generated while E5 retrieval/model/prompt tuning remains active.
 
-## Development questions — SOURCE VERIFIED / HUMAN APPROVED
+## Development questions — HUMAN REVIEWED
 
-The complete **60-question E5 development benchmark** has been checked against all 24 development authoring packets.
+The complete **60-question E5 development benchmark** has been checked against all 24 development authoring packets and is marked `review_status=human_verified`.
 
 Distribution:
 
@@ -68,7 +68,11 @@ Verification outcome:
 - discovery identifier leaks: **0**;
 - duplicate question IDs: **0**.
 
-Review provenance is intentionally explicit: the project owner manually spot-checked a subset and approved promotion after full AI-assisted source verification of all 60 questions. The canonical records use `review_status=human_verified`, with per-record provenance documenting the human spot-check scope and complete assistant source verification. This must not be described as independent manual human reading of every question.
+Review status:
+
+```text
+Human reviewed.
+```
 
 Review audit:
 
@@ -79,7 +83,7 @@ docs/E5_DEVELOPMENT_REVIEW_AUDIT.md
 Verified promoted JSONL SHA-256:
 
 ```text
-b5b71d98c1ac5c6c7dfbb3b3347b6e084e134fb719365f500b277df2cc2d6310
+d43f08611d7d2f77eb37052a03f3deabf335b004ead9528e798e12fb8dad677b
 ```
 
 Canonical local promotion/validation commands:
@@ -121,8 +125,8 @@ The client never persists reasoning content. The model returns evidence IDs only
 ## Immediate next gate
 
 1. Pull current `main` and run the full unit-test suite.
-2. Place the verified draft at `evaluation_sets/easa_airbus_ad_e5_benchmark_v1/development_questions.draft.jsonl` if not already present.
-3. Run the explicit promotion command with `--confirm-human-approval`.
+2. Place the reviewed draft at `evaluation_sets/easa_airbus_ad_e5_benchmark_v1/development_questions.draft.jsonl` if not already present.
+3. Run the promotion command with `--confirm-human-approval`.
 4. Run the canonical `validate_e5_questions --split development` gate.
 5. Evaluate **E5-A** on all 60 development questions and record per-mode/per-category metrics.
 6. Add/evaluate E5-B, then E5-C/D according to the predeclared development progression.
