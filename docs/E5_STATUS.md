@@ -1,6 +1,6 @@
 # E5 Status
 
-Last updated: 5 August 2026
+Last updated: 6 August 2026
 
 ## Current state
 
@@ -13,6 +13,7 @@ Implemented in repository:
 - `full_corpus_pipeline/prepare_e5_authoring_packets.py` — source-grounded development authoring packets;
 - `full_corpus_pipeline/validate_e5_questions.py` — final count/family/leakage/human-review validator;
 - `full_corpus_pipeline/validate_e5_draft_questions.py` — structural draft validator that does not grant human approval;
+- `full_corpus_pipeline/promote_e5_development_questions.py` — explicit human-approval promotion step with provenance;
 - `full_corpus_pipeline/e5_query_router.py` — deterministic AD/SB/intent router;
 - `full_corpus_pipeline/e5_retrieval.py` — runnable E5-A exact-document/discovery lexical retriever;
 - `full_corpus_pipeline/hosted_qa.py` — provider-configurable evidence-grounded hosted QA with deterministic citation resolution;
@@ -41,44 +42,57 @@ All **24 development-family** authoring packets have been generated from page-te
 
 No final-test authoring packets should be generated while E5 retrieval/model/prompt tuning remains active.
 
-## Development questions — DRAFT COMPLETE / HUMAN REVIEW REQUIRED
+## Development questions — SOURCE VERIFIED / HUMAN APPROVED
 
-A source-grounded **60-question development draft** has been prepared from the 24 development packets.
+The complete **60-question E5 development benchmark** has been checked against all 24 development authoring packets.
 
-Target distribution is satisfied exactly:
+Distribution:
 
 - identity/lifecycle: **8**;
 - applicability: **10**;
 - required action/compliance: **20**;
 - referenced publication: **8**;
 - conditional/multi-passage: **8**;
-- insufficient/conflict/abstention: **6**.
-
-Query-mode distribution is also satisfied exactly:
-
+- insufficient/conflict/abstention: **6**;
 - known-document: **36**;
 - identifier-free discovery: **18**;
 - abstention/conflict: **6**.
 
-All 24 development families are represented. Mechanical checks confirm no discovery question contains its exact or base target AD identifier and all cited pages exist in the corresponding development packet.
+Verification outcome:
 
-The draft must remain `needs_human_review` until the question wording, reference answer, page(s) and section(s) are checked against the source packet. Do not label AI-authored questions `human_verified` automatically.
+- source packets checked: **24 / 24**;
+- questions checked: **60 / 60**;
+- substantive question errors: **0**;
+- reference-answer errors: **0**;
+- page-reference errors: **0**;
+- discovery identifier leaks: **0**;
+- duplicate question IDs: **0**.
 
-Draft structural validation command:
+Review provenance is intentionally explicit: the project owner manually spot-checked a subset and approved promotion after full AI-assisted source verification of all 60 questions. The canonical records use `review_status=human_verified`, with per-record provenance documenting the human spot-check scope and complete assistant source verification. This must not be described as independent manual human reading of every question.
 
-```bash
-.venv/bin/python -m full_corpus_pipeline.validate_e5_draft_questions \
-  --questions evaluation_sets/easa_airbus_ad_e5_benchmark_v1/development_questions.draft.jsonl
+Review audit:
+
+```text
+docs/E5_DEVELOPMENT_REVIEW_AUDIT.md
 ```
 
-After actual human review and promotion to `development_questions.jsonl` with `review_status=human_verified`, the canonical gate is:
+Verified promoted JSONL SHA-256:
+
+```text
+b5b71d98c1ac5c6c7dfbb3b3347b6e084e134fb719365f500b277df2cc2d6310
+```
+
+Canonical local promotion/validation commands:
 
 ```bash
+.venv/bin/python -m full_corpus_pipeline.promote_e5_development_questions \
+  --confirm-human-approval
+
 .venv/bin/python -m full_corpus_pipeline.validate_e5_questions \
   --split development
 ```
 
-Only after that canonical validation passes may E5-A/B/C/D development scoring begin.
+After canonical validation passes, E5-A/B/C/D development scoring may begin.
 
 ## Predeclared development progression
 
@@ -107,12 +121,10 @@ The client never persists reasoning content. The model returns evidence IDs only
 ## Immediate next gate
 
 1. Pull current `main` and run the full unit-test suite.
-2. Place the prepared `development_questions.draft.jsonl` under the E5 benchmark directory.
-3. Run the draft structural validator.
-4. Human-review all 60 questions against the development authoring packets.
-5. Promote only reviewed records to `development_questions.jsonl` with `review_status=human_verified`.
-6. Run the canonical development-question validator.
-7. Evaluate E5-A on the 60-question development set.
-8. Add/evaluate E5-B, then E5-C/D according to the predeclared development progression.
-9. Freeze one retrieval configuration and hosted-QA settings.
-10. Only then generate/open the 16 final-test family packets and 40-question final benchmark.
+2. Place the verified draft at `evaluation_sets/easa_airbus_ad_e5_benchmark_v1/development_questions.draft.jsonl` if not already present.
+3. Run the explicit promotion command with `--confirm-human-approval`.
+4. Run the canonical `validate_e5_questions --split development` gate.
+5. Evaluate **E5-A** on all 60 development questions and record per-mode/per-category metrics.
+6. Add/evaluate E5-B, then E5-C/D according to the predeclared development progression.
+7. Freeze one retrieval configuration and hosted-QA settings.
+8. Only then generate/open the 16 final-test family packets and 40-question final benchmark.
