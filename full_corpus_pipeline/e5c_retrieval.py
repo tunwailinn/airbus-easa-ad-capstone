@@ -30,6 +30,7 @@ from full_corpus_pipeline.build_e5c_dense_embeddings import (
     MODEL_NAME,
 )
 from full_corpus_pipeline.e5_query_router import QueryRoute, route_query
+from full_corpus_pipeline.e5_retrieval import DEFAULT_INDEX
 from full_corpus_pipeline.e5b_retrieval import (
     DISCOVERY_POOL_LIMIT,
     DOCUMENT_LIMIT,
@@ -92,6 +93,11 @@ class QwenDenseStore:
             raise ValueError("unexpected E5-C dense embedding model")
         if self.metadata.get("chunk_source_sha256") != sha256_file(chunk_path):
             raise ValueError("E5-C dense artifact does not match frozen E4 chunks.jsonl")
+        chunk_id_sha = hashlib.sha256(
+            "\n".join(str(chunk.chunk_id) for chunk in chunks).encode("utf-8")
+        ).hexdigest()
+        if self.metadata.get("chunk_id_order_sha256") != chunk_id_sha:
+            raise ValueError("E5-C dense artifact chunk row order does not match frozen E4 chunks")
         if not bool(self.metadata.get("normalized")):
             raise ValueError("E5-C requires normalized document embeddings")
 
@@ -158,7 +164,7 @@ class QwenDenseStore:
 class DenseEvidenceAssemblyRetriever:
     def __init__(
         self,
-        index_dir: Path,
+        index_dir: Path = DEFAULT_INDEX,
         dense_dir: Path = DEFAULT_DENSE_DIR,
     ):
         self.base = EvidenceAssemblyRetriever(index_dir)
@@ -264,6 +270,7 @@ class DenseEvidenceAssemblyRetriever:
                     "passage_fusion_score": score,
                     "lexical_passage_rank": lex_rank.get(chunk_id),
                     "dense_passage_rank": dense_rank.get(chunk_id),
+                    "sparse_rank": lex_rank.get(chunk_id, 10**9),
                     "sparse_score": lexical_score.get(chunk_id),
                     "dense_score": dense_score.get(chunk_id),
                     "preferred_section": chunk.section.casefold() in preferred,
@@ -406,12 +413,9 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("question")
     parser.add_argument("--query-vector", type=Path, required=True)
-    parser.add_argument("--index", type=Path, default=EvidenceAssemblyRetriever.__init__.__defaults__[0] if EvidenceAssemblyRetriever.__init__.__defaults__ else None)
+    parser.add_argument("--index", type=Path, default=DEFAULT_INDEX)
     parser.add_argument("--dense-dir", type=Path, default=DEFAULT_DENSE_DIR)
     args = parser.parse_args()
-    if args.index is None:
-        from full_corpus_pipeline.e5_retrieval import DEFAULT_INDEX
-        args.index = DEFAULT_INDEX
     vector = np.load(args.query_vector)
     retriever = DenseEvidenceAssemblyRetriever(args.index, args.dense_dir)
     result = retriever.retrieve(args.question, vector)
