@@ -99,14 +99,25 @@ class E5RetrievalTests(unittest.TestCase):
                 "Required Action(s) and Compliance Time(s)",
             )
 
-    def test_discovery_query_can_search_globally(self):
+    def test_known_document_identifier_is_removed_from_ranking_query(self):
         with tempfile.TemporaryDirectory() as temporary:
             index_dir = self._make_index(Path(temporary))
             retriever = EngineeringAwareRetriever(index_dir)
             result = retriever.retrieve_lexical(
-                "Which AD requires inspection within 500 flight cycles?"
+                "Under EASA AD 2020-0001, when must the inspection be done?"
             )
+            self.assertNotIn("2020-0001", result["ranking_query"])
+            self.assertNotIn("EASA AD", result["ranking_query"])
+            self.assertIn("inspection", result["ranking_query"])
+
+    def test_discovery_query_can_search_globally(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            index_dir = self._make_index(Path(temporary))
+            retriever = EngineeringAwareRetriever(index_dir)
+            question = "Which AD requires inspection within 500 flight cycles?"
+            result = retriever.retrieve_lexical(question)
             self.assertEqual(result["route"]["mode"], "discovery")
+            self.assertEqual(result["ranking_query"], question)
             self.assertGreaterEqual(len({item["ad_number"] for item in result["candidates"]}), 2)
 
     def test_missing_explicit_ad_is_reported_not_replaced(self):
