@@ -1,0 +1,94 @@
+{
+  "freeze_version": "e5-retrieval-freeze-v1.0",
+  "freeze_date": "2026-08-06",
+  "selected_experiment": "E5-D",
+  "selection_policy": "Select only on the 60-question E5 development benchmark using correct source+page Recall@5 as the primary objective, with MRR@5, nDCG@5, and identifier-free discovery performance as secondary evidence. Do not tune retrieval after this freeze before the one-time final-test evaluation.",
+  "development_benchmark": {
+    "path": "evaluation_sets/easa_airbus_ad_e5_benchmark_v1/development_questions.jsonl",
+    "sha256": "d43f08611d7d2f77eb37052a03f3deabf335b004ead9528e798e12fb8dad677b",
+    "question_count": 60,
+    "answerable_retrieval_count": 54,
+    "abstention_conflict_count": 6,
+    "known_document_count": 36,
+    "discovery_count": 18
+  },
+  "development_evaluation": {
+    "evaluation_version": "e5-d-eval-v1.0",
+    "local_artifact": "data_processed/evaluations/e5/e5d_development_evaluation.json",
+    "artifact_sha256": "9241b5d777f47a95efd1a5afc9a4139d280be0a12c3b91b6eb2d44df31cbcb05",
+    "routing_accuracy": 1.0,
+    "recall_at_1": 0.7962962962962963,
+    "recall_at_3": 0.9259259259259259,
+    "recall_at_5": 0.9629629629629629,
+    "mrr_at_5": 0.8632716049382716,
+    "ndcg_at_5": 0.8883736691326893,
+    "correct_source_at_5": 0.9814814814814815,
+    "correct_source_and_page_at_5": 0.9629629629629629,
+    "candidate_source_and_page_recall_at_20": 0.9814814814814815,
+    "known_document_recall_at_5": 1.0,
+    "discovery_recall_at_5": 0.8888888888888888,
+    "paired_vs_e5b": {
+      "e5d_better_rank_count": 18,
+      "e5b_better_rank_count": 7,
+      "tie_count": 29,
+      "top5_gain_count": 1,
+      "top5_loss_count": 0
+    },
+    "paired_vs_e5c": {
+      "e5d_better_rank_count": 16,
+      "e5c_better_rank_count": 6,
+      "tie_count": 32,
+      "top5_gain_count": 2,
+      "top5_loss_count": 0
+    }
+  },
+  "remaining_development_top5_misses": [
+    {
+      "question_id": "E5D-030",
+      "category": "required_action_compliance",
+      "query_mode": "discovery",
+      "target_ad_number": "2016-0222",
+      "reference_pages": [2],
+      "rank_at_20": null,
+      "source_rank_at_20": null,
+      "diagnosis": "candidate-generation miss; reranking cannot recover evidence absent from the fixed E5-C top-20 pool"
+    },
+    {
+      "question_id": "E5D-045",
+      "category": "referenced_publication",
+      "query_mode": "discovery",
+      "target_ad_number": "2022-0040",
+      "reference_pages": [3],
+      "rank_at_20": 6,
+      "source_rank_at_20": 4,
+      "diagnosis": "near-boundary ranking miss; no further tuning permitted after freeze"
+    }
+  ],
+  "retrieval_configuration": {
+    "source_index_build": "rag-index-build-v1.2",
+    "source_index_path": "data_processed/indexes/rag_v1_2/e4_section_hybrid",
+    "document_count": 1786,
+    "chunk_count": 12634,
+    "sparse_backend": "sqlite_fts5_bm25",
+    "candidate_generation": "E5-C fixed top-20",
+    "embedding_model": "Qwen/Qwen3-Embedding-0.6B",
+    "embedding_revision": "97b0c61",
+    "dense_artifact": "data_processed/indexes/e5c_qwen3_embedding_0_6b",
+    "reranker_model": "Qwen/Qwen3-Reranker-0.6B",
+    "reranker_revision": "e61197e",
+    "reranker_instruction": "Given an aviation airworthiness-directive maintenance query, rank passages by how directly and completely they answer the query. Preserve exact applicability, compliance thresholds, timing, exceptions, identifiers, lifecycle statements, and referenced publications.",
+    "reranker_score_type": "raw_logit_difference",
+    "reranker_candidate_limit": 20,
+    "primary_final_k": 5,
+    "known_document_route": "deterministic exact-identifier routing preserved from E5-A/E5-B",
+    "discovery_route": "E5-C BM25/Qwen fused document and passage candidate generation followed by E5-D Qwen reranking",
+    "hosted_llm_in_retrieval": false
+  },
+  "lock_rules": [
+    "Do not tune E5-A, E5-B, E5-C, or E5-D further from development misses after this freeze.",
+    "Do not change embedding/reranker models, model revisions, prompts/instructions, candidate limits, RRF settings, chunking, routing, or evidence-assembly behavior before final evaluation.",
+    "Freeze hosted-QA provider/model/prompt/evidence-pack settings separately before opening the 40-question final benchmark.",
+    "The 16 final-test families and 40 final questions remain sealed until hosted-QA settings are frozen.",
+    "Run the frozen final retrieval/QA benchmark once; any later analyses must be clearly labeled post-hoc and must not replace the primary final result."
+  ]
+}
