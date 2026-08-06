@@ -11,6 +11,7 @@ from full_corpus_pipeline.build_e5c_dense_embeddings import (
     BUILD_VERSION,
     MODEL_NAME,
     MODEL_REVISION,
+    normalize_rows_float32,
 )
 from full_corpus_pipeline.e5c_retrieval import (
     DenseDocumentCandidate,
@@ -22,6 +23,29 @@ from full_corpus_pipeline.e5c_retrieval import (
 
 
 class E5CDenseRetrievalTests(unittest.TestCase):
+    def test_float32_renormalization_corrects_small_mps_like_norm_drift(self):
+        vectors = np.asarray(
+            [
+                [0.9980479, 0.0],
+                [0.0, 1.0038435],
+            ],
+            dtype="float32",
+        )
+        normalized, raw_norms, post_norms = normalize_rows_float32(
+            vectors,
+            label="test vectors",
+        )
+        self.assertAlmostEqual(float(raw_norms.min()), 0.9980479, places=6)
+        self.assertAlmostEqual(float(raw_norms.max()), 1.0038435, places=6)
+        self.assertTrue(np.allclose(post_norms, 1.0, atol=1e-6, rtol=1e-6))
+        self.assertTrue(
+            np.allclose(
+                normalized,
+                np.asarray([[1.0, 0.0], [0.0, 1.0]], dtype="float32"),
+                atol=1e-6,
+            )
+        )
+
     def test_top_indexes_orders_descending(self):
         scores = np.asarray([0.1, 0.9, 0.4, 0.8], dtype="float32")
         self.assertEqual(_top_indexes(scores, 3).tolist(), [1, 3, 2])
