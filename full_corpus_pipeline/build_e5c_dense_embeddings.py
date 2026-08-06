@@ -25,9 +25,10 @@ DEFAULT_INDEX = ROOT / "data_processed/indexes/rag_v1_2/e4_section_hybrid"
 DEFAULT_OUTPUT = ROOT / "data_processed/indexes/e5c_qwen3_embedding_0_6b"
 MODEL_NAME = "Qwen/Qwen3-Embedding-0.6B"
 MODEL_REVISION = "97b0c61"
-BUILD_VERSION = "e5c-dense-build-v1.0"
+BUILD_VERSION = "e5c-dense-build-v1.1"
 EXPECTED_CHUNK_COUNT = 12634
 MIN_TRANSFORMERS_VERSION = Version("4.51.0")
+POST_NORMALIZATION_ATOL = 1e-5
 
 
 def sha256_file(path: Path) -> str:
@@ -36,6 +37,45 @@ def sha256_file(path: Path) -> str:
         for block in iter(lambda: handle.read(1024 * 1024), b""):
             digest.update(block)
     return digest.hexdigest()
+
+
+def normalize_rows_float32(
+    vectors: np.ndarray,
+    *,
+    label: str,
+) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
+    """Cast to float32 and explicitly L2-normalize each embedding row.
+
+    SentenceTransformers/Qwen already applies a Normalize module, but accelerator
+    output (notably MPS low-precision execution) can drift slightly from unit norm
+    after transfer/casting. Re-normalizing by a positive scalar preserves vector
+    direction while restoring the exact cosine-via-inner-product invariant used by
+    E5-C.
+    """
+    array = np.asarray(vectors, dtype="float32")
+    if array.ndim != 2:
+        raise ValueError(f"{label} must be a 2D embedding matrix")
+    if not np.isfinite(array).all():
+        raise ValueError(f"{label} contain non-finite values")
+
+    raw_norms = np.linalg.norm(array, axis=1)
+    if not np.isfinite(raw_norms).all() or np.any(raw_norms <= 0.0):
+        raise ValueError(f"{label} contain invalid zero/non-finite norms")
+
+    normalized = array / raw_norms[:, None].astype("float32", copy=False)
+    normalized = normalized.astype("float32", copy=False)
+    post_norms = np.linalg.norm(normalized, axis=1)
+    if not np.allclose(
+        post_norms,
+        1.0,
+        rtol=POST_NORMALIZATION_ATOL,
+        atol=POST_NORMALIZATION_ATOL,
+    ):
+        raise ValueError(
+            f"{label} failed float32 L2 normalization: "
+            f"min={post_norms.min()} max={post_norms.max()}"
+        )
+    return normalized, raw_norms, post_norms
 
 
 def choose_device(requested: str) -> str:
@@ -107,6 +147,8 @@ def main() -> int:
     texts = [str(record["text"]) for record in records]
     vectors: list[np.ndarray] = []
     total = len(texts)
+    raw_norm_min = float("inf")
+    raw_norm_max = 0.0
 
     for start in range(0, total, args.heartbeat_size):
         stop = min(start + args.heartbeat_size, total)
@@ -118,9 +160,12 @@ def main() -> int:
             show_progress_bar=False,
             convert_to_numpy=True,
         )
-        encoded = np.asarray(encoded, dtype="float32")
-        if encoded.ndim != 2 or not np.isfinite(encoded).all():
-            raise ValueError(f"invalid dense embeddings for chunk rows {start}:{stop}")
+        encoded, raw_norms, _ = normalize_rows_float32(
+            encoded,
+            label=f"document embeddings rows {start}:{stop}",
+        )
+        raw_norm_min = min(raw_norm_min, float(raw_norms.min()))
+        raw_norm_max = max(raw_norm_max, float(raw_norms.max()))
         vectors.append(encoded)
         print(
             f"[progress] E5-C dense build: encoded {stop}/{total} chunks",
@@ -130,10 +175,16 @@ def main() -> int:
     embeddings = np.vstack(vectors).astype("float32", copy=False)
     if embeddings.shape[0] != EXPECTED_CHUNK_COUNT:
         raise ValueError("E5-C dense embedding row count mismatch")
-    norms = np.linalg.norm(embeddings, axis=1)
-    if not np.allclose(norms, 1.0, atol=2e-3):
+    final_norms = np.linalg.norm(embeddings, axis=1)
+    if not np.allclose(
+        final_norms,
+        1.0,
+        rtol=POST_NORMALIZATION_ATOL,
+        atol=POST_NORMALIZATION_ATOL,
+    ):
         raise ValueError(
-            f"E5-C document embeddings are not normalized: min={norms.min()} max={norms.max()}"
+            f"E5-C document embeddings are not normalized after float32 renormalization: "
+            f"min={final_norms.min()} max={final_norms.max()}"
         )
 
     np.save(embeddings_path, embeddings)
@@ -146,6 +197,15 @@ def main() -> int:
         "document_prompt": None,
         "query_prompt_name": "query",
         "normalized": True,
+        "normalization": {
+            "sentence_transformers_normalize_embeddings": True,
+            "post_cast_float32_l2_renormalization": True,
+            "pre_renormalization_norm_min": raw_norm_min,
+            "pre_renormalization_norm_max": raw_norm_max,
+            "post_renormalization_norm_min": float(final_norms.min()),
+            "post_renormalization_norm_max": float(final_norms.max()),
+            "post_renormalization_atol": POST_NORMALIZATION_ATOL,
+        },
         "similarity": "cosine_via_inner_product",
         "backend": "sentence_transformers",
         "device": device,
