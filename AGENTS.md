@@ -1,4 +1,4 @@
-# Agent Guide: Airbus EASA AD Capstone v3.2
+# Agent Guide: Airbus EASA AD Capstone v3.3
 
 Read this before changing code, data rules, experiments, or documentation.
 
@@ -17,7 +17,7 @@ Read this before changing code, data rules, experiments, or documentation.
 Layer A: deterministic section-complete content records
 → metadata lookup, filtering, browsing, raw difficult AD sections
 
-Layer B: original-PDF page text + RAG
+Layer B: original-PDF page text + frozen E5-D RAG
 → applicability/compliance retrieval, interpretation, page-cited QA
 
 Layer C: hosted evidence-grounded QA
@@ -52,14 +52,19 @@ Detailed compliance interpretation must use original PDF passages retrieved by R
 22. On macOS ARM, **never import/use PyTorch/SentenceTransformers and FAISS in the same Python process** for the frozen evaluator. Process isolation is mandatory where those runtimes could coexist.
 23. Hosted LLMs are allowed only at QA time. They must receive retrieved original-PDF evidence, preserve page/source citations, and abstain when evidence is insufficient.
 24. Distinguish retrieval failures from LLM reasoning/generation failures. Do not credit or blame the LLM when the authoritative passage was absent from its supplied context.
-25. E5 is a separate post-E0/E4 experiment using a fresh benchmark. The **60-question E5 development set** may be used for E5-A/B/C/D model/configuration selection; the **40-question E5 final set remains sealed** until retrieval and hosted-QA settings are frozen.
+25. E5 is a separate post-E0/E4 experiment using a fresh benchmark. The **60-question E5 development set** was used for E5-A/B/C/D selection; the **40-question E5 final set remains sealed** until hosted-QA settings are frozen.
 26. Do not reopen or retune E0/E4 from E5 outcomes.
 27. E5 known-document routing is deterministic. A supplied AD identifier is a routing key, not a learned ranking feature.
 28. E5 discovery questions must remain identifier-free and use corpus-wide retrieval before candidate-AD passage retrieval.
-29. E5-A and E5-B development results are already exposed. Do not rewrite those ablations; add later stages as separate experiments.
-30. E5-B is retained as the lexical/evidence-assembly base because it improved Recall@5 with zero top-5 losses versus E5-A.
-31. E5-C uses `Qwen/Qwen3-Embedding-0.6B` as the predeclared supplemental dense model. It must not replace exact identifier routing or BM25.
-32. The initial E5-C configuration recorded in `docs/E5_STATUS.md` must be evaluated before any additional development tuning.
+29. E5-A/B/C/D development results are exposed and closed. Do not rewrite those ablations.
+30. **E5-D is the selected/frozen primary retrieval configuration. Do not tune retrieval further from development misses.**
+31. Frozen E5-D candidate generation is the accepted E5-C BM25 + `Qwen/Qwen3-Embedding-0.6B@97b0c61` fusion over the frozen E4 chunks.
+32. Frozen E5-D reranking uses `Qwen/Qwen3-Reranker-0.6B@e61197e`, candidate limit 20, final evidence depth 5, and the exact instruction recorded in `retrieval_freeze.json`.
+33. The machine-readable retrieval lock is `evaluation_sets/easa_airbus_ad_e5_benchmark_v1/retrieval_freeze.json`. Treat it as authoritative for the primary E5 final evaluation.
+34. Do not alter embedding/reranker revisions, prompts/instructions, routing, RRF depths/settings, candidate limits, evidence assembly, chunking, or the frozen E4 index before the one-time final evaluation.
+35. E5D-030 and E5D-045 are known development misses. Do not hand-tune the frozen retriever against them. Any later retrieval experiment is post-hoc only and cannot replace the frozen primary result.
+36. Hosted-QA provider/model/prompt/reasoning settings/evidence-pack/citation/abstention rules must be frozen separately before opening the 40-question final benchmark.
+37. After the hosted-QA freeze, the final retrieval/QA benchmark is opened and run once. Later analyses must be labeled post-hoc.
 
 ## Frozen/active versions
 
@@ -74,8 +79,10 @@ Detailed compliance interpretation must use original PDF passages retrieved by R
 - Retrieval plumbing diagnostic: **`retrieval-plumbing-diagnostic-v1.0`**.
 - E5-A evaluator: **`e5-a-eval-v1.0`**.
 - E5-B evaluator: **`e5-b-eval-v1.0`**.
-- E5-C dense build: **`e5c-dense-build-v1.0`**.
+- Accepted E5-C dense build: **`e5c-dense-build-v1.1`**.
 - E5-C evaluator: **`e5-c-eval-v1.0`**.
+- E5-D evaluator: **`e5-d-eval-v1.0`**.
+- Frozen E5 retrieval lock: **`e5-retrieval-freeze-v1.0`**.
 - E5 methodology/status: `docs/E5_ENGINEERING_AWARE_RETRIEVAL.md`, `docs/E5_STATUS.md`.
 - Immutable extraction audit source: `gold_releases/easa_airbus_ad_gold_v2/`.
 
@@ -190,39 +197,44 @@ E4 section-aware hybrid:
 
 Interpretation: the observed E4 gain is primarily from **lexical/section-aware hybrid retrieval**, especially BM25 exact-term retrieval. Do not claim the MiniLM dense branch drove the gain.
 
-## E5 development state
+## Frozen E5 development results
 
 The E5 development benchmark contains **60 human-reviewed questions**, of which **54 are answerable retrieval questions** and 6 are reserved for abstention/QA evaluation.
 
-E5-A:
+| Stage | Overall Recall@5 | Discovery Recall@5 | Notes |
+|---|---:|---:|---|
+| E5-A | 0.8889 | 0.6667 | deterministic routing + lexical retrieval |
+| E5-B | 0.9444 | 0.8333 | retained lexical/evidence-assembly base |
+| E5-C | 0.9259 | 0.7778 | higher candidate recall@20 = 0.9815 |
+| **E5-D** | **0.9630** | **0.8889** | **selected/frozen** |
 
-- overall Recall@5: **0.8889**;
+Frozen E5-D additional metrics:
+
+- Recall@1: **0.7963**;
+- Recall@3: **0.9259**;
+- MRR@5: **0.8633**;
+- nDCG@5: **0.8884**;
+- correct source@5: **0.9815**;
+- correct source+page@5: **0.9630**;
+- candidate source+page recall@20: **0.9815**;
 - known-document Recall@5: **1.0000**;
-- discovery Recall@5: **0.6667**.
+- routing accuracy: **1.0000**.
 
-E5-B:
+E5-D paired versus E5-B: **18 better / 7 worse / 29 ties; top-5 gains 1 / losses 0**.
 
-- overall Recall@5: **0.9444**;
-- known-document Recall@5: **1.0000**;
-- discovery Recall@5: **0.8333**;
-- paired top-5 gains vs E5-A: **3**;
-- paired top-5 losses vs E5-A: **0**.
+E5-D paired versus E5-C: **16 better / 6 worse / 32 ties; top-5 gains 2 / losses 0**.
 
-E5-B remaining top-5 misses are `E5D-030`, `E5D-041`, and `E5D-045`. Do not hand-tune E5-B to these individual questions before the predeclared E5-C dense evaluation.
-
-E5-C is implemented but not yet scored. It uses a separate normalized Qwen3-Embedding-0.6B document artifact and query-encoder subprocess, with NumPy similarity/RRF in the evaluator and no FAISS.
+Remaining top-5 misses: `E5D-030` (missing from candidate pool) and `E5D-045` (rank 6). They are analysis findings, not tuning targets.
 
 ## Immediate priority
 
-1. Run the full unit-test suite on current `main`.
-2. Build the E5-C Qwen3 dense artifact over the frozen 12,634 E4 chunks.
-3. Run `evaluate_e5c_development` and preserve `e5c_development_evaluation.json`.
-4. Compare E5-C against E5-B overall, on discovery, and on the three remaining E5-B misses.
-5. Implement/evaluate the predeclared E5-D `Qwen/Qwen3-Reranker-0.6B` stage.
-6. Select and freeze one development-best E5 retrieval configuration.
-7. Freeze hosted-QA provider/model/prompt/evidence packaging.
-8. Only then open the 16 final-test families and run the 40-question final benchmark once.
-9. After final E5 QA, evaluate temporary uploaded-PDF QA and permanently ingest the five frozen unseen PDFs without retraining.
+1. Keep `e5-retrieval-freeze-v1.0` unchanged.
+2. Freeze hosted-QA provider/model/prompt/reasoning/evidence-pack/citation/abstention settings on development data only.
+3. Record a machine-readable hosted-QA freeze.
+4. Only then open/author/review the 40-question final benchmark from the 16 sealed final families.
+5. Run frozen E5-D retrieval + frozen hosted QA on the final benchmark once.
+6. Run the same hosted QA model against oracle reference evidence to separate retrieval and generation errors.
+7. After final evaluation, evaluate temporary uploaded-PDF QA and permanently ingest the five frozen unseen PDFs without retraining.
 
 ## Working protocol
 
@@ -230,12 +242,13 @@ Authority order:
 
 1. current user request;
 2. this file;
-3. `docs/E5_STATUS.md` while E5 is active;
-4. `docs/RETRIEVAL_BUILD_STATUS.md` for frozen E0/E4;
-5. `airbus_easa_ad_project_exact_plan.md`;
-6. `docs/PROJECT_STATUS.md`;
-7. `docs/DECISIONS.md`;
-8. `docs/BENCHMARK_DESIGN.md`;
-9. `docs/PAGE_TEXT_PIPELINE.md`.
+3. `evaluation_sets/easa_airbus_ad_e5_benchmark_v1/retrieval_freeze.json` for frozen E5 retrieval;
+4. `docs/E5_STATUS.md` while E5 is active;
+5. `docs/RETRIEVAL_BUILD_STATUS.md` for frozen E0/E4;
+6. `airbus_easa_ad_project_exact_plan.md`;
+7. `docs/PROJECT_STATUS.md`;
+8. `docs/DECISIONS.md`;
+9. `docs/BENCHMARK_DESIGN.md`;
+10. `docs/PAGE_TEXT_PIPELINE.md`.
 
-After material work, preserve unrelated artifacts, run relevant tests, update project status, and record stable methodology changes. Never reopen frozen extraction or E0/E4 retrieval tuning from locked-test outcomes.
+After material work, preserve unrelated artifacts, run relevant tests, update project status, and record stable methodology changes. Never reopen frozen extraction, E0/E4 retrieval, or frozen E5-D retrieval tuning from locked outcomes.
