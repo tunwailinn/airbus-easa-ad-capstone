@@ -17,6 +17,7 @@ from full_corpus_pipeline.build_e5c_dense_embeddings import (
     MODEL_NAME,
     MODEL_REVISION,
     choose_device,
+    normalize_rows_float32,
 )
 
 
@@ -60,8 +61,10 @@ def main() -> int:
     vectors = np.asarray(vectors, dtype="float32")
     if vectors.shape[0] != len(rows) or vectors.ndim != 2:
         raise ValueError("E5-C query embedding shape mismatch")
-    if not np.isfinite(vectors).all():
-        raise ValueError("E5-C query embeddings contain non-finite values")
+    vectors, raw_norms, post_norms = normalize_rows_float32(
+        vectors,
+        label="E5-C query embeddings",
+    )
 
     args.output.parent.mkdir(parents=True, exist_ok=True)
     np.save(args.output, vectors)
@@ -70,6 +73,14 @@ def main() -> int:
         "model_revision": MODEL_REVISION,
         "prompt_name": "query",
         "normalized": True,
+        "normalization": {
+            "sentence_transformers_normalize_embeddings": True,
+            "post_cast_float32_l2_renormalization": True,
+            "pre_renormalization_norm_min": float(raw_norms.min()),
+            "pre_renormalization_norm_max": float(raw_norms.max()),
+            "post_renormalization_norm_min": float(post_norms.min()),
+            "post_renormalization_norm_max": float(post_norms.max()),
+        },
         "device": device,
         "question_ids": ids,
         "embedding_dimension": int(vectors.shape[1]),
