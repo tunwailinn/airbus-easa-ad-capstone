@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""Run Layer C hosted QA over frozen E5 development evidence packs.
+"""Run Layer C DeepSeek V4 Pro QA over frozen E5 development evidence packs.
 
 This is a development-only runner. It never opens the final benchmark and never
-runs retrieval. The model name and generation temperature must be explicit so
-provider/model selection remains an auditable development decision.
+runs retrieval. DeepSeek thinking mode and reasoning effort are recorded in the
+run manifest so hosted-QA selection remains auditable.
 """
 
 from __future__ import annotations
@@ -21,12 +21,17 @@ from full_corpus_pipeline.layer_c.hosted_qa import (
     call_hosted_qa,
     evidence_from_pack,
 )
+from full_corpus_pipeline.layer_c.providers.deepseek import (
+    DEEPSEEK_MODEL,
+    DEEPSEEK_PROVIDER_VERSION,
+    DeepSeekProvider,
+)
 
 
 ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_PACKS = ROOT / "data_processed/evaluations/e5/layer_c/development/evidence_packs.jsonl"
 DEFAULT_OUTPUT_DIR = ROOT / "data_processed/evaluations/e5/layer_c/development/runs"
-BATCH_RUNNER_VERSION = "e5-layer-c-development-runner-v1.0"
+BATCH_RUNNER_VERSION = "e5-layer-c-development-runner-v1.1"
 
 
 def file_sha256(path: Path) -> str:
@@ -58,16 +63,27 @@ def safe_run_name(value: str) -> str:
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--evidence-packs", type=Path, default=DEFAULT_PACKS)
-    parser.add_argument("--model", required=True)
-    parser.add_argument("--temperature", type=float, default=0.0)
+    parser.add_argument("--model", default=DEEPSEEK_MODEL)
+    parser.add_argument("--reasoning-effort", choices=["high", "max"], default="high")
+    parser.add_argument("--max-tokens", type=int, default=4096)
     parser.add_argument("--run-id")
     parser.add_argument("--output-dir", type=Path, default=DEFAULT_OUTPUT_DIR)
     parser.add_argument("--question-id", action="append", default=[])
     parser.add_argument("--limit", type=int)
     args = parser.parse_args()
 
-    if args.temperature < 0:
-        raise ValueError("temperature must be non-negative")
+    if args.model != DEEPSEEK_MODEL:
+        raise ValueError(f"Layer C development is currently declared for {DEEPSEEK_MODEL!r}")
+    if args.max_tokens <= 0:
+        raise ValueError("--max-tokens must be positive")
+
+    # Validate credentials/configuration before creating an audit run directory.
+    provider = DeepSeekProvider(
+        reasoning_effort=args.reasoning_effort,
+        thinking_enabled=True,
+        max_tokens=args.max_tokens,
+    )
+
     packs = load_packs(args.evidence_packs)
     selected_ids = set(args.question_id)
     if selected_ids:
@@ -80,7 +96,7 @@ def main() -> int:
             raise ValueError("--limit must be positive")
         packs = packs[: args.limit]
 
-    run_id = args.run_id or f"dev-{safe_run_name(args.model)}-t{args.temperature:g}"
+    run_id = args.run_id or f"dev-{safe_run_name(args.model)}-{args.reasoning_effort}"
     run_dir = args.output_dir / run_id
     if run_dir.exists() and any(run_dir.iterdir()):
         raise ValueError(f"refusing to overwrite non-empty Layer C run directory: {run_dir}")
@@ -94,14 +110,21 @@ def main() -> int:
         "prompt_version": PROMPT_VERSION,
         "run_id": run_id,
         "scope": "E5 development only",
+        "provider": "deepseek",
+        "provider_version": DEEPSEEK_PROVIDER_VERSION,
         "model": args.model,
-        "temperature": args.temperature,
+        "thinking": "enabled",
+        "reasoning_effort": args.reasoning_effort,
+        "max_tokens": args.max_tokens,
+        "temperature": None,
+        "temperature_policy": "not used: DeepSeek thinking mode ignores sampling temperature",
         "evidence_pack_path": str(args.evidence_packs),
         "evidence_pack_sha256": file_sha256(args.evidence_packs),
         "selected_question_count": len(packs),
         "policy": (
             "No retrieval is run or retuned. Each request receives only the frozen Layer C "
-            "prompt payload. Failed requests are logged; this runner does not perform semantic retries."
+            "prompt payload. DeepSeek reasoning_content is not persisted. Failed requests are "
+            "logged and this runner performs no automatic semantic retry."
         ),
     }
     (run_dir / "run_manifest.json").write_text(
@@ -125,7 +148,9 @@ def main() -> int:
                     question,
                     evidence,
                     model=args.model,
-                    temperature=args.temperature,
+                    provider=provider,
+                    reasoning_effort=args.reasoning_effort,
+                    max_tokens=args.max_tokens,
                     request_metadata={
                         "layer_c_run_id": run_id,
                         "question_id": qid,
