@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
-"""Provider-neutral evidence-grounded hosted QA for Layer C.
+"""Evidence-grounded DeepSeek V4 Pro hosted QA for Layer C.
 
-The hosted model receives only the question and frozen retrieved evidence with
-stable evidence IDs. It never supplies trusted AD/page citations itself:
-returned evidence IDs are validated and resolved to source metadata locally.
-Provider/model selection remains a development-only decision and is therefore
-never hard-coded in this module before the hosted-QA freeze.
+The model receives only the question and frozen retrieved evidence with stable
+evidence IDs. It never supplies trusted AD/page citations itself: returned
+evidence IDs are validated and resolved to source metadata locally.
+
+DeepSeek thinking content is never persisted. The final answer must satisfy the
+local machine-readable Layer C response contract before it is accepted.
 """
 
 from __future__ import annotations
@@ -19,11 +20,15 @@ from typing import Any
 from jsonschema import Draft202012Validator
 
 from full_corpus_pipeline.layer_c.hosted_gateway import HostedGateway
+from full_corpus_pipeline.layer_c.providers.deepseek import (
+    DEEPSEEK_MODEL,
+    DeepSeekProvider,
+)
 
 
 ROOT = Path(__file__).resolve().parents[2]
 CONTRACT_PATH = Path(__file__).with_name("hosted_qa_contract.schema.json")
-HOSTED_QA_RUNNER_VERSION = "e5-hosted-qa-runner-v1.0"
+HOSTED_QA_RUNNER_VERSION = "e5-hosted-qa-runner-v1.1"
 PROMPT_VERSION = "e5-hosted-qa-prompt-v1.0-dev"
 
 
@@ -163,11 +168,22 @@ def call_hosted_qa(
     question: str,
     evidence: list[Evidence],
     *,
-    model: str,
+    model: str = DEEPSEEK_MODEL,
+    provider: DeepSeekProvider | None = None,
     gateway: HostedGateway | None = None,
+    reasoning_effort: str = "high",
+    max_tokens: int = 4096,
     temperature: float = 0.0,
     request_metadata: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
+    """Run one Layer C QA request.
+
+    Direct DeepSeek is the canonical development path. ``gateway`` and
+    ``temperature`` remain only for backward compatibility with the earlier
+    provider-neutral prototype; direct DeepSeek thinking mode does not use
+    temperature.
+    """
+
     if not model.strip():
         raise ValueError("hosted QA model must be explicitly configured during development")
     contract = load_contract()
@@ -179,20 +195,46 @@ def call_hosted_qa(
         "chunk_ids": [item.chunk_id for item in evidence if item.chunk_id],
         **(request_metadata or {}),
     }
-    response = (gateway or HostedGateway()).generate(
-        model=model,
-        system_prompt=SYSTEM_PROMPT,
-        document_text=build_user_prompt(question, evidence),
-        schema=contract,
-        temperature=temperature,
-        request_metadata=metadata,
-    )
+
+    if gateway is not None:
+        response = gateway.generate(
+            model=model,
+            system_prompt=SYSTEM_PROMPT,
+            document_text=build_user_prompt(question, evidence),
+            schema=contract,
+            temperature=temperature,
+            request_metadata=metadata,
+        )
+        runtime_provider = {
+            "provider": "gateway",
+            "temperature": temperature,
+        }
+    else:
+        direct = provider or DeepSeekProvider(
+            reasoning_effort=reasoning_effort,
+            thinking_enabled=True,
+            max_tokens=max_tokens,
+        )
+        response = direct.generate(
+            model=model,
+            system_prompt=SYSTEM_PROMPT,
+            document_text=build_user_prompt(question, evidence),
+            schema=contract,
+            request_metadata=metadata,
+        )
+        runtime_provider = {
+            "provider": "deepseek",
+            "thinking": "enabled",
+            "reasoning_effort": reasoning_effort,
+            "max_tokens": max_tokens,
+        }
+
     result = validate_and_resolve_answer(response.output, evidence, contract=contract)
     result["runtime"] = {
         "runner_version": HOSTED_QA_RUNNER_VERSION,
         "prompt_version": PROMPT_VERSION,
         "model": model,
-        "temperature": temperature,
+        **runtime_provider,
         "usage": response.usage,
         "request_id": response.request_id,
     }
@@ -202,9 +244,10 @@ def call_hosted_qa(
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--evidence-pack", type=Path, required=True)
-    parser.add_argument("--model", required=True)
+    parser.add_argument("--model", default=DEEPSEEK_MODEL)
+    parser.add_argument("--reasoning-effort", choices=["high", "max"], default="high")
+    parser.add_argument("--max-tokens", type=int, default=4096)
     parser.add_argument("--output", type=Path)
-    parser.add_argument("--temperature", type=float, default=0.0)
     args = parser.parse_args()
 
     pack = json.loads(args.evidence_pack.read_text(encoding="utf-8"))
@@ -213,7 +256,8 @@ def main() -> int:
         question,
         evidence,
         model=args.model,
-        temperature=args.temperature,
+        reasoning_effort=args.reasoning_effort,
+        max_tokens=args.max_tokens,
         request_metadata={
             "question_id": pack.get("question_id"),
             "prompt_payload_sha256": pack_sha,
