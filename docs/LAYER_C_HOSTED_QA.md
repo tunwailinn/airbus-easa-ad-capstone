@@ -6,6 +6,14 @@ Layer C implementation has started. Frozen E5-D retrieval remains unchanged.
 
 **Phase C1 is implemented and Phase C2 is in progress.** The 16 final-test families and 40 final questions remain sealed until the hosted-QA configuration is frozen.
 
+The active Layer C implementation is now organized under:
+
+```text
+full_corpus_pipeline/layer_c/
+```
+
+Legacy root module names remain only as compatibility entry points for earlier commands/tests.
+
 ## Boundary
 
 ```text
@@ -23,7 +31,7 @@ Layer C may not retune routing, candidate generation, embedding/reranker models,
 Machine-readable response schema:
 
 ```text
-full_corpus_pipeline/hosted_qa_contract.schema.json
+full_corpus_pipeline/layer_c/hosted_qa_contract.schema.json
 ```
 
 Contract version:
@@ -44,7 +52,13 @@ The hosted model does not provide trusted source/page metadata. It returns stabl
 
 ## Evidence-pack contract
 
-Builder:
+Canonical builder:
+
+```text
+full_corpus_pipeline/layer_c/build_evidence_packs.py
+```
+
+Compatibility entry point:
 
 ```text
 full_corpus_pipeline/build_layer_c_evidence_packs.py
@@ -93,7 +107,13 @@ This is especially important for abstention/conflict questions: the model must i
 
 ## Hosted QA runner
 
-Single-request runner:
+Canonical single-request runner:
+
+```text
+full_corpus_pipeline/layer_c/hosted_qa.py
+```
+
+Compatibility entry point:
 
 ```text
 full_corpus_pipeline/hosted_qa.py
@@ -127,7 +147,13 @@ The current prompt requires the model to:
 
 ## Development batch runner
 
-Batch runner:
+Canonical batch runner:
+
+```text
+full_corpus_pipeline/layer_c/run_development.py
+```
+
+Compatibility entry point:
 
 ```text
 full_corpus_pipeline/run_layer_c_development.py
@@ -154,13 +180,13 @@ The batch runner:
 Build deterministic evidence packs after the local frozen artifacts are present:
 
 ```bash
-.venv/bin/python -m full_corpus_pipeline.build_layer_c_evidence_packs
+.venv/bin/python -m full_corpus_pipeline.layer_c.build_evidence_packs
 ```
 
 Run a small development smoke test first:
 
 ```bash
-.venv/bin/python -m full_corpus_pipeline.run_layer_c_development \
+.venv/bin/python -m full_corpus_pipeline.layer_c.run_development \
   --model <development-model-name> \
   --limit 3 \
   --run-id <model>-smoke
@@ -169,7 +195,7 @@ Run a small development smoke test first:
 Run all 60 development questions only after the gateway/provider configuration is ready:
 
 ```bash
-.venv/bin/python -m full_corpus_pipeline.run_layer_c_development \
+.venv/bin/python -m full_corpus_pipeline.layer_c.run_development \
   --model <development-model-name> \
   --run-id <declared-development-run-id>
 ```
