@@ -2,17 +2,17 @@
 
 ## Status
 
-Layer C implementation has started. Frozen E5-D retrieval remains unchanged.
+Frozen E5-D retrieval remains unchanged.
 
-**Phase C1 is implemented and Phase C2 is in progress.** The 16 final-test families and 40 final questions remain sealed until the hosted-QA configuration is frozen.
+**Phase C1 is complete. Phase C2 direct-provider integration is implemented. Phase C3 development smoke/evaluation is next.** The 16 final-test families and 40 final questions remain sealed until the hosted-QA configuration is frozen.
 
-The active Layer C implementation is now organized under:
+The active Layer C implementation is under:
 
 ```text
 full_corpus_pipeline/layer_c/
 ```
 
-Legacy root module names remain only as compatibility entry points for earlier commands/tests.
+Legacy root module names remain only as compatibility entry points.
 
 ## Boundary
 
@@ -20,13 +20,34 @@ Legacy root module names remain only as compatibility entry points for earlier c
 Question
 → frozen E5-D retrieval
 → frozen top-5 original-PDF evidence
-→ hosted QA
+→ DeepSeek V4 Pro
+→ local response-contract validation
+→ local EV citation resolution
 → cited answer or evidence-based abstention
 ```
 
 Layer C may not retune routing, candidate generation, embedding/reranker models, RRF settings, candidate depth, reranker instruction, chunking, or evidence depth.
 
-## Implemented contract
+## Declared development configuration
+
+The development provider/model is now declared as:
+
+```text
+provider: DeepSeek official API
+provider adapter: deepseek-direct-v1.0
+model: deepseek-v4-pro
+thinking: enabled
+reasoning_effort: high for the initial development configuration
+max_tokens: 4096
+temperature: not used in thinking mode
+API key environment variable: DEEPSEEK_API_KEY
+```
+
+The model/provider is declared for development but **not yet frozen**. A change from `high` to `max`, a prompt change, or any other generation-setting change creates a new development configuration and must use a new run ID.
+
+DeepSeek `reasoning_content` is deliberately ignored and never stored in evaluation artifacts. Only final JSON output, usage metadata, request ID, and locally resolved citations are persisted.
+
+## Implemented response contract
 
 Machine-readable response schema:
 
@@ -48,7 +69,7 @@ Allowed answer states:
 
 An `answered` result must cite at least one supplied evidence ID. Abstention states must include a non-empty `reason_for_abstention`.
 
-The hosted model does not provide trusted source/page metadata. It returns stable evidence IDs (`EV1`, `EV2`, ...), and the application resolves those IDs back to the original AD/PDF/page/section metadata locally.
+DeepSeek JSON Output is used only as the transport-level JSON constraint. The local JSON Schema remains authoritative: every model response is validated after parsing. The model returns stable evidence IDs (`EV1`, `EV2`, ...); the application resolves those IDs back to original AD/PDF/page/section metadata locally.
 
 ## Evidence-pack contract
 
@@ -81,11 +102,9 @@ data_processed/indexes/rag_v1_2/e4_section_hybrid/chunks.jsonl
 
 The builder does **not** run retrieval. It joins frozen E5-D top-five chunk IDs back to the frozen E4 chunk store to restore original passage text and source metadata.
 
-It validates the frozen development benchmark hash against `retrieval_freeze.json`, verifies the E5-D report was generated from the same benchmark, checks overlapping retrieval/chunk metadata, and records hashes for the prompt payload and frozen inputs.
-
 ### No benchmark leakage
 
-The model-visible prompt payload contains only:
+The model-visible evidence-pack prompt payload contains only:
 
 ```text
 question_id
@@ -103,8 +122,6 @@ The following stay outside the hosted-model prompt and are retained only for lat
 - retrieval relevance ranks; and
 - gold/reference answers.
 
-This is especially important for abstention/conflict questions: the model must infer insufficiency or conflict from the supplied evidence rather than being told the expected label.
-
 ## Hosted QA runner
 
 Canonical single-request runner:
@@ -113,16 +130,10 @@ Canonical single-request runner:
 full_corpus_pipeline/layer_c/hosted_qa.py
 ```
 
-Compatibility entry point:
-
-```text
-full_corpus_pipeline/hosted_qa.py
-```
-
 Runner version:
 
 ```text
-e5-hosted-qa-runner-v1.0
+e5-hosted-qa-runner-v1.1
 ```
 
 Current prompt version:
@@ -131,9 +142,11 @@ Current prompt version:
 e5-hosted-qa-prompt-v1.0-dev
 ```
 
-The runner is provider-neutral and uses `HostedGateway`. It does not hard-code a provider or model before development selection.
+Direct DeepSeek adapter:
 
-A model must be supplied explicitly during development. The eventual provider/model/reasoning/generation settings will be recorded later in the hosted-QA freeze.
+```text
+full_corpus_pipeline/layer_c/providers/deepseek.py
+```
 
 The current prompt requires the model to:
 
@@ -153,87 +166,74 @@ Canonical batch runner:
 full_corpus_pipeline/layer_c/run_development.py
 ```
 
-Compatibility entry point:
-
-```text
-full_corpus_pipeline/run_layer_c_development.py
-```
-
 Version:
 
 ```text
-e5-layer-c-development-runner-v1.0
+e5-layer-c-development-runner-v1.1
 ```
 
 The batch runner:
 
 - consumes the 60 frozen development evidence packs;
-- requires the model name explicitly;
+- is currently locked to `deepseek-v4-pro`;
+- records thinking mode, reasoning effort and max tokens explicitly;
 - never runs retrieval;
 - never accesses the final benchmark;
-- writes an immutable-style run directory instead of overwriting a previous run;
-- records the evidence-pack hash, model, temperature, prompt/runner versions, request IDs, usage, per-question elapsed time, successes, and failures; and
-- performs no semantic retry.
+- writes a new run directory instead of overwriting a previous run;
+- records evidence-pack hash, provider/model settings, prompt/runner versions, request IDs, usage, per-question elapsed time, successes, and failures;
+- does not persist `reasoning_content`; and
+- performs no automatic semantic retry.
 
 ## Development commands
 
-Build deterministic evidence packs after the local frozen artifacts are present:
+Set the DeepSeek API key for the current shell:
 
 ```bash
-.venv/bin/python -m full_corpus_pipeline.layer_c.build_evidence_packs
+export DEEPSEEK_API_KEY="<your-api-key>"
 ```
 
-Run a small development smoke test first:
+Run the Layer C tests:
+
+```bash
+.venv/bin/python -m unittest \
+  full_corpus_pipeline.tests.test_hosted_qa \
+  full_corpus_pipeline.tests.test_layer_c_evidence_packs \
+  full_corpus_pipeline.tests.test_deepseek_provider \
+  -v
+```
+
+Run the declared three-question smoke test:
 
 ```bash
 .venv/bin/python -m full_corpus_pipeline.layer_c.run_development \
-  --model <development-model-name> \
+  --model deepseek-v4-pro \
+  --reasoning-effort high \
+  --max-tokens 4096 \
   --limit 3 \
-  --run-id <model>-smoke
+  --run-id deepseek-v4-pro-high-smoke
 ```
 
-Run all 60 development questions only after the gateway/provider configuration is ready:
+Only if that run is technically and semantically clean, run all 60 development questions with the exact same settings:
 
 ```bash
 .venv/bin/python -m full_corpus_pipeline.layer_c.run_development \
-  --model <development-model-name> \
-  --run-id <declared-development-run-id>
+  --model deepseek-v4-pro \
+  --reasoning-effort high \
+  --max-tokens 4096 \
+  --run-id deepseek-v4-pro-high-dev60
 ```
-
-Hosted gateway credentials remain outside repository artifacts and are supplied through the configured gateway environment.
-
-## Tests
-
-Layer C contract tests:
-
-```text
-full_corpus_pipeline/tests/test_hosted_qa.py
-full_corpus_pipeline/tests/test_layer_c_evidence_packs.py
-```
-
-They cover:
-
-- stable evidence IDs;
-- local citation resolution;
-- rejection of unknown evidence IDs;
-- answer-without-evidence rejection;
-- insufficient/conflicting evidence states;
-- deterministic prompt-payload hashes;
-- evidence text/source restoration from the frozen chunk store;
-- no evaluation-label leakage into the prompt payload; and
-- frozen metadata drift rejection.
 
 ## Next gate
 
 Before the final benchmark can be opened:
 
-1. configure a small declared hosted-model candidate set through the gateway;
-2. run development smoke tests, then all 60 development questions;
-3. implement/run the oracle-reference-evidence condition with the same QA settings;
-4. implement human-review/evaluation outputs for correctness, material-condition completeness, citation correctness, abstention, and unsupported claims;
-5. compare the declared provider/model/prompt/reasoning candidates using development data only;
-6. select one configuration;
+1. run the declared 3-question DeepSeek V4 Pro smoke test;
+2. inspect the three outputs for contract validity, citation behavior, evidence grounding, timing/condition/exception preservation, and inappropriate abstention;
+3. if clean, run all 60 development questions with the exact same configuration;
+4. implement/run the oracle-reference-evidence condition with the same QA settings;
+5. produce human-review/evaluation outputs for correctness, material-condition completeness, citation correctness/support, abstention, conflict handling, and unsupported claims;
+6. select/finalize the development configuration;
 7. write and validate `hosted_qa_freeze.json`; and
-8. only then open/finalize the 40-question final benchmark.
+8. only then open/finalize the sealed 40-question final benchmark.
 
-Do not create the hosted-QA freeze until an actual provider/model/prompt/reasoning configuration has been selected from development results.
+Do not create the hosted-QA freeze until the development configuration has been evaluated. Do not open the final benchmark during smoke or development work.
