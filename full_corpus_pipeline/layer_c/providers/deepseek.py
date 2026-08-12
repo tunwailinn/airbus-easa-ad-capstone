@@ -1,10 +1,14 @@
 """Direct DeepSeek V4 Pro provider for Layer C hosted QA.
 
-Credentials are read from ``DEEPSEEK_API_KEY`` and are never written to
-repository artifacts. The provider uses DeepSeek's OpenAI-compatible
-``/chat/completions`` endpoint with JSON Output, thinking mode, and explicit
-reasoning effort. ``reasoning_content`` is intentionally discarded and never
-persisted in Layer C evaluation artifacts.
+Credentials are read from ``DEEPSEEK_API_KEY``. For local development, Layer C
+loads the project-root ``.env`` file first without overriding any variables that
+are already set in the process environment. Secrets are never written to
+repository artifacts.
+
+The provider uses DeepSeek's OpenAI-compatible ``/chat/completions`` endpoint
+with JSON Output, thinking mode, and explicit reasoning effort.
+``reasoning_content`` is intentionally discarded and never persisted in Layer C
+evaluation artifacts.
 """
 
 from __future__ import annotations
@@ -15,12 +19,13 @@ import urllib.error
 import urllib.request
 from typing import Any
 
+from full_corpus_pipeline.layer_c.config import load_layer_c_env
 from full_corpus_pipeline.layer_c.hosted_gateway import GatewayResult
 
 
 DEEPSEEK_BASE_URL = "https://api.deepseek.com"
 DEEPSEEK_MODEL = "deepseek-v4-pro"
-DEEPSEEK_PROVIDER_VERSION = "deepseek-direct-v1.0"
+DEEPSEEK_PROVIDER_VERSION = "deepseek-direct-v1.1"
 VALID_REASONING_EFFORTS = {"high", "max"}
 
 
@@ -35,6 +40,8 @@ class DeepSeekProvider:
         max_tokens: int = 4096,
         timeout: int = 300,
     ) -> None:
+        load_layer_c_env()
+
         self.api_key = api_key or os.environ.get("DEEPSEEK_API_KEY")
         self.base_url = (base_url or os.environ.get("DEEPSEEK_BASE_URL") or DEEPSEEK_BASE_URL).rstrip("/")
         self.reasoning_effort = reasoning_effort
@@ -43,7 +50,10 @@ class DeepSeekProvider:
         self.timeout = int(timeout)
 
         if not self.api_key:
-            raise ValueError("set DEEPSEEK_API_KEY before running Layer C hosted QA")
+            raise ValueError(
+                "set DEEPSEEK_API_KEY in the project-root .env file or process environment "
+                "before running Layer C hosted QA"
+            )
         if self.reasoning_effort not in VALID_REASONING_EFFORTS:
             raise ValueError(
                 f"DeepSeek reasoning_effort must be one of {sorted(VALID_REASONING_EFFORTS)}"
