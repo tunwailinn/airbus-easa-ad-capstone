@@ -5,6 +5,7 @@ jsonschema>=4.23
 PyMuPDF>=1.24
 numpy>=1.26
 scikit-learn>=1.5
+python-dotenv>=1.0
 
 # Production original-PDF hybrid retrieval and prototype UI
 sentence-transformers>=3.0
