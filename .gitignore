@@ -2,13 +2,16 @@
 .DS_Store
 .playwright-mcp/
 
-# Python environments, caches, and coverage output.
+# Python environments, caches, coverage output, and local secrets.
 __pycache__/
 *.py[cod]
 .venv/
 .pytest_cache/
 .coverage
 htmlcov/
+.env
+.env.*
+!.env.example
 
 # Local Google OAuth secrets and scraper state.
 credentials.json
