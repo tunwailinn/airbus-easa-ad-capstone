@@ -4,7 +4,7 @@
 
 Layer C implementation has started. Frozen E5-D retrieval remains unchanged.
 
-The current gate is **development-only hosted-QA preparation**. The 16 final-test families and 40 final questions must remain sealed until the hosted-QA configuration is frozen.
+**Phase C1 is implemented and Phase C2 is in progress.** The 16 final-test families and 40 final questions remain sealed until the hosted-QA configuration is frozen.
 
 ## Boundary
 
@@ -67,7 +67,7 @@ data_processed/indexes/rag_v1_2/e4_section_hybrid/chunks.jsonl
 
 The builder does **not** run retrieval. It joins frozen E5-D top-five chunk IDs back to the frozen E4 chunk store to restore original passage text and source metadata.
 
-Each evidence pack records hashes for the prompt payload and its frozen inputs.
+It validates the frozen development benchmark hash against `retrieval_freeze.json`, verifies the E5-D report was generated from the same benchmark, checks overlapping retrieval/chunk metadata, and records hashes for the prompt payload and frozen inputs.
 
 ### No benchmark leakage
 
@@ -93,7 +93,7 @@ This is especially important for abstention/conflict questions: the model must i
 
 ## Hosted QA runner
 
-Runner:
+Single-request runner:
 
 ```text
 full_corpus_pipeline/hosted_qa.py
@@ -125,6 +125,30 @@ The current prompt requires the model to:
 - cite material claims using supplied evidence IDs only; and
 - output no chain-of-thought.
 
+## Development batch runner
+
+Batch runner:
+
+```text
+full_corpus_pipeline/run_layer_c_development.py
+```
+
+Version:
+
+```text
+e5-layer-c-development-runner-v1.0
+```
+
+The batch runner:
+
+- consumes the 60 frozen development evidence packs;
+- requires the model name explicitly;
+- never runs retrieval;
+- never accesses the final benchmark;
+- writes an immutable-style run directory instead of overwriting a previous run;
+- records the evidence-pack hash, model, temperature, prompt/runner versions, request IDs, usage, per-question elapsed time, successes, and failures; and
+- performs no semantic retry.
+
 ## Development commands
 
 Build deterministic evidence packs after the local frozen artifacts are present:
@@ -133,16 +157,24 @@ Build deterministic evidence packs after the local frozen artifacts are present:
 .venv/bin/python -m full_corpus_pipeline.build_layer_c_evidence_packs
 ```
 
-Run one evidence pack through a configured hosted gateway:
+Run a small development smoke test first:
 
 ```bash
-.venv/bin/python -m full_corpus_pipeline.hosted_qa \
-  --evidence-pack path/to/one_evidence_pack.json \
+.venv/bin/python -m full_corpus_pipeline.run_layer_c_development \
   --model <development-model-name> \
-  --output path/to/result.json
+  --limit 3 \
+  --run-id <model>-smoke
 ```
 
-The batch development runner and QA evaluator are the next implementation step.
+Run all 60 development questions only after the gateway/provider configuration is ready:
+
+```bash
+.venv/bin/python -m full_corpus_pipeline.run_layer_c_development \
+  --model <development-model-name> \
+  --run-id <declared-development-run-id>
+```
+
+Hosted gateway credentials remain outside repository artifacts and are supplied through the configured gateway environment.
 
 ## Tests
 
@@ -169,11 +201,11 @@ They cover:
 
 Before the final benchmark can be opened:
 
-1. implement the batch development hosted-QA runner;
-2. run all 60 development questions using frozen E5-D evidence;
+1. configure a small declared hosted-model candidate set through the gateway;
+2. run development smoke tests, then all 60 development questions;
 3. implement/run the oracle-reference-evidence condition with the same QA settings;
-4. score correctness, material-condition completeness, citation correctness, abstention, and unsupported claims;
-5. compare a small declared provider/model/prompt/reasoning candidate set using development data only;
+4. implement human-review/evaluation outputs for correctness, material-condition completeness, citation correctness, abstention, and unsupported claims;
+5. compare the declared provider/model/prompt/reasoning candidates using development data only;
 6. select one configuration;
 7. write and validate `hosted_qa_freeze.json`; and
 8. only then open/finalize the 40-question final benchmark.
