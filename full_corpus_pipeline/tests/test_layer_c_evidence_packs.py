@@ -2,7 +2,7 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from full_corpus_pipeline.build_layer_c_evidence_packs import build_evidence_pack
+from full_corpus_pipeline.layer_c.build_evidence_packs import build_evidence_pack
 
 
 class LayerCEvidencePackTests(unittest.TestCase):
