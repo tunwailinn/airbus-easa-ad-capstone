@@ -1,6 +1,6 @@
 import unittest
 
-from full_corpus_pipeline.hosted_qa import (
+from full_corpus_pipeline.layer_c.hosted_qa import (
     Evidence,
     build_user_prompt,
     validate_and_resolve_answer,
