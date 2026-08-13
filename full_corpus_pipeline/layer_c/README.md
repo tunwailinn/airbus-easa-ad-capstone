@@ -11,6 +11,7 @@ Layer C is the active answer-generation layer. Unlike frozen Layer A/B experimen
 - `hosted_qa.py` — evidence-grounded prompt, output validation, and local citation resolution
 - `build_evidence_packs.py` — deterministic frozen-E5-D top-5 evidence-pack builder
 - `run_development.py` — development-only DeepSeek hosted QA batch runner
+- `evaluate_development.py` — offline development evaluator + human semantic-review packet
 
 ## Boundary
 
@@ -20,6 +21,7 @@ Question
 → top-5 original-PDF evidence
 → Layer C DeepSeek V4 Pro QA
 → cited answer | insufficient evidence | conflicting evidence
+→ offline development evaluation
 ```
 
 Layer C must not run or retune retrieval.
@@ -64,6 +66,21 @@ Run the declared 3-question DeepSeek smoke test:
   --limit 3 \
   --run-id deepseek-v4-pro-high-smoke
 ```
+
+Evaluate that run offline against the private human-reviewed development references:
+
+```bash
+.venv/bin/python -m full_corpus_pipeline.layer_c.evaluate_development \
+  --run-dir data_processed/evaluations/e5/layer_c/development/runs/deepseek-v4-pro-high-smoke
+```
+
+This writes an `evaluation/` subdirectory containing:
+
+- `automatic_evaluation.json` — transport/status/citation/retrieval-support checks;
+- `human_review.csv` — blank human semantic-review rubric; and
+- `review_packet.md` — question, private reference answer, hosted answer, and citations side by side.
+
+Private reference fields are joined only after inference and are never included in the model prompt. Semantic answer correctness and material-condition completeness remain human-reviewed rather than asking the evaluated model to grade itself.
 
 The old root module names remain as thin compatibility entry points so earlier commands and tests continue to work.
 
