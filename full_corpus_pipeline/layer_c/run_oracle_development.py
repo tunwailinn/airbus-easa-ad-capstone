@@ -117,7 +117,7 @@ def main() -> int:
         "hosted_qa_runner_version": HOSTED_QA_RUNNER_VERSION,
         "prompt_version": PROMPT_VERSION,
         "run_id": run_id,
-        "scope": "E5 development oracle/reference-evidence only",
+        "scope": "E5 development only",
         "evidence_condition": "oracle_reference_evidence",
         "provider": "deepseek",
         "provider_version": DEEPSEEK_PROVIDER_VERSION,
