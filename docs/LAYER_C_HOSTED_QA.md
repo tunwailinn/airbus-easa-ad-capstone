@@ -4,7 +4,13 @@
 
 Frozen E5-D retrieval remains unchanged.
 
-**Phase C1 is complete. Phase C2 direct-provider integration is implemented. Phase C3 development smoke/evaluation is next.** The 16 final-test families and 40 final questions remain sealed until the hosted-QA configuration is frozen.
+**Phase C1 is complete. Phase C2 direct-provider integration is implemented. Phase C3 DeepSeek V4 Pro development evaluation is complete enough to proceed to the oracle-evidence condition.** The 16 final-test families and 40 final questions remain sealed until the hosted-QA configuration is frozen.
+
+Detailed development findings, error attribution, ambiguity audit, and transport-retry accounting are recorded in:
+
+```text
+docs/LAYER_C_DEVELOPMENT_EVALUATION.md
+```
 
 The active Layer C implementation is under:
 
@@ -34,10 +40,10 @@ The development provider/model is now declared as:
 
 ```text
 provider: DeepSeek official API
-provider adapter: deepseek-direct-v1.0
+provider adapter: deepseek-direct-v1.1
 model: deepseek-v4-pro
 thinking: enabled
-reasoning_effort: high for the initial development configuration
+reasoning_effort: high
 max_tokens: 4096
 temperature: not used in thinking mode
 API key environment variable: DEEPSEEK_API_KEY
@@ -184,13 +190,30 @@ The batch runner:
 - does not persist `reasoning_content`; and
 - performs no automatic semantic retry.
 
+## Development evaluation completed
+
+The declared three-question smoke run completed successfully with 3/3 hosted responses, zero failures, and perfect automatic status/citation checks.
+
+The full 60-question development run used the same model, prompt, reasoning effort, evidence packs, and output cap. First-pass hosted completion was 59/60 (98.3%). The single failed call, E5D-034, was an empty DeepSeek JSON-output response. It was repeated once using the exact same configuration under the predeclared transport-failure policy and completed successfully. The original failed run remains preserved for audit.
+
+Development review identified:
+
+- E5D-017: Layer C generation error — exact applicability population was incompletely reproduced even though supporting evidence was present;
+- E5D-030: Layer B retrieval error — target/reference evidence was absent from frozen top-5 retrieval and the model answered from another retrieved AD;
+- E5D-056: Layer C abstention/status error — prose correctly stated that requested repair details were absent, but the contract status was `answered` instead of `insufficient_evidence`;
+- E5D-027: benchmark ambiguity — more than one retrieved AD genuinely satisfied the discovery wording;
+- E5D-034: benchmark/lifecycle ambiguity — several retrieved RAT gearbox directives genuinely shared the same distinctive 6-month/4,000-FH interval;
+- E5D-045: reference-page retrieval miss, but supplied evidence still supported a usable answer identifying the requested publications.
+
+The original frozen benchmark is not modified after observing model outputs. E5D-027 and E5D-034 are retained unchanged and documented as post-hoc ambiguity findings.
+
+Preliminary ambiguity-adjusted end-to-end correctness is 55/58 = 94.8% across the 58 unambiguous development questions. This is a development-analysis statistic, not a replacement benchmark score. It is reported alongside the strict frozen-benchmark results and the separate first-pass/recovered hosted completion rates.
+
+No prompt, model, reasoning-effort, retrieval, or evidence-depth tuning is justified from these isolated development errors before the oracle-evidence condition is run.
+
 ## Development commands
 
-Set the DeepSeek API key for the current shell:
-
-```bash
-export DEEPSEEK_API_KEY="<your-api-key>"
-```
+Create local credentials from `.env.example` and place the real DeepSeek API key only in the gitignored project-root `.env` file.
 
 Run the Layer C tests:
 
@@ -199,41 +222,36 @@ Run the Layer C tests:
   full_corpus_pipeline.tests.test_hosted_qa \
   full_corpus_pipeline.tests.test_layer_c_evidence_packs \
   full_corpus_pipeline.tests.test_deepseek_provider \
+  full_corpus_pipeline.tests.test_layer_c_development_evaluator \
   -v
 ```
 
-Run the declared three-question smoke test:
+Run all 60 development questions with the declared configuration:
 
 ```bash
 .venv/bin/python -m full_corpus_pipeline.layer_c.run_development \
   --model deepseek-v4-pro \
   --reasoning-effort high \
   --max-tokens 4096 \
-  --limit 3 \
-  --run-id deepseek-v4-pro-high-smoke
+  --run-id deepseek-v4-pro-high-development-60
 ```
 
-Only if that run is technically and semantically clean, run all 60 development questions with the exact same settings:
+Evaluate a completed development run:
 
 ```bash
-.venv/bin/python -m full_corpus_pipeline.layer_c.run_development \
-  --model deepseek-v4-pro \
-  --reasoning-effort high \
-  --max-tokens 4096 \
-  --run-id deepseek-v4-pro-high-dev60
+.venv/bin/python -m full_corpus_pipeline.layer_c.evaluate_development \
+  --run-dir data_processed/evaluations/e5/layer_c/development/runs/deepseek-v4-pro-high-development-60
 ```
 
 ## Next gate
 
 Before the final benchmark can be opened:
 
-1. run the declared 3-question DeepSeek V4 Pro smoke test;
-2. inspect the three outputs for contract validity, citation behavior, evidence grounding, timing/condition/exception preservation, and inappropriate abstention;
-3. if clean, run all 60 development questions with the exact same configuration;
-4. implement/run the oracle-reference-evidence condition with the same QA settings;
-5. produce human-review/evaluation outputs for correctness, material-condition completeness, citation correctness/support, abstention, conflict handling, and unsupported claims;
-6. select/finalize the development configuration;
-7. write and validate `hosted_qa_freeze.json`; and
-8. only then open/finalize the sealed 40-question final benchmark.
+1. build and validate the oracle/reference-evidence condition without changing the DeepSeek model, prompt, reasoning effort, response contract, or max-token limit;
+2. run the oracle-evidence development condition;
+3. compare retrieved-evidence QA against oracle-evidence QA to separate Layer B retrieval limitations from Layer C generation/reasoning limitations;
+4. finalize the development configuration only after that comparison;
+5. write and validate `hosted_qa_freeze.json`; and
+6. only then open/finalize the sealed 40-question final benchmark.
 
-Do not create the hosted-QA freeze until the development configuration has been evaluated. Do not open the final benchmark during smoke or development work.
+Do not create the hosted-QA freeze until the oracle-evidence comparison is complete. Do not open the final benchmark during development work.
