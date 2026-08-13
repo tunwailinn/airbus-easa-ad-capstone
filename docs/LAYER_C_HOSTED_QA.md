@@ -4,23 +4,19 @@
 
 Frozen E5-D retrieval remains unchanged.
 
-**Phase C1 is complete. Phase C2 direct-provider integration is implemented. Phase C3 DeepSeek V4 Pro development evaluation is complete enough to proceed to the oracle-evidence condition.** The 16 final-test families and 40 final questions remain sealed until the hosted-QA configuration is frozen.
+**Phase C3 development selection and the oracle/reference-evidence comparison are complete. Phase C4 hosted-QA freeze tooling is implemented; the next action is to generate, validate, and commit `hosted_qa_freeze.json`.**
 
-Detailed development findings, error attribution, ambiguity audit, and transport-retry accounting are recorded in:
+The 16 final-test families and 40 final questions remain sealed until that freeze is committed and validates successfully.
+
+Detailed records:
 
 ```text
 docs/LAYER_C_DEVELOPMENT_EVALUATION.md
+docs/LAYER_C_ORACLE_EVIDENCE.md
+docs/LAYER_C_ORACLE_EVALUATION.md
 ```
 
-The active Layer C implementation is under:
-
-```text
-full_corpus_pipeline/layer_c/
-```
-
-Legacy root module names remain only as compatibility entry points.
-
-## Boundary
+## Production boundary
 
 ```text
 Question
@@ -34,9 +30,7 @@ Question
 
 Layer C may not retune routing, candidate generation, embedding/reranker models, RRF settings, candidate depth, reranker instruction, chunking, or evidence depth.
 
-## Declared development configuration
-
-The development provider/model is now declared as:
+## Selected hosted-QA configuration
 
 ```text
 provider: DeepSeek official API
@@ -46,71 +40,37 @@ thinking: enabled
 reasoning_effort: high
 max_tokens: 4096
 temperature: not used in thinking mode
-API key environment variable: DEEPSEEK_API_KEY
+prompt: e5-hosted-qa-prompt-v1.0-dev
+hosted QA runner: e5-hosted-qa-runner-v1.1
+response contract: e5-hosted-qa-contract-v1.0
+production evidence: frozen E5-D top 5
+evidence pack: e5-evidence-pack-v1.0
+evidence depth: 5
 ```
 
-The model/provider is declared for development but **not yet frozen**. A change from `high` to `max`, a prompt change, or any other generation-setting change creates a new development configuration and must use a new run ID.
+No development finding justified changing this configuration after the retrieved/oracle comparison.
 
-DeepSeek `reasoning_content` is deliberately ignored and never stored in evaluation artifacts. Only final JSON output, usage metadata, request ID, and locally resolved citations are persisted.
+DeepSeek `reasoning_content` is ignored and never persisted. Only final JSON output, usage metadata, request ID, and locally resolved citations are stored.
 
-## Implemented response contract
+## Response contract
 
-Machine-readable response schema:
+Machine-readable schema:
 
 ```text
 full_corpus_pipeline/layer_c/hosted_qa_contract.schema.json
 ```
 
-Contract version:
-
-```text
-e5-hosted-qa-contract-v1.0
-```
-
-Allowed answer states:
+Allowed states:
 
 - `answered`
 - `insufficient_evidence`
 - `conflicting_evidence`
 
-An `answered` result must cite at least one supplied evidence ID. Abstention states must include a non-empty `reason_for_abstention`.
+An answered result must cite supplied evidence IDs. Abstention states require a non-empty reason. Returned EV identifiers are resolved locally to AD/PDF/page/section metadata.
 
-DeepSeek JSON Output is used only as the transport-level JSON constraint. The local JSON Schema remains authoritative: every model response is validated after parsing. The model returns stable evidence IDs (`EV1`, `EV2`, ...); the application resolves those IDs back to original AD/PDF/page/section metadata locally.
+## No benchmark leakage
 
-## Evidence-pack contract
-
-Canonical builder:
-
-```text
-full_corpus_pipeline/layer_c/build_evidence_packs.py
-```
-
-Compatibility entry point:
-
-```text
-full_corpus_pipeline/build_layer_c_evidence_packs.py
-```
-
-Version:
-
-```text
-e5-evidence-pack-v1.0
-```
-
-Development input sources:
-
-```text
-evaluation_sets/easa_airbus_ad_e5_benchmark_v1/retrieval_freeze.json
-evaluation_sets/easa_airbus_ad_e5_benchmark_v1/development_questions.jsonl
-data_processed/evaluations/e5/e5d_development_evaluation.json
-data_processed/indexes/rag_v1_2/e4_section_hybrid/chunks.jsonl
-```
-
-The builder does **not** run retrieval. It joins frozen E5-D top-five chunk IDs back to the frozen E4 chunk store to restore original passage text and source metadata.
-
-### No benchmark leakage
-
-The model-visible evidence-pack prompt payload contains only:
+Model-visible payload contains only:
 
 ```text
 question_id
@@ -118,140 +78,153 @@ question
 evidence
 ```
 
-The following stay outside the hosted-model prompt and are retained only for later evaluation:
+Private fields remain outside hosted inference:
 
 - category;
 - query mode;
-- `answerable_from_ad`;
+- answerability label;
 - target AD;
 - reference pages;
-- retrieval relevance ranks; and
-- gold/reference answers.
+- retrieval labels/ranks; and
+- human reference answers.
 
-## Hosted QA runner
+## Retrieved-evidence development result
 
-Canonical single-request runner:
+The full 60-question development run used the selected configuration.
 
-```text
-full_corpus_pipeline/layer_c/hosted_qa.py
-```
-
-Runner version:
+First pass:
 
 ```text
-e5-hosted-qa-runner-v1.1
+hosted successes: 59
+hosted failures: 1
+first-pass hosted completion: 59/60 = 98.3%
 ```
 
-Current prompt version:
+The one failed call, E5D-034, returned empty DeepSeek JSON-output content. One exact same-request/configuration transport retry succeeded. The first-pass failure remains preserved for audit.
+
+Post-hoc development analysis recorded:
+
+- E5D-017 — retrieved-condition Layer C completeness miss;
+- E5D-030 — Layer B candidate-generation/retrieval miss;
+- E5D-045 — Layer B near-boundary reference-page ranking miss, with a usable retrieved-condition answer;
+- E5D-056 — retrieved-condition answer-state/abstention miss;
+- E5D-027 and E5D-034 — non-unique discovery wording / benchmark ambiguity.
+
+Preliminary ambiguity-adjusted end-to-end development correctness remains 55/58 = 94.8%. This is a post-hoc analysis statistic, not a replacement frozen-benchmark score.
+
+## Oracle/reference-evidence result
+
+The oracle development run kept the exact same provider/model/prompt/reasoning/schema configuration. Only evidence source changed for answerable questions. Negative/abstention questions retained the original evidence as a negative control.
+
+Run ID:
 
 ```text
-e5-hosted-qa-prompt-v1.0-dev
+deepseek-v4-pro-high-oracle-60
 ```
 
-Direct DeepSeek adapter:
+Results:
 
 ```text
-full_corpus_pipeline/layer_c/providers/deepseek.py
+selected questions: 60
+hosted successes: 60
+hosted failures: 0
+request success rate: 1.0
+answerability/status accuracy: 1.0
+reference-page citation hit rate: 1.0
+target-AD citation hit rate: 1.0
 ```
 
-The current prompt requires the model to:
-
-- use only supplied evidence;
-- preserve thresholds, units, timing, conditions, branches, exceptions, repetitive requirements, previous-action credit, terminating actions, applicability restrictions, lifecycle statements, and publication identifiers when material;
-- avoid aircraft-specific legal-compliance determinations without complete aircraft history;
-- abstain on insufficient evidence;
-- flag irreconcilable supplied evidence as conflicting;
-- cite material claims using supplied evidence IDs only; and
-- output no chain-of-thought.
-
-## Development batch runner
-
-Canonical batch runner:
+Recorded oracle evidence-pack SHA-256:
 
 ```text
-full_corpus_pipeline/layer_c/run_development.py
+33beaf3b0f6b45be80cf2ef70fc9ac94e1fe593986915c180c3685f494939b32
 ```
 
-Version:
+Recorded oracle response SHA-256:
 
 ```text
-e5-layer-c-development-runner-v1.1
+c1757226df9d7793bdce47bba4dd9b68517951d361720c768b58d1665784be75
 ```
 
-The batch runner:
+Key interpretation:
 
-- consumes the 60 frozen development evidence packs;
-- is currently locked to `deepseek-v4-pro`;
-- records thinking mode, reasoning effort and max tokens explicitly;
-- never runs retrieval;
-- never accesses the final benchmark;
-- writes a new run directory instead of overwriting a previous run;
-- records evidence-pack hash, provider/model settings, prompt/runner versions, request IDs, usage, per-question elapsed time, successes, and failures;
-- does not persist `reasoning_content`; and
-- performs no automatic semantic retry.
+- E5D-030 becomes correct with reference evidence, confirming the primary failure is Layer B retrieval.
+- E5D-045 returns the complete publication names and dates with its reference page, confirming the source-page ranking limitation.
+- E5D-017 becomes complete with isolated reference evidence, showing the original miss was evidence-conditioned Layer C completeness rather than inability to interpret the source statement.
+- E5D-056 returns the correct `insufficient_evidence` state in the negative-control oracle run even though its evidence was not intentionally improved. This is documented as observable run-to-run hosted-model variability, not as an oracle-evidence gain.
+- E5D-027/E5D-034 remain benchmark-ambiguity findings. Target-scoped oracle evidence cannot prove corpus-wide uniqueness.
 
-## Development evaluation completed
+The assistant semantic audit of the oracle review packet found no clear answer/reference contradiction. This is not labelled human review; the formal human rubric remains a separate artifact.
 
-The declared three-question smoke run completed successfully with 3/3 hosted responses, zero failures, and perfect automatic status/citation checks.
+## Freeze tooling
 
-The full 60-question development run used the same model, prompt, reasoning effort, evidence packs, and output cap. First-pass hosted completion was 59/60 (98.3%). The single failed call, E5D-034, was an empty DeepSeek JSON-output response. It was repeated once using the exact same configuration under the predeclared transport-failure policy and completed successfully. The original failed run remains preserved for audit.
+Builder:
 
-Development review identified:
+```text
+full_corpus_pipeline/layer_c/build_hosted_qa_freeze.py
+```
 
-- E5D-017: Layer C generation error — exact applicability population was incompletely reproduced even though supporting evidence was present;
-- E5D-030: Layer B retrieval error — target/reference evidence was absent from frozen top-5 retrieval and the model answered from another retrieved AD;
-- E5D-056: Layer C abstention/status error — prose correctly stated that requested repair details were absent, but the contract status was `answered` instead of `insufficient_evidence`;
-- E5D-027: benchmark ambiguity — more than one retrieved AD genuinely satisfied the discovery wording;
-- E5D-034: benchmark/lifecycle ambiguity — several retrieved RAT gearbox directives genuinely shared the same distinctive 6-month/4,000-FH interval;
-- E5D-045: reference-page retrieval miss, but supplied evidence still supported a usable answer identifying the requested publications.
+Validator:
 
-The original frozen benchmark is not modified after observing model outputs. E5D-027 and E5D-034 are retained unchanged and documented as post-hoc ambiguity findings.
+```text
+full_corpus_pipeline/layer_c/validate_hosted_qa_freeze.py
+```
 
-Preliminary ambiguity-adjusted end-to-end correctness is 55/58 = 94.8% across the 58 unambiguous development questions. This is a development-analysis statistic, not a replacement benchmark score. It is reported alongside the strict frozen-benchmark results and the separate first-pass/recovered hosted completion rates.
+Regression tests:
 
-No prompt, model, reasoning-effort, retrieval, or evidence-depth tuning is justified from these isolated development errors before the oracle-evidence condition is run.
+```text
+full_corpus_pipeline/tests/test_layer_c_hosted_qa_freeze.py
+```
 
-## Development commands
+The builder binds the freeze to hashes of the development benchmark, retrieval freeze, retrieved/oracle evidence packs, audited run summaries, prompt/runner, response schema, provider adapter, evidence builders/runners, and evaluator.
 
-Create local credentials from `.env.example` and place the real DeepSeek API key only in the gitignored project-root `.env` file.
+It also verifies the audited development evidence:
 
-Run the Layer C tests:
+```text
+retrieved first pass: 59/60
+exact transport retry: 1/1
+oracle condition: 60/60
+```
+
+## Freeze commands
+
+After pulling the repository, run:
 
 ```bash
 .venv/bin/python -m unittest \
-  full_corpus_pipeline.tests.test_hosted_qa \
-  full_corpus_pipeline.tests.test_layer_c_evidence_packs \
-  full_corpus_pipeline.tests.test_deepseek_provider \
-  full_corpus_pipeline.tests.test_layer_c_development_evaluator \
+  full_corpus_pipeline.tests.test_layer_c_hosted_qa_freeze \
   -v
 ```
 
-Run all 60 development questions with the declared configuration:
+Build the freeze:
 
 ```bash
-.venv/bin/python -m full_corpus_pipeline.layer_c.run_development \
-  --model deepseek-v4-pro \
-  --reasoning-effort high \
-  --max-tokens 4096 \
-  --run-id deepseek-v4-pro-high-development-60
+.venv/bin/python -m full_corpus_pipeline.layer_c.build_hosted_qa_freeze
 ```
 
-Evaluate a completed development run:
+Validate it independently:
 
 ```bash
-.venv/bin/python -m full_corpus_pipeline.layer_c.evaluate_development \
-  --run-dir data_processed/evaluations/e5/layer_c/development/runs/deepseek-v4-pro-high-development-60
+.venv/bin/python -m full_corpus_pipeline.layer_c.validate_hosted_qa_freeze
 ```
 
-## Next gate
+Expected output artifact:
 
-Before the final benchmark can be opened:
+```text
+evaluation_sets/easa_airbus_ad_e5_benchmark_v1/hosted_qa_freeze.json
+```
 
-1. build and validate the oracle/reference-evidence condition without changing the DeepSeek model, prompt, reasoning effort, response contract, or max-token limit;
-2. run the oracle-evidence development condition;
-3. compare retrieved-evidence QA against oracle-evidence QA to separate Layer B retrieval limitations from Layer C generation/reasoning limitations;
-4. finalize the development configuration only after that comparison;
-5. write and validate `hosted_qa_freeze.json`; and
-6. only then open/finalize the sealed 40-question final benchmark.
+Commit that generated freeze before accessing any final benchmark material.
 
-Do not create the hosted-QA freeze until the oracle-evidence comparison is complete. Do not open the final benchmark during development work.
+## Final-test gate
+
+Only after `hosted_qa_freeze.json` is generated, validated, and committed:
+
+1. open/finalize the sealed 40-question final benchmark;
+2. human-review the final questions/reference evidence;
+3. freeze final benchmark hashes;
+4. run the one-time end-to-end final evaluation with frozen E5-D + frozen Layer C;
+5. run the final oracle-reference-evidence diagnostic with the same Layer C settings; and
+6. perform the reserved unseen-document ingestion/QA evaluation.
+
+No provider/model/prompt/reasoning/evidence/citation/abstention settings may be changed in response to final-test outcomes.
