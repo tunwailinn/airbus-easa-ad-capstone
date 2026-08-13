@@ -1,0 +1,134 @@
+{
+  "freeze_version": "e5-hosted-qa-freeze-v1.0",
+  "freeze_date": "2026-08-13",
+  "status": "frozen",
+  "scope": "Layer C hosted evidence-grounded QA",
+  "selection_basis": "E5 development retrieved-evidence and oracle-evidence comparison only",
+  "provider": {
+    "name": "deepseek",
+    "adapter_version": "deepseek-direct-v1.1",
+    "model": "deepseek-v4-pro",
+    "thinking": "enabled",
+    "reasoning_effort": "high",
+    "max_tokens": 4096,
+    "temperature": null,
+    "json_output": true,
+    "model_alias_note": "deepseek-v4-pro is a provider model alias rather than a repository-pinned weight snapshot; runtime returned_model/system_fingerprint/request IDs are preserved when supplied by the API."
+  },
+  "prompt": {
+    "version": "e5-hosted-qa-prompt-v1.0-dev",
+    "runner_version": "e5-hosted-qa-runner-v1.1",
+    "source_path": "full_corpus_pipeline/layer_c/hosted_qa.py",
+    "source_sha256": "0d0b9660de5ca76fceb2ca3a359bebec3ade737dd600f0567174700af497881f"
+  },
+  "response_contract": {
+    "version": "e5-hosted-qa-contract-v1.0",
+    "path": "full_corpus_pipeline/layer_c/hosted_qa_contract.schema.json",
+    "sha256": "dbb5aaf2d9eb14cddb5a01af43d77cd3b4c859c44eddf3ddc79351002e4935e9"
+  },
+  "evidence": {
+    "production_condition": "frozen_e5d_top5",
+    "retrieved_pack_version": "e5-evidence-pack-v1.0",
+    "retrieved_pack_path": "data_processed/evaluations/e5/layer_c/development/evidence_packs.jsonl",
+    "retrieved_pack_sha256": "c8818bf48ddf776500488d90bc298a7bb6a9c954a2fdc0aa65e19ae4005d3e8a",
+    "evidence_depth": 5,
+    "oracle_pack_version": "e5-oracle-evidence-pack-v1.0",
+    "oracle_pack_path": "data_processed/evaluations/e5/layer_c/development/oracle_evidence_packs.jsonl",
+    "oracle_pack_sha256": "33beaf3b0f6b45be80cf2ef70fc9ac94e1fe593986915c180c3685f494939b32",
+    "oracle_is_diagnostic_only": true
+  },
+  "benchmark": {
+    "development_questions_path": "evaluation_sets/easa_airbus_ad_e5_benchmark_v1/development_questions.jsonl",
+    "development_questions_sha256": "d43f08611d7d2f77eb37052a03f3deabf335b004ead9528e798e12fb8dad677b",
+    "development_question_count": 60,
+    "retrieval_freeze_path": "evaluation_sets/easa_airbus_ad_e5_benchmark_v1/retrieval_freeze.json",
+    "retrieval_freeze_sha256": "878bff50219896acf36ecd8d187ea3bb782c2cf80cdf1f5875396eede65fb69b",
+    "retrieval_freeze_version": "e5-retrieval-freeze-v1.0",
+    "final_benchmark_status": "sealed_until_this_freeze_is_committed_and_validated"
+  },
+  "development_evidence": {
+    "retrieved_first_pass": {
+      "run_id": "deepseek-v4-pro-high-development-60",
+      "run_summary_path": "data_processed/evaluations/e5/layer_c/development/runs/deepseek-v4-pro-high-development-60/run_summary.json",
+      "run_summary_sha256": "e008281d256fa34387a6c597ce551a17e9aff5f48930d430a337d45fcfa90ea5",
+      "success_count": 59,
+      "failure_count": 1,
+      "responses_sha256": "18ac5888ff39b3a2def02e55961a1c70a62afb1f9b31c587ba1651b8832abd17",
+      "failures_sha256": "4fa81a50715f600217742a76c70dc9ec5a9aad504de88fa2c9257fa165e731b0"
+    },
+    "transport_retry": {
+      "run_id": "deepseek-v4-pro-high-e5d034-transport-retry",
+      "run_summary_path": "data_processed/evaluations/e5/layer_c/development/runs/deepseek-v4-pro-high-e5d034-transport-retry/run_summary.json",
+      "run_summary_sha256": "72266bb00acdf8301d6530d8681c6d51e2d6fca9fcdc0400f333ce05f02c583f",
+      "success_count": 1,
+      "failure_count": 0,
+      "policy": "exact same request/config only; no semantic retry"
+    },
+    "oracle": {
+      "run_id": "deepseek-v4-pro-high-oracle-60",
+      "run_summary_path": "data_processed/evaluations/e5/layer_c/development/oracle_runs/deepseek-v4-pro-high-oracle-60/run_summary.json",
+      "run_summary_sha256": "80dcc01a41af808ce4a6b5dac8c1666184deb49ec593b7f11bbe63374a2ad66d",
+      "success_count": 60,
+      "failure_count": 0,
+      "responses_sha256": "c1757226df9d7793bdce47bba4dd9b68517951d361720c768b58d1665784be75",
+      "failures_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  "code_artifacts": {
+    "hosted_qa": {
+      "path": "full_corpus_pipeline/layer_c/hosted_qa.py",
+      "sha256": "0d0b9660de5ca76fceb2ca3a359bebec3ade737dd600f0567174700af497881f"
+    },
+    "response_contract": {
+      "path": "full_corpus_pipeline/layer_c/hosted_qa_contract.schema.json",
+      "sha256": "dbb5aaf2d9eb14cddb5a01af43d77cd3b4c859c44eddf3ddc79351002e4935e9"
+    },
+    "provider_adapter": {
+      "path": "full_corpus_pipeline/layer_c/providers/deepseek.py",
+      "sha256": "743bf79f38e68572ac4dbc71970f63daa419b2e796286f546b6712e745ee4a7a"
+    },
+    "retrieved_evidence_builder": {
+      "path": "full_corpus_pipeline/layer_c/build_evidence_packs.py",
+      "sha256": "fbf6791ae32cb21320eafbcd797ac47182602fb4446c9dfdb5bd8343aaf4b522"
+    },
+    "development_runner": {
+      "path": "full_corpus_pipeline/layer_c/run_development.py",
+      "sha256": "2643cdcb7f57289ee431e0bc61f26ce5fa973812f7ad8cdef291012de753a6df"
+    },
+    "development_evaluator": {
+      "path": "full_corpus_pipeline/layer_c/evaluate_development.py",
+      "sha256": "c8684fbcab4fa32559a85d1a11f4136f736ad4e922eee9156582b2deea4d4138"
+    },
+    "oracle_evidence_builder": {
+      "path": "full_corpus_pipeline/layer_c/build_oracle_evidence_packs.py",
+      "sha256": "d68c79556d8ca933fd869b09b05ff0c1830cbed71e5e3b554f7129510fda45fa"
+    },
+    "oracle_runner": {
+      "path": "full_corpus_pipeline/layer_c/run_oracle_development.py",
+      "sha256": "365142f228d6211fb622fee3b3c0e3ae18c1c113e095ff2b4b1f8388b0117ba3"
+    }
+  },
+  "policies": {
+    "retrieval_retuning_after_freeze": false,
+    "semantic_retry": false,
+    "transport_retry": "exact same request/config only",
+    "reasoning_content_persisted": false,
+    "benchmark_reference_answer_exposed_to_model": false,
+    "final_test_configuration_changes": false
+  },
+  "documented_development_findings": {
+    "retrieval_misses": [
+      "E5D-030",
+      "E5D-045"
+    ],
+    "benchmark_ambiguities": [
+      "E5D-027",
+      "E5D-034"
+    ],
+    "retrieved_condition_layer_c_errors": [
+      "E5D-017",
+      "E5D-056"
+    ],
+    "stability_note": "E5D-056 returned the correct insufficient_evidence state in the evidence-equivalent negative-control oracle run after returning answered in the original retrieved-evidence run; hosted output therefore has observable run-to-run variability."
+  }
+}
