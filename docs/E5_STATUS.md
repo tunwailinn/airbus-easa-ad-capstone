@@ -1,20 +1,25 @@
 # E5 Status
 
-Last updated: 6 August 2026
+Last updated: 14 August 2026
 
 ## Current state
 
-E0/E4 are closed/frozen historical experiments. E5 retrieval development is now complete. **E5-D is selected and frozen as the final E5 retrieval configuration.**
+E5 development, retrieval selection, hosted-QA freeze, the one-time 40-question final benchmark, human semantic review, and the post-hoc oracle/reference-evidence diagnostic are complete.
 
-The 16 E5 final-test families and 40 final questions remain sealed. Hosted-QA provider/model/prompt/evidence-pack settings must be frozen before they are opened.
+**The authoritative primary final semantic result is 38/40 = 95.0%.**
 
-Frozen E5 development benchmark:
+The final result is frozen. No retrieval, prompt, provider/model, reasoning-effort, response-contract, evidence-depth, or question changes may be made from final-test observations. Oracle and error-attribution results are diagnostic only and must not replace the primary result.
+
+The remaining major evaluation is the five frozen unseen-PDF temporary-upload and permanent-ingestion evaluation.
+
+## Frozen E5 benchmark
 
 - 24 development families / 16 final-test families;
 - 60 human-reviewed development questions;
-- 54 answerable retrieval questions + 6 abstention/conflict questions reserved for QA;
-- 36 known-document + 18 identifier-free discovery + 6 abstention/conflict;
-- benchmark SHA-256: `d43f08611d7d2f77eb37052a03f3deabf335b004ead9528e798e12fb8dad677b`.
+- 40 human-reviewed final questions;
+- final questions SHA-256: `f6b008c1b5d24160cb5718e2d4e91a7e0d323277a531654e4b5c3a33995c9a85`;
+- final composition: 36 answerable + 4 abstention/conflict;
+- final query modes: 24 known-document + 12 identifier-free discovery + 4 abstention/conflict.
 
 Frozen retrieval source remains `rag-index-build-v1.2`: **1,786 documents / 12,634 E4 section chunks**.
 
@@ -24,78 +29,54 @@ Machine-readable retrieval freeze:
 evaluation_sets/easa_airbus_ad_e5_benchmark_v1/retrieval_freeze.json
 ```
 
-Freeze version: `e5-retrieval-freeze-v1.0`.
+Hosted-QA freeze:
 
-## E5-A — COMPLETE
+```text
+evaluation_sets/easa_airbus_ad_e5_benchmark_v1/hosted_qa_freeze.json
+```
 
-Engineering-aware lexical retrieval:
+Final benchmark lock:
 
-- deterministic AD-aware routing;
-- within-document BM25 for known-document queries;
-- corpus-wide sparse discovery otherwise;
-- no dense retrieval or reranker.
+```text
+evaluation_sets/easa_airbus_ad_e5_benchmark_v1/final_lock.json
+```
 
-Development result:
+## E5 retrieval development — COMPLETE / FROZEN
+
+### E5-A
 
 - overall Recall@5: **0.8889**;
 - known-document Recall@5: **1.0000**;
 - discovery Recall@5: **0.6667**;
 - candidate source+page recall@20: **0.9444**.
 
-## E5-B — COMPLETE / LEXICAL BASE
+### E5-B
 
-E5-B preserves the successful known-document route and improves discovery with signal-preserving BM25, wider sparse retrieval, document aggregation, within-document re-retrieval, and evidence assembly.
+- Recall@5: **0.9444**;
+- discovery Recall@5: **0.8333**;
+- candidate source+page recall@20: **0.9630**.
 
-Development result:
+### E5-C
 
-| Metric | E5-A | E5-B |
-|---|---:|---:|
-| Recall@1 | 0.6296 | 0.6111 |
-| Recall@3 | 0.8519 | **0.8889** |
-| Recall@5 | 0.8889 | **0.9444** |
-| MRR@5 | 0.7407 | **0.7537** |
-| nDCG@5 | 0.7785 | **0.8022** |
-| Correct source@5 | 0.9259 | **0.9630** |
-| Candidate source+page recall@20 | 0.9444 | **0.9630** |
+Pinned `Qwen/Qwen3-Embedding-0.6B@97b0c61` candidate generation raised candidate source+page recall@20 to **0.9815 (53/54)**.
 
-Discovery Recall@5 improved from **0.6667 → 0.8333** while known-document Recall@5 remained **1.0000**. Paired E5-A/E5-B top-5 gains/losses: **3 / 0**.
+### E5-D — selected retrieval configuration
 
-## E5-C — COMPLETE / HIGH-RECALL CANDIDATE GENERATOR
+Pinned reranker: `Qwen/Qwen3-Reranker-0.6B@e61197e`.
 
-E5-C adds pinned `Qwen/Qwen3-Embedding-0.6B@97b0c61` dense retrieval to E5-B discovery, with BM25/Qwen document-level and passage-level reciprocal-rank fusion. Known-document behavior remains unchanged.
+Frozen development result:
 
-The accepted dense artifact is `e5c-dense-build-v1.1`, which explicitly re-normalizes float32 document/query vectors before cosine-via-inner-product scoring.
-
-Development result:
-
-| Metric | E5-B | E5-C |
-|---|---:|---:|
-| Recall@1 | 0.6111 | **0.6481** |
-| Recall@3 | **0.8889** | 0.8519 |
-| Recall@5 | **0.9444** | 0.9259 |
-| MRR@5 | 0.7537 | **0.7645** |
-| nDCG@5 | 0.8022 | **0.8053** |
-| Correct source@5 | **0.9630** | **0.9630** |
-| Candidate source+page recall@20 | 0.9630 | **0.9815** |
-
-Discovery Recall@5 was **0.7778**. E5-C did not beat E5-B at top 5, but it raised candidate source+page recall@20 to **53/54 = 0.9815**, providing the high-recall fixed candidate pool used by E5-D.
-
-## E5-D — COMPLETE / SELECTED AND FROZEN
-
-E5-D keeps **E5-C top-20 candidate membership fixed** and applies the pinned learned passage reranker:
-
-- embedding model: `Qwen/Qwen3-Embedding-0.6B@97b0c61`;
-- reranker: `Qwen/Qwen3-Reranker-0.6B@e61197e`;
-- reranker execution: isolated SentenceTransformers `CrossEncoder` worker without FAISS;
-- reranker score: raw logit difference;
-- candidate depth: **20**;
-- primary final evidence depth: **5**;
-- no hosted LLM in retrieval;
-- final-test families/questions remained sealed during selection.
-
-Frozen aviation reranker instruction:
-
-> Given an aviation airworthiness-directive maintenance query, rank passages by how directly and completely they answer the query. Preserve exact applicability, compliance thresholds, timing, exceptions, identifiers, lifecycle statements, and referenced publications.
+- Recall@1: **0.7963**;
+- Recall@3: **0.9259**;
+- Recall@5: **0.9630**;
+- MRR@5: **0.8633**;
+- nDCG@5: **0.8884**;
+- correct source@5: **0.9815**;
+- correct source+page@5: **0.9630**;
+- candidate source+page recall@20: **0.9815**;
+- known-document Recall@5: **1.0000 (36/36)**;
+- discovery Recall@5: **0.8889 (16/18)**;
+- routing accuracy: **1.0000**.
 
 Development artifact:
 
@@ -103,89 +84,147 @@ Development artifact:
 data_processed/evaluations/e5/e5d_development_evaluation.json
 ```
 
-Artifact SHA-256:
+SHA-256:
 
 ```text
 9241b5d777f47a95efd1a5afc9a4139d280be0a12c3b91b6eb2d44df31cbcb05
 ```
 
-### Development result
+Do not retune against the remaining development misses `E5D-030` or `E5D-045`.
 
-| Metric | E5-B | E5-C | **E5-D** |
-|---|---:|---:|---:|
-| Recall@1 | 0.6111 | 0.6481 | **0.7963** |
-| Recall@3 | 0.8889 | 0.8519 | **0.9259** |
-| Recall@5 | 0.9444 | 0.9259 | **0.9630** |
-| MRR@5 | 0.7537 | 0.7645 | **0.8633** |
-| nDCG@5 | 0.8022 | 0.8053 | **0.8884** |
-| Correct source@5 | 0.9630 | 0.9630 | **0.9815** |
-| Correct source+page@5 | 0.9444 | 0.9259 | **0.9630** |
-| Candidate source+page recall@20 | 0.9630 | **0.9815** | **0.9815** |
+## Layer C hosted-QA configuration — FROZEN
 
-Query-mode result:
+Primary and oracle conditions use the same generation configuration:
 
-- known-document Recall@5: **1.0000 (36/36)**;
-- discovery Recall@5: **0.8889 (16/18)**;
-- routing accuracy: **1.0000 (54/54)**.
+```text
+provider: DeepSeek official API
+adapter: deepseek-direct-v1.1
+model: deepseek-v4-pro
+thinking: enabled
+reasoning_effort: high
+max_tokens: 4096
+prompt: e5-hosted-qa-prompt-v1.0-dev
+runner: e5-hosted-qa-runner-v1.1
+response contract: e5-hosted-qa-contract-v1.0
+semantic retry: prohibited
+```
 
-Category Recall@5:
+The model sees only the question and supplied evidence. Private benchmark labels, reference answers, target AD labels, reference pages, category/query-mode labels, and answerability labels are not exposed during generation.
 
-- applicability: **1.0000**;
-- conditional/multi-passage: **1.0000**;
-- identity/lifecycle: **1.0000**;
-- referenced publication: **0.8750**;
-- required action/compliance: **0.9500**.
+## One-time final benchmark — COMPLETE
 
-Paired E5-D vs E5-B:
+### Frozen retrieval / automatic result
 
-- E5-D better rank: **18**;
-- E5-B better rank: **7**;
-- ties: **29**;
-- top-5 gains: **1**;
-- top-5 losses: **0**.
+- hosted requests: **40/40 successful**;
+- answerability/status accuracy: **1.0000**;
+- Recall@1: **0.8333**;
+- Recall@3: **0.9722**;
+- Recall@5: **0.9722 (35/36)**;
+- MRR@5: **0.8981**;
+- nDCG@5: **0.9173**;
+- correct source@5: **0.9722**;
+- correct source+page@5: **0.9722**;
+- known-document Recall@5: **1.0000 (24/24)**;
+- discovery Recall@5: **0.9167 (11/12)**;
+- reference-page citation hit rate: **0.9722**;
+- target-AD citation hit rate: **0.9722**.
 
-Paired E5-D vs E5-C:
+### Human semantic result
 
-- E5-D better rank: **16**;
-- E5-C better rank: **6**;
-- ties: **32**;
-- top-5 gains: **2**;
-- top-5 losses: **0**.
+- semantic passes: **38/40**;
+- semantic failures: **2/40**;
+- strict end-to-end semantic accuracy: **95.0%**.
 
-### Remaining development top-5 misses
+This **38/40 = 95.0%** is the authoritative primary final semantic result.
 
-Only two of the 54 answerable questions remain outside top 5:
+Primary failure interpretation:
 
-1. `E5D-030` — required action/compliance — discovery — target `2016-0222`, page 2 — target source/page absent at 20. This is a candidate-generation miss and cannot be repaired by reranking the fixed pool.
-2. `E5D-045` — referenced publication — discovery — target `2022-0040`, page 3 — correct source+page rank **6**, source rank **4**. This is a near-boundary ranking miss.
+1. `E5F-011` — correct target evidence was available, but the answer selected the wrong applicability detail. Primary classification: **Layer C answer-selection/completeness failure under retrieved evidence**.
+2. `E5F-021` — correct `2018-0289R1` evidence was absent from the frozen retrieval support and the answer selected `2025-0111`. Classification: **Layer B retrieval/candidate-generation failure**.
 
-Do **not** tune retrieval against either miss after this freeze.
+Approved diagnostics retained without changing the primary score:
 
-## Retrieval selection decision
+- `E5F-015` — PASS, with a post-hoc lifecycle/benchmark ambiguity note;
+- `E5F-030` — PASS, with a canonical reference-page citation diagnostic.
 
-The predeclared primary selection objective is correct source+page Recall@5. E5-D is therefore selected because it achieves the best development Recall@5 (**0.9630**) and also has the strongest MRR@5 (**0.8633**), nDCG@5 (**0.8884**), Recall@1 (**0.7963**), and discovery Recall@5 (**0.8889**). It improves top-5 coverage versus both E5-B and E5-C with **zero top-5 regressions** in the paired comparisons.
+## Final oracle/reference-evidence diagnostic — COMPLETE
 
-From this point onward, the following are frozen for the primary final evaluation:
+The oracle condition changed only the evidence source. The model/prompt/settings remained frozen.
 
-- exact known-document routing behavior;
-- E5-C BM25/Qwen candidate generation and all its fixed depths/RRF settings;
-- embedding model and revision;
-- dense artifact construction rules;
-- E5-D reranker model and revision;
-- reranker instruction and score type;
-- candidate limit 20 and final evidence depth 5;
-- frozen E4 chunk/index source.
+Evidence construction:
 
-Any later retrieval experiment is post-hoc only and must not replace the primary frozen E5-D final result.
+- 36 answerable questions received source chunks from the human-reviewed target AD/reference pages;
+- 4 abstention questions retained the exact primary frozen top-5 evidence as negative controls;
+- maximum evidence depth: 5;
+- no retrieval rerun or retuning.
 
-## Immediate next gate — hosted QA freeze
+Original oracle batch:
 
-Retrieval tuning is closed. Next:
+- selected: **40**;
+- successful: **39**;
+- technical/provider failures: **1** (`E5F-035`);
+- request success rate: **0.9750**;
+- answerability/status accuracy on successful requests: **0.9744**;
+- reference-page citation hit rate: **1.0000**;
+- target-AD citation hit rate: **1.0000**.
 
-1. define/freeze the hosted-QA provider, model revision/name, reasoning mode, generation parameters, evidence-pack format, citation contract, and abstention policy;
-2. validate the hosted-QA runner on development data only, without changing frozen retrieval;
-3. record a machine-readable hosted-QA freeze;
-4. only after that freeze, author/review/open the 40-question final benchmark from the 16 sealed final families;
-5. run frozen E5-D retrieval + frozen hosted QA on the final benchmark once;
-6. separately run the oracle-reference-evidence hosted-QA condition to distinguish retrieval failures from generation failures;
-7. after final evaluation, run the five frozen unseen-PDF ingestion/QA cases without retraining.
+### Oracle error attribution
+
+`E5F-021` becomes correct with oracle evidence. This confirms the primary failure as **Layer B retrieval/candidate generation**.
+
+`E5F-011` also becomes correct with focused oracle evidence. The same frozen model correctly returns `A300F4-605R` and `A300F4-622R`, all MSNs with Airbus modification 12046 embodied in production. Therefore the primary failure is best described as **Layer C evidence-selection/completeness sensitivity under the retrieved-evidence condition**, rather than inability to reason from the intended evidence.
+
+`E5F-040` is a negative-control stability diagnostic: the evidence was unchanged, but the oracle run returned `answered` instead of the primary `insufficient_evidence`. Its prose remained cautious and stated that the exact repair details were not provided. Record this as **Layer C status-calibration/run-to-run variability**, not a factual hallucination.
+
+### E5F-035 exact transport retry
+
+The original oracle request failed because DeepSeek returned empty JSON final content. One exact transport retry was allowed under the frozen policy.
+
+The retry preserved:
+
+- question text;
+- evidence;
+- prompt payload SHA-256 `74ad9826c35d14082c13f15d94a639d017462b0515092c17e0fa4fd42b28892c`;
+- provider/model;
+- prompt/response contract;
+- thinking mode;
+- reasoning effort;
+- max-token limit.
+
+Retry result: **recovered successfully**. The recovered answer correctly describes the 6,100-FC terminating-action condition and cancellation of the applicable ALI 531103 inspection requirements.
+
+The original 39-success/1-failure oracle batch remains preserved. The retry is a separate diagnostic recovery artifact; do not rewrite the original run as 40/40.
+
+## Reporting rule
+
+Use these values in reports:
+
+- **Primary final end-to-end semantic accuracy: 95.0% (38/40)**;
+- **Primary final retrieval Recall@5: 97.22% (35/36)**;
+- **Known-document final Recall@5: 100% (24/24)**;
+- **Discovery final Recall@5: 91.67% (11/12)**.
+
+Oracle results are explanatory only. They must not replace or adjust the strict primary score.
+
+## Next gate — five frozen unseen PDFs
+
+The final major evaluation is the frozen unseen-document set:
+
+```text
+evaluation_sets/unseen_incoming_5_v1/
+```
+
+Five distinct held-out cases were selected for:
+
+- corrected AD;
+- revised AD;
+- supersedure case;
+- long document;
+- simple original.
+
+Run the evaluation in two stages without retraining:
+
+1. **temporary unseen-document QA** — process/query each held-out PDF without adding it to the permanent corpus;
+2. **permanent ingestion** — duplicate rejection, deterministic extraction, lifecycle decision, index update, QA, and citations.
+
+Do not use these five PDFs to tune the already-frozen E5 primary system.
