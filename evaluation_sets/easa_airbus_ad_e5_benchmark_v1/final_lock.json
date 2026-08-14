@@ -1,0 +1,54 @@
+{
+  "lock_version": "e5-final-benchmark-lock-v1.0",
+  "benchmark_version": "easa-airbus-ad-e5-benchmark-v1",
+  "lock_date": "2026-08-14",
+  "status": "human_verified_and_locked",
+  "split": "final_test",
+  "questions": {
+    "path": "evaluation_sets/easa_airbus_ad_e5_benchmark_v1/final_questions.jsonl",
+    "sha256": "f6b008c1b5d24160cb5718e2d4e91a7e0d323277a531654e4b5c3a33995c9a85",
+    "question_count": 40,
+    "category_counts": {
+      "identity_lifecycle": 5,
+      "applicability": 7,
+      "required_action_compliance": 14,
+      "referenced_publication": 5,
+      "conditional_multi_passage": 5,
+      "insufficient_conflict_abstention": 4
+    },
+    "query_mode_counts": {
+      "discovery": 12,
+      "known_document": 24,
+      "abstention_conflict": 4
+    },
+    "human_verified_count": 40
+  },
+  "family_split": {
+    "path": "evaluation_sets/easa_airbus_ad_e5_benchmark_v1/family_split.csv",
+    "sha256": "86cdf72e020b1a6ae1d9a8eb1edd13f1a3f793e14d57dfb483a55783cfbbb1b3",
+    "split_lock_sha256": "aa06292b39a0e461f8e2919f9af7414fb458f8e343a57c8e7f03685fe61023a6",
+    "final_family_count": 16
+  },
+  "hosted_qa_freeze": {
+    "path": "evaluation_sets/easa_airbus_ad_e5_benchmark_v1/hosted_qa_freeze.json",
+    "sha256": "a22cc181f10bd763e90ef1e5cc5d6257a0b1afb83ed56309a7de736af5ba249a",
+    "freeze_version": "e5-hosted-qa-freeze-v1.0"
+  },
+  "human_review": {
+    "path": "evaluation_sets/easa_airbus_ad_e5_benchmark_v1/e5_final_question_final_review.md",
+    "sha256": "764dfc9e576a34ff96bd9ee4cc8e2fb647ece988302fe79e71fcd5132d2423ab",
+    "verification_audit_path": "evaluation_sets/easa_airbus_ad_e5_benchmark_v1/e5_final_question_verification_audit.json",
+    "verification_audit_sha256": "6e02f3996dcc8b832755f115d649083b5009eeb336f4283da2bc33403a36355e",
+    "reviewer": "Tun Wai Linn",
+    "status": "approved_all_40"
+  },
+  "policies": {
+    "primary_final_run_count": 1,
+    "post_test_tuning_allowed": false,
+    "retrieval_changes_allowed": false,
+    "hosted_qa_configuration_changes_allowed": false,
+    "semantic_retry_allowed": false,
+    "transport_retry_policy": "exact same request/config only for genuine technical/provider failure",
+    "post_hoc_analysis_must_not_replace_primary_result": true
+  }
+}
