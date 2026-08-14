@@ -1,0 +1,39 @@
+{
+  "benchmark_version": "easa-airbus-ad-e5-benchmark-v1",
+  "audit_version": "e5-final-question-verification-audit-v1.0",
+  "audit_date": "2026-08-14",
+  "artifact_status": "human_verified",
+  "reviewer": "Tun Wai Linn",
+  "review_basis": "Human review of the 40-question source-evidence packet, with reviewer edits preserved in e5_final_question_final_review.md and explicit approval of all 40 questions including E5F-024.",
+  "question_count": 40,
+  "human_verified_count": 40,
+  "final_questions_sha256": "f6b008c1b5d24160cb5718e2d4e91a7e0d323277a531654e4b5c3a33995c9a85",
+  "source_draft_sha256": "1238b9c9e78a6ce45ef2828495b9d57c69f5fd4c3bfcb71949771132424356d9",
+  "human_review_record_sha256": "764dfc9e576a34ff96bd9ee4cc8e2fb647ece988302fe79e71fcd5132d2423ab",
+  "family_split_sha256": "86cdf72e020b1a6ae1d9a8eb1edd13f1a3f793e14d57dfb483a55783cfbbb1b3",
+  "family_split_hash_matches_lock": true,
+  "final_family_count": 16,
+  "category_counts": {
+    "identity_lifecycle": 5,
+    "applicability": 7,
+    "required_action_compliance": 14,
+    "referenced_publication": 5,
+    "conditional_multi_passage": 5,
+    "insufficient_conflict_abstention": 4
+  },
+  "query_mode_counts": {
+    "discovery": 12,
+    "known_document": 24,
+    "abstention_conflict": 4
+  },
+  "discovery_target_identifier_leak_count": 0,
+  "discovery_target_identifier_leaks": [],
+  "corpus_wide_discovery_uniqueness_status": "human_approved_under_review_packet_instructions",
+  "notes": [
+    "No question is marked human_verified solely from automatic or AI review.",
+    "The explicit human approval occurred after the reviewer edited the source-evidence review packet.",
+    "The final benchmark must be run once with the committed frozen retrieval and hosted-QA configuration.",
+    "Any later ambiguity analysis or error analysis is post-hoc and must not replace the primary final result."
+  ],
+  "human_edited_review_packet_sha256": "30f9f9ae60c53585a855382b5a28b71654e132ea6f49a4dbdda6578ff4106bb6"
+}
