@@ -17,8 +17,6 @@ Unseen outcomes are reported separately and may not be used to retune the frozen
 
 ### U0/U1 — source validation + non-destructive preparation — COMPLETE
 
-Verified preparation result:
-
 - preparation version: `unseen-5-preparation-v1.0`;
 - frozen documents: **5/5**;
 - exact source SHA-256 matches: **5/5**;
@@ -26,22 +24,12 @@ Verified preparation result:
 - deterministic extraction successes: **5/5**;
 - schema-valid extracted records: **5/5**;
 - parser: `content-local-v2.1.6`;
-- hosted inference started during preparation: **false**;
-- permanent ingestion started during preparation: **false**.
+- hosted inference during preparation: **false**;
+- permanent ingestion during preparation: **false**.
 
-Preparation bindings:
+Preparation manifest SHA-256:
 
 ```text
-selection.csv SHA-256:
-f175477d68e2226b0793d742ad1ef0de99053b57e8334f1ca2c2962723e8c6a5
-
-selection_lock.json SHA-256:
-d2d12b393d544aff8f1c69dcff89a5305011b504f8ee54281dd40e20d725fd2c
-
-corpus_manifest.parquet SHA-256:
-00e7995de1ebfae1ebbc64fc447d7953567a3ef59854620bce0b606ac4f40a18
-
-preparation_manifest.json SHA-256:
 e3a60433348003b8e238a6704d40ddcd6e389e4f7804df92057f4eec9bbadc05
 ```
 
@@ -49,26 +37,10 @@ e3a60433348003b8e238a6704d40ddcd6e389e4f7804df92057f4eec9bbadc05
 
 The unseen QA set contains **15 questions, exactly three per held-out PDF**.
 
-Human-review outcome:
-
-- reviewed: **15/15**;
 - human verified: **15/15**;
 - rejected: **0**;
-- revised question/reference records: **0**;
 - answerable from AD: **14**;
 - abstention/insufficient-evidence: **1**.
-
-Locked category composition:
-
-| Category | Count |
-|---|---:|
-| identity/lifecycle | 4 |
-| applicability | 3 |
-| required action/compliance | 3 |
-| conditional/multi-passage | 3 |
-| referenced publication | 1 |
-| insufficient/conflict/abstention | 1 |
-| **Total** | **15** |
 
 Locked question SHA-256:
 
@@ -84,15 +56,106 @@ evaluation_sets/unseen_incoming_5_v1/unseen_question_verification_audit.json
 evaluation_sets/unseen_incoming_5_v1/unseen_question_final_review.md
 ```
 
-`unseen_questions.jsonl` is installed locally and is bound by the committed SHA-256 lock, matching the sealed-local-file pattern used for the final E5 question set.
+### U3 — temporary-document retrieval + frozen Layer C QA — FIRST PASS COMPLETE
 
-### U5Q-008 verification note
+The primary temporary run is preserved at:
 
-The reviewer approved U5Q-008 but requested verification of the statement that Airbus issued a new AFM procedure applicable to all aeroplanes. The prepared `2011-0142` source packet states:
+```text
+data_processed/evaluations/unseen_5/temporary_primary/
+```
 
-> Airbus has issued a new AFM procedure, applicable to all aeroplanes.
+Configuration:
 
-The question/reference record is therefore retained unchanged.
+- retrieval restricted to the selected held-out PDF;
+- all prepared section chunks from that PDF considered, maximum 14;
+- pinned `Qwen/Qwen3-Reranker-0.6B@e61197e` reranker;
+- final evidence depth: **5**;
+- frozen DeepSeek V4 Pro Layer C configuration;
+- no permanent ingestion;
+- no semantic retry.
+
+First-pass automatic results:
+
+- questions: **15**;
+- hosted successes: **14**;
+- hosted failures: **1**;
+- request success rate: **14/15 = 93.33%**;
+- answerability/status accuracy on successful requests: **13/14 = 92.86%**;
+- reference-page any-overlap Recall@5: **14/14 = 100%**;
+- reference-page full-coverage@5: **14/14 = 100%**;
+- reference-page citation hit rate on applicable successful answers: **100%**;
+- target-AD citation hit rate on applicable successful answers: **100%**;
+- permanent ingestion started: **false**.
+
+The page-level retrieval metric is retained as the frozen first-pass metric, but it is not interpreted as proof that the exact answer-bearing passage was present.
+
+### Post-hoc reference-quote containment diagnostic
+
+Diagnostic implementation:
+
+```text
+full_corpus_pipeline/layer_c/diagnose_unseen_reference_quote_containment.py
+```
+
+This check asks whether the human-approved evidence quotations themselves are contained in the top-5 prompt evidence.
+
+Answerable-question diagnostic:
+
+- any approved reference quote contained at top 5: **12/14 = 85.71%**;
+- all approved reference quotes contained at top 5: **8/14 = 57.14%**.
+
+These are **diagnostic-only** values and do not replace the frozen page-level retrieval metrics. Exact normalized quote containment can fail even when a supplied passage is sufficient for a semantically correct answer.
+
+Important attribution finding:
+
+- `U5Q-010`: page 1 overlapped top-5, but **neither** approved answer-bearing `Supersedure` nor `Applicability` quote was contained in top-5. The hosted model returned `insufficient_evidence`. This is therefore a temporary passage-selection failure, not a Layer C reasoning failure.
+
+Other diagnostic examples show why exact quote containment is not itself the primary retrieval score: some successful correct answers were produced even where the full approved quote string was not literally contained in top-5.
+
+### U5Q-011 exact transport retry — FAILED / CLOSED
+
+The first-pass request for `U5Q-011` failed with:
+
+```text
+DeepSeek JSON Output returned empty final content
+```
+
+One exact transport retry was performed under the predeclared retry policy. The retry preserved the identical:
+
+- question;
+- evidence pack;
+- prompt payload SHA-256;
+- provider/model;
+- hosted-QA prompt/contract;
+- thinking mode;
+- reasoning effort;
+- max-token limit.
+
+Prompt payload SHA-256:
+
+```text
+b17e0b69d1a7a28071cb9fc219272e4dc6e755223426cc39e08bd98ca66e5f33
+```
+
+The retry also failed with the same empty-final-content error. No further retry is permitted. Record `U5Q-011` as a **persistent provider/transport failure**, not a semantic failure.
+
+### U4 — human semantic review — PENDING FINAL HUMAN APPROVAL
+
+An AI-assisted semantic audit has produced the following **provisional** classifications:
+
+- `U5Q-001`: proposed **FAIL — Layer C completeness**. The response omitted the human-approved correction date `[Corrected: 10 September 2009]`, even though that date was supplied in top-5 evidence.
+- `U5Q-010`: proposed **FAIL — Layer B temporary passage selection**. The approved answer-bearing passages were absent from top-5.
+- `U5Q-011`: **persistent technical/provider failure** after the single permitted exact retry.
+- remaining 12 questions: proposed **PASS**.
+
+If the reviewer approves those semantic decisions, the reported unseen temporary-QA results will be:
+
+- semantic accuracy among successful first-pass responses: **12/14 = 85.71%**;
+- strict first-pass end-to-end success: **12/15 = 80.0%**;
+- semantic failures: **2**;
+- persistent provider/transport failures: **1**.
+
+These values are **not human-finalized until explicit reviewer approval is recorded**.
 
 ## Frozen unseen set
 
@@ -101,10 +164,8 @@ The question/reference record is therefore retained unchanged.
 | corrected | 2008-0008 | 2 |
 | revised | 2011-0041R1 | 4 |
 | supersedure | 2011-0142 | 3 |
-| long_document | 2026-0084 | 10 |
-| simple_original | 2007-0173 | 2 |
-
-These five families were excluded from development extraction, verified page-text indexing, E0/E4, E5 development, E5 final benchmark construction, and hosted-QA selection.
+| long document | 2026-0084 | 10 |
+| simple original | 2007-0173 | 2 |
 
 ## Evaluation sequence
 
@@ -112,70 +173,19 @@ These five families were excluded from development extraction, verified page-tex
 U0 source/selection validation                         COMPLETE
 → U1 non-destructive unseen preparation               COMPLETE
 → U2 human-reviewed unseen QA authoring + lock         COMPLETE
-→ U3 temporary-document retrieval + frozen Layer C QA  NEXT
-→ U4 offline/human temporary-QA evaluation             NOT STARTED
-→ U5 permanent ingestion into isolated evaluation      PROHIBITED UNTIL U4 PRESERVED
+→ U3 temporary-document retrieval + frozen Layer C QA  COMPLETE
+→ U4 offline/human temporary-QA evaluation             PENDING HUMAN APPROVAL
+→ U5 permanent ingestion into isolated evaluation      BLOCKED UNTIL U4 LOCKED
 → U6 duplicate/lifecycle/index-update safeguards       NOT STARTED
 → U7 post-ingestion QA/citation verification           NOT STARTED
 → U8 final unseen-generalization report                NOT STARTED
 ```
 
-Do not permanently ingest a held-out PDF before the temporary-document primary result and human semantic review have been preserved.
-
-## U3 — locked temporary-document QA
-
-Validator:
-
-```text
-full_corpus_pipeline/layer_c/validate_unseen_question_lock.py
-```
-
-Primary runner:
-
-```text
-full_corpus_pipeline/layer_c/run_unseen_temporary_qa.py
-```
-
-Offline evaluator:
-
-```text
-full_corpus_pipeline/layer_c/evaluate_unseen_temporary_qa.py
-```
-
-Temporary retrieval is intentionally document-scoped. Each question uses only the prepared section chunks from its selected held-out PDF. Every held-out PDF has at most 14 prepared chunks, so all chunks are passed to the pinned E5-D Qwen reranker; only the top five are supplied to Layer C.
-
-Frozen answer-generation configuration remains:
-
-```text
-provider: DeepSeek official API
-model: deepseek-v4-pro
-thinking: enabled
-reasoning_effort: high
-max_tokens: 4096
-prompt: e5-hosted-qa-prompt-v1.0-dev
-response contract: e5-hosted-qa-contract-v1.0
-semantic retry: prohibited
-```
-
-The temporary runner does not write to `data_incoming/`, does not alter a persistent retrieval index, does not change lifecycle state, and does not perform permanent ingestion.
-
-Primary temporary-QA metrics:
-
-- source/preparation success;
-- temporary retrieval any-reference-page Recall@5;
-- temporary retrieval full-reference-page coverage@5;
-- hosted request success;
-- answerability/status accuracy;
-- reference-page citation hit rate;
-- target-AD citation hit rate;
-- human semantic answer accuracy;
-- condition/timing/exception completeness;
-- unsupported-claim rate;
-- abstention correctness.
+Do not permanently ingest a held-out PDF until the temporary-document result and human semantic decisions are preserved.
 
 ## U5/U6 — permanent ingestion — NOT STARTED
 
-Permanent ingestion starts only after U3/U4 results are preserved. It must use an isolated unseen-evaluation store/index first and test:
+Permanent ingestion will use an isolated unseen-evaluation store/index first and test:
 
 - exact SHA-256 duplicate rejection;
 - frozen deterministic extraction;
@@ -190,6 +200,6 @@ Frozen E5 benchmark indexes remain immutable audit artifacts.
 
 ## Interpretation boundary
 
-Unseen failures must be attributed to the stage that caused them: source preparation, deterministic extraction, temporary passage selection, Layer C generation/status, duplicate handling, lifecycle handling, index update, or post-ingestion retrieval/QA.
+Unseen failures must be attributed to the stage that caused them: source preparation, deterministic extraction, temporary passage selection, Layer C generation/status, provider/transport, duplicate handling, lifecycle handling, index update, or post-ingestion retrieval/QA.
 
 Do not silently fix a held-out failure and report the fixed output as the original unseen result. Any later fix is post-hoc engineering work and must be labelled separately.
