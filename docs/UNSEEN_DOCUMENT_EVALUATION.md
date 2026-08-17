@@ -13,6 +13,68 @@ The strict E5 primary final result remains authoritative:
 
 The five unseen PDFs are a separate post-final generalization experiment. Their outcomes must not be used to retune the frozen parser, E5 retrieval, prompt, DeepSeek model/settings, response contract, or evidence depth.
 
+### Current checkpoint — 17 August 2026
+
+U0/U1 source validation and non-destructive preparation are **complete**.
+
+Verified preparation result:
+
+- preparation version: `unseen-5-preparation-v1.0`;
+- status: `ready_for_human_question_authoring`;
+- frozen documents: **5/5**;
+- source SHA-256 matches: **5/5**;
+- source pages: **21**;
+- deterministic extraction successes: **5/5**;
+- schema-valid extracted records: **5/5**;
+- parser: `content-local-v2.1.6`;
+- question inference started: **false**;
+- permanent ingestion started: **false**.
+
+Preparation bindings:
+
+```text
+selection.csv SHA-256:
+f175477d68e2226b0793d742ad1ef0de99053b57e8334f1ca2c2962723e8c6a5
+
+selection_lock.json SHA-256:
+d2d12b393d544aff8f1c69dcff89a5305011b504f8ee54281dd40e20d725fd2c
+
+corpus_manifest.parquet SHA-256:
+00e7995de1ebfae1ebbc64fc447d7953567a3ef59854620bce0b606ac4f40a18
+
+preparation_manifest.json SHA-256:
+e3a60433348003b8e238a6704d40ddcd6e389e4f7804df92057f4eec9bbadc05
+```
+
+U2 question authoring has also been performed **as a draft only**. The draft contains **15 questions, exactly three per PDF**, but all 15 remain `needs_human_review` and therefore **must not be used for hosted inference yet**.
+
+Draft question composition:
+
+| Category | Count |
+|---|---:|
+| identity/lifecycle | 4 |
+| applicability | 3 |
+| required action/compliance | 3 |
+| conditional/multi-passage | 3 |
+| referenced publication | 1 |
+| insufficient/conflict/abstention | 1 |
+| **Total** | **15** |
+
+Draft questions SHA-256:
+
+```text
+1d9600dd4379f501d0878adf6ae434076ef47ae0a299ef8be5bdc12cb55fc43b
+```
+
+Human-review state:
+
+```text
+human_verified: 0/15
+needs_human_review: 15/15
+```
+
+The next gate is **human review and lock of the 15 unseen questions**. Do not start U3 temporary hosted QA or U5 permanent ingestion before that lock exists.
+
 ## Frozen unseen set
 
 Locked source:
@@ -40,20 +102,20 @@ These PDFs were excluded from development extraction, verified page-text indexin
 The order is locked:
 
 ```text
-U0 source/selection validation
-→ U1 non-destructive unseen preparation
-→ U2 human-reviewed unseen QA authoring + lock
-→ U3 temporary-document retrieval + frozen Layer C QA
-→ U4 offline/human temporary-QA evaluation
-→ U5 permanent ingestion into an isolated evaluation store/index
-→ U6 duplicate/lifecycle/index-update safeguards
-→ U7 post-ingestion QA/citation verification
-→ U8 final unseen-generalization report
+U0 source/selection validation                         COMPLETE
+→ U1 non-destructive unseen preparation               COMPLETE
+→ U2 human-reviewed unseen QA authoring + lock         IN PROGRESS — draft authored, review pending
+→ U3 temporary-document retrieval + frozen Layer C QA  NOT STARTED
+→ U4 offline/human temporary-QA evaluation             NOT STARTED
+→ U5 permanent ingestion into isolated evaluation      NOT STARTED
+→ U6 duplicate/lifecycle/index-update safeguards       NOT STARTED
+→ U7 post-ingestion QA/citation verification           NOT STARTED
+→ U8 final unseen-generalization report                NOT STARTED
 ```
 
 Do not permanently ingest a held-out PDF before its temporary-document QA result has been preserved.
 
-## U0/U1 — non-destructive preparation
+## U0/U1 — non-destructive preparation — COMPLETE
 
 Implementation:
 
@@ -83,24 +145,7 @@ It does **not**:
 - perform lifecycle promotion;
 - permanently ingest a PDF.
 
-Run:
-
-```bash
-.venv/bin/python -m unittest \
-  full_corpus_pipeline.tests.test_prepare_unseen_evaluation \
-  -v
-
-.venv/bin/python -m full_corpus_pipeline.prepare_unseen_evaluation
-```
-
-The default `--pdf-root` recursively searches the project root. If the frozen PDFs live elsewhere, provide that source root explicitly:
-
-```bash
-.venv/bin/python -m full_corpus_pipeline.prepare_unseen_evaluation \
-  --pdf-root /path/to/frozen/pdf/root
-```
-
-Expected outputs:
+Preparation outputs:
 
 ```text
 data_processed/evaluations/unseen_5/preparation/
@@ -114,31 +159,31 @@ data_processed/evaluations/unseen_5/preparation/
     └── 2007-0173__3ce5544043070665.authoring.json
 ```
 
-## U2 — unseen QA authoring
+## U2 — unseen QA authoring — HUMAN REVIEW PENDING
 
-Only after U1 passes should the source packets be opened for question authoring.
-
-Planned unseen QA set: **15 questions, three per PDF**. This small set is a generalization probe, not another tuning benchmark.
+The draft unseen QA set contains **15 questions, three per PDF**. It is a generalization probe, not another tuning benchmark.
 
 Question-design rules:
 
-- all questions are known-document/temporary-document questions because the user has uploaded or selected one PDF;
-- questions must be answerable from that PDF unless explicitly authored as an abstention check;
-- preserve exact applicability, timing, units, branches, exceptions, lifecycle relationships and publication identifiers;
+- all questions are known-document/temporary-document questions because one held-out PDF is explicitly selected;
+- questions are answerable from that PDF unless explicitly authored as an abstention check;
+- exact applicability, timing, units, branches, exceptions, lifecycle relationships and publication identifiers must be preserved;
 - reference pages must contain the answer evidence;
 - no question may be sent to the hosted model until the question/reference record has been human reviewed and locked;
-- the authoring step may not change the system configuration.
+- question review may correct the benchmark record, but may not change parser/retrieval/Layer-C configuration.
 
-Recommended coverage across the 15 questions:
+Draft coverage includes:
 
-- identity/lifecycle/revision/correction/supersedure;
-- applicability;
+- correction/revision/supersedure and lifecycle interpretation;
+- applicability and exclusion logic;
 - required action/compliance timing;
-- conditional/multi-passage reasoning where the source supports it;
+- conditional/multi-passage reasoning;
 - referenced publications;
-- at least one evidence-insufficiency check if naturally supported by the five sources.
+- one evidence-insufficiency/abstention case.
 
-## U3 — temporary-document QA
+Draft review artifacts are intentionally kept outside the permanent benchmark state until human approval. After review, create a locked unseen-question artifact and record its SHA-256 before inference.
+
+## U3 — temporary-document QA — NOT STARTED
 
 Temporary QA must be session-scoped and must not add the document to the permanent corpus.
 
@@ -169,7 +214,7 @@ Primary unseen temporary-QA metrics:
 - abstention correctness where applicable;
 - hosted request/transport failures.
 
-## U5/U6 — permanent ingestion evaluation
+## U5/U6 — permanent ingestion evaluation — NOT STARTED
 
 Permanent ingestion is performed **only after temporary results are preserved**.
 
