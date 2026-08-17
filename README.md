@@ -16,11 +16,11 @@ Layer C — hosted evidence-grounded QA
 → source/page/section citations resolved from evidence metadata
 ```
 
-Five PDFs are held out from all development/final benchmark work for the last unseen-document ingestion/generalization evaluation.
+Five PDFs were held out from all development/final benchmark work for the last unseen-document ingestion/generalization evaluation.
 
 Complex compliance semantics are intentionally interpreted from original-PDF evidence at question time. Full-corpus extraction and indexing do **not** use a hosted LLM; DeepSeek V4 Pro is used only in the frozen Layer C QA condition.
 
-## Current status — 14 August 2026
+## Current status — 17 August 2026
 
 Completed and frozen:
 
@@ -39,9 +39,18 @@ Completed and frozen:
 
 **Authoritative primary final semantic accuracy: 38/40 = 95.0%.**
 
-Remaining major evaluation:
+Active final generalization phase:
 
-- five frozen unseen-PDF temporary-QA + permanent-ingestion cases.
+- five frozen unseen PDFs;
+- source/hash/page validation: **complete**;
+- non-destructive frozen-parser preparation: **5/5 complete**;
+- source pages prepared: **21**;
+- draft unseen QA set: **15 questions, 3 per PDF**;
+- unseen question human review: **pending**;
+- temporary hosted QA: **not started**;
+- permanent ingestion: **not started**.
+
+The unseen draft must be human reviewed and locked before hosted inference begins. Permanent ingestion must wait until temporary-document QA results are preserved.
 
 ## Corpus and frozen extraction
 
@@ -251,26 +260,49 @@ Detailed final evaluation:
 docs/LAYER_C_FINAL_EVALUATION.md
 ```
 
-## Next stage — five frozen unseen PDFs
+## Active stage — five frozen unseen PDFs
 
-The remaining major evaluation is:
+Unseen evaluation source:
 
 ```text
 evaluation_sets/unseen_incoming_5_v1/
 ```
 
-Five distinct held-out strata:
+Frozen cases:
 
-- corrected;
-- revised;
-- supersedure;
-- long document;
-- simple original.
+- corrected: `2008-0008`;
+- revised: `2011-0041R1`;
+- supersedure: `2011-0142`;
+- long document: `2026-0084`;
+- simple original: `2007-0173`.
 
-Evaluate without retraining:
+U0/U1 preparation is complete with **5/5 source hashes matched, 21 pages, 5/5 extraction successes, and 5/5 schema-valid records**. No hosted inference or permanent ingestion occurred during preparation.
 
-1. temporary unseen-document QA without permanent insertion;
-2. permanent ingestion with duplicate rejection, deterministic extraction, lifecycle decision, index update, and page-cited QA.
+A **15-question draft unseen QA set** has been authored from the prepared source packets, exactly three questions per PDF. All 15 remain `needs_human_review`.
+
+Draft SHA-256:
+
+```text
+1d9600dd4379f501d0878adf6ae434076ef47ae0a299ef8be5bdc12cb55fc43b
+```
+
+Next sequence:
+
+```text
+human review + unseen question lock
+→ temporary-document retrieval + frozen Layer C QA
+→ human semantic evaluation
+→ isolated permanent-ingestion evaluation
+→ duplicate/lifecycle/index-update safeguards
+→ post-ingestion QA/citations
+→ final unseen-generalization report
+```
+
+Detailed protocol:
+
+```text
+docs/UNSEEN_DOCUMENT_EVALUATION.md
+```
 
 Do not use unseen outcomes to retune the frozen primary system.
 
@@ -282,3 +314,4 @@ Do not use unseen outcomes to retune the frozen primary system.
 - Original PDF passages remain authoritative for detailed applicability/compliance interpretation.
 - The system does not make aircraft-specific legal compliance determinations.
 - Oracle and exact-retry results are diagnostic and cannot replace the strict primary final result.
+- The 15 unseen questions remain draft until explicit human review and lock.
