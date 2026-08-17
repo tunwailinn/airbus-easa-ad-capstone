@@ -97,7 +97,7 @@ Current next action: **U5/U6 isolated permanent-ingestion evaluation**.
 33. The five unseen PDFs must not be used to tune extraction, E5 retrieval, Layer C or question design after the human lock.
 34. Unseen results are reported separately from the 40-question final benchmark.
 35. U0/U1 unseen preparation is complete and immutable as the first-pass preparation result.
-36. Unseen question set is human verified and locked at SHA-256 `603d3385f5d083aeabf071d8d0c9be88896d31eb3c03baeb2d44df31cbcb05` only if that hash appears in an older note; the authoritative current unseen-question SHA is `603d3385f5d083aeabf071d8d0c9be88896d31eb3f6530e881efeb3c03baeb2d`.
+36. Unseen question set is human verified and locked at SHA-256 `603d3385f5d083aeabf071d8d0c9be88896d31eb3f6530e881efeb3c03baeb2d`.
 37. U3 first-pass temporary run is immutable. Never rerun it to replace the original 14-success/1-failure record.
 38. `U5Q-001` is human-approved PASS; omission of dates is not material because the question did not request them.
 39. `U5Q-010` is the only human-approved temporary semantic failure and is attributed to Layer B passage selection.
