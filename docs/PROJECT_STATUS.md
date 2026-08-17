@@ -12,13 +12,13 @@ Last updated: 17 August 2026
 - Frozen retrieval configuration: **E5-D**.
 - Frozen hosted QA: **DeepSeek V4 Pro**.
 - One-time 40-question E5 final benchmark: **complete**.
-- Human semantic final result: **38/40 = 95.0%**.
+- Human semantic E5 final result: **38/40 = 95.0%**.
 - Final oracle/reference-evidence diagnostic: **complete**.
 - Five-PDF unseen source preparation: **complete**.
 - Fifteen-question unseen QA set: **15/15 human reviewed and locked**.
 - Unseen temporary-document primary run: **complete and preserved**.
-- Unseen temporary human semantic review: **pending final reviewer approval**.
-- Permanent ingestion of the five held-out PDFs: **not started / blocked until the temporary semantic result is locked**.
+- Unseen temporary human semantic review: **complete, human approved and locked**.
+- Next gate: **U5/U6 isolated permanent-ingestion evaluation**.
 
 All extraction, retrieval, hosted-QA and E5 primary-final settings/results remain frozen. Unseen outcomes are post-final generalization results and must not be used for retuning.
 
@@ -32,7 +32,7 @@ Development primary (28 records):
 - applicability-model F1: **0.9929**;
 - reference-number F1: **0.8065**;
 - superseded-AD-number F1: **1.0000**;
-- all five difficult raw-section presence F1 values: **1.0000**;
+- difficult raw-section presence F1: **1.0000** for all five sections;
 - source containment: **130/130**;
 - contamination: **0**.
 
@@ -43,17 +43,9 @@ Clean locked extraction test primary (17 records):
 - applicability-model F1: **0.9222**;
 - reference-number F1: **0.9000**;
 - superseded-AD-number F1: **0.6667**;
-- all five difficult raw-section presence F1 values: **1.0000**;
+- difficult raw-section presence F1: **1.0000** for all five sections;
 - source containment: **74/74**;
 - contamination: **0**.
-
-## Corpus scope
-
-- strict Airbus-only operational records: **1,786**;
-- retained external/mixed-holder records: **18**;
-- unresolved unknowns: **0**.
-
-Scope filtering never deletes physical/source records.
 
 ## Layer B source layer — PASS / FROZEN
 
@@ -68,13 +60,6 @@ data_processed/page_text_v1_1/operational_airbus/
 - failures: **0**;
 - unresolved weak/OCR pages: **0**;
 - one reviewed visual override: AD `2011-0006`, page 3.
-
-## Historical E0/E4 retrieval — CLOSED
-
-- E0: 9,394 flat dense chunks; QA-v2 Recall@5 **0.0000**.
-- E4: 12,634 section-aware chunks; QA-v2 Recall@5 **0.4091**.
-
-These are frozen historical experiments.
 
 ## E5-D engineering-aware retrieval — FROZEN
 
@@ -114,7 +99,7 @@ semantic retry: prohibited
 
 ## E5 final benchmark — COMPLETE / IMMUTABLE
 
-Primary retrieval/automatic result:
+Primary automatic/retrieval result:
 
 - hosted requests: **40/40 successful**;
 - answerability/status accuracy: **1.0000**;
@@ -162,8 +147,7 @@ Frozen set:
 - source SHA matches: **5/5**;
 - total pages: **21**;
 - deterministic extraction success: **5/5**;
-- schema-valid: **5/5**;
-- no permanent ingestion performed.
+- schema-valid: **5/5**.
 
 ### U2 unseen QA authoring/review — COMPLETE / LOCKED
 
@@ -174,9 +158,9 @@ Frozen set:
 - abstention: **1**;
 - locked question SHA-256: `603d3385f5d083aeabf071d8d0c9be88896d31eb3f6530e881efeb3c03baeb2d`.
 
-### U3 temporary-document QA — FIRST PASS COMPLETE
+### U3 temporary-document QA — COMPLETE / PRESERVED
 
-Frozen first-pass automatic result:
+First-pass automatic result:
 
 - hosted successes: **14/15 = 93.33%**;
 - hosted failures: **1/15** (`U5Q-011`);
@@ -184,53 +168,60 @@ Frozen first-pass automatic result:
 - reference-page any-overlap Recall@5: **14/14 = 100%**;
 - reference-page full coverage@5: **14/14 = 100%**;
 - reference-page citation hit: **100%**;
-- target-AD citation hit: **100%**;
-- permanent ingestion started: **false**.
+- target-AD citation hit: **100%**.
 
-A post-hoc exact reference-quote containment diagnostic found:
+Post-hoc exact reference-quote containment diagnostic:
 
 - any approved quote contained at top 5: **12/14 = 85.71%**;
 - all approved quotes contained at top 5: **8/14 = 57.14%**.
 
-These are diagnostic values only; they do not replace the frozen page-level retrieval metrics.
+These are diagnostic values only and do not replace the frozen page-level retrieval metrics.
 
-Confirmed attribution diagnostic:
+### U4 temporary human semantic review — COMPLETE / HUMAN-APPROVED / LOCKED
 
-- `U5Q-010`: page 1 was represented in top-5, but neither approved answer-bearing `Supersedure` nor `Applicability` quote was actually supplied → **temporary passage-selection failure**.
+Final result:
 
-### U5Q-011 transport failure — CLOSED
+- semantic PASS: **13**;
+- semantic FAIL: **1**;
+- persistent provider/transport failure: **1**;
+- semantic accuracy among successful first-pass responses: **13/14 = 92.86%**;
+- strict first-pass end-to-end success: **13/15 = 86.67%**.
 
-Primary request: DeepSeek returned empty final JSON content.
+Human-approved interpretation:
 
-One exact transport retry was performed with the identical prompt payload SHA-256:
+- `U5Q-001`: **PASS**. The question did not ask for correction/supersedure dates; the hosted answer supplied all requested elements.
+- `U5Q-010`: **FAIL — Layer B temporary passage selection**. Neither approved answer-bearing quote was present in top-5 prompt evidence.
+- `U5Q-011`: **persistent provider/transport failure**. Primary request and the one permitted exact retry both returned empty final content; no semantic result is assigned and no further retry is permitted.
+- remaining 12 questions: **PASS**.
+
+Locked result:
 
 ```text
-b17e0b69d1a7a28071cb9fc219272e4dc6e755223426cc39e08bd98ca66e5f33
+evaluation_sets/unseen_incoming_5_v1/unseen_temporary_result_lock.json
 ```
 
-The retry failed again with the same empty-final-content error. No further retry is permitted. This is recorded as a **persistent provider/transport failure**, not a semantic Layer C failure.
+Validator:
 
-### U4 temporary human semantic review — PENDING APPROVAL
+```text
+full_corpus_pipeline/layer_c/validate_unseen_temporary_result_lock.py
+```
 
-AI-assisted provisional assessment:
+### U5/U6 permanent ingestion — NEXT / ALLOWED
 
-- `U5Q-001`: proposed **FAIL — Layer C completeness**;
-- `U5Q-010`: proposed **FAIL — Layer B temporary passage selection**;
-- `U5Q-011`: **persistent technical/provider failure**;
-- remaining 12 questions: proposed **PASS**.
+Permanent ingestion may now proceed **only in an isolated evaluation store/index** after the temporary-result validator passes.
 
-If explicitly approved by the human reviewer, the unseen temporary-QA result will be reported as:
+Required checks:
 
-- semantic accuracy among successful first-pass responses: **12/14 = 85.71%**;
-- strict first-pass end-to-end success: **12/15 = 80.0%**;
-- semantic failures: **2**;
-- persistent provider/transport failures: **1**.
+- exact SHA-256 duplicate rejection;
+- frozen deterministic extraction;
+- no model retraining;
+- lifecycle/revision/correction/supersedure behavior;
+- source provenance preservation;
+- isolated index update behavior;
+- repeat-ingestion rejection;
+- post-ingestion QA and citations.
 
-These values are not human-finalized yet.
-
-### U5 permanent ingestion — BLOCKED
-
-Do not permanently ingest any of the five PDFs until U4 temporary semantic decisions are explicitly approved and preserved. Permanent ingestion will then be tested separately in an isolated evaluation store/index for duplicate rejection, lifecycle behavior, index update, repeat-ingestion rejection, and post-ingestion citations.
+Frozen E5 indexes remain immutable.
 
 ## Reporting boundaries
 
@@ -240,7 +231,6 @@ Do not claim that:
 - structured extraction fully normalizes complex compliance logic;
 - the system makes aircraft-specific legal compliance determinations;
 - oracle results replace the strict E5 final score;
-- unseen results are part of the frozen 40-question E5 final score;
-- the provisional unseen semantic score is human-reviewed before explicit reviewer approval.
+- unseen results are part of the frozen 40-question E5 final score.
 
 Original PDF passages remain authoritative for detailed applicability/compliance interpretation and page-cited QA.
