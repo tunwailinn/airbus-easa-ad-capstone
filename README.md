@@ -2,180 +2,140 @@
 
 Intelligent engineering document automation for Airbus S.A.S. Airworthiness Directives issued by EASA.
 
-The project processes a frozen snapshot of **1,809 Airbus-related EASA AD PDFs / 1,808 base AD families** and evaluates a three-layer architecture:
+## Architecture
 
 ```text
 Layer A — deterministic structured extraction
-→ metadata, lifecycle fields, exact source-derived raw sections
+→ metadata, lifecycle fields, exact source-derived difficult sections
 
 Layer B — verified original-PDF retrieval
 → page-preserving evidence, engineering-aware retrieval, lifecycle-aware routing
 
-Layer C — hosted evidence-grounded QA
+Layer C — frozen hosted evidence-grounded QA
 → answer | insufficient_evidence | conflicting_evidence
-→ source/page/section citations resolved from evidence metadata
+→ source/page/section citations resolved locally from evidence metadata
 ```
 
-Five PDFs were held out from all development/final benchmark work for the last unseen-document ingestion/generalization evaluation.
-
-Complex compliance semantics are intentionally interpreted from original-PDF evidence at question time. Full-corpus extraction and indexing do **not** use a hosted LLM; DeepSeek V4 Pro is used only in the frozen Layer C QA condition.
+Complex compliance semantics are interpreted from original-PDF evidence at question time. Full-corpus extraction and indexing do **not** use a hosted LLM. DeepSeek V4 Pro is used only in the frozen Layer C QA condition.
 
 ## Current status — 17 August 2026
 
-Completed and frozen:
+Completed/frozen:
 
-- Layer A extraction development + clean locked test;
+- Layer A deterministic extraction development + clean locked test;
 - strict Airbus S.A.S. scope audit;
 - verified original-PDF page-text layer;
-- E0/E4 historical retrieval experiments;
+- historical E0/E4 retrieval experiments;
 - E5-A/B/C/D engineering-aware retrieval development;
 - E5-D retrieval freeze;
-- Layer C DeepSeek V4 Pro development and hosted-QA freeze;
-- human-reviewed 40-question final benchmark lock;
-- one-time final benchmark;
-- human semantic final review;
+- Layer C development + hosted-QA freeze;
+- human-reviewed 40-question final benchmark;
+- one-time final benchmark + human semantic review;
 - final oracle/reference-evidence diagnostic;
-- exact audited transport retry for one oracle provider failure.
+- exact audited retry for the one oracle transport/provider failure;
+- five-PDF unseen source preparation;
+- **15-question unseen QA human review + lock**.
 
-**Authoritative primary final semantic accuracy: 38/40 = 95.0%.**
+Authoritative E5 primary final result:
 
-Active final generalization phase:
+```text
+38/40 = 95.0% strict end-to-end semantic accuracy
+35/36 = 97.22% frozen E5-D Recall@5
+24/24 = 100% known-document Recall@5
+11/12 = 91.67% discovery Recall@5
+```
 
-- five frozen unseen PDFs;
-- source/hash/page validation: **complete**;
-- non-destructive frozen-parser preparation: **5/5 complete**;
-- source pages prepared: **21**;
-- draft unseen QA set: **15 questions, 3 per PDF**;
-- unseen question human review: **pending**;
-- temporary hosted QA: **not started**;
-- permanent ingestion: **not started**.
+Active phase:
 
-The unseen draft must be human reviewed and locked before hosted inference begins. Permanent ingestion must wait until temporary-document QA results are preserved.
+```text
+U3 temporary-document retrieval + frozen Layer C QA
+→ U4 offline + human semantic review
+→ only then U5/U6 permanent-ingestion evaluation
+```
 
-## Corpus and frozen extraction
+Permanent ingestion of the five held-out PDFs is **not allowed yet**.
 
-- physical snapshot: **1,809 PDFs**;
-- base AD families: **1,808**;
+## Corpus
+
+- frozen physical snapshot: **1,809 PDFs / 1,808 base AD families**;
 - nominal development extraction: **1,804 PDFs**;
-- strict Airbus-only operational view: **1,786 PDFs**;
+- strict Airbus-only operational retrieval view: **1,786 PDFs**;
 - verified operational pages: **6,002**;
-- external/mixed-holder records retained outside strict operational view: **18**;
-- unresolved holder-scope unknowns: **0**.
+- retained external/mixed-holder records outside strict operational view: **18**;
+- unresolved holder-scope unknowns: **0**;
+- frozen unseen PDFs: **5**.
 
-Frozen extraction stack:
+## Layer A — frozen extraction
 
-- content schema: `2.1.0`;
-- parser: **`content-local-v2.1.6`**;
-- evaluator: **`content-eval-v3.1.5`**;
-- scope audit: **`corpus-scope-audit-v1.3`**;
-- immutable gold source: `gold_releases/easa_airbus_ad_gold_v2/`.
+Parser: `content-local-v2.1.6`  
+Evaluator: `content-eval-v3.1.5`
 
-### Development extraction result
+Development primary (28 records):
 
-Primary development count: 28.
-
-- prediction coverage: **1.0000**;
-- schema validity: **1.0000**;
 - stable metadata macro F1: **0.9948**;
 - applicability-model F1: **0.9929**;
 - reference-number F1: **0.8065**;
 - superseded-AD-number F1: **1.0000**;
-- all five difficult raw-section presence F1 values: **1.0000**;
+- difficult raw-section presence F1: **1.0000** for all five sections;
 - source containment: **130/130**;
-- detected contamination: **0**.
+- contamination detected: **0**.
 
-### Clean locked extraction test
+Clean locked test primary (17 records):
 
-Primary clean count: 17 after holder-scope exclusions plus the disclosed `2024-0038` leakage exclusion.
-
-- coverage/schema validity: **1.0000 / 1.0000**;
 - stable metadata macro F1: **0.9831**;
 - applicability-model F1: **0.9222**;
 - reference-number F1: **0.9000**;
 - superseded-AD-number F1: **0.6667**;
-- all five difficult raw-section presence F1 values: **1.0000**;
+- difficult raw-section presence F1: **1.0000** for all five sections;
 - source containment: **74/74**;
-- detected contamination: **0**.
+- contamination detected: **0**.
 
-Parser v2.1.6 is frozen. These test outcomes are reported, not used for retuning.
+Parser v2.1.6 is frozen and must not be retuned from locked-test outcomes.
 
-## Verified source layer
+## Layer B — verified source + E5-D retrieval
 
-Canonical original-PDF page source:
+Verified original-PDF page source:
 
 ```text
 data_processed/page_text_v1_1/operational_airbus/
 ```
 
-- documents: **1,786 / 1,786 successful**;
-- pages: **6,002**;
-- failures: **0**;
-- unresolved weak/OCR pages: **0**;
-- one reviewed visual override: AD `2011-0006`, page 3;
-- `ready_for_indexing=true`.
+- **1,786/1,786** documents successful;
+- **6,002** pages;
+- zero unresolved weak/OCR pages;
+- one reviewed visual override: AD `2011-0006`, page 3.
 
-## Retrieval
+Historical QA-v2 Recall@5:
 
-Historical E0/E4 build:
+- E0 flat dense-only: **0.0000**;
+- E4 section-aware hybrid: **0.4091**.
 
-```text
-data_processed/indexes/rag_v1_2/
-```
-
-- E0: **9,394** flat dense chunks;
-- E4: **12,634** section-aware chunks, including **2,924** multi-page chunks.
-
-QA-v2 historical Recall@5:
-
-- E0: **0.0000**;
-- E4: **0.4091**.
-
-These experiments motivated the later E5 engineering-aware retrieval design and remain frozen historical results.
-
-## E5-D — selected engineering-aware retrieval
-
-E5 benchmark:
-
-```text
-evaluation_sets/easa_airbus_ad_e5_benchmark_v1/
-```
-
-Development:
-
-- 24 development families;
-- 60 human-reviewed development questions;
-- 36 known-document + 18 identifier-free discovery + 6 abstention/conflict.
-
-Selected E5-D stack:
-
-- deterministic known-document routing;
-- E5-C BM25 + `Qwen/Qwen3-Embedding-0.6B@97b0c61` candidate generation;
-- fixed candidate depth: **20**;
-- `Qwen/Qwen3-Reranker-0.6B@e61197e` reranking;
-- final evidence depth: **5**;
-- frozen E4 section chunks.
-
-Development result:
+Selected E5-D development retrieval:
 
 - Recall@1: **0.7963**;
 - Recall@3: **0.9259**;
 - Recall@5: **0.9630**;
 - MRR@5: **0.8633**;
 - nDCG@5: **0.8884**;
-- correct source+page@5: **0.9630**;
 - candidate source+page recall@20: **0.9815**;
 - known-document Recall@5: **1.0000**;
 - discovery Recall@5: **0.8889**.
 
-Retrieval is frozen in:
+Frozen E5-D stack:
+
+- E5-C BM25 + `Qwen/Qwen3-Embedding-0.6B@97b0c61` candidate generation;
+- candidate depth 20;
+- `Qwen/Qwen3-Reranker-0.6B@e61197e` reranker;
+- final evidence depth 5;
+- frozen E4 section chunks.
+
+Retrieval freeze:
 
 ```text
 evaluation_sets/easa_airbus_ad_e5_benchmark_v1/retrieval_freeze.json
 ```
 
 ## Layer C — frozen hosted QA
-
-Frozen configuration:
 
 ```text
 provider: DeepSeek official API
@@ -185,7 +145,6 @@ thinking: enabled
 reasoning_effort: high
 max_tokens: 4096
 prompt: e5-hosted-qa-prompt-v1.0-dev
-runner: e5-hosted-qa-runner-v1.1
 response contract: e5-hosted-qa-contract-v1.0
 semantic retry: prohibited
 ```
@@ -196,107 +155,50 @@ Hosted-QA freeze:
 evaluation_sets/easa_airbus_ad_e5_benchmark_v1/hosted_qa_freeze.json
 ```
 
-The model receives only the question and evidence. Private reference answers, target labels, reference pages, query-mode/category labels, and answerability labels are withheld during generation.
+The model receives only the question and supplied evidence. Private reference answers, target labels and benchmark labels are withheld during hosted inference.
 
 ## One-time E5 final benchmark
 
-Final set:
-
-- 16 final-test families;
-- **40 human-reviewed questions**;
+- 40 human-reviewed questions;
 - 36 answerable + 4 abstention/conflict;
 - 24 known-document + 12 identifier-free discovery + 4 abstention/conflict;
-- final questions SHA-256: `f6b008c1b5d24160cb5718e2d4e91a7e0d323277a531654e4b5c3a33995c9a85`.
-
-### Primary automatic result
-
-- hosted requests: **40/40 = 100% successful**;
+- hosted requests: **40/40 successful**;
 - answerability/status accuracy: **100%**;
-- retrieval Recall@5: **35/36 = 97.22%**;
-- MRR@5: **0.8981**;
-- nDCG@5: **0.9173**;
-- known-document Recall@5: **24/24 = 100%**;
-- discovery Recall@5: **11/12 = 91.67%**;
-- reference-page citation hit rate: **97.22%**;
-- target-AD citation hit rate: **97.22%**.
-
-### Human semantic final result
-
-- passes: **38/40**;
-- failures: **2/40**;
-- **strict end-to-end semantic accuracy: 95.0%**.
-
-This 95.0% result is authoritative and may not be replaced by post-hoc or oracle-adjusted scores.
+- frozen retrieval Recall@5: **35/36 = 97.22%**;
+- human semantic result: **38/40 = 95.0%**.
 
 Primary failures:
 
-- `E5F-011` — Layer C answer-selection/completeness failure under retrieved evidence;
+- `E5F-011` — Layer C answer-selection/completeness under retrieved evidence;
 - `E5F-021` — Layer B retrieval/candidate-generation failure.
 
-## Final oracle/reference-evidence diagnostic
+The oracle diagnostic is explanatory only and never replaces the 95.0% primary result.
 
-Oracle/reference evidence changes only the evidence condition; provider/model/prompt/settings remain identical.
-
-Original oracle batch:
-
-- 40 selected;
-- 39 successful;
-- one technical/provider failure (`E5F-035`);
-- reference-page citation hit rate: **100%**;
-- target-AD citation hit rate: **100%**.
-
-Findings:
-
-- `E5F-021` becomes correct → **Layer B retrieval failure confirmed**;
-- `E5F-011` becomes correct with focused evidence → **Layer C evidence-selection/completeness sensitivity**;
-- `E5F-040` changed machine-readable status despite unchanged negative-control evidence → **Layer C status-calibration/run-to-run variability**;
-- `E5F-035` original empty-JSON provider failure was recovered by one exact audited transport retry with unchanged prompt/evidence/config.
-
-The oracle condition is diagnostic only; the primary final score remains **38/40 = 95.0%**.
-
-Detailed final evaluation:
-
-```text
-docs/LAYER_C_FINAL_EVALUATION.md
-```
-
-## Active stage — five frozen unseen PDFs
-
-Unseen evaluation source:
-
-```text
-evaluation_sets/unseen_incoming_5_v1/
-```
+## Five-PDF unseen-document evaluation
 
 Frozen cases:
 
-- corrected: `2008-0008`;
-- revised: `2011-0041R1`;
-- supersedure: `2011-0142`;
-- long document: `2026-0084`;
-- simple original: `2007-0173`.
+| Stratum | AD | Pages |
+|---|---|---:|
+| corrected | 2008-0008 | 2 |
+| revised | 2011-0041R1 | 4 |
+| supersedure | 2011-0142 | 3 |
+| long document | 2026-0084 | 10 |
+| simple original | 2007-0173 | 2 |
 
-U0/U1 preparation is complete with **5/5 source hashes matched, 21 pages, 5/5 extraction successes, and 5/5 schema-valid records**. No hosted inference or permanent ingestion occurred during preparation.
+Preparation result:
 
-A **15-question draft unseen QA set** has been authored from the prepared source packets, exactly three questions per PDF. All 15 remain `needs_human_review`.
+- source hashes: **5/5 matched**;
+- source pages: **21**;
+- deterministic extraction: **5/5 successful**;
+- schema validity: **5/5**.
 
-Draft SHA-256:
+Unseen QA lock:
 
-```text
-1d9600dd4379f501d0878adf6ae434076ef47ae0a299ef8be5bdc12cb55fc43b
-```
-
-Next sequence:
-
-```text
-human review + unseen question lock
-→ temporary-document retrieval + frozen Layer C QA
-→ human semantic evaluation
-→ isolated permanent-ingestion evaluation
-→ duplicate/lifecycle/index-update safeguards
-→ post-ingestion QA/citations
-→ final unseen-generalization report
-```
+- **15/15 human verified**;
+- 3 questions per PDF;
+- 14 answerable + 1 abstention;
+- locked `unseen_questions.jsonl` SHA-256: `603d3385f5d083aeabf071d8d0c9be88896d31eb3f6530e881efeb3c03baeb2d`.
 
 Detailed protocol:
 
@@ -304,14 +206,19 @@ Detailed protocol:
 docs/UNSEEN_DOCUMENT_EVALUATION.md
 ```
 
-Do not use unseen outcomes to retune the frozen primary system.
+Next commands use:
+
+```text
+full_corpus_pipeline/layer_c/validate_unseen_question_lock.py
+full_corpus_pipeline/layer_c/run_unseen_temporary_qa.py
+full_corpus_pipeline/layer_c/evaluate_unseen_temporary_qa.py
+```
 
 ## Reporting boundaries
 
-- The 1,809 physical PDFs are Airbus-related, not all strict Airbus S.A.S.-holder operational records.
-- The 18 external/mixed-holder records remain preserved for provenance.
-- Structured extraction does not fully normalize all complex compliance logic.
+- The 1,809 PDFs are Airbus-related; not all are strict Airbus S.A.S.-holder operational records.
+- Structured extraction does not fully normalize every complex compliance branch.
 - Original PDF passages remain authoritative for detailed applicability/compliance interpretation.
 - The system does not make aircraft-specific legal compliance determinations.
-- Oracle and exact-retry results are diagnostic and cannot replace the strict primary final result.
-- The 15 unseen questions remain draft until explicit human review and lock.
+- Final oracle and exact transport-retry results are diagnostic only.
+- Unseen-document results are reported separately from the frozen 40-question E5 final result.
