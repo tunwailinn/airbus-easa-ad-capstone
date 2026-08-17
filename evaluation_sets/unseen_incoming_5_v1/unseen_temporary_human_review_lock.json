@@ -3,7 +3,8 @@
   "review_date": "2026-08-17",
   "reviewer": "Tun Wai Linn",
   "status": "human_approved_and_locked",
-  "human_review_csv_sha256": "2e439f40ea6f5005896c82f36d55815810cdd785724e2732245c2d7917b7a2b2",
+  "human_review_csv_sha256": "22c7199ea07ddf03eb468385d111523b6df22b40b0b22c9ba98146f317890460",
   "human_review_summary_sha256": "5d3280997dfd3cef80f0aefd3adac60347eae3c89fb4aa179c2fc40a21f35bce",
-  "human_review_final_md_sha256": "aaea2d9d27a8192efc7e0e382da3062312a64d45685f6ed8a09701f21caad0f8"
+  "human_review_final_md_sha256": "aaea2d9d27a8192efc7e0e382da3062312a64d45685f6ed8a09701f21caad0f8",
+  "note": "CSV hash binds the committed LF-normalized UTF-8 text. The earlier lock value was computed from an equivalent CRLF serialization; review content and decisions are unchanged."
 }
