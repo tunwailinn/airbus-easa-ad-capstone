@@ -1,0 +1,39 @@
+{
+  "review_version": "unseen-5-temporary-human-semantic-review-v1.0",
+  "review_date": "2026-08-17",
+  "reviewer": "Tun Wai Linn",
+  "scope": "five frozen unseen PDFs — temporary-document primary",
+  "human_approved": true,
+  "question_count": 15,
+  "hosted_success_count": 14,
+  "persistent_technical_failure_count": 1,
+  "semantic_pass_count": 13,
+  "semantic_fail_count": 1,
+  "semantic_accuracy_on_successful_responses": 0.9285714285714286,
+  "strict_first_pass_end_to_end_success_rate": 0.8666666666666667,
+  "semantic_failure_ids": [
+    "U5Q-010"
+  ],
+  "technical_failure_ids": [
+    "U5Q-011"
+  ],
+  "reclassified_to_pass": {
+    "question_id": "U5Q-001",
+    "reason": "The question did not ask for the correction date or superseded-directive date. The hosted answer supplied the requested correction, directive identity and republication reason."
+  },
+  "failure_attribution": {
+    "U5Q-010": "Layer B temporary passage selection",
+    "U5Q-011": "Provider/transport technical failure; no semantic score"
+  },
+  "retrieval_page_overlap_diagnostic": {
+    "reference_page_any_recall_at_5": 1.0,
+    "reference_page_full_coverage_at_5": 1.0
+  },
+  "reference_quote_containment_diagnostic": {
+    "answerable_question_count": 14,
+    "any_reference_quote_containment_at_5": 0.8571428571428571,
+    "all_reference_quotes_containment_at_5": 0.5714285714285714,
+    "policy": "Diagnostic only; does not replace the frozen page-level retrieval metrics."
+  },
+  "policy": "This is the human-approved post-final unseen temporary-document result. It is reported separately from the frozen 40-question E5 final benchmark and must not be used to retune the frozen parser, retrieval stack, prompt, model/settings, response contract or evidence depth. The first-pass 14-success/1-technical-failure hosted run remains preserved."
+}
