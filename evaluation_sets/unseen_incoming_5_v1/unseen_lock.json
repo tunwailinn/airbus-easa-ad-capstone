@@ -1,0 +1,29 @@
+{
+  "lock_version": "unseen-5-question-lock-v1.0",
+  "status": "human_verified_and_locked",
+  "lock_date": "2026-08-17",
+  "evaluation_role": "post_final_unseen_document_generalization",
+  "question_count": 15,
+  "human_verified_count": 15,
+  "question_inference_started_before_lock": false,
+  "permanent_ingestion_started_before_lock": false,
+  "selection_sha256": "f175477d68e2226b0793d742ad1ef0de99053b57e8334f1ca2c2962723e8c6a5",
+  "selection_lock_sha256": "d2d12b393d544aff8f1c69dcff89a5305011b504f8ee54281dd40e20d725fd2c",
+  "corpus_manifest_sha256": "00e7995de1ebfae1ebbc64fc447d7953567a3ef59854620bce0b606ac4f40a18",
+  "preparation_manifest_sha256": "e3a60433348003b8e238a6704d40ddcd6e389e4f7804df92057f4eec9bbadc05",
+  "edited_human_review_packet_sha256": "1bbae6862d09ed548b070fe787166e84c7d9d56530a37d2e8543b444aca978d5",
+  "unseen_questions_sha256": "603d3385f5d083aeabf071d8d0c9be88896d31eb3f6530e881efeb3c03baeb2d",
+  "final_review_sha256": "3dcf7185140a9357072a11a7055d7b63d8b7b6d4a3eba5feb1de57b9296ac270",
+  "verification_audit_sha256": "3ea6b9c6aaaebb44be2c9c46e6a06ffa4e159997eb80809c803273cda1f51fc7",
+  "frozen_generation_config": {
+    "provider": "DeepSeek official API",
+    "model": "deepseek-v4-pro",
+    "thinking": "enabled",
+    "reasoning_effort": "high",
+    "max_tokens": 4096,
+    "prompt": "e5-hosted-qa-prompt-v1.0-dev",
+    "response_contract": "e5-hosted-qa-contract-v1.0",
+    "semantic_retry": "prohibited"
+  },
+  "policy": "Temporary-document QA may begin only after this lock validates. Permanent ingestion remains prohibited until temporary results are preserved."
+}
