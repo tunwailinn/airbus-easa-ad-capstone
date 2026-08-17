@@ -36,18 +36,29 @@ Completed/frozen:
 - final oracle/reference-evidence diagnostic;
 - exact transport retry for oracle `E5F-035`;
 - five-PDF unseen source preparation;
-- **15-question unseen QA human review + lock**.
+- 15-question unseen QA human review + lock;
+- unseen temporary-document primary run;
+- unseen quote-containment attribution diagnostic;
+- single exact temporary retry for `U5Q-011` (failed, closed);
+- **human-approved unseen temporary semantic review + result lock**.
 
-Authoritative primary final result:
+Authoritative E5 primary final result:
 
 ```text
 38/40 = 95.0% semantic accuracy
 35/36 = 97.22% retrieval Recall@5
 ```
 
-Current next action: **U3 temporary-document QA on the five held-out PDFs**.
+Human-approved unseen temporary result:
 
-Permanent ingestion of those five PDFs is **blocked until U3/U4 temporary results are preserved and human reviewed**.
+```text
+13/14 = 92.86% semantic accuracy on successful responses
+13/15 = 86.67% strict first-pass end-to-end success
+U5Q-010 = Layer B temporary passage-selection failure
+U5Q-011 = persistent provider/transport failure
+```
+
+Current next action: **U5/U6 isolated permanent-ingestion evaluation**.
 
 ## Non-negotiable rules
 
@@ -86,15 +97,19 @@ Permanent ingestion of those five PDFs is **blocked until U3/U4 temporary result
 33. The five unseen PDFs must not be used to tune extraction, E5 retrieval, Layer C or question design after the human lock.
 34. Unseen results are reported separately from the 40-question final benchmark.
 35. U0/U1 unseen preparation is complete and immutable as the first-pass preparation result.
-36. Unseen question set is human verified and locked at SHA-256 `603d3385f5d083aeabf071d8d0c9be88896d31eb3f6530e881efeb3c03baeb2d`.
-37. U3 temporary QA may run only after `validate_unseen_question_lock` passes.
-38. Temporary unseen QA must use only the selected held-out PDF's prepared chunks; do not add the PDF to a persistent corpus/index first.
-39. For U3, all prepared chunks from the selected PDF (maximum 14) are candidates for the pinned E5-D reranker; only top-5 evidence is exposed to frozen Layer C.
-40. **Do not run permanent ingestion before U3/U4 outputs are preserved and human reviewed.**
-41. Permanent-ingestion testing must use an isolated evaluation store/index before any operational promotion.
-42. Frozen E5 benchmark indexes and hashes remain immutable audit artifacts after unseen ingestion.
+36. Unseen question set is human verified and locked at SHA-256 `603d3385f5d083aeabf071d8d0c9be88896d31eb3c03baeb2d44df31cbcb05` only if that hash appears in an older note; the authoritative current unseen-question SHA is `603d3385f5d083aeabf071d8d0c9be88896d31eb3f6530e881efeb3c03baeb2d`.
+37. U3 first-pass temporary run is immutable. Never rerun it to replace the original 14-success/1-failure record.
+38. `U5Q-001` is human-approved PASS; omission of dates is not material because the question did not request them.
+39. `U5Q-010` is the only human-approved temporary semantic failure and is attributed to Layer B passage selection.
+40. `U5Q-011` is a persistent provider/transport failure; its one exact retry also failed and no further retry is permitted.
+41. The human-approved unseen temporary result is **13 PASS / 1 semantic FAIL / 1 technical failure**.
+42. The result lock `evaluation_sets/unseen_incoming_5_v1/unseen_temporary_result_lock.json` is authoritative for the U3/U4 boundary.
+43. **Permanent ingestion may run only after `validate_unseen_temporary_result_lock` passes.**
+44. Permanent-ingestion testing must use an isolated evaluation store/index before any operational promotion.
+45. Frozen E5 benchmark indexes and hashes remain immutable after unseen ingestion.
+46. Do not use permanent-ingestion outcomes to retune the frozen parser, E5 retrieval, Layer C prompt/model/settings, evidence depth or locked question set.
 
-## Frozen versions
+## Frozen/active versions
 
 - Content schema: `2.1.0`
 - Parser: `content-local-v2.1.6`
@@ -114,6 +129,9 @@ Permanent ingestion of those five PDFs is **blocked until U3/U4 temporary result
 - Unseen question lock: `unseen-5-question-lock-v1.0`
 - Unseen temporary runner: `unseen-5-temporary-qa-runner-v1.0`
 - Unseen temporary evaluator: `unseen-5-temporary-qa-eval-v1.0`
+- Unseen temporary human review: `unseen-5-temporary-human-semantic-review-v1.0`
+- Unseen temporary result lock: `unseen-5-temporary-result-lock-v1.0`
+- Unseen temporary result validator: `unseen-5-temporary-result-lock-validator-v1.0`
 
 ## Key frozen results
 
@@ -129,16 +147,18 @@ Unseen preparation: 5/5 exact source hashes, 21 pages, 5/5 extraction success, 5
 
 Unseen QA lock: 15/15 human verified, 14 answerable + 1 abstention, exactly 3 questions per PDF.
 
+Unseen temporary first pass: 14/15 hosted success; human semantic result **13/14 = 92.86%** on successful responses and strict first-pass success **13/15 = 86.67%**.
+
 ## Unseen workflow
 
 ```text
 U0 source/selection validation                 COMPLETE
 U1 non-destructive preparation                 COMPLETE
 U2 human-reviewed question lock                COMPLETE
-U3 temporary retrieval + frozen Layer C        NEXT
-U4 offline + human review                      NOT STARTED
-U5 isolated permanent ingestion                BLOCKED UNTIL U4
-U6 duplicate/lifecycle/index safeguards         NOT STARTED
+U3 temporary retrieval + frozen Layer C        COMPLETE
+U4 offline + human review                      COMPLETE / LOCKED
+U5 isolated permanent ingestion                NEXT / ALLOWED AFTER LOCK VALIDATION
+U6 duplicate/lifecycle/index safeguards         NEXT
 U7 post-ingestion QA/citations                  NOT STARTED
 U8 final unseen-generalization report           NOT STARTED
 ```
