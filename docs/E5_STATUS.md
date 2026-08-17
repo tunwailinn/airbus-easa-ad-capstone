@@ -6,7 +6,7 @@ Last updated: 17 August 2026
 
 E5 retrieval development, hosted-QA freeze, the one-time 40-question final benchmark, human semantic review, and the final oracle/reference-evidence diagnostic are complete and frozen.
 
-Authoritative primary final result:
+Authoritative E5 primary final result:
 
 ```text
 38/40 = 95.0% strict end-to-end semantic accuracy
@@ -19,13 +19,7 @@ No retrieval, prompt, provider/model, reasoning-effort, response-contract, evide
 
 ## Frozen E5 retrieval
 
-Development benchmark:
-
-- 24 development families / 16 final-test families;
-- 60 human-reviewed development questions;
-- 54 answerable retrieval questions + 6 abstention/conflict questions.
-
-E5-D selected development result:
+Development result:
 
 - Recall@1: **0.7963**;
 - Recall@3: **0.9259**;
@@ -45,12 +39,6 @@ Frozen retrieval stack:
 - final evidence depth 5;
 - deterministic known-document routing.
 
-Retrieval freeze:
-
-```text
-evaluation_sets/easa_airbus_ad_e5_benchmark_v1/retrieval_freeze.json
-```
-
 ## Frozen Layer C
 
 ```text
@@ -65,35 +53,13 @@ response contract: e5-hosted-qa-contract-v1.0
 semantic retry: prohibited
 ```
 
-Hosted-QA freeze:
-
-```text
-evaluation_sets/easa_airbus_ad_e5_benchmark_v1/hosted_qa_freeze.json
-```
-
 ## One-time E5 final benchmark — COMPLETE
 
-Final set:
-
-- 40 human-reviewed questions;
-- 36 answerable + 4 abstention/conflict;
-- 24 known-document + 12 identifier-free discovery + 4 abstention/conflict.
-
-Automatic primary result:
-
+- 40 human-reviewed final questions;
 - hosted success: **40/40**;
 - answerability/status accuracy: **1.0000**;
-- Recall@1/3/5: **0.8333 / 0.9722 / 0.9722**;
-- MRR@5: **0.8981**;
-- nDCG@5: **0.9173**;
-- known-document Recall@5: **1.0000**;
-- discovery Recall@5: **0.9167**.
-
-Human semantic result:
-
-- passes: **38/40**;
-- failures: **2/40**;
-- strict accuracy: **95.0%**.
+- Recall@5: **35/36 = 97.22%**;
+- human semantic result: **38/40 = 95.0%**.
 
 Primary failures:
 
@@ -114,8 +80,8 @@ Findings:
 
 - `E5F-021` becomes correct → Layer B retrieval failure confirmed;
 - `E5F-011` becomes correct with focused evidence → Layer C evidence-selection/completeness sensitivity;
-- `E5F-040` demonstrates status-calibration/run-to-run variability under unchanged negative-control evidence;
-- `E5F-035` exact transport retry recovered successfully with unchanged prompt/evidence/config.
+- `E5F-040` demonstrates status-calibration/run-to-run variability;
+- `E5F-035` exact transport retry recovered successfully.
 
 The original oracle batch remains preserved as 39 successes / 1 failure.
 
@@ -136,9 +102,7 @@ Frozen cases:
 - exact source hashes: **5/5**;
 - pages: **21**;
 - deterministic extraction: **5/5**;
-- schema valid: **5/5**;
-- no hosted inference during preparation;
-- no permanent ingestion during preparation.
+- schema valid: **5/5**.
 
 ### U2 — COMPLETE / HUMAN-LOCKED
 
@@ -149,31 +113,53 @@ Frozen cases:
 - abstention: **1**;
 - locked question SHA-256: `603d3385f5d083aeabf071d8d0c9be88896d31eb3f6530e881efeb3c03baeb2d`.
 
-Committed lock/audit:
+### U3 — TEMPORARY PRIMARY COMPLETE / PRESERVED
+
+- hosted success: **14/15 = 93.33%**;
+- answerability/status accuracy on successful requests: **13/14 = 92.86%**;
+- page-overlap Recall@5: **14/14 = 100%**;
+- reference-page citation hit: **100%**;
+- target-AD citation hit: **100%**.
+
+Post-hoc exact reference-quote containment diagnostic:
+
+- any approved quote contained in top 5: **12/14 = 85.71%**;
+- all approved quotes contained in top 5: **8/14 = 57.14%**.
+
+Diagnostic only; it does not replace the frozen page-level retrieval metrics.
+
+### U4 — HUMAN SEMANTIC REVIEW COMPLETE / LOCKED
+
+Human-approved final temporary result:
+
+- semantic PASS: **13**;
+- semantic FAIL: **1**;
+- persistent provider/transport failure: **1**;
+- semantic accuracy on successful responses: **13/14 = 92.86%**;
+- strict first-pass end-to-end success: **13/15 = 86.67%**.
+
+Final decisions:
+
+- `U5Q-001`: **PASS** — omission of dates is not material because the question did not request them;
+- `U5Q-010`: **FAIL — Layer B temporary passage selection**;
+- `U5Q-011`: **persistent provider/transport failure** — both the primary call and the one permitted exact retry returned empty final content;
+- remaining 12: **PASS**.
+
+Result lock:
 
 ```text
-evaluation_sets/unseen_incoming_5_v1/unseen_lock.json
-evaluation_sets/unseen_incoming_5_v1/unseen_question_verification_audit.json
-evaluation_sets/unseen_incoming_5_v1/unseen_question_final_review.md
+evaluation_sets/unseen_incoming_5_v1/unseen_temporary_result_lock.json
 ```
 
-U5Q-008's reviewer-requested phrase check was verified directly against the prepared `2011-0142` source packet; the question/reference answer was retained unchanged.
-
-### U3 — NEXT
-
-Temporary-document QA uses only the selected PDF's prepared section chunks, reranks all of them with the pinned E5-D Qwen reranker, supplies top-5 evidence to frozen Layer C, and writes an immutable first-pass temporary result.
-
-Implementation:
+Validator before permanent ingestion:
 
 ```text
-full_corpus_pipeline/layer_c/validate_unseen_question_lock.py
-full_corpus_pipeline/layer_c/run_unseen_temporary_qa.py
-full_corpus_pipeline/layer_c/evaluate_unseen_temporary_qa.py
+full_corpus_pipeline/layer_c/validate_unseen_temporary_result_lock.py
 ```
 
-### U5 permanent ingestion — BLOCKED
+### U5/U6 permanent ingestion — NEXT / ALLOWED
 
-Do not permanently ingest any of the five PDFs until temporary-document QA and its human semantic review are preserved. Permanent ingestion will then be evaluated separately in an isolated evaluation store/index.
+Permanent ingestion may proceed only after the temporary result validator passes and only in an isolated evaluation store/index. Frozen E5 indexes remain immutable.
 
 Detailed protocol:
 
