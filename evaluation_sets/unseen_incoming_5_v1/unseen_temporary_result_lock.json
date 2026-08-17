@@ -34,7 +34,7 @@
     "reviewer": "Tun Wai Linn",
     "review_version": "unseen-5-temporary-human-semantic-review-v1.0",
     "csv_path": "evaluation_sets/unseen_incoming_5_v1/unseen_temporary_human_review.csv",
-    "csv_sha256": "2e439f40ea6f5005896c82f36d55815810cdd785724e2732245c2d7917b7a2b2",
+    "csv_sha256": "22c7199ea07ddf03eb468385d111523b6df22b40b0b22c9ba98146f317890460",
     "summary_path": "evaluation_sets/unseen_incoming_5_v1/unseen_temporary_human_review_summary.json",
     "summary_sha256": "5d3280997dfd3cef80f0aefd3adac60347eae3c89fb4aa179c2fc40a21f35bce",
     "final_review_path": "evaluation_sets/unseen_incoming_5_v1/unseen_temporary_human_review_final.md",
@@ -46,7 +46,8 @@
     "strict_first_pass_end_to_end_success_rate": 0.8666666666666667,
     "semantic_failure_ids": ["U5Q-010"],
     "technical_failure_ids": ["U5Q-011"],
-    "u5q_001_final_status": "PASS"
+    "u5q_001_final_status": "PASS",
+    "serialization_note": "CSV hash binds the committed LF-normalized UTF-8 text; review semantics are unchanged."
   },
   "next_stage": {
     "permanent_ingestion_allowed": true,
