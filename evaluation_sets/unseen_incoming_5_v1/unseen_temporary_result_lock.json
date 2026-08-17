@@ -1,0 +1,58 @@
+{
+  "lock_version": "unseen-5-temporary-result-lock-v1.0",
+  "lock_date": "2026-08-17",
+  "status": "human_approved_and_locked",
+  "scope": "five frozen unseen PDFs — temporary-document primary",
+  "unseen_questions_sha256": "603d3385f5d083aeabf071d8d0c9be88896d31eb3f6530e881efeb3c03baeb2d",
+  "primary_run": {
+    "run_summary_path": "data_processed/evaluations/unseen_5/temporary_primary/run_summary.json",
+    "run_summary_sha256": "ab96e5c1bf1f8bda9939e42cb2f8e49b4799e40a2e10bfb601bded9aa0c6eb5e",
+    "retrieval_report_path": "data_processed/evaluations/unseen_5/temporary_primary/retrieval_report.json",
+    "retrieval_report_sha256": "fc270a52a51ad1a5f02c74394939ca52eb0889b7d4138aa8a4274bb83fbb4a3c",
+    "automatic_evaluation_path": "data_processed/evaluations/unseen_5/temporary_primary/evaluation/automatic_evaluation.json",
+    "automatic_evaluation_sha256": "e4ac68569e98ceca1480a0cf0072d9e2bb08c05225b27894d622652f165fd889",
+    "hosted_success_count": 14,
+    "hosted_failure_count": 1
+  },
+  "passage_support_diagnostic": {
+    "path": "data_processed/evaluations/unseen_5/temporary_primary/evaluation/reference_quote_containment_diagnostic.json",
+    "sha256": "a6c919db77cf4346526566d34dfc641a08e176de7d358857b770431798e7164f",
+    "any_reference_quote_containment_at_5": 0.8571428571428571,
+    "all_reference_quotes_containment_at_5": 0.5714285714285714,
+    "diagnostic_only": true
+  },
+  "transport_retry": {
+    "question_id": "U5Q-011",
+    "retry_summary_path": "data_processed/evaluations/unseen_5/temporary_transport_retry/U5Q-011/retry_summary.json",
+    "retry_summary_sha256": "c273069585fd0474c027e3d5211e6adf25cd7055c5705fce3978a5077756cbd1",
+    "failure_path": "data_processed/evaluations/unseen_5/temporary_transport_retry/U5Q-011/failure.json",
+    "failure_sha256": "e3c221af18d1489135caaecd4ec2364e0fe7b5609f5c74476021c14b548ca884",
+    "status": "failed",
+    "further_retry_permitted": false
+  },
+  "human_review": {
+    "reviewer": "Tun Wai Linn",
+    "review_version": "unseen-5-temporary-human-semantic-review-v1.0",
+    "csv_path": "evaluation_sets/unseen_incoming_5_v1/unseen_temporary_human_review.csv",
+    "csv_sha256": "2e439f40ea6f5005896c82f36d55815810cdd785724e2732245c2d7917b7a2b2",
+    "summary_path": "evaluation_sets/unseen_incoming_5_v1/unseen_temporary_human_review_summary.json",
+    "summary_sha256": "5d3280997dfd3cef80f0aefd3adac60347eae3c89fb4aa179c2fc40a21f35bce",
+    "final_review_path": "evaluation_sets/unseen_incoming_5_v1/unseen_temporary_human_review_final.md",
+    "final_review_sha256": "aaea2d9d27a8192efc7e0e382da3062312a64d45685f6ed8a09701f21caad0f8",
+    "semantic_pass_count": 13,
+    "semantic_fail_count": 1,
+    "persistent_technical_failure_count": 1,
+    "semantic_accuracy_on_successful_responses": 0.9285714285714286,
+    "strict_first_pass_end_to_end_success_rate": 0.8666666666666667,
+    "semantic_failure_ids": ["U5Q-010"],
+    "technical_failure_ids": ["U5Q-011"],
+    "u5q_001_final_status": "PASS"
+  },
+  "next_stage": {
+    "permanent_ingestion_allowed": true,
+    "required_mode": "isolated_evaluation_store_and_index",
+    "may_modify_frozen_e5_indexes": false,
+    "may_retune_from_unseen_results": false
+  },
+  "policy": "The U3/U4 temporary-document result is human approved and immutable. Permanent-ingestion evaluation may proceed only in an isolated evaluation store/index and must not modify frozen E5 artifacts or retune the system from held-out outcomes."
+}
