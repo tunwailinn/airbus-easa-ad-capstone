@@ -1,0 +1,42 @@
+{
+  "audit_version": "unseen-5-question-verification-audit-v1.0",
+  "review_date": "2026-08-17",
+  "status": "human_verified",
+  "question_count": 15,
+  "human_verified_count": 15,
+  "answerable_count": 14,
+  "abstention_count": 1,
+  "questions_per_document": {
+    "2008-0008": 3,
+    "2011-0041R1": 3,
+    "2011-0142": 3,
+    "2026-0084": 3,
+    "2007-0173": 3
+  },
+  "category_counts": {
+    "identity_lifecycle": 4,
+    "applicability": 3,
+    "required_action_compliance": 3,
+    "conditional_multi_passage": 3,
+    "referenced_publication": 1,
+    "insufficient_conflict_abstention": 1
+  },
+  "stratum_counts": {
+    "corrected": 3,
+    "revised": 3,
+    "supersedure": 3,
+    "long_document": 3,
+    "simple_original": 3
+  },
+  "edited_human_review_packet_sha256": "1bbae6862d09ed548b070fe787166e84c7d9d56530a37d2e8543b444aca978d5",
+  "unseen_questions_sha256": "603d3385f5d083aeabf071d8d0c9be88896d31eb3f6530e881efeb3c03baeb2d",
+  "final_review_sha256": "3dcf7185140a9357072a11a7055d7b63d8b7b6d4a3eba5feb1de57b9296ac270",
+  "u5q_008_source_phrase_check": {
+    "status": "verified",
+    "phrase": "Airbus has issued a new AFM procedure, applicable to all aeroplanes.",
+    "source_ad": "2011-0142",
+    "source_section": "Reason",
+    "action": "retained unchanged"
+  },
+  "policy": "Human review locks only the unseen question/reference set. It does not start hosted inference or permanent ingestion."
+}
