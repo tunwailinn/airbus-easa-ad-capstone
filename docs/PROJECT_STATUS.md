@@ -1,11 +1,11 @@
 # Project Status
 
-Last updated: 14 August 2026
+Last updated: 17 August 2026
 
 ## Current position
 
 - Frozen physical snapshot: **1,809 PDFs / 1,808 base AD families**.
-- Five frozen unseen PDFs remain reserved for final ingestion/generalization testing.
+- Five frozen unseen PDFs are now in the final generalization evaluation.
 - Nominal development extraction: **1,804 physical PDFs**.
 - Strict Airbus-only operational retrieval view: **1,786 PDFs / 6,002 verified pages**.
 - Frozen parser: **`content-local-v2.1.6`**.
@@ -16,9 +16,12 @@ Last updated: 14 August 2026
 - One-time 40-question E5 final benchmark: **complete**.
 - Human semantic final result: **38/40 = 95.0%**.
 - Final oracle/reference-evidence diagnostic: **complete**, including one separately audited exact transport retry.
-- Remaining major evaluation: **five frozen unseen PDFs**.
+- Unseen U0/U1 source validation + non-destructive preparation: **complete**.
+- Unseen U2 question authoring: **15 draft questions authored; human review pending**.
+- Unseen temporary hosted QA: **not started**.
+- Unseen permanent ingestion: **not started**.
 
-Parser, retrieval, hosted-QA configuration, final questions, and the strict primary final result are frozen. Final-test outcomes must not be used for retuning.
+Parser, retrieval, hosted-QA configuration, final questions, and the strict primary final result are frozen. Final-test and unseen outcomes must not be used for retuning.
 
 ## Layer A — deterministic extraction
 
@@ -238,28 +241,78 @@ A single exact transport retry was performed for `E5F-035` under the predeclared
 
 The original 39-success/1-failure batch remains preserved. The retry is a separate audit artifact.
 
-## Remaining project evaluation — unseen-document generalization
+## Unseen-document generalization — ACTIVE
 
-Five non-gold PDFs remain frozen at:
+Five non-gold PDFs remain isolated from all development/final benchmark construction at:
 
 ```text
 evaluation_sets/unseen_incoming_5_v1/
 ```
 
-They remain outside all E5 development/final benchmark construction.
+Frozen cases:
 
-The final evaluation must be run without retraining in two stages:
+- `2008-0008` — corrected;
+- `2011-0041R1` — revised;
+- `2011-0142` — supersedure;
+- `2026-0084` — long document;
+- `2007-0173` — simple original.
 
-1. **temporary unseen-document QA** — process and query each held-out PDF without permanently adding it to the corpus;
-2. **permanent ingestion** — duplicate rejection, deterministic extraction, lifecycle decision, index update, page-cited QA, and isolation checks.
+### U0/U1 — COMPLETE
 
-The five frozen strata are:
+Non-destructive preparation completed successfully:
 
-- corrected;
-- revised;
-- supersedure;
-- long document;
-- simple original.
+- source documents: **5/5**;
+- exact source-hash matches: **5/5**;
+- total pages: **21**;
+- deterministic extraction successes: **5/5**;
+- schema-valid records: **5/5**;
+- parser: `content-local-v2.1.6`;
+- inference started: **false**;
+- permanent ingestion started: **false**.
+
+Preparation manifest SHA-256:
+
+```text
+e3a60433348003b8e238a6704d40ddcd6e389e4f7804df92057f4eec9bbadc05
+```
+
+### U2 — DRAFT AUTHORED / HUMAN REVIEW PENDING
+
+A 15-question unseen QA draft has been authored from the source packets:
+
+- exactly **3 questions per PDF**;
+- `identity_lifecycle`: 4;
+- `applicability`: 3;
+- `required_action_compliance`: 3;
+- `conditional_multi_passage`: 3;
+- `referenced_publication`: 1;
+- `insufficient_conflict_abstention`: 1.
+
+Draft question SHA-256:
+
+```text
+1d9600dd4379f501d0878adf6ae434076ef47ae0a299ef8be5bdc12cb55fc43b
+```
+
+Review state:
+
+- human verified: **0/15**;
+- needs human review: **15/15**.
+
+**Do not run unseen hosted QA yet.** The next gate is human review, incorporation of any edits, and a locked unseen-question artifact.
+
+### Remaining unseen sequence
+
+After the unseen question lock:
+
+1. temporary-document retrieval + frozen Layer C QA;
+2. offline/human semantic evaluation;
+3. permanent ingestion into an isolated evaluation store/index;
+4. duplicate/lifecycle/index-update safeguards;
+5. post-ingestion QA/citation verification;
+6. final unseen-generalization report.
+
+Do not permanently ingest any held-out PDF before its temporary-document QA result is preserved.
 
 ## Reporting boundaries
 
@@ -271,6 +324,7 @@ Do not claim that:
 - the nominal 20-record extraction test remained fully unseen after disclosed `2024-0038` leakage;
 - the single visual page override is native OCR text;
 - the system makes aircraft-specific legal compliance determinations;
-- the oracle diagnostic replaces the strict primary final result.
+- the oracle diagnostic replaces the strict primary final result;
+- the unseen 15-question draft is human verified before explicit review and lock.
 
 Original PDF passages remain authoritative for detailed applicability/compliance interpretation and page-cited QA.
