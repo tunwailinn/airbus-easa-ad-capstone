@@ -1,0 +1,16 @@
+question_id,result,failure_type,answer_correct,material_conditions_complete,citation_support_correct,unsupported_claims,reviewer_notes
+U5Q-001,PASS,,True,True,True,False,"PASS after clarification. The question asks for the correction identified, the superseded directive, and the republication reason; it does not ask for the correction date or superseded-directive date. The hosted answer supplied all requested elements, so omission of those dates is not a material error."
+U5Q-002,PASS,,True,True,True,False,Human-approved semantic review.
+U5Q-003,PASS,,True,True,True,False,Human-approved semantic review.
+U5Q-004,PASS,,True,True,True,False,Human-approved semantic review.
+U5Q-005,PASS,,True,True,True,False,Human-approved semantic review.
+U5Q-006,PASS,,True,True,True,False,Human-approved semantic review.
+U5Q-007,PASS,,True,True,True,False,Human-approved semantic review.
+U5Q-008,PASS,,True,True,True,False,Human-approved semantic review.
+U5Q-009,PASS,,True,True,True,False,Human-approved semantic review.
+U5Q-010,FAIL,Layer B temporary passage selection,False,False,True,False,FAIL. Neither human-approved answer-bearing quote (Supersedure nor Applicability) was contained in the top-5 prompt evidence. The model's insufficient_evidence response was reasonable for the evidence actually supplied.
+U5Q-011,TECHNICAL_FAILURE,Provider/transport,,,,,Persistent technical failure. The primary DeepSeek request returned empty final JSON content and the single permitted exact transport retry failed again with the identical prompt-payload SHA. No semantic result is assigned and no further retry is permitted.
+U5Q-012,PASS,,True,True,True,False,Human-approved semantic review.
+U5Q-013,PASS,,True,True,True,False,Human-approved semantic review.
+U5Q-014,PASS,,True,True,True,False,Human-approved semantic review.
+U5Q-015,PASS,,True,True,True,False,Human-approved semantic review.
