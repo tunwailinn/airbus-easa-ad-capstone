@@ -1,0 +1,49 @@
+{
+  "observation_version": "unseen-5-u5q011-posthoc-observation-v1.0",
+  "date": "2026-08-17",
+  "question_id": "U5Q-011",
+  "scope": "supplementary post-hoc provider-variability observation",
+  "status": "failed",
+  "official_result_replaced": false,
+  "official_result_remains": {
+    "semantic_pass_count": 13,
+    "semantic_fail_count": 1,
+    "persistent_technical_failure_count": 1,
+    "strict_first_pass_end_to_end_success_rate": 0.8666666666666667
+  },
+  "attempt_history": [
+    {
+      "attempt": "primary",
+      "result": "failed",
+      "error": "DeepSeek JSON Output returned empty final content"
+    },
+    {
+      "attempt": "predeclared_exact_transport_retry",
+      "result": "failed",
+      "error": "DeepSeek JSON Output returned empty final content"
+    },
+    {
+      "attempt": "posthoc_extra_retry",
+      "result": "failed",
+      "error": "DeepSeek JSON Output returned empty final content"
+    }
+  ],
+  "posthoc_run": {
+    "prompt_payload_sha256": "b17e0b69d1a7a28071cb9fc219272e4dc6e755223426cc39e08bd98ca66e5f33",
+    "posthoc_manifest_sha256": "4fe843029e383d95c5cf09ad869877949d0b035e49b950e14eeb0ff4b2263e5a",
+    "posthoc_summary_sha256": "2e167baf4f71145238cf5199d62bf047ba15681009009542cf000fbaee0768ef",
+    "failure_sha256": "6362dfe93225f7381ce8d722878309c1e424db186cd429a68f06ef3bf3bdbb06",
+    "provider": "deepseek",
+    "provider_version": "deepseek-direct-v1.1",
+    "model": "deepseek-v4-pro",
+    "prompt_version": "e5-hosted-qa-prompt-v1.0-dev",
+    "hosted_qa_runner_version": "e5-hosted-qa-runner-v1.1",
+    "thinking": "enabled",
+    "reasoning_effort": "high",
+    "max_tokens": 4096,
+    "retrieval_rerun": false,
+    "permanent_ingestion": false
+  },
+  "interpretation": "The same empty-final-content failure occurred on the primary request, the single predeclared exact transport retry, and a separate post-hoc identical request. This strengthens the classification of U5Q-011 as a persistent provider/structured-output failure for this payload under the frozen configuration. It does not change the locked primary unseen result.",
+  "policy": "Supplementary diagnostic only. The human-approved U3/U4 result remains authoritative and unchanged."
+}
