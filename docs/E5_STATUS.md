@@ -1,6 +1,6 @@
 # E5 Status
 
-Last updated: 14 August 2026
+Last updated: 17 August 2026
 
 ## Current state
 
@@ -8,9 +8,22 @@ E5 development, retrieval selection, hosted-QA freeze, the one-time 40-question 
 
 **The authoritative primary final semantic result is 38/40 = 95.0%.**
 
-The final result is frozen. No retrieval, prompt, provider/model, reasoning-effort, response-contract, evidence-depth, or question changes may be made from final-test observations. Oracle and error-attribution results are diagnostic only and must not replace the primary result.
+The E5 result is frozen. No retrieval, prompt, provider/model, reasoning-effort, response-contract, evidence-depth, or final-question changes may be made from final-test or unseen observations. Oracle and unseen results are diagnostic/generalization results only and must not replace the primary score.
 
-The remaining major evaluation is the five frozen unseen-PDF temporary-upload and permanent-ingestion evaluation.
+The project has now entered the separate five-PDF unseen-document evaluation:
+
+- U0 source/selection validation: **complete**;
+- U1 non-destructive preparation: **complete**;
+- U2 unseen question drafting: **15 questions authored**;
+- U2 human review: **pending, 0/15 verified**;
+- U3 temporary hosted QA: **not started**;
+- permanent ingestion: **not started**.
+
+Detailed active protocol:
+
+```text
+docs/UNSEEN_DOCUMENT_EVALUATION.md
+```
 
 ## Frozen E5 benchmark
 
@@ -94,7 +107,7 @@ Do not retune against the remaining development misses `E5D-030` or `E5D-045`.
 
 ## Layer C hosted-QA configuration — FROZEN
 
-Primary and oracle conditions use the same generation configuration:
+Primary, oracle, and later unseen temporary-QA conditions must preserve the frozen generation configuration:
 
 ```text
 provider: DeepSeek official API
@@ -140,7 +153,7 @@ This **38/40 = 95.0%** is the authoritative primary final semantic result.
 Primary failure interpretation:
 
 1. `E5F-011` — correct target evidence was available, but the answer selected the wrong applicability detail. Primary classification: **Layer C answer-selection/completeness failure under retrieved evidence**.
-2. `E5F-021` — correct `2018-0289R1` evidence was absent from the frozen retrieval support and the answer selected `2025-0111`. Classification: **Layer B retrieval/candidate-generation failure**.
+2. `E5F-021` — correct `2018-0289R1` evidence was absent from frozen retrieval support and the answer selected `2025-0111`. Classification: **Layer B retrieval/candidate-generation failure**.
 
 Approved diagnostics retained without changing the primary score:
 
@@ -150,13 +163,6 @@ Approved diagnostics retained without changing the primary score:
 ## Final oracle/reference-evidence diagnostic — COMPLETE
 
 The oracle condition changed only the evidence source. The model/prompt/settings remained frozen.
-
-Evidence construction:
-
-- 36 answerable questions received source chunks from the human-reviewed target AD/reference pages;
-- 4 abstention questions retained the exact primary frozen top-5 evidence as negative controls;
-- maximum evidence depth: 5;
-- no retrieval rerun or retuning.
 
 Original oracle batch:
 
@@ -168,36 +174,21 @@ Original oracle batch:
 - reference-page citation hit rate: **1.0000**;
 - target-AD citation hit rate: **1.0000**.
 
-### Oracle error attribution
+Key error-attribution results:
 
-`E5F-021` becomes correct with oracle evidence. This confirms the primary failure as **Layer B retrieval/candidate generation**.
-
-`E5F-011` also becomes correct with focused oracle evidence. The same frozen model correctly returns `A300F4-605R` and `A300F4-622R`, all MSNs with Airbus modification 12046 embodied in production. Therefore the primary failure is best described as **Layer C evidence-selection/completeness sensitivity under the retrieved-evidence condition**, rather than inability to reason from the intended evidence.
-
-`E5F-040` is a negative-control stability diagnostic: the evidence was unchanged, but the oracle run returned `answered` instead of the primary `insufficient_evidence`. Its prose remained cautious and stated that the exact repair details were not provided. Record this as **Layer C status-calibration/run-to-run variability**, not a factual hallucination.
+- `E5F-021` becomes correct with oracle evidence → **Layer B retrieval/candidate generation confirmed**;
+- `E5F-011` becomes correct with focused oracle evidence → **Layer C evidence-selection/completeness sensitivity**;
+- `E5F-040` changed answer state under unchanged negative-control evidence → **Layer C status-calibration/run-to-run variability**.
 
 ### E5F-035 exact transport retry
 
-The original oracle request failed because DeepSeek returned empty JSON final content. One exact transport retry was allowed under the frozen policy.
+The original oracle request failed because DeepSeek returned empty JSON final content. One exact transport retry preserved the same question/evidence/prompt/config and recovered successfully.
 
-The retry preserved:
-
-- question text;
-- evidence;
-- prompt payload SHA-256 `74ad9826c35d14082c13f15d94a639d017462b0515092c17e0fa4fd42b28892c`;
-- provider/model;
-- prompt/response contract;
-- thinking mode;
-- reasoning effort;
-- max-token limit.
-
-Retry result: **recovered successfully**. The recovered answer correctly describes the 6,100-FC terminating-action condition and cancellation of the applicable ALI 531103 inspection requirements.
-
-The original 39-success/1-failure oracle batch remains preserved. The retry is a separate diagnostic recovery artifact; do not rewrite the original run as 40/40.
+The original 39-success/1-failure batch remains preserved. The retry is a separate diagnostic recovery artifact; do not rewrite the original run as 40/40.
 
 ## Reporting rule
 
-Use these values in reports:
+Use these E5 values in reports:
 
 - **Primary final end-to-end semantic accuracy: 95.0% (38/40)**;
 - **Primary final retrieval Recall@5: 97.22% (35/36)**;
@@ -206,25 +197,70 @@ Use these values in reports:
 
 Oracle results are explanatory only. They must not replace or adjust the strict primary score.
 
-## Next gate — five frozen unseen PDFs
+## Unseen-document checkpoint — ACTIVE
 
-The final major evaluation is the frozen unseen-document set:
+Frozen unseen set:
 
 ```text
 evaluation_sets/unseen_incoming_5_v1/
 ```
 
-Five distinct held-out cases were selected for:
+Five held-out cases:
 
-- corrected AD;
-- revised AD;
-- supersedure case;
-- long document;
-- simple original.
+- corrected: `2008-0008`;
+- revised: `2011-0041R1`;
+- supersedure: `2011-0142`;
+- long document: `2026-0084`;
+- simple original: `2007-0173`.
 
-Run the evaluation in two stages without retraining:
+### U0/U1 complete
 
-1. **temporary unseen-document QA** — process/query each held-out PDF without adding it to the permanent corpus;
-2. **permanent ingestion** — duplicate rejection, deterministic extraction, lifecycle decision, index update, QA, and citations.
+- source documents: **5/5**;
+- source SHA-256 matches: **5/5**;
+- pages: **21**;
+- deterministic extraction successes: **5/5**;
+- schema-valid records: **5/5**;
+- parser: `content-local-v2.1.6`;
+- hosted inference started: **false**;
+- permanent ingestion started: **false**.
 
-Do not use these five PDFs to tune the already-frozen E5 primary system.
+Preparation manifest SHA-256:
+
+```text
+e3a60433348003b8e238a6704d40ddcd6e389e4f7804df92057f4eec9bbadc05
+```
+
+### U2 draft authored, human review pending
+
+A 15-question unseen QA draft has been authored, exactly 3 questions per held-out PDF.
+
+Draft composition:
+
+- identity/lifecycle: 4;
+- applicability: 3;
+- required action/compliance: 3;
+- conditional/multi-passage: 3;
+- referenced publication: 1;
+- insufficient/conflict/abstention: 1.
+
+Draft SHA-256:
+
+```text
+1d9600dd4379f501d0878adf6ae434076ef47ae0a299ef8be5bdc12cb55fc43b
+```
+
+Review state:
+
+```text
+human_verified: 0/15
+needs_human_review: 15/15
+```
+
+The immediate gate is explicit human review and a locked unseen-question artifact. Do **not** run unseen hosted QA or permanent ingestion before that gate is complete.
+
+After the lock:
+
+1. run temporary-document retrieval + frozen Layer C QA;
+2. preserve and human-review the temporary result;
+3. only then run isolated permanent ingestion, duplicate/lifecycle/index-update safeguards, and post-ingestion QA;
+4. report unseen results separately from the frozen E5 primary result.
