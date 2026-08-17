@@ -2,12 +2,12 @@
 
 Read this before changing code, data rules, experiments, or documentation.
 
-Last updated: 14 August 2026
+Last updated: 17 August 2026
 
 ## Project boundary
 
 - Frozen snapshot: **1,809 physical EASA AD PDFs / 1,808 base AD families**.
-- Five PDFs remain frozen as unseen ingestion/generalization cases.
+- Five PDFs remain isolated as unseen ingestion/generalization cases.
 - Nominal development extraction: **1,804 physical PDFs**.
 - Strict Airbus-only operational retrieval scope: **1,786 PDFs / 6,002 verified pages**.
 - Scope filtering never deletes physical/source records.
@@ -51,7 +51,29 @@ Authoritative primary final semantic result:
 38/40 = 95.0%
 ```
 
-Remaining major benchmark phase: five frozen unseen PDFs.
+Active remaining phase: **five frozen unseen PDFs**.
+
+Current unseen checkpoint:
+
+- U0 source/selection validation: **complete**;
+- U1 non-destructive preparation: **complete**;
+- source hashes matched: **5/5**;
+- source pages: **21**;
+- frozen-parser extraction: **5/5 successful**;
+- schema validity: **5/5**;
+- U2 draft questions: **15 authored, exactly 3 per PDF**;
+- human verification: **0/15**;
+- needs human review: **15/15**;
+- U3 temporary hosted QA: **not started**;
+- permanent ingestion: **not started**.
+
+Draft unseen question SHA-256:
+
+```text
+1d9600dd4379f501d0878adf6ae434076ef47ae0a299ef8be5bdc12cb55fc43b
+```
+
+Do not infer that the unseen questions are approved merely because they were source-grounded or assistant-authored. Explicit human review and lock are still required.
 
 ## Non-negotiable rules
 
@@ -68,7 +90,7 @@ Remaining major benchmark phase: five frozen unseen PDFs.
 11. Missing/malformed/unclassified holders are `unknown`, never automatic exclusions.
 12. **Parser v2.1.6 is frozen. Do not modify it from locked extraction-test outcomes.**
 13. The disclosed `2024-0038` extraction-test leak remains excluded from clean extraction scoring.
-14. The five unseen PDFs remain outside development/final indexes and benchmark construction until unseen-document evaluation.
+14. The five unseen PDFs remain outside frozen development/final indexes and benchmark construction.
 15. Retrieval experiments consume verified **page-text v1.1** only; unresolved weak pages or page-text hash failures block indexing.
 16. E0/E4 are frozen historical experiments. Do not retune them from QA-v2 or E5 outcomes.
 17. On macOS ARM, keep PyTorch/SentenceTransformers and FAISS process isolation where the frozen evaluator requires it.
@@ -78,14 +100,14 @@ Remaining major benchmark phase: five frozen unseen PDFs.
 21. E5 known-document routing is deterministic. A supplied AD identifier is a routing key, not a learned ranking feature.
 22. E5 discovery questions remain identifier-free and test corpus-wide discovery.
 23. E5-A/B/C/D development results are exposed, closed, and immutable historical ablations.
-24. **E5-D is the selected/frozen retrieval configuration. Do not tune it from development or final misses.**
+24. **E5-D is the selected/frozen retrieval configuration. Do not tune it from development, final, or unseen failures.**
 25. Frozen E5-D candidate generation uses E5-C BM25 + `Qwen/Qwen3-Embedding-0.6B@97b0c61` over frozen E4 chunks.
 26. Frozen E5-D reranking uses `Qwen/Qwen3-Reranker-0.6B@e61197e`, candidate limit 20, final evidence depth 5, and the instruction stored in `retrieval_freeze.json`.
 27. The retrieval lock `evaluation_sets/easa_airbus_ad_e5_benchmark_v1/retrieval_freeze.json` is authoritative.
 28. Development misses `E5D-030` and `E5D-045` are analysis findings, not tuning targets.
 29. Hosted-QA settings are frozen in `evaluation_sets/easa_airbus_ad_e5_benchmark_v1/hosted_qa_freeze.json`.
 30. Final questions are human reviewed and locked. Do not change them after the one-time final run.
-31. The strict primary final result is **38/40 = 95.0%**. Never replace it with ambiguity-adjusted, oracle, transport-recovered, or other post-hoc values.
+31. The strict primary final result is **38/40 = 95.0%**. Never replace it with ambiguity-adjusted, oracle, transport-recovered, unseen, or other post-hoc values.
 32. Primary final failures are `E5F-011` and `E5F-021`; preserve their attribution history.
 33. `E5F-021` is confirmed Layer B retrieval/candidate-generation failure because oracle evidence makes the same frozen model answer correctly.
 34. `E5F-011` remains a Layer C primary failure, more precisely evidence-selection/completeness sensitivity because focused oracle evidence makes the same model answer correctly.
@@ -93,8 +115,14 @@ Remaining major benchmark phase: five frozen unseen PDFs.
 36. The original final oracle batch remains **39 successes / 1 technical failure**. The exact retry of `E5F-035` is a separate audit recovery artifact and must not rewrite the first-pass batch.
 37. Semantic retries are prohibited. Exact transport retry is allowed only for genuine technical/provider failure with identical question/evidence/prompt/config and separate audit records.
 38. Oracle/reference-evidence results are diagnostic only and cannot replace the primary final score.
-39. Do not use the five unseen PDFs to tune extraction, retrieval, Layer C, or benchmark questions.
+39. Do not use the five unseen PDFs to tune extraction, retrieval, Layer C, or benchmark/system configuration.
 40. Unseen evaluation must be reported separately as generalization/ingestion performance.
+41. Unseen source preparation is non-destructive; preparation outputs do not imply benchmark approval.
+42. **Do not run unseen hosted inference until all 15 unseen question/reference records have explicit human review and are locked.**
+43. Human review may correct question/reference records for source fidelity, but may not change parser, retrieval, Layer C, or frozen generation settings.
+44. **Do not permanently ingest any held-out unseen PDF before its temporary-document QA result is preserved.**
+45. Permanent unseen ingestion must use an isolated evaluation store/index first; frozen E5 benchmark indexes remain immutable.
+46. Repeat-ingestion/duplicate rejection, lifecycle handling, index append behavior, and post-ingestion citations are part of the unseen evaluation and must be recorded rather than silently repaired.
 
 ## Frozen/active versions
 
@@ -119,6 +147,7 @@ Remaining major benchmark phase: five frozen unseen PDFs.
 - Final oracle runner: **`e5-layer-c-final-oracle-runner-v1.0`**.
 - Final oracle evaluator: **`e5-layer-c-final-oracle-eval-v1.0`**.
 - Final oracle exact transport retry runner: **`e5-layer-c-final-oracle-transport-retry-v1.0`**.
+- Unseen preparation: **`unseen-5-preparation-v1.0`**.
 
 ## Key frozen results
 
@@ -172,15 +201,28 @@ Clean locked extraction primary count 17:
 - target-AD citation hit: **100%**;
 - `E5F-035` exact retry: **recovered**.
 
+### Unseen preparation checkpoint
+
+- documents: **5/5 prepared**;
+- source hash matches: **5/5**;
+- pages: **21**;
+- deterministic extraction: **5/5 successful**;
+- schema validity: **5/5**;
+- question draft: **15 questions**;
+- human verified: **0/15**;
+- inference/permanent ingestion: **not started**.
+
 ## Immediate priority
 
 1. Keep all extraction/E5/Layer-C freezes unchanged.
 2. Preserve the primary final and oracle/transport-retry audit artifacts.
-3. Evaluate the five frozen unseen PDFs without retraining:
-   - temporary unseen-document QA first;
-   - permanent ingestion second.
-4. Report unseen results separately from the 40-question final benchmark.
-5. After material work, update `docs/PROJECT_STATUS.md`, `docs/E5_STATUS.md`, and any relevant experiment-specific documentation.
+3. Complete human review of the 15 unseen question/reference records.
+4. Incorporate only source-fidelity benchmark edits and create a locked unseen question artifact.
+5. Run temporary unseen-document QA with the frozen Layer C configuration.
+6. Preserve and human-review the temporary-QA result.
+7. Only then run isolated permanent-ingestion/duplicate/lifecycle/index-update/post-ingestion QA evaluation.
+8. Report unseen results separately from the 40-question final benchmark.
+9. After material work, update `docs/PROJECT_STATUS.md`, `docs/UNSEEN_DOCUMENT_EVALUATION.md`, and relevant experiment-specific documentation.
 
 ## Working protocol
 
@@ -189,11 +231,12 @@ Authority order:
 1. current user request;
 2. this file;
 3. machine-readable retrieval/hosted-QA/final benchmark locks;
-4. `docs/E5_STATUS.md`;
-5. `docs/LAYER_C_FINAL_EVALUATION.md`;
-6. `docs/PROJECT_STATUS.md`;
-7. `airbus_easa_ad_project_exact_plan.md`;
-8. `docs/DECISIONS.md`;
-9. `docs/BENCHMARK_DESIGN.md`.
+4. `docs/UNSEEN_DOCUMENT_EVALUATION.md` while unseen evaluation is active;
+5. `docs/E5_STATUS.md`;
+6. `docs/LAYER_C_FINAL_EVALUATION.md`;
+7. `docs/PROJECT_STATUS.md`;
+8. `airbus_easa_ad_project_exact_plan.md`;
+9. `docs/DECISIONS.md`;
+10. `docs/BENCHMARK_DESIGN.md`.
 
 Preserve unrelated artifacts, run relevant tests, keep first-pass failures in the audit trail, and never reopen frozen development or primary-final tuning from locked outcomes.
