@@ -34,7 +34,9 @@ Completed/frozen:
 - final oracle/reference-evidence diagnostic;
 - exact audited retry for the one oracle transport/provider failure;
 - five-PDF unseen source preparation;
-- **15-question unseen QA human review + lock**.
+- 15-question unseen QA human review + lock;
+- unseen temporary-document primary run;
+- unseen temporary human semantic review + result lock.
 
 Authoritative E5 primary final result:
 
@@ -45,15 +47,23 @@ Authoritative E5 primary final result:
 11/12 = 91.67% discovery Recall@5
 ```
 
+Human-approved unseen temporary-document result:
+
+```text
+13/14 = 92.86% semantic accuracy on successful hosted responses
+13/15 = 86.67% strict first-pass end-to-end success
+U5Q-010 = semantic failure, Layer B temporary passage selection
+U5Q-011 = persistent provider/transport failure
+```
+
 Active phase:
 
 ```text
-U3 temporary-document retrieval + frozen Layer C QA
-→ U4 offline + human semantic review
-→ only then U5/U6 permanent-ingestion evaluation
+U5/U6 isolated permanent ingestion
+→ duplicate/lifecycle/index-update safeguards
+→ U7 post-ingestion QA/citations
+→ U8 final unseen-generalization report
 ```
-
-Permanent ingestion of the five held-out PDFs is **not allowed yet**.
 
 ## Corpus
 
@@ -90,8 +100,6 @@ Clean locked test primary (17 records):
 - source containment: **74/74**;
 - contamination detected: **0**.
 
-Parser v2.1.6 is frozen and must not be retuned from locked-test outcomes.
-
 ## Layer B — verified source + E5-D retrieval
 
 Verified original-PDF page source:
@@ -104,11 +112,6 @@ data_processed/page_text_v1_1/operational_airbus/
 - **6,002** pages;
 - zero unresolved weak/OCR pages;
 - one reviewed visual override: AD `2011-0006`, page 3.
-
-Historical QA-v2 Recall@5:
-
-- E0 flat dense-only: **0.0000**;
-- E4 section-aware hybrid: **0.4091**.
 
 Selected E5-D development retrieval:
 
@@ -129,12 +132,6 @@ Frozen E5-D stack:
 - final evidence depth 5;
 - frozen E4 section chunks.
 
-Retrieval freeze:
-
-```text
-evaluation_sets/easa_airbus_ad_e5_benchmark_v1/retrieval_freeze.json
-```
-
 ## Layer C — frozen hosted QA
 
 ```text
@@ -149,21 +146,11 @@ response contract: e5-hosted-qa-contract-v1.0
 semantic retry: prohibited
 ```
 
-Hosted-QA freeze:
-
-```text
-evaluation_sets/easa_airbus_ad_e5_benchmark_v1/hosted_qa_freeze.json
-```
-
-The model receives only the question and supplied evidence. Private reference answers, target labels and benchmark labels are withheld during hosted inference.
-
 ## One-time E5 final benchmark
 
 - 40 human-reviewed questions;
 - 36 answerable + 4 abstention/conflict;
-- 24 known-document + 12 identifier-free discovery + 4 abstention/conflict;
 - hosted requests: **40/40 successful**;
-- answerability/status accuracy: **100%**;
 - frozen retrieval Recall@5: **35/36 = 97.22%**;
 - human semantic result: **38/40 = 95.0%**.
 
@@ -186,7 +173,7 @@ Frozen cases:
 | long document | 2026-0084 | 10 |
 | simple original | 2007-0173 | 2 |
 
-Preparation result:
+Preparation:
 
 - source hashes: **5/5 matched**;
 - source pages: **21**;
@@ -198,20 +185,34 @@ Unseen QA lock:
 - **15/15 human verified**;
 - 3 questions per PDF;
 - 14 answerable + 1 abstention;
-- locked `unseen_questions.jsonl` SHA-256: `603d3385f5d083aeabf071d8d0c9be88896d31eb3f6530e881efeb3c03baeb2d`.
+- locked questions SHA-256: `603d3385f5d083aeabf071d8d0c9be88896d31eb3f6530e881efeb3c03baeb2d`.
+
+Temporary-document first pass:
+
+- hosted success: **14/15 = 93.33%**;
+- page-overlap Recall@5: **14/14 = 100%**;
+- human semantic PASS: **13**;
+- human semantic FAIL: **1** (`U5Q-010`);
+- persistent technical failure: **1** (`U5Q-011`);
+- successful-response semantic accuracy: **13/14 = 92.86%**;
+- strict first-pass end-to-end success: **13/15 = 86.67%**.
+
+Temporary result lock:
+
+```text
+evaluation_sets/unseen_incoming_5_v1/unseen_temporary_result_lock.json
+```
+
+Validator before permanent ingestion:
+
+```text
+full_corpus_pipeline/layer_c/validate_unseen_temporary_result_lock.py
+```
 
 Detailed protocol:
 
 ```text
 docs/UNSEEN_DOCUMENT_EVALUATION.md
-```
-
-Next commands use:
-
-```text
-full_corpus_pipeline/layer_c/validate_unseen_question_lock.py
-full_corpus_pipeline/layer_c/run_unseen_temporary_qa.py
-full_corpus_pipeline/layer_c/evaluate_unseen_temporary_qa.py
 ```
 
 ## Reporting boundaries
