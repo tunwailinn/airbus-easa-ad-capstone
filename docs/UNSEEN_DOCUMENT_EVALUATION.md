@@ -108,7 +108,37 @@ Prompt payload SHA-256:
 b17e0b69d1a7a28071cb9fc219272e4dc6e755223426cc39e08bd98ca66e5f33
 ```
 
-The retry also failed with the same empty-final-content error. No further retry is permitted. `U5Q-011` is a **persistent provider/transport failure** and has no semantic score.
+The retry also failed with the same empty-final-content error. Under the predeclared protocol, `U5Q-011` is therefore a **persistent provider/transport failure** and has no semantic score.
+
+### U5Q-011 post-hoc extra retry — FAILED / SUPPLEMENTARY ONLY
+
+After the U3/U4 result had been human approved and locked, one additional post-hoc request was run solely as a provider-variability probe. It reused the exact preserved question and top-5 evidence under the same frozen Layer C configuration; retrieval was not rerun.
+
+The post-hoc attempt again failed with:
+
+```text
+DeepSeek JSON Output returned empty final content
+```
+
+The same prompt payload SHA-256 was used:
+
+```text
+b17e0b69d1a7a28071cb9fc219272e4dc6e755223426cc39e08bd98ca66e5f33
+```
+
+Observed chronology for `U5Q-011`:
+
+1. primary request — **failed** with empty final content;
+2. predeclared exact transport retry — **failed** with empty final content;
+3. post-hoc identical retry — **failed** with empty final content.
+
+This strengthens the interpretation that the observed issue is a persistent provider/structured-output failure for this payload under the frozen configuration. The post-hoc attempt is diagnostic only and **does not replace or change** the locked U3/U4 result.
+
+Committed supplementary observation:
+
+```text
+evaluation_sets/unseen_incoming_5_v1/u5q011_posthoc_extra_retry_observation.json
+```
 
 ### U4 — human semantic review — COMPLETE / HUMAN-APPROVED / LOCKED
 
@@ -124,7 +154,7 @@ Final decisions:
 
 - `U5Q-001`: **PASS**. The earlier AI-assisted proposal was too strict. The question asks for the correction identified, which directive is superseded, and why the AD was republished; it does not ask for either date. The hosted answer supplied all requested elements.
 - `U5Q-010`: **FAIL — Layer B temporary passage selection**.
-- `U5Q-011`: **persistent provider/transport failure**; no semantic result and no further retry.
+- `U5Q-011`: **persistent provider/transport failure**; no semantic result. The later post-hoc identical request also failed and is reported only as a supplementary reliability observation.
 - remaining 12 questions: **PASS**.
 
 Committed human-review records:
@@ -185,4 +215,4 @@ Frozen E5 benchmark indexes remain immutable audit artifacts.
 
 Unseen failures must be attributed to the stage that caused them: source preparation, deterministic extraction, temporary passage selection, Layer C generation/status, provider/transport, duplicate handling, lifecycle handling, index update, or post-ingestion retrieval/QA.
 
-Do not silently fix a held-out failure and report the fixed output as the original unseen result. Any later fix is post-hoc engineering work and must be labelled separately.
+Do not silently fix a held-out failure and report the fixed output as the original unseen result. Any later fix or extra retry is post-hoc engineering/diagnostic work and must be labelled separately.
