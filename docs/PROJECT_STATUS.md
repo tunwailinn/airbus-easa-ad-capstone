@@ -18,6 +18,7 @@ Last updated: 17 August 2026
 - Fifteen-question unseen QA set: **15/15 human reviewed and locked**.
 - Unseen temporary-document primary run: **complete and preserved**.
 - Unseen temporary human semantic review: **complete, human approved and locked**.
+- U5Q-011 supplementary post-hoc identical retry: **failed with the same empty-final-content provider error; diagnostic only**.
 - Next gate: **U5/U6 isolated permanent-ingestion evaluation**.
 
 All extraction, retrieval, hosted-QA and E5 primary-final settings/results remain frozen. Unseen outcomes are post-final generalization results and must not be used for retuning.
@@ -191,7 +192,7 @@ Human-approved interpretation:
 
 - `U5Q-001`: **PASS**. The question did not ask for correction/supersedure dates; the hosted answer supplied all requested elements.
 - `U5Q-010`: **FAIL — Layer B temporary passage selection**. Neither approved answer-bearing quote was present in top-5 prompt evidence.
-- `U5Q-011`: **persistent provider/transport failure**. Primary request and the one permitted exact retry both returned empty final content; no semantic result is assigned and no further retry is permitted.
+- `U5Q-011`: **persistent provider/transport failure**. Primary request and the one permitted exact retry both returned empty final content; no semantic result is assigned.
 - remaining 12 questions: **PASS**.
 
 Locked result:
@@ -204,6 +205,24 @@ Validator:
 
 ```text
 full_corpus_pipeline/layer_c/validate_unseen_temporary_result_lock.py
+```
+
+### U5Q-011 supplementary post-hoc provider probe — FAILED / DIAGNOSTIC ONLY
+
+A later extra request was run after the U3/U4 result was already locked. It reused the exact preserved prompt payload and frozen Layer C configuration without rerunning retrieval.
+
+The post-hoc request also returned:
+
+```text
+DeepSeek JSON Output returned empty final content
+```
+
+Thus the same failure was observed on the primary request, the predeclared exact retry, and the later post-hoc identical request. This strengthens the classification as a persistent provider/structured-output failure for this payload. It does **not** change the locked unseen score.
+
+Audit record:
+
+```text
+evaluation_sets/unseen_incoming_5_v1/u5q011_posthoc_extra_retry_observation.json
 ```
 
 ### U5/U6 permanent ingestion — NEXT / ALLOWED
