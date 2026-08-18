@@ -17,7 +17,11 @@
   "semantic_pass_count": 13,
   "semantic_fail_count": 1,
   "technical_failure_count": 1,
-  "semantic_failure_ids": ["U5Q-010"],
-  "technical_failure_ids": ["U5Q-011"],
+  "semantic_failure_ids": [
+    "U5Q-010"
+  ],
+  "technical_failure_ids": [
+    "U5Q-011"
+  ],
   "policy": "Final human-approved U7 semantic review. This lock binds the preserved post-ingestion primary and supplementary exact transport retry; it does not alter the frozen E5 final benchmark."
 }
