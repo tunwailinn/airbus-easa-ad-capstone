@@ -1,0 +1,31 @@
+{
+  "lock_version": "unseen-5-final-generalization-lock-v1.0",
+  "status": "evaluation_complete_and_locked",
+  "lock_date": "2026-08-18",
+  "u7_human_review_lock_path": "evaluation_sets/unseen_incoming_5_v1/u7_post_ingestion_human_semantic_review_lock.json",
+  "u7_human_review_lock_sha256": "100290f8b6ab608f809db66ef298621bda84512502805d2384dd0d095f556c65",
+  "u8_final_report_path": "docs/U8_FINAL_UNSEEN_GENERALIZATION_REPORT.md",
+  "u8_final_report_sha256": "0beb8c6680f344c86d6ef038657ffed4a5cb3841ef7e5b45b5d8e09b9c3845ad",
+  "unseen_questions_sha256": "603d3385f5d083aeabf071d8d0c9be88896d31eb3f6530e881efeb3c03baeb2d",
+  "u5_u6_result_lock_sha256": "2e3462ab0df16e12027964dcbdf9ced2d8366a65973267024714d3c51801033d",
+  "authoritative_frozen_e5_final": {
+    "question_count": 40,
+    "semantic_pass_count": 38,
+    "semantic_fail_count": 2,
+    "strict_semantic_accuracy": 0.95,
+    "retrieval_recall_at_5": 0.9722222222222222
+  },
+  "final_unseen_post_ingestion_primary": {
+    "question_count": 15,
+    "semantic_pass_count": 13,
+    "semantic_fail_count": 1,
+    "technical_failure_count": 1,
+    "semantic_accuracy_on_successful_responses": 0.9285714285714286,
+    "strict_end_to_end_success_rate": 0.8666666666666667,
+    "retrieval_recall_at_5": 1.0,
+    "correct_source_at_1": 1.0
+  },
+  "semantic_failure_ids": ["U5Q-010"],
+  "technical_failure_ids": ["U5Q-011"],
+  "policy": "The unseen evaluation is complete. Frozen E5 final and unseen results remain separate. Future engineering changes must be labelled post-evaluation and may not rewrite these locked outcomes."
+}
