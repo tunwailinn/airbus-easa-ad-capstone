@@ -1,0 +1,57 @@
+{
+  "review_version": "unseen-5-u7-post-ingestion-human-semantic-review-v1.0",
+  "review_date": "2026-08-18",
+  "reviewer": "Tun Wai Linn",
+  "status": "human_approved_and_locked",
+  "provenance": "AI-assisted semantic proposal reviewed and explicitly approved by the human reviewer on 2026-08-18. The human approval adopts U5Q-010 as FAIL, U5Q-011 as technical failure, and the remaining 13 as PASS.",
+  "question_count": 15,
+  "primary_hosted_success_count": 14,
+  "primary_hosted_failure_count": 1,
+  "semantic_pass_count": 13,
+  "semantic_fail_count": 1,
+  "technical_failure_count": 1,
+  "semantic_accuracy_on_successful_responses": 0.9285714285714286,
+  "strict_primary_end_to_end_success_rate": 0.8666666666666667,
+  "semantic_failure_ids": ["U5Q-010"],
+  "technical_failure_ids": ["U5Q-011"],
+  "retrieval": {
+    "answerable_question_count": 14,
+    "recall_at_1": 0.9285714285714286,
+    "recall_at_3": 1.0,
+    "recall_at_5": 1.0,
+    "mrr_at_5": 0.9642857142857143,
+    "ndcg_at_5": 0.9736378395408184,
+    "correct_source_at_1": 1.0,
+    "correct_source_at_5": 1.0,
+    "correct_source_and_page_at_5": 1.0,
+    "candidate_source_and_page_recall_at_20": 1.0
+  },
+  "passage_support_diagnostic": {
+    "any_reference_quote_containment_at_5": 0.8571428571428571,
+    "all_reference_quotes_containment_at_5": 0.5714285714285714,
+    "U5Q-010": "Neither approved answer-bearing quote is contained in top-5.",
+    "U5Q-011": "Both approved answer-bearing quotes are contained in top-5.",
+    "policy": "Diagnostic only; does not replace frozen page-level retrieval metrics."
+  },
+  "u5q011_transport": {
+    "primary_status": "failed",
+    "exact_retry_status": "failed",
+    "error": "DeepSeek JSON Output returned empty final content",
+    "post_ingestion_prompt_payload_sha256": "7a85360c8bfcb9bf9dff5f2932d6381e75b3bb740a8b271192501143c634ba5b",
+    "classification": "provider/structured-output technical failure",
+    "semantic_result_assigned": false
+  },
+  "input_artifact_sha256": {
+    "chunk_policy": "6e32ffc76fdf9cdbe8d470d23f510b09eecad6d29f9d95852f5834a3d5d8c3fb",
+    "run_summary": "032f39a8671d03e3c71ee223c41ec41e97a27f62984e74bde8939249629649e1",
+    "retrieval_report": "a1e2c5e76776dcbc8ddab5131cb549bc11ae9d052481f6da0b035674a7031c86",
+    "automatic_evaluation": "12bc383d9323908a6f7f0e61c0b0372c746d5c8d279e56a8b1e2e013ec8fb4ca",
+    "quote_diagnostic": "779fa90b30f50353959ba85f126c349f9803ede40778cc691951ecc4e681357c",
+    "review_packet": "e5875a1d6525e159f3e8b5a395a79bfe36095fea9cf497d74afddce25d4f743c",
+    "primary_failures": "f83756d31df68c81bf007ce6bb668c34c32f981c203b432f8a2e655a7d40afa4",
+    "retry_summary": "d67cb163ad7ff6d625609e16cd5c5cf3d19ff9e76811f9ed9c1feb72181687f3",
+    "retry_failure": "9b1b8ce9f76a00853ea8e4d86a9926759ff89840cf22eb95abd2ffaae3204508",
+    "retry_manifest": "93a41550ac09c854689bc5a173753d662de4a1a8b2e9d329d31e635ff952cc3b"
+  },
+  "reporting_boundary": "U7 is a post-final unseen generalization condition and remains separate from the frozen 40-question E5 final benchmark (38/40 = 95.0%). U7 does not authorize retuning or replacement of any frozen E5 result."
+}
