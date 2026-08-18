@@ -58,7 +58,7 @@ def validate_final_lock() -> None:
 
 def validate_source(index_dir: Path, dense_dir: Path) -> dict[str, Any]:
     chunk_path = index_dir / "chunks.jsonl"
-    index_config = index_dir / "config.json"
+    index_config = index_dir / "index_config.json"
     sparse_path = index_dir / "sparse.sqlite"
     dense_meta_path = dense_dir / "metadata.json"
     dense_path = dense_dir / "dense_embeddings.npy"
@@ -105,7 +105,7 @@ def validate_source(index_dir: Path, dense_dir: Path) -> dict[str, Any]:
         "embedding_revision": dense_meta.get("model_revision"),
         "source_hashes": {
             "chunks_jsonl": chunk_sha,
-            "config_json": sha256(index_config),
+            "index_config_json": sha256(index_config),
             "sparse_sqlite": sha256(sparse_path),
             "dense_metadata_json": sha256(dense_meta_path),
             "dense_embeddings_npy": sha256(dense_path),
