@@ -1,0 +1,19 @@
+{
+  "version": "unseen-5-u7-u5q011-exact-transport-retry-observation-v1.0",
+  "date": "2026-08-18",
+  "question_id": "U5Q-011",
+  "condition": "post_ingestion_u7",
+  "retry_type": "exact_transport_only",
+  "status": "failed",
+  "primary_result_replaced": false,
+  "retrieval_rerun": false,
+  "prompt_payload_sha256": "7a85360c8bfcb9bf9dff5f2932d6381e75b3bb740a8b271192501143c634ba5b",
+  "primary_failure_error": "DeepSeek JSON Output returned empty final content",
+  "retry_failure_error": "DeepSeek JSON Output returned empty final content",
+  "retry_summary_sha256": "d67cb163ad7ff6d625609e16cd5c5cf3d19ff9e76811f9ed9c1feb72181687f3",
+  "retry_failure_sha256": "9b1b8ce9f76a00853ea8e4d86a9926759ff89840cf22eb95abd2ffaae3204508",
+  "retry_manifest_sha256": "93a41550ac09c854689bc5a173753d662de4a1a8b2e9d329d31e635ff952cc3b",
+  "hosted_qa_freeze_sha256": "a22cc181f10bd763e90ef1e5cc5d6257a0b1afb83ed56309a7de736af5ba249a",
+  "interpretation": "The U7 primary and the single exact supplementary transport retry both failed with empty final content for the identical post-ingestion prompt payload. The U7 retrieval evidence remains unchanged and contains both approved U5Q-011 answer-bearing quotations in the top-5. The failure is therefore retained as a provider/structured-output technical failure, not a retrieval failure. No further U7 retry is authorized by the evaluation protocol.",
+  "policy": "Supplementary audit observation only. It does not overwrite the preserved U7 primary and cannot change the frozen E5 final benchmark or locked U3/U4 result."
+}
