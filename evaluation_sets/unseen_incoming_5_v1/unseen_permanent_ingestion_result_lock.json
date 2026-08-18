@@ -1,0 +1,71 @@
+{
+  "lock_version": "unseen-5-permanent-ingestion-result-lock-v1.0",
+  "lock_date": "2026-08-18",
+  "status": "automatic_safeguards_passed_and_locked",
+  "scope": "five frozen unseen PDFs — isolated permanent-ingestion U5/U6",
+  "temporary_result_dependency": {
+    "required_status": "human_approved_and_locked",
+    "required_validator": "full_corpus_pipeline.layer_c.validate_unseen_temporary_result_lock"
+  },
+  "local_artifacts": {
+    "run_manifest_path": "data_processed/evaluations/unseen_5/permanent_ingestion/run_manifest.json",
+    "run_manifest_sha256": "90ba914853c9b0c14b241a85ccd1712423731d2da2f145a8d2f2db723bb5bdc4",
+    "summary_path": "data_processed/evaluations/unseen_5/permanent_ingestion/permanent_ingestion_summary.json",
+    "summary_sha256": "b7ed3aa589c541996f11ce7b0fe06c2c0d29e3f60de02211ddce00060156604b",
+    "events_path": "data_processed/evaluations/unseen_5/permanent_ingestion/ingestion_events.jsonl",
+    "events_sha256": "df3c86d4824622eb23ec5e1901d8a6fa4d783a2a1f6c7878ff3897b74ebb4c97",
+    "review_packet_path": "data_processed/evaluations/unseen_5/permanent_ingestion/lifecycle_review_packet.md",
+    "review_packet_sha256": "ac99aca2abde7f775c729b5e5a72b3a4748b97604a6fb50bd94e939ba8cba9ea"
+  },
+  "source_fingerprints": {
+    "frozen_e4": "15af4f487374dfb9b49a396e8c618956ece204abfe767376ab9cc702bd870926",
+    "frozen_e5c": "6ab08feb94abf5c6557a2d3f87ce23e3ee741a154c32d0c74ea3a17bd54a8167"
+  },
+  "automatic_result": {
+    "processed_count": 5,
+    "ingestion_success_count": 5,
+    "ad_identity_match_count": 5,
+    "parser_version_match_count": 5,
+    "deterministic_record_match_count": 5,
+    "copied_source_hash_match_count": 5,
+    "index_append_pass_count": 5,
+    "e5c_alignment_pass_count": 5,
+    "duplicate_rejection_pass_count": 5,
+    "lifecycle_decision_count": 5,
+    "human_lifecycle_review_required_count": 0,
+    "frozen_e4_unchanged": true,
+    "frozen_e5c_unchanged": true,
+    "normal_data_incoming_unchanged": true,
+    "automatic_safeguards_pass": true,
+    "baseline_chunk_count": 12634,
+    "appended_chunk_count": 36,
+    "post_ingestion_chunk_count": 12670,
+    "post_ingestion_e5c_row_count": 12670
+  },
+  "selected_ads": [
+    "2008-0008",
+    "2011-0041R1",
+    "2011-0142",
+    "2026-0084",
+    "2007-0173"
+  ],
+  "lifecycle_observation": {
+    "relationship_status_for_all_five": "new_family",
+    "operational_selection_for_all_five": true,
+    "boundary": "The lifecycle engine is revision-family based. Cross-family supersedure and correction signals remain content-record evidence and are not silently converted into lifecycle edges."
+  },
+  "interpretation_boundary": {
+    "deterministic_record_match_means": "The permanent-ingestion extraction reproduced the frozen U1 deterministic record exactly.",
+    "deterministic_record_match_does_not_mean": "Every structured field in the deterministic record is semantically perfect.",
+    "ai_assisted_diagnostic_note": "The U5/U6 lifecycle review packet exposes over-broad revision_statement captures for 2008-0008 and 2026-0084. This is a pre-existing Layer A extraction limitation, not an ingestion regression, and must not be silently tuned from held-out outcomes."
+  },
+  "next_stage": {
+    "u7_allowed": true,
+    "required_index": "data_processed/evaluations/unseen_5/permanent_ingestion/isolated_index/e4_section_hybrid",
+    "required_e5c_dense": "data_processed/evaluations/unseen_5/permanent_ingestion/isolated_index/e5c_qwen3_embedding_0_6b",
+    "may_modify_frozen_e5_artifacts": false,
+    "may_retune_from_unseen_results": false,
+    "must_validate_frozen_chunk_policy_compatibility_before_u7": true
+  },
+  "policy": "U5/U6 is locked as a technical ingestion-safeguard result. It does not replace the frozen E5 benchmark, does not certify semantic perfection of every Layer A field, and does not authorize retuning from held-out outcomes."
+}
