@@ -18,7 +18,9 @@ Layer C — frozen hosted evidence-grounded QA
 
 Complex compliance semantics are interpreted from original-PDF evidence at question time. Full-corpus extraction and indexing do **not** use a hosted LLM. DeepSeek V4 Pro is used only in the frozen Layer C QA condition.
 
-## Current status — 17 August 2026
+## Current status — 18 August 2026
+
+The benchmark and five-document unseen-generalization evaluation are **complete and locked**.
 
 Completed/frozen:
 
@@ -32,13 +34,14 @@ Completed/frozen:
 - human-reviewed 40-question final benchmark;
 - one-time final benchmark + human semantic review;
 - final oracle/reference-evidence diagnostic;
-- exact audited retry for the one oracle transport/provider failure;
-- five-PDF unseen source preparation;
-- 15-question unseen QA human review + lock;
-- unseen temporary-document primary run;
-- unseen temporary human semantic review + result lock.
+- five-PDF unseen preparation and 15-question human-reviewed lock;
+- U3/U4 temporary-document unseen evaluation;
+- U5/U6 isolated permanent-ingestion and duplicate/index safeguards;
+- frozen-chunk-policy compatibility gate;
+- U7 post-ingestion E5-D + Layer C evaluation and human review;
+- U8 final unseen-generalization report + completion lock.
 
-Authoritative E5 primary final result:
+Authoritative frozen E5 final result:
 
 ```text
 38/40 = 95.0% strict end-to-end semantic accuracy
@@ -47,23 +50,18 @@ Authoritative E5 primary final result:
 11/12 = 91.67% discovery Recall@5
 ```
 
-Human-approved unseen temporary-document result:
+Final unseen post-ingestion result:
 
 ```text
+14/14 = 100% E5-D Recall@5 on answerable unseen questions
+14/14 = 100% correct source@1
 13/14 = 92.86% semantic accuracy on successful hosted responses
-13/15 = 86.67% strict first-pass end-to-end success
-U5Q-010 = semantic failure, Layer B temporary passage selection
-U5Q-011 = persistent provider/transport failure
+13/15 = 86.67% strict primary end-to-end success
+U5Q-010 = Layer B answer-bearing passage-selection failure
+U5Q-011 = provider/structured-output technical failure
 ```
 
-Active phase:
-
-```text
-U5/U6 isolated permanent ingestion
-→ duplicate/lifecycle/index-update safeguards
-→ U7 post-ingestion QA/citations
-→ U8 final unseen-generalization report
-```
+The unseen result is **separate** from the frozen 40-question E5 final benchmark and does not replace the 95.0% primary score.
 
 ## Corpus
 
@@ -100,7 +98,7 @@ Clean locked test primary (17 records):
 - source containment: **74/74**;
 - contamination detected: **0**.
 
-## Layer B — verified source + E5-D retrieval
+## Layer B — verified source + frozen E5-D retrieval
 
 Verified original-PDF page source:
 
@@ -173,53 +171,79 @@ Frozen cases:
 | long document | 2026-0084 | 10 |
 | simple original | 2007-0173 | 2 |
 
-Preparation:
-
-- source hashes: **5/5 matched**;
-- source pages: **21**;
-- deterministic extraction: **5/5 successful**;
-- schema validity: **5/5**.
-
-Unseen QA lock:
+Question lock:
 
 - **15/15 human verified**;
-- 3 questions per PDF;
 - 14 answerable + 1 abstention;
-- locked questions SHA-256: `603d3385f5d083aeabf071d8d0c9be88896d31eb3f6530e881efeb3c03baeb2d`.
+- locked question SHA-256: `603d3385f5d083aeabf071d8d0c9be88896d31eb3f6530e881efeb3c03baeb2d`.
 
-Temporary-document first pass:
+U5/U6 ingestion safeguards:
 
-- hosted success: **14/15 = 93.33%**;
-- page-overlap Recall@5: **14/14 = 100%**;
-- human semantic PASS: **13**;
-- human semantic FAIL: **1** (`U5Q-010`);
-- persistent technical failure: **1** (`U5Q-011`);
-- successful-response semantic accuracy: **13/14 = 92.86%**;
-- strict first-pass end-to-end success: **13/15 = 86.67%**.
+- ingestion success: **5/5**;
+- deterministic record match: **5/5**;
+- exact duplicate rejection without mutation: **5/5**;
+- isolated E4/E5-C append/alignment: **5/5**;
+- frozen source indexes unchanged: **true**;
+- strict frozen-chunk-policy match: **5/5 exact**.
 
-Temporary result lock:
+U7 post-ingestion retrieval:
 
-```text
-evaluation_sets/unseen_incoming_5_v1/unseen_temporary_result_lock.json
-```
+- Recall@1: **13/14 = 92.86%**;
+- Recall@3: **14/14 = 100%**;
+- Recall@5: **14/14 = 100%**;
+- correct source@1: **14/14 = 100%**;
+- correct source+page@5: **14/14 = 100%**.
 
-Validator before permanent ingestion:
+U7 human-approved primary result:
 
-```text
-full_corpus_pipeline/layer_c/validate_unseen_temporary_result_lock.py
-```
+- semantic PASS: **13**;
+- semantic FAIL: **1** (`U5Q-010`);
+- technical failure: **1** (`U5Q-011`);
+- semantic accuracy on successful hosted responses: **13/14 = 92.86%**;
+- strict end-to-end success: **13/15 = 86.67%**.
 
-Detailed protocol:
+Key unseen findings:
+
+- `U5Q-010`: page-level retrieval hit the correct page but omitted the actual answer-bearing `Supersedure`/`Applicability` passages from top-5. **Correct source/page recall does not guarantee answer-bearing passage support.**
+- `U5Q-011`: both approved answer-bearing passages were present in U7 top-5, but DeepSeek returned empty final JSON content on the primary request and the one exact retry. This is a **provider/structured-output reliability failure**, not retrieval.
+
+Canonical unseen documentation:
 
 ```text
 docs/UNSEEN_DOCUMENT_EVALUATION.md
+docs/U8_FINAL_UNSEEN_GENERALIZATION_REPORT.md
 ```
+
+Final unseen completion lock:
+
+```text
+evaluation_sets/unseen_incoming_5_v1/unseen_final_generalization_lock.json
+```
+
+Final validator:
+
+```bash
+.venv/bin/python -m \
+  full_corpus_pipeline.layer_c.validate_unseen_final_generalization
+```
+
+## Next phase
+
+The evaluation phase is complete. Remaining work is **post-evaluation engineering and capstone delivery**:
+
+- user-facing aviation document assistant integration;
+- final report/thesis and result tables;
+- final system-flow/architecture diagrams;
+- optional post-evaluation improvements to passage selection, lifecycle/correction normalization, and provider robustness.
+
+Any changes after this point must be labelled post-evaluation and must not rewrite the locked benchmark results.
 
 ## Reporting boundaries
 
 - The 1,809 PDFs are Airbus-related; not all are strict Airbus S.A.S.-holder operational records.
 - Structured extraction does not fully normalize every complex compliance branch.
 - Original PDF passages remain authoritative for detailed applicability/compliance interpretation.
+- Correct source/page retrieval does not necessarily mean the answer-bearing passage reached Layer C.
 - The system does not make aircraft-specific legal compliance determinations.
-- Final oracle and exact transport-retry results are diagnostic only.
+- Final oracle and transport-retry results are diagnostic/supplementary only.
 - Unseen-document results are reported separately from the frozen 40-question E5 final result.
