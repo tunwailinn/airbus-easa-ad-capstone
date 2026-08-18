@@ -25,7 +25,11 @@
     "retrieval_recall_at_5": 1.0,
     "correct_source_at_1": 1.0
   },
-  "semantic_failure_ids": ["U5Q-010"],
-  "technical_failure_ids": ["U5Q-011"],
+  "semantic_failure_ids": [
+    "U5Q-010"
+  ],
+  "technical_failure_ids": [
+    "U5Q-011"
+  ],
   "policy": "The unseen evaluation is complete. Frozen E5 final and unseen results remain separate. Future engineering changes must be labelled post-evaluation and may not rewrite these locked outcomes."
 }
