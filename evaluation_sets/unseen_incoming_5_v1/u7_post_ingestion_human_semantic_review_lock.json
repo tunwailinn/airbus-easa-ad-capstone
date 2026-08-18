@@ -1,0 +1,23 @@
+{
+  "lock_version": "unseen-5-u7-post-ingestion-human-review-lock-v1.0",
+  "status": "human_approved_and_locked",
+  "review_date": "2026-08-18",
+  "reviewer": "Tun Wai Linn",
+  "human_review_csv_sha256": "215c58617d5dabae4e992ee2501188e4f7b8a816f651e3cfee223a97741d75fb",
+  "human_review_summary_sha256": "2eaaead4d3dc18da8975270f9b6e19bf7ef7ca68de44c931ab569a98f1eb2c4f",
+  "human_review_final_md_sha256": "2c1cbc58e63cd99cf591a7868c2f04bb2f1cefc84c1d41d8543cfac919109b27",
+  "u7_run_summary_sha256": "032f39a8671d03e3c71ee223c41ec41e97a27f62984e74bde8939249629649e1",
+  "u7_retrieval_report_sha256": "a1e2c5e76776dcbc8ddab5131cb549bc11ae9d052481f6da0b035674a7031c86",
+  "u7_automatic_evaluation_sha256": "12bc383d9323908a6f7f0e61c0b0372c746d5c8d279e56a8b1e2e013ec8fb4ca",
+  "u7_quote_diagnostic_sha256": "779fa90b30f50353959ba85f126c349f9803ede40778cc691951ecc4e681357c",
+  "u7_primary_failures_sha256": "f83756d31df68c81bf007ce6bb668c34c32f981c203b432f8a2e655a7d40afa4",
+  "u7_exact_retry_summary_sha256": "d67cb163ad7ff6d625609e16cd5c5cf3d19ff9e76811f9ed9c1feb72181687f3",
+  "u7_exact_retry_failure_sha256": "9b1b8ce9f76a00853ea8e4d86a9926759ff89840cf22eb95abd2ffaae3204508",
+  "question_sha256": "603d3385f5d083aeabf071d8d0c9be88896d31eb3f6530e881efeb3c03baeb2d",
+  "semantic_pass_count": 13,
+  "semantic_fail_count": 1,
+  "technical_failure_count": 1,
+  "semantic_failure_ids": ["U5Q-010"],
+  "technical_failure_ids": ["U5Q-011"],
+  "policy": "Final human-approved U7 semantic review. This lock binds the preserved post-ingestion primary and supplementary exact transport retry; it does not alter the frozen E5 final benchmark."
+}
