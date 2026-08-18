@@ -12,8 +12,12 @@
   "technical_failure_count": 1,
   "semantic_accuracy_on_successful_responses": 0.9285714285714286,
   "strict_primary_end_to_end_success_rate": 0.8666666666666667,
-  "semantic_failure_ids": ["U5Q-010"],
-  "technical_failure_ids": ["U5Q-011"],
+  "semantic_failure_ids": [
+    "U5Q-010"
+  ],
+  "technical_failure_ids": [
+    "U5Q-011"
+  ],
   "retrieval": {
     "answerable_question_count": 14,
     "recall_at_1": 0.9285714285714286,
