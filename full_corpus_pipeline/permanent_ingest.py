@@ -14,6 +14,7 @@ import pandas as pd
 
 from full_corpus_pipeline.document_io import file_sha256, joined_page_text, read_pdf_pages
 from full_corpus_pipeline.extract_corpus import SCHEMA_PATH, record_filename
+from full_corpus_pipeline.isolated_index_append import append_chunks_process_isolated
 from full_corpus_pipeline.lifecycle import decide_lifecycle
 from full_corpus_pipeline.local_extractor_v216 import PARSER_VERSION, extract_local_record
 from full_corpus_pipeline.retrieval import HybridIndex, chunk_pages
@@ -54,6 +55,38 @@ def known_hashes(
     if not incoming.empty and "source_pdf_sha256" in incoming:
         hashes.update(incoming["source_pdf_sha256"].astype(str))
     return hashes
+
+
+def _append_index(
+    index_dir: Path,
+    chunks: list[Any],
+    *,
+    allow_dense_fallback: bool,
+) -> dict[str, Any]:
+    """Append using the process-isolated path for the research FAISS index.
+
+    The frozen E4 substrate uses SentenceTransformers + FAISS. On macOS/ARM those
+    native stacks must not share a process, so permanent ingestion uses the same
+    process-isolation principle as the accepted retrieval-evaluation runtime.
+    Other fallback indexes are supported only when explicitly requested.
+    """
+    index_dir = Path(index_dir)
+    config_path = index_dir / "index_config.json"
+    if not config_path.is_file():
+        raise FileNotFoundError(f"persistent index config not found: {config_path}")
+    config = json.loads(config_path.read_text(encoding="utf-8"))
+    if (
+        config.get("dense_backend") == "sentence_transformers"
+        and config.get("dense_index_backend") == "faiss_index_flat_ip"
+    ):
+        return append_chunks_process_isolated(index_dir, chunks)
+    if not allow_dense_fallback:
+        raise RuntimeError(
+            "persistent index is not the sentence-transformers + FAISS research backend; "
+            "rerun with --allow-dense-fallback only for a non-research fallback index"
+        )
+    result = HybridIndex(index_dir).add_chunks(chunks)
+    return {**result, "append_mode": "legacy_same_process_fallback"}
 
 
 def ingest_pdf(
@@ -121,18 +154,22 @@ def ingest_pdf(
             "ingested_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
         },
     )
+    index_append: dict[str, Any] | None = None
     if index_dir is not None:
-        index = HybridIndex(index_dir)
         chunks = chunk_pages(
             pages, file_instance_id=file_id, ad_number=ad_number, source_pdf=destination.name,
             lifecycle_status="operational" if decision.operational_selection else "historical",
         )
-        index.add_chunks(chunks)
+        index_append = _append_index(
+            index_dir,
+            chunks,
+            allow_dense_fallback=allow_dense_fallback,
+        )
     return {
         "file_instance_id": file_id, "ad_number": ad_number, "source_pdf": str(destination),
         "record": str(record_path), "lifecycle": lifecycle_row,
         "extraction_method": "deterministic_local", "parser_version": PARSER_VERSION,
-        "model_retrained": False,
+        "model_retrained": False, "index_append": index_append,
     }
 
 
