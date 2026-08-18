@@ -1,6 +1,6 @@
 # Project Status
 
-Last updated: 17 August 2026
+Last updated: 18 August 2026
 
 ## Current position
 
@@ -11,17 +11,14 @@ Last updated: 17 August 2026
 - Verified page source: `page-text-v1.1`.
 - Frozen retrieval configuration: **E5-D**.
 - Frozen hosted QA: **DeepSeek V4 Pro**.
-- One-time 40-question E5 final benchmark: **complete**.
-- Human semantic E5 final result: **38/40 = 95.0%**.
+- One-time 40-question E5 final benchmark: **complete and immutable**.
+- Authoritative human semantic E5 final result: **38/40 = 95.0%**.
 - Final oracle/reference-evidence diagnostic: **complete**.
-- Five-PDF unseen source preparation: **complete**.
-- Fifteen-question unseen QA set: **15/15 human reviewed and locked**.
-- Unseen temporary-document primary run: **complete and preserved**.
-- Unseen temporary human semantic review: **complete, human approved and locked**.
-- U5Q-011 supplementary post-hoc identical retry: **failed with the same empty-final-content provider error; diagnostic only**.
-- Next gate: **U5/U6 isolated permanent-ingestion evaluation**.
+- Five-PDF unseen evaluation: **complete through U8**.
+- Unseen U7 human semantic review: **human approved and locked**.
+- Final unseen-generalization report: **complete and locked**.
 
-All extraction, retrieval, hosted-QA and E5 primary-final settings/results remain frozen. Unseen outcomes are post-final generalization results and must not be used for retuning.
+All extraction, retrieval, hosted-QA and E5 primary-final settings/results remain frozen. The unseen experiment is post-final generalization evidence and may not be used to rewrite or retune the frozen benchmark.
 
 ## Layer A — deterministic extraction — PASS / FROZEN
 
@@ -47,6 +44,8 @@ Clean locked extraction test primary (17 records):
 - difficult raw-section presence F1: **1.0000** for all five sections;
 - source containment: **74/74**;
 - contamination: **0**.
+
+Known limitation exposed by the unseen set: some deterministic `revision_statement` captures are over-broad. Because permanent-ingestion records reproduced the prepared unseen records exactly, this is a pre-existing Layer A extraction limitation rather than an ingestion regression.
 
 ## Layer B source layer — PASS / FROZEN
 
@@ -119,7 +118,7 @@ Primary failures:
 - `E5F-011`: Layer C answer-selection/completeness failure under retrieved evidence;
 - `E5F-021`: Layer B retrieval/candidate-generation failure.
 
-The 95.0% primary result is authoritative and cannot be replaced by oracle/post-hoc values.
+The **95.0% primary result is authoritative** and cannot be replaced by oracle, retry, ambiguity-adjusted, or unseen values.
 
 ## Final oracle diagnostic — COMPLETE
 
@@ -131,7 +130,7 @@ The 95.0% primary result is authoritative and cannot be replaced by oracle/post-
 
 Oracle results remain diagnostic only.
 
-## Five-PDF unseen-document generalization — ACTIVE
+## Five-PDF unseen-document generalization — COMPLETE / LOCKED
 
 Frozen set:
 
@@ -159,88 +158,115 @@ Frozen set:
 - abstention: **1**;
 - locked question SHA-256: `603d3385f5d083aeabf071d8d0c9be88896d31eb3f6530e881efeb3c03baeb2d`.
 
-### U3 temporary-document QA — COMPLETE / PRESERVED
-
-First-pass automatic result:
+### U3/U4 temporary-document condition — COMPLETE / HUMAN-APPROVED / LOCKED
 
 - hosted successes: **14/15 = 93.33%**;
-- hosted failures: **1/15** (`U5Q-011`);
-- answerability/status accuracy on successful requests: **13/14 = 92.86%**;
-- reference-page any-overlap Recall@5: **14/14 = 100%**;
-- reference-page full coverage@5: **14/14 = 100%**;
-- reference-page citation hit: **100%**;
-- target-AD citation hit: **100%**.
-
-Post-hoc exact reference-quote containment diagnostic:
-
-- any approved quote contained at top 5: **12/14 = 85.71%**;
-- all approved quotes contained at top 5: **8/14 = 57.14%**.
-
-These are diagnostic values only and do not replace the frozen page-level retrieval metrics.
-
-### U4 temporary human semantic review — COMPLETE / HUMAN-APPROVED / LOCKED
-
-Final result:
-
+- page-overlap Recall@5: **14/14 = 100%**;
 - semantic PASS: **13**;
-- semantic FAIL: **1**;
-- persistent provider/transport failure: **1**;
-- semantic accuracy among successful first-pass responses: **13/14 = 92.86%**;
+- semantic FAIL: **1** (`U5Q-010`, Layer B temporary passage selection);
+- technical/provider failure: **1** (`U5Q-011`);
+- successful-response semantic accuracy: **13/14 = 92.86%**;
 - strict first-pass end-to-end success: **13/15 = 86.67%**.
 
-Human-approved interpretation:
+### U5/U6 isolated permanent ingestion — COMPLETE / PASS
 
-- `U5Q-001`: **PASS**. The question did not ask for correction/supersedure dates; the hosted answer supplied all requested elements.
-- `U5Q-010`: **FAIL — Layer B temporary passage selection**. Neither approved answer-bearing quote was present in top-5 prompt evidence.
-- `U5Q-011`: **persistent provider/transport failure**. Primary request and the one permitted exact retry both returned empty final content; no semantic result is assigned.
-- remaining 12 questions: **PASS**.
+- ingestion success: **5/5**;
+- deterministic record match: **5/5**;
+- copied source SHA match: **5/5**;
+- E4 append checks: **5/5**;
+- E5-C row alignment: **5/5**;
+- exact duplicate rejection without mutation: **5/5**;
+- lifecycle decisions recorded: **5/5**;
+- frozen E4 unchanged: **true**;
+- frozen E5-C unchanged: **true**;
+- normal `data_incoming/` unchanged: **true**.
 
-Locked result:
+Isolated derivative growth:
 
 ```text
-evaluation_sets/unseen_incoming_5_v1/unseen_temporary_result_lock.json
+documents: 1,786 → 1,791
+chunks:    12,634 → 12,670
+```
+
+Frozen-chunk compatibility gate: **5/5 exact**, including chunk counts and chunk IDs.
+
+### U7 post-ingestion E5-D + Layer C — COMPLETE / HUMAN-APPROVED / LOCKED
+
+Retrieval on 14 answerable questions:
+
+- Recall@1: **13/14 = 92.86%**;
+- Recall@3: **14/14 = 100%**;
+- Recall@5: **14/14 = 100%**;
+- MRR@5: **96.43%**;
+- nDCG@5: **97.36%**;
+- correct source@1: **14/14 = 100%**;
+- correct source+page@5: **14/14 = 100%**;
+- candidate source+page recall@20: **14/14 = 100%**.
+
+Human-approved primary result:
+
+- semantic PASS: **13**;
+- semantic FAIL: **1** (`U5Q-010`);
+- technical/provider failure: **1** (`U5Q-011`);
+- semantic accuracy among successful responses: **13/14 = 92.86%**;
+- strict primary end-to-end success: **13/15 = 86.67%**.
+
+Final attribution:
+
+- `U5Q-010`: **Layer B post-ingestion passage selection**. Page 1 is present in top-5 but the actual `Supersedure` and `Applicability` answer-bearing passages are outside the final evidence set. This demonstrates that page-level Recall@5 can overstate answer-bearing passage availability.
+- `U5Q-011`: **provider/structured-output technical failure**. Both approved source quotations are present in top-5; the primary request and one exact post-ingestion retry both returned empty final JSON content. No semantic result is assigned and no further evaluation retry is permitted.
+
+Passage-support diagnostic:
+
+- any approved reference quote contained@5: **12/14 = 85.71%**;
+- all approved reference quotes contained@5: **8/14 = 57.14%**.
+
+These values are diagnostic only and do not replace page-level retrieval metrics.
+
+Human review lock:
+
+```text
+evaluation_sets/unseen_incoming_5_v1/u7_post_ingestion_human_semantic_review_lock.json
+```
+
+### U8 final unseen-generalization report — COMPLETE / LOCKED
+
+Canonical report:
+
+```text
+docs/U8_FINAL_UNSEEN_GENERALIZATION_REPORT.md
+```
+
+Final completion lock:
+
+```text
+evaluation_sets/unseen_incoming_5_v1/unseen_final_generalization_lock.json
 ```
 
 Validator:
 
 ```text
-full_corpus_pipeline/layer_c/validate_unseen_temporary_result_lock.py
+full_corpus_pipeline/layer_c/validate_unseen_final_generalization.py
 ```
 
-### U5Q-011 supplementary post-hoc provider probe — FAILED / DIAGNOSTIC ONLY
+## Final benchmark comparison
 
-A later extra request was run after the U3/U4 result was already locked. It reused the exact preserved prompt payload and frozen Layer C configuration without rerunning retrieval.
+| Evaluation condition | Retrieval | Human semantic result | Strict end-to-end |
+|---|---|---|---|
+| Frozen 40-question E5 final | Recall@5 35/36 = 97.22% | 38/40 PASS = 95.0% | 95.0% |
+| Unseen temporary U3/U4 | Page Recall@5 14/14 = 100% | 13 PASS / 1 FAIL / 1 technical | 13/15 = 86.67% |
+| Unseen post-ingestion U7 | E5-D Recall@5 14/14 = 100% | 13 PASS / 1 FAIL / 1 technical | 13/15 = 86.67% |
 
-The post-hoc request also returned:
+## Current next phase
 
-```text
-DeepSeek JSON Output returned empty final content
-```
+The **evaluation phase is complete**. Next work is post-evaluation engineering and capstone delivery:
 
-Thus the same failure was observed on the primary request, the predeclared exact retry, and the later post-hoc identical request. This strengthens the classification as a persistent provider/structured-output failure for this payload. It does **not** change the locked unseen score.
+- user-facing aviation document assistant integration;
+- final report/thesis writing and result tables;
+- final system-flow/architecture diagrams;
+- optional post-evaluation engineering improvements for answer-bearing passage selection, lifecycle/correction normalization, and provider structured-output robustness.
 
-Audit record:
-
-```text
-evaluation_sets/unseen_incoming_5_v1/u5q011_posthoc_extra_retry_observation.json
-```
-
-### U5/U6 permanent ingestion — NEXT / ALLOWED
-
-Permanent ingestion may now proceed **only in an isolated evaluation store/index** after the temporary-result validator passes.
-
-Required checks:
-
-- exact SHA-256 duplicate rejection;
-- frozen deterministic extraction;
-- no model retraining;
-- lifecycle/revision/correction/supersedure behavior;
-- source provenance preservation;
-- isolated index update behavior;
-- repeat-ingestion rejection;
-- post-ingestion QA and citations.
-
-Frozen E5 indexes remain immutable.
+Any engineering changes from this point forward must be labelled **post-evaluation** and must not rewrite the frozen benchmark or unseen locks.
 
 ## Reporting boundaries
 
@@ -248,8 +274,9 @@ Do not claim that:
 
 - all 1,809 PDFs are strict Airbus S.A.S.-holder operational records;
 - structured extraction fully normalizes complex compliance logic;
+- correct source/page retrieval guarantees the answer-bearing passage is in the evidence set;
 - the system makes aircraft-specific legal compliance determinations;
-- oracle results replace the strict E5 final score;
-- unseen results are part of the frozen 40-question E5 final score.
+- oracle/retry/unseen results replace the strict E5 final score;
+- unseen results are part of the frozen 40-question E5 final benchmark.
 
 Original PDF passages remain authoritative for detailed applicability/compliance interpretation and page-cited QA.
