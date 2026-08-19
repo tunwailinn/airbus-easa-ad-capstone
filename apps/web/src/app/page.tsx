@@ -1,5 +1,5 @@
-import { AssistantShell } from "@/components/assistant-shell";
+import { ConversationShell } from "@/components/conversation-shell";
 
 export default function Home() {
-  return <AssistantShell />;
+  return <ConversationShell />;
 }
