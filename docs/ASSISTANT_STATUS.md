@@ -4,22 +4,24 @@ Last updated: 19 August 2026
 
 ## Current checkpoint
 
-The original dependency-light assistant prototype remains available as a fallback, but the project is now migrating to the approved **modern capstone demo architecture**.
+The original dependency-light assistant prototype remains available as a fallback, while the project now has the approved **modern capstone demo architecture** implemented on `main` and awaiting local acceptance on the seminar Mac.
 
-Implemented in the modernization branch of `main`:
+Implemented:
 
 - Next.js App Router + React + TypeScript frontend under `apps/web/`;
-- Tailwind CSS 4 + shadcn configuration and component-ready structure;
-- evidence-first aviation engineering UI with example prompts, pipeline state, citations, evidence inspector, retrieval-only mode, cancellation and explicit follow-up AD context;
+- Tailwind CSS 4 + shadcn configuration and reusable UI primitives;
+- multi-turn evidence-first aviation engineering UI with example prompts, pipeline state, citations, evidence inspector, retrieval-only mode, cancellation and explicit follow-up AD context;
 - FastAPI + Pydantic serving API under `full_corpus_pipeline/assistant_api/`;
 - one-time application lifespan loading for the exact pinned E5-C embedding model and E5-D reranker;
 - MPS-preferred / CPU-fallback serving through the existing `choose_device()` policy;
 - single ML-concurrency lane for a reliable seminar demo;
 - bounded query-embedding and retrieval caches;
-- FastAPI SSE endpoint that exposes routing/evidence before hosted QA completes;
+- SSE endpoint that exposes route/retrieval/evidence before hosted QA completes;
 - separate post-evaluation DeepSeek streaming adapter that never emits reasoning content or unvalidated JSON fragments;
 - final Layer C JSON is still validated against the frozen response schema and resolved evidence IDs before `answer.completed` is sent;
+- OpenAPI-based frontend contract generation + `openapi-fetch` REST client;
 - compatibility/latency gate comparing the original subprocess serving path against the warm path with exact top-5 chunk-ID equality;
+- Vitest/Testing Library + Playwright test scaffolding;
 - one-command demo launcher (`make demo` / `bash scripts/start_demo.sh`);
 - separate `requirements-assistant.txt` so frozen evaluation dependencies/results remain untouched.
 
@@ -58,29 +60,39 @@ No LangChain, LlamaIndex, vector database, new embedding model, new reranker, qu
 
 ## Required local acceptance sequence
 
+### 1. Pull and install
+
 ```bash
 git pull
 
 .venv/bin/pip install -r requirements-assistant.txt
 pnpm install
+```
 
-# Ensure the validated post-ingestion serving snapshot exists.
-.venv/bin/python -m full_corpus_pipeline.assistant.prepare_serving_snapshot
+`pnpm install` generates/updates `pnpm-lock.yaml`; commit that lockfile after the install succeeds.
 
-# Mandatory research-integrity + performance gate.
+### 2. Ensure the validated serving snapshot exists
+
+```bash
+.venv/bin/python -m \
+  full_corpus_pipeline.assistant.prepare_serving_snapshot
+```
+
+If the snapshot already exists and is valid, do not replace it just to rerun this step.
+
+### 3. Run Python contract tests
+
+```bash
+.venv/bin/python -m unittest discover \
+  -s full_corpus_pipeline/tests \
+  -p 'test_assistant_api_contract.py'
+```
+
+### 4. Mandatory research-integrity + performance gate
+
+```bash
 .venv/bin/python -m \
   full_corpus_pipeline.assistant_api.validate_warm_compatibility
-
-# Frontend static checks.
-pnpm --dir apps/web typecheck
-pnpm --dir apps/web lint
-pnpm --dir apps/web build
-
-# Generate the frontend API declarations while FastAPI is running.
-pnpm --dir apps/web generate:api
-
-# Full demo.
-make demo
 ```
 
 Compatibility acceptance requires:
@@ -91,15 +103,68 @@ top5_all_exact: true
 
 The report also records legacy versus warm median retrieval latency and whether the predeclared 60% median reduction target is achieved. Performance is not claimed until this local measurement is run on the seminar Mac.
 
-## Expected demo runtime
+### 5. Start only the FastAPI backend and wait for `ready`
+
+```bash
+.venv/bin/python -m full_corpus_pipeline.assistant_api.app
+```
+
+In another terminal:
+
+```bash
+curl http://127.0.0.1:8000/api/v1/health
+```
+
+The health response must report both Qwen models loaded.
+
+### 6. Generate the real frontend OpenAPI declarations
+
+With FastAPI still running:
+
+```bash
+pnpm --dir apps/web generate:api
+```
+
+This replaces the committed seed declarations with the exact schema exported by the running FastAPI application.
+
+### 7. Frontend acceptance
+
+```bash
+pnpm --dir apps/web typecheck
+pnpm --dir apps/web lint
+pnpm --dir apps/web test
+pnpm --dir apps/web build
+```
+
+Optional browser smoke test after the frontend is running:
+
+```bash
+pnpm --dir apps/web test:e2e
+```
+
+### 8. Full capstone demo
+
+Stop any manually started backend/frontend processes, then run:
+
+```bash
+make demo
+```
+
+Expected runtime:
 
 ```text
 FastAPI: http://127.0.0.1:8000
 Next.js: http://127.0.0.1:3000
 ```
 
-The API health endpoint should report both Qwen models loaded before the frontend enables questioning.
+## Local acceptance boundary
 
-## Next step
+The modernization code is implemented, but it is **not yet accepted as the primary seminar runtime** until the Mac run confirms:
 
-Run the local acceptance sequence above. If top-5 compatibility passes, use the modern UI as the primary capstone demo and keep the old Python web UI only as a fallback. If compatibility fails, fix serving equivalence before using the new warm inference path in the seminar.
+- exact top-5 compatibility;
+- successful Python/frontend static tests;
+- successful Next.js production build;
+- recorded before/after retrieval latency;
+- clean end-to-end browser QA using both known-document and discovery examples.
+
+Until then, the old Python web UI remains the fallback.
