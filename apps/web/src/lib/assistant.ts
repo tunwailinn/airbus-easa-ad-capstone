@@ -79,14 +79,11 @@ export async function streamQuestion(
 }
 
 export async function getHealth(): Promise<Health> {
-  const result = await api.GET("/api/v1/health", {
+  const { data } = await api.GET("/api/v1/health", {
     cache: "no-store",
   });
-  if (result.error) {
-    throw new Error(`Health check failed: ${JSON.stringify(result.error)}`);
-  }
-  if (!result.data) {
+  if (!data) {
     throw new Error("Health check returned no data");
   }
-  return result.data;
+  return data;
 }
