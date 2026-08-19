@@ -2,7 +2,6 @@ from __future__ import annotations
 
 import asyncio
 from collections import OrderedDict
-from dataclasses import asdict
 from pathlib import Path
 import time
 from typing import Any
@@ -86,7 +85,6 @@ class WarmInferenceService:
             prompts={"aviation": RERANKER_INSTRUCTION},
             default_prompt_name="aviation",
         )
-        # Warm both models once so the first seminar question does not pay lazy-init cost.
         self._encode_sync("warmup")
         self.reranker.predict([("warmup", "warmup")], batch_size=1, show_progress_bar=False)
 
@@ -102,6 +100,16 @@ class WarmInferenceService:
         return {
             "document_count": len({str(chunk.file_instance_id) for chunk in chunks}),
             "chunk_count": len(chunks),
+        }
+
+    @staticmethod
+    def _copy_payload(payload: dict[str, Any]) -> dict[str, Any]:
+        return {
+            **payload,
+            "route_errors": list(payload.get("route_errors", [])),
+            "evidence": [dict(item) for item in payload.get("evidence", [])],
+            "_evidence_objects": list(payload.get("_evidence_objects", [])),
+            "timings": dict(payload.get("timings", {})),
         }
 
     def _encode_sync(self, question: str) -> np.ndarray:
@@ -129,8 +137,6 @@ class WarmInferenceService:
             raise RuntimeError("warm inference service is not loaded")
         route = route_query(question)
         effective_question = question
-        # Explicit conversation context is visible and deterministic. It is only used when
-        # the current question itself does not name an AD.
         if route.mode == "discovery" and context_ad_numbers:
             effective_question = f"{question} Context AD: {context_ad_numbers[0]}"
             route = route_query(effective_question)
@@ -138,7 +144,7 @@ class WarmInferenceService:
         cache_key = effective_question
         cached = self._retrieval_cache.get(cache_key)
         if cached is not None:
-            return cached
+            return self._copy_payload(cached)
 
         t0 = time.perf_counter()
         query_vector = None
@@ -195,8 +201,8 @@ class WarmInferenceService:
                 "retrieval_total_ms": (time.perf_counter() - t0) * 1000,
             },
         }
-        self._retrieval_cache.put(cache_key, payload)
-        return payload
+        self._retrieval_cache.put(cache_key, self._copy_payload(payload))
+        return self._copy_payload(payload)
 
     async def retrieve(self, question: str, context_ad_numbers: list[str]) -> dict[str, Any]:
         async with self._semaphore:
@@ -208,7 +214,7 @@ class WarmInferenceService:
 
     async def answer(self, question: str, context_ad_numbers: list[str], retrieval_only: bool) -> dict[str, Any]:
         total_start = time.perf_counter()
-        retrieval = await self.retrieve(question, context_ad_numbers)
+        retrieval = self._copy_payload(await self.retrieve(question, context_ad_numbers))
         evidence = retrieval.pop("_evidence_objects")
         timings = dict(retrieval["timings"])
 
