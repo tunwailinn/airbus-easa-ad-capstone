@@ -1,0 +1,11 @@
+{
+  "name": "airbus-easa-ad-capstone",
+  "private": true,
+  "packageManager": "pnpm@10.14.0",
+  "scripts": {
+    "web:dev": "pnpm --dir apps/web dev",
+    "web:build": "pnpm --dir apps/web build",
+    "web:check": "pnpm --dir apps/web typecheck && pnpm --dir apps/web lint",
+    "api:types": "pnpm --dir apps/web generate:api"
+  }
+}
