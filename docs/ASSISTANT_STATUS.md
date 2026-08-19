@@ -1,83 +1,105 @@
 # Aviation Document Assistant — Post-Evaluation Status
 
-Last updated: 18 August 2026
+Last updated: 19 August 2026
 
 ## Current checkpoint
 
-The first user-facing serving slice is **implemented** after the frozen evaluation phase.
+The original dependency-light assistant prototype remains available as a fallback, but the project is now migrating to the approved **modern capstone demo architecture**.
 
-Implemented:
+Implemented in the modernization branch of `main`:
 
-- validated serving-snapshot preparation from the locked 1,791-document / 12,670-chunk post-ingestion derivative;
-- reusable live E5-C/E5-D retrieval runtime;
-- frozen Layer C evidence-grounded DeepSeek integration;
-- locally resolved AD/PDF/page/section citations;
-- graceful `technical_error` fallback that preserves retrieved evidence;
-- retrieval-only mode with no hosted call;
-- interactive and one-shot CLI;
-- local browser UI and JSON query endpoint;
-- assistant contract tests;
-- explicit document-authority and aircraft-specific-decision safety boundary.
+- Next.js App Router + React + TypeScript frontend under `apps/web/`;
+- Tailwind CSS 4 + shadcn configuration and component-ready structure;
+- evidence-first aviation engineering UI with example prompts, pipeline state, citations, evidence inspector, retrieval-only mode, cancellation and explicit follow-up AD context;
+- FastAPI + Pydantic serving API under `full_corpus_pipeline/assistant_api/`;
+- one-time application lifespan loading for the exact pinned E5-C embedding model and E5-D reranker;
+- MPS-preferred / CPU-fallback serving through the existing `choose_device()` policy;
+- single ML-concurrency lane for a reliable seminar demo;
+- bounded query-embedding and retrieval caches;
+- FastAPI SSE endpoint that exposes routing/evidence before hosted QA completes;
+- separate post-evaluation DeepSeek streaming adapter that never emits reasoning content or unvalidated JSON fragments;
+- final Layer C JSON is still validated against the frozen response schema and resolved evidence IDs before `answer.completed` is sent;
+- compatibility/latency gate comparing the original subprocess serving path against the warm path with exact top-5 chunk-ID equality;
+- one-command demo launcher (`make demo` / `bash scripts/start_demo.sh`);
+- separate `requirements-assistant.txt` so frozen evaluation dependencies/results remain untouched.
 
-Canonical implementation:
+## Canonical modern implementation
+
+```text
+apps/web/
+full_corpus_pipeline/assistant_api/
+requirements-assistant.txt
+scripts/start_demo.sh
+Makefile
+pnpm-workspace.yaml
+```
+
+The original prototype remains at:
 
 ```text
 full_corpus_pipeline/assistant/
-├── __init__.py
-├── runtime.py
-├── prepare_serving_snapshot.py
-├── cli.py
-└── web.py
 ```
 
-Documentation:
+It must not be removed until the warm compatibility gate and local UI acceptance pass.
 
-```text
-docs/ASSISTANT_INTEGRATION.md
-```
+## Research/evaluation boundary
 
-## Evaluation boundary
-
-This serving work is post-evaluation. It does not change:
+This work is **post-evaluation serving engineering**. It does not change:
 
 - frozen E5 final result: **38/40 = 95.0%**;
 - frozen E5-D final Recall@5: **35/36 = 97.22%**;
 - locked unseen U7 result: **13 PASS / 1 semantic FAIL / 1 technical failure**;
-- any parser/retrieval/hosted-QA freeze or benchmark lock.
+- frozen E5-C candidate logic;
+- frozen E5-D model/revision/instruction;
+- frozen Layer C prompt or response contract;
+- any evaluation or unseen lock.
 
-The serving snapshot is a non-destructive copy of the already validated post-ingestion derivative. It is not a new benchmark condition.
+No LangChain, LlamaIndex, vector database, new embedding model, new reranker, quantization or retrieval retuning is introduced by this migration.
 
-## Local acceptance gate
-
-The implementation is ready for a local smoke test on the project MacBook. The acceptance sequence is:
+## Required local acceptance sequence
 
 ```bash
 git pull
 
-.venv/bin/python -m unittest discover \
-  -s full_corpus_pipeline/tests \
-  -p 'test_assistant_runtime.py'
+.venv/bin/pip install -r requirements-assistant.txt
+pnpm install
 
+# Ensure the validated post-ingestion serving snapshot exists.
+.venv/bin/python -m full_corpus_pipeline.assistant.prepare_serving_snapshot
+
+# Mandatory research-integrity + performance gate.
 .venv/bin/python -m \
-  full_corpus_pipeline.assistant.prepare_serving_snapshot
+  full_corpus_pipeline.assistant_api.validate_warm_compatibility
 
-.venv/bin/python -m full_corpus_pipeline.assistant.cli \
-  --retrieval-only --show-evidence \
-  "For EASA AD 2011-0041R1, what two actions had to be completed within 3 days after 14 March 2011?"
+# Frontend static checks.
+pnpm --dir apps/web typecheck
+pnpm --dir apps/web lint
+pnpm --dir apps/web build
 
-.venv/bin/python -m full_corpus_pipeline.assistant.web
+# Generate the frontend API declarations while FastAPI is running.
+pnpm --dir apps/web generate:api
+
+# Full demo.
+make demo
 ```
 
-Expected serving snapshot accounting:
+Compatibility acceptance requires:
 
 ```text
-document_count: 1791
-chunk_count: 12670
-dense_row_count: 12670
-status: ready
-frozen_e5_results_modified: false
+top5_all_exact: true
 ```
 
-## Next step after the smoke test
+The report also records legacy versus warm median retrieval latency and whether the predeclared 60% median reduction target is achieved. Performance is not claimed until this local measurement is run on the seminar Mac.
 
-After the local assistant smoke test passes, capture representative known-document, discovery, abstention and technical-error UI outputs for the capstone demonstration. Then move to final report/thesis integration and final system-flow/result slides.
+## Expected demo runtime
+
+```text
+FastAPI: http://127.0.0.1:8000
+Next.js: http://127.0.0.1:3000
+```
+
+The API health endpoint should report both Qwen models loaded before the frontend enables questioning.
+
+## Next step
+
+Run the local acceptance sequence above. If top-5 compatibility passes, use the modern UI as the primary capstone demo and keep the old Python web UI only as a fallback. If compatibility fails, fix serving equivalence before using the new warm inference path in the seminar.
