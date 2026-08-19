@@ -12,6 +12,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import StreamingResponse
 
 from full_corpus_pipeline.assistant.runtime import DEFAULT_DENSE_DIR, DEFAULT_INDEX
+from full_corpus_pipeline.assistant_api.deepseek_stream import stream_hosted_qa
 from full_corpus_pipeline.assistant_api.schemas import HealthResponse, QueryRequest, QueryResponse
 from full_corpus_pipeline.assistant_api.services import ASSISTANT_VERSION, WarmInferenceService
 
@@ -110,6 +111,24 @@ def _sse(event: str, data: dict) -> bytes:
     return f"event: {event}\ndata: {json.dumps(data, ensure_ascii=False)}\n\n".encode("utf-8")
 
 
+def _base_result(payload: QueryRequest, service: WarmInferenceService, retrieval: dict, started: float) -> dict:
+    timings = dict(retrieval["timings"])
+    timings.setdefault("routing_ms", 0.0)
+    timings.setdefault("hosted_qa_ms", 0.0)
+    timings["total_ms"] = (time.perf_counter() - started) * 1000
+    return {
+        "assistant_version": ASSISTANT_VERSION,
+        "question": payload.question,
+        "route": retrieval["route"],
+        "evidence": retrieval["evidence"],
+        "timings": timings,
+        "runtime": {
+            "device": service.device,
+            "corpus": service.corpus_stats,
+        },
+    }
+
+
 @app.post("/api/v1/query/stream")
 async def query_stream(payload: QueryRequest, request: Request) -> StreamingResponse:
     service = _service()
@@ -120,33 +139,99 @@ async def query_stream(payload: QueryRequest, request: Request) -> StreamingResp
         yield _sse("route.started", {})
 
         retrieval = await service.retrieve(payload.question, payload.context_ad_numbers)
-        evidence_objects = retrieval.pop("_evidence_objects")
+        evidence_objects = list(retrieval.pop("_evidence_objects"))
         yield _sse("route.completed", {"route": retrieval["route"]})
         yield _sse(
             "evidence.ready",
             {
                 "evidence": retrieval["evidence"],
                 "timings": retrieval["timings"],
-                "runtime": {
-                    "device": service.device,
-                    "corpus": service.corpus_stats,
-                },
+                "runtime": {"device": service.device, "corpus": service.corpus_stats},
             },
         )
         if await request.is_disconnected():
             return
 
+        base = _base_result(payload, service, retrieval, started)
         if payload.retrieval_only:
-            result = await service.answer(payload.question, payload.context_ad_numbers, True)
+            result = {
+                **base,
+                "status": "retrieval_only",
+                "answer": None,
+                "conditions": [],
+                "compliance_time": [],
+                "exceptions": [],
+                "reason_for_abstention": "Hosted Layer C was intentionally skipped.",
+                "citations": [],
+            }
             yield _sse("answer.completed", result)
+            yield _sse("request.completed", {"status": result["status"]})
+            return
+
+        if not evidence_objects:
+            result = {
+                **base,
+                "status": "insufficient_evidence",
+                "answer": None,
+                "conditions": [],
+                "compliance_time": [],
+                "exceptions": [],
+                "reason_for_abstention": "No E5-D evidence passages were retrieved.",
+                "citations": [],
+            }
+            yield _sse("answer.completed", result)
+            yield _sse("request.completed", {"status": result["status"]})
             return
 
         yield _sse("generation.started", {})
-        # Final Layer C JSON remains hidden until it passes the frozen response contract.
-        result = await service.answer(payload.question, payload.context_ad_numbers, False)
-        if await request.is_disconnected():
-            return
-        result["timings"]["total_ms"] = (time.perf_counter() - started) * 1000
+        hosted_started = time.perf_counter()
+        hosted: dict | None = None
+        try:
+            async for event_name, event_payload in stream_hosted_qa(
+                payload.question,
+                evidence_objects,
+                request_metadata={
+                    "live_assistant": True,
+                    "assistant_version": ASSISTANT_VERSION,
+                    "route_mode": str(retrieval["route"].get("mode", "")),
+                },
+            ):
+                if await request.is_disconnected():
+                    return
+                if event_name == "generation.progress":
+                    yield _sse(event_name, event_payload)
+                elif event_name == "answer.validated":
+                    hosted = event_payload
+        except Exception as exc:
+            hosted = {
+                "status": "technical_error",
+                "answer": None,
+                "conditions": [],
+                "compliance_time": [],
+                "exceptions": [],
+                "reason_for_abstention": "Hosted QA did not return a valid structured response. Retrieved evidence remains available.",
+                "citations": [],
+                "technical_error": {"type": type(exc).__name__, "message": str(exc)},
+            }
+
+        if hosted is None:
+            hosted = {
+                "status": "technical_error",
+                "answer": None,
+                "conditions": [],
+                "compliance_time": [],
+                "exceptions": [],
+                "reason_for_abstention": "Hosted QA stream ended without a validated final response.",
+                "citations": [],
+                "technical_error": {"type": "EmptyHostedResult", "message": "No validated final response"},
+            }
+
+        final = _base_result(payload, service, retrieval, started)
+        final["timings"]["hosted_qa_ms"] = (time.perf_counter() - hosted_started) * 1000
+        provider_runtime = hosted.pop("runtime", None)
+        if provider_runtime:
+            final["runtime"] = {**final["runtime"], "hosted": provider_runtime}
+        result = {**final, **hosted}
         yield _sse("answer.completed", result)
         yield _sse("request.completed", {"status": result["status"]})
 
