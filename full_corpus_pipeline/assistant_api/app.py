@@ -15,6 +15,7 @@ from full_corpus_pipeline.assistant.runtime import DEFAULT_DENSE_DIR, DEFAULT_IN
 from full_corpus_pipeline.assistant_api.deepseek_stream import stream_hosted_qa
 from full_corpus_pipeline.assistant_api.schemas import HealthResponse, QueryRequest, QueryResponse
 from full_corpus_pipeline.assistant_api.services import ASSISTANT_VERSION, WarmInferenceService
+from full_corpus_pipeline.e5_query_router import route_query
 
 
 SERVICE: WarmInferenceService | None = None
@@ -129,6 +130,15 @@ def _base_result(payload: QueryRequest, service: WarmInferenceService, retrieval
     }
 
 
+def _preview_route(payload: QueryRequest) -> dict:
+    question = payload.question
+    route = route_query(question)
+    if route.mode == "discovery" and payload.context_ad_numbers:
+        question = f"{question} Context AD: {payload.context_ad_numbers[0]}"
+        route = route_query(question)
+    return route.to_dict()
+
+
 @app.post("/api/v1/query/stream")
 async def query_stream(payload: QueryRequest, request: Request) -> StreamingResponse:
     service = _service()
@@ -137,10 +147,11 @@ async def query_stream(payload: QueryRequest, request: Request) -> StreamingResp
         started = time.perf_counter()
         yield _sse("request.started", {"assistant_version": ASSISTANT_VERSION})
         yield _sse("route.started", {})
+        yield _sse("route.completed", {"route": _preview_route(payload)})
+        yield _sse("retrieval.started", {})
 
         retrieval = await service.retrieve(payload.question, payload.context_ad_numbers)
         evidence_objects = list(retrieval.pop("_evidence_objects"))
-        yield _sse("route.completed", {"route": retrieval["route"]})
         yield _sse(
             "evidence.ready",
             {
