@@ -11,7 +11,7 @@
     "start": "next start",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
-    "test": "vitest run",
+    "test": "vitest run --config vitest.config.mts",
     "test:e2e": "playwright test",
     "generate:api": "openapi-typescript http://127.0.0.1:8000/openapi.json -o src/generated/api.d.ts"
   },
