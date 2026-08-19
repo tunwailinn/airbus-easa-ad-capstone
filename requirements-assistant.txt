@@ -1,0 +1,8 @@
+# Post-evaluation user-facing assistant dependencies.
+# Frozen evaluation requirements remain separate and unchanged.
+fastapi==0.140.13
+uvicorn[standard]>=0.35,<0.36
+pydantic>=2.11,<3
+httpx>=0.28,<0.29
+sentence-transformers==5.6.0
+numpy>=2.0,<3
