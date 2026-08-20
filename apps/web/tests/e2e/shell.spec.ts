@@ -132,11 +132,15 @@ test("Stop restores the active question and calls the cancellation endpoint", as
       return;
     }
     await new Promise((resolve) => setTimeout(resolve, 600));
-    await route.fulfill({
-      status: 200,
-      headers: corsHeaders("text/event-stream"),
-      body: "event: retrieval.started\ndata: {}\n\n",
-    });
+    try {
+      await route.fulfill({
+        status: 200,
+        headers: corsHeaders("text/event-stream"),
+        body: "event: retrieval.started\ndata: {}\n\n",
+      });
+    } catch {
+      // The browser intentionally aborted the request after Stop was pressed.
+    }
   });
 
   await page.route(`${API_ORIGIN}/api/v1/query/*/cancel`, async (route) => {
