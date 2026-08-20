@@ -1,0 +1,21 @@
+{
+  "record_type": "post_hardening_serving_compatibility_recheck",
+  "date": "2026-08-20",
+  "branch": "assistant-demo-freeze-hardening",
+  "version": "assistant-warm-serving-compatibility-v1.0",
+  "question_count": 10,
+  "top5_exact_match_count": 10,
+  "top5_all_exact": true,
+  "legacy_median_retrieval_ms": 38903.59443749912,
+  "warm_median_retrieval_ms": 6034.817750001821,
+  "median_latency_reduction": 0.8448776305311041,
+  "performance_target_60_percent_reduction_met": true,
+  "device": "mps",
+  "interpretation": {
+    "purpose": "Regression revalidation after final demo hardening.",
+    "top5_compatibility": "10/10 exact top-5 chunk-ID matches.",
+    "research_boundary": "Post-evaluation serving compatibility only; frozen E5 benchmark artifacts are unchanged.",
+    "performance_reporting": "This incidental hardening rerun does not replace the previously accepted 77.26% canonical serving-latency reduction result."
+  },
+  "policy": "Post-evaluation serving compatibility only. Frozen E5 benchmark artifacts are not modified."
+}
