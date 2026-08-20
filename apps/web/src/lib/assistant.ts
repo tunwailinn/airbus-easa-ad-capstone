@@ -20,6 +20,14 @@ export type AssistantResult = Omit<
 
 export type PipelineStage = "idle" | "routing" | "retrieving" | "evidence" | "generating" | "complete" | "error";
 
+/**
+ * Live follow-up routing intentionally supports one explicit AD at a time.
+ * If a UI has accumulated older chips, the most recently selected AD wins.
+ */
+export function normalizeContextAdNumbers(contextAdNumbers: string[]): string[] {
+  return contextAdNumbers.slice(-1);
+}
+
 export async function streamQuestion(
   question: string,
   options: {
@@ -33,6 +41,9 @@ export async function streamQuestion(
   },
 ) {
   const requestId = options.requestId ?? crypto.randomUUID();
+  const contextAdNumbers = normalizeContextAdNumbers(options.contextAdNumbers);
+  let answerReceived = false;
+
   options.onStage("routing");
   const response = await fetch(`${API_BASE}/api/v1/query/stream`, {
     method: "POST",
@@ -41,7 +52,7 @@ export async function streamQuestion(
       request_id: requestId,
       question,
       retrieval_only: options.retrievalOnly,
-      context_ad_numbers: options.contextAdNumbers,
+      context_ad_numbers: contextAdNumbers,
     }),
     signal: options.signal,
   });
@@ -81,12 +92,17 @@ export async function streamQuestion(
         }
         if (event === "generation.started") options.onStage("generating");
         if (event === "answer.completed") {
+          answerReceived = true;
           options.onStage("complete");
           options.onAnswer(payload as AssistantResult);
         }
       }
     }
+
     if (options.signal.aborted) throw new DOMException("Request stopped", "AbortError");
+    if (!answerReceived) {
+      throw new Error("Assistant stream ended before a validated final answer was received.");
+    }
   } finally {
     options.signal.removeEventListener("abort", cancelReader);
     reader.releaseLock();
