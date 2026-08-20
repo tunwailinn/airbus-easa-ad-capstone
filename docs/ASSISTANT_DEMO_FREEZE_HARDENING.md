@@ -48,6 +48,7 @@ context_ad_numbers: 0 or 1 item
 Client behavior:
 
 - if older context selections are present, only the most recently selected AD is sent;
+- the visible follow-up chip is replaced when a new AD is selected;
 - the backend rejects requests containing more than one explicit context AD;
 - normal questions that explicitly contain their own AD number still use the standard E5 query router.
 
@@ -112,6 +113,7 @@ Backend contract tests now cover:
 Frontend unit tests now cover:
 
 - newest-only explicit AD context normalization;
+- visible single-document follow-up scope;
 - successful `answer.completed` stream completion;
 - failure when an SSE stream closes before a validated answer.
 
@@ -125,14 +127,35 @@ Playwright now covers:
 
 The browser tests do **not** call Qwen or DeepSeek. They test the application protocol and user experience deterministically.
 
+### 5. Worktree-safe demo launcher
+
+`scripts/start_demo.sh` now accepts an optional Python executable through:
+
+```text
+ASSISTANT_PYTHON
+```
+
+Normal single-checkout use remains unchanged:
+
+```bash
+make demo
+```
+
+For a Git worktree that shares the original project's virtual environment:
+
+```bash
+ASSISTANT_PYTHON=../Capstone/.venv/bin/python make demo
+```
+
+This avoids duplicating the virtual environment just to validate the hardening branch.
+
+The launcher still requires the validated serving snapshot to be available from the current worktree path. For the hardening worktree, the accepted setup is a symlink for `data_processed/serving/assistant_v1` to the original project's validated serving snapshot.
+
 ## Required regression commands before merging
 
 Run on the seminar Mac from project root:
 
 ```bash
-git fetch origin
-git switch assistant-demo-freeze-hardening
-
 .venv/bin/python -m unittest discover \
   -s full_corpus_pipeline/tests \
   -p 'test_assistant_api_contract.py'
@@ -144,10 +167,24 @@ pnpm --dir apps/web build
 pnpm --dir apps/web test:e2e
 ```
 
+In a worktree sharing the original virtual environment, use:
+
+```bash
+../Capstone/.venv/bin/python -m unittest discover \
+  -s full_corpus_pipeline/tests \
+  -p 'test_assistant_api_contract.py'
+```
+
 Because `QueryRequest.context_ad_numbers` changed in the FastAPI schema, regenerate the frontend declarations while FastAPI is running:
 
 ```bash
 .venv/bin/python -m full_corpus_pipeline.assistant_api.app
+```
+
+or, in the hardening worktree:
+
+```bash
+../Capstone/.venv/bin/python -m full_corpus_pipeline.assistant_api.app
 ```
 
 Then in another terminal:
@@ -160,29 +197,43 @@ The generated declaration should be reviewed and committed if it changes.
 
 ## Mandatory retrieval compatibility recheck
 
-Although the hardening does not intentionally alter retrieval scoring, the accepted compatibility gate must be rerun before the branch is merged:
-
-```bash
-.venv/bin/python -m \
-  full_corpus_pipeline.assistant_api.validate_warm_compatibility
-```
-
-Required:
+The post-hardening compatibility recheck passed on 20 August 2026:
 
 ```text
+question_count: 10
+top5_exact_match_count: 10
 top5_all_exact: true
+legacy_median_retrieval_ms: 38903.5944
+warm_median_retrieval_ms: 6034.8178
+median_latency_reduction: 84.49%
+performance_target_60_percent_reduction_met: true
+device: mps
 ```
 
-The non-cancelled compatibility set must still reproduce the original top-5 evidence exactly.
+Purpose: regression revalidation after final demo hardening.
 
-The previously measured 77.26% latency reduction remains the accepted serving baseline unless a new controlled measurement is intentionally recorded. Do not silently overwrite that baseline with an incidental rerun.
+The previously accepted **77.26%** latency reduction remains the canonical serving-performance result. The 84.49% figure above is an incidental hardening rerun and is not used to replace the controlled baseline.
+
+Detailed machine-readable record:
+
+```text
+docs/ASSISTANT_HARDENING_REVALIDATION.json
+```
 
 ## Final live smoke test
 
 After all automated checks pass:
 
+Normal checkout:
+
 ```bash
 make demo
+```
+
+Hardening worktree sharing the original Python environment:
+
+```bash
+ASSISTANT_PYTHON=../Capstone/.venv/bin/python make demo
 ```
 
 Validate the fixed showcase set in:
