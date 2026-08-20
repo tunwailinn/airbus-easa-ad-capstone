@@ -1,0 +1,65 @@
+{
+  "version": "assistant-demo-showcase-v1.0",
+  "date": "2026-08-20",
+  "purpose": "Post-evaluation live demo validation only; not a research benchmark and not part of frozen E5 scoring.",
+  "questions": [
+    {
+      "id": "D1",
+      "category": "known_document_compliance",
+      "prompt": "For EASA AD 2011-0041R1, what actions had to be completed within 3 days after 14 March 2011?",
+      "expected_route": "known_document",
+      "checks": ["evidence_visible", "citation_provenance", "compliance_time_rendering"]
+    },
+    {
+      "id": "D2",
+      "category": "applicability",
+      "prompt": "Which A310 models are affected by EASA AD 2008-0008?",
+      "expected_route": "known_document",
+      "checks": ["applicability_evidence", "verbatim_source_mode", "citation_provenance"]
+    },
+    {
+      "id": "D3",
+      "category": "discovery",
+      "prompt": "Which Airbus directive requires reporting inspection results including no findings within 30 days after each inspection?",
+      "expected_route": "discovery",
+      "checks": ["corpus_wide_retrieval", "evidence_visible", "citation_provenance"]
+    },
+    {
+      "id": "D4",
+      "category": "lifecycle",
+      "prompt": "Which earlier directive does EASA AD 2011-0041R1 revise?",
+      "expected_route": "known_document",
+      "checks": ["lifecycle_evidence", "no_revision_family_mixing"]
+    },
+    {
+      "id": "D5",
+      "category": "reference_publication",
+      "prompt": "Which referenced publication supports the required action in EASA AD 2011-0041R1?",
+      "expected_route": "known_document",
+      "checks": ["reference_identifier_fidelity", "no_invented_service_bulletin_content"]
+    },
+    {
+      "id": "D6",
+      "category": "explicit_follow_up",
+      "prompt": "What is the next required action after that inspection?",
+      "expected_route": "known_document_via_explicit_context",
+      "precondition": "Select exactly one retrieved AD using the follow-up scope control.",
+      "checks": ["single_ad_context", "context_removable", "no_hidden_full_chat_injection"]
+    },
+    {
+      "id": "D7",
+      "category": "abstention_missing_detail",
+      "prompt": "For EASA AD 2007-0173, what are the exact fastener dimensions, quantities and tightening torques required by this AD?",
+      "expected_route": "known_document",
+      "checks": ["no_fabricated_procedure_detail", "evidence_preserved", "authority_boundary"]
+    },
+    {
+      "id": "D8",
+      "category": "retrieval_only",
+      "prompt": "Which Airbus directive requires reporting inspection results including no findings within 30 days after each inspection?",
+      "expected_route": "discovery",
+      "precondition": "Enable Evidence only mode.",
+      "checks": ["hosted_qa_skipped", "evidence_usable", "retrieval_only_status_visible"]
+    }
+  ]
+}
