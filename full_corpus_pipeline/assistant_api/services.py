@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import asyncio
 from collections import OrderedDict
+from collections.abc import Callable
 from pathlib import Path
 import time
 from typing import Any
@@ -28,6 +29,10 @@ from full_corpus_pipeline.layer_c.hosted_qa import Evidence, call_hosted_qa
 
 
 ASSISTANT_VERSION = "aviation-document-assistant-v2.0"
+
+
+class RetrievalCancelled(RuntimeError):
+    """Raised at a safe boundary when a live retrieval request has been stopped."""
 
 
 class _LRU:
@@ -112,6 +117,11 @@ class WarmInferenceService:
             "timings": dict(payload.get("timings", {})),
         }
 
+    @staticmethod
+    def _raise_if_cancelled(is_cancelled: Callable[[], bool] | None) -> None:
+        if is_cancelled is not None and is_cancelled():
+            raise RetrievalCancelled("live retrieval was stopped")
+
     def _encode_sync(self, question: str) -> np.ndarray:
         if self.embedding_model is None:
             raise RuntimeError("embedding model is not loaded")
@@ -132,32 +142,44 @@ class WarmInferenceService:
         self._embedding_cache.put(question, vector.copy())
         return vector
 
-    def _retrieve_sync(self, question: str, context_ad_numbers: tuple[str, ...]) -> dict[str, Any]:
+    def _retrieve_sync(
+        self,
+        question: str,
+        context_ad_numbers: tuple[str, ...],
+        is_cancelled: Callable[[], bool] | None = None,
+    ) -> dict[str, Any]:
         if not self.retriever or self.reranker is None:
             raise RuntimeError("warm inference service is not loaded")
+
+        self._raise_if_cancelled(is_cancelled)
         route = route_query(question)
         effective_question = question
         if route.mode == "discovery" and context_ad_numbers:
             effective_question = f"{question} Context AD: {context_ad_numbers[0]}"
             route = route_query(effective_question)
 
+        self._raise_if_cancelled(is_cancelled)
         cache_key = effective_question
         cached = self._retrieval_cache.get(cache_key)
         if cached is not None:
+            self._raise_if_cancelled(is_cancelled)
             return self._copy_payload(cached)
 
         t0 = time.perf_counter()
         query_vector = None
         embedding_ms = 0.0
         if route.mode == "discovery":
+            self._raise_if_cancelled(is_cancelled)
             e0 = time.perf_counter()
             query_vector = self._encode_sync(effective_question)
             embedding_ms = (time.perf_counter() - e0) * 1000
+            self._raise_if_cancelled(is_cancelled)
 
         c0 = time.perf_counter()
         result = self.retriever.retrieve(effective_question, query_vector)
         candidates = list(result.get("candidates", []))[:RERANKER_CANDIDATE_LIMIT]
         candidate_ms = (time.perf_counter() - c0) * 1000
+        self._raise_if_cancelled(is_cancelled)
 
         r0 = time.perf_counter()
         if candidates:
@@ -167,6 +189,7 @@ class WarmInferenceService:
         else:
             reranked = []
         rerank_ms = (time.perf_counter() - r0) * 1000
+        self._raise_if_cancelled(is_cancelled)
 
         evidence_rows: list[dict[str, Any]] = []
         evidence_objects: list[Evidence] = []
@@ -187,6 +210,7 @@ class WarmInferenceService:
             evidence_rows.append(row)
             evidence_objects.append(Evidence.from_dict(row))
 
+        self._raise_if_cancelled(is_cancelled)
         payload = {
             "question": question,
             "effective_question": effective_question,
@@ -204,12 +228,19 @@ class WarmInferenceService:
         self._retrieval_cache.put(cache_key, self._copy_payload(payload))
         return self._copy_payload(payload)
 
-    async def retrieve(self, question: str, context_ad_numbers: list[str]) -> dict[str, Any]:
+    async def retrieve(
+        self,
+        question: str,
+        context_ad_numbers: list[str],
+        *,
+        cancel_event: asyncio.Event | None = None,
+    ) -> dict[str, Any]:
         async with self._semaphore:
             return await asyncio.to_thread(
                 self._retrieve_sync,
                 question.strip(),
                 tuple(context_ad_numbers),
+                cancel_event.is_set if cancel_event is not None else None,
             )
 
     async def answer(self, question: str, context_ad_numbers: list[str], retrieval_only: bool) -> dict[str, Any]:
