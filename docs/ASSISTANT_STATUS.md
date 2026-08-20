@@ -4,55 +4,66 @@ Last updated: 20 August 2026
 
 ## Current checkpoint
 
-The modern assistant architecture has now passed the local serving acceptance gate on the seminar Mac and is the **primary capstone demo runtime**. The original dependency-light Python web UI remains available only as a fallback.
+The modern FastAPI + Next.js assistant is the **primary capstone demo runtime**. Its warm-serving migration has already passed the local compatibility/performance gate on the seminar Mac.
 
-Implemented and locally accepted:
-
-- Next.js App Router + React + TypeScript frontend under `apps/web/`;
-- Tailwind CSS 4 + shadcn configuration and reusable UI primitives;
-- multi-turn evidence-first aviation engineering UI with example prompts, pipeline state, citations, evidence inspector, retrieval-only mode, cancellation and explicit follow-up AD context;
-- FastAPI + Pydantic serving API under `full_corpus_pipeline/assistant_api/`;
-- one-time application lifespan loading for the exact pinned E5-C embedding model and E5-D reranker;
-- MPS-preferred / CPU-fallback serving through the existing `choose_device()` policy;
-- single ML-concurrency lane for a reliable seminar demo;
-- bounded query-embedding and retrieval caches;
-- SSE endpoint that exposes route/retrieval/evidence before hosted QA completes;
-- separate post-evaluation DeepSeek streaming adapter that never emits reasoning content or unvalidated JSON fragments;
-- final Layer C JSON is still validated against the frozen response schema and resolved evidence IDs before `answer.completed` is sent;
-- OpenAPI-based frontend contract generation + `openapi-fetch` REST client;
-- compatibility/latency gate comparing the original subprocess serving path against the warm path with exact top-5 chunk-ID equality;
-- Vitest/Testing Library + Playwright test scaffolding;
-- one-command demo launcher (`make demo` / `bash scripts/start_demo.sh`);
-- separate `requirements-assistant.txt` so frozen evaluation dependencies/results remain untouched.
-
-## Local warm-serving acceptance result
-
-The compatibility validator was run locally on the MacBook Air with MPS and reported:
+Accepted warm-serving baseline:
 
 ```text
-version: assistant-warm-serving-compatibility-v1.0
 question_count: 10
 top5_exact_match_count: 10
 top5_all_exact: true
 legacy_median_retrieval_ms: 26873.7623
 warm_median_retrieval_ms: 6110.1638
-median_latency_reduction: 0.7726346
+median_latency_reduction: 77.26%
 performance_target_60_percent_reduction_met: true
 device: mps
+make demo: works locally
 ```
 
 Interpretation:
 
-- exact E5 top-5 evidence compatibility: **10/10 = 100%**;
+- exact top-5 evidence compatibility: **10/10 = 100%**;
 - legacy median retrieval latency: **26.87 s**;
 - warm median retrieval latency: **6.11 s**;
 - measured median latency reduction: **77.26%**;
-- predeclared 60% reduction target: **met**;
-- runtime device: **Apple MPS**.
+- predeclared 60% serving target: **met**.
 
-`make demo` was also confirmed to start the modern FastAPI + Next.js application successfully on the same machine.
+These are post-evaluation serving measurements only. They do not replace or modify the frozen benchmark.
 
-These are **post-evaluation serving measurements**. They do not alter or replace any frozen benchmark score.
+## Final demo-hardening branch
+
+Current reliability hardening is isolated on:
+
+```text
+assistant-demo-freeze-hardening
+```
+
+It starts from the accepted UI/UX revision:
+
+```text
+3d7b6ca3c0fd104c8cbad25767733ab7e43d3611
+```
+
+The branch adds three final safeguards before the demo is frozen:
+
+1. **single-AD follow-up scope** — client sends only the most recently selected explicit AD and FastAPI rejects multi-AD context requests;
+2. **incomplete SSE detection** — the browser now requires `answer.completed` and restores the question if a live stream closes early;
+3. **safe retrieval cancellation checkpoints** — Stop interrupts DeepSeek immediately and prevents local retrieval from entering the next embedding/candidate/rerank stage after cancellation.
+
+An already-running PyTorch/MPS kernel is not force-preempted. That limitation is explicit and intentional for the single-user seminar runtime.
+
+Detailed hardening documentation:
+
+```text
+docs/ASSISTANT_DEMO_FREEZE_HARDENING.md
+```
+
+Final showcase/validation checklist:
+
+```text
+docs/ASSISTANT_FINAL_DEMO_VALIDATION.md
+docs/ASSISTANT_DEMO_SHOWCASE_QUESTIONS.json
+```
 
 ## Canonical modern implementation
 
@@ -71,41 +82,101 @@ Fallback prototype:
 full_corpus_pipeline/assistant/
 ```
 
-The fallback must not be used as the primary seminar UI unless the modern serving runtime encounters an unexpected local failure.
+The fallback is retained for contingency only and is not the primary seminar interface.
 
 ## Research/evaluation boundary
 
-This work is **post-evaluation serving engineering**. It does not change:
+All UI/UX, serving, cancellation and demo-hardening work is **post-evaluation engineering**. It does not change:
 
-- frozen E5 final result: **38/40 = 95.0%**;
+- frozen E5 final semantic result: **38/40 = 95.0%**;
 - frozen E5-D final Recall@5: **35/36 = 97.22%**;
-- locked unseen U7 result: **13 PASS / 1 semantic FAIL / 1 technical failure**;
-- frozen E5-C candidate logic;
+- locked unseen U7 outcome: **13 PASS / 1 semantic FAIL / 1 technical failure**;
+- frozen E5-C candidate-generation methodology;
 - frozen E5-D model/revision/instruction;
-- frozen Layer C prompt or response contract;
-- any evaluation or unseen lock.
+- frozen Layer C prompt/response contract;
+- any parser, benchmark or unseen lock.
 
-No LangChain, LlamaIndex, vector database, new embedding model, new reranker, quantization or retrieval retuning was introduced by this migration.
+No LangChain, LlamaIndex, vector database, new embedding model, new reranker, quantization, query rewriting or retrieval retuning is introduced.
 
-## Acceptance summary
+## Regression gate before merging the hardening branch
 
-The primary migration gate is now satisfied:
+Run on the seminar Mac:
+
+```bash
+.venv/bin/python -m unittest discover \
+  -s full_corpus_pipeline/tests \
+  -p 'test_assistant_api_contract.py'
+
+pnpm --dir apps/web typecheck
+pnpm --dir apps/web lint
+pnpm --dir apps/web test
+pnpm --dir apps/web build
+pnpm --dir apps/web test:e2e
+```
+
+Regenerate FastAPI-derived frontend declarations while the backend is running:
+
+```bash
+.venv/bin/python -m full_corpus_pipeline.assistant_api.app
+```
+
+Then:
+
+```bash
+pnpm --dir apps/web generate:api
+```
+
+Rerun the compatibility validator:
+
+```bash
+.venv/bin/python -m \
+  full_corpus_pipeline.assistant_api.validate_warm_compatibility
+```
+
+Required:
 
 ```text
 top5_all_exact: true
-performance_target_60_percent_reduction_met: true
-make demo: works locally
 ```
 
-Frontend acceptance already confirmed during the local migration process includes successful TypeScript checking, ESLint, Vitest unit testing after runner separation, and a successful Next.js production build. Playwright is maintained as the browser smoke-test layer.
+Do not overwrite the accepted 77.26% latency baseline with an incidental rerun unless a new controlled serving measurement is intentionally being reported.
 
-## Next phase — capstone demo validation
+## Final demo-validation phase
 
-Do not retune retrieval from this point for demo polish. The next work is user-facing validation and presentation preparation:
+After the automated regression gate passes:
 
-1. run representative known-document, discovery, lifecycle and abstention questions in the modern UI;
-2. verify evidence appears before the final hosted answer and that citation chips open the intended passages;
-3. verify explicit AD context on one follow-up question;
-4. verify `technical_error` or abstention states preserve retrieved evidence;
-5. capture final demo screenshots and measured latency for the final report/presentation;
-6. use the modern assistant as the canonical system shown in final architecture diagrams.
+```bash
+make demo
+```
+
+Run the fixed D1-D8 showcase set in:
+
+```text
+docs/ASSISTANT_FINAL_DEMO_VALIDATION.md
+```
+
+Record only demo usability/provenance observations:
+
+- route observed;
+- evidence-first behavior;
+- final status;
+- citation/page correctness;
+- total latency;
+- PASS/FAIL notes.
+
+This record must remain separate from frozen research evaluation metrics.
+
+## Demo freeze
+
+The assistant can be tagged as the final capstone demo release once:
+
+```text
+automated regression checks pass
+warm top-5 compatibility remains exact
+D1-D8 are manually reviewed
+Stop/retry works
+make demo works from a clean terminal
+final screenshots are captured
+```
+
+After that point, avoid additional UI or serving changes unless they fix a reproducible demo-blocking defect. The next work should be final report, architecture diagram, results/discussion and presentation integration.
