@@ -1,12 +1,12 @@
 # Aviation Document Assistant — Post-Evaluation Status
 
-Last updated: 19 August 2026
+Last updated: 20 August 2026
 
 ## Current checkpoint
 
-The original dependency-light assistant prototype remains available as a fallback, while the project now has the approved **modern capstone demo architecture** implemented on `main` and awaiting local acceptance on the seminar Mac.
+The modern assistant architecture has now passed the local serving acceptance gate on the seminar Mac and is the **primary capstone demo runtime**. The original dependency-light Python web UI remains available only as a fallback.
 
-Implemented:
+Implemented and locally accepted:
 
 - Next.js App Router + React + TypeScript frontend under `apps/web/`;
 - Tailwind CSS 4 + shadcn configuration and reusable UI primitives;
@@ -25,6 +25,35 @@ Implemented:
 - one-command demo launcher (`make demo` / `bash scripts/start_demo.sh`);
 - separate `requirements-assistant.txt` so frozen evaluation dependencies/results remain untouched.
 
+## Local warm-serving acceptance result
+
+The compatibility validator was run locally on the MacBook Air with MPS and reported:
+
+```text
+version: assistant-warm-serving-compatibility-v1.0
+question_count: 10
+top5_exact_match_count: 10
+top5_all_exact: true
+legacy_median_retrieval_ms: 26873.7623
+warm_median_retrieval_ms: 6110.1638
+median_latency_reduction: 0.7726346
+performance_target_60_percent_reduction_met: true
+device: mps
+```
+
+Interpretation:
+
+- exact E5 top-5 evidence compatibility: **10/10 = 100%**;
+- legacy median retrieval latency: **26.87 s**;
+- warm median retrieval latency: **6.11 s**;
+- measured median latency reduction: **77.26%**;
+- predeclared 60% reduction target: **met**;
+- runtime device: **Apple MPS**.
+
+`make demo` was also confirmed to start the modern FastAPI + Next.js application successfully on the same machine.
+
+These are **post-evaluation serving measurements**. They do not alter or replace any frozen benchmark score.
+
 ## Canonical modern implementation
 
 ```text
@@ -36,13 +65,13 @@ Makefile
 pnpm-workspace.yaml
 ```
 
-The original prototype remains at:
+Fallback prototype:
 
 ```text
 full_corpus_pipeline/assistant/
 ```
 
-It must not be removed until the warm compatibility gate and local UI acceptance pass.
+The fallback must not be used as the primary seminar UI unless the modern serving runtime encounters an unexpected local failure.
 
 ## Research/evaluation boundary
 
@@ -56,115 +85,27 @@ This work is **post-evaluation serving engineering**. It does not change:
 - frozen Layer C prompt or response contract;
 - any evaluation or unseen lock.
 
-No LangChain, LlamaIndex, vector database, new embedding model, new reranker, quantization or retrieval retuning is introduced by this migration.
+No LangChain, LlamaIndex, vector database, new embedding model, new reranker, quantization or retrieval retuning was introduced by this migration.
 
-## Required local acceptance sequence
+## Acceptance summary
 
-### 1. Pull and install
-
-```bash
-git pull
-
-.venv/bin/pip install -r requirements-assistant.txt
-pnpm install
-```
-
-`pnpm install` generates/updates `pnpm-lock.yaml`; commit that lockfile after the install succeeds.
-
-### 2. Ensure the validated serving snapshot exists
-
-```bash
-.venv/bin/python -m \
-  full_corpus_pipeline.assistant.prepare_serving_snapshot
-```
-
-If the snapshot already exists and is valid, do not replace it just to rerun this step.
-
-### 3. Run Python contract tests
-
-```bash
-.venv/bin/python -m unittest discover \
-  -s full_corpus_pipeline/tests \
-  -p 'test_assistant_api_contract.py'
-```
-
-### 4. Mandatory research-integrity + performance gate
-
-```bash
-.venv/bin/python -m \
-  full_corpus_pipeline.assistant_api.validate_warm_compatibility
-```
-
-Compatibility acceptance requires:
+The primary migration gate is now satisfied:
 
 ```text
 top5_all_exact: true
+performance_target_60_percent_reduction_met: true
+make demo: works locally
 ```
 
-The report also records legacy versus warm median retrieval latency and whether the predeclared 60% median reduction target is achieved. Performance is not claimed until this local measurement is run on the seminar Mac.
+Frontend acceptance already confirmed during the local migration process includes successful TypeScript checking, ESLint, Vitest unit testing after runner separation, and a successful Next.js production build. Playwright is maintained as the browser smoke-test layer.
 
-### 5. Start only the FastAPI backend and wait for `ready`
+## Next phase — capstone demo validation
 
-```bash
-.venv/bin/python -m full_corpus_pipeline.assistant_api.app
-```
+Do not retune retrieval from this point for demo polish. The next work is user-facing validation and presentation preparation:
 
-In another terminal:
-
-```bash
-curl http://127.0.0.1:8000/api/v1/health
-```
-
-The health response must report both Qwen models loaded.
-
-### 6. Generate the real frontend OpenAPI declarations
-
-With FastAPI still running:
-
-```bash
-pnpm --dir apps/web generate:api
-```
-
-This replaces the committed seed declarations with the exact schema exported by the running FastAPI application.
-
-### 7. Frontend acceptance
-
-```bash
-pnpm --dir apps/web typecheck
-pnpm --dir apps/web lint
-pnpm --dir apps/web test
-pnpm --dir apps/web build
-```
-
-Optional browser smoke test after the frontend is running:
-
-```bash
-pnpm --dir apps/web test:e2e
-```
-
-### 8. Full capstone demo
-
-Stop any manually started backend/frontend processes, then run:
-
-```bash
-make demo
-```
-
-Expected runtime:
-
-```text
-FastAPI: http://127.0.0.1:8000
-Next.js: http://127.0.0.1:3000
-```
-
-## Local acceptance boundary
-
-The modernization code is implemented, but it is **not yet accepted as the primary seminar runtime** until the Mac run confirms:
-
-- exact top-5 compatibility;
-- successful Python/frontend static tests;
-- successful Next.js production build;
-- recorded before/after retrieval latency;
-- clean end-to-end browser QA using both known-document and discovery examples.
-
-Until then, the old Python web UI remains the fallback.
+1. run representative known-document, discovery, lifecycle and abstention questions in the modern UI;
+2. verify evidence appears before the final hosted answer and that citation chips open the intended passages;
+3. verify explicit AD context on one follow-up question;
+4. verify `technical_error` or abstention states preserve retrieved evidence;
+5. capture final demo screenshots and measured latency for the final report/presentation;
+6. use the modern assistant as the canonical system shown in final architecture diagrams.
