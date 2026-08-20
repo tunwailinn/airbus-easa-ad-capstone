@@ -435,7 +435,7 @@ export function ConversationShell() {
           selected={inspectorEvidence}
           onSelect={setSelectedEvidence}
           contextAds={contextAds}
-          addContext={(ad) => setContextAds((current) => (current.includes(ad) ? current : [...current, ad]))}
+          addContext={(ad) => setContextAds([ad])}
           evidenceWidth={evidenceWidth}
           onResetWidth={resetEvidenceWidth}
         />
