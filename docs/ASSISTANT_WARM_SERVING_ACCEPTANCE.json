@@ -1,0 +1,16 @@
+{
+  "version": "assistant-warm-serving-compatibility-v1.0",
+  "recorded_date": "2026-08-20",
+  "scope": "post-evaluation serving compatibility and latency acceptance",
+  "question_count": 10,
+  "top5_exact_match_count": 10,
+  "top5_all_exact": true,
+  "legacy_median_retrieval_ms": 26873.762312505278,
+  "warm_median_retrieval_ms": 6110.163791498053,
+  "median_latency_reduction": 0.7726345972534413,
+  "performance_target_60_percent_reduction_met": true,
+  "device": "mps",
+  "demo_launcher_confirmed_working": true,
+  "reporting_boundary": "Post-evaluation serving compatibility only. Frozen E5 benchmark artifacts and unseen evaluation locks are not modified.",
+  "source_note": "Values recorded from the local seminar-Mac validator output reported by the project owner."
+}
