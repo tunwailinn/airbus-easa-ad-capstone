@@ -13,13 +13,18 @@ export interface paths {
   "/api/v1/query/stream": {
     post: operations["query_stream_api_v1_query_stream_post"];
   };
+  "/api/v1/query/{request_id}/cancel": {
+    post: operations["cancel_query_api_v1_query__request_id__cancel_post"];
+  };
 }
 
 export interface components {
   schemas: {
     QueryRequest: {
+      request_id?: string | null;
       question: string;
       retrieval_only?: boolean;
+      /** Live serving supports at most one explicit follow-up AD. */
       context_ad_numbers?: string[];
     };
     EvidenceRow: {
@@ -95,5 +100,9 @@ export interface operations {
   query_stream_api_v1_query_stream_post: {
     requestBody: { content: { "application/json": components["schemas"]["QueryRequest"] } };
     responses: { 200: { content: { "text/event-stream": string } } };
+  };
+  cancel_query_api_v1_query__request_id__cancel_post: {
+    parameters: { path: { request_id: string } };
+    responses: { 200: { content: { "application/json": Record<string, string> } } };
   };
 }
