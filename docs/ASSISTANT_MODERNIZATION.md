@@ -1,12 +1,12 @@
 # Aviation Assistant Modernization
 
-Last updated: 19 August 2026
+Last updated: 20 August 2026
 
 ## Purpose
 
 This is a **post-evaluation serving migration** for the Airbus EASA AD capstone. It improves the user experience and runtime behavior of the demonstrated assistant without replacing or retuning the frozen E5-C/E5-D retrieval methodology or Layer C evaluation contract.
 
-## Target demo architecture
+## Accepted demo architecture
 
 ```text
 Next.js App Router / React / TypeScript
@@ -31,6 +31,8 @@ FastAPI + Pydantic
                        Layer C schema/citation validation
 ```
 
+The modern FastAPI + Next.js stack is now the primary capstone demo runtime. The original dependency-light Python web UI remains as a fallback only.
+
 ## Performance change
 
 The original live prototype launched separate embedding and reranker subprocesses for each question. Those workers loaded their models for that request and exited.
@@ -52,22 +54,38 @@ ASSISTANT_DEVICE=auto
 
 The capstone demo uses one API worker and one ML concurrency slot to avoid duplicate model copies and competing MPS workloads.
 
-## Research-integrity gate
+## Research-integrity and performance acceptance
 
-The serving migration is accepted only if the compatibility script reports exact equality between the old worker path and the warm path for the representative compatibility set:
+The compatibility gate was run locally on the seminar Mac using:
 
 ```bash
 .venv/bin/python -m \
   full_corpus_pipeline.assistant_api.validate_warm_compatibility
 ```
 
-Required:
+Observed result:
 
 ```text
+version: assistant-warm-serving-compatibility-v1.0
+question_count: 10
+top5_exact_match_count: 10
 top5_all_exact: true
+legacy_median_retrieval_ms: 26873.7623
+warm_median_retrieval_ms: 6110.1638
+median_latency_reduction: 0.7726346
+performance_target_60_percent_reduction_met: true
+device: mps
 ```
 
-The same report records old and warm retrieval latency. A 60% median retrieval-latency reduction is a target, not a pre-claimed result.
+Therefore:
+
+- exact top-5 compatibility: **10/10 = 100%**;
+- median retrieval latency decreased from **26.87 s** to **6.11 s**;
+- measured median reduction: **77.26%**;
+- predeclared 60% reduction target: **met**;
+- serving device: **Apple MPS**.
+
+This establishes that the warm serving refactor preserved the compatibility-set E5 top-5 output while materially improving local serving latency. It is a post-evaluation engineering result and is not merged into the frozen benchmark metrics.
 
 ## API
 
@@ -158,7 +176,7 @@ Next.js production build
 
 ## One-command demo
 
-After local acceptance:
+The accepted local demo starts with:
 
 ```bash
 make demo
@@ -172,6 +190,8 @@ The launcher:
 4. waits until the warm models report `ready`;
 5. starts Next.js;
 6. shuts both down together on Ctrl+C.
+
+The command was confirmed to work on the local MacBook Air.
 
 Runtime URLs:
 
@@ -209,3 +229,14 @@ The authoritative benchmark remains:
 ```
 
 The modern assistant is an engineering layer built **after** those results were frozen. No serving outcome may overwrite the benchmark or unseen locks.
+
+## Next work
+
+The serving migration is accepted. Further work should focus on capstone-facing user experience and presentation evidence rather than retrieval retuning:
+
+- representative live QA smoke tests;
+- citation/evidence interaction checks;
+- follow-up context behavior;
+- error/abstention UX;
+- final screenshots;
+- architecture and performance figures for the final report and presentation.
