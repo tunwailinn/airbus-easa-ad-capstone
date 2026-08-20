@@ -23,6 +23,7 @@ export type PipelineStage = "idle" | "routing" | "retrieving" | "evidence" | "ge
 export async function streamQuestion(
   question: string,
   options: {
+    requestId?: string;
     retrievalOnly: boolean;
     contextAdNumbers: string[];
     signal: AbortSignal;
@@ -31,11 +32,13 @@ export async function streamQuestion(
     onAnswer: (answer: AssistantResult) => void;
   },
 ) {
+  const requestId = options.requestId ?? crypto.randomUUID();
   options.onStage("routing");
   const response = await fetch(`${API_BASE}/api/v1/query/stream`, {
     method: "POST",
     headers: { "content-type": "application/json", Accept: "text/event-stream" },
     body: JSON.stringify({
+      request_id: requestId,
       question,
       retrieval_only: options.retrievalOnly,
       context_ad_numbers: options.contextAdNumbers,
@@ -49,32 +52,54 @@ export async function streamQuestion(
   const reader = response.body.getReader();
   const decoder = new TextDecoder();
   let buffer = "";
-  while (true) {
-    const { done, value } = await reader.read();
-    if (done) break;
-    buffer += decoder.decode(value, { stream: true });
-    const frames = buffer.split("\n\n");
-    buffer = frames.pop() ?? "";
-    for (const frame of frames) {
-      let event = "message";
-      let data = "";
-      for (const line of frame.split("\n")) {
-        if (line.startsWith("event:")) event = line.slice(6).trim();
-        if (line.startsWith("data:")) data += line.slice(5).trim();
-      }
-      if (!data) continue;
-      const payload = JSON.parse(data);
-      if (event === "route.completed" || event === "retrieval.started") options.onStage("retrieving");
-      if (event === "evidence.ready") {
-        options.onStage("evidence");
-        options.onEvidence(payload.evidence ?? [], payload);
-      }
-      if (event === "generation.started") options.onStage("generating");
-      if (event === "answer.completed") {
-        options.onStage("complete");
-        options.onAnswer(payload as AssistantResult);
+  const cancelReader = () => {
+    void reader.cancel().catch(() => undefined);
+  };
+  options.signal.addEventListener("abort", cancelReader, { once: true });
+
+  try {
+    while (true) {
+      if (options.signal.aborted) throw new DOMException("Request stopped", "AbortError");
+      const { done, value } = await reader.read();
+      if (done) break;
+      buffer += decoder.decode(value, { stream: true });
+      const frames = buffer.split("\n\n");
+      buffer = frames.pop() ?? "";
+      for (const frame of frames) {
+        let event = "message";
+        let data = "";
+        for (const line of frame.split("\n")) {
+          if (line.startsWith("event:")) event = line.slice(6).trim();
+          if (line.startsWith("data:")) data += line.slice(5).trim();
+        }
+        if (!data || options.signal.aborted) continue;
+        const payload = JSON.parse(data);
+        if (event === "route.completed" || event === "retrieval.started") options.onStage("retrieving");
+        if (event === "evidence.ready") {
+          options.onStage("evidence");
+          options.onEvidence(payload.evidence ?? [], payload);
+        }
+        if (event === "generation.started") options.onStage("generating");
+        if (event === "answer.completed") {
+          options.onStage("complete");
+          options.onAnswer(payload as AssistantResult);
+        }
       }
     }
+    if (options.signal.aborted) throw new DOMException("Request stopped", "AbortError");
+  } finally {
+    options.signal.removeEventListener("abort", cancelReader);
+    reader.releaseLock();
+  }
+}
+
+export async function cancelQuestion(requestId: string): Promise<void> {
+  const response = await fetch(`${API_BASE}/api/v1/query/${encodeURIComponent(requestId)}/cancel`, {
+    method: "POST",
+    headers: { Accept: "application/json" },
+  });
+  if (!response.ok) {
+    throw new Error(`Assistant cancellation returned HTTP ${response.status}`);
   }
 }
 

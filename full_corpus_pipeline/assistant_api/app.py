@@ -1,18 +1,21 @@
 from __future__ import annotations
 
+import asyncio
+from contextlib import suppress
 from contextlib import asynccontextmanager
 import json
 import os
 from pathlib import Path
 import time
 from typing import AsyncIterator
+from uuid import uuid4
 
-from fastapi import FastAPI, Request
+from fastapi import FastAPI, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import StreamingResponse
 
 from full_corpus_pipeline.assistant.runtime import DEFAULT_DENSE_DIR, DEFAULT_INDEX
-from full_corpus_pipeline.assistant_api.deepseek_stream import stream_hosted_qa
+from full_corpus_pipeline.assistant_api.deepseek_stream import HostedGenerationCancelled, stream_hosted_qa
 from full_corpus_pipeline.assistant_api.schemas import HealthResponse, QueryRequest, QueryResponse
 from full_corpus_pipeline.assistant_api.services import ASSISTANT_VERSION, WarmInferenceService
 from full_corpus_pipeline.e5_query_router import route_query
@@ -20,6 +23,7 @@ from full_corpus_pipeline.e5_query_router import route_query
 
 SERVICE: WarmInferenceService | None = None
 STARTUP_ERROR: str | None = None
+ACTIVE_REQUESTS: dict[str, asyncio.Event] = {}
 
 
 def _service() -> WarmInferenceService:
@@ -142,15 +146,22 @@ def _preview_route(payload: QueryRequest) -> dict:
 @app.post("/api/v1/query/stream")
 async def query_stream(payload: QueryRequest, request: Request) -> StreamingResponse:
     service = _service()
+    request_id = payload.request_id or uuid4().hex
+    if request_id in ACTIVE_REQUESTS:
+        raise HTTPException(status_code=409, detail="request_id is already active")
+    cancel_event = asyncio.Event()
+    ACTIVE_REQUESTS[request_id] = cancel_event
 
-    async def events() -> AsyncIterator[bytes]:
+    async def event_body() -> AsyncIterator[bytes]:
         started = time.perf_counter()
-        yield _sse("request.started", {"assistant_version": ASSISTANT_VERSION})
+        yield _sse("request.started", {"assistant_version": ASSISTANT_VERSION, "request_id": request_id})
         yield _sse("route.started", {})
         yield _sse("route.completed", {"route": _preview_route(payload)})
         yield _sse("retrieval.started", {})
 
         retrieval = await service.retrieve(payload.question, payload.context_ad_numbers)
+        if cancel_event.is_set() or await request.is_disconnected():
+            return
         evidence_objects = list(retrieval.pop("_evidence_objects"))
         yield _sse(
             "evidence.ready",
@@ -160,7 +171,7 @@ async def query_stream(payload: QueryRequest, request: Request) -> StreamingResp
                 "runtime": {"device": service.device, "corpus": service.corpus_stats},
             },
         )
-        if await request.is_disconnected():
+        if cancel_event.is_set() or await request.is_disconnected():
             return
 
         base = _base_result(payload, service, retrieval, started)
@@ -205,14 +216,18 @@ async def query_stream(payload: QueryRequest, request: Request) -> StreamingResp
                     "live_assistant": True,
                     "assistant_version": ASSISTANT_VERSION,
                     "route_mode": str(retrieval["route"].get("mode", "")),
+                    "request_id": request_id,
                 },
+                cancel_event=cancel_event,
             ):
-                if await request.is_disconnected():
+                if cancel_event.is_set() or await request.is_disconnected():
                     return
                 if event_name == "generation.progress":
                     yield _sse(event_name, event_payload)
                 elif event_name == "answer.validated":
                     hosted = event_payload
+        except HostedGenerationCancelled:
+            return
         except Exception as exc:
             hosted = {
                 "status": "technical_error",
@@ -246,11 +261,39 @@ async def query_stream(payload: QueryRequest, request: Request) -> StreamingResp
         yield _sse("answer.completed", result)
         yield _sse("request.completed", {"status": result["status"]})
 
+    async def watch_disconnect() -> None:
+        while not cancel_event.is_set():
+            if await request.is_disconnected():
+                cancel_event.set()
+                return
+            await asyncio.sleep(0.1)
+
+    async def events() -> AsyncIterator[bytes]:
+        disconnect_watcher = asyncio.create_task(watch_disconnect())
+        try:
+            async for chunk in event_body():
+                yield chunk
+        finally:
+            cancel_event.set()
+            disconnect_watcher.cancel()
+            with suppress(asyncio.CancelledError):
+                await disconnect_watcher
+            ACTIVE_REQUESTS.pop(request_id, None)
+
     return StreamingResponse(
         events(),
         media_type="text/event-stream",
         headers={"Cache-Control": "no-cache", "X-Accel-Buffering": "no"},
     )
+
+
+@app.post("/api/v1/query/{request_id}/cancel")
+async def cancel_query(request_id: str) -> dict[str, str]:
+    cancel_event = ACTIVE_REQUESTS.get(request_id)
+    if cancel_event is None:
+        return {"request_id": request_id, "status": "not_active"}
+    cancel_event.set()
+    return {"request_id": request_id, "status": "cancelling"}
 
 
 def main() -> None:

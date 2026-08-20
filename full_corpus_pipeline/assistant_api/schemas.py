@@ -6,6 +6,7 @@ from pydantic import BaseModel, Field
 
 
 class QueryRequest(BaseModel):
+    request_id: str | None = Field(default=None, min_length=8, max_length=100, pattern=r"^[A-Za-z0-9_-]+$")
     question: str = Field(min_length=1, max_length=4000)
     retrieval_only: bool = False
     context_ad_numbers: list[str] = Field(default_factory=list, max_length=8)

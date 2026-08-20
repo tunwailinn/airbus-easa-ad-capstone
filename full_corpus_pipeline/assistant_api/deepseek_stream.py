@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+import asyncio
+from contextlib import suppress
 import json
 from typing import Any, AsyncIterator
 
@@ -20,11 +22,52 @@ from full_corpus_pipeline.layer_c.providers.deepseek import DEEPSEEK_MODEL, Deep
 SERVING_PROVIDER_VERSION = "deepseek-live-stream-v1.0"
 
 
+class HostedGenerationCancelled(Exception):
+    """Raised when a live assistant request explicitly stops hosted generation."""
+
+
+async def _iter_lines_until_cancel(
+    lines: AsyncIterator[str],
+    cancel_event: asyncio.Event,
+) -> AsyncIterator[str]:
+    iterator = lines.__aiter__()
+    while True:
+        next_line = asyncio.create_task(anext(iterator))
+        cancelled = asyncio.create_task(cancel_event.wait())
+        try:
+            done, _ = await asyncio.wait(
+                {next_line, cancelled},
+                return_when=asyncio.FIRST_COMPLETED,
+            )
+            if cancelled in done:
+                next_line.cancel()
+                with suppress(asyncio.CancelledError):
+                    await next_line
+                raise HostedGenerationCancelled("hosted generation was stopped")
+
+            cancelled.cancel()
+            with suppress(asyncio.CancelledError):
+                await cancelled
+            try:
+                yield next_line.result()
+            except StopAsyncIteration:
+                return
+        except BaseException:
+            for task in (next_line, cancelled):
+                if not task.done():
+                    task.cancel()
+            for task in (next_line, cancelled):
+                with suppress(asyncio.CancelledError, StopAsyncIteration):
+                    await task
+            raise
+
+
 async def stream_hosted_qa(
     question: str,
     evidence: list[Evidence],
     *,
     request_metadata: dict[str, Any] | None = None,
+    cancel_event: asyncio.Event | None = None,
 ) -> AsyncIterator[tuple[str, dict[str, Any]]]:
     """Stream provider progress but publish only a fully validated Layer C result.
 
@@ -52,6 +95,7 @@ async def stream_hosted_qa(
     usage: dict[str, Any] = {}
     request_id: str | None = None
     received_chars = 0
+    cancel_event = cancel_event or asyncio.Event()
 
     async with httpx.AsyncClient(timeout=httpx.Timeout(provider.timeout)) as client:
         async with client.stream(
@@ -61,7 +105,7 @@ async def stream_hosted_qa(
             json=payload,
         ) as response:
             response.raise_for_status()
-            async for line in response.aiter_lines():
+            async for line in _iter_lines_until_cancel(response.aiter_lines(), cancel_event):
                 if not line.startswith("data:"):
                     continue
                 body = line[5:].strip()

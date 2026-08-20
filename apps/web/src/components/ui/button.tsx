@@ -5,19 +5,19 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg text-sm font-medium transition disabled:pointer-events-none disabled:opacity-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#58a6ff]/50",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-semibold transition disabled:pointer-events-none disabled:opacity-40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8cc7cf]/60",
   {
     variants: {
       variant: {
-        default: "bg-[#2f81f7] text-white hover:bg-[#4a91f8]",
-        secondary: "border border-[#2b465f] bg-[#102336] text-[#c7d7e5] hover:border-[#4a7397] hover:bg-[#142b41]",
-        ghost: "text-[#9eb2c4] hover:bg-[#14273a] hover:text-white",
-        destructive: "bg-[#3b252b] text-[#ffaaa5] hover:bg-[#4a2930]",
+        default: "bg-[#ff693b] text-[#07141e] hover:bg-[#ff8b61]",
+        secondary: "border border-[#385560] bg-[#102431] text-[#d8d1bf] hover:border-[#8cc7cf] hover:bg-[#17303d]",
+        ghost: "text-[#8fa2a7] hover:bg-[#17303d] hover:text-[#fffaf0]",
+        destructive: "bg-[#4a292a] text-[#ffc1b8] hover:bg-[#633332]",
       },
       size: {
-        default: "h-10 px-4 py-2",
+        default: "h-10 rounded-lg px-4 py-2",
         sm: "h-8 rounded-md px-3 text-xs",
-        icon: "size-10",
+        icon: "size-10 rounded-lg",
       },
     },
     defaultVariants: { variant: "default", size: "default" },
