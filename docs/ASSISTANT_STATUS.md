@@ -1,12 +1,28 @@
 # Aviation Document Assistant — Post-Evaluation Status
 
-Last updated: 20 August 2026
+Last updated: 26 August 2026
 
 ## Current checkpoint
 
-The modern FastAPI + Next.js assistant is the **primary capstone demo runtime**. Its warm-serving migration has already passed the local compatibility/performance gate on the seminar Mac.
+The modern FastAPI + Next.js assistant is the **primary and demo-frozen capstone runtime**.
 
-Accepted warm-serving baseline:
+The final reliability hardening has been integrated into `main`, the post-hardening compatibility recheck passed, and the D1-D8 final live browser validation passed in full.
+
+Frozen runtime baseline commit:
+
+```text
+88f96d5aca67fb0c98113f4f7b04410402a7e559
+```
+
+Commit message:
+
+```text
+merge: integrate assistant demo freeze hardening
+```
+
+This SHA is the recorded runtime freeze reference for the final capstone demo. Later documentation-only commits do not redefine the implemented retrieval or serving methodology.
+
+## Accepted warm-serving baseline
 
 ```text
 question_count: 10
@@ -30,40 +46,79 @@ Interpretation:
 
 These are post-evaluation serving measurements only. They do not replace or modify the frozen benchmark.
 
-## Final demo-hardening branch
+## Final hardening integrated
 
-Current reliability hardening is isolated on:
+The final demo hardening adds three serving safeguards:
 
-```text
-assistant-demo-freeze-hardening
-```
+1. **single-AD follow-up scope** — only one explicit AD can be active for a follow-up;
+2. **incomplete SSE detection** — the browser requires `answer.completed` before treating a streamed response as complete;
+3. **safe cancellation checkpoints** — Stop interrupts hosted DeepSeek generation and prevents local retrieval from progressing beyond the next safe stage boundary.
 
-It starts from the accepted UI/UX revision:
+An already-running PyTorch/MPS model kernel is not force-preempted. This is intentional for the single-user demo runtime.
 
-```text
-3d7b6ca3c0fd104c8cbad25767733ab7e43d3611
-```
-
-The branch adds three final safeguards before the demo is frozen:
-
-1. **single-AD follow-up scope** — client sends only the most recently selected explicit AD and FastAPI rejects multi-AD context requests;
-2. **incomplete SSE detection** — the browser now requires `answer.completed` and restores the question if a live stream closes early;
-3. **safe retrieval cancellation checkpoints** — Stop interrupts DeepSeek immediately and prevents local retrieval from entering the next embedding/candidate/rerank stage after cancellation.
-
-An already-running PyTorch/MPS kernel is not force-preempted. That limitation is explicit and intentional for the single-user seminar runtime.
-
-Detailed hardening documentation:
+Detailed implementation record:
 
 ```text
 docs/ASSISTANT_DEMO_FREEZE_HARDENING.md
 ```
 
-Final showcase/validation checklist:
+## Post-hardening compatibility recheck
+
+The regression revalidation after hardening reported:
 
 ```text
-docs/ASSISTANT_FINAL_DEMO_VALIDATION.md
-docs/ASSISTANT_DEMO_SHOWCASE_QUESTIONS.json
+question_count: 10
+top5_exact_match_count: 10
+top5_all_exact: true
+legacy_median_retrieval_ms: 38903.5944
+warm_median_retrieval_ms: 6034.8178
+median_latency_reduction: 84.49%
+performance_target_60_percent_reduction_met: true
+device: mps
 ```
+
+Purpose: verify that final demo hardening did not change normal top-5 retrieval behavior.
+
+The previously accepted **77.26%** latency reduction remains the canonical serving-performance result. The 84.49% value above is an incidental revalidation run and is not used to replace the controlled baseline.
+
+Machine-readable record:
+
+```text
+docs/ASSISTANT_HARDENING_REVALIDATION.json
+```
+
+## Final live demo acceptance
+
+Validation date: **26 August 2026**.
+
+All eight final live browser scenarios passed manual acceptance:
+
+```text
+D1 known-document compliance: PASS
+D2 applicability: PASS
+D3 corpus-wide discovery: PASS
+D4 lifecycle relationship: PASS
+D5 reference publication: PASS
+D6 explicit follow-up context: PASS
+D7 abstention / missing detail: PASS
+D8 evidence-only mode: PASS
+```
+
+Additional required checks also passed:
+
+```text
+Stop/retry: PASS
+Evidence inspector interactions: PASS
+Focused frontend regression: 2 test files passed, 8 tests passed
+```
+
+The detailed acceptance record is:
+
+```text
+docs/D1_D8_FINAL_LIVE_DEMO_VALIDATION.md
+```
+
+This is **post-evaluation software acceptance**, not a research benchmark. Eight passing demo scenarios must not be reported as 100% research accuracy.
 
 ## Canonical modern implementation
 
@@ -82,7 +137,7 @@ Fallback prototype:
 full_corpus_pipeline/assistant/
 ```
 
-The fallback is retained for contingency only and is not the primary seminar interface.
+The fallback remains contingency-only and is not the primary final interface.
 
 ## Research/evaluation boundary
 
@@ -96,87 +151,22 @@ All UI/UX, serving, cancellation and demo-hardening work is **post-evaluation en
 - frozen Layer C prompt/response contract;
 - any parser, benchmark or unseen lock.
 
-No LangChain, LlamaIndex, vector database, new embedding model, new reranker, quantization, query rewriting or retrieval retuning is introduced.
+No LangChain, LlamaIndex, vector database, new embedding model, new reranker, quantization, query rewriting or retrieval retuning was introduced by final demo hardening.
 
-## Regression gate before merging the hardening branch
+## Demo freeze status
 
-Run on the seminar Mac:
-
-```bash
-.venv/bin/python -m unittest discover \
-  -s full_corpus_pipeline/tests \
-  -p 'test_assistant_api_contract.py'
-
-pnpm --dir apps/web typecheck
-pnpm --dir apps/web lint
-pnpm --dir apps/web test
-pnpm --dir apps/web build
-pnpm --dir apps/web test:e2e
-```
-
-Regenerate FastAPI-derived frontend declarations while the backend is running:
-
-```bash
-.venv/bin/python -m full_corpus_pipeline.assistant_api.app
-```
-
-Then:
-
-```bash
-pnpm --dir apps/web generate:api
-```
-
-Rerun the compatibility validator:
-
-```bash
-.venv/bin/python -m \
-  full_corpus_pipeline.assistant_api.validate_warm_compatibility
-```
-
-Required:
+The final demo-freeze criteria are satisfied:
 
 ```text
-top5_all_exact: true
+automated regression checks passed
+warm top-5 compatibility remained exact
+D1-D8 manually reviewed and passed
+no known citation/provenance mismatch remained
+Stop/retry passed
+make demo worked from the validated runtime
+final runtime baseline SHA recorded
 ```
 
-Do not overwrite the accepted 77.26% latency baseline with an incidental rerun unless a new controlled serving measurement is intentionally being reported.
+The assistant is therefore **demo-frozen**.
 
-## Final demo-validation phase
-
-After the automated regression gate passes:
-
-```bash
-make demo
-```
-
-Run the fixed D1-D8 showcase set in:
-
-```text
-docs/ASSISTANT_FINAL_DEMO_VALIDATION.md
-```
-
-Record only demo usability/provenance observations:
-
-- route observed;
-- evidence-first behavior;
-- final status;
-- citation/page correctness;
-- total latency;
-- PASS/FAIL notes.
-
-This record must remain separate from frozen research evaluation metrics.
-
-## Demo freeze
-
-The assistant can be tagged as the final capstone demo release once:
-
-```text
-automated regression checks pass
-warm top-5 compatibility remains exact
-D1-D8 are manually reviewed
-Stop/retry works
-make demo works from a clean terminal
-final screenshots are captured
-```
-
-After that point, avoid additional UI or serving changes unless they fix a reproducible demo-blocking defect. The next work should be final report, architecture diagram, results/discussion and presentation integration.
+From this point, avoid UI, retrieval, model, prompt, or serving changes unless fixing a reproducible demo-blocking defect. Final work should focus on screenshots, the final architecture diagram, report/results discussion, and presentation/demo preparation.
