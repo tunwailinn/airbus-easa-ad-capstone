@@ -17,7 +17,11 @@ from fastapi.responses import StreamingResponse
 from full_corpus_pipeline.assistant.runtime import DEFAULT_DENSE_DIR, DEFAULT_INDEX
 from full_corpus_pipeline.assistant_api.deepseek_stream import HostedGenerationCancelled, stream_hosted_qa
 from full_corpus_pipeline.assistant_api.schemas import HealthResponse, QueryRequest, QueryResponse
-from full_corpus_pipeline.assistant_api.services import ASSISTANT_VERSION, WarmInferenceService
+from full_corpus_pipeline.assistant_api.services import (
+    ASSISTANT_VERSION,
+    RetrievalCancelled,
+    WarmInferenceService,
+)
 from full_corpus_pipeline.e5_query_router import route_query
 
 
@@ -159,9 +163,17 @@ async def query_stream(payload: QueryRequest, request: Request) -> StreamingResp
         yield _sse("route.completed", {"route": _preview_route(payload)})
         yield _sse("retrieval.started", {})
 
-        retrieval = await service.retrieve(payload.question, payload.context_ad_numbers)
+        try:
+            retrieval = await service.retrieve(
+                payload.question,
+                payload.context_ad_numbers,
+                cancel_event=cancel_event,
+            )
+        except RetrievalCancelled:
+            return
         if cancel_event.is_set() or await request.is_disconnected():
             return
+
         evidence_objects = list(retrieval.pop("_evidence_objects"))
         yield _sse(
             "evidence.ready",

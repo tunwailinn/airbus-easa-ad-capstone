@@ -3,13 +3,15 @@ from __future__ import annotations
 import asyncio
 import unittest
 
+from pydantic import ValidationError
+
 from full_corpus_pipeline.assistant_api.app import ACTIVE_REQUESTS, cancel_query
 from full_corpus_pipeline.assistant_api.deepseek_stream import (
     HostedGenerationCancelled,
     _iter_lines_until_cancel,
 )
 from full_corpus_pipeline.assistant_api.schemas import QueryRequest, QueryResponse, Timings
-from full_corpus_pipeline.assistant_api.services import WarmInferenceService
+from full_corpus_pipeline.assistant_api.services import RetrievalCancelled, WarmInferenceService
 
 
 class AssistantApiContractTests(unittest.TestCase):
@@ -25,6 +27,20 @@ class AssistantApiContractTests(unittest.TestCase):
             question="What does AD 2011-0041R1 require?",
         )
         self.assertEqual(request.request_id, "browser-request_123")
+
+    def test_query_request_allows_one_explicit_follow_up_ad(self) -> None:
+        request = QueryRequest(
+            question="What happens after that inspection?",
+            context_ad_numbers=["2011-0041R1"],
+        )
+        self.assertEqual(request.context_ad_numbers, ["2011-0041R1"])
+
+    def test_query_request_rejects_multi_document_follow_up_scope(self) -> None:
+        with self.assertRaises(ValidationError):
+            QueryRequest(
+                question="Compare the next actions.",
+                context_ad_numbers=["2011-0041R1", "2008-0008"],
+            )
 
     def test_query_response_accepts_retrieval_only_contract(self) -> None:
         response = QueryResponse(
@@ -58,6 +74,12 @@ class AssistantApiContractTests(unittest.TestCase):
         self.assertEqual(source["route_errors"], ["a"])
         self.assertEqual(source["evidence"][0]["evidence_id"], "EV1")
         self.assertEqual(source["timings"]["retrieval_total_ms"], 1.0)
+
+    def test_retrieval_cancellation_checkpoint_raises_before_next_stage(self) -> None:
+        with self.assertRaises(RetrievalCancelled):
+            WarmInferenceService._raise_if_cancelled(lambda: True)
+        WarmInferenceService._raise_if_cancelled(lambda: False)
+        WarmInferenceService._raise_if_cancelled(None)
 
 
 class AssistantCancellationTests(unittest.IsolatedAsyncioTestCase):

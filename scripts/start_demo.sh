@@ -4,8 +4,11 @@ set -euo pipefail
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$ROOT"
 
-if [[ ! -x ".venv/bin/python" ]]; then
-  echo "Missing .venv. Create the project virtual environment first." >&2
+PYTHON_BIN="${ASSISTANT_PYTHON:-.venv/bin/python}"
+
+if [[ ! -x "$PYTHON_BIN" ]]; then
+  echo "Assistant Python executable not found or not executable: $PYTHON_BIN" >&2
+  echo "Create .venv, or set ASSISTANT_PYTHON to an existing project Python executable." >&2
   exit 1
 fi
 if ! command -v pnpm >/dev/null 2>&1; then
@@ -14,7 +17,7 @@ if ! command -v pnpm >/dev/null 2>&1; then
 fi
 if [[ ! -d "data_processed/serving/assistant_v1/e4_section_hybrid" ]]; then
   echo "Serving snapshot missing. Running validated snapshot preparation..."
-  .venv/bin/python -m full_corpus_pipeline.assistant.prepare_serving_snapshot
+  "$PYTHON_BIN" -m full_corpus_pipeline.assistant.prepare_serving_snapshot
 fi
 if [[ ! -d "apps/web/node_modules" ]]; then
   echo "Installing frontend dependencies..."
@@ -28,7 +31,7 @@ cleanup() {
 trap cleanup EXIT INT TERM
 
 echo "Starting warm FastAPI backend on http://127.0.0.1:8000"
-.venv/bin/python -m full_corpus_pipeline.assistant_api.app &
+"$PYTHON_BIN" -m full_corpus_pipeline.assistant_api.app &
 API_PID=$!
 
 printf "Waiting for Qwen models to warm"
