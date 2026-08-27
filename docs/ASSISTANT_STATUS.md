@@ -1,12 +1,12 @@
 # Aviation Document Assistant — Post-Evaluation Status
 
-Last updated: 26 August 2026
+Last updated: 27 August 2026
 
 ## Current checkpoint
 
 The modern FastAPI + Next.js assistant is the **primary and demo-frozen capstone runtime**.
 
-The final reliability hardening has been integrated into `main`, the post-hardening compatibility recheck passed, and the D1-D8 final live browser validation passed in full.
+The final reliability hardening has been integrated into `main`, the post-hardening compatibility recheck passed, and the D1-D8 final live browser validation passed in full. The supporting demo-freeze, validation, and showcase documents are synchronized to the completed acceptance state.
 
 Frozen runtime baseline commit:
 
@@ -54,7 +54,7 @@ The final demo hardening adds three serving safeguards:
 2. **incomplete SSE detection** — the browser requires `answer.completed` before treating a streamed response as complete;
 3. **safe cancellation checkpoints** — Stop interrupts hosted DeepSeek generation and prevents local retrieval from progressing beyond the next safe stage boundary.
 
-An already-running PyTorch/MPS model kernel is not force-preempted. This is intentional for the single-user demo runtime.
+An already-running PyTorch/MPS kernel is not force-preempted. This is intentional for the single-user demo runtime.
 
 Detailed implementation record:
 
@@ -118,6 +118,18 @@ The detailed acceptance record is:
 docs/D1_D8_FINAL_LIVE_DEMO_VALIDATION.md
 ```
 
+The synchronized validation checklist is:
+
+```text
+docs/ASSISTANT_FINAL_DEMO_VALIDATION.md
+```
+
+The synchronized machine-readable showcase record is:
+
+```text
+docs/ASSISTANT_DEMO_SHOWCASE_QUESTIONS.json
+```
+
 This is **post-evaluation software acceptance**, not a research benchmark. Eight passing demo scenarios must not be reported as 100% research accuracy.
 
 ## Canonical modern implementation
@@ -165,6 +177,7 @@ no known citation/provenance mismatch remained
 Stop/retry passed
 make demo worked from the validated runtime
 final runtime baseline SHA recorded
+supporting freeze/validation docs synchronized
 ```
 
 The assistant is therefore **demo-frozen**.
