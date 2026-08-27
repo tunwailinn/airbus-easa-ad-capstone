@@ -1,16 +1,20 @@
 # Final Assistant Demo Validation
 
-Last updated: 20 August 2026
+Last updated: 27 August 2026
 
 ## Purpose
 
-This is the **final user-facing demo validation checklist** for the modern Airbus EASA AD Assistant.
+This document defines the final user-facing validation scope for the modern Airbus EASA AD Assistant and records that the scope was completed on **26 August 2026**.
 
-It is not a new research benchmark. It does not replace the frozen E5 final result or the unseen-generalization results. Its purpose is to verify that the accepted serving architecture behaves reliably and presents evidence clearly during the capstone demonstration.
+It is **not a research benchmark**. It does not replace the frozen E5 final result, frozen E5-D retrieval result, or locked unseen-generalization results. Its purpose is software/demo acceptance: verifying that the accepted serving architecture behaves reliably, presents source evidence clearly, and preserves the intended research boundary during the capstone demonstration.
 
-## Preconditions
+The detailed executed-run record is:
 
-Before running the showcase questions:
+```text
+docs/D1_D8_FINAL_LIVE_DEMO_VALIDATION.md
+```
+
+## Validation status
 
 ```text
 warm compatibility top-5 exact: PASS
@@ -20,195 +24,222 @@ Vitest: PASS
 Next.js production build: PASS
 Playwright: PASS
 backend contract tests: PASS
-make demo: starts successfully
+make demo: PASS
+D1-D8 live browser validation: PASS
+Stop/retry: PASS
+Evidence inspector interaction checks: PASS
 ```
 
-Start the live system with:
+The assistant runtime is therefore **demo-frozen**.
 
-```bash
-make demo
-```
-
-Open:
+Frozen runtime baseline commit:
 
 ```text
-http://127.0.0.1:3000
+88f96d5aca67fb0c98113f4f7b04410402a7e559
 ```
 
-## Showcase set
+Later documentation-only commits do not redefine the implemented retrieval or serving methodology.
 
-### D1 — Known-document compliance
+## Executed showcase set
+
+### D1 — Known-document compliance — PASS
 
 Prompt:
 
 > For EASA AD 2011-0041R1, what actions had to be completed within 3 days after 14 March 2011?
 
-Check:
+Observed:
 
-- route is known-document;
-- top evidence appears before or independently of the final hosted answer;
-- compliance time is displayed separately when supplied by Layer C;
-- citations open the corresponding evidence passage;
-- page, section and source PDF are visible.
+- route: `known_document`;
+- evidence appeared before the final hosted answer;
+- final status: `answered`;
+- citation/page verified: 2011-0041R1, page 2, EV1;
+- UI latency: 20.1 s.
 
-### D2 — Applicability
+### D2 — Applicability — PASS
 
 Prompt:
 
 > Which A310 models are affected by EASA AD 2008-0008?
 
-Check:
+Observed:
 
-- known-document routing;
-- applicability evidence is present in the evidence inspector;
-- model designations are not silently generalized beyond the evidence;
-- Raw/Verbatim Source mode preserves the retrieved passage exactly.
+- route: `known_document`;
+- applicability evidence was present;
+- Raw/Verbatim Source mode preserved the retrieved passage;
+- final status: `answered`;
+- citation/page verified: 2008-0008, page 1, EV3;
+- UI latency: 11.7 s.
 
-### D3 — Corpus-wide discovery
+### D3 — Corpus-wide discovery — PASS
 
 Prompt:
 
 > Which Airbus directive requires reporting inspection results including no findings within 30 days after each inspection?
 
-Check:
+Observed:
 
-- route is discovery;
-- the target AD identifier is not supplied in the user question;
-- evidence comes from corpus-wide retrieval rather than direct ID lookup;
-- the final answer cites the retrieved directive/page.
+- route: `discovery`;
+- no target AD identifier was supplied in the user question;
+- final answer identified EASA AD 2025-0276;
+- citation/page verified: page 6, EV5;
+- UI latency: 54.7 s.
 
-### D4 — Lifecycle
+### D4 — Lifecycle relationship — PASS
 
 Prompt:
 
 > Which earlier directive does EASA AD 2011-0041R1 revise?
 
-Check:
+Observed:
 
-- lifecycle evidence is visible;
-- the answer does not mix unrelated revision families;
-- the cited evidence contains the lifecycle statement.
+- route: `known_document`;
+- answer identified EASA Emergency AD 2011-0041-E dated 10 March 2011;
+- lifecycle evidence was explicit and no unrelated revision family was mixed;
+- citation/page verified: 2011-0041R1, page 1, EV1;
+- UI latency: 6.7 s.
 
-### D5 — Reference publication
+### D5 — Reference publication — PASS
 
 Prompt:
 
 > Which referenced publication supports the required action in EASA AD 2011-0041R1?
 
-Check:
+Observed:
 
-- referenced-publication evidence is surfaced;
-- identifiers are preserved exactly;
-- no service-bulletin content is invented beyond what the AD evidence states.
+- route: `known_document`;
+- exact identifiers were preserved, including A380-27A8027, AFM TR 83 or 84, A380-27-8040 and A380-31-8071;
+- no unsupported Service Bulletin content was invented;
+- citations/pages were verified across pages 1-2 and page 2;
+- UI latency: 55.1 s.
 
-### D6 — Explicit follow-up context
+### D6 — Explicit follow-up context — PASS
 
-First complete a known-document question, then select one retrieved AD using:
+Precondition:
 
 ```text
-Use <AD> for follow-up
+Use 2011-0041R1 for follow-up
 ```
 
-Ask:
+Prompt:
 
 > What is the next required action after that inspection?
 
-Check:
+Observed:
 
-- only one explicit AD is used as follow-up scope;
-- the UI shows the selected context;
-- the user can remove the context;
-- no full hidden conversation history is injected into E5 retrieval.
+- route: `known_document` via explicit context;
+- exactly one AD was in follow-up scope;
+- all five retrieved passages came from 2011-0041R1;
+- the context chip was visible and removable;
+- final status: `answered`;
+- UI latency: 61.6 s.
 
-### D7 — Abstention / missing procedure detail
+### D7 — Abstention / missing procedure detail — PASS
 
 Prompt:
 
 > For EASA AD 2007-0173, what are the exact fastener dimensions, quantities and tightening torques required by this AD?
 
-Check:
+Observed:
 
-- the assistant does not fabricate unavailable maintenance details;
-- evidence remains visible;
-- if the AD directs the user to referenced approved maintenance data, the response preserves that boundary.
+- route: `known_document`;
+- final status: `insufficient_evidence`;
+- the assistant did not fabricate unavailable maintenance details;
+- referenced Service Bulletins were identified without inventing their contents;
+- retrieved AD evidence remained visible;
+- UI latency: 12.8 s.
 
-### D8 — Evidence-only mode
+### D8 — Evidence-only mode — PASS
 
-Enable **Evidence only** and run either D1 or D3.
+Precondition:
 
-Check:
+```text
+Enable Evidence only mode.
+```
 
-- hosted Layer C is skipped;
-- retrieved evidence remains fully usable;
-- the UI clearly distinguishes retrieval-only mode from an answered Layer C response.
+Executed prompt:
 
-## Stop/cancellation check
+> For EASA AD 2011-0041R1, what actions had to be completed within 3 days after 14 March 2011?
 
-Start a query and press **Stop** during either retrieval or hosted generation.
+Observed:
 
-Required behavior:
+- route: `known_document`;
+- final status: `retrieval_only`;
+- hosted Layer C was intentionally skipped;
+- five 2011-0041R1 passages remained available;
+- no generated answer was produced;
+- UI displayed 0.0 s because the repeated retrieval was served from cache.
 
-- the browser stops waiting immediately;
-- the interrupted question returns to the composer;
-- no partial DeepSeek JSON is shown;
-- if local embedding/reranking is already inside a model kernel, that kernel may finish, but the request must not continue into the next stage;
-- a second query can be submitted after cancellation.
+The original checklist allowed D8 to reuse either D1 or D3. The executed validation used the D1 known-document prompt; the machine-readable showcase record is synchronized to that actual run.
 
-## Evidence-inspector check
+## Stop/cancellation check — PASS
 
-For at least one successful question:
+During a live request, Stop was pressed after five passages had arrived while answer generation was still active.
 
-- click every citation chip;
-- confirm each citation selects the expected evidence record;
-- inspect AD number, page, section, rank and PDF name;
-- toggle Reader ↔ Raw;
-- copy the passage and verify the copied text is the original retrieved passage;
-- resize the evidence panel with mouse/trackpad;
-- resize it with keyboard arrows;
-- reset the panel width.
+Verified behavior:
 
-## Manual validation record
+- the browser stopped waiting immediately;
+- the complete question returned to the composer;
+- no partial DeepSeek JSON appeared;
+- the same question could be submitted again;
+- the API log recorded a successful cancellation request.
 
-Record each live run in a table like this:
+An already-running PyTorch/MPS model kernel is not forcibly preempted; cancellation prevents the request from advancing beyond the next safe stage boundary.
 
-| ID | Route observed | Evidence first | Final status | Citation/page correct | Total latency | PASS/FAIL | Notes |
-|---|---|---:|---|---:|---:|---|---|
-| D1 |  |  |  |  |  |  |  |
-| D2 |  |  |  |  |  |  |  |
-| D3 |  |  |  |  |  |  |  |
-| D4 |  |  |  |  |  |  |  |
-| D5 |  |  |  |  |  |  |  |
-| D6 |  |  |  |  |  |  |  |
-| D7 |  |  |  |  |  |  |  |
-| D8 |  |  |  |  |  |  |  |
+## Evidence-inspector check — PASS
 
-This table is a demo acceptance record only. Do not merge it into the frozen E5 accuracy table.
+Verified for successful live queries:
 
-## Required screenshots
+- citation chips selected the intended evidence records;
+- AD number, page, section, E5-D rank and PDF filename matched;
+- Reader and Raw modes rendered correctly;
+- copied text matched the selected retrieved passage;
+- pointer resizing worked;
+- keyboard resizing used the documented 24 px step;
+- Reset width returned the inspector to the 420 px default.
 
-Capture at minimum:
+## Final acceptance table
+
+| ID | Route observed | Evidence first | Final status | Citation/page correct | UI latency | Result |
+|---|---|---:|---|---:|---:|---|
+| D1 | `known_document` | Yes | `answered` | Yes | 20.1 s | PASS |
+| D2 | `known_document` | Yes | `answered` | Yes | 11.7 s | PASS |
+| D3 | `discovery` | Yes | `answered` | Yes | 54.7 s | PASS |
+| D4 | `known_document` | Yes | `answered` | Yes | 6.7 s | PASS |
+| D5 | `known_document` | Yes | `answered` | Yes | 55.1 s | PASS |
+| D6 | `known_document` with explicit AD context | Yes | `answered` | Yes | 61.6 s | PASS |
+| D7 | `known_document` | Yes | `insufficient_evidence` | Yes | 12.8 s | PASS |
+| D8 | `known_document`, retrieval only | Yes | `retrieval_only` | Yes | 0.0 s cached | PASS |
+
+This table is a **demo/software acceptance record only**. Eight passing scenarios must not be reported as 100% research accuracy.
+
+## Presentation assets still to prepare
+
+Software acceptance and runtime freeze are complete. The following are presentation/report assets and are **not prerequisites for the already-completed runtime freeze**:
 
 1. landing screen with corpus/model readiness;
 2. known-document response with structured compliance fields;
 3. evidence inspector showing page/section/source provenance;
 4. discovery-mode response;
 5. explicit follow-up context chip;
-6. abstention or evidence-only state.
+6. abstention or evidence-only state;
+7. final architecture diagram;
+8. final report and presentation integration.
 
-For the final report/presentation, prefer screenshots that visibly show both the response and the supporting evidence.
+For report/presentation screenshots, prefer views that show both the answer and its supporting evidence.
 
-## Demo freeze criteria
+## Freeze boundary
 
-The demo can be tagged/frozen only when:
+The runtime freeze criteria are satisfied:
 
 ```text
-all automated regression checks pass
-warm top-5 compatibility remains exact
-D1-D8 have been manually reviewed
-no known citation/provenance mismatch remains
-Stop/retry works
-make demo works from a clean terminal session
-screenshots have been captured
+automated regression checks passed
+warm top-5 compatibility remained exact
+D1-D8 manually reviewed and passed
+no known citation/provenance mismatch remained
+Stop/retry passed
+make demo worked from the validated runtime
+frozen runtime baseline SHA recorded
 ```
 
-After this point, avoid UI or serving changes unless fixing a reproducible demo-blocking defect.
+The assistant is **demo-frozen**. Avoid further UI, retrieval, model, prompt, or serving changes unless fixing a reproducible demo-blocking defect.
