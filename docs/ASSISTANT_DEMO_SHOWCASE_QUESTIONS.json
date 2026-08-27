@@ -1,13 +1,27 @@
 {
-  "version": "assistant-demo-showcase-v1.0",
-  "date": "2026-08-20",
+  "version": "assistant-demo-showcase-v1.1",
+  "planned_date": "2026-08-20",
+  "validation_date": "2026-08-26",
+  "status": "completed",
   "purpose": "Post-evaluation live demo validation only; not a research benchmark and not part of frozen E5 scoring.",
+  "runtime_freeze_sha": "88f96d5aca67fb0c98113f4f7b04410402a7e559",
+  "summary": {
+    "scenario_count": 8,
+    "scenario_pass_count": 8,
+    "stop_retry": "PASS",
+    "evidence_inspector": "PASS",
+    "research_accuracy_claim": "Do not report 8/8 demo acceptance as 100% research accuracy."
+  },
   "questions": [
     {
       "id": "D1",
       "category": "known_document_compliance",
       "prompt": "For EASA AD 2011-0041R1, what actions had to be completed within 3 days after 14 March 2011?",
       "expected_route": "known_document",
+      "observed_route": "known_document",
+      "final_status": "answered",
+      "ui_latency_seconds": 20.1,
+      "result": "PASS",
       "checks": ["evidence_visible", "citation_provenance", "compliance_time_rendering"]
     },
     {
@@ -15,6 +29,10 @@
       "category": "applicability",
       "prompt": "Which A310 models are affected by EASA AD 2008-0008?",
       "expected_route": "known_document",
+      "observed_route": "known_document",
+      "final_status": "answered",
+      "ui_latency_seconds": 11.7,
+      "result": "PASS",
       "checks": ["applicability_evidence", "verbatim_source_mode", "citation_provenance"]
     },
     {
@@ -22,6 +40,11 @@
       "category": "discovery",
       "prompt": "Which Airbus directive requires reporting inspection results including no findings within 30 days after each inspection?",
       "expected_route": "discovery",
+      "observed_route": "discovery",
+      "final_status": "answered",
+      "identified_ad": "2025-0276",
+      "ui_latency_seconds": 54.7,
+      "result": "PASS",
       "checks": ["corpus_wide_retrieval", "evidence_visible", "citation_provenance"]
     },
     {
@@ -29,6 +52,10 @@
       "category": "lifecycle",
       "prompt": "Which earlier directive does EASA AD 2011-0041R1 revise?",
       "expected_route": "known_document",
+      "observed_route": "known_document",
+      "final_status": "answered",
+      "ui_latency_seconds": 6.7,
+      "result": "PASS",
       "checks": ["lifecycle_evidence", "no_revision_family_mixing"]
     },
     {
@@ -36,6 +63,10 @@
       "category": "reference_publication",
       "prompt": "Which referenced publication supports the required action in EASA AD 2011-0041R1?",
       "expected_route": "known_document",
+      "observed_route": "known_document",
+      "final_status": "answered",
+      "ui_latency_seconds": 55.1,
+      "result": "PASS",
       "checks": ["reference_identifier_fidelity", "no_invented_service_bulletin_content"]
     },
     {
@@ -43,7 +74,12 @@
       "category": "explicit_follow_up",
       "prompt": "What is the next required action after that inspection?",
       "expected_route": "known_document_via_explicit_context",
+      "observed_route": "known_document_via_explicit_context",
       "precondition": "Select exactly one retrieved AD using the follow-up scope control.",
+      "executed_context_ad": "2011-0041R1",
+      "final_status": "answered",
+      "ui_latency_seconds": 61.6,
+      "result": "PASS",
       "checks": ["single_ad_context", "context_removable", "no_hidden_full_chat_injection"]
     },
     {
@@ -51,14 +87,24 @@
       "category": "abstention_missing_detail",
       "prompt": "For EASA AD 2007-0173, what are the exact fastener dimensions, quantities and tightening torques required by this AD?",
       "expected_route": "known_document",
+      "observed_route": "known_document",
+      "final_status": "insufficient_evidence",
+      "ui_latency_seconds": 12.8,
+      "result": "PASS",
       "checks": ["no_fabricated_procedure_detail", "evidence_preserved", "authority_boundary"]
     },
     {
       "id": "D8",
       "category": "retrieval_only",
-      "prompt": "Which Airbus directive requires reporting inspection results including no findings within 30 days after each inspection?",
-      "expected_route": "discovery",
+      "planned_prompt_option": "The original checklist allowed either D1 or D3 to be repeated with Evidence only enabled.",
+      "executed_prompt": "For EASA AD 2011-0041R1, what actions had to be completed within 3 days after 14 March 2011?",
+      "expected_route": "known_document",
+      "observed_route": "known_document",
       "precondition": "Enable Evidence only mode.",
+      "final_status": "retrieval_only",
+      "ui_latency_seconds": 0.0,
+      "latency_note": "Repeated retrieval was served from the warm serving cache.",
+      "result": "PASS",
       "checks": ["hosted_qa_skipped", "evidence_usable", "retrieval_only_status_visible"]
     }
   ]
