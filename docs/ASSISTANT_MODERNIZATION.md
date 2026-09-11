@@ -1,6 +1,6 @@
 # Aviation Assistant Modernization
 
-Last updated: 20 August 2026
+Last updated: 11 September 2026
 
 ## Purpose
 
@@ -230,13 +230,27 @@ The authoritative benchmark remains:
 
 The modern assistant is an engineering layer built **after** those results were frozen. No serving outcome may overwrite the benchmark or unseen locks.
 
+## Documentation and paper boundary
+
+The assistant implementation remains demo-frozen. Current paper work is a separate conference-paper activity and must use the frozen research record as its basis.
+
+The conference paper is distinct from the university final seminar report. Its current priority is the **Methodology** section and supporting figures/charts. Paper figures are explanatory/presentation artifacts and do not constitute new evaluation runs or change the frozen metrics above.
+
+The paper should preserve the distinction between:
+
+- research benchmark results: **95.0% semantic accuracy** and **97.22% Recall@5**;
+- unseen post-ingestion outcome: **13 PASS / 1 semantic FAIL / 1 technical failure**;
+- post-evaluation serving result: **77.26% canonical latency reduction**.
+
 ## Next work
 
-The serving migration is accepted. Further work should focus on capstone-facing user experience and presentation evidence rather than retrieval retuning:
+The serving migration is accepted and the runtime remains demo-frozen. Further implementation changes should be limited to reproducible demo-blocking defects.
 
-- representative live QA smoke tests;
-- citation/evidence interaction checks;
-- follow-up context behavior;
-- error/abstention UX;
-- final screenshots;
-- architecture and performance figures for the final report and presentation.
+Documentation/output work should focus on:
+
+- conference paper Methodology;
+- paper figures/charts and visual QA;
+- final architecture diagram;
+- university report/results discussion;
+- presentation/demo preparation;
+- final screenshots and other presentation evidence.
