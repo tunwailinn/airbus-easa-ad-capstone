@@ -1,6 +1,6 @@
 # Aviation Document Assistant — Post-Evaluation Status
 
-Last updated: 27 August 2026
+Last updated: 11 September 2026
 
 ## Current checkpoint
 
@@ -182,4 +182,30 @@ supporting freeze/validation docs synchronized
 
 The assistant is therefore **demo-frozen**.
 
-From this point, avoid UI, retrieval, model, prompt, or serving changes unless fixing a reproducible demo-blocking defect. Final work should focus on screenshots, the final architecture diagram, report/results discussion, and presentation/demo preparation.
+## Conference paper work
+
+A separate conference paper is now being prepared from the frozen research record. The paper is distinct from the university final seminar report.
+
+The current paper work focuses first on the **Methodology** section and its supporting figures/charts. The paper draft must preserve the frozen research boundary and must not turn post-evaluation serving/demo measurements into research benchmark results.
+
+Current quantitative distinctions to preserve in the paper:
+
+- frozen E5 final semantic accuracy: **38/40 = 95.0%**;
+- frozen E5-D Recall@5: **35/36 = 97.22%**;
+- unseen U7 outcome: **13 PASS / 1 semantic FAIL / 1 technical failure**;
+- canonical post-evaluation warm-serving latency reduction: **77.26%**.
+
+Paper figures are presentation artifacts and do not change the underlying measurements.
+
+## Next work
+
+The assistant remains demo-frozen. Avoid UI, retrieval, model, prompt, or serving changes unless fixing a reproducible demo-blocking defect.
+
+Current documentation/output work should focus on:
+
+- conference paper Methodology;
+- paper figures/charts and visual QA;
+- final architecture diagram;
+- university report/results discussion;
+- presentation/demo preparation;
+- final screenshots and other presentation evidence.
