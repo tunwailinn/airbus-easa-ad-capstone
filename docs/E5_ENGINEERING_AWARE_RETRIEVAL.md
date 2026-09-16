@@ -1,33 +1,35 @@
-# E5 Engineering-Aware Retrieval — Methodology v1.0
+# E2 Engineering-Aware Retrieval — Methodology v1.0
 
-**Status:** active post-E0/E4 development methodology  
+Publication labels: E1 = legacy E4; E2-A–D = legacy E5-A–D. Artifact names, question IDs and code excerpts retain their original labels. See [experiment label mapping](EXPERIMENT_LABELS.md).
+
+**Status:** active post-E0/E1 development methodology
 **Date:** 5 August 2026  
 **Purpose:** build a materially stronger retrieval and QA system without reusing the frozen QA-v2 benchmark as a tuning set.
 
-## 1. Why E5 exists
+## 1. Why E2 exists
 
-The frozen E0/E4 experiment is complete and remains immutable.
+The frozen E0/E1 experiment is complete and remains immutable.
 
 Observed QA-v2 retrieval results:
 
 - E0 flat dense-only Recall@5: **0.0000**;
-- E4 section-aware hybrid Recall@5: **0.4091**;
-- E4 correct-source@5: **0.5000**;
-- E4 correct-source+page@5: **0.4091**.
+- E1 section-aware hybrid Recall@5: **0.4091**;
+- E1 correct-source@5: **0.5000**;
+- E1 correct-source+page@5: **0.4091**.
 
 Post-evaluation plumbing diagnostics passed. They also showed:
 
 - E0 dense correct-source@20: **0/44**;
-- E4 dense correct-source@20: **0/44**;
-- E4 BM25 correct-source+page@20: **40/44 (0.9091)**.
+- E1 dense correct-source@20: **0/44**;
+- E1 BM25 correct-source+page@20: **40/44 (0.9091)**.
 
-Therefore the E4 improvement is primarily attributable to exact lexical retrieval and section-aware hybrid architecture, while the generic MiniLM dense branch contributes no correct target source within top 20 on QA-v2. The current bottleneck is evidence selection/reranking after a high-recall lexical candidate stage, especially for conditional multi-passage questions.
+Therefore the E1 improvement is primarily attributable to exact lexical retrieval and section-aware hybrid architecture, while the generic MiniLM dense branch contributes no correct target source within top 20 on QA-v2. The current bottleneck is evidence selection/reranking after a high-recall lexical candidate stage, especially for conditional multi-passage questions.
 
-These findings motivate E5 but **must not be used to retune or overwrite E0/E4**. E5 is a new experiment with a new development set and a new untouched final test.
+These findings motivate E2 but **must not be used to retune or overwrite E0/E1**. E2 is a new experiment with a new development set and a new untouched final test.
 
-## 2. E5 research claim
+## 2. E2 research claim
 
-E5 tests the hypothesis that aviation-document retrieval improves when the system treats regulatory identifiers, document identity, section semantics, and multi-passage evidence as first-class engineering signals rather than relying on corpus-wide semantic similarity alone.
+E2 tests the hypothesis that aviation-document retrieval improves when the system treats regulatory identifiers, document identity, section semantics, and multi-passage evidence as first-class engineering signals rather than relying on corpus-wide semantic similarity alone.
 
 The proposed contribution is:
 
@@ -119,7 +121,7 @@ Section preferences are hints, not hard exclusions. For example:
 
 For known-document questions, retrieve only from the resolved AD/version.
 
-Candidate signals to evaluate on the E5 development set:
+Candidate signals to evaluate on the E2 development set:
 
 1. within-document BM25/FTS;
 2. section preference score;
@@ -144,7 +146,7 @@ This prevents a globally similar generic compliance sentence from being treated 
 
 ## 6. Candidate local semantic models
 
-E5 development may compare a compact, predeclared set of local semantic models. Final model selection is frozen before the E5 final test is opened.
+E2 development may compare a compact, predeclared set of local semantic models. Final model selection is frozen before the E2 final test is opened.
 
 Primary candidate:
 
@@ -163,13 +165,13 @@ Secondary reranker comparator if runtime permits:
 
 - `BAAI/bge-reranker-v2-m3`.
 
-Do not expand the model search after seeing E5 final-test scores.
+Do not expand the model search after seeing E2 final-test scores.
 
-## 7. Predeclared E5 ablations
+## 7. Predeclared E2 ablations
 
 Development questions may be used to compare only the following conceptual stages:
 
-### E5-A — engineering routing + lexical retrieval
+### E2-A — engineering routing + lexical retrieval
 
 - deterministic query mode;
 - exact-document routing when AD ID is present;
@@ -178,33 +180,33 @@ Development questions may be used to compare only the following conceptual stage
 - no new dense model;
 - no learned reranker.
 
-### E5-B — add multi-passage evidence assembly
+### E2-B — add multi-passage evidence assembly
 
-E5-A plus:
+E2-A plus:
 
 - adjacent passage/page continuation expansion;
 - section-diverse evidence pack;
 - preserve multiple compliance/definition passages when required.
 
-### E5-C — add stronger dense retrieval
+### E2-C — add stronger dense retrieval
 
-E5-B plus:
+E2-B plus:
 
 - Qwen3-Embedding-0.6B local dense signal;
 - dense signal is supplemental to identifiers/BM25, never a substitute for exact identifier routing.
 
-### E5-D — add stronger local reranker
+### E2-D — add stronger local reranker
 
-E5-C plus:
+E2-C plus:
 
 - Qwen3-Reranker-0.6B as the primary reranker candidate;
 - optional predeclared comparison with BGE-reranker-v2-m3 if local runtime permits.
 
-The best development configuration becomes the **single frozen E5-final configuration**. No E5-final scores may be used to change routing, models, weights, candidate counts, section rules, adjacency rules, or evidence-pack size.
+The best development configuration becomes the **single frozen E2-final configuration**. No E2-final scores may be used to change routing, models, weights, candidate counts, section rules, adjacency rules, or evidence-pack size.
 
-## 8. E5 benchmark isolation
+## 8. E2 benchmark isolation
 
-The frozen QA-v2 benchmark remains E0/E4-only and is never reused for E5 tuning or final claims.
+The frozen QA-v2 benchmark remains E0/E1-only and is never reused for E2 tuning or final claims.
 
 A new benchmark uses **40 entirely new base AD families**:
 
@@ -216,7 +218,7 @@ A new benchmark uses **40 entirely new base AD families**:
 
 The family selector is deterministic and stratified by publication era.
 
-### 8.1 E5 development questions — 60
+### 8.1 E2 development questions — 60
 
 | Category | Count |
 |---|---:|
@@ -234,7 +236,7 @@ Query-mode target:
 - discovery: 18;
 - abstention/conflict: 6.
 
-### 8.2 E5 untouched final questions — 40
+### 8.2 E2 untouched final questions — 40
 
 | Category | Count |
 |---|---:|
@@ -252,7 +254,7 @@ Query-mode target:
 - discovery: 12;
 - abstention/conflict: 4.
 
-The 40 final questions remain unopened until the E5 configuration and hosted-QA prompt are frozen.
+The 40 final questions remain unopened until the E2 configuration and hosted-QA prompt are frozen.
 
 ## 9. Question authoring rules
 
@@ -276,14 +278,14 @@ Required fields:
 Rules:
 
 1. Do not copy QA-v2 questions or paraphrase them onto new ADs mechanically.
-2. Do not use E5-final questions during model, threshold, prompt, routing, or candidate selection.
+2. Do not use E2-final questions during model, threshold, prompt, routing, or candidate selection.
 3. Keep all questions from one base AD family in one split.
 4. Discovery questions must omit the target AD number from the user-visible question.
 5. Compliance questions must preserve exact thresholds, units, branches, exceptions, and timing in the reference answer.
 6. Multi-passage questions must identify every reference page required for a complete answer.
 7. Abstention questions must define why the indexed AD evidence is insufficient or conflicting.
 
-## 10. E5 retrieval metrics
+## 10. E2 retrieval metrics
 
 Report separately for known-document and discovery modes.
 
@@ -396,11 +398,11 @@ Hosted-QA metrics:
 
 If final performance is poor, report it. Do not reopen the final set.
 
-## 14. Relationship to E0/E4
+## 14. Relationship to E0/E1
 
-E0/E4 remain final historical experiments and are not replaced.
+E0/E1 remain final historical experiments and are not replaced.
 
-The thesis reports them as the first retrieval study, followed by E5 as a post-error-analysis engineering-aware system evaluated on a fresh benchmark.
+The thesis reports them as the first retrieval study, followed by E2 as a post-error-analysis engineering-aware system evaluated on a fresh benchmark.
 
 This gives a transparent progression:
 

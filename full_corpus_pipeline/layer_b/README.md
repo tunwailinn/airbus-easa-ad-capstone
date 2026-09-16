@@ -1,10 +1,12 @@
 # Layer B — Verified Original-PDF Retrieval
 
+Publication labels: E1 = legacy E4; E2-A–D = legacy E5-A–D. Artifact names, question IDs and code excerpts retain their original labels. See [experiment label mapping](../../docs/EXPERIMENT_LABELS.md).
+
 Layer B owns verified page text and the frozen engineering-aware retrieval pipeline that supplies authoritative original-PDF evidence to Layer C.
 
 ## Why the implementation files remain at the package root
 
-The page-text, E0/E4, and E5-D retrieval implementations are frozen thesis artifacts. Their recorded source paths and behavior are preserved rather than rewritten solely for folder cleanup. This folder is the canonical navigation index for Layer B.
+The page-text, E0/E1, and E2-D retrieval implementations are frozen thesis artifacts. Their recorded source paths and behavior are preserved rather than rewritten solely for folder cleanup. This folder is the canonical navigation index for Layer B.
 
 ## Page-text source layer
 
@@ -15,7 +17,7 @@ The page-text, E0/E4, and E5-D retrieval implementations are frozen thesis artif
 
 Verified source version: `page-text-v1.1`.
 
-## E0/E4 retrieval experiment
+## E0/E1 retrieval experiment
 
 - `../retrieval.py`
 - `../build_retrieval_experiments.py`
@@ -25,9 +27,9 @@ Verified source version: `page-text-v1.1`.
 - `../faiss_search_worker.py`
 - `../rerank_candidates_worker.py`
 
-Frozen E0/E4 build/evaluation: `rag-index-build-v1.2` / `retrieval-eval-v1.3`.
+Frozen E0/E1 build/evaluation: `rag-index-build-v1.2` / `retrieval-eval-v1.3`.
 
-## E5 engineering-aware retrieval
+## E2 engineering-aware retrieval
 
 ### Routing and lexical base
 
@@ -44,13 +46,13 @@ Frozen E0/E4 build/evaluation: `rag-index-build-v1.2` / `retrieval-eval-v1.3`.
 - `../e5c_retrieval.py`
 - `../evaluate_e5c_development.py`
 
-### Frozen E5-D reranking
+### Frozen E2-D reranking
 
 - `../e5d_retrieval.py`
 - `../e5d_rerank_worker.py`
 - `../evaluate_e5d_development.py`
 
-### E5 benchmark support
+### E2 benchmark support
 
 - `../prepare_e5_benchmark_families.py`
 - `../prepare_e5_authoring_packets.py`
@@ -60,7 +62,7 @@ Frozen E0/E4 build/evaluation: `rag-index-build-v1.2` / `retrieval-eval-v1.3`.
 
 ## Frozen boundary
 
-The primary Layer B configuration is E5-D. Do not change routing, chunking, E5-C candidate generation, embedding/reranker revisions, RRF/depth settings, reranker instruction, candidate limit 20, or final evidence depth 5 from Layer C outcomes.
+The primary Layer B configuration is E2-D. Do not change routing, chunking, E2-C candidate generation, embedding/reranker revisions, RRF/depth settings, reranker instruction, candidate limit 20, or final evidence depth 5 from Layer C outcomes.
 
 Machine-readable lock:
 

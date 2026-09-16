@@ -1,12 +1,14 @@
 # Layer C Final Evaluation
 
+Publication labels: E1 = legacy E4; E2-A–D = legacy E5-A–D. Artifact names, question IDs and code excerpts retain their original labels. See [experiment label mapping](EXPERIMENT_LABELS.md).
+
 Last updated: 14 August 2026
 
 ## Status
 
 **COMPLETE / FROZEN.**
 
-The strict one-time E5 final benchmark, human semantic review, post-hoc oracle/reference-evidence diagnostic, and the single allowed exact transport retry are complete.
+The strict one-time E2 final benchmark, human semantic review, post-hoc oracle/reference-evidence diagnostic, and the single allowed exact transport retry are complete.
 
 The strict primary result is immutable. No retrieval, prompt, model, reasoning-effort, evidence-depth, response-contract, provider-adapter, or benchmark-question tuning is permitted from final-test observations.
 
@@ -21,7 +23,7 @@ The strict primary result is immutable. No retrieval, prompt, model, reasoning-e
 
 - hosted requests: **40/40 successful**;
 - answerability/status accuracy: **1.0000**;
-- frozen E5-D Recall@1: **0.8333**;
+- frozen E2-D Recall@1: **0.8333**;
 - Recall@3: **0.9722**;
 - Recall@5: **0.9722 (35/36)**;
 - MRR@5: **0.8981**;
@@ -227,4 +229,4 @@ Run it without retraining in two stages:
 1. temporary unseen-document QA without permanent corpus insertion;
 2. permanent ingestion with duplicate rejection, deterministic extraction, lifecycle safeguards, index update, and page-cited QA.
 
-The unseen results must be reported separately from the 40-question primary final benchmark and must not be used to tune the frozen E5 system.
+The unseen results must be reported separately from the 40-question primary final benchmark and must not be used to tune the frozen E2 system.

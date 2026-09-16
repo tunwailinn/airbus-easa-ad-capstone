@@ -1,5 +1,7 @@
 # Project Decisions
 
+Publication labels: E1 = legacy E4; E2-A–D = legacy E5-A–D. Artifact names, question IDs and code excerpts retain their original labels. See [experiment label mapping](EXPERIMENT_LABELS.md).
+
 This log contains stable methodological decisions. Add a dated entry when a decision changes; do not silently rewrite the project boundary.
 
 ## Active decisions
@@ -50,16 +52,24 @@ This log contains stable methodological decisions. Add a dated entry when a deci
 | D45 | Do not add aggressive publication-reference heuristics merely to raise recall after high precision was achieved; residual recall limitations are reported unless a deterministic source pattern is well supported. | Avoids identifier overfitting. |
 | D46 | The development RAG source is the exact 1,786-document strict Airbus-only view, using verified original-PDF page text `page-text-v1.1`; the five unseen PDFs remain excluded. | Ensures the retrieval corpus matches the frozen scope and preserves unseen-document evaluation. |
 | D47 | A weak native-text page may enter retrieval only through a versioned, source-hash-bound reviewed derivative that preserves native provenance; the current corpus has one such page, AD `2011-0006` page 3. | Avoids silently treating image-only content as reliable native text while allowing audited retrieval of a meaningful graphical appendix. |
-| D48 | Frozen E0 and E4 use the same `sentence-transformers/all-MiniLM-L6-v2` dense model and the same 1,786-document manifest. E0 is flat <=350 deterministic whitespace chunk units and dense-only; E4 is section-aware approximately 250–450 whitespace chunk units with BM25 + dense + FAISS + RRF + cross-encoder reranking and candidate depth 20 per sparse/dense path. | Makes the comparison attributable to retrieval architecture rather than corpus or embedding-model changes. |
-| D49 | Frozen thesis E0/E4 measurements must fail rather than silently fall back to hashing embeddings, numpy-only dense indexing, or lexical reranking. Retrieval configuration is frozen before opening locked retrieval scores. | Preserves reproducibility and prevents benchmark-driven tuning or accidental backend substitution. |
-| D50 | `rag-index-build-v1.0` and the partial v1.1 workspace are retained only as pre-benchmark implementation artifacts. Final retrieval evaluation requires accepted `rag-index-build-v1.2` under `data_processed/indexes/rag_v1_2/`. | v1.0 exposed mixed chunk counters; v1.1 exposed a real E4 476>450 construction defect; both were corrected before locked retrieval scores were opened. |
-| D51 | `rag-index-build-v1.2` is frozen with E0 9,394 chunks (max 350) and E4 12,634 chunks (max 450), both over the same 1,786 documents with the same dense model and FAISS backend. | The reviewed v1.2 build summary passes corpus, backend, and chunk-size gates and is the benchmark-eligible retrieval artifact. |
+| D48 | Frozen E0 and E1 use the same `sentence-transformers/all-MiniLM-L6-v2` dense model and the same 1,786-document manifest. E0 is flat <=350 deterministic whitespace chunk units and dense-only; E1 is section-aware approximately 250–450 whitespace chunk units with BM25 + dense + FAISS + RRF + cross-encoder reranking and candidate depth 20 per sparse/dense path. | Makes the comparison attributable to retrieval architecture rather than corpus or embedding-model changes. |
+| D49 | Frozen thesis E0/E1 measurements must fail rather than silently fall back to hashing embeddings, numpy-only dense indexing, or lexical reranking. Retrieval configuration is frozen before opening locked retrieval scores. | Preserves reproducibility and prevents benchmark-driven tuning or accidental backend substitution. |
+| D50 | `rag-index-build-v1.0` and the partial v1.1 workspace are retained only as pre-benchmark implementation artifacts. Final retrieval evaluation requires accepted `rag-index-build-v1.2` under `data_processed/indexes/rag_v1_2/`. | v1.0 exposed mixed chunk counters; v1.1 exposed a real E1 476>450 construction defect; both were corrected before locked retrieval scores were opened. |
+| D51 | `rag-index-build-v1.2` is frozen with E0 9,394 chunks (max 350) and E1 12,634 chunks (max 450), both over the same 1,786 documents with the same dense model and FAISS backend. | The reviewed v1.2 build summary passes corpus, backend, and chunk-size gates and is the benchmark-eligible retrieval artifact. |
 | D52 | After v1.2 acceptance, locked retrieval results are report-only: do not change chunking, model, candidate depth, fusion, reranker, corpus membership, or lifecycle policy based on observed scores. | Prevents retrieval benchmark overfitting and preserves the pre-score experimental freeze. |
 | D53 | `retrieval-eval-v1.3` isolates SentenceTransformer query encoding, FAISS search, and CPU cross-encoder reranking into separate processes on macOS ARM. | Multiple runtime-only attempts showed a native PyTorch/FAISS process conflict; isolation preserves the frozen algorithms while preventing the native crash. |
-| D54 | The final frozen retrieval result is E0 Recall@5 **0.0000** versus E4 Recall@5 **0.4091**, with E4 better on 18 paired questions, E0 better on 0, and 26 ties. | The complete v1.3 run is accepted after a post-evaluation plumbing audit verified FAISS row alignment, embedding consistency, and target-document presence. |
-| D55 | Attribute the observed E4 gain primarily to the hybrid lexical/section-aware architecture, not to dense MiniLM retrieval. | At candidate depth 20, both E0 dense and E4 dense retrieve the correct source on **0/44** questions, while E4 BM25 retrieves the correct source/page on **40/44 (90.9%)**. |
-| D56 | Do not tune the frozen reranker after observing that BM25 candidate recall@20 is 90.9% but final E4 correct-source+page@5 is 40.9%; report this ranking bottleneck as a limitation. | Post-score reranker or fusion changes would invalidate the pre-score retrieval freeze. |
+| D54 | The final frozen retrieval result is E0 Recall@5 **0.0000** versus E1 Recall@5 **0.4091**, with E1 better on 18 paired questions, E0 better on 0, and 26 ties. | The complete v1.3 run is accepted after a post-evaluation plumbing audit verified FAISS row alignment, embedding consistency, and target-document presence. |
+| D55 | Attribute the observed E1 gain primarily to the hybrid lexical/section-aware architecture, not to dense MiniLM retrieval. | At candidate depth 20, both E0 dense and E1 dense retrieve the correct source on **0/44** questions, while E1 BM25 retrieves the correct source/page on **40/44 (90.9%)**. |
+| D56 | Do not tune the frozen reranker after observing that BM25 candidate recall@20 is 90.9% but final E1 correct-source+page@5 is 40.9%; report this ranking bottleneck as a limitation. | Post-score reranker or fusion changes would invalidate the pre-score retrieval freeze. |
 | D57 | Hosted LLMs may be used only for retrieval-time QA interpretation/generation, with page/source citations and abstention; retrieval-induced failures must be separated from generation failures. | A hosted model can reason over supplied evidence but cannot recover authoritative evidence that retrieval failed to include. |
+| D58 | E2-D is the frozen retrieval configuration: BM25 + Qwen/Qwen3-Embedding-0.6B candidate generation (depth 20), Qwen/Qwen3-Reranker-0.6B (depth 5), and deterministic known-document routing. | Stronger multilingual/technical retrieval and reranking models overcome the MiniLM dense bottleneck. |
+| D59 | Layer C hosted QA is frozen with DeepSeek V4 Pro, high reasoning effort, thinking enabled, 4096 max tokens, prompt v1.0-dev, contract v1.0, and strict prohibition of semantic retries. | Standardizes evidence-grounded inference with deterministic local citation resolution and auditable abstention. |
+| D60 | The 40-question primary final benchmark is executed once and immutable; the authoritative strict semantic result is 38/40 = 95.0%. | Prevents post-hoc metric rewriting or tuning leakage. |
+| D61 | Oracle reference-evidence evaluation is explanatory only; it does not replace the primary 95.0% score. | Confirms Layer B versus Layer C failure attribution without conflating diagnostic and retrieval performance. |
+| D62 | Five held-out PDFs remain strictly excluded from development and final benchmark construction to evaluate unseen document generalization (U0–U8). | Tests out-of-sample extraction, temporary retrieval, and isolated permanent ingestion on realistic unseen regulatory documents. |
+| D63 | Permanent ingestion requires isolated store/index validation, duplicate rejection, and lifecycle safeguards without model retraining. | Demonstrates production append capability while protecting frozen research indexes. |
+| D64 | Post-evaluation assistant adopts FastAPI warm serving + Next.js 16 evidence-first UI with single-AD follow-up context and SSE completion checks. | Improves median latency by 77.26% without modifying frozen retrieval or QA contracts. |
+| D65 | Assistant is demo-frozen at commit 88f96d5 after manual live browser acceptance across D1–D8 scenarios. | Locks software serving baseline for capstone delivery and defense demonstrations. |
 
 ## Research questions
 
@@ -94,11 +104,38 @@ This log contains stable methodological decisions. Add a dated entry when a deci
 - Clean extraction scoring retained the frozen nominal split, excluded two out-of-scope test members and the disclosed `2024-0038` leakage, and reported final 17-record results without further parser tuning.
 - Original-PDF page extraction completed over all 1,786 strict-scope development records: 6,002 pages, zero document failures, and one weak native page.
 - Visual review of `2011-0006` page 3 confirmed a graphical hydraulic-accumulator design appendix. A source-hash-bound reviewed derivative resolved the only weak page while preserving native provenance, producing `page-text-v1.1` with `ready_for_indexing=true`.
-- E0/E4 retrieval configuration was frozen before observing locked retrieval scores, and strict build/evaluation tooling was added to prohibit fallback backends in reported thesis measurements.
+- E0/E1 retrieval configuration was frozen before observing locked retrieval scores, and strict build/evaluation tooling was added to prohibit fallback backends in reported thesis measurements.
 - `rag-index-build-v1.0` validated the corpus/model/backend path but was rejected before benchmark because its report mixed chunk counters.
-- `rag-index-build-v1.1` built a valid E0 but stopped before E4 indexing when the strict gate found a 476-unit section chunk against the 450 maximum.
-- `rag-index-build-v1.2` corrected E4 construction accounting and passed the full pre-benchmark gate: E0 9,394 chunks/max 350, E4 12,634 chunks/max 450, both 1,786 documents, real sentence-transformers + FAISS backends.
+- `rag-index-build-v1.1` built a valid E0 but stopped before E1 indexing when the strict gate found a 476-unit section chunk against the 450 maximum.
+- `rag-index-build-v1.2` corrected E1 construction accounting and passed the full pre-benchmark gate: E0 9,394 chunks/max 350, E1 12,634 chunks/max 450, both 1,786 documents, real sentence-transformers + FAISS backends.
 - Three macOS ARM runtime attempts exposed a native PyTorch/FAISS coexistence crash; `retrieval-eval-v1.3` solved it through process isolation without changing retrieval algorithms.
-- The complete frozen retrieval comparison produced E0 Recall@5 0.0000 and E4 Recall@5 0.4091; E4 was better on 18 paired questions, E0 on 0, with 26 ties.
-- Post-evaluation plumbing diagnostics verified FAISS/chunk alignment, fresh-vs-stored embedding consistency, and presence of all target ADs. Both dense branches had 0/44 correct-source recall@20, while E4 BM25 had 40/44 correct-source/page recall@20.
-- Retrieval is now closed/frozen. The next stage is hosted-LLM/full-QA evaluation using retrieved original-PDF evidence, with retrieval and generation errors reported separately.
+- The complete frozen retrieval comparison produced E0 Recall@5 0.0000 and E1 Recall@5 0.4091; E1 was better on 18 paired questions, E0 on 0, with 26 ties.
+- Post-evaluation plumbing diagnostics verified FAISS/chunk alignment, fresh-vs-stored embedding consistency, and presence of all target ADs. Both dense branches had 0/44 correct-source recall@20, while E1 BM25 had 40/44 correct-source/page recall@20.
+- Historical E0/E1 retrieval closed/frozen.
+
+### 2026-08-14
+
+- E2 retrieval development completed and frozen as E2-D: BM25 + Qwen/Qwen3-Embedding-0.6B candidate generation (depth 20) + Qwen/Qwen3-Reranker-0.6B (depth 5). Development Recall@5 reached 0.9630 (1.0000 known-document, 0.8889 discovery).
+- Layer C hosted QA frozen using direct DeepSeek V4 Pro, reasoning_effort: high, thinking enabled, 4096 max tokens, prompt v1.0-dev, contract v1.0. Semantic retries strictly prohibited.
+- Executed the one-time 40-question primary final benchmark: 40/40 hosted requests successful, frozen E2-D Recall@5 35/36 = 97.22%, human semantic review 38/40 = 95.0% PASS. Primary failures attributed to E5F-011 (Layer C answer completeness) and E5F-021 (Layer B candidate generation).
+- Completed oracle reference-evidence diagnostic (39 successes / 1 provider transport failure), confirming Layer B retrieval failure on E5F-021 and Layer C evidence sensitivity on E5F-011. Oracle results declared diagnostic only.
+
+### 2026-08-18
+
+- Executed the five-PDF unseen-document generalization evaluation (U0–U8) across held-out stratum cases.
+- Temporary-document QA (U3/U4) achieved 100% page-overlap Recall@5 and 13 PASS / 1 FAIL / 1 technical provider failure (86.67% strict end-to-end).
+- Isolated permanent ingestion (U5/U6) passed 5/5 automatic safeguards with zero mutation on exact duplicate re-ingestion, expanding the isolated derivative from 1,786 to 1,791 documents and 12,634 to 12,670 section chunks with exact frozen-chunk policy compliance.
+- Post-ingestion QA (U7) achieved 14/14 = 100% Recall@5, 14/14 = 100% correct source@1, and 13 PASS / 1 FAIL / 1 technical failure (92.86% semantic accuracy on successful calls). U5Q-010 confirmed as Layer B passage selection failure; U5Q-011 confirmed as provider technical failure.
+- Locked final unseen generalization report in U8. Evaluation phase declared closed.
+
+### 2026-08-20
+
+- Implemented modern post-evaluation serving architecture: FastAPI warm inference (`assistant_api`) + Next.js 16 App Router UI (`apps/web`).
+- Cached Qwen embedding and reranker in memory on Apple MPS during FastAPI lifespan, reducing median retrieval latency by 77.26% (26.87 s to 6.11 s) while maintaining 10/10 exact top-5 evidence match against frozen E2-D.
+
+### 2026-08-27
+
+- Implemented final demo freeze reliability hardening: single-AD follow-up conversational scope, mandatory SSE `answer.completed` event validation, and stage-safe cancellation checkpoints.
+- Executed post-hardening regression validation: 10/10 exact top-5 match confirmed.
+- Executed full live browser manual validation across scenarios D1–D8: all 8 scenarios passed with zero citation or provenance defects.
+- Froze assistant demo baseline at commit `88f96d5aca67fb0c98113f4f7b04410402a7e559`.

@@ -1,5 +1,7 @@
 # Aviation Document Assistant — Post-Evaluation Status
 
+Publication labels: E1 = legacy E4; E2-A–D = legacy E5-A–D. Artifact names, question IDs and code excerpts retain their original labels. See [experiment label mapping](EXPERIMENT_LABELS.md).
+
 Last updated: 11 September 2026
 
 ## Current checkpoint
@@ -155,11 +157,11 @@ The fallback remains contingency-only and is not the primary final interface.
 
 All UI/UX, serving, cancellation and demo-hardening work is **post-evaluation engineering**. It does not change:
 
-- frozen E5 final semantic result: **38/40 = 95.0%**;
-- frozen E5-D final Recall@5: **35/36 = 97.22%**;
+- frozen E2 final semantic result: **38/40 = 95.0%**;
+- frozen E2-D final Recall@5: **35/36 = 97.22%**;
 - locked unseen U7 outcome: **13 PASS / 1 semantic FAIL / 1 technical failure**;
-- frozen E5-C candidate-generation methodology;
-- frozen E5-D model/revision/instruction;
+- frozen E2-C candidate-generation methodology;
+- frozen E2-D model/revision/instruction;
 - frozen Layer C prompt/response contract;
 - any parser, benchmark or unseen lock.
 

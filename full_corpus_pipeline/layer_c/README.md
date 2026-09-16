@@ -1,5 +1,7 @@
 # Layer C — Hosted Evidence-Grounded QA
 
+Publication labels: E1 = legacy E4; E2-A–D = legacy E5-A–D. Artifact names, question IDs and code excerpts retain their original labels. See [experiment label mapping](../../docs/EXPERIMENT_LABELS.md).
+
 Layer C is the hosted answer-generation layer. Extraction/index construction remain local and deterministic; Layer C receives only a question plus evidence passages with stable IDs and returns a structured evidence-grounded answer or abstention.
 
 ## Current status
@@ -34,7 +36,7 @@ Core QA:
 
 Development:
 
-- `build_evidence_packs.py` — frozen E5-D top-5 development evidence packs;
+- `build_evidence_packs.py` — frozen E2-D top-5 development evidence packs;
 - `run_development.py` — retrieved-evidence development runner;
 - `evaluate_development.py` — offline development evaluator;
 - `build_oracle_evidence_packs.py` — development oracle/reference-evidence packs;

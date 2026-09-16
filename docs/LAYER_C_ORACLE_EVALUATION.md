@@ -1,5 +1,7 @@
 # Layer C Oracle-Evidence Development Evaluation
 
+Publication labels: E1 = legacy E4; E2-A–D = legacy E5-A–D. Artifact names, question IDs and code excerpts retain their original labels. See [experiment label mapping](EXPERIMENT_LABELS.md).
+
 ## Purpose
 
 This document records the development-only oracle/reference-evidence comparison for Layer C. The oracle condition is a diagnostic control: it keeps the hosted-QA model and generation settings unchanged while replacing frozen retrieved evidence with benchmark reference-page evidence for answerable questions. It does not run retrieval and does not expose reference answers to the hosted model.
@@ -56,7 +58,7 @@ reference-page citation hit rate: 1.0000
 target-AD citation hit rate: 1.0000
 ```
 
-The frozen retrieved-evidence reference-in-top-5 rate reported by the evaluator remains 0.9629629629629629 for the 54 answerable development questions. That number describes the original E5-D retrieval condition, not the oracle evidence itself.
+The frozen retrieved-evidence reference-in-top-5 rate reported by the evaluator remains 0.9629629629629629 for the 54 answerable development questions. That number describes the original E2-D retrieval condition, not the oracle evidence itself.
 
 ## Semantic comparison with the retrieved-evidence condition
 
@@ -76,7 +78,7 @@ Retrieved-evidence run: the target/reference passage for EASA AD 2016-0222 was a
 
 Oracle run: with the reference passage supplied, the model correctly identified EASA AD 2016-0222 and preserved the three-month timing rule.
 
-Interpretation: confirmed Layer B candidate-generation/retrieval limitation, not a fundamental Layer C reasoning failure. Do not retune E5-D against this known development miss.
+Interpretation: confirmed Layer B candidate-generation/retrieval limitation, not a fundamental Layer C reasoning failure. Do not retune E2-D against this known development miss.
 
 ### E5D-045 — confirmed reference-page retrieval miss
 
@@ -84,7 +86,7 @@ Retrieved-evidence run: the correct reference page was outside top five, althoug
 
 Oracle run: the model correctly returned Airbus AOT A73P002-21, original issue dated 23 February 2022, and Rolls-Royce Alert NMSB TRENT XWB 73-AK747, original issue dated 22 February 2022.
 
-Interpretation: the oracle result confirms that complete source evidence supports a complete answer. The original E5-D limitation remains a near-boundary ranking miss.
+Interpretation: the oracle result confirms that complete source evidence supports a complete answer. The original E2-D limitation remains a near-boundary ranking miss.
 
 ### E5D-056 — abstention variability
 
@@ -122,7 +124,7 @@ The comparison supports the intended Layer B / Layer C separation:
 
 No development finding justifies post-hoc changes to:
 
-- the frozen E5-D retriever;
+- the frozen E2-D retriever;
 - evidence depth;
 - the Layer C prompt;
 - DeepSeek model selection;

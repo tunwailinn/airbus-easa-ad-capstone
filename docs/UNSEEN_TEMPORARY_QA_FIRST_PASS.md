@@ -1,10 +1,12 @@
 # Five-PDF Unseen Temporary QA — First-Pass Record
 
+Publication labels: E1 = legacy E4; E2-A–D = legacy E5-A–D. Artifact names, question IDs and code excerpts retain their original labels. See [experiment label mapping](EXPERIMENT_LABELS.md).
+
 Date: 17 August 2026
 
 ## Status
 
-This document records the immutable first-pass temporary-document QA result for the five frozen unseen PDFs. It is a post-final generalization experiment and does not alter the frozen E5 primary result of **38/40 = 95.0%**.
+This document records the immutable first-pass temporary-document QA result for the five frozen unseen PDFs. It is a post-final generalization experiment and does not alter the frozen E2 primary result of **38/40 = 95.0%**.
 
 Permanent ingestion has **not** started.
 
@@ -15,7 +17,7 @@ Permanent ingestion has **not** started.
 - 14 answerable + 1 insufficient-evidence/abstention;
 - five held-out PDFs / 21 pages;
 - document-scoped temporary retrieval only;
-- all prepared section chunks from each selected PDF passed to the pinned E5-D Qwen reranker;
+- all prepared section chunks from each selected PDF passed to the pinned E2-D Qwen reranker;
 - final evidence depth: 5;
 - DeepSeek `deepseek-v4-pro`, thinking enabled, reasoning effort high, max tokens 4096;
 - prompt/contract unchanged from the hosted-QA freeze;

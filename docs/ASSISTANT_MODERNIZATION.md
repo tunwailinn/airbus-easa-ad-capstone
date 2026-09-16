@@ -1,10 +1,12 @@
 # Aviation Assistant Modernization
 
+Publication labels: E1 = legacy E4; E2-A–D = legacy E5-A–D. Artifact names, question IDs and code excerpts retain their original labels. See [experiment label mapping](EXPERIMENT_LABELS.md).
+
 Last updated: 11 September 2026
 
 ## Purpose
 
-This is a **post-evaluation serving migration** for the Airbus EASA AD capstone. It improves the user experience and runtime behavior of the demonstrated assistant without replacing or retuning the frozen E5-C/E5-D retrieval methodology or Layer C evaluation contract.
+This is a **post-evaluation serving migration** for the Airbus EASA AD capstone. It improves the user experience and runtime behavior of the demonstrated assistant without replacing or retuning the frozen E2-C/E2-D retrieval methodology or Layer C evaluation contract.
 
 ## Accepted demo architecture
 
@@ -85,7 +87,7 @@ Therefore:
 - predeclared 60% reduction target: **met**;
 - serving device: **Apple MPS**.
 
-This establishes that the warm serving refactor preserved the compatibility-set E5 top-5 output while materially improving local serving latency. It is a post-evaluation engineering result and is not merged into the frozen benchmark metrics.
+This establishes that the warm serving refactor preserved the compatibility-set E2 top-5 output while materially improving local serving latency. It is a post-evaluation engineering result and is not merged into the frozen benchmark metrics.
 
 ## API
 
@@ -141,7 +143,7 @@ Key user experience:
 - conditions, compliance time and exceptions rendered separately;
 - safety/authority boundary shown continuously.
 
-Conversation history is a browser-session concern only. The full conversation is **not** silently injected into E5 retrieval. Follow-up document context is explicit and removable.
+Conversation history is a browser-session concern only. The full conversation is **not** silently injected into E2 retrieval. Follow-up document context is explicit and removable.
 
 ## Frontend/backend types
 

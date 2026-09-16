@@ -1,16 +1,22 @@
 # Layer C — Hosted Evidence-Grounded QA
 
-Last updated: 14 August 2026
+Publication labels: E1 = legacy E4; E2-A–D = legacy E5-A–D. Artifact names, question IDs and code excerpts retain their original labels. See [experiment label mapping](EXPERIMENT_LABELS.md).
+
+Last updated: 27 August 2026
 
 ## Status
 
 **FROZEN / FINAL EVALUATION COMPLETE.**
 
-Frozen E5-D retrieval remains unchanged. Hosted-QA development, development oracle comparison, hosted-QA freeze, final benchmark, human semantic review, and final oracle diagnostic are all complete.
+Frozen E2-D retrieval remains unchanged. Hosted-QA development, development oracle comparison, hosted-QA freeze, final benchmark, human semantic review, and final oracle diagnostic are all complete.
 
 Authoritative primary final semantic accuracy: **38/40 = 95.0%**.
 
-The next project phase is the five frozen unseen-PDF temporary-QA and permanent-ingestion evaluation. Do not tune hosted QA from final-test or unseen-test outcomes.
+Subsequent evaluation and engineering milestones are also complete:
+- Five-PDF unseen generalization evaluation (U0–U8) is complete and locked ([`docs/U8_FINAL_UNSEEN_GENERALIZATION_REPORT.md`](U8_FINAL_UNSEEN_GENERALIZATION_REPORT.md)).
+- Post-evaluation assistant serving integration, reliability hardening, and demo freeze are complete ([`docs/ASSISTANT_STATUS.md`](ASSISTANT_STATUS.md)).
+
+No retrieval, prompt, model, reasoning-effort, evidence-depth, or contract changes are permitted from benchmark or demo observations.
 
 Detailed final record:
 

@@ -1,15 +1,17 @@
 # D1-D8 Final Live Demo Validation
 
+Publication labels: E1 = legacy E4; E2-A–D = legacy E5-A–D. Artifact names, question IDs and code excerpts retain their original labels. See [experiment label mapping](EXPERIMENT_LABELS.md).
+
 - Validation date: 26 August 2026
 - Runtime: FastAPI + Next.js via `ASSISTANT_PYTHON=../Capstone/.venv/bin/python make demo`
 - Browser target: `http://127.0.0.1:3000`
-- Serving state: 1,791 documents, Apple MPS, frozen E5-D retrieval and frozen Layer C contract
+- Serving state: 1,791 documents, Apple MPS, frozen E2-D retrieval and frozen Layer C contract
 
 ## Result
 
 All eight final demo scenarios passed manual browser acceptance. The Stop/retry flow and the detailed evidence-inspector interaction checks also passed. The assistant is demo-frozen for screenshots, architecture diagrams, report work, and presentation preparation.
 
-This is post-evaluation software acceptance. It does not change or replace the frozen E5 final result of 38/40 (95.0%), the frozen E5-D retrieval result, or any locked unseen result. Eight passing demo scenarios must not be reported as 100% research accuracy.
+This is post-evaluation software acceptance. It does not change or replace the frozen E2 final result of 38/40 (95.0%), the frozen E2-D retrieval result, or any locked unseen result. Eight passing demo scenarios must not be reported as 100% research accuracy.
 
 ## Scenario record
 
@@ -93,7 +95,7 @@ PASS.
 PASS.
 
 - Citation chips selected the intended evidence records.
-- AD number, page, section, E5-D rank and PDF filename matched the selected passages.
+- AD number, page, section, E2-D rank and PDF filename matched the selected passages.
 - Reader and Raw modes both rendered correctly.
 - Copy changed to `Copied`, and the clipboard contained the selected passage text.
 - Pointer drag changed the panel width.

@@ -1,10 +1,12 @@
-# E5 Development Question Review Audit
+# E2 Development Question Review Audit
+
+Publication labels: E1 = legacy E4; E2-A–D = legacy E5-A–D. Artifact names, question IDs and code excerpts retain their original labels. See [experiment label mapping](EXPERIMENT_LABELS.md).
 
 Date: 6 August 2026
 
 ## Result
 
-**PASS. Human reviewed.** All 60 E5 development questions were checked against the 24 development authoring packets generated from verified page-text v1.1.
+**PASS. Human reviewed.** All 60 E2 development questions were checked against the 24 development authoring packets generated from verified page-text v1.1.
 
 No substantive corrections were required.
 

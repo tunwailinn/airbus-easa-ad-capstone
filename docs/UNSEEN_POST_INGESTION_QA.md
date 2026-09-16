@@ -1,17 +1,23 @@
-# U7 — Five-PDF Unseen Post-Ingestion E5-D + Layer C Evaluation
+# U7 — Five-PDF Unseen Post-Ingestion E2-D + Layer C Evaluation
 
-## Status
+Publication labels: E1 = legacy E4; E2-A–D = legacy E5-A–D. Artifact names, question IDs and code excerpts retain their original labels. See [experiment label mapping](EXPERIMENT_LABELS.md).
 
-Implementation ready as of 18 August 2026.
+## Status — COMPLETE / HUMAN-APPROVED / LOCKED
 
-U7 begins after:
+U7 post-ingestion evaluation is **complete, human-reviewed, and locked**:
 
-- U0/U1 source validation and preparation — complete;
-- U2 human-reviewed 15-question unseen set — locked;
-- U3/U4 temporary-document QA — human approved and locked;
-- U5/U6 isolated permanent-ingestion safeguards — automatic safeguards passed and locked.
+- Frozen E2-D retrieval on 14 answerable questions: **14/14 = 100% Recall@5**, **14/14 = 100% correct source@1**, **14/14 = 100% correct source+page@5**;
+- Hosted requests: 14/15 successful, 1 technical provider failure (`U5Q-011`, empty final JSON content);
+- Human semantic review: **13 PASS**, **1 FAIL** (`U5Q-010`, Layer B passage selection omission), **1 technical failure** (`U5Q-011`);
+- Semantic accuracy on successful hosted responses: **13/14 = 92.86%**;
+- Strict primary end-to-end success: **13/15 = 86.67%**.
 
-The frozen 40-question E5 final benchmark remains authoritative and unchanged.
+Human review lock:
+```text
+evaluation_sets/unseen_incoming_5_v1/u7_post_ingestion_human_semantic_review_lock.json
+```
+
+The frozen 40-question E2 final benchmark remains authoritative at **38/40 = 95.0%** and is reported separately.
 
 ## U5/U6 result entering U7
 
@@ -22,15 +28,15 @@ The isolated permanent-ingestion run completed with:
 - 5/5 frozen parser-version match;
 - 5/5 deterministic record equality with U1 preparation;
 - 5/5 copied-source SHA-256 match;
-- 5/5 isolated E4 append checks;
-- 5/5 isolated E5-C alignment checks;
+- 5/5 isolated E1 append checks;
+- 5/5 isolated E2-C alignment checks;
 - 5/5 exact duplicate rejections with no mutation;
-- frozen E4 source unchanged;
-- frozen E5-C source unchanged;
+- frozen E1 source unchanged;
+- frozen E2-C source unchanged;
 - normal `data_incoming/` unchanged;
 - automatic safeguards pass: `true`.
 
-The isolated derivative grew from 12,634 to 12,670 section chunks, adding 36 chunks for the five PDFs. The isolated E5-C Qwen dense store also contains 12,670 aligned rows.
+The isolated derivative grew from 12,634 to 12,670 section chunks, adding 36 chunks for the five PDFs. The isolated E2-C Qwen dense store also contains 12,670 aligned rows.
 
 Committed result lock:
 
@@ -54,7 +60,7 @@ The lifecycle engine remains revision-family based. Cross-family supersedure and
 
 ## Frozen-chunk compatibility gate
 
-The U5/U6 append path historically called the generic section chunker, while the accepted E4 research build uses the stricter `rag-index-build-v1.2` whitespace-delimited section chunker.
+The U5/U6 append path historically called the generic section chunker, while the accepted E1 research build uses the stricter `rag-index-build-v1.2` whitespace-delimited section chunker.
 
 Before U7, the validator reconstructs all five newly ingested PDFs with:
 
@@ -81,13 +87,13 @@ e5_chunk_policy_compatibility.json
 
 If all five match exactly, U7 is allowed.
 
-If any document differs, the U5/U6 result remains preserved as a technical-safeguard result, but U7 is blocked. An explicitly labelled E5-compatible derivative must then be built; the original U5/U6 output is not silently overwritten.
+If any document differs, the U5/U6 result remains preserved as a technical-safeguard result, but U7 is blocked. An explicitly labelled E2-compatible derivative must then be built; the original U5/U6 output is not silently overwritten.
 
 ## U7 retrieval condition
 
 U7 uses the same 15 human-reviewed unseen questions without editing their text or references.
 
-Their original `query_mode=temporary_document` value remains provenance from U3. After permanent ingestion, actual routing is determined from the question text by the frozen E5 query router:
+Their original `query_mode=temporary_document` value remains provenance from U3. After permanent ingestion, actual routing is determined from the question text by the frozen E2 query router:
 
 - a question containing an AD identifier may route as known-document;
 - an identifier-free question routes through corpus-wide discovery;
@@ -95,7 +101,7 @@ Their original `query_mode=temporary_document` value remains provenance from U3.
 
 No target AD identifier is injected into a discovery question.
 
-Candidate generation uses the isolated post-ingestion derivative with the frozen E5-C algorithm:
+Candidate generation uses the isolated post-ingestion derivative with the frozen E2-C algorithm:
 
 ```text
 BM25 / E5 evidence assembly
@@ -178,7 +184,7 @@ data_processed/evaluations/unseen_5/post_ingestion_primary/evaluation/
 
 Automatic metrics include:
 
-- E5-D Recall@1/3/5, MRR@5 and nDCG@5 on 14 answerable questions;
+- E2-D Recall@1/3/5, MRR@5 and nDCG@5 on 14 answerable questions;
 - source recall and source+page recall;
 - actual post-ingestion route-mode counts;
 - reference-page any Recall@5;
@@ -208,7 +214,7 @@ Do not fail an answer merely for omitting a fact the question did not request.
 Failure attribution remains stage-specific:
 
 - post-ingestion candidate generation;
-- E5-D passage selection;
+- E2-D passage selection;
 - Layer C generation/status;
 - provider/transport.
 
@@ -216,9 +222,9 @@ Failure attribution remains stage-specific:
 
 U7 is a post-final unseen generalization condition. Its results must not:
 
-- replace the frozen 95.0% E5 final result;
+- replace the frozen 95.0% E2 final result;
 - replace the locked U3/U4 temporary result;
-- retune the parser, E5-C, E5-D, prompt, model settings or evidence depth;
-- modify frozen E5 benchmark artifacts.
+- retune the parser, E2-C, E2-D, prompt, model settings or evidence depth;
+- modify frozen E2 benchmark artifacts.
 
 After U7 human review is locked, proceed to U8 final unseen-generalization reporting.

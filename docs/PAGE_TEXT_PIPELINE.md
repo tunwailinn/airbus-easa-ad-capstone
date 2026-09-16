@@ -1,5 +1,7 @@
 # Page-Preserving PDF Text Pipeline
 
+Publication labels: E1 = legacy E4; E2-A–D = legacy E5-A–D. Artifact names, question IDs and code excerpts retain their original labels. See [experiment label mapping](EXPERIMENT_LABELS.md).
+
 Status: **VERIFIED / INDEX-READY — page-text v1.1**
 
 This stage is separate from deterministic content extraction. It creates the page-addressable original-PDF source layer used by retrieval and citation evaluation.
@@ -87,7 +89,7 @@ failure_count = 0
 `data_processed/page_text_v1_1/operational_airbus/` contains:
 
 - `pages/*.pages.jsonl` — one file per scope-approved PDF;
-- `retrieval_manifest.csv` — exact 1,786-row E0/E4 manifest;
+- `retrieval_manifest.csv` — exact 1,786-row E0/E1 manifest;
 - `page_manifest.csv` — page/review status by document;
 - `failures.csv` — extraction failures;
 - `page_extraction_audit.json` — source-layer gate;
@@ -109,7 +111,7 @@ Do not build an index unless all are true:
 
 The retrieval reader also rechecks page sequence and any stored page-text SHA-256 before accepting pages.
 
-## E0 / E4 build
+## E0 / E1 build
 
 Use the strict experiment builder:
 
@@ -130,7 +132,7 @@ The builder requires the real local retrieval dependencies. It does not permit t
 - FAISS inner-product index;
 - evaluation through dense-only ranking.
 
-### E4 — section-aware hybrid
+### E1 — section-aware hybrid
 
 - section-aware 250–450-token chunks;
 - SQLite FTS5/BM25;

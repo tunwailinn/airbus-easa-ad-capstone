@@ -1,6 +1,8 @@
 # Benchmark Design
 
-Last updated: 14 August 2026
+Publication labels: E1 = legacy E4; E2-A–D = legacy E5-A–D. Artifact names, question IDs and code excerpts retain their original labels. See [experiment label mapping](EXPERIMENT_LABELS.md).
+
+Last updated: 18 August 2026
 
 ## Evaluation principle
 
@@ -10,7 +12,7 @@ Evaluate the application layers separately and preserve test-set boundaries:
 - **Layer B retrieval** measures source/page evidence selection;
 - **Layer C hosted QA** measures interpretation, grounding, completeness, citation use, and abstention given supplied evidence;
 - **oracle/reference evidence** is diagnostic only and separates retrieval/evidence-selection effects from generation behavior;
-- **unseen ingestion** is evaluated separately from E5 development/final benchmarking.
+- **unseen ingestion** is evaluated separately from E2 development/final benchmarking.
 
 Complex compliance questions are not expected to be answerable from structured fields alone. Original PDF passages remain authoritative.
 
@@ -21,7 +23,7 @@ Frozen physical snapshot:
 - **1,809 PDFs**;
 - **1,808 base AD families**.
 
-Five frozen unseen PDFs remain excluded from all development and E5 final benchmark construction.
+Five frozen unseen PDFs remain excluded from all development and E2 final benchmark construction.
 
 Nominal development extraction:
 
@@ -96,7 +98,7 @@ data_processed/page_text_v1_1/operational_airbus/
 
 The five unseen PDFs remain outside this development retrieval source.
 
-## QA-v2 historical E0/E4 benchmark — FROZEN
+## QA-v2 historical E0/E1 benchmark — FROZEN
 
 ```text
 evaluation_sets/easa_airbus_ad_qa_50_v2/
@@ -112,7 +114,7 @@ E0:
 - MiniLM dense-only ranking;
 - Recall@5: **0.0000**.
 
-E4:
+E1:
 
 - 12,634 section-aware chunks;
 - 2,924 multi-page chunks;
@@ -121,9 +123,9 @@ E4:
 - MRR: **0.3106**;
 - nDCG@5: **0.3353**.
 
-Post-evaluation diagnostics showed E4's improvement was primarily lexical/section-aware rather than from the frozen MiniLM dense branch. QA-v2 is historical and is not reused for E5 tuning.
+Post-evaluation diagnostics showed E1's improvement was primarily lexical/section-aware rather than from the frozen MiniLM dense branch. QA-v2 is historical and is not reused for E2 tuning.
 
-## E5 benchmark v1
+## E2 benchmark v1
 
 ```text
 evaluation_sets/easa_airbus_ad_e5_benchmark_v1/
@@ -139,7 +141,7 @@ Family isolation:
 - QA-v2 target families excluded;
 - five unseen-ingestion families excluded.
 
-## E5 development — 60 questions
+## E2 development — 60 questions
 
 | Category | Count |
 |---|---:|
@@ -157,23 +159,23 @@ Query modes:
 - identifier-free discovery: 18;
 - abstention/conflict: 6.
 
-Only this development set was used for E5 retrieval and hosted-QA configuration decisions.
+Only this development set was used for E2 retrieval and hosted-QA configuration decisions.
 
-## E5-D retrieval — SELECTED / FROZEN
+## E2-D retrieval — SELECTED / FROZEN
 
 Selected stack:
 
 - deterministic known-document routing;
-- E5-C BM25 + `Qwen/Qwen3-Embedding-0.6B@97b0c61` candidate generation;
+- E2-C BM25 + `Qwen/Qwen3-Embedding-0.6B@97b0c61` candidate generation;
 - fixed candidate depth: **20**;
 - `Qwen/Qwen3-Reranker-0.6B@e61197e` passage reranker;
 - frozen engineering instruction;
 - final evidence depth: **5**;
-- frozen E4 section chunks.
+- frozen E1 section chunks.
 
 Development result:
 
-| Metric | E5-D |
+| Metric | E2-D |
 |---|---:|
 | Recall@1 | **0.7963** |
 | Recall@3 | **0.9259** |
@@ -225,7 +227,7 @@ Hosted-QA freeze:
 evaluation_sets/easa_airbus_ad_e5_benchmark_v1/hosted_qa_freeze.json
 ```
 
-## E5 final — 40 questions — COMPLETE / FROZEN
+## E2 final — 40 questions — COMPLETE / FROZEN
 
 | Category | Count |
 |---|---:|
@@ -316,37 +318,37 @@ Attribution findings:
 
 Oracle and transport-retry results must never replace the strict 38/40 primary score.
 
-## Unseen evaluation — NEXT
+## Unseen evaluation — COMPLETE / LOCKED
 
-Five non-gold PDFs remain frozen at:
+Five non-gold PDFs held out from all E2 development and final benchmarking were evaluated through stages U0–U8:
 
 ```text
 evaluation_sets/unseen_incoming_5_v1/
 ```
 
-Frozen strata:
+Strata:
+- corrected (`2008-0008`, 2 pages);
+- revised (`2011-0041R1`, 4 pages);
+- supersedure (`2011-0142`, 3 pages);
+- long document (`2026-0084`, 10 pages);
+- simple original (`2007-0173`, 2 pages).
 
-- corrected;
-- revised;
-- supersedure;
-- long document;
-- simple original.
+Completed evaluation results:
+- **U0/U1 non-destructive preparation**: 5/5 extraction success, 5/5 schema-valid.
+- **U2 question lock**: 15 human-verified questions (SHA-256 `603d3385f5d083aeabf071d8d0c9be88896d31eb3f6530e881efeb3c03baeb2d`).
+- **U3/U4 temporary condition**: 13 PASS, 1 FAIL (`U5Q-010`), 1 technical failure (`U5Q-011`); 92.86% semantic accuracy on successful calls; 86.67% strict end-to-end.
+- **U5/U6 isolated permanent ingestion**: 5/5 safeguards pass, exact duplicate rejection, derivative expanded to 1,791 documents and 12,670 chunks with exact frozen chunk policy compatibility.
+- **U7 post-ingestion QA**: 14/14 = 100% Recall@5; human review approved 13 PASS, 1 FAIL (`U5Q-010`), 1 technical failure (`U5Q-011`).
+- **U8 final unseen generalization report**: complete and locked in `docs/U8_FINAL_UNSEEN_GENERALIZATION_REPORT.md`.
 
-They remain outside all E5 development/final benchmark construction.
-
-Evaluate without retraining in two stages:
-
-1. temporary-upload/unseen-document QA without permanent insertion;
-2. permanent ingestion with duplicate rejection, deterministic extraction, lifecycle safeguards, index updates, and citations.
-
-Unseen results must be reported separately from the 40-question final benchmark.
+Unseen results are reported separately from the frozen 40-question E2 final benchmark (38/40 = 95.0%).
 
 ## Locking rules
 
 - Do not retune parser v2.1.6 from locked extraction-test outcomes.
-- Do not retune E0/E4 from QA-v2 outcomes.
-- Tune E5 only on the 60-question E5 development set.
-- Do not change frozen E5-D retrieval from final-test outcomes.
+- Do not retune E0/E1 from QA-v2 outcomes.
+- Tune E2 only on the 60-question E2 development set.
+- Do not change frozen E2-D retrieval from final-test outcomes.
 - Do not change the frozen hosted-QA configuration from final-test outcomes.
 - Do not change final questions after the primary run.
 - Do not replace the strict 38/40 primary score with oracle/post-hoc metrics.

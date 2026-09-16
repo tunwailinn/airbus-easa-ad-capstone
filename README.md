@@ -1,5 +1,7 @@
 # Airbus EASA AD Extraction and RAG Capstone
 
+Publication labels: E1 = legacy E4; E2-A–D = legacy E5-A–D. Artifact names, question IDs and code excerpts retain their original labels. See [experiment label mapping](docs/EXPERIMENT_LABELS.md).
+
 Intelligent engineering document automation for Airbus S.A.S. Airworthiness Directives issued by EASA.
 
 ## Architecture
@@ -27,9 +29,9 @@ Completed/frozen:
 - Layer A deterministic extraction development + clean locked test;
 - strict Airbus S.A.S. scope audit;
 - verified original-PDF page-text layer;
-- historical E0/E4 retrieval experiments;
-- E5-A/B/C/D engineering-aware retrieval development;
-- E5-D retrieval freeze;
+- historical E0/E1 retrieval experiments;
+- E2-A/B/C/D engineering-aware retrieval development;
+- E2-D retrieval freeze;
 - Layer C development + hosted-QA freeze;
 - human-reviewed 40-question final benchmark;
 - one-time final benchmark + human semantic review;
@@ -38,10 +40,10 @@ Completed/frozen:
 - U3/U4 temporary-document unseen evaluation;
 - U5/U6 isolated permanent-ingestion and duplicate/index safeguards;
 - frozen-chunk-policy compatibility gate;
-- U7 post-ingestion E5-D + Layer C evaluation and human review;
+- U7 post-ingestion E2-D + Layer C evaluation and human review;
 - U8 final unseen-generalization report + completion lock.
 
-Authoritative frozen E5 final result:
+Authoritative frozen E2 final result:
 
 ```text
 38/40 = 95.0% strict end-to-end semantic accuracy
@@ -61,7 +63,7 @@ U5Q-010 = Layer B answer-bearing passage-selection failure
 U5Q-011 = provider/structured-output technical failure
 ```
 
-The unseen result is **separate** from the frozen 40-question E5 final benchmark and does not replace the 95.0% primary score.
+The unseen result is **separate** from the frozen 40-question E2 final benchmark and does not replace the 95.0% primary score.
 
 ## Corpus
 
@@ -98,7 +100,7 @@ Clean locked test primary (17 records):
 - source containment: **74/74**;
 - contamination detected: **0**.
 
-## Layer B — verified source + frozen E5-D retrieval
+## Layer B — verified source + frozen E2-D retrieval
 
 Verified original-PDF page source:
 
@@ -111,7 +113,7 @@ data_processed/page_text_v1_1/operational_airbus/
 - zero unresolved weak/OCR pages;
 - one reviewed visual override: AD `2011-0006`, page 3.
 
-Selected E5-D development retrieval:
+Selected E2-D development retrieval:
 
 - Recall@1: **0.7963**;
 - Recall@3: **0.9259**;
@@ -122,13 +124,13 @@ Selected E5-D development retrieval:
 - known-document Recall@5: **1.0000**;
 - discovery Recall@5: **0.8889**.
 
-Frozen E5-D stack:
+Frozen E2-D stack:
 
-- E5-C BM25 + `Qwen/Qwen3-Embedding-0.6B@97b0c61` candidate generation;
+- E2-C BM25 + `Qwen/Qwen3-Embedding-0.6B@97b0c61` candidate generation;
 - candidate depth 20;
 - `Qwen/Qwen3-Reranker-0.6B@e61197e` reranker;
 - final evidence depth 5;
-- frozen E4 section chunks.
+- frozen E1 section chunks.
 
 ## Layer C — frozen hosted QA
 
@@ -144,7 +146,7 @@ response contract: e5-hosted-qa-contract-v1.0
 semantic retry: prohibited
 ```
 
-## One-time E5 final benchmark
+## One-time E2 final benchmark
 
 - 40 human-reviewed questions;
 - 36 answerable + 4 abstention/conflict;
@@ -182,7 +184,7 @@ U5/U6 ingestion safeguards:
 - ingestion success: **5/5**;
 - deterministic record match: **5/5**;
 - exact duplicate rejection without mutation: **5/5**;
-- isolated E4/E5-C append/alignment: **5/5**;
+- isolated E1/E2-C append/alignment: **5/5**;
 - frozen source indexes unchanged: **true**;
 - strict frozen-chunk-policy match: **5/5 exact**.
 
@@ -227,16 +229,58 @@ Final validator:
   full_corpus_pipeline.layer_c.validate_unseen_final_generalization
 ```
 
-## Next phase
+## Post-Evaluation Assistant Runtime — DEMO-FROZEN
 
-The evaluation phase is complete. Remaining work is **post-evaluation engineering and capstone delivery**:
+The post-evaluation user-facing assistant is **complete, latency-optimized, and demo-frozen** (baseline commit `88f96d5`):
 
-- user-facing aviation document assistant integration;
-- final report/thesis and result tables;
-- final system-flow/architecture diagrams;
-- optional post-evaluation improvements to passage selection, lifecycle/correction normalization, and provider robustness.
+- **Architecture**: Warm FastAPI serving (`full_corpus_pipeline/assistant_api`) + Next.js 16 App Router UI (`apps/web`).
+- **Serving Snapshot**: Derived from the post-ingestion 1,791-document / 12,670-chunk corpus (`data_processed/serving/assistant_v1`).
+- **Performance**: In-memory model caching on Apple MPS reduces median retrieval latency by **77.26%** (from 26.87 s to 6.11 s) with **10/10 exact top-5 evidence match** against the frozen batch pipeline.
+- **Reliability Hardening**: Single-AD follow-up conversational scope, mandatory SSE `answer.completed` validation, and stage-safe cancellation checkpoints.
+- **Validation**: All 8 live browser scenarios (**D1–D8**) passed manual acceptance on 26 August 2026.
 
-Any changes after this point must be labelled post-evaluation and must not rewrite the locked benchmark results.
+### Quickstart / Demo Launcher
+
+Run the complete assistant demo (API on `:8000`, web UI on `:3000`) with one command:
+
+```bash
+make demo
+# or bash scripts/start_demo.sh
+```
+
+Then navigate to `http://127.0.0.1:3000` in your browser.
+
+### Component Commands
+
+```bash
+# Start warm FastAPI backend alone
+make assistant-api
+
+# Start Next.js frontend alone
+make assistant-web
+
+# Run warm-serving compatibility validation
+make assistant-compat
+
+# Run backend unit tests and frontend typecheck/lint
+make assistant-check
+
+# Run the CLI assistant directly
+.venv/bin/python -m full_corpus_pipeline.assistant.cli \
+  "For EASA AD 2011-0041R1, what two actions had to be completed within 3 days after 14 March 2011?"
+```
+
+## Documentation
+
+Comprehensive project documentation is organized in [`docs/`](docs/):
+
+- [`docs/README.md`](docs/README.md) — Master documentation catalog and navigation roadmap
+- [`docs/PROJECT_STATUS.md`](docs/PROJECT_STATUS.md) — Authoritative project status across all layers and milestones
+- [`docs/DECISIONS.md`](docs/DECISIONS.md) — Architectural and methodological decision log (D01–D65)
+- [`docs/BENCHMARK_DESIGN.md`](docs/BENCHMARK_DESIGN.md) — Dataset splits, design principles, and evaluation gates
+- [`docs/U8_FINAL_UNSEEN_GENERALIZATION_REPORT.md`](docs/U8_FINAL_UNSEEN_GENERALIZATION_REPORT.md) — Final unseen generalization report
+- [`docs/ASSISTANT_STATUS.md`](docs/ASSISTANT_STATUS.md) — Assistant demo freeze status and validation record
+- [`docs/D1_D8_FINAL_LIVE_DEMO_VALIDATION.md`](docs/D1_D8_FINAL_LIVE_DEMO_VALIDATION.md) — Live browser demo acceptance record
 
 ## Reporting boundaries
 
@@ -246,4 +290,4 @@ Any changes after this point must be labelled post-evaluation and must not rewri
 - Correct source/page retrieval does not necessarily mean the answer-bearing passage reached Layer C.
 - The system does not make aircraft-specific legal compliance determinations.
 - Final oracle and transport-retry results are diagnostic/supplementary only.
-- Unseen-document results are reported separately from the frozen 40-question E5 final result.
+- Unseen-document results are reported separately from the frozen 40-question E2 final result.

@@ -1,0 +1,174 @@
+[
+  {
+    "experiment": "E5-A",
+    "benchmark_sha256": "d43f08611d7d2f77eb37052a03f3deabf335b004ead9528e798e12fb8dad677b",
+    "question_accounting": {
+      "total": 60,
+      "answerable_retrieval": 54,
+      "abstention_reserved_for_qa": 6
+    },
+    "overall": {
+      "question_count": 54,
+      "recall_at_1": 0.6296296296296297,
+      "recall_at_3": 0.8518518518518519,
+      "recall_at_5": 0.8888888888888888,
+      "mrr_at_5": 0.7407407407407407,
+      "ndcg_at_5": 0.7785133499683317,
+      "correct_source_at_1": 0.8333333333333334,
+      "correct_source_at_5": 0.9259259259259259,
+      "correct_source_and_page_at_1": 0.6296296296296297,
+      "correct_source_and_page_at_5": 0.8888888888888888,
+      "candidate_source_recall_at_20": 0.9629629629629629,
+      "candidate_source_and_page_recall_at_20": 0.9444444444444444,
+      "mean_relevant_rank_when_hit_at_20": 2.0588235294117645,
+      "mean_source_rank_when_hit_at_20": 1.5384615384615385
+    },
+    "configuration": {
+      "candidate_limit": 20,
+      "primary_final_k": 5,
+      "explicit_ad_identifier_used_for_routing_only": true,
+      "dense_retrieval": false,
+      "reranker": false,
+      "index": "data_processed/indexes/rag_v1_2/e4_section_hybrid",
+      "document_count": 1786,
+      "chunk_count": 12634,
+      "sparse_backend": "sqlite_fts5_bm25",
+      "retrieval_build_version": "rag-index-build-v1.2"
+    }
+  },
+  {
+    "experiment": "E5-B",
+    "benchmark_sha256": "d43f08611d7d2f77eb37052a03f3deabf335b004ead9528e798e12fb8dad677b",
+    "question_accounting": {
+      "total": 60,
+      "answerable_retrieval": 54,
+      "abstention_reserved_for_qa": 6
+    },
+    "overall": {
+      "question_count": 54,
+      "recall_at_1": 0.6111111111111112,
+      "recall_at_3": 0.8888888888888888,
+      "recall_at_5": 0.9444444444444444,
+      "mrr_at_5": 0.7537037037037038,
+      "ndcg_at_5": 0.8022104253007188,
+      "correct_source_at_1": 0.8148148148148148,
+      "correct_source_at_5": 0.9629629629629629,
+      "correct_source_and_page_at_1": 0.6111111111111112,
+      "correct_source_and_page_at_5": 0.9444444444444444,
+      "candidate_source_recall_at_20": 0.9814814814814815,
+      "candidate_source_and_page_recall_at_20": 0.9629629629629629,
+      "mean_relevant_rank_when_hit_at_20": 1.8076923076923077,
+      "mean_source_rank_when_hit_at_20": 1.3584905660377358
+    },
+    "configuration": {
+      "discovery_pool_limit": 80,
+      "document_limit": 12,
+      "within_document_limit": 6,
+      "candidate_limit": 20,
+      "primary_final_k": 5,
+      "dense_retrieval": false,
+      "reranker": false,
+      "index": "data_processed/indexes/rag_v1_2/e4_section_hybrid",
+      "document_count": 1786,
+      "chunk_count": 12634,
+      "sparse_backend": "sqlite_fts5_bm25",
+      "retrieval_build_version": "rag-index-build-v1.2"
+    }
+  },
+  {
+    "experiment": "E5-C",
+    "benchmark_sha256": "d43f08611d7d2f77eb37052a03f3deabf335b004ead9528e798e12fb8dad677b",
+    "question_accounting": {
+      "total": 60,
+      "answerable_retrieval": 54,
+      "abstention_reserved_for_qa": 6
+    },
+    "overall": {
+      "question_count": 54,
+      "recall_at_1": 0.6481481481481481,
+      "recall_at_3": 0.8518518518518519,
+      "recall_at_5": 0.9259259259259259,
+      "mrr_at_5": 0.7645061728395062,
+      "ndcg_at_5": 0.8053366669846166,
+      "correct_source_at_1": 0.8518518518518519,
+      "correct_source_at_5": 0.9629629629629629,
+      "correct_source_and_page_at_1": 0.6481481481481481,
+      "correct_source_and_page_at_5": 0.9259259259259259,
+      "candidate_source_recall_at_20": 0.9814814814814815,
+      "candidate_source_and_page_recall_at_20": 0.9814814814814815,
+      "mean_relevant_rank_when_hit_at_20": 2.169811320754717,
+      "mean_source_rank_when_hit_at_20": 1.3018867924528301
+    },
+    "configuration": {
+      "lexical_pool_limit": 80,
+      "dense_pool_limit": 80,
+      "document_fusion_depth": 24,
+      "document_limit": 12,
+      "within_document_limit": 6,
+      "candidate_limit": 20,
+      "primary_final_k": 5,
+      "dense_retrieval": true,
+      "embedding_model": "Qwen/Qwen3-Embedding-0.6B",
+      "embedding_revision": "97b0c61",
+      "query_prompt_name": "query",
+      "dense_similarity": "normalized_inner_product_cosine",
+      "fusion": "reciprocal_rank_fusion",
+      "rrf_k": 60,
+      "reranker": false,
+      "index": "data_processed/indexes/rag_v1_2/e4_section_hybrid",
+      "dense_dir": "data_processed/indexes/e5c_qwen3_embedding_0_6b",
+      "query_encoder_execution": "isolated_subprocess_without_faiss",
+      "query_encoder_device": "mps",
+      "document_count": 1786,
+      "chunk_count": 12634,
+      "sparse_backend": "sqlite_fts5_bm25",
+      "retrieval_build_version": "rag-index-build-v1.2"
+    }
+  },
+  {
+    "experiment": "E5-D",
+    "benchmark_sha256": "d43f08611d7d2f77eb37052a03f3deabf335b004ead9528e798e12fb8dad677b",
+    "question_accounting": {
+      "total": 60,
+      "answerable_retrieval": 54,
+      "abstention_reserved_for_qa": 6
+    },
+    "overall": {
+      "question_count": 54,
+      "recall_at_1": 0.7962962962962963,
+      "recall_at_3": 0.9259259259259259,
+      "recall_at_5": 0.9629629629629629,
+      "mrr_at_5": 0.8632716049382716,
+      "ndcg_at_5": 0.8883736691326893,
+      "correct_source_at_1": 0.8518518518518519,
+      "correct_source_at_5": 0.9814814814814815,
+      "correct_source_and_page_at_1": 0.7962962962962963,
+      "correct_source_and_page_at_5": 0.9629629629629629,
+      "candidate_source_recall_at_20": 0.9814814814814815,
+      "candidate_source_and_page_recall_at_20": 0.9814814814814815,
+      "mean_relevant_rank_when_hit_at_20": 1.3962264150943395,
+      "mean_source_rank_when_hit_at_20": 1.2452830188679245
+    },
+    "configuration": {
+      "candidate_generation": "E5-C fixed top-20",
+      "candidate_limit": 20,
+      "primary_final_k": 5,
+      "embedding_model": "Qwen/Qwen3-Embedding-0.6B",
+      "embedding_revision": "97b0c61",
+      "reranker": true,
+      "reranker_model": "Qwen/Qwen3-Reranker-0.6B",
+      "reranker_revision": "e61197e",
+      "reranker_instruction": "Given an aviation airworthiness-directive maintenance query, rank passages by how directly and completely they answer the query. Preserve exact applicability, compliance thresholds, timing, exceptions, identifiers, lifecycle statements, and referenced publications.",
+      "reranker_score_type": "raw_logit_difference",
+      "reranker_execution": "isolated_subprocess_without_faiss",
+      "reranker_device": "mps",
+      "reranker_batch_size": 2,
+      "index": "data_processed/indexes/rag_v1_2/e4_section_hybrid",
+      "dense_dir": "data_processed/indexes/e5c_qwen3_embedding_0_6b",
+      "document_count": 1786,
+      "chunk_count": 12634,
+      "sparse_backend": "sqlite_fts5_bm25",
+      "retrieval_build_version": "rag-index-build-v1.2"
+    }
+  }
+]

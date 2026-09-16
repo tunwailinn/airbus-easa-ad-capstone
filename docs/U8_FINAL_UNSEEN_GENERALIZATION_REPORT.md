@@ -1,5 +1,7 @@
 # U8 Final Unseen-Document Generalization Report
 
+Publication labels: E1 = legacy E4; E2-A–D = legacy E5-A–D. Artifact names, question IDs and code excerpts retain their original labels. See [experiment label mapping](EXPERIMENT_LABELS.md).
+
 **Date:** 2026-08-18  
 **Scope:** Five frozen unseen Airbus S.A.S. EASA AD PDFs  
 **Status:** Complete
@@ -11,7 +13,7 @@ generalizes to five held-out documents covering correction, revision, supersedur
 and simple-original cases.
 
 The five-document ingestion pipeline passed all technical safeguards. After isolated permanent
-ingestion, frozen E5-D retrieval achieved **100% Recall@5 (14/14)** and **100% correct-source@1
+ingestion, frozen E2-D retrieval achieved **100% Recall@5 (14/14)** and **100% correct-source@1
 (14/14)** on the answerable unseen questions. Human semantic review of the hosted-QA primary
 result produced **13 PASS, 1 semantic FAIL and 1 technical provider failure**.
 
@@ -20,7 +22,7 @@ The final U7 primary unseen rates are:
 - semantic accuracy among successful hosted responses: **13/14 = 92.86%**;
 - strict primary end-to-end success: **13/15 = 86.67%**.
 
-These unseen results are reported separately from the frozen 40-question E5 final benchmark,
+These unseen results are reported separately from the frozen 40-question E2 final benchmark,
 whose authoritative strict semantic result remains **38/40 = 95.0%**.
 
 ## Evaluation stages
@@ -63,20 +65,20 @@ All technical safeguards passed:
 - ingestion success: **5/5**
 - deterministic record match: **5/5**
 - source SHA match: **5/5**
-- E4 append check: **5/5**
-- E5-C row alignment: **5/5**
+- E1 append check: **5/5**
+- E2-C row alignment: **5/5**
 - exact duplicate rejection without mutation: **5/5**
 - lifecycle decision recorded: **5/5**
-- frozen E4 unchanged: **true**
-- frozen E5-C unchanged: **true**
+- frozen E1 unchanged: **true**
+- frozen E2-C unchanged: **true**
 - normal incoming directory unchanged: **true**
 
 The isolated derivative grew from **1,786 to 1,791 documents** and from **12,634 to 12,670 chunks**.
 
-A strict compatibility gate reconstructed the five documents with the frozen E4 chunking policy
+A strict compatibility gate reconstructed the five documents with the frozen E1 chunking policy
 and obtained an exact **5/5 chunk-count and chunk-ID match**.
 
-### U7 — post-ingestion E5-D + frozen Layer C
+### U7 — post-ingestion E2-D + frozen Layer C
 
 Retrieval on 14 answerable questions:
 
@@ -139,7 +141,7 @@ The held-out evaluation supports four conclusions:
    deterministically and admitted without mutating the frozen development artifacts.
 2. **Duplicate and index-update safeguards behaved correctly.** Exact duplicate re-ingestion was
    rejected without state mutation for all five PDFs.
-3. **E5-D retrieval generalized strongly after ingestion.** All 14 answerable questions had a
+3. **E2-D retrieval generalized strongly after ingestion.** All 14 answerable questions had a
    correct source+page within top-5, and the correct source ranked first for every question.
 4. **The remaining limitations are narrow but important.** One question exposed answer-bearing
    passage-selection weakness despite perfect page-level Recall@5, and one exposed persistent
@@ -149,11 +151,11 @@ The held-out evaluation supports four conclusions:
 
 | Evaluation condition | Retrieval | Human semantic result | Strict end-to-end |
 |---|---|---|---|
-| Frozen 40-question E5 final | Recall@5 35/36 = 97.22% | 38/40 PASS = 95.0% | 95.0% |
+| Frozen 40-question E2 final | Recall@5 35/36 = 97.22% | 38/40 PASS = 95.0% | 95.0% |
 | Unseen temporary U3/U4 | Page Recall@5 14/14 = 100% | 13 PASS / 1 FAIL / 1 technical | 13/15 = 86.67% |
-| Unseen post-ingestion U7 | E5-D Recall@5 14/14 = 100% | 13 PASS / 1 FAIL / 1 technical | 13/15 = 86.67% |
+| Unseen post-ingestion U7 | E2-D Recall@5 14/14 = 100% | 13 PASS / 1 FAIL / 1 technical | 13/15 = 86.67% |
 
-The 95.0% E5 final result remains the project’s authoritative final benchmark score. The unseen
+The 95.0% E2 final result remains the project’s authoritative final benchmark score. The unseen
 results are separate post-final generalization evidence.
 
 ## Remaining engineering work

@@ -1,18 +1,33 @@
 # Five-PDF Unseen Permanent-Ingestion Evaluation
 
-## Status
+Publication labels: E1 = legacy E4; E2-A–D = legacy E5-A–D. Artifact names, question IDs and code excerpts retain their original labels. See [experiment label mapping](EXPERIMENT_LABELS.md).
 
-U5/U6 implementation is ready. This stage begins only after the locked U3/U4 temporary-document result validates.
+## Status — COMPLETE / PASS / LOCKED
 
-The authoritative temporary result remains:
+U5/U6 isolated permanent ingestion is **complete, passed, and locked**:
 
-- 13 semantic PASS;
-- 1 semantic FAIL (`U5Q-010`, Layer B temporary passage selection);
-- 1 persistent provider/transport failure (`U5Q-011`);
-- 13/14 = 92.86% semantic accuracy among successful hosted responses;
-- 13/15 = 86.67% strict first-pass end-to-end success.
+- Ingestion success: **5/5**;
+- Exact duplicate rejection without mutation: **5/5**;
+- AD identity and parser version match: **5/5**;
+- Exact deterministic record match against U1: **5/5**;
+- Copied source SHA match: **5/5**;
+- Isolated E1 chunk append match: **5/5**;
+- Isolated E2-C dense row alignment: **5/5**;
+- Frozen source indexes unchanged: **true**;
+- Automatic safeguards pass: **true**.
 
-U5/U6 does not change those values.
+Derivative growth:
+```text
+Documents: 1,786 → 1,791 (+5)
+Chunks:    12,634 → 12,670 (+36)
+```
+
+Locked result artifact:
+```text
+evaluation_sets/unseen_incoming_5_v1/unseen_permanent_ingestion_result_lock.json
+```
+
+The authoritative temporary result remains unchanged (13 PASS / 1 FAIL / 1 technical failure). Permanent ingestion does not retrain models or modify the frozen research indexes.
 
 ## Purpose
 
@@ -24,7 +39,7 @@ Evaluate whether the five held-out PDFs can be admitted after the post-final tem
 - revision-family lifecycle safeguards;
 - correction/revision/supersedure signals;
 - persistent section-index append behavior;
-- E5-C Qwen dense-store row alignment;
+- E2-C Qwen dense-store row alignment;
 - frozen-source-index immutability.
 
 No hosted QA is called in U5/U6 and no model is retrained.
@@ -50,7 +65,7 @@ Incoming records are written only to:
 data_processed/evaluations/unseen_5/permanent_ingestion/isolated_store/
 ```
 
-The normal `data_incoming/` directory and frozen E4/E5-C source artifacts are fingerprinted before and after the run and must remain unchanged.
+The normal `data_incoming/` directory and frozen E1/E2-C source artifacts are fingerprinted before and after the run and must remain unchanged.
 
 ## Held-out manifest handling
 
@@ -78,19 +93,19 @@ This is a process-boundary/runtime correction only. It does not change:
 - SQLite FTS/BM25 content;
 - lifecycle policy.
 
-## E5-C compatibility
+## E2-C compatibility
 
-The frozen E5-C dense artifact is aligned by SHA-256 and chunk-order hash to the E4 `chunks.jsonl`. Appending only E4 chunks would intentionally make the frozen E5-C store stale and cause the E5-C validator to reject it.
+The frozen E2-C dense artifact is aligned by SHA-256 and chunk-order hash to the E1 `chunks.jsonl`. Appending only E1 chunks would intentionally make the frozen E2-C store stale and cause the E2-C validator to reject it.
 
-For the isolated ingestion derivative only, each appended document is therefore encoded with the same frozen E5-C model:
+For the isolated ingestion derivative only, each appended document is therefore encoded with the same frozen E2-C model:
 
 ```text
 Qwen/Qwen3-Embedding-0.6B@97b0c61
 ```
 
-using the same float32 L2-renormalization policy. The cloned E5-C `dense_embeddings.npy` and cloned metadata are extended and rebound to the cloned `chunks.jsonl` SHA-256 and chunk-ID order.
+using the same float32 L2-renormalization policy. The cloned E2-C `dense_embeddings.npy` and cloned metadata are extended and rebound to the cloned `chunks.jsonl` SHA-256 and chunk-ID order.
 
-The original frozen E5-C artifact is never modified.
+The original frozen E2-C artifact is never modified.
 
 ## U5/U6 evaluator
 
@@ -131,8 +146,8 @@ For each of the five frozen PDFs, the evaluator performs:
 4. exact deterministic-record comparison against the U1 preparation packet;
 5. copied-source SHA-256 validation;
 6. lifecycle decision capture;
-7. isolated E4 chunk-count append validation;
-8. isolated E5-C dense row-count/SHA/order alignment validation;
+7. isolated E1 chunk-count append validation;
+8. isolated E2-C dense row-count/SHA/order alignment validation;
 9. exact duplicate re-ingestion attempt;
 10. verification that the duplicate attempt caused no extraction/lifecycle/index mutation.
 
@@ -158,12 +173,12 @@ U5/U6 reports those outcomes as observed safeguards/limitations. It does not tun
 - 5/5 frozen parser version match;
 - 5/5 deterministic record equality with U1 preparation;
 - 5/5 copied source SHA match;
-- 5/5 isolated E4 append-count checks;
-- 5/5 isolated E5-C alignment checks;
+- 5/5 isolated E1 append-count checks;
+- 5/5 isolated E2-C alignment checks;
 - 5/5 exact duplicate rejection with no mutation;
 - 5/5 lifecycle decisions recorded;
-- frozen E4 source unchanged;
-- frozen E5-C source unchanged;
+- frozen E1 source unchanged;
+- frozen E2-C source unchanged;
 - normal `data_incoming/` unchanged.
 
 Ambiguous lifecycle decisions do not automatically fail this gate; they are surfaced for explicit review because ambiguity handling is itself a safety behavior.
@@ -193,4 +208,4 @@ U7 post-ingestion E5-D retrieval + citation verification
 → U8 final unseen-generalization report
 ```
 
-U7 must use the isolated post-ingestion E4/E5-C derivative and the frozen E5-D reranker/Layer C settings. It must not modify or replace the frozen E5 final benchmark artifacts.
+U7 must use the isolated post-ingestion E1/E2-C derivative and the frozen E2-D reranker/Layer C settings. It must not modify or replace the frozen E2 final benchmark artifacts.

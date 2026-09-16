@@ -1,5 +1,7 @@
 # Airbus EASA AD Capstone — Exact Project Plan v3
 
+Publication labels: E1 = legacy E4; E2-A–D = legacy E5-A–D. Artifact names, question IDs and code excerpts retain their original labels. See [experiment label mapping](docs/EXPERIMENT_LABELS.md).
+
 **Student:** Tun Wai Lin
 
 **Project:** Intelligent Engineering Document Automation for Aviation Maintenance
@@ -469,7 +471,7 @@ Promote a run only when:
 
 ### 10.2 Retrieval
 
-The proposed E4 system uses:
+The proposed E1 system uses:
 
 1. SQLite FTS5/BM25;
 2. local sentence-transformer embeddings;
@@ -620,7 +622,7 @@ absence of training operations.
 | 4 Aug | Run local 30-document pilot and 1,804-document extraction | 1,804 schema-valid records; zero hosted calls |
 | 10–16 Aug | Review deterministic metadata/section quality | Error analysis and frozen parser rules |
 | 17–23 Aug | Prepare original-PDF page text and retrieval inputs | Page-preserving source derivatives |
-| 24–30 Aug | Build original-PDF chunks and local indexes | Page-aware E0/E4 indexes |
+| 24–30 Aug | Build original-PDF chunks and local indexes | Page-aware E0/E1 indexes |
 | 31 Aug–6 Sep | Evaluate retrieval | Retrieval metrics/error report |
 | 7–13 Sep | Evaluate corpus and temporary QA, especially compliance logic | QA/citation/abstention report |
 | 14–20 Sep | Permanent ingestion and final evaluation | Five ingestions; count 1,809 |
@@ -647,7 +649,7 @@ absence of training operations.
 - [ ] Supervisor approval of v3.
 - [x] 30-document local development pilot.
 - [x] 1,804 section-complete development records with zero failures.
-- [ ] Original-PDF page-aware E0 and E4 indexes.
+- [ ] Original-PDF page-aware E0 and E1 indexes.
 - [ ] Locked extraction, retrieval, and QA evaluation.
 - [ ] Five temporary and permanent ingestion tests.
 - [ ] Final count of 1,809.

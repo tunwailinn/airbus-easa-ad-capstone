@@ -1,17 +1,19 @@
 # Frozen Five-PDF Unseen-Document Evaluation
 
+Publication labels: E1 = legacy E4; E2-A–D = legacy E5-A–D. Artifact names, question IDs and code excerpts retain their original labels. See [experiment label mapping](EXPERIMENT_LABELS.md).
+
 ## Status — COMPLETE / LOCKED
 
-This is the post-final generalization experiment performed after the frozen E5-D retrieval configuration, frozen hosted-QA configuration, one-time 40-question final benchmark, human semantic review, and final oracle diagnostic.
+This is the post-final generalization experiment performed after the frozen E2-D retrieval configuration, frozen hosted-QA configuration, one-time 40-question final benchmark, human semantic review, and final oracle diagnostic.
 
-The authoritative E5 primary result remains unchanged:
+The authoritative E2 primary result remains unchanged:
 
 - 40 final questions;
 - 38 semantic passes / 2 semantic failures;
 - strict end-to-end semantic accuracy: **95.0%**;
-- E5-D final Recall@5: **35/36 = 97.22%**.
+- E2-D final Recall@5: **35/36 = 97.22%**.
 
-The unseen experiment is complete through **U8**. Its results are separate from the frozen 40-question E5 final benchmark and may not be used to retrospectively retune the parser, retrieval stack, prompt, DeepSeek settings, response contract, or evidence depth.
+The unseen experiment is complete through **U8**. Its results are separate from the frozen 40-question E2 final benchmark and may not be used to retrospectively retune the parser, retrieval stack, prompt, DeepSeek settings, response contract, or evidence depth.
 
 ## Frozen unseen set
 
@@ -91,12 +93,12 @@ Technical safeguards:
 - frozen parser match: **5/5**;
 - deterministic record match against U1: **5/5**;
 - copied source SHA match: **5/5**;
-- isolated E4 append checks: **5/5**;
-- isolated E5-C row-alignment checks: **5/5**;
+- isolated E1 append checks: **5/5**;
+- isolated E2-C row-alignment checks: **5/5**;
 - exact duplicate rejection with no mutation: **5/5**;
 - lifecycle decisions recorded: **5/5**;
-- frozen E4 unchanged: **true**;
-- frozen E5-C unchanged: **true**;
+- frozen E1 unchanged: **true**;
+- frozen E2-C unchanged: **true**;
 - normal `data_incoming/` unchanged: **true**.
 
 The isolated derivative grew:
@@ -116,27 +118,27 @@ evaluation_sets/unseen_incoming_5_v1/unseen_permanent_ingestion_result_lock.json
 
 ## Pre-U7 frozen-chunk-policy compatibility gate — COMPLETE / PASS
 
-The five appended documents were reconstructed with the frozen E4 strict section-chunk policy.
+The five appended documents were reconstructed with the frozen E1 strict section-chunk policy.
 
 - selected documents: **5**;
 - exact match: **5/5**;
 - chunk counts and chunk IDs matched exactly;
 - `all_exact`: **true**.
 
-This confirms U7 used the same chunking policy as the frozen E5 retrieval stack.
+This confirms U7 used the same chunking policy as the frozen E2 retrieval stack.
 
-## U7 — post-ingestion E5-D + frozen Layer C — COMPLETE / HUMAN-APPROVED / LOCKED
+## U7 — post-ingestion E2-D + frozen Layer C — COMPLETE / HUMAN-APPROVED / LOCKED
 
 Frozen algorithm/configuration retained:
 
-- E5-C BM25 + `Qwen/Qwen3-Embedding-0.6B@97b0c61`;
+- E2-C BM25 + `Qwen/Qwen3-Embedding-0.6B@97b0c61`;
 - candidate depth: **20**;
-- E5-D `Qwen/Qwen3-Reranker-0.6B@e61197e`;
+- E2-D `Qwen/Qwen3-Reranker-0.6B@e61197e`;
 - evidence depth: **5**;
 - DeepSeek `deepseek-v4-pro`;
 - thinking enabled, reasoning effort high, max tokens 4096;
 - prompt `e5-hosted-qa-prompt-v1.0-dev`;
-- no frozen E5 artifact mutation;
+- no frozen E2 artifact mutation;
 - no retrieval retuning.
 
 ### U7 retrieval — 14 answerable questions
@@ -173,7 +175,7 @@ evaluation_sets/unseen_incoming_5_v1/u7_post_ingestion_human_semantic_review_loc
 
 ### U5Q-010 — final attribution
 
-Page-level E5-D reports a reference-page hit, but neither approved answer-bearing `Supersedure` nor `Applicability` quote is in the top-five prompt evidence. The hosted `insufficient_evidence` response is therefore attributed to **Layer B post-ingestion passage selection**, not Layer C reasoning.
+Page-level E2-D reports a reference-page hit, but neither approved answer-bearing `Supersedure` nor `Applicability` quote is in the top-five prompt evidence. The hosted `insufficient_evidence` response is therefore attributed to **Layer B post-ingestion passage selection**, not Layer C reasoning.
 
 This is the key retrieval lesson from the unseen experiment:
 
@@ -230,11 +232,11 @@ Final comparison:
 
 | Evaluation condition | Retrieval | Human semantic result | Strict end-to-end |
 |---|---|---|---|
-| Frozen 40-question E5 final | Recall@5 35/36 = 97.22% | 38/40 PASS = 95.0% | 95.0% |
+| Frozen 40-question E2 final | Recall@5 35/36 = 97.22% | 38/40 PASS = 95.0% | 95.0% |
 | Unseen temporary U3/U4 | Page Recall@5 14/14 = 100% | 13 PASS / 1 FAIL / 1 technical | 13/15 = 86.67% |
-| Unseen post-ingestion U7 | E5-D Recall@5 14/14 = 100% | 13 PASS / 1 FAIL / 1 technical | 13/15 = 86.67% |
+| Unseen post-ingestion U7 | E2-D Recall@5 14/14 = 100% | 13 PASS / 1 FAIL / 1 technical | 13/15 = 86.67% |
 
-The **95.0% frozen E5 primary result remains the project's authoritative final benchmark score**. The unseen results are separate post-final evidence of generalization, ingestion robustness, and remaining system limitations.
+The **95.0% frozen E2 primary result remains the project's authoritative final benchmark score**. The unseen results are separate post-final evidence of generalization, ingestion robustness, and remaining system limitations.
 
 ## Evaluation sequence
 
@@ -258,7 +260,7 @@ Do not claim that:
 - structured extraction fully normalizes complex compliance logic;
 - correct source/page retrieval always implies answer-bearing passage retrieval;
 - the system makes aircraft-specific legal compliance determinations;
-- oracle/retry/unseen results replace the strict E5 final score;
-- unseen results are part of the frozen 40-question E5 final benchmark.
+- oracle/retry/unseen results replace the strict E2 final score;
+- unseen results are part of the frozen 40-question E2 final benchmark.
 
 Original PDF passages remain authoritative for detailed applicability/compliance interpretation and page-cited QA. Future engineering changes are post-evaluation work and must not rewrite the preserved results above.

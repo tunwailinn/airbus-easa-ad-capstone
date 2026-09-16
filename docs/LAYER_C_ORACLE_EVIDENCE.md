@@ -1,5 +1,7 @@
 # Layer C Oracle / Reference-Evidence Development Condition
 
+Publication labels: E1 = legacy E4; E2-A–D = legacy E5-A–D. Artifact names, question IDs and code excerpts retain their original labels. See [experiment label mapping](EXPERIMENT_LABELS.md).
+
 ## Purpose
 
 This controlled development experiment estimates the Layer C generation/reasoning ceiling when the intended source evidence is supplied directly, without changing the hosted model or prompt.
@@ -83,7 +85,7 @@ For each answerable development question, the builder:
 
 1. reads the private `target_ad_number`;
 2. reads the human-reviewed `reference_pages`;
-3. finds frozen E4 chunks whose `ad_number` equals the target AD and whose page range overlaps a reference page;
+3. finds frozen E1 chunks whose `ad_number` equals the target AD and whose page range overlaps a reference page;
 4. prioritizes chunks whose section matches a human-reviewed `reference_sections` entry;
 5. guarantees reference-page coverage before filling remaining slots;
 6. emits at most five source chunks with stable `EV1...EV5` IDs; and
@@ -123,8 +125,8 @@ The builder writes a companion manifest containing SHA-256 hashes of:
 
 - the frozen development questions;
 - retrieval freeze;
-- frozen E4 chunk store;
-- frozen E5-D development report;
+- frozen E1 chunk store;
+- frozen E2-D development report;
 - retrieved-evidence packs; and
 - generated oracle evidence packs.
 

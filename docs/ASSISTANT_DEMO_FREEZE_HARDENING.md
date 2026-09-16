@@ -1,5 +1,7 @@
 # Assistant Demo Freeze Hardening
 
+Publication labels: E1 = legacy E4; E2-A–D = legacy E5-A–D. Artifact names, question IDs and code excerpts retain their original labels. See [experiment label mapping](EXPERIMENT_LABELS.md).
+
 Last updated: 27 August 2026
 
 ## Purpose
@@ -56,7 +58,7 @@ Interpretation:
 - canonical measured latency reduction: **77.26%**;
 - predeclared 60% serving target: **met**.
 
-These are serving-engineering measurements only. They do not replace or modify the frozen E5 benchmark.
+These are serving-engineering measurements only. They do not replace or modify the frozen E2 benchmark.
 
 ## Implemented hardening
 
@@ -75,7 +77,7 @@ Final behavior:
 - only the most recently selected AD is sent as explicit context;
 - the visible follow-up chip is replaced when a new AD is selected;
 - FastAPI rejects requests containing more than one explicit context AD;
-- questions that explicitly contain their own AD number still use the standard E5 query router.
+- questions that explicitly contain their own AD number still use the standard E2 query router.
 
 This keeps follow-up routing deterministic and avoids changing the frozen retrieval methodology.
 
@@ -266,8 +268,8 @@ Eight passing demo scenarios must not be reported as 100% research accuracy.
 This hardening does not change:
 
 - parser `content-local-v2.1.6`;
-- frozen E5-C candidate-generation methodology;
-- frozen E5-D model, revision or instruction;
+- frozen E2-C candidate-generation methodology;
+- frozen E2-D model, revision or instruction;
 - evidence depth of 5;
 - frozen Layer C prompt/contract;
 - frozen final benchmark results;

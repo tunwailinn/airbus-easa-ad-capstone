@@ -1,10 +1,15 @@
 # User-Facing Aviation Document Assistant Integration
 
+Publication labels: E1 = legacy E4; E2-A–D = legacy E5-A–D. Artifact names, question IDs and code excerpts retain their original labels. See [experiment label mapping](EXPERIMENT_LABELS.md).
+
 ## Status
 
-**Post-evaluation engineering — assistant serving slice implemented.**
+**Post-evaluation engineering — assistant serving slice implemented and modernized.**
 
-This integration is deliberately downstream of the frozen E5 final benchmark and the locked U0–U8 unseen evaluation. It reuses the validated retrieval/QA architecture for live questions but does not modify or reinterpret any benchmark result.
+This integration is deliberately downstream of the frozen E2 final benchmark and the locked U0–U8 unseen evaluation. It reuses the validated retrieval/QA architecture for live questions but does not modify or reinterpret any benchmark result.
+
+> [!NOTE]
+> **Primary Modern Runtime**: The primary capstone demo interface is the **FastAPI warm-serving backend + Next.js 16 frontend** running on `http://127.0.0.1:3000` (launched via `make demo` or `bash scripts/start_demo.sh`). See [`docs/ASSISTANT_MODERNIZATION.md`](ASSISTANT_MODERNIZATION.md) and [`docs/ASSISTANT_STATUS.md`](ASSISTANT_STATUS.md). The dependency-light single-process web prototype described in Section 5 remains an offline contingency fallback.
 
 ## Live architecture
 
@@ -47,12 +52,12 @@ The preparation command:
 
 1. runs the final unseen-generalization validator;
 2. validates the post-ingestion 1,791-document / 12,670-chunk derivative;
-3. verifies E5-C dense-row alignment;
-4. copies the validated E4/E5-C artifacts to `data_processed/serving/assistant_v1/`;
+3. verifies E2-C dense-row alignment;
+4. copies the validated E1/E2-C artifacts to `data_processed/serving/assistant_v1/`;
 5. verifies the copied file hashes against the validated source;
 6. writes `data_processed/serving/assistant_v1/manifest.json`.
 
-It refuses to overwrite an existing serving snapshot unless `--reset` is supplied. `--reset` only removes the serving snapshot directory; it never mutates the evaluation or frozen E5 source artifacts.
+It refuses to overwrite an existing serving snapshot unless `--reset` is supplied. `--reset` only removes the serving snapshot directory; it never mutates the evaluation or frozen E2 source artifacts.
 
 ## 2. Run assistant contract tests
 
@@ -78,7 +83,7 @@ Use this first because it needs no DeepSeek request:
 The result shows:
 
 - routed query mode;
-- top E5-D evidence;
+- top E2-D evidence;
 - AD identifier;
 - source PDF;
 - page range;
@@ -104,7 +109,17 @@ For machine-readable output:
 
 If DeepSeek does not return a valid structured response, the live layer returns `status=technical_error` and keeps the retrieved evidence visible. It does not silently retry or substitute an uncited answer.
 
-## 5. Local browser UI
+## 5. Local browser UI (Fallback Prototype)
+
+> [!TIP]
+> **Recommended Modern Demo**: For the validated and demo-frozen capstone interface, run:
+> ```bash
+> make demo
+> # or bash scripts/start_demo.sh
+> ```
+> This starts the warm FastAPI service on port 8000 and the Next.js 16 evidence-first workspace at `http://127.0.0.1:3000`.
+>
+> The lightweight single-process server below (`http://127.0.0.1:8765`) remains available as a dependency-light offline fallback.
 
 Start the dependency-light local server:
 
@@ -153,15 +168,15 @@ The server binds to `127.0.0.1` by default and is intended for local capstone de
 
 ### Known-document questions
 
-If the user explicitly names an AD identifier, the existing deterministic router selects the known-document path. The AD identifier is used for routing but removed from passage-ranking behavior exactly as in the evaluated E5 architecture.
+If the user explicitly names an AD identifier, the existing deterministic router selects the known-document path. The AD identifier is used for routing but removed from passage-ranking behavior exactly as in the evaluated E2 architecture.
 
 ### Discovery questions
 
-Identifier-free questions use the frozen E5-C discovery path with Qwen dense query encoding, BM25 fusion and the pinned E5-D reranker.
+Identifier-free questions use the frozen E2-C discovery path with Qwen dense query encoding, BM25 fusion and the pinned E2-D reranker.
 
 ### Evidence depth
 
-Layer C receives at most five reranked passages, matching the frozen E5-D evidence depth. The serving code does not increase evidence depth after observing benchmark or unseen failures.
+Layer C receives at most five reranked passages, matching the frozen E2-D evidence depth. The serving code does not increase evidence depth after observing benchmark or unseen failures.
 
 ### Citations
 
@@ -177,13 +192,13 @@ Do not present it as:
 - replacing approved Airbus maintenance data;
 - calculating operator-specific compliance deadlines without complete aircraft history;
 - proving that every page-level retrieval hit contains the exact answer-bearing passage;
-- changing the frozen 95.0% E5 final benchmark result.
+- changing the frozen 95.0% E2 final benchmark result.
 
 Original EASA AD passages remain authoritative.
 
 ## Post-evaluation provenance
 
-Everything under `full_corpus_pipeline/assistant/` and `data_processed/serving/` is **post-evaluation engineering**. The serving snapshot is derived from the already validated post-ingestion derivative, but it is not a new benchmark condition and must never be used to rewrite the frozen E5 or unseen locks.
+Everything under `full_corpus_pipeline/assistant/` and `data_processed/serving/` is **post-evaluation engineering**. The serving snapshot is derived from the already validated post-ingestion derivative, but it is not a new benchmark condition and must never be used to rewrite the frozen E2 or unseen locks.
 
 ## Next delivery step
 

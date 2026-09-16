@@ -1,12 +1,14 @@
 # Final Assistant Demo Validation
 
+Publication labels: E1 = legacy E4; E2-A–D = legacy E5-A–D. Artifact names, question IDs and code excerpts retain their original labels. See [experiment label mapping](EXPERIMENT_LABELS.md).
+
 Last updated: 27 August 2026
 
 ## Purpose
 
 This document defines the final user-facing validation scope for the modern Airbus EASA AD Assistant and records that the scope was completed on **26 August 2026**.
 
-It is **not a research benchmark**. It does not replace the frozen E5 final result, frozen E5-D retrieval result, or locked unseen-generalization results. Its purpose is software/demo acceptance: verifying that the accepted serving architecture behaves reliably, presents source evidence clearly, and preserves the intended research boundary during the capstone demonstration.
+It is **not a research benchmark**. It does not replace the frozen E2 final result, frozen E2-D retrieval result, or locked unseen-generalization results. Its purpose is software/demo acceptance: verifying that the accepted serving architecture behaves reliably, presents source evidence clearly, and preserves the intended research boundary during the capstone demonstration.
 
 The detailed executed-run record is:
 
@@ -191,7 +193,7 @@ An already-running PyTorch/MPS model kernel is not forcibly preempted; cancellat
 Verified for successful live queries:
 
 - citation chips selected the intended evidence records;
-- AD number, page, section, E5-D rank and PDF filename matched;
+- AD number, page, section, E2-D rank and PDF filename matched;
 - Reader and Raw modes rendered correctly;
 - copied text matched the selected retrieved passage;
 - pointer resizing worked;

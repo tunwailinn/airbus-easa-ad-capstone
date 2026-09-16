@@ -1,10 +1,12 @@
 # Layer C Development Evaluation Record
 
+Publication labels: E1 = legacy E4; E2-A–D = legacy E5-A–D. Artifact names, question IDs and code excerpts retain their original labels. See [experiment label mapping](EXPERIMENT_LABELS.md).
+
 ## Purpose
 
 This document records the DeepSeek V4 Pro Layer C development evaluation after inference. It preserves the original frozen benchmark and retrieval outputs while documenting hosted-QA behavior, transport failures, post-hoc ambiguity findings, and error attribution.
 
-The 40-question final benchmark remains sealed. Nothing in this document changes E5-D retrieval, development labels, or final-test questions.
+The 40-question final benchmark remains sealed. Nothing in this document changes E2-D retrieval, development labels, or final-test questions.
 
 ## Evaluated configuration
 
@@ -101,11 +103,11 @@ Classification: **Layer C generation/completeness failure**.
 
 Question type: required-action/compliance / discovery.
 
-The frozen E5-D top-5 evidence did not contain the target/reference evidence for EASA AD 2016-0222. The supplied evidence instead strongly supported another A320-family AD with a similar three-month timing rule, and the hosted model answered EASA AD 2018-0218.
+The frozen E2-D top-5 evidence did not contain the target/reference evidence for EASA AD 2016-0222. The supplied evidence instead strongly supported another A320-family AD with a similar three-month timing rule, and the hosted model answered EASA AD 2018-0218.
 
 Classification: **Layer B retrieval failure**. Do not attribute this miss to Layer C generation.
 
-This miss was already known during E5-D retrieval development and must not be used for post-freeze retrieval retuning.
+This miss was already known during E2-D retrieval development and must not be used for post-freeze retrieval retuning.
 
 ### E5D-056 — Layer C abstention/status error
 
@@ -236,7 +238,7 @@ prompt: e5-hosted-qa-prompt-v1.0-dev
 response contract: e5-hosted-qa-contract-v1.0
 ```
 
-Only the evidence input changes from frozen E5-D top-5 retrieval to the human reference/oracle evidence associated with each development question.
+Only the evidence input changes from frozen E2-D top-5 retrieval to the human reference/oracle evidence associated with each development question.
 
 The comparison is intended to separate:
 

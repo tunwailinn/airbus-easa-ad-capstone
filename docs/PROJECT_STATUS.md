@@ -1,6 +1,8 @@
 # Project Status
 
-Last updated: 18 August 2026
+Publication labels: E1 = legacy E4; E2-A–D = legacy E5-A–D. Artifact names, question IDs and code excerpts retain their original labels. See [experiment label mapping](EXPERIMENT_LABELS.md).
+
+Last updated: 27 August 2026
 
 ## Current position
 
@@ -9,16 +11,17 @@ Last updated: 18 August 2026
 - Strict Airbus-only operational retrieval view: **1,786 PDFs / 6,002 verified pages**.
 - Frozen parser: `content-local-v2.1.6`.
 - Verified page source: `page-text-v1.1`.
-- Frozen retrieval configuration: **E5-D**.
+- Frozen retrieval configuration: **E2-D**.
 - Frozen hosted QA: **DeepSeek V4 Pro**.
-- One-time 40-question E5 final benchmark: **complete and immutable**.
-- Authoritative human semantic E5 final result: **38/40 = 95.0%**.
+- One-time 40-question E2 final benchmark: **complete and immutable** (**38/40 = 95.0%** human semantic accuracy).
 - Final oracle/reference-evidence diagnostic: **complete**.
-- Five-PDF unseen evaluation: **complete through U8**.
-- Unseen U7 human semantic review: **human approved and locked**.
-- Final unseen-generalization report: **complete and locked**.
+- Five-PDF unseen evaluation: **complete through U8** (**14/14 = 100%** Recall@5, **13/14 = 92.86%** semantic accuracy).
+- Post-evaluation engineering: **FastAPI + Next.js aviation document assistant implemented, warm-served, demo-hardened, and demo-frozen**.
+- Frozen runtime baseline commit: `88f96d5aca67fb0c98113f4f7b04410402a7e559`.
+- Accepted warm serving: **77.26% median retrieval latency reduction** (from 26.87 s to 6.11 s on Apple MPS) with **10/10 exact top-5 evidence match**.
+- Final live browser validation: **D1–D8 all PASS**.
 
-All extraction, retrieval, hosted-QA and E5 primary-final settings/results remain frozen. The unseen experiment is post-final generalization evidence and may not be used to rewrite or retune the frozen benchmark.
+All extraction, retrieval, hosted-QA and E2 primary-final settings/results remain frozen. Unseen experiments and post-evaluation serving engineering are separate and do not rewrite or retune the frozen benchmarks.
 
 ## Layer A — deterministic extraction — PASS / FROZEN
 
@@ -61,7 +64,7 @@ data_processed/page_text_v1_1/operational_airbus/
 - unresolved weak/OCR pages: **0**;
 - one reviewed visual override: AD `2011-0006`, page 3.
 
-## E5-D engineering-aware retrieval — FROZEN
+## E2-D engineering-aware retrieval — FROZEN
 
 Development result:
 
@@ -77,7 +80,7 @@ Development result:
 
 Frozen stack:
 
-- E5-C BM25 + `Qwen/Qwen3-Embedding-0.6B@97b0c61` candidate generation;
+- E2-C BM25 + `Qwen/Qwen3-Embedding-0.6B@97b0c61` candidate generation;
 - candidate depth 20;
 - `Qwen/Qwen3-Reranker-0.6B@e61197e` reranker;
 - final evidence depth 5;
@@ -97,7 +100,7 @@ response contract: e5-hosted-qa-contract-v1.0
 semantic retry: prohibited
 ```
 
-## E5 final benchmark — COMPLETE / IMMUTABLE
+## E2 final benchmark — COMPLETE / IMMUTABLE
 
 Primary automatic/retrieval result:
 
@@ -173,12 +176,12 @@ Frozen set:
 - ingestion success: **5/5**;
 - deterministic record match: **5/5**;
 - copied source SHA match: **5/5**;
-- E4 append checks: **5/5**;
-- E5-C row alignment: **5/5**;
+- E1 append checks: **5/5**;
+- E2-C row alignment: **5/5**;
 - exact duplicate rejection without mutation: **5/5**;
 - lifecycle decisions recorded: **5/5**;
-- frozen E4 unchanged: **true**;
-- frozen E5-C unchanged: **true**;
+- frozen E1 unchanged: **true**;
+- frozen E2-C unchanged: **true**;
 - normal `data_incoming/` unchanged: **true**.
 
 Isolated derivative growth:
@@ -190,7 +193,7 @@ chunks:    12,634 → 12,670
 
 Frozen-chunk compatibility gate: **5/5 exact**, including chunk counts and chunk IDs.
 
-### U7 post-ingestion E5-D + Layer C — COMPLETE / HUMAN-APPROVED / LOCKED
+### U7 post-ingestion E2-D + Layer C — COMPLETE / HUMAN-APPROVED / LOCKED
 
 Retrieval on 14 answerable questions:
 
@@ -253,20 +256,40 @@ full_corpus_pipeline/layer_c/validate_unseen_final_generalization.py
 
 | Evaluation condition | Retrieval | Human semantic result | Strict end-to-end |
 |---|---|---|---|
-| Frozen 40-question E5 final | Recall@5 35/36 = 97.22% | 38/40 PASS = 95.0% | 95.0% |
+| Frozen 40-question E2 final | Recall@5 35/36 = 97.22% | 38/40 PASS = 95.0% | 95.0% |
 | Unseen temporary U3/U4 | Page Recall@5 14/14 = 100% | 13 PASS / 1 FAIL / 1 technical | 13/15 = 86.67% |
-| Unseen post-ingestion U7 | E5-D Recall@5 14/14 = 100% | 13 PASS / 1 FAIL / 1 technical | 13/15 = 86.67% |
+| Unseen post-ingestion U7 | E2-D Recall@5 14/14 = 100% | 13 PASS / 1 FAIL / 1 technical | 13/15 = 86.67% |
 
-## Current next phase
+## Post-evaluation engineering & assistant demo freeze — DEMO-FROZEN / ACCEPTED
 
-The **evaluation phase is complete**. Next work is post-evaluation engineering and capstone delivery:
+The post-evaluation aviation document assistant is **complete, hardened, and demo-frozen**:
 
-- user-facing aviation document assistant integration;
+- **Stack**: FastAPI warm-serving backend (`full_corpus_pipeline/assistant_api`) + Next.js 16 App Router frontend (`apps/web`).
+- **Serving snapshot**: `data_processed/serving/assistant_v1/` created non-destructively from the validated 1,791-document / 12,670-chunk post-ingestion derivative.
+- **Warm inference**: Qwen embedding and reranker models loaded once during lifespan startup on Apple MPS, reducing median retrieval latency by **77.26%** (from 26.87 s to 6.11 s) while achieving **10/10 exact top-5 evidence match** against the frozen batch pipeline.
+- **Reliability hardening**:
+  1. Enforced single-AD follow-up conversational scope (`context_ad_numbers: 0 or 1 item`);
+  2. Implemented mandatory `answer.completed` SSE event validation to prevent incomplete streamed answers from presenting as authoritative;
+  3. Structured Stop/cancellation semantics interrupting hosted DeepSeek generation and halting retrieval at safe stage boundaries.
+- **Live browser validation**: All eight test scenarios (**D1–D8**) passed manual acceptance on 26 August 2026 (known-document compliance, applicability, corpus-wide discovery, lifecycle relationships, reference publications, follow-up context, abstention, and evidence-only mode).
+- **Frozen baseline commit**: `88f96d5aca67fb0c98113f4f7b04410402a7e559` (`merge: integrate assistant demo freeze hardening`).
+- **One-command launcher**: `make demo` / `bash scripts/start_demo.sh` automatically prepares the serving snapshot if absent, warms the backend, and opens the evidence-first UI at `http://127.0.0.1:3000`.
+
+Detailed documentation:
+- Architecture & performance: [`docs/ASSISTANT_MODERNIZATION.md`](ASSISTANT_MODERNIZATION.md)
+- Hardening record: [`docs/ASSISTANT_DEMO_FREEZE_HARDENING.md`](ASSISTANT_DEMO_FREEZE_HARDENING.md)
+- Status checkpoint: [`docs/ASSISTANT_STATUS.md`](ASSISTANT_STATUS.md)
+- Live validation record: [`docs/D1_D8_FINAL_LIVE_DEMO_VALIDATION.md`](D1_D8_FINAL_LIVE_DEMO_VALIDATION.md)
+
+## Current delivery focus
+
+With research evaluation and assistant software engineering complete, remaining capstone work focuses on final deliverables:
+
 - final report/thesis writing and result tables;
 - final system-flow/architecture diagrams;
-- optional post-evaluation engineering improvements for answer-bearing passage selection, lifecycle/correction normalization, and provider structured-output robustness.
+- demo presentation slides and video showcase walkthrough.
 
-Any engineering changes from this point forward must be labelled **post-evaluation** and must not rewrite the frozen benchmark or unseen locks.
+All research benchmarks remain frozen. Post-evaluation serving work is strictly downstream of the research evaluation and does not rewrite any frozen benchmark score.
 
 ## Reporting boundaries
 
@@ -276,7 +299,7 @@ Do not claim that:
 - structured extraction fully normalizes complex compliance logic;
 - correct source/page retrieval guarantees the answer-bearing passage is in the evidence set;
 - the system makes aircraft-specific legal compliance determinations;
-- oracle/retry/unseen results replace the strict E5 final score;
-- unseen results are part of the frozen 40-question E5 final benchmark.
+- oracle/retry/unseen results replace the strict E2 final score;
+- unseen results are part of the frozen 40-question E2 final benchmark.
 
 Original PDF passages remain authoritative for detailed applicability/compliance interpretation and page-cited QA.

@@ -1,5 +1,7 @@
 # Full Corpus Pipeline
 
+Publication labels: E1 = legacy E4; E2-A–D = legacy E5-A–D. Artifact names, question IDs and code excerpts retain their original labels. See [experiment label mapping](../docs/EXPERIMENT_LABELS.md).
+
 The pipeline is organized by the three research layers while preserving frozen thesis artifact paths.
 
 ```text
@@ -22,11 +24,11 @@ The active parser/evaluator paths remain at the package root because these are f
 
 ## Layer B
 
-Purpose: verified original-PDF page text and frozen E5-D engineering-aware retrieval.
+Purpose: verified original-PDF page text and frozen E2-D engineering-aware retrieval.
 
 Start here: [`layer_b/README.md`](layer_b/README.md)
 
-The frozen page-text/E0/E4/E5 implementation paths remain at the package root for reproducibility.
+The frozen page-text/E0/E1/E2 implementation paths remain at the package root for reproducibility.
 
 ## Layer C
 
